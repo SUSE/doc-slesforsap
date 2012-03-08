@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet href="urn:x-suse:xslt:profiling:novdoc-profile.xsl"
+                 type="text/xml" 
+                 title="Profiling step"?>
+<!DOCTYPE book PUBLIC "-//Novell//DTD NovDoc XML V1.0//EN"
+                      "novdocx.dtd"
+[
+  <!ENTITY % NOVDOC.DEACTIVATE.IDREF "IGNORE">
+  <!ENTITY % entities SYSTEM "entity-decl.ent">
+  %entities;
+]>
+<book lang="en" id="book.yep">
+<?dbhtml filename="index.html"?>
+ <bookinfo>
+  <title>SLES4SAP Guide</title>
+  <productname>&sles4sap;</productname>
+  <date>
+   <?dbtimestamp format="B d, Y"?>
+  </date>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="common_copyright_gfdl.xml"/>
+ </bookinfo>
+ <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="s4s_overview.xml"/>
+ <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="s4s_install.xml"/>
+</book>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapter PUBLIC "-//Novell//DTD NovDoc XML V1.0//EN" "novdocx.dtd"
+          [
+          <!ENTITY % NOVDOC.DEACTIVATE.IDREF "INCLUDE">
+          <!ENTITY % entities SYSTEM "entity-decl.ent">
+          %entities;
+]>
+<preface id="pre_smt">
+ <title>About This Guide</title>
+ <para>
+  &sles4sap;...
+ </para>
+ <sect1>
+  <title>Overview</title>
+
+  <para>
+   The &sles4sap; Guide is divided into the following chapters:
+  </para>
+
+  <!--
+  <variablelist>
+   <varlistentry>
+    <term><xref linkend="smt.installation" xrefstyle="select:title,nopage"/></term>
+    <listitem>
+     <para>
+      This chapter introduces the &smt; installation process and the SMT
+      Configuration Wizard. You can install the &smt; add-on together with
+      your base program during the installation process or on top of an
+      already installed base system. The &smt; Configuration Wizard guides
+      you through the individual installation steps.
+     </para>
+    </listitem>
+   </varlistentry>
+  </variablelist>
+-->
+
+ </sect1>
+ <sect1>
+  <title>Additional Documentation and Resources</title>
+
+  <para>
+   Chapters in this manual contain links to additional documentation
+   resources that is either available on the system or on the Internet.
+  </para>
+
+  <para>
+   For an overview of the documentation available for your product and the
+   latest documentation updates, refer to
+   <ulink url="http://www.suse.com/documentation"/>.
+  </para>
+ </sect1>
+ <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="common_intro_feedback_i.xml"/>
+ <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="common_intro_typografie_i.xml"/>
+</preface>
