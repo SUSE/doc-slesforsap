@@ -8,7 +8,13 @@
 <preface id="pre_smt">
  <title>About This Guide</title>
  <para>
-  &sles4sap;...
+  What is SUSE® Linux Enterprise Server for SAP?  &sles4sap; is the
+  reference platform for SAP's software development.  In various ways,
+  it is optimized for SAP.  This guide provides detailed information
+  about installing and customizing &sles4sap;.
+
+  &sls; &hasi; is also part of the &sles4sap; platform.
+
  </para>
  <sect1>
   <title>Overview</title>
@@ -17,22 +23,23 @@
    The &sles4sap; Guide is divided into the following chapters:
   </para>
 
-  <!--
   <variablelist>
    <varlistentry>
-    <term><xref linkend="smt.installation" xrefstyle="select:title,nopage"/></term>
+    <term><xref linkend="s4s.installation" xrefstyle="select:title,nopage"/></term>
     <listitem>
      <para>
-      This chapter introduces the &smt; installation process and the SMT
+      This chapter introduces the &sles4sap; installation process.
+     </para>
+    </listitem>
+   </varlistentry>
+   <!--  and the SMT
       Configuration Wizard. You can install the &smt; add-on together with
       your base program during the installation process or on top of an
       already installed base system. The &smt; Configuration Wizard guides
       you through the individual installation steps.
-     </para>
-    </listitem>
-   </varlistentry>
+   -->
   </variablelist>
--->
+
 
  </sect1>
  <sect1>
