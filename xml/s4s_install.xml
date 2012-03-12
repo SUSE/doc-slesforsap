@@ -6,7 +6,138 @@
           %entities;
 ]>
 <chapter id="s4s.installation">
- <title>&sles4sap; Installation</title>
+ <title>&sles4sap; Download and Installation</title>
  <para>
+&slsreg; optimized for SAP applications is available as a downloadable DVD
+image.  The image can be deployed automatically&mdash;including automatic
+installation of validated SAP solutions&mdash;or manually.
+</para>
+ <para>
+The current release of the product is based on &sls; 11 Service Pack 1.
+</para>
+ <!-- ================================================================== -->
+ <sect1>
+  <title>Download and Installation Preparations</title>
+
+  <procedure>
+   <step>
+    <para>
+    Download the DVD ISO image of &sles4sap; 11 (electronic media kit).</para>
+   </step>
+   <step>
+    <para>
+ 2. Burn it onto a physical DVD, ensure it is bootable (you might use a virtual
+    CD-ROM device for installation into a virtual machine).
+ 3. (Optional) Get the SAP Business All-in-One (or other SAP solution for
+    Media-Changer installtion) installation media from SAP.
+</para>
+   </step>
+  </procedure>
+ </sect1>
+ <!-- ================================================================== -->
+ <sect1>
+  <title>Installation</title>
+ <para>
+ 1. Insert the SUSE Linux Enterprise Server for SAP Applications 11 disk into
+    the DVD Drive and boot from DVD.
+ 2. From the boot screen select "Install SLES for SAP Applications" (for
+    Media-Changer supported installation), "Install SLES for SAP Applications —
+    Basic" (for automatic SLES for SAP Applications installation) "Install SLES
+    for SAP Applications — Manual Profile via USB" (for other installation
+    methods, see below).
+ 3. Press enter to start the installation.
+
+Installation of SUSE Linux Enterprise Server for SAP Applications
+
+Linux installation will start (partitioning, LVM setup and file system
+creation, installation of Linux software packages). This step takes typically
+less than 10 min. (depends on hardware). After the automatic system reboot (don't change
+the default "Boot from Hard Disk" in case you left the DVD inserted), you will
+be prompted to insert the SAP installation media: follow the instructions.
+
+Installation of SUSE Linux Enterprise Server for SAP Applications — Basic
+
+The process is similar to SUSE Linux Enterprise Server for SAP Applications.
+Linux installation will start (partitioning, LVM setup and file system
+creation, installation of Linux software packages). This step takes typically
+less than 10 min. (depends on hardware). After the automatic system reboot (don't change
+the default "Boot from Hard Disk" in case you left the DVD inserted), the
+system will provide some dialogs for basic system settings. The Media-Changer
+will not start for installation of a validated SAP solution, if Media-Changer
+should be used to install a validated SAP solution it can be started manually
+within YaST.
+
+Installation of SUSE Linux Enterprise Server for SAP Applications — Manual
+
+In order to use a custom AutoYaST script or perform a complete manual 
+installation and configuration of SUSE Linux Enterprise Server for SAP
+Applications select the "Install SLES for SAP Applications   Manual Profile via
+USB" boot menu entry. Within the boot options change the "autoyast=usb:///"
+parameter to the location of a custom AutoYaST script to use for automatic
+installation, or completely remove the "autoyast=usb:///" parameter to perform
+a manual installation and configuration of SUSE Linux Enterprise Server for SAP
+Applications. You can choose the SAP specific pattern, the HA, WebYaST
+components and SAP specific IBM Java as well in this path, but they are NOT
+preselected.
+
+SAP specific instructions
+
+For further installation instructions, the SAP specific parts in particular,
+please refer to the SAP Installation Guide (the "Cookbook").
+
+Installation options in the DVD menu
+
+  • Install SLES for SAP Applications
+ 
+    The normal AutoYaST driven SLES for SAP Applications installation including
+    SAP solution installation using the SAP Media-Changer for the customer (as
+    described in "Installation of SUSE Linux Enterprise Server for SAP
+    Applications")
+  • Install SLES for SAP Applications — Basic
+
+    The normal AutoYaST driven SLES for SAP Applications installation without
+    using the SAP Media-Changer for the customer (as described in "Installation
+    of SUSE Linux Enterprise Server for SAP Applications — Basic")
+  • Install SLES for SAP Applications — Manual Profile via USB
+
+    AutoYaST will look on USB devices for the XML configuration file. Plug in
+    an USB device and store your config in a way like it is on the DVD in the "
+    /rules" directory (as described in "Installation of SUSE Linux Enterprise
+    Server for SAP Applications — Manual")
+
+How to install with installation media from the network
+
+ 1. Copy the SUSE Linux Enterprise Server for SAP Applications DVD content to a
+    webserver (for example myserver.com) into the directory "/srv/www/htdocs/
+    mydir"
+ 2. Boot from DVD
+ 3. Choose one of the bootmenu options and edit the command line: Remove the
+    parameters "instmode=cd netsetup=0" from the commandline and change
+    autoyast=file:/// to autoyast=http://myserver.com/mydir/ and add a
+    parameter install=http://myserver.com/mydir
+
+    That's all you need for a network installation. If you want to avoid using
+    a DVD to bootstrap the system and boot from the network via PXE, read the
+    documentation about setting up a PXE environment ( http://www.suse.de/~ug/
+    autoyast_doc/bootmedium.html ).
+
+Media Changer and Network Sources
+
+If you want to put your media on a NFS Server, do it like this:
+
+ 1. Create a directory /srv/www/htdocs/sap_test on your installation server.
+ 2. Edit your /etc/exports file on the installation server by adding the
+    following:
+
+    /srv/www/htdocs/sap_test *(ro,root_squash,sync)
+
+ 3. Create a directory for every SAP Media you have, e.g. "/srv/www/htdocs/
+    sap_test/sapcd1"
+ 4. Copy the content of all SAP Medias to the corresponding directory.
+
+    Now the media changer can also install from your NFS server.
+
+
  </para>
+ </sect1>
 </chapter>
