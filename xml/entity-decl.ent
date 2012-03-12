@@ -184,7 +184,8 @@
 <!ENTITY hbvs          "Heartbeat 2">
 <!ENTITY hbgui         "Linux HA Management Client">
 <!ENTITY smtool        "Subscription Management Tool">
-<!ENTITY sles4sap      "SLES4SAP">
+<!ENTITY sles4sapa     "SLES4SAP">
+<!ENTITY sles4sap      "&sls; for SAP Applications">
 <!ENTITY smt           "SMT">
 <!ENTITY lxc           "LXC">
 <!ENTITY xen           "Xen">
