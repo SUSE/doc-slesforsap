@@ -175,18 +175,19 @@ and configuration of &sles4sap;.</para>
   <procedure>
    <step>
     <para>
-     Copy the SUSE Linux Enterprise Server for SAP Applications DVD content to a
-    webserver (for example myserver.com) into the directory "/srv/www/htdocs/
-    mydir".</para>
+     Copy the &sles4sap; DVD content to a Web server (for example,
+    <literal>example.com</literal>) into the directory
+    <filename>/srv/www/htdocs/mydir</filename>.</para>
    </step>
    <step>
     <para>Boot from DVD.</para>
    </step>
    <step>
-    <para>Choose one of the bootmenu options and edit the command line: Remove the
-    parameters "instmode=cd netsetup=0" from the commandline and change
-    autoyast=file:/// to autoyast=http://myserver.com/mydir/ and add a
-    parameter install=http://myserver.com/mydir</para>
+    <para>Choose one of the bootmenu options and edit the command line: Remove
+    the parameters <literal>instmode=cd netsetup=0</literal> from the
+    commandline and change <literal>autoyast=file:///</literal> to
+    <literal>autoyast=http://example.com/mydir/</literal> and add the parameter
+    <literal>install=http://example.com/mydir</literal>.</para>
    </step>
   </procedure>
 
@@ -204,7 +205,7 @@ If you want to put your media on a NFS Server, proceed as follows:</para>
   <procedure>
    <step>
     <para>
-     Create a directory /srv/www/htdocs/sap_test on your installation
+     Create a directory <filename>/srv/www/htdocs/sap_test</filename> on your installation
      server.
     </para>
    </step>
