@@ -81,7 +81,7 @@ The current release of the product is based on &sls; 11 Service Pack 1.
   <title>Installation of &sles4sap;</title>
 
   <para>
-Linux installation will start (partitioning, LVM setup and file system
+The &suselinux; installation will start (partitioning, LVM setup and file system
 creation, installation of Linux software packages). This step typically takes
 less than 10 minutes (it depends on the hardware, of course). After the
 automatic system reboot (do not change the default "Boot from Hard Disk" in
@@ -94,7 +94,7 @@ installation media; then follow the instructions.
   <title>Installation of &sles4sap; — Basic</title>
 
   <para>
-The process is similar to &sles4sap;.  Linux installation will start
+The process is similar to &sles4sap;.  The &suselinux; installation will start
 (partitioning, LVM setup and file system creation, installation of Linux
 software packages). This step takes typically less than 10 min. (it depends on
 the hardware, of course).  After the automatic system reboot (do not change the
@@ -143,7 +143,7 @@ and configuration of &sles4sap;.</para>
     <term>Install SLES for SAP Applications</term>
     <listitem>
      <para>
-    The normal AutoYaST driven SLES for SAP Applications installation including
+    The normal &ay; driven SLES for SAP Applications installation including
     SAP solution installation using the SAP Media-Changer for the customer (as
     described in "Installation of SUSE Linux Enterprise Server for SAP
     Applications").</para>
@@ -153,7 +153,7 @@ and configuration of &sles4sap;.</para>
     <term>Install SLES for SAP Applications — Basic</term>
     <listitem>
      <para>
-    The normal AutoYaST driven SLES for SAP Applications installation without
+    The normal &ay; driven SLES for SAP Applications installation without
     using the SAP Media-Changer for the customer (as described in "Installation
     of SUSE Linux Enterprise Server for SAP Applications — Basic").</para>
     </listitem>
