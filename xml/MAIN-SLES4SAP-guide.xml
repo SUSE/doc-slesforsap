@@ -9,10 +9,10 @@
   <!ENTITY % entities SYSTEM "entity-decl.ent">
   %entities;
 ]>
-<book lang="en" id="book.yep">
+<book lang="en" id="book.s4s">
 <?dbhtml filename="index.html"?>
  <bookinfo>
-  <title>SLES4SAP Guide</title>
+  <title>The Guide</title>
   <productname>&sles4sap;</productname>
   <date>
    <?dbtimestamp format="B d, Y"?>
@@ -20,5 +20,5 @@
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="common_copyright_gfdl.xml"/>
  </bookinfo>
  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="s4s_overview.xml"/>
- <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="s4s_install.xml"/>
+ <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="s4s_qinstall.xml"/>
 </book>

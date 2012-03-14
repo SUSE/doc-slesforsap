@@ -5,7 +5,7 @@
           <!ENTITY % entities SYSTEM "entity-decl.ent">
           %entities;
 ]>
-<chapter id="s4s.installation">
+<chapter id="s4s.qinstallation">
  <title>&sles4sap; &mdash; Quick Installation</title>
  <para>
 &slsreg; optimized for SAP applications is available as a downloadable DVD
@@ -16,7 +16,7 @@ installation of validated SAP solutions&mdash;or manually.
 The current release of the product is based on &sls; 11 Service Pack 1.
 </para>
  <!-- ================================================================== -->
- <sect1 id="s4s.i.down-and-inst">
+ <sect1 id="s4s.qi.down-and-inst">
   <title>Download and Installation Preparations</title>
 
   <procedure>
@@ -39,7 +39,7 @@ The current release of the product is based on &sls; 11 Service Pack 1.
   </procedure>
  </sect1>
  <!-- ================================================================== -->
- <sect1 id="s4s.i.inst">
+ <sect1 id="s4s.qi.inst">
   <title>Installation</title>
 
   <procedure>
@@ -55,15 +55,15 @@ The current release of the product is based on &sls; 11 Service Pack 1.
     <itemizedlist>
      <listitem>
       <para><guimenu>Install SLES for SAP Applications</guimenu> (see <xref
-      linkend="s4s.i.inst.s4s"/>), or</para>
+      linkend="s4s.qi.inst.s4s"/>), or</para>
      </listitem>
      <listitem>
       <para><guimenu>Install SLES for SAP Applications — Basic</guimenu> (see
-      <xref linkend="s4s.i.inst.s4s-basic"/>), or</para>
+      <xref linkend="s4s.qi.inst.s4s-basic"/>), or</para>
      </listitem>
      <listitem>
       <para><guimenu>Install SLES for SAP Applications — Manual Profile via
-       USB</guimenu> (see <xref linkend="s4s.i.inst.s4s-manual"/>).</para>
+       USB</guimenu> (see <xref linkend="s4s.qi.inst.s4s-manual"/>).</para>
      </listitem>
     </itemizedlist>
    </step>
@@ -75,7 +75,7 @@ The current release of the product is based on &sls; 11 Service Pack 1.
   </procedure>
 
  <!-- ================================================================== -->
- <sect2 id="s4s.i.inst.s4s">
+ <sect2 id="s4s.qi.inst.s4s">
   <title>Installation of &sles4sap;</title>
    
    <para>The normal &ay; driven SLES for SAP Applications installation
@@ -92,7 +92,7 @@ installation media; then follow the instructions.
 </para>
   </sect2>
  <!-- ================================================================== -->
- <sect2 id="s4s.i.inst.s4s-basic">
+ <sect2 id="s4s.qi.inst.s4s-basic">
   <title>Installation of &sles4sap; — Basic</title>
 
    <para>
@@ -110,7 +110,7 @@ should be used to install a validated SAP solution, it can be started manually
 from within &yast;.</para>
  </sect2>
  <!-- ================================================================== -->
- <sect2 id="s4s.i.inst.s4s-manual">
+ <sect2 id="s4s.qi.inst.s4s-manual">
   <title>Installation of &sles4sap; — Manual</title>
 
    <para>

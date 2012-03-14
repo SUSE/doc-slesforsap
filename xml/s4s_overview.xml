@@ -8,10 +8,10 @@
 <preface id="pre_smt">
  <title>About This Guide</title>
  <para>
-  What is SUSE® Linux Enterprise Server for SAP?  &sles4sap; is the
-  reference platform for SAP's software development.  In various ways,
-  it is optimized for SAP.  This guide provides detailed information
-  about installing and customizing &sles4sap;.
+  What is SUSE® Linux Enterprise Server for SAP Applications (&sles4sapa;)?
+  &sles4sapa; is the reference platform for SAP's software development.  In
+  various ways, it is optimized for SAP.  This guide provides detailed
+  information about installing and customizing &sles4sap;a.
 
   &sls; &hasi; is also part of the &sles4sap; platform.
 
@@ -20,15 +20,15 @@
   <title>Overview</title>
 
   <para>
-   The &sles4sap; Guide is divided into the following chapters:
+   The &sles4sapa; Guide is divided into the following chapters:
   </para>
 
   <variablelist>
    <varlistentry>
-    <term><xref linkend="s4s.installation" xrefstyle="select:title,nopage"/></term>
+    <term><xref linkend="s4s.qinstallation" xrefstyle="select:title,nopage"/></term>
     <listitem>
      <para>
-      This chapter introduces the &sles4sap; installation process.
+      This chapter introduces the &sles4sapa; installation process.
      </para>
     </listitem>
    </varlistentry>
