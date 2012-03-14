@@ -6,7 +6,7 @@
           %entities;
 ]>
 <chapter id="s4s.installation">
- <title>&sles4sap; Download and Installation</title>
+ <title>&sles4sap; &mdash; Quick Installation</title>
  <para>
 &slsreg; optimized for SAP applications is available as a downloadable DVD
 image.  The image can be deployed automatically&mdash;including automatic
@@ -16,7 +16,7 @@ installation of validated SAP solutions&mdash;or manually.
 The current release of the product is based on &sls; 11 Service Pack 1.
 </para>
  <!-- ================================================================== -->
- <sect1>
+ <sect1 id="s4s.i.down-and-inst">
   <title>Download and Installation Preparations</title>
 
   <procedure>
@@ -39,12 +39,9 @@ The current release of the product is based on &sls; 11 Service Pack 1.
   </procedure>
  </sect1>
  <!-- ================================================================== -->
- <sect1>
+ <sect1 id="s4s.i.inst">
   <title>Installation</title>
 
-  <para>
-   There are four installation options.
-  </para>
   <procedure>
    <step>
     <para>
@@ -53,19 +50,20 @@ The current release of the product is based on &sls; 11 Service Pack 1.
    </step>
    <step>
     <para>
-    From the boot screen select:
+    Select one installation option from the DVD menu:
 </para>
     <itemizedlist>
      <listitem>
-      <para>"Install SLES for SAP Applications" (for Media-Changer supported
-    installation), or</para>
-     </listitem>
-     <listitem><para>"Install SLES for SAP Applications — Basic" (for automatic
-    SLES for SAP Applications installation),</para>
+      <para><guimenu>Install SLES for SAP Applications</guimenu> (see <xref
+      linkend="s4s.i.inst.s4s"/>), or</para>
      </listitem>
      <listitem>
-      <para>"Install SLES for SAP Applications — Manual Profile via USB" (for
-    other installation methods, see below).</para>
+      <para><guimenu>Install SLES for SAP Applications — Basic</guimenu> (see
+      <xref linkend="s4s.i.inst.s4s-basic"/>), or</para>
+     </listitem>
+     <listitem>
+      <para><guimenu>Install SLES for SAP Applications — Manual Profile via
+       USB</guimenu> (see <xref linkend="s4s.i.inst.s4s-manual"/>).</para>
      </listitem>
     </itemizedlist>
    </step>
@@ -75,12 +73,16 @@ The current release of the product is based on &sls; 11 Service Pack 1.
 </para>
    </step>
   </procedure>
- </sect1>
- <!-- ================================================================== -->
- <sect1>
-  <title>Installation of &sles4sap;</title>
 
-  <para>
+ <!-- ================================================================== -->
+ <sect2 id="s4s.i.inst.s4s">
+  <title>Installation of &sles4sap;</title>
+   
+   <para>The normal &ay; driven SLES for SAP Applications installation
+    including SAP solution installation using the SAP Media-Changer for the
+    customer.</para>
+
+   <para>
 The &suselinux; installation will start (partitioning, LVM setup and file system
 creation, installation of Linux software packages). This step typically takes
 less than 10 minutes (it depends on the hardware, of course). After the
@@ -88,11 +90,14 @@ automatic system reboot (do not change the default "Boot from Hard Disk" in
 case you left the DVD inserted), you will be prompted to insert the SAP
 installation media; then follow the instructions.
 </para>
- </sect1>
+  </sect2>
  <!-- ================================================================== -->
- <sect1>
+ <sect2 id="s4s.i.inst.s4s-basic">
   <title>Installation of &sles4sap; — Basic</title>
 
+   <para>
+    The normal &ay; driven SLES for SAP Applications installation without using
+    the SAP Media-Changer for the customer.</para>
   <para>
 The process is similar to &sles4sap;.  The &suselinux; installation will start
 (partitioning, LVM setup and file system creation, installation of Linux
@@ -103,12 +108,18 @@ will provide some dialogs for basic system settings. The Media-Changer will not
 start for installation of a validated SAP solution.  If the Media-Changer
 should be used to install a validated SAP solution, it can be started manually
 from within &yast;.</para>
- </sect1>
+ </sect2>
  <!-- ================================================================== -->
- <sect1>
+ <sect2 id="s4s.i.inst.s4s-manual">
   <title>Installation of &sles4sap; — Manual</title>
 
-  <para>
+   <para>
+    &ay; will look on USB devices for the XML configuration file. Plug in an
+    USB device and store your config in a way like it is on the DVD in the
+    <filename>/rules</filename> directory.
+   </para>
+
+   <para>
 In order to use a custom &ay; script or perform a complete manual installation
 and configuration of &sles4sap; select the "Install SLES for SAP Applications
 Manual Profile via USB" boot menu entry. Within the boot options change the
@@ -117,13 +128,14 @@ script to use for automatic installation.  Alternatively, completely remove the
 <literal>autoyast=usb:///</literal> parameter to perform a manual installation
 and configuration of &sles4sap;.</para>
 
-  <para>
+   <para>
    You can choose the SAP specific pattern, the HA, WebYaST components and SAP
    specific IBM Java as well in this installation scenario, but they are
    <emphasis>not</emphasis> preselected.</para>
- </sect1>
+  </sect2>
  <!-- ================================================================== -->
- <sect1>
+ </sect1>
+<sect1>
   <title>SAP Specific Instructions</title>
   
   <para>
@@ -132,6 +144,7 @@ and configuration of &sles4sap;.</para>
    <quote>Cookbook</quote>).</para>
  </sect1>
 
+ <!-- This is duplicated info; comment it
  <sect1>
   <title>Installation Options in the DVD Menu</title>
 
@@ -171,12 +184,14 @@ and configuration of &sles4sap;.</para>
    </varlistentry>
   </variablelist>
  </sect1>
+-->
+
  <sect1>
   <title>How to Install with Installation Media from the Network</title>
   <procedure>
    <step>
     <para>
-     Copy the &sles4sap; DVD content to a Web server (for example,
+     Copy the &sles4sap; DVD content to a Web server (e.g.,
     <literal>example.com</literal>) into the directory
     <filename>/srv/www/htdocs/mydir</filename>.
 </para>
@@ -221,7 +236,7 @@ If you want to put your media on a NFS Server, proceed as follows:</para>
    <step>
     <para>
     Create a directory for every SAP Media you have,
-    e.g. <filename>/srv/www/htdocs/sap_test/sapcd1</filename>.
+    for example <filename>/srv/www/htdocs/sap_test/sapcd1</filename>.
 </para>
    </step>
    <step>
