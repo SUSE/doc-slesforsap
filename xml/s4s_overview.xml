@@ -28,7 +28,16 @@
     <term><xref linkend="s4s.qinstallation" xrefstyle="select:title,nopage"/></term>
     <listitem>
      <para>
-      This chapter introduces the &sles4sapa; installation process.
+      This chapter introduces a quick installation overview of &sles4sapa;.
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term><xref linkend="s4s.installation" xrefstyle="select:title,nopage"/></term>
+    <listitem>
+     <para>
+      This chapter explains in detail the available installation scenarios of
+      &sles4sapa;.
      </para>
     </listitem>
    </varlistentry>

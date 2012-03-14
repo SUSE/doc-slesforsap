@@ -21,4 +21,5 @@
  </bookinfo>
  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="s4s_overview.xml"/>
  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="s4s_qinstall.xml"/>
+ <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="s4s_installation.xml"/>
 </book>
