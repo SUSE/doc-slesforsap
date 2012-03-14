@@ -128,7 +128,8 @@ and configuration of &sles4sap;.</para>
   
   <para>
    For further installation instructions and the SAP specific parts in
-   particular, refer to the SAP Installation Guide (the "Cookbook").</para>
+   particular, refer to the SAP Installation Guide (the
+   <quote>Cookbook</quote>).</para>
  </sect1>
 
  <sect1>
@@ -162,9 +163,9 @@ and configuration of &sles4sap;.</para>
     <listitem>
      <para>
     AutoYaST will look on USB devices for the XML configuration file. Plug in
-    an USB device and store your config in a way like it is on the DVD in the "
-    /rules" directory (as described in "Installation of SUSE Linux Enterprise
-    Server for SAP Applications — Manual").
+    an USB device and store your config in a way like it is on the DVD in the
+    <filename>/rules</filename> directory (as described in "Installation of
+    SUSE Linux Enterprise Server for SAP Applications — Manual").
 </para>
     </listitem>
    </varlistentry>
@@ -177,7 +178,8 @@ and configuration of &sles4sap;.</para>
     <para>
      Copy the &sles4sap; DVD content to a Web server (for example,
     <literal>example.com</literal>) into the directory
-    <filename>/srv/www/htdocs/mydir</filename>.</para>
+    <filename>/srv/www/htdocs/mydir</filename>.
+</para>
    </step>
    <step>
     <para>Boot from DVD.</para>
@@ -211,15 +213,15 @@ If you want to put your media on a NFS Server, proceed as follows:</para>
    </step>
    <step>
     <para>
-     Edit your /etc/exports file on the installation server by adding the
-     following:
+     Edit your <filename>/etc/exports</filename> file on the installation
+     server by adding the following:
     </para>
     <screen>/srv/www/htdocs/sap_test *(ro,root_squash,sync)</screen>
    </step>
    <step>
     <para>
     Create a directory for every SAP Media you have,
-    e.g. "/srv/www/htdocs/sap_test/sapcd1".
+    e.g. <filename>/srv/www/htdocs/sap_test/sapcd1</filename>.
 </para>
    </step>
    <step>
