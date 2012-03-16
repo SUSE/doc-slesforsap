@@ -7,13 +7,13 @@
 <chapter id="s4s.qinstallation">
  <title>Quick Installation of &sles4sap;</title>
  <para>
-&slsreg; optimized for SAP applications is available as a downloadable DVD
-image.  The image can be deployed automatically&mdash;including automatic
-installation of validated SAP solutions&mdash;or manually.
-</para>
+  &slsreg; optimized for SAP applications is available as a downloadable
+  DVD image.  The image can be deployed automatically&mdash;including
+  automatic installation of validated SAP solutions&mdash;or manually.
+ </para>
  <para>
-The current release of the product is based on &sls; 11 Service Pack 1.
-</para>
+  The current release of the product is based on &sls; 11 Service Pack 2.
+ </para>
  <!-- ================================================================== -->
  <sect1 id="s4s.qi.down-and-inst">
   <title>Download and Installation Preparations</title>
@@ -21,7 +21,8 @@ The current release of the product is based on &sls; 11 Service Pack 1.
   <procedure>
    <step>
     <para>
-    Download the DVD ISO image of &sles4sap; 11 (electronic media kit).</para>
+     Download the DVD ISO image of &sles4sap; 11 (electronic media kit).
+    </para>
    </step>
    <step>
     <para>
@@ -33,7 +34,7 @@ The current release of the product is based on &sls; 11 Service Pack 1.
     <para>
     (Optional) Get the SAP Business All-in-One or another SAP solution for
     Media-Changer installation media from SAP.
-</para>
+    </para>
    </step>
   </procedure>
  </sect1>
