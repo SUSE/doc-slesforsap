@@ -51,7 +51,19 @@
    <step>
     <para>
     Select one installation option from the DVD menu:
-</para>
+    </para>
+    <figure>
+     <title>DVD Boot Menu</title>
+    <mediaobject>
+     <imageobject role="fo">
+      <imagedata fileref="s4s-dvd-boot-menu.png" width="100%" format="PNG"/>
+     </imageobject>
+     <imageobject role="html">
+      <imagedata fileref="s4s-dvd-boot-menu.png" width="100%" format="PNG"/>
+     </imageobject>
+    </mediaobject>
+   </figure>
+
     <itemizedlist>
      <listitem>
       <para><guimenu>Install SLES for SAP Applications</guimenu> (see <xref
@@ -250,3 +262,9 @@ If you want to put your media on a NFS Server, proceed as follows:</para>
  </para>
  </sect1>
 </chapter>
+<!-- ...
+"Finishing Basic Installation
+Reboot...
+...
+Preparing System for Automatic Installation
+-->
