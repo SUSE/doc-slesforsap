@@ -65,6 +65,50 @@
    </figure>
 
     <itemizedlist>
+<!--
+Now we have:
+
+2) "SLES for SAP Applications - Installation"
+
+Dies ist im Grunde eine Standard SLES Installation. Diesen Eintrag
+verwenden in der Regel erfahrene Admins, die ein SAP System komplett
+manuell und nach eigenen Vorgaben installieren wollen.
+
+-> nicht SAP sondern SUSE System
+
+3)  "SLES for SAP Applications - Installation with Wizard"
+
+Dies ist eine vorkonfigurierte Installation des Betriebssystems und
+startet am Ende der OS Installation den Installation Wizard für die
+Installation von SAP Anwendungen. Diese semi-automatische Installation
+bietet Unterstützung bei der Installation indem durch Abfrage der
+wichtigsten Parameter eine grundlegende Einrichtung des Systems und
+Installation der SAP Anwendung erfolgen.
+
+
+4)  "SLES for SAP Applications - Installation with external profile"
+
+Dies ist im Prinzip wie 3), jedoch mit einer eigens erstellten AutoYAST
+Steuerdatei. Dieser Booteintrag ist für all diejenigen Nutzer gedacht,
+die bereits selbst erstellte Autoinstallations-Profile besitzen und
+diese nutzen möchten
+
+-> nicht wie 3 sondern wie 2
+
+-->
+     <listitem>
+      <para><guimenu>SLES for SAP Applications &mdash;
+      Installation</guimenu></para>
+     </listitem>
+     <listitem>
+      <para><guimenu>SLES for SAP Applications &mdash;
+      Installation with Wizard</guimenu></para>
+     </listitem>
+     <listitem>
+      <para><guimenu>SLES for SAP Applications &mdash;
+      Installation with External Profile</guimenu></para>
+     </listitem>
+
      <listitem>
       <para><guimenu>Install SLES for SAP Applications</guimenu> (see <xref
       linkend="s4s.qi.inst.s4s"/>), or</para>
