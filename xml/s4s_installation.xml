@@ -1,13 +1,112 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE chapter PUBLIC "-//Novell//DTD NovDoc XML V1.0//EN" "novdocx.dtd"
-          [
-          <!ENTITY % NOVDOC.DEACTIVATE.IDREF "INCLUDE">
-          <!ENTITY % entities SYSTEM "entity-decl.ent">
-          %entities;
+<!DOCTYPE chapter PUBLIC "-//Novell//DTD NovDoc XML V1.0//EN" "novdocx.dtd" [
+<!ENTITY % NOVDOC.DEACTIVATE.IDREF "INCLUDE">
+<!ENTITY % entities SYSTEM "entity-decl.ent">
+%entities;
 ]>
 <chapter id="s4s.installation">
  <title>Installation Scenarios</title>
  <para>
-Different scenarios to install &slsreg; for SAP Applications 11 are available.
-</para>
+  Different scenarios to install &slsreg; for SAP Applications 11 are
+  available.  Select the wanted installation scenario from the DVD boot
+  menu:
+ </para>
+
+ <figure>
+  <title>DVD Boot Menu</title>
+  <mediaobject>
+   <imageobject role="fo">
+    <imagedata fileref="s4s-dvd-boot-menu.png" width="100%" format="PNG"/>
+   </imageobject>
+   <imageobject role="html">
+    <imagedata fileref="s4s-dvd-boot-menu.png" width="100%" format="PNG"/>
+   </imageobject>
+  </mediaobject>
+ </figure>
+
+ <variablelist>
+  <varlistentry>
+   <term>Boot from Hard Disk</term>
+   <listitem>
+    <para>Booting the installed system on the local hard disk.</para>
+   </listitem>
+  </varlistentry>
+  <varlistentry>
+   <term><guimenu>SLES for SAP Applications &mdash;
+   Installation</guimenu> (see <xref linkend="s4s.inst.inst"/>)</term>
+   <listitem>
+    <para>Basically a standard SLES installation prepared for installing
+    SAP applications later, either with the provided Installation Wizard
+    or with third party installation routines.</para> <para>Suitable for
+    experienced administrators, who want to install &sles4sap; according
+    to their own plan.</para>
+   </listitem>
+  </varlistentry>
+  <varlistentry>
+   <term><guimenu>SLES for SAP Applications &mdash;
+   Installation with Wizard</guimenu> (see <xref linkend="s4s.inst.wizard"/>)</term>
+   <listitem>
+    <para>This is a semi-automated installation of the operating system
+    with default settings.  At the end, the Installation Wizard for the
+    installation of SAP applications will be started on demand.  The
+    user has the possibility to set the most important parameters for a
+    basic installation of the system and the installation of the
+    specified SAP application.</para>
+   </listitem>
+  </varlistentry>
+  <varlistentry>
+   <term><guimenu>SLES for SAP Applications &mdash; Installation with
+   External Profile</guimenu> (see <xref
+   linkend="s4s.inst.profile"/>)</term>
+   <listitem>
+    <para>This installation is driven by a user provided &ay;
+    profile.</para> <para>Suitable for experienced users, who are
+    familiar with with &ay; and want to deploy their own &ay; profiles
+    to install &sles4sap;.</para>
+   </listitem>
+  </varlistentry>
+  <varlistentry>
+   <term>Rescue System</term>
+   <listitem>
+    <para>Starting a minimal Linux system without a graphical user
+    interface. For more information, see Chapter 34, Common Problems and
+    Their Solutions of the &admin;.</para>
+
+   </listitem>
+  </varlistentry>
+  <varlistentry>
+   <term>Memory Test</term>
+   <listitem>
+    <para>Testing the system RAM using repeated read and write
+    cycles. For more information, see Chapter 34, Common Problems and
+    Their Solutions of the &admin;.
+    </para>
+   </listitem>
+  </varlistentry>
+ </variablelist>
+
+ <sect1 id="s4s.inst.inst">
+  <title><guimenu>SLES for SAP Applications &mdash;
+  Installation</guimenu></title>
+      <para>
+       The first part is similar to a standard &sls; installation; for
+       details, see the SLES &deploy;, Chapter 6, Installation with
+       &yast;.
+      </para>
+   </sect1>
+
+   <sect1 id="s4s.inst.wizard">
+    <title><guimenu>SLES for SAP Applications &mdash;
+      Wizard</guimenu></title>
+      <para>
+      </para>
+   </sect1>
+
+   <sect1 id="s4s.inst.profile">
+    <title><guimenu>SLES for SAP Applications &mdash;
+      Installation</guimenu></title>
+      <para>
+      </para>
+   </sect1>
+
 </chapter>
