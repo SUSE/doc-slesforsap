@@ -12,7 +12,7 @@
   menu:
  </para>
 
- <figure>
+ <figure id="fig.s4s.dvd.bootmenu">
   <title>DVD Boot Menu</title>
   <mediaobject>
    <imageobject role="fo">
@@ -91,15 +91,203 @@
       <para>
        The first part is similar to a standard &sls; installation; for
        details, see the SLES &deploy;, Chapter 6, Installation with
-       &yast;.
+       &yast;.  In addition, the SAP Application Server Base (sap-loc
+       and sapconf) pattern will get installed by default.
       </para>
    </sect1>
 
    <sect1 id="s4s.inst.wizard">
-    <title><guimenu>SLES for SAP Applications &mdash;
+    <title><guimenu>SLES for SAP Applications &mdash; Installation with
       Wizard</guimenu></title>
       <para>
+       This is a semi-automated installation of the operating system
+       with default settings.
+       <!-- FIXME: Add more info here? preparation, installation, and config see sec.i.yast2.steps-->
+       At the end, the Installation Wizard for
+       the installation of SAP applications will be started on demand.
+       The user has the possibility to set the most important parameters
+       for a basic installation of the system and the installation of
+       the specified SAP application.
       </para>
+
+      <sect2 id="s4s.inst.wizard.boot">
+       <title>Selecting <guimenu>SLES for SAP Applications &mdash;
+       Installation with Wizard</guimenu> from the DVD Boot Menu</title>
+       <para>
+        From the DVD boot menu (see <xref
+        linkend="fig.s4s.dvd.bootmenu"/>), select <guimenu>SLES for SAP
+        Applications &mdash; Wizard</guimenu>.  The installation process
+        loads and configures a minimal Linux system to run the
+        installation procedure.  To view the boot messages and copyright
+        notices during this process, press <keycap>Esc</keycap>. On
+        completion of this process, the &yast; installation program
+        starts and displays the graphical installer, which will run
+        mostly automated.</para>
+      </sect2>
+
+      <sect2 id="sec.s4s.inst.wizard.prepauto">
+       <title>Preparing System for Automated Installation</title>
+       <para>
+        The next &yast; popup dialog will let you specify the volume
+        configuration.  You will need two volumes, one for the system
+        and the other one for the data.
+       </para>
+
+       <!-- FIXME: checkit -->
+
+       <para>If there is just one hard disk, you keep it as the system
+       volume device and set the size of the system volume in GB in the
+       lower field and confirm it. <!-- 205-yast-storage-system.png -->
+       </para>
+
+       <para>If there is more than one hard disk, select the right one
+       as the system
+       volume device and set the size of the system volume in GB in the
+       lower field and confirm it.
+       </para>
+
+       <warning>
+        <title>Deleting Data</title>
+        <para>If you confirm the storage volume configuration, all
+        existing data on the hard disk will be deleted.  If you do not
+        want this to happen, turn off the system.</para>
+       </warning>
+
+       <para>
+        After confirmation &yast; performs the software installation.
+        Packages are installed one by one, thus you can see the
+        progress.
+       </para>
+      </sect2>
+
+  <sect2 id="sec.s4s.inst.wizard.yast2.user.root">
+   <!--  210-yast-root-password.png -->
+   <title>Password for the System Administrator &rootuser;</title><indexterm>
+   <primary>&yast;</primary>
+   <secondary>root password</secondary></indexterm><indexterm>
+   <primary>installation</primary>
+   <secondary>root password</secondary></indexterm>
+   <para>
+    When all packages are installed, you will be prompted to
+    enter a Password for the System Administrator &rootuser;.
+   </para>
+   <para>
+    &rootuser; is the name of the superuser, or the administrator of the
+    system. Unlike regular users (who may or may not have permission to
+    access certain areas or execute certain commands on the system),
+    &rootuser; has unlimited access to change the system configuration,
+    install programs, and set up new hardware.  The &rootuser; account
+    should only be used for system administration, maintenance, and
+    repair. Logging in as &rootuser; for daily work is rather risky: a
+    single mistake could lead to irretrievable loss of system files.
+   </para>
+   <para>
+    For verification purposes, the password for &rootuser; must be entered
+    twice. Do not forget the &rootuser; password. Once entered, this
+    password cannot be retrieved.
+   </para>
+   <para>
+    The &rootuser; password can be changed any time later in the
+    installed system. To do so run &yast; and start <menuchoice>
+    <guimenu>Security and Users</guimenu> <guimenu>User and Group
+    Management</guimenu> </menuchoice>.
+   </para>
+   <warning>
+    <title>The root User</title>
+    <para>
+     The user &rootuser; has all the permissions needed to make changes to
+     the system. To carry out such tasks, the &rootuser; password is
+     required. You cannot carry out any administrative tasks without this
+     password.
+    </para>
+   </warning>
+  </sect2>
+
+  <!-- 211-yast-network-config.png -->
+
+   <sect2 id="sec.s4s.inst.wizard.yast2.conf.manual.hostname">
+    <title>Hostname, Domain Name, and IP Address</title><indexterm>
+    <primary>&yast;</primary>
+    <secondary>hostname</secondary></indexterm><indexterm>
+    <primary>&yast;</primary>
+    <secondary>domain name</secondary></indexterm><indexterm>
+    <primary>installation</primary>
+    <secondary>hostname</secondary></indexterm><indexterm>
+    <primary>installation</primary>
+    <secondary>domain name</secondary></indexterm>
+    <para>
+     The <guimenu>Hostname</guimenu> is the computer's name in the
+     network. The <guimenu>Domain Name</guimenu> is the name of the
+     network. A hostname and domain are proposed by default.  If your
+     system is part of a network, the hostname has to be unique in this
+     network, whereas the domain name has to be common to all hosts on
+     the network.
+    </para>
+
+    <para>
+     Also enter the <guimenu>IP Address</guimenu> and
+     <guimenu>Netmask</guimenu> for this host.  The IP address must be
+     unique and the netmask has to be common to all hosts on the
+     network.
+    </para>
+   </sect2>
+
+   <sect2 id="sec.s4s.inst.wizard.yast2.conf.manual.dns-ntp">
+    <!-- 212-yast-network-config2.png -->
+    <title>Domain Name Service (DNS) and Time Server (NTP)</title>
+    <para>
+     For Domain Name Service (DNS) configuration, enter <guimenu>Domain
+     Searchlist</guimenu> and the <guimenu>IP Address of DNS
+     Server</guimenu> plus the IP address of the <guimenu>Default
+     Gateway</guimenu> of your network.
+    </para>
+
+    <para>
+     Also enter the address of the <guimenu>NTP Server</guimenu> to
+     synchronize automatically via Network Time Protocol (NTP).
+    </para>
+
+   </sect2>
+
+   <sect2 id="sec.s4s.inst.wizard.yast2.conf.manual.reg">
+    <title>Registration</title>
+    <!-- 215-yast-registration.png -->
+
+    <para>
+     To get technical support and product updates, you need to register
+     and activate your product with the &ncc;. This dialog provides
+     assistance for doing so. Find detailed information about &ncc; at
+     <ulink url="http://www.novell.com/documentation/ncc/"/>.
+    </para>
+
+    <para>
+     Enter your <guimenu>E-Mail-Address</guimenu> and
+     <guimenu>Registration Code</guimenu> for the product.
+    </para>
+   </sect2>
+
+   <!-- FIXME: check the title -->
+   <sect2>
+    <title>Applying Configuration Settings</title>
+    <para>
+     After confirming the registration data, the automatic configuration
+     with the supplied settings will take place.
+    </para>
+   </sect2>
+
+   <sect2>
+    <!-- 220-yast-start-sap-install.png -->
+    <title>SAP Install</title>
+    <para>
+     After applying the configuration settings, you are considered to
+     continue with the <guimenu>SAP Product Installation</guimenu>.
+     Confirm the popup and in the next screen provide the <guimenu>SAP
+     Installation Wizard</guimenu> with the <guimenu>Location of the SAP
+     Installation Master</guimenu>.
+    </para>
+
+   </sect2>
+
    </sect1>
 
    <sect1 id="s4s.inst.profile">
