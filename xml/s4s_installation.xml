@@ -28,7 +28,7 @@
   <varlistentry>
    <term>Boot from Hard Disk</term>
    <listitem>
-    <para>Booting the installed system on the local hard disk.</para>
+    <para>Booting the system installed on the local hard disk.</para>
    </listitem>
   </varlistentry>
   <varlistentry>
@@ -36,22 +36,24 @@
    Installation</guimenu> (see <xref linkend="s4s.inst.inst"/>)</term>
    <listitem>
     <para>Basically a standard SLES installation prepared for installing
-    SAP applications later, either with the provided Installation Wizard
-    or with third party installation routines.</para> <para>Suitable for
-    experienced administrators, who want to install &sles4sap; according
-    to their own plan.</para>
+    SAP applications later.  You can install the SAP applications either
+    with the provided Installation Wizard or with third party
+    installation routines.</para>
+
+    <para>This scenario os suitable for experienced administrators, who
+    want to install &sles4sap; according to their own plan.</para>
    </listitem>
   </varlistentry>
   <varlistentry>
-   <term><guimenu>SLES for SAP Applications &mdash;
-   Installation with Wizard</guimenu> (see <xref linkend="s4s.inst.wizard"/>)</term>
+   <term><guimenu>SLES for SAP Applications &mdash; Installation with
+   Wizard</guimenu> (see <xref linkend="s4s.inst.wizard"/>)</term>
    <listitem>
     <para>This is a semi-automated installation of the operating system
     with default settings.  At the end, the Installation Wizard for the
     installation of SAP applications will be started on demand.  The
     user has the possibility to set the most important parameters for a
     basic installation of the system and the installation of the
-    specified SAP application.</para>
+    specified SAP applications.</para>
    </listitem>
   </varlistentry>
   <varlistentry>
@@ -60,7 +62,9 @@
    linkend="s4s.inst.profile"/>)</term>
    <listitem>
     <para>This installation is driven by a user provided &ay;
-    profile.</para> <para>Suitable for experienced users, who are
+    profile.</para>
+
+    <para>This scenario is suitable for experienced users, who are
     familiar with with &ay; and want to deploy their own &ay; profiles
     to install &sles4sap;.</para>
    </listitem>
@@ -88,18 +92,30 @@
  <sect1 id="s4s.inst.inst">
   <title><guimenu>SLES for SAP Applications &mdash;
   Installation</guimenu></title>
-      <para>
-       The first part is similar to a standard &sls; installation; for
-       details, see the SLES &deploy;, Chapter 6, Installation with
-       &yast;.  In addition, the SAP Application Server Base (sap-loc
-       and sapconf) pattern will get installed by default.
-      </para>
-   </sect1>
+  <para>
+   The first part is similar to a standard manual &sls; installation;
+   for details about such an SLES installation, see the SLES &deploy;,
+   Chapter 6, Installation with &yast;.
 
-   <sect1 id="s4s.inst.wizard">
-    <title><guimenu>SLES for SAP Applications &mdash; Installation with
-      Wizard</guimenu></title>
-      <para>
+   <!--
+       License, Installation Mode, Time, Server Base scenario,
+       Installation Settings (here change partitioning and other
+       settings, if needed).
+       After deploying the software: root password. network config,
+       NCC, Network Services, User Auth, Hardware Config 
+   -->
+
+   In addition, the SAP Application Server Base
+   (<systemitem>sap-loc</systemitem> and
+   <systemitem>sapconf</systemitem>) pattern will get installed by
+   default and basic settings will be done.
+  </para>
+ </sect1>
+
+ <sect1 id="s4s.inst.wizard">
+  <title><guimenu>SLES for SAP Applications &mdash; Installation with
+  Wizard</guimenu></title>
+  <para>
        This is a semi-automated installation of the operating system
        with default settings.
        <!-- FIXME: Add more info here? preparation, installation, and config see sec.i.yast2.steps-->
@@ -108,12 +124,15 @@
        The user has the possibility to set the most important parameters
        for a basic installation of the system and the installation of
        the specified SAP application.
-      </para>
+  </para>
 
-      <sect2 id="s4s.inst.wizard.boot">
-       <title>Selecting <guimenu>SLES for SAP Applications &mdash;
-       Installation with Wizard</guimenu> from the DVD Boot Menu</title>
-       <para>
+  <para>The following installation and configuration steps will take
+  place, where interactive settings are possible:</para>
+
+  <sect2 id="s4s.inst.wizard.boot">
+   <title>Selecting <guimenu>SLES for SAP Applications &mdash;
+   Installation with Wizard</guimenu> from the DVD Boot Menu</title>
+   <para>
         From the DVD boot menu (see <xref
         linkend="fig.s4s.dvd.bootmenu"/>), select <guimenu>SLES for SAP
         Applications &mdash; Wizard</guimenu>.  The installation process
@@ -123,27 +142,39 @@
         completion of this process, the &yast; installation program
         starts and displays the graphical installer, which will run
         mostly automated.</para>
-      </sect2>
+  </sect2>
 
-      <sect2 id="sec.s4s.inst.wizard.prepauto">
-       <title>Preparing System for Automated Installation</title>
+  <sect2 id="sec.s4s.inst.wizard.prepauto">
+   <title>Preparing System for Automated Installation</title>
+   <para>
+        After analyzing your computer, the next &yast; popup dialog will
+        let you specify the volume configuration.  You will need two
+        volumes, one for the system (and for swap space) and the other
+        one for the application data.
+   </para>
+
+   <figure id="fig.s4s.inst.yast-storage-system">
+    <title>System Volume Configuration</title>
+    <mediaobject>
+     <imageobject role="fo">
+      <imagedata fileref="yast-storage-system.png" width="100%" format="PNG"/>
+     </imageobject>
+     <imageobject role="html">
+      <imagedata fileref="yast-storage-system.png" width="100%" format="PNG"/>
+     </imageobject>
+    </mediaobject>
+   </figure>
+
        <para>
-        The next &yast; popup dialog will let you specify the volume
-        configuration.  You will need two volumes, one for the system
-        and the other one for the data.
-       </para>
-
-       <!-- FIXME: checkit -->
-
-       <para>If there is just one hard disk, you keep it as the system
-       volume device and set the size of the system volume in GB in the
-       lower field and confirm it. <!-- 205-yast-storage-system.png -->
+       If there is just one hard disk, keep it as the system
+       volume device and set the size of the system volume (and the swap
+       space) in GB in the lower field and confirm it.  See <xref
+       linkend="fig.s4s.inst.yast-storage-system"/>.
        </para>
 
        <para>If there is more than one hard disk, select the right one
-       as the system
-       volume device and set the size of the system volume in GB in the
-       lower field and confirm it.
+       as the system volume device and set the size of the system volume
+       (and the swap space) in GB in the lower fields and confirm it.
        </para>
 
        <warning>
@@ -158,19 +189,33 @@
         Packages are installed one by one, thus you can see the
         progress.
        </para>
-      </sect2>
+  </sect2>
 
   <sect2 id="sec.s4s.inst.wizard.yast2.user.root">
-   <!--  210-yast-root-password.png -->
    <title>Password for the System Administrator &rootuser;</title><indexterm>
    <primary>&yast;</primary>
    <secondary>root password</secondary></indexterm><indexterm>
    <primary>installation</primary>
    <secondary>root password</secondary></indexterm>
    <para>
-    When all packages are installed, you will be prompted to
-    enter a Password for the System Administrator &rootuser;.
+    When all packages are installed, the basic installation is finished,
+    and the system rebooted for initial configuration, you will be
+    prompted to enter a Password for the System Administrator
+    &rootuser;.
    </para>
+
+   <figure id="fig.s4s.inst.yast-root-password">
+    <title>Password for root User</title>
+    <mediaobject>
+     <imageobject role="fo">
+      <imagedata fileref="yast-root-password.png" width="100%" format="PNG"/>
+     </imageobject>
+     <imageobject role="html">
+      <imagedata fileref="yast-root-password.png" width="100%" format="PNG"/>
+     </imageobject>
+    </mediaobject>
+   </figure>
+
    <para>
     &rootuser; is the name of the superuser, or the administrator of the
     system. Unlike regular users (who may or may not have permission to
