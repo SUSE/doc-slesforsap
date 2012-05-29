@@ -248,39 +248,59 @@
    </warning>
   </sect2>
 
-  <!-- 211-yast-network-config.png -->
-
-   <sect2 id="sec.s4s.inst.wizard.yast2.conf.manual.hostname">
-    <title>Hostname, Domain Name, and IP Address</title><indexterm>
-    <primary>&yast;</primary>
+  <sect2 id="sec.s4s.inst.wizard.yast2.conf.manual.hostname">
+   <title>Hostname, Domain Name, and IP Address</title><indexterm>
+   <primary>&yast;</primary>
     <secondary>hostname</secondary></indexterm><indexterm>
     <primary>&yast;</primary>
     <secondary>domain name</secondary></indexterm><indexterm>
     <primary>installation</primary>
     <secondary>hostname</secondary></indexterm><indexterm>
     <primary>installation</primary>
-    <secondary>domain name</secondary></indexterm>
-    <para>
+    <secondary>domain name</secondary>
+   </indexterm>
+   <figure id="fig.s4s.inst.yast-network-config">
+    <title>Hostname, Domain Name, and IP Address</title>
+    <mediaobject>
+     <imageobject role="fo">
+      <imagedata fileref="yast-network-config.png" width="100%" format="PNG"/>
+     </imageobject>
+     <imageobject role="html">
+      <imagedata fileref="yast-network-config.png" width="100%" format="PNG"/>
+     </imageobject>
+    </mediaobject>
+   </figure>
+   <para>
      The <guimenu>Hostname</guimenu> is the computer's name in the
      network. The <guimenu>Domain Name</guimenu> is the name of the
      network. A hostname and domain are proposed by default.  If your
      system is part of a network, the hostname has to be unique in this
      network, whereas the domain name has to be common to all hosts on
      the network.
-    </para>
+   </para>
 
-    <para>
+   <para>
      Also enter the <guimenu>IP Address</guimenu> and
      <guimenu>Netmask</guimenu> for this host.  The IP address must be
      unique and the netmask has to be common to all hosts on the
      network.
-    </para>
-   </sect2>
+   </para>
+  </sect2>
 
-   <sect2 id="sec.s4s.inst.wizard.yast2.conf.manual.dns-ntp">
-    <!-- 212-yast-network-config2.png -->
+  <sect2 id="sec.s4s.inst.wizard.yast2.conf.manual.dns-ntp">
+   <title>Domain Name Service (DNS) and Time Server (NTP)</title>
+   <figure id="fig.s4s.inst.yast-network-config2">
     <title>Domain Name Service (DNS) and Time Server (NTP)</title>
-    <para>
+    <mediaobject>
+     <imageobject role="fo">
+      <imagedata fileref="yast-network-config2.png" width="100%" format="PNG"/>
+     </imageobject>
+     <imageobject role="html">
+      <imagedata fileref="yast-network-config2.png" width="100%" format="PNG"/>
+     </imageobject>
+    </mediaobject>
+   </figure>
+   <para>
      For Domain Name Service (DNS) configuration, enter <guimenu>Domain
      Searchlist</guimenu> and the <guimenu>IP Address of DNS
      Server</guimenu> plus the IP address of the <guimenu>Default
@@ -304,6 +324,17 @@
      assistance for doing so. Find detailed information about &ncc; at
      <ulink url="http://www.novell.com/documentation/ncc/"/>.
     </para>
+   <figure id="fig.s4s.inst.yast-reg">
+    <title>Registration</title>
+    <mediaobject>
+     <imageobject role="fo">
+      <imagedata fileref="yast-registration.png" width="100%" format="PNG"/>
+     </imageobject>
+     <imageobject role="html">
+      <imagedata fileref="yast-registration.png" width="100%" format="PNG"/>
+     </imageobject>
+    </mediaobject>
+   </figure>
 
     <para>
      Enter your <guimenu>E-Mail-Address</guimenu> and
@@ -318,17 +349,34 @@
      After confirming the registration data, the automatic configuration
      with the supplied settings will take place.
     </para>
+
+    <para>
+     No user action is required at this stage.
+    </para>
    </sect2>
 
-   <sect2>
+   <sect2 id="sec.s4s.inst.wizard.sap-product-install">
     <!-- 220-yast-start-sap-install.png -->
-    <title>SAP Install</title>
+    <title>SAP Product Installation</title>
+
+    <figure id="fig.s4s.inst.yast-start-sap-install">
+    <title>SAP Product Installation</title>
+    <mediaobject>
+     <imageobject role="fo">
+      <imagedata fileref="yast-start-sap-install.png" width="100%" format="PNG"/>
+     </imageobject>
+     <imageobject role="html">
+      <imagedata fileref="yast-start-sap-install.png" width="100%" format="PNG"/>
+     </imageobject>
+    </mediaobject>
+   </figure>
+
     <para>
      After applying the configuration settings, you are considered to
-     continue with the <guimenu>SAP Product Installation</guimenu>.
-     Confirm the popup and in the next screen provide the <guimenu>SAP
-     Installation Wizard</guimenu> with the <guimenu>Location of the SAP
-     Installation Master</guimenu>.
+     continue with the <guimenu>SAP Product Installation</guimenu> using
+     the SAP Installation Wizard.  Confirm the popup.  In the next
+     dialog provide the <guimenu>Location of the SAP Installation
+     Master</guimenu>.
     </para>
 
    </sect2>
