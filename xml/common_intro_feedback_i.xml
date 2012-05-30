@@ -46,12 +46,13 @@
    <listitem>
     <para>
      For services and support options available for your product, refer to
-     <ulink url="http://www.novell.com/services/"></ulink>.
+     <ulink url="http://www.suse.com/support/"></ulink>.
     </para>
     <para>
      To report bugs for a product component, log into the &ncc; from
-     <ulink url="support.novell.com/"/> and select <menuchoice> <guimenu>My
-     Support</guimenu> <guimenu>Service Request</guimenu> </menuchoice>.
+     <ulink url="http://www.suse.com/support/"/> and select <menuchoice>
+     <guimenu>My Support</guimenu> <guimenu>Service Request</guimenu>
+     </menuchoice>.
     </para>
    </listitem>
   </varlistentry>
@@ -64,8 +65,8 @@
      feature at the bottom of each page in the online documentation or go to
      <ulink url="http://www.suse.com/documentation/feedback.html"/> and
      enter your comments there.
-     <!--taroth 2012-01-25: this at least now redirects to the novell feedback page, 
-         see bnc#723015-->
+     <!--taroth 2012-01-25: this at least now redirects to the novell
+          feedback page, see bnc#723015-->
     </para>
    </listitem>
   </varlistentry>
