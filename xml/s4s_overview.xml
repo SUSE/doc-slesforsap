@@ -40,16 +40,18 @@
       &sles4sapa;.
      </para>
     </listitem>
+
    </varlistentry>
-   <!--  and the SMT
-      Configuration Wizard. You can install the &smt; add-on together with
-      your base program during the installation process or on top of an
-      already installed base system. The &smt; Configuration Wizard guides
-      you through the individual installation steps.
-   -->
+
+   <varlistentry>
+    <term><xref linkend="s4s.configuration" xrefstyle="select:title,nopage"/></term>
+    <listitem>
+     <para>
+      In this chapter find hints to tune &sles4sap;.
+     </para>
+    </listitem>
+   </varlistentry>
   </variablelist>
-
-
  </sect1>
  <sect1>
   <title>Additional Documentation and Resources</title>
