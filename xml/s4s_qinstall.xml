@@ -38,6 +38,30 @@
    </step>
   </procedure>
  </sect1>
+
+ <!-- ================================================================== -->
+ <sect1>
+  <title>Hardware Requirements</title>
+
+  <variablelist>
+   <varlistentry>
+    <term>CPU</term>
+    <listitem>
+     <para>64bit (x86_64).</para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term>Hard Disk</term>
+    <listitem>
+     <para>
+      At least 60 GB hard disk space for the system volume and 200 GB
+      for the data partition.
+     </para>
+    </listitem>
+   </varlistentry>
+  </variablelist>
+ </sect1>
+
  <!-- ================================================================== -->
  <sect1 id="s4s.qi.inst">
   <title>Installation</title>
@@ -50,7 +74,7 @@
    </step>
    <step>
     <para>
-    Select one installation option from the DVD menu:
+    The DVD boot menu features the following installation options:
     </para>
     <figure>
      <title>DVD Boot Menu</title>
@@ -64,92 +88,81 @@
     </mediaobject>
    </figure>
 
-    <itemizedlist>
-<!--
-Now we have:
+ <variablelist>
+  <varlistentry>
+   <term><guimenu>SLES for SAP Applications &mdash;
+   Installation</guimenu></term>
+   <listitem>
+    <para>Basically a standard SLES installation prepared for installing
+    SAP applications later.  You can install the SAP applications either
+    with the provided Installation Wizard or with third party
+    installation routines.</para>
 
-2) "SLES for SAP Applications - Installation"
+    <para>This scenario os suitable for experienced administrators, who
+    want to install &sles4sap; according to their own plan.</para>
+   </listitem>
+  </varlistentry>
+  <varlistentry>
+   <term><guimenu>SLES for SAP Applications &mdash; Installation with
+   Wizard</guimenu></term>
+   <listitem>
+    <para>This is a semi-automated installation of the operating system
+    with default settings.  At the end, the Installation Wizard for the
+    installation of SAP applications will be started on demand.  The
+    user has the possibility to set the most important parameters for a
+    basic installation of the system and the installation of the
+    specified SAP applications.</para>
+   </listitem>
+  </varlistentry>
+  <varlistentry>
+   <term><guimenu>SLES for SAP Applications &mdash; Installation with
+   External Profile</guimenu></term>
+   <listitem>
+    <para>This installation is driven by a user provided &ay;
+    profile.</para>
 
-Dies ist im Grunde eine Standard SLES Installation. Diesen Eintrag
-verwenden in der Regel erfahrene Admins, die ein SAP System komplett
-manuell und nach eigenen Vorgaben installieren wollen.
-
--> nicht SAP sondern SUSE System
-
-3)  "SLES for SAP Applications - Installation with Wizard"
-
-Dies ist eine vorkonfigurierte Installation des Betriebssystems und
-startet am Ende der OS Installation den Installation Wizard für die
-Installation von SAP Anwendungen. Diese semi-automatische Installation
-bietet Unterstützung bei der Installation indem durch Abfrage der
-wichtigsten Parameter eine grundlegende Einrichtung des Systems und
-Installation der SAP Anwendung erfolgen.
-
-
-4)  "SLES for SAP Applications - Installation with external profile"
-
-Dies ist im Prinzip wie 3), jedoch mit einer eigens erstellten AutoYAST
-Steuerdatei. Dieser Booteintrag ist für all diejenigen Nutzer gedacht,
-die bereits selbst erstellte Autoinstallations-Profile besitzen und
-diese nutzen möchten
-
--> nicht wie 3 sondern wie 2
-
--->
-     <listitem>
-      <para><guimenu>SLES for SAP Applications &mdash;
-      Installation</guimenu></para>
-     </listitem>
-     <listitem>
-      <para><guimenu>SLES for SAP Applications &mdash;
-      Installation with Wizard</guimenu></para>
-     </listitem>
-     <listitem>
-      <para><guimenu>SLES for SAP Applications &mdash;
-      Installation with External Profile</guimenu></para>
-     </listitem>
-
-     <listitem>
-      <para><guimenu>Install SLES for SAP Applications</guimenu> (see <xref
-      linkend="s4s.qi.inst.s4s"/>), or</para>
-     </listitem>
-     <listitem>
-      <para><guimenu>Install SLES for SAP Applications — Basic</guimenu> (see
-      <xref linkend="s4s.qi.inst.s4s-basic"/>), or</para>
-     </listitem>
-     <listitem>
-      <para><guimenu>Install SLES for SAP Applications — Manual Profile via
-       USB</guimenu> (see <xref linkend="s4s.qi.inst.s4s-manual"/>).</para>
-     </listitem>
-    </itemizedlist>
+    <para>This scenario is suitable for experienced users, who are
+    familiar with with &ay; and want to deploy their own &ay; profiles
+    to install &sles4sap;.</para>
+   </listitem>
+  </varlistentry>
+ </variablelist>
    </step>
    <step>
     <para>
-     Press enter to start the installation.
-</para>
+     Select <guimenu>SLES for SAP Applications &mdash; Installation with
+     Wizard</guimenu> and press enter to start the semi-automated
+     installation procedure.  For details and caveats, see <xref
+     linkend="s4s.inst.wizard"/>.
+    </para>
    </step>
+
+   <step>
+    <para>&yast; starts.  Confirm the <guimenu>System Volume
+    Configuration</guimenu>.  If &yast; detects more than one hard disk,
+    select one for the system volume, where you want &yast; to install
+    SLES operating system&mdash;the other disk will you used for the SAP
+    applications.</para>
+   </step>
+
+
+   <step>
+    <para>
+     Continue with installation and basic initial configuration.
+    </para>
+   </step>
+
+   <step>
+    <para>
+     At the end, continue with the installation of the SAP applications.
+    </para>
+   </step>
+
   </procedure>
 
  <!-- ================================================================== -->
- <sect2 id="s4s.qi.inst.s4s">
-  <title>Installation of &sles4sap;</title>
-   
-   <para>The normal &ay; driven SLES for SAP Applications installation
-    including SAP solution installation using the SAP Media-Changer for the
-    customer.</para>
-
-   <para>
-The &suselinux; installation will start (partitioning, LVM setup and file system
-creation, installation of Linux software packages). This step typically takes
-less than 10 minutes (it depends on the hardware, of course). After the
-automatic system reboot (do not change the default "Boot from Hard Disk" in
-case you left the DVD inserted), you will be prompted to insert the SAP
-installation media; then follow the instructions.
-</para>
-  </sect2>
- <!-- ================================================================== -->
  <sect2 id="s4s.qi.inst.s4s-basic">
-  <title>Installation of &sles4sap; — Basic</title>
+  <title>Installation of &sles4sap;</title>
 
    <para>
     The normal &ay; driven SLES for SAP Applications installation without using
@@ -166,13 +179,31 @@ should be used to install a validated SAP solution, it can be started manually
 from within &yast;.</para>
  </sect2>
  <!-- ================================================================== -->
- <sect2 id="s4s.qi.inst.s4s-manual">
-  <title>Installation of &sles4sap; — Manual</title>
+ <sect2 id="s4s.qi.inst.s4s">
+  <title>Installation of &sles4sap; with Wizard</title>
+   
+   <para>The normal &ay; driven SLES for SAP Applications installation
+    including SAP solution installation using the SAP Media-Changer for the
+    customer.</para>
 
    <para>
-    &ay; will look on USB devices for the XML configuration file. Plug in an
-    USB device and store your config in a way like it is on the DVD in the
-    <filename>/rules</filename> directory.
+The &suselinux; installation will start (partitioning, LVM setup and file system
+creation, installation of Linux software packages). This step typically takes
+less than 10 minutes (it depends on the hardware, of course). After the
+automatic system reboot (do not change the default "Boot from Hard Disk" in
+case you left the DVD inserted), you will be prompted to insert the SAP
+installation media; then follow the instructions.
+</para>
+  </sect2>
+ <!-- ================================================================== -->
+ <sect2 id="s4s.qi.inst.s4s-manual">
+  <title>Installation of &sles4sap; with External Profile</title>
+
+   <para>
+    &ay; will look on USB devices for the XML configuration file
+    (external profile). Plug in an USB device and store your config in a
+    way like it is on the DVD in the <filename>/rules</filename>
+    directory.
    </para>
 
    <para>
