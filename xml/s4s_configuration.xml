@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapter PUBLIC "-//Novell//DTD NovDoc XML V1.0//EN" "novdocx.dtd" [
+<!ENTITY % NOVDOC.DEACTIVATE.IDREF "INCLUDE">
+<!ENTITY % entities SYSTEM "entity-decl.ent">
+%entities;
+]>
+<chapter id="s4s.configuration">
+ <title>Tuning &sles4sap;</title>
+
+ <para>
+ </para>
+
+ <sect1>
+  <title>Kernel: Page-Cache Limit</title>
+
+  <variablelist>
+   <varlistentry>
+    <term>Problem</term>
+    <listitem>
+     <para>
+      The kernel swaps out rarely accessed memory pages in order to use
+      freed memory pages as cache to speed up file system operations,
+      for instance during backup operations.
+     </para>
+     <para>
+      Some SAP solutions use large amounts of memory for accelerated
+      access to business data. Parts of this memory are very seldom
+      accessed. When a user request then needs to access paged out
+      memory, the response time is poor.  It is being even worse, when
+      an SAP solution running on Java incurs a Java garbage
+      collection. The system starts heavy page-in (disc I/O) activity
+      and incurs poor response time for an extended period of time.
+     </para>
+    </listitem>
+   </varlistentry>
+
+   <varlistentry>
+    <term>Solution</term>
+    <listitem>
+     <para>
+      A new kernel tune option has been introduced that allows the
+      system administrator to limit the amount of page-cache that the
+      kernel uses when there is competition between application memory
+      and page-cache.  This option tells the kernel that once the
+      page-cache is filled to the configured limit, application memory
+      is more important and should thus not be paged out. No pages will
+      be paged out if the memory footprint of the workload plus the
+      configured page cache limit do not exceed the amount of physical
+      RAM in the system.
+     </para>
+     <para>
+      For more information, see SAP Note 1557506: Linux paging
+      improvements <ulink
+      url="https://service.sap.com/sap/support/notes/1557506"/>.
+     </para>
+    </listitem>
+   </varlistentry>
+  </variablelist>
+ </sect1>
+ <sect1>
+  <title>For More Information</title>
+
+  <para>For more information about tuning &sls; see the SLES &tuning;.</para>
+ </sect1>
+</chapter>
