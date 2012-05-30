@@ -168,7 +168,7 @@
        <para>
        If there is just one hard disk, keep it as the system
        volume device and set the size of the system volume (and the swap
-       space) in GB in the lower field and confirm it.  See <xref
+       space) in GB in the lower field and confirm it;  see <xref
        linkend="fig.s4s.inst.yast-storage-system"/>.
        </para>
 
@@ -201,7 +201,7 @@
     When all packages are installed, the basic installation is finished,
     and the system rebooted for initial configuration, you will be
     prompted to enter a Password for the System Administrator
-    &rootuser;.
+    &rootuser;; see <xref linkend="fig.s4s.inst.yast-root-password"/>.
    </para>
 
    <figure id="fig.s4s.inst.yast-root-password">
@@ -259,6 +259,12 @@
     <primary>installation</primary>
     <secondary>domain name</secondary>
    </indexterm>
+
+   <para>
+    The next dialog starts with the network configuration; see <xref
+    linkend="fig.s4s.inst.yast-network-config"/>.
+   </para>
+
    <figure id="fig.s4s.inst.yast-network-config">
     <title>Hostname, Domain Name, and IP Address</title>
     <mediaobject>
@@ -270,6 +276,7 @@
      </imageobject>
     </mediaobject>
    </figure>
+
    <para>
      The <guimenu>Hostname</guimenu> is the computer's name in the
      network. The <guimenu>Domain Name</guimenu> is the name of the
@@ -289,6 +296,12 @@
 
   <sect2 id="sec.s4s.inst.wizard.yast2.conf.manual.dns-ntp">
    <title>Domain Name Service (DNS) and Time Server (NTP)</title>
+
+   <para>
+    The next dialog continues with the network configuration; see <xref
+    linkend="fig.s4s.inst.yast-network-config2"/>.
+   </para>
+
    <figure id="fig.s4s.inst.yast-network-config2">
     <title>Domain Name Service (DNS) and Time Server (NTP)</title>
     <mediaobject>
@@ -320,9 +333,10 @@
 
     <para>
      To get technical support and product updates, you need to register
-     and activate your product with the &ncc;. This dialog provides
-     assistance for doing so. Find detailed information about &ncc; at
-     <ulink url="http://www.novell.com/documentation/ncc/"/>.
+     and activate your product with the &ncc;; see <xref
+     linkend="fig.s4s.inst.yast-reg"/>.  This dialog provides assistance
+     for doing so. Find detailed information about &ncc; at <ulink
+     url="http://www.novell.com/documentation/ncc/"/>.
     </para>
    <figure id="fig.s4s.inst.yast-reg">
     <title>Registration</title>
@@ -374,7 +388,8 @@
     <para>
      After applying the configuration settings, you are considered to
      continue with the <guimenu>SAP Product Installation</guimenu> using
-     the SAP Installation Wizard.  Confirm the popup.  In the next
+     the SAP Installation Wizard.  Confirm the popup; see <xref
+     linkend="fig.s4s.inst.yast-start-sap-install"/>.  In the next
      dialog provide the <guimenu>Location of the SAP Installation
      Master</guimenu>.
     </para>
@@ -399,6 +414,37 @@
      For more information about &ay; profiles, see the SLES &ay; Guide.
     </para>
 
+   <para>
+    &ay; will look on USB devices for the XML configuration file
+    (external profile). Plug in an USB device and store your config in a
+    way like it is on the DVD in the <filename>/rules</filename>
+    directory.
+   </para>
+
+   <para>
+In order to use a custom &ay; script or perform a complete manual installation
+and configuration of &sles4sap; select the "Install SLES for SAP Applications
+Manual Profile via USB" boot menu entry. Within the boot options change the
+<literal>autoyast=usb:///</literal> parameter to the location of a custom &ay;
+script to use for automatic installation.  Alternatively, completely remove the
+<literal>autoyast=usb:///</literal> parameter to perform a manual installation
+and configuration of &sles4sap;.</para>
+
+   <para>
+   You can choose the SAP specific pattern, the HA, WebYaST components and SAP
+   specific IBM Java as well in this installation scenario, but they are
+   <emphasis>not</emphasis> preselected.</para>
+
+
+   </sect1>
+
+   <sect1>
+    <title>SAP Specific Instructions</title>
+    
+    <para>
+     For further installation instructions and the SAP specific parts in
+     particular, refer to the SAP Installation Guide (the
+     <quote>Cookbook</quote>).</para>
    </sect1>
 
 </chapter>
