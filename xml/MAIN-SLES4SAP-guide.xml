@@ -13,7 +13,6 @@
 <?dbhtml filename="index.html"?>
  <bookinfo>
   <title>The Guide</title>
-  <!-- <productname>&sles4sap;</productname> -->
    <productname>&productname;</productname>
    <productnumber>&productnumber;</productnumber>
   <date>
@@ -22,6 +21,7 @@
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="common_copyright_gfdl.xml"/>
  </bookinfo>
  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="s4s_overview.xml"/>
+ <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="s4s_about.xml"/>
  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="s4s_qinstall.xml"/>
  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="s4s_installation.xml"/>
  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="s4s_configuration.xml"/>
