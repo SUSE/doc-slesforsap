@@ -31,12 +31,14 @@
     Alternatively, you might use a virtual
     CD-ROM device for installation into a virtual machine.</para>
    </step>
+   <!--
    <step>
     <para>
     (Optional) Get the SAP Business All-in-One or another SAP solution for
     Media-Changer installation media from SAP.
     </para>
    </step>
+   -->
   </procedure>
  </sect2>
 
