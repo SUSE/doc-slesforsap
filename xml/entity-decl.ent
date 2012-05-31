@@ -1,3 +1,4 @@
+
 <!-- ...................................................................... -->
 <!-- General Entities                                                       -->
 <!-- ...................................................................... -->
@@ -133,9 +134,6 @@
 <!ENTITY sled          "SUSE Linux Enterprise Desktop">
 <!ENTITY sleda         "SLED">
 <!ENTITY sledreg       "SUSE&reg; Linux Enterprise Desktop">
-<!ENTITY productname   '<?suse name="productname"?>'>
-<!ENTITY productnamereg '<?suse name="productnamereg"?>'>
-<!ENTITY productnumber '<?suse name="productnumber"?>'>
 <!ENTITY sdk           "SUSE Software Development Kit">
 <!ENTITY slreg         "SUSE&reg; Linux">
 <!ENTITY slepos        "SUSE Linux Enterprise Point of Service">
@@ -186,6 +184,10 @@
 <!ENTITY smtool        "Subscription Management Tool">
 <!ENTITY sles4sapa     "SLES4SAP">
 <!ENTITY sles4sap      "&sls; for SAP Applications">
+<!ENTITY sles4sapreg   "&slsreg; for SAP Applications">
+<!ENTITY productname   '&sles4sap;'>
+<!ENTITY productnamereg '&sles4sapreg;'>
+<!ENTITY productnumber '11 SP2'>
 <!ENTITY smt           "SMT">
 <!ENTITY lxc           "LXC">
 <!ENTITY xen           "Xen">
