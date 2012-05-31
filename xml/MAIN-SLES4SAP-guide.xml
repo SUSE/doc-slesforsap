@@ -13,7 +13,9 @@
 <?dbhtml filename="index.html"?>
  <bookinfo>
   <title>The Guide</title>
-  <productname>&sles4sap;</productname>
+  <!-- <productname>&sles4sap;</productname> -->
+   <productname>&productname;</productname>
+   <productnumber>&productnumber;</productnumber>
   <date>
    <?dbtimestamp format="B d, Y"?>
   </date>
