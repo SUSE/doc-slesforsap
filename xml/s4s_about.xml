@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapter PUBLIC "-//Novell//DTD NovDoc XML V1.0//EN" "novdocx.dtd" [
+<!ENTITY % NOVDOC.DEACTIVATE.IDREF "INCLUDE">
+<!ENTITY % entities SYSTEM "entity-decl.ent">
+%entities;
+]>
+<chapter id="s4s.about">
+ <title>What is &sles4sap;?</title>
+ <abstract>
+ <para>
+  &sles4sapreg; is a bundle of software and services that addresses
+  specific needs of SAP users.
+ </para>
+ </abstract>
+
+ <sect1>
+  <title>Overview</title>
+  <para>
+  Target use cases are:
+  </para>
+  <itemizedlist>
+  <listitem>
+   <para>
+    Unix to Linux Migrations and Replatforming
+   </para>
+  </listitem>
+  <listitem>
+   <para>
+    SAP Appliances
+   </para>
+  </listitem>
+  <listitem>
+   <para>
+    SAP Cloud Deployments
+   </para>
+  </listitem>
+  </itemizedlist>
+
+  <para>
+  &sles4sap; consists of the following software components and concepts:
+  </para>
+ 
+  <itemizedlist>
+   <listitem>
+   <para>
+    &slsreg;
+   </para>
+  </listitem>
+  <listitem>
+   <para>
+    Installation Wizard
+   </para>
+  </listitem>
+  <listitem>
+   <para>
+    &slereg; &hasi;
+   </para>
+  </listitem>
+  <listitem>
+   <para>
+    Page Cache Limitation
+   </para>
+  </listitem>
+  </itemizedlist>
+
+  <!-- the reference platform for SAP's software development.  In -->
+  <!--   various ways, it is optimized for SAP. -->
+  
+  <!--   &sls; &hasi; is also part of the &sles4sap; platform. -->
+
+
+  <para>The following services for &sles4sap; are available:</para>
+  <itemizedlist>
+   <listitem>
+    <para>
+     Extended Service Pack Overlap Support
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     Separate Update Channel
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+SUSE Linux Enterprise Server Priority Support for SAP Applications (optional)
+  </para>
+   </listitem>
+  </itemizedlist>
+ </sect1>
+
+ <sect1>
+  <title>Software Components</title>
+  <para>
+  </para>
+
+  <sect2>
+   <title>&sls;</title>
+
+   <para>&sls; is the most interoperable platform for mission-critical
+   computing, both physical and virtual.  In the context of SAP, these are the most important features:</para>
+
+   <itemizedlist>
+    <listitem>
+     <para>
+      SAP's Development Platform
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      Certified
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      Optimized
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      SAP's preferred Appliance platform
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      SAP priority support
+     </para>
+    </listitem>
+   </itemizedlist>
+  </sect2>
+
+  <sect2>
+   <title>Installation Wizard</title>
+
+   <para>The Installation Wizard offers a guided installation for both,
+   the &sls; operating system and the SAP applications.</para>
+
+   <para>Additionally, it is an installation framework for third party
+   extension.</para>
+  </sect2>
+
+  <sect2>
+   <title>&sle; &hasi;</title>
+
+   <para>
+   </para>
+
+   <itemizedlist>
+    <listitem>
+     <para>
+Cluster manager
+     </para>
+    </listitem>
+<listitem>
+     <para>
+Cluster filesystem
+     </para>
+</listitem>
+<listitem>
+     <para>
+SAP resource Agents
+     </para>
+</listitem>
+   </itemizedlist>
+  </sect2>
+
+ </sect1>
+</chapter>
