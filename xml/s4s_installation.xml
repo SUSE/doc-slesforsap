@@ -5,7 +5,68 @@
 %entities;
 ]>
 <chapter id="s4s.installation">
- <title>Installation Scenarios</title>
+ <title>Default Installation Scenarios</title>
+
+  <para>
+  </para>
+
+ <sect1 id="s4s.inst.planning">
+  <title>Planning the Installation</title>
+
+  <para>
+  </para>
+
+  <sect2>
+   <title>Download and Installation Preparations</title>
+
+  <procedure>
+   <step>
+    <para>
+     Download the DVD ISO image of &sles4sap; 11 (electronic media kit).
+    </para>
+   </step>
+   <step>
+    <para>
+    Burn the image onto a physical DVD and ensure that it is bootable.
+    Alternatively, you might use a virtual
+    CD-ROM device for installation into a virtual machine.</para>
+   </step>
+   <step>
+    <para>
+    (Optional) Get the SAP Business All-in-One or another SAP solution for
+    Media-Changer installation media from SAP.
+    </para>
+   </step>
+  </procedure>
+ </sect2>
+
+ <!-- ================================================================== -->
+ <sect2>
+  <title>Hardware Requirements</title>
+
+  <variablelist>
+   <varlistentry>
+    <term>CPU</term>
+    <listitem>
+     <para>64bit (x86_64).</para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term>Hard Disk</term>
+    <listitem>
+     <para>
+      At least 60 GB hard disk space for the system volume and 200 GB
+      for the data partition.
+     </para>
+    </listitem>
+   </varlistentry>
+  </variablelist>
+ </sect2>
+</sect1>
+
+
+ <sect1>
+ <title>Booting the Installation Medium</title>
  <para>
   Different scenarios to install &slsreg; for SAP Applications 11 are
   available.  Select the wanted installation scenario from the DVD boot
@@ -36,9 +97,8 @@
    Installation</guimenu> (see <xref linkend="s4s.inst.inst"/>)</term>
    <listitem>
     <para>Basically a standard SLES installation prepared for installing
-    SAP applications later.  You can install the SAP applications either
-    with the provided Installation Wizard or with third party
-    installation routines.</para>
+    SAP applications later.  You can install the SAP applications with
+    third party installation routines.</para>
 
     <para>This scenario os suitable for experienced administrators, who
     want to install &sles4sap; according to their own plan.</para>
@@ -49,7 +109,7 @@
    Wizard</guimenu> (see <xref linkend="s4s.inst.wizard"/>)</term>
    <listitem>
     <para>This is a semi-automated installation of the operating system
-    with default settings.  At the end, the Installation Wizard for the
+    with SAP specific settings.  At the end, the Installation Wizard for the
     installation of SAP applications will be started on demand.  The
     user has the possibility to set the most important parameters for a
     basic installation of the system and the installation of the
@@ -88,6 +148,7 @@
    </listitem>
   </varlistentry>
  </variablelist>
+ </sect1>
 
  <sect1 id="s4s.inst.inst">
   <title><guimenu>SLES for SAP Applications &mdash;
@@ -439,16 +500,6 @@ and configuration of &sles4sap;.</para>
    specific IBM Java as well in this installation scenario, but they are
    <emphasis>not</emphasis> preselected.</para>
 
-
-   </sect1>
-
-   <sect1>
-    <title>SAP Specific Instructions</title>
-    
-    <para>
-     For further installation instructions and the SAP specific parts in
-     particular, refer to the SAP Installation Guide (the
-     <quote>Cookbook</quote>).</para>
    </sect1>
 
 </chapter>
