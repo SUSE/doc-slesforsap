@@ -58,7 +58,7 @@
   </listitem>
   <listitem>
    <para>
-    Page Cache Limitation
+    Page-Cache Limit
    </para>
   </listitem>
   </itemizedlist>
@@ -103,7 +103,7 @@ SUSE Linux Enterprise Server Priority Support for SAP Applications (optional)
    <itemizedlist>
     <listitem>
      <para>
-      SAP's Development Platform
+      SAP's development platform
      </para>
     </listitem>
     <listitem>
@@ -118,7 +118,7 @@ SUSE Linux Enterprise Server Priority Support for SAP Applications (optional)
     </listitem>
     <listitem>
      <para>
-      SAP's preferred Appliance platform
+      SAP's preferred appliance platform
      </para>
     </listitem>
     <listitem>
@@ -132,7 +132,7 @@ SUSE Linux Enterprise Server Priority Support for SAP Applications (optional)
   <sect2>
    <title>Installation Wizard</title>
 
-   <para>The Installation Wizard offers a guided installation for both,
+   <para>The Installation Wizard offers a guided installation path for both,
    the &sls; operating system and the SAP applications.</para>
 
    <para>Additionally, it is an installation framework for third party
@@ -158,11 +158,73 @@ Cluster filesystem
 </listitem>
 <listitem>
      <para>
-SAP resource Agents
+SAP resource agents
      </para>
 </listitem>
    </itemizedlist>
+
+   <para>For more information about &sle; &hasi;, see the &haguide;.</para>
+
   </sect2>
 
+  <sect2>
+   <title>Page-Cache Limit</title>
+
+   <para>
+    The page-cache limit is a fully supported optimization for
+   workloads like BWA or HANA that utilize very large in-memory
+   data.
+   </para>
+
+</sect2>
+ </sect1>
+
+ <sect1>
+  <title>Services for &sles4sap;</title>
+  <para>
+  </para>
+
+  <variablelist>
+   <varlistentry>
+    <term>Extended Service Pack Overlap Support</term>
+    <listitem>
+     <para>
+      This service extends the Service Pack Overlap Support from 6 to 18
+      months.
+    </para>
+   </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term>Specific SAP Update Channel</term>
+   <listitem>
+    <itemizedlist>
+     <listitem>
+      <para>
+       Specific maintenance channel
+      </para>
+     </listitem>
+     <listitem>
+      <para>
+       Allows SAP specific patches
+      </para>
+     </listitem>
+     <listitem>
+      <para>
+       Updates for SAP specific packages
+      </para>
+     </listitem>
+    </itemizedlist>
+   </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term>SUSE Linux Enterprise Server Priority Support for SAP Applications (optional)</term>
+     <listitem>
+      <para>
+       Optionally, there is a SUSE Linux Enterprise Server Priority
+       Support for SAP Applications.
+      </para>
+     </listitem>
+   </varlistentry>
+  </variablelist>
  </sect1>
 </chapter>
