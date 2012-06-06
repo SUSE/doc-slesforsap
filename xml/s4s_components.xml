@@ -56,8 +56,8 @@ This can be used for various types of additions, e.g. add your own RPMs, run you
     <title><filename>product.xml</filename></title>
 
     <para>
-The <filename>product.xml</filename> looks like a normal AutoYaST
-XML-file, but with some restrictions.
+The <filename>product.xml</filename> looks like a normal &ay;
+XML file, but with some restrictions.
     </para>
     <para>
 The restriction are coming from the circumstance that only the parts for the second stage of the installation could be run, because the first stage was executed before.
