@@ -67,7 +67,7 @@
 </sect1>
 
 
- <sect1>
+ <sect1 id="s4s.inst.booting">
  <title>Booting the Installation Medium</title>
  <para>
   Different scenarios to install &slsreg; for SAP Applications 11 are
@@ -173,6 +173,7 @@
    <systemitem>sapconf</systemitem>) pattern will get installed by
    default and basic settings will be done.
   </para>
+
  </sect1>
 
  <sect1 id="s4s.inst.wizard">
@@ -189,8 +190,9 @@
        the specified SAP application.
   </para>
 
-  <para>The following installation and configuration steps will take
-  place, where interactive settings are possible:</para>
+  <para>During this installation scenario, the following installation
+  and configuration steps will take place and interactive settings
+  are possible:</para>
 
   <sect2 id="s4s.inst.wizard.boot">
    <title>Selecting <guimenu>SLES for SAP Applications &mdash;
@@ -468,18 +470,16 @@
    <sect1 id="s4s.inst.profile">
     <title><guimenu>SLES for SAP Applications &mdash;
     Installation with External Profile</guimenu></title>
-    <para>This installation is driven by a user provided &ay;
-    profile.</para>
+
+    <para>This installation is driven by a user provided &ay; profile.
+    For more information about &ay; profiles, see the SLES &ay;
+    Guide.</para>
 
     <para>This scenario is suitable for experienced users, who are
     familiar with with &ay; and want to deploy their own &ay; profiles
     to install &sles4sap;.  Either specify the profile location as a
     boot option in the DVD Boot Menu, or enter the location when &yast;
     asks for it in the next dialog.</para>
-
-    <para>
-     For more information about &ay; profiles, see the SLES &ay; Guide.
-    </para>
 
    <para>
     &ay; will look on USB devices for the XML configuration file
@@ -489,13 +489,13 @@
    </para>
 
    <para>
-In order to use a custom &ay; script or perform a complete manual installation
-and configuration of &sles4sap; select the "Install SLES for SAP Applications
-Manual Profile via USB" boot menu entry. Within the boot options change the
-<literal>autoyast=usb:///</literal> parameter to the location of a custom &ay;
-script to use for automatic installation.  Alternatively, completely remove the
-<literal>autoyast=usb:///</literal> parameter to perform a manual installation
-and configuration of &sles4sap;.</para>
+In order to use a custom &ay; script or perform a complete manual
+installation and configuration of &sles4sap; select the "Install SLES
+for SAP Applications &mdash; Installation with External Profile" boot
+menu entry. Within the boot options change the
+<literal>autoyast=usb:///</literal> parameter to the location of a
+custom &ay; script to use for automatic installation.
+   </para>
 
    <para>
    You can choose the SAP specific pattern, the HA, WebYaST components and SAP

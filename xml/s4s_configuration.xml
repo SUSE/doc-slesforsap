@@ -4,13 +4,13 @@
 <!ENTITY % entities SYSTEM "entity-decl.ent">
 %entities;
 ]>
-<chapter id="s4s.configuration">
+<sect1 id="s4s.configuration">
  <title>Tuning &sles4sap;</title>
 
  <para>
  </para>
 
- <sect1>
+ <sect2>
   <title>Kernel: Page-Cache Limit</title>
 
   <variablelist>
@@ -56,10 +56,10 @@
     </listitem>
    </varlistentry>
   </variablelist>
- </sect1>
- <sect1>
+ </sect2>
+ <sect2>
   <title>For More Information</title>
 
   <para>For more information about tuning &sls; see the SLES &tuning;.</para>
- </sect1>
-</chapter>
+ </sect2>
+</sect1>

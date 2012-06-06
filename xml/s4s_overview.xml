@@ -25,10 +25,10 @@
 
   <variablelist>
    <varlistentry>
-    <term><xref linkend="s4s.qinstallation" xrefstyle="select:title,nopage"/></term>
+    <term><xref linkend="s4s.about" xrefstyle="select:title,nopage"/></term>
     <listitem>
      <para>
-      This chapter introduces a quick installation overview of &sles4sap;.
+      Here you find an overview of &sles4sap;.
      </para>
     </listitem>
    </varlistentry>

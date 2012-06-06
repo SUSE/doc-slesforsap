@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapter PUBLIC "-//Novell//DTD NovDoc XML V1.0//EN" "novdocx.dtd" [
+<!ENTITY % NOVDOC.DEACTIVATE.IDREF "INCLUDE">
+<!ENTITY % entities SYSTEM "entity-decl.ent">
+%entities;
+]>
+<chapter id="s4s.components">
+ <title>The &sles4sap; Components</title>
+
+ <para>
+ </para>
+
+ <sect1>
+  <title>&sle; &hasi;</title>
+
+  <para>The &sle; &hasi; infrastructure is part of &sles4sap;.</para>
+
+ <para>For more information about &sle; &hasi;, see the &haguide;.</para>
+</sect1>
+
+ <!-- page cache limit -->
+ <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="s4s_configuration.xml"/>
+
+
+ <sect1>
+  <title>The Installation Wizard</title>
+
+   <para>The Installation Wizard offers a guided installation path for both,
+   the &sls; operating system and the SAP applications.</para>
+
+   <para>Additionally, it is an installation framework for third party
+   extension.</para>
+
+  <!--
+        4.3.1 what is it
+        4.3.2 further use-cases/sceanrios
+	4.3.3 crypto-cd
+        4.3.4 supplement cd
+        4.3.5 partitioner templates
+        4.4 ClamAV
+  -->
+
+  <sect2>
+   <title>Supplement Media</title>
+   <para>
+The basic idea of the “Supplement Media” is to enable partners or customers to add own tasks or workflows to the Installation Wizard based installation.
+   </para>
+   <para>
+It is done by a small XML file, which is not different as a part of an &ay; XML file. This file must be called <filename>product.xml</filename>; then it will be included into the work flow.
+   </para>
+   <para>
+This can be used for various types of additions, e.g. add your own RPMs, run your own scripts up to setup a cluster file system or create your own dialogs and scripts.
+   </para>
+
+   <sect3>
+    <title><filename>product.xml</filename></title>
+
+    <para>
+The <filename>product.xml</filename> looks like a normal AutoYaST
+XML-file, but with some restrictions.
+    </para>
+    <para>
+The restriction are coming from the circumstance that only the parts for the second stage of the installation could be run, because the first stage was executed before.
+    </para>
+    <para>
+Both XML files, the autoyast.xml and the product.xml, will be merged after the media is read and a "new" AutoYaST XML-file is generated on the fly for the further workflow.
+    </para>
+    <para>
+     The following areas or sections will be merged:
+    </para>
+<screen><![CDATA[<general> section
+  <ask-list>         (see 2)
+  ...
+<software> section   (see 3)
+  <post-packages>
+  ...
+<scripts> section
+  <chroot-scripts>   (after the package installation, before the first boot)
+  <post-scripts>     (during the first boot of the installed system, no
+                      services running)
+  <init-scripts>     (during the first boot of the installed system, all
+                      services up and  running)
+  ...]]></screen>
+<para>
+All other sections will be replaced.
+</para>
+
+<para>
+For the details about other customization options, see the AutoYaST documentation, Chapter “4.12. Custom user scripts”.
+</para>
+   </sect3>
+
+   <sect3>
+    <title>Own AutoYaST Ask-dialogs</title>
+    <para>
+For a general overview and the details of options of the ASK feature of &ay;, see Chapter "4.17.  Ask the user for values during installation" of the &ay; documentation.
+    </para>
+    <para>
+For the supplement media you can only use dialogs within the "cont" stage
+(<literal><![CDATA[<stage>cont</stage>]]></literal>), which means they are executed after the first reboot.
+    </para>
+    <para>
+Your file with the dialogs will be merged with the base &ay; XML file.
+    </para>
+    <para>
+As a best practice, your dialog should have a dialog number and an element number, best with steps of 10. This helps to include later additions and also could be used as targets for jumping over a dialog or element dependent on decisions. We use this too in our base dialogs and if you provide the right dialog number and element number you can place you dialog between our base dialogs.
+    </para>
+    <para>
+You can store the answer to a question in a file, to use it in one of your scripts later.  Be aware that you <emphasis>must</emphasis> use the prefix "/tmp/ay" for this, because the Installation Wizard (or MediaChanger) will copy such files from the /tmp director to the directory where your media data also will be copied.  This is done because the next supplement media, could have the same dialogs or same answer file names and would overwrite the values saved here.
+    </para>
+    <para>
+     Here is an example with several options:
+    </para>
+<screen><![CDATA[<?xml version="1.0"?>
+<!DOCTYPE profile>
+<profile xmlns="http://www.suse.com/1.0/yast2ns"
+         xmlns:config="http://www.suse.com/1.0/configns">
+<general>
+  <ask-list config:type="list">
+      <ask>
+          <stage>cont</stage>
+          <dialog config:type="integer">20</dialog>
+          <element config:type="integer">10</element>
+          <question>What is your name?</question>
+          <default>Enter your name here</default>
+          <help>Please enter you full name within the field</help>
+          <file>/tmp/ay_q_my_name</file>
+          <script>
+             <filename>my_name.sh</filename>
+             <rerun_on_error config:type="boolean">true</rerun_on_error>
+             <environment config:type="boolean">true</environment>
+             <source><![CDATA[
+function check_name() {
+           local name=$1        
+           LC_ALL=POSIX
+           [ -z "$name" ] && echo "You need to provide a name." && return 1
+           return 0
+}
+check_name "$VAL"
+]]>]<![CDATA[]>
+             </source>
+             <debug config:type="boolean">false</debug>
+             <feedback config:type="boolean">true</feedback>
+          </script>
+      </ask>
+  </ask-list>
+</general>
+</profile>]]></screen>
+   </sect3>
+   <sect3>
+    <title>Install additional packages</title>
+    <para>
+You can also install rpm packages within the product.xml file. For this you could use the <literal>&lt;post-packages></literal> element for install in stage 2.
+    </para>
+    <para>
+Please have look at the AutoYaST documentation at chapter "4.5.6. Installing packages during stage 2" for more details. 
+An example looks as follows:
+    </para>
+<screen><![CDATA[...
+<software>
+ <post-packages config:type="list">
+  <package>yast2-cim</package>
+ </post-packages>
+</software>
+...]]></screen>
+   </sect3>
+   <sect3>
+    <title>Example Directory for the Supplement Media</title>
+    <screen># ls 
+/
+|--Product.xml
+</screen>
+   </sect3>
+  </sect2>
+ </sect1>
+
+</chapter>
