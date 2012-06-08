@@ -501,6 +501,20 @@
      but they are <emphasis>not</emphasis> preselected.
     </para>
 
+    <sect2>
+     <title>About &ay;</title>
+
+     <para>
+      &ay; is a system for installing one or more SUSE Linux systems
+      automatically and without user intervention. &ay; installations
+      are performed using  an &ay; profile with installation and configuration
+      data. That profile can be created using the configuration interface
+      of &ay; and can be  provided to &yast; during installation in
+      different ways.
+     </para>
+    </sect2>
+
+
    </sect1>
 
 </chapter>
