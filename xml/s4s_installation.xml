@@ -471,36 +471,35 @@
     <title><guimenu>SLES for SAP Applications &mdash;
     Installation with External Profile</guimenu></title>
 
-    <para>This installation is driven by a user provided &ay; profile.
-    For more information about &ay; profiles, see the SLES &ay;
-    Guide.</para>
+    <para>
+     This automated installation is driven by a user provided &ay;
+     profile.  This scenario is suitable for experienced users, who are
+     familiar with with &ay; and want to deploy their own &ay; profiles
+     to install &sles4sap;.  For more information about &ay; profiles,
+     see the SLES <emphasis>&ay; Guide</emphasis>.
+    </para>
 
-    <para>This scenario is suitable for experienced users, who are
-    familiar with with &ay; and want to deploy their own &ay; profiles
-    to install &sles4sap;.  Either specify the profile location as a
-    boot option in the DVD Boot Menu, or enter the location when &yast;
-    asks for it in the next dialog.</para>
+    <para>
+     In order to use a custom &ay; script select "Install SLES for SAP
+     Applications &mdash; Installation with External Profile" from the
+     DVD Boot Menu.  Within the boot options change the
+     <literal>autoyast=usb:///</literal> parameter to the location of a
+     custom &ay; script, or enter the location when &yast; asks for it
+     in the next dialog.
+    </para>
 
-   <para>
-    &ay; will look on USB devices for the XML configuration file
-    (external profile). Plug in an USB device and store your config in a
-    way like it is on the DVD in the <filename>/rules</filename>
-    directory.
-   </para>
+    <para>
+     &ay; will look on USB devices for the XML configuration file
+     (external profile). Plug in an USB device and store your config in
+     a way like it is on the DVD in the
+     <filename>/sap-apl/rules</filename> directory.
+    </para>
 
-   <para>
-In order to use a custom &ay; script or perform a complete manual
-installation and configuration of &sles4sap; select the "Install SLES
-for SAP Applications &mdash; Installation with External Profile" boot
-menu entry. Within the boot options change the
-<literal>autoyast=usb:///</literal> parameter to the location of a
-custom &ay; script to use for automatic installation.
-   </para>
-
-   <para>
-   You can choose the SAP specific pattern, the HA, WebYaST components and SAP
-   specific IBM Java as well in this installation scenario, but they are
-   <emphasis>not</emphasis> preselected.</para>
+    <para>
+     You can choose the SAP specific pattern, the HA, WebYaST components
+     and SAP specific IBM Java as well in this installation scenario,
+     but they are <emphasis>not</emphasis> preselected.
+    </para>
 
    </sect1>
 
