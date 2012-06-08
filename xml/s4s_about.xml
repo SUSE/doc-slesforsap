@@ -14,8 +14,22 @@
  </para>
  </abstract>
 
+  <figure id="fig.s4s-picture">
+  <title>What is &sles4sap;?</title>
+  <mediaobject>
+   <imageobject role="fo">
+    <imagedata fileref="sles-for-sap-picture.png" width="100%" format="PNG"/>
+   </imageobject>
+   <imageobject role="html">
+    <imagedata fileref="sles-for-sap-picture.png" width="100%" format="PNG"/>
+   </imageobject>
+  </mediaobject>
+ </figure>
+
+
  <sect1>
   <title>Overview</title>
+
   <para>
   Target use cases are:
   </para>
