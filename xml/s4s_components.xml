@@ -15,7 +15,11 @@
 
   <para>The &sle; &hasi; infrastructure is part of &sles4sap;.</para>
 
- <para>For more information about &sle; &hasi;, see the &haguide;.</para>
+  <para>
+   For more information about &sle; &hasi;, see the &haguide; and the
+   Best Practice Guides at <ulink
+   url="http://www.suse.com/products/sles-for-sap/resource-library/sap-best-practices.html"/>.
+  </para>
 </sect1>
 
  <!-- page cache limit -->
