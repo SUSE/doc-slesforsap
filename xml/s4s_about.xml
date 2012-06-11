@@ -122,12 +122,14 @@ Cluster filesystem
 </listitem>
 <listitem>
      <para>
-SAP resource agents
+Resource agents, also for SAP
      </para>
 </listitem>
    </itemizedlist>
 
-   <para>For more information about &sle; &hasi;, see the &haguide;.</para>
+   <para>For more information about &sle; &hasi;, see the &haguide; and
+   the Best Practice Guides at <ulink
+   url="http://www.suse.com/products/sles-for-sap/resource-library/sap-best-practices.html"/>.</para>
 
   </sect2>
 
@@ -135,9 +137,9 @@ SAP resource agents
    <title>Page-Cache Limit</title>
 
    <para>
-    The page-cache limit is a fully supported optimization for
-   workloads like BWA or HANA that utilize very large in-memory
-   data.
+    Limit the kernel file system cache size to influence the swapping
+    behavior.  With this feature you gain better performance by
+    allocating memory to an application.
    </para>
   </sect2>
   
@@ -153,26 +155,19 @@ SAP resource agents
   <para>
   </para>
 
-  <variablelist>
-   <varlistentry>
-    <term>Extended Service Pack Overlap Support</term>
-    <listitem>
+  <sect2>
+   <title>Extended Service Pack Overlap Support</title>
+
      <para>
-      This service extends the Service Pack Overlap Support from 6 to 18
-      months.
+      Additional one year maintenance cycle to have more time to the
+      next upgrade
     </para>
-   </listitem>
-   </varlistentry>
-   <varlistentry>
-    <!-- Additional ... ? -->
-    <term>Specific SAP Update Channel</term>
-   <listitem>
+
+  </sect2>
+  <sect2>
+   <title>Additional Update Channel</title>
+
     <itemizedlist>
-     <listitem>
-      <para>
-       Specific maintenance channel
-      </para>
-     </listitem>
      <listitem>
       <para>
        Allows SAP specific patches
@@ -184,17 +179,14 @@ SAP resource agents
       </para>
      </listitem>
     </itemizedlist>
-   </listitem>
-   </varlistentry>
-   <varlistentry>
-    <term>SUSE Linux Enterprise Server Priority Support for SAP Applications</term>
-     <listitem>
-      <para>
-       Optionally, there is a SUSE Linux Enterprise Server Priority
-       Support for SAP Applications.
-      </para>
-     </listitem>
-   </varlistentry>
-  </variablelist>
+  </sect2>
+
+  <sect2>
+    <title>SUSE Linux Enterprise Server Priority Support for SAP Applications</title>
+    
+    <para>
+     There is a Priority Support Subscription included.
+    </para>
+  </sect2>
  </sect1>
 </chapter>
