@@ -98,8 +98,9 @@ SUSE Linux Enterprise Server Priority Support for SAP Applications (optional)
    <para>The Installation Wizard offers a guided installation path for both,
    the &sls; operating system and the SAP applications.</para>
 
-   <para>Additionally, it is an installation framework for third party
-   extension.</para>
+   <para>Additionally, the workflow can be extended by 3rd parties or
+   the customers with help of the <quote>Supplement Media</quote> (see
+   <xref linkend="s4s.comp.wizard.suppl"/>).</para>
   </sect2>
 
   <sect2>
