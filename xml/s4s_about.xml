@@ -85,37 +85,11 @@ SUSE Linux Enterprise Server Priority Support for SAP Applications (optional)
   <sect2>
    <title>&sls;</title>
 
-   <para>&sls; is the most interoperable platform for mission-critical
-   computing, both physical and virtual.  In the context of SAP, these
-   are the most important features:</para>
+   <para>
+    &sls; is the most interoperable platform for mission-critical
+    computing, both physical and virtual.
+   </para>
 
-   <itemizedlist>
-    <listitem>
-     <para>
-      SAP's development platform
-     </para>
-    </listitem>
-    <listitem>
-     <para>
-      Certified
-     </para>
-    </listitem>
-    <listitem>
-     <para>
-      Optimized
-     </para>
-    </listitem>
-    <listitem>
-     <para>
-      SAP's preferred appliance platform
-     </para>
-    </listitem>
-    <listitem>
-     <para>
-      SAP priority support
-     </para>
-    </listitem>
-   </itemizedlist>
   </sect2>
 
   <sect2>
@@ -164,8 +138,13 @@ SAP resource agents
    workloads like BWA or HANA that utilize very large in-memory
    data.
    </para>
+  </sect2>
+  
+  <sect2>
+   <title>ClamSAP</title>
+   <para></para>
+  </sect2>
 
-</sect2>
  </sect1>
 
  <sect1 id="s4s.about.services">
@@ -184,6 +163,7 @@ SAP resource agents
    </listitem>
    </varlistentry>
    <varlistentry>
+    <!-- Additional ... ? -->
     <term>Specific SAP Update Channel</term>
    <listitem>
     <itemizedlist>
@@ -206,7 +186,7 @@ SAP resource agents
    </listitem>
    </varlistentry>
    <varlistentry>
-    <term>SUSE Linux Enterprise Server Priority Support for SAP Applications (optional)</term>
+    <term>SUSE Linux Enterprise Server Priority Support for SAP Applications</term>
      <listitem>
       <para>
        Optionally, there is a SUSE Linux Enterprise Server Priority
