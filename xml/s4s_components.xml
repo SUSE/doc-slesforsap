@@ -10,7 +10,7 @@
  <para>
  </para>
 
- <sect1>
+ <sect1 id="s4s.comp.hasi">
   <title>&sle; &hasi;</title>
 
   <para>The &sle; &hasi; infrastructure is part of &sles4sap;.</para>
@@ -26,7 +26,7 @@
  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="s4s_configuration.xml"/>
 
 
- <sect1>
+ <sect1 id="s4s.comp.wizard">
   <title>The Installation Wizard</title>
 
    <para>The Installation Wizard offers a guided installation path for both,
@@ -44,7 +44,7 @@
         4.4 ClamAV
   -->
 
-  <sect2>
+  <sect2 id="s4s.comp.wizard.suppl">
    <title>Supplement Media</title>
    <para>
 The basic idea of the “Supplement Media” is to enable partners or customers to add own tasks or workflows to the Installation Wizard based installation.
