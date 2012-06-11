@@ -27,7 +27,7 @@
  </figure>
 
 
- <sect1>
+ <sect1 id="s4s.about.overview">
   <title>Overview</title>
 
   <para>
@@ -52,39 +52,11 @@
   </itemizedlist>
 
   <para>
-  &sles4sap; consists of the following software components and concepts:
-  </para>
- 
-  <itemizedlist>
-   <listitem>
-   <para>
-    &slsreg;
-   </para>
-  </listitem>
-  <listitem>
-   <para>
-    Installation Wizard
-   </para>
-  </listitem>
-  <listitem>
-   <para>
-    &slereg; &hasi;
-   </para>
-  </listitem>
-  <listitem>
-   <para>
-    Page-Cache Limit
-   </para>
-  </listitem>
-  </itemizedlist>
+  &sles4sap; consists of software components and concepts (see <xref
+  linkend="s4s.about.sw"/>) and service offerings (see <xref
+  linkend="s4s.about.services"/>).</para>
 
-  <!-- the reference platform for SAP's software development.  In -->
-  <!--   various ways, it is optimized for SAP. -->
-  
-  <!--   &sls; &hasi; is also part of the &sles4sap; platform. -->
-
-
-  <para>The following services for &sles4sap; are available:</para>
+  <!--
   <itemizedlist>
    <listitem>
     <para>
@@ -102,9 +74,10 @@ SUSE Linux Enterprise Server Priority Support for SAP Applications (optional)
   </para>
    </listitem>
   </itemizedlist>
+  -->
  </sect1>
 
- <sect1>
+ <sect1 id="s4s.about.sw">
   <title>Software Components</title>
   <para>
   </para>
@@ -113,7 +86,8 @@ SUSE Linux Enterprise Server Priority Support for SAP Applications (optional)
    <title>&sls;</title>
 
    <para>&sls; is the most interoperable platform for mission-critical
-   computing, both physical and virtual.  In the context of SAP, these are the most important features:</para>
+   computing, both physical and virtual.  In the context of SAP, these
+   are the most important features:</para>
 
    <itemizedlist>
     <listitem>
@@ -194,7 +168,7 @@ SAP resource agents
 </sect2>
  </sect1>
 
- <sect1>
+ <sect1 id="s4s.about.services">
   <title>Services for &sles4sap;</title>
   <para>
   </para>
