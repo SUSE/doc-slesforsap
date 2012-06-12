@@ -235,7 +235,8 @@
     <para>
      At least, 60 GB is required for the system volume.  The swap space
      depends on the available main memory (RAM).  For more information,
-     see the SAP note 0001597355.
+     see the SAP Note 1597355: <ulink
+     url="https://service.sap.com/sap/support/notes/1597355"/>.
     </para>
    </tip>
 
