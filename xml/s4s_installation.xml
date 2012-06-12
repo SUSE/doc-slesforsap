@@ -98,24 +98,23 @@
    <term><guimenu>SLES for SAP Applications &mdash;
    Installation</guimenu> (see <xref linkend="s4s.inst.inst"/>)</term>
    <listitem>
-    <para>Basically a standard SLES installation prepared for installing
-    SAP applications later.  You can install the SAP applications with
-    third party installation routines.</para>
-
-    <para>This scenario os suitable for experienced administrators, who
-    want to install &sles4sap; according to their own plan.</para>
+    <para>
+    Basically a standard SLES installation prepared for installing SAP
+    applications later. You can install the SAP applications with third party
+    installation routines.
+    </para>
+    <para>
+    This scenario is suitable for experienced administrators, who want
+    to install &sles4sap; according to their own plan.
+    </para>
    </listitem>
   </varlistentry>
   <varlistentry>
    <term><guimenu>SLES for SAP Applications &mdash; Installation with
    Wizard</guimenu> (see <xref linkend="s4s.inst.wizard"/>)</term>
    <listitem>
-    <para>This is a semi-automated installation of the operating system
-    with SAP specific settings.  At the end, the Installation Wizard for the
-    installation of SAP applications will be started on demand.  The
-    user has the possibility to set the most important parameters for a
-    basic installation of the system and the installation of the
-    specified SAP applications.</para>
+    <para>This is a guided installation of the operating system and the
+    SAP applications.</para>
    </listitem>
   </varlistentry>
   <varlistentry>
@@ -124,7 +123,7 @@
    linkend="s4s.inst.profile"/>)</term>
    <listitem>
     <para>This installation is driven by a user provided &ay;
-    profile.</para>
+    profile.  Without any &suse; provided SAP optimizations.</para>
 
     <para>This scenario is suitable for experienced users, who are
     familiar with with &ay; and want to deploy their own &ay; profiles
@@ -180,14 +179,8 @@
   <title><guimenu>SLES for SAP Applications &mdash; Installation with
   Wizard</guimenu></title>
   <para>
-       This is a semi-automated installation of the operating system
-       with default settings.
-       <!-- FIXME: Add more info here? preparation, installation, and config see sec.i.yast2.steps-->
-       At the end, the Installation Wizard for
-       the installation of SAP applications will be started on demand.
-       The user has the possibility to set the most important parameters
-       for a basic installation of the system and the installation of
-       the specified SAP application.
+   This is a guided installation of the operating system
+       with optimized settings for SAP applications.
   </para>
 
   <para>During this installation scenario, the following installation
@@ -212,10 +205,10 @@
   <sect2 id="sec.s4s.inst.wizard.prepauto">
    <title>Preparing System for Automated Installation</title>
    <para>
-        After analyzing your computer, the next &yast; popup dialog will
-        let you specify the volume configuration.  You will need two
-        volumes, one for the system (and for swap space) and the other
-        one for the application data.
+    After analyzing your computer, the next &yast; popup dialog will let
+    you specify the volume configuration.  Here you configure the volume
+    for the system and swap space.  The data volume comes later, after
+    you select the SAP Application.
    </para>
 
    <figure id="fig.s4s.inst.yast-storage-system">
@@ -236,6 +229,15 @@
        space) in GB in the lower field and confirm it;  see <xref
        linkend="fig.s4s.inst.yast-storage-system"/>.
        </para>
+
+       <tip>
+        <title>Size of the System Volume</title>
+        <para>
+         At least, 60 GB is required for the system volume.  The swap
+         space depends on the available main memory (RAM).  For more
+         information, see the SAP note 0001597355.
+        </para>
+       </tip>
 
        <para>If there is more than one hard disk, select the right one
        as the system volume device and set the size of the system volume
