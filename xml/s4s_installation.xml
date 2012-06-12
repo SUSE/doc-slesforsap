@@ -421,15 +421,16 @@
 
     <para>
      Enter your <guimenu>E-Mail-Address</guimenu> and
-     <guimenu>Registration Code</guimenu> for the product.
+     <guimenu>Registration Code</guimenu> for the product.  If you
+     provide the registration code now, operating system updates will be
+     automatically installed during the installation of the system.
     </para>
    </sect2>
 
-   <!-- FIXME: check the title -->
    <sect2>
-    <title>Applying Configuration Settings</title>
+    <title>System Configuration Settings</title>
     <para>
-     After confirming the registration data, the automatic configuration
+     After confirming the registration data, the system configuration
      with the supplied settings will take place.
     </para>
 
@@ -465,6 +466,13 @@
      MasterMedia</guimenu>.  Then select the SAP Installation Master
      medium, from where you can select SAP products.  After copying the
      SAP media, enter the SAP data. -->
+
+     <!--
+FIXME
+PETER - missing: next part of the wizard: SAP + data partition 
+KARL: Bislang habe/hatte ich keine Medien, um das zu testen...  Ich will
+jetzt mal schauen, was ich deiner Präsentation entnehmen kann.
+     -->
     </para>
 
    </sect2>
@@ -492,17 +500,20 @@
      in the next dialog.
     </para>
 
+    <!-- commenting for the moment...
     <para>
      &ay; will look on USB devices for the XML configuration file
      (external profile). Plug in an USB device and store your config in
      a way like it is on the DVD in the
      <filename>/sap-apl/rules</filename> directory.
     </para>
+    -->
 
     <para>
      You can choose the SAP specific pattern, the HA, WebYaST components
      and SAP specific IBM Java as well in this installation scenario,
-     but they are <emphasis>not</emphasis> preselected.
+     but they are <emphasis>not</emphasis> preselected.  This must be
+     done by yourself in your <filename>autoyast.xml</filename>.
     </para>
 
     <sect2>
