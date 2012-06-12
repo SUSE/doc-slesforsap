@@ -29,9 +29,10 @@
    </step>
    <step>
     <para>Choose one of the bootmenu options and edit the command line: Remove
-    the parameters <literal>instmode=cd netsetup=0</literal> from the
-    commandline and change <literal>autoyast=file:///</literal> to
-    <literal>autoyast=http://example.com/mydir/</literal> and add the parameter
+    the parameter <literal>instmode=cd</literal> from the
+    commandline and change <literal>netsetup=0</literal> to
+    <literal>netsetup=1</literal> and <literal>autoyast=file:///</literal> to
+    <literal>autoyast=http://example.com/mydir/</literal>, and add the parameter
     <literal>install=http://example.com/mydir</literal>.</para>
    </step>
   </procedure>
