@@ -5,12 +5,15 @@
 %entities;
 ]>
 <sect1 id="s4s.configuration">
+<!--
  <title>Tuning &sles4sap;</title>
-
+-->
  <para>
  </para>
 
+<!--
  <sect2>
+-->
   <title>Kernel: Page-Cache Limit</title>
 
   <variablelist>
@@ -56,10 +59,12 @@
     </listitem>
    </varlistentry>
   </variablelist>
+<!--
  </sect2>
  <sect2>
   <title>For More Information</title>
 
   <para>For more information about tuning &sls; see the SLES &tuning;.</para>
  </sect2>
+-->
 </sect1>
