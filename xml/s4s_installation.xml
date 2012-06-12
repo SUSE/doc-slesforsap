@@ -223,39 +223,41 @@
     </mediaobject>
    </figure>
 
-       <para>
-       If there is just one hard disk, keep it as the system
-       volume device and set the size of the system volume (and the swap
-       space) in GB in the lower field and confirm it;  see <xref
-       linkend="fig.s4s.inst.yast-storage-system"/>.
-       </para>
+   <para>
+    If there is just one hard disk, keep it as the system volume device
+    and set the size of the system volume (and the swap space) in GB in
+    the lower field and confirm it; see <xref
+    linkend="fig.s4s.inst.yast-storage-system"/>.
+   </para>
 
-       <tip>
-        <title>Size of the System Volume</title>
-        <para>
-         At least, 60 GB is required for the system volume.  The swap
-         space depends on the available main memory (RAM).  For more
-         information, see the SAP note 0001597355.
-        </para>
-       </tip>
+   <tip>
+    <title>Size of the System Volume</title>
+    <para>
+     At least, 60 GB is required for the system volume.  The swap space
+     depends on the available main memory (RAM).  For more information,
+     see the SAP note 0001597355.
+    </para>
+   </tip>
 
-       <para>If there is more than one hard disk, select the right one
-       as the system volume device and set the size of the system volume
-       (and the swap space) in GB in the lower fields and confirm it.
-       </para>
+   <para>
+    If there is more than one hard disk, select the right one as the
+    system volume device and set the size of the system volume (and the
+    swap space) in GB in the lower fields and confirm it.
+   </para>
 
-       <warning>
-        <title>Deleting Data</title>
-        <para>If you confirm the storage volume configuration, all
-        existing data on the hard disk will be deleted.  If you do not
-        want this to happen, turn off the system.</para>
-       </warning>
+   <warning>
+    <title>Deleting Data</title>
+    <para>
+     If you confirm the storage volume configuration, all existing data
+     on the hard disk will be deleted.  If you do not want this to
+     happen, turn off the system.
+    </para>
+   </warning>
 
-       <para>
-        After confirmation &yast; performs the software installation.
-        Packages are installed one by one, thus you can see the
-        progress.
-       </para>
+   <para>
+    After confirmation &yast; performs the software installation.
+    Packages are installed one by one, thus you can see the progress.
+   </para>
   </sect2>
 
   <sect2 id="sec.s4s.inst.wizard.yast2.user.root">
