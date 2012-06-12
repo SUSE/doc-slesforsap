@@ -40,20 +40,21 @@
   <para>
     That is all you need for a network installation. If you want to avoid using
     a DVD to bootstrap the system and boot from the network via PXE, read the
-    documentation about setting up a PXE environment (<ulink url="http://www.suse.de/~ug/autoyast_doc/bootmedium.html"/>).</para>
+    SLES &ay; documentation about setting up a PXE environment.</para>
  </sect1>
 
  <sect1>
   <title>Installing from an NFS Server with the Installation Wizard</title>
 
   <para>
-If you want to put your media on an NFS Server, proceed as follows:</para>
+   If you want to put your media on an NFS Server, proceed as follows:
+  </para>
 
   <procedure>
    <step>
     <para>
-     Create a directory <filename>/srv/www/htdocs/sap_test</filename> on
-     your installation server.
+     Create a directory <filename>/srv/www/htdocs/sap_repo</filename>
+     on your installation server.
     </para>
    </step>
    <step>
@@ -61,12 +62,13 @@ If you want to put your media on an NFS Server, proceed as follows:</para>
      Edit your <filename>/etc/exports</filename> file on the installation
      server by adding the following:
     </para>
-    <screen>/srv/www/htdocs/sap_test *(ro,root_squash,sync)</screen>
+    <screen>/srv/www/htdocs/sap_repo *(ro,root_squash,sync)</screen>
    </step>
    <step>
     <para>
-    Create a directory for every SAP media you have,
-    for example <filename>/srv/www/htdocs/sap_test/sapcd1</filename>.
+     In <filename>/srv/www/htdocs/sap_repo</filename> create a directory for
+     every SAP media you have, for example <filename>sapcd_1</filename>,
+     <filename>sapcd_2</filename>, etc.
     </para>
    </step>
    <step>
@@ -76,7 +78,7 @@ If you want to put your media on an NFS Server, proceed as follows:</para>
    </step>
   </procedure>
   <para>
-    Now the Installation Wizard can also install from your NFS server.
+    Now you can install from the NFS server.
  </para>
  </sect1>
 </chapter>
