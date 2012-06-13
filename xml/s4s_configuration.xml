@@ -5,13 +5,13 @@
 %entities;
 ]>
 <sect1 id="s4s.configuration">
- <!--
- <title>Tuning &sles4sap;</title>
+
+ <title>Configuring &sles4sap;</title>
  <para>
  </para>
 
- <sect2>
- -->
+ <sect2 id="s4s.config.page-cache">
+
   <title>Kernel: Page-Cache Limit</title>
 
   <para>
@@ -60,8 +60,22 @@
     </listitem>
    </varlistentry>
   </variablelist>
-<!--
  </sect2>
+ <!-- ==================================================================== -->
+ <sect2 id="s4s.config.ports">
+
+  <title>Ports Configuration</title>
+
+  <para>
+   SAP applications require many open ports and port ranges.  The exact numbers
+   depend on the selected instances, for example: 3200-3399, 3600, 4700-4899,
+   7200-7299, 50000-59999.  It is also required to open 1128 and 1129 (TCP and
+   DP), all the ports needed for the used databases (Oracle, DB2, MaxDB,
+   Sybase).
+  </para>
+ </sect2>
+
+<!--
  <sect2>
   <title>For More Information</title>
 
