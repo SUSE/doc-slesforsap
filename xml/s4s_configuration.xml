@@ -5,16 +5,17 @@
 %entities;
 ]>
 <sect1 id="s4s.configuration">
-<!--
+ <!--
  <title>Tuning &sles4sap;</title>
--->
  <para>
  </para>
 
-<!--
  <sect2>
--->
+ -->
   <title>Kernel: Page-Cache Limit</title>
+
+  <para>
+  </para>
 
   <variablelist>
    <varlistentry>
