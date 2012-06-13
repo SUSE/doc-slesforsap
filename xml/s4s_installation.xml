@@ -438,6 +438,21 @@
     <para>
      No user action is required at this stage.
     </para>
+
+    <warning>
+     <title>Firewall Disabled</title>
+     <para>
+      This wizard based installation scenario disables the firewall
+      (SuSEfirewall2) completely.
+     </para>
+     <para>
+      If needed, you can activate the firewall after the installation.
+      But then you have to make sure to open all required ports
+      manually.  For more information about required ports, see <xref
+      linkend="s4s.config.ports"/>.
+     </para>
+    </warning>
+
    </sect2>
 
    <sect2 id="sec.s4s.inst.wizard.sap-product-install">
