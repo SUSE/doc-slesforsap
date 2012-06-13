@@ -95,7 +95,7 @@
    <listitem>
     <para>Basically a standard SLES installation prepared for installing
     SAP applications later.  You can install the SAP applications either
-    with the provided Installation Wizard or with third party
+    with the provided Installation Wizard or with 3rd party
     installation routines.</para>
 
     <para>This scenario os suitable for experienced administrators, who
