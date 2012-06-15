@@ -86,8 +86,9 @@ SUSE Linux Enterprise Server Priority Support for SAP Applications (optional)
    <title>&sls;</title>
 
    <para>
-    &sls; is the most interoperable platform for mission-critical
-    computing, both physical and virtual.
+    The current release is based on &sls; 11 Service Pack 2.  &sls; is
+    the most interoperable platform for mission-critical computing, both
+    physical and virtual.
    </para>
 
   </sect2>
