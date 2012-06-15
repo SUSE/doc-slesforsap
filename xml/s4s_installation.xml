@@ -114,7 +114,9 @@
    Wizard</guimenu> (see <xref linkend="s4s.inst.wizard"/>)</term>
    <listitem>
     <para>This is a guided installation of the operating system and the
-    SAP applications.</para>
+    SAP applications.  After the installation of the operating system
+    the Media-Changer will start for installing a validated SAP
+    solution.</para>
    </listitem>
   </varlistentry>
   <varlistentry>
@@ -171,6 +173,11 @@
    (<systemitem>sap-loc</systemitem> and
    <systemitem>sapconf</systemitem>) pattern will get installed by
    default and basic settings will be done.
+  </para>
+
+  <para>
+   You will be prompted for all common installation settings, like
+   partitioning of storage devices, network, or software packages.
   </para>
 
  </sect1>
@@ -474,7 +481,7 @@
     <para>
      After applying the configuration settings, you are considered to
      continue with the <guimenu>SAP Product Installation</guimenu> using
-     the SAP Installation Wizard.
+     the SAP Installation Wizard (Media-Changer).
 
      <!-- Confirm the popup; see <xref
      linkend="fig.s4s.inst.yast-start-sap-install"/>.  In the next
