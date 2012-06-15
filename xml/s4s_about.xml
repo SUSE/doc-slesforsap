@@ -146,7 +146,8 @@ Resource agents, also for SAP
   
   <sect2>
    <title>ClamSAP</title>
-   <para></para>
+   <para>ClamSAP is a new antivirus toolkit integration.  For more
+   information, see <xref linkend="s4s.comp.clamsap"/>.</para>
   </sect2>
 
  </sect1>
