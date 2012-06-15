@@ -29,19 +29,86 @@
  <sect1 id="s4s.comp.wizard">
   <title>The Installation Wizard</title>
 
-   <para>The Installation Wizard offers a guided installation path for both,
-   the &sls; operating system and the SAP applications.</para>
+  <para>
+   The Installation Wizard offers a guided installation path for both,
+   the &sls; operating system and the SAP applications.
+  </para>
 
-   <para>Additionally, it is an installation framework for third party
+  <para>Additionally, it is an installation framework for third party
    extension.</para>
+
+  <para>
+   The Installation Wizard consists of four parts:
+</para>
+  <orderedlist>
+   <listitem>
+    <para>
+     Installation of the operating system (&sls;)
+</para>
+   </listitem>
+   <listitem>
+    <para>
+     SAP Wizard Part 1: Copying all required SAP media to the local
+     disk.</para>
+   </listitem>
+   <listitem>
+    <para>
+     SAP Wizard Part 2: Collecting all parameters for the actual installation
+     by querying the user interactively.</para>
+   </listitem>
+   <listitem>
+    <para>
+     SAP Wizard Part 3: Running the SAP Installer.</para>
+   </listitem>
+  </orderedlist>
+  
+  <para>
+   It is possible to run all these parts mostly separately.  This way, very
+   flexible installation scenarios is possible.  Here are some examples:</para>
+
+  <itemizedlist>
+   <listitem>
+    <para>
+Just preparing a machine with the operating system (&sls;) and run the SAP
+Wizard later.</para>
+   </listitem>
+   <listitem>
+    <para>
+     Just preparing a machine with the operating system (&sls;), copying the
+     SAP media, and collecting the SAP installation parameters.</para>
+   </listitem>
+   <listitem>
+    <para>
+     You can copy such an installation to other machines, maybe with adjusting
+     just a few SAP installation parameters.  Then finally run the SAP
+     Installer.</para>
+   </listitem>
+  </itemizedlist>
+
+<!-- FIXME:
+
+III)
+Wir haben in der neuen Version die Partitionierung verändert.
+Autoyast hat vorher fixe Rules gemacht.
+
+Nun machen wir eine (fast) fixe Partitionierung nur für das OS
+und dann eine "Anwendungsabhänginge" (von Produktauswahl )
+Partitionierung die template basierend ist.
+
+Hier der Hinweis auf die SAP-Note mit SWAP
+-->
 
   <!--
         4.3.1 what is it
         4.3.2 further use-cases/sceanrios
 	4.3.3 crypto-cd
+        sollte im SAP BAiO guide beschrieben sein
+
         4.3.4 supplement cd
+        done (along the Workshop slides)
         4.3.5 partitioner templates
-        4.4 ClamAV
+        neues feature -> Peter Varkoly
+
   -->
 
   <sect2 id="s4s.comp.wizard.suppl">
@@ -192,11 +259,36 @@ You can also install rpm packages within the
    </sect3>
    <sect3>
     <title>Example Directory for the Supplement Media</title>
-    <screen># ls 
+    <screen># ls
 /
 |--Product.xml
 </screen>
    </sect3>
+  </sect2>
+
+  <sect2  id="s4s.comp.clamsap">
+   <title>ClamSAP</title>
+   <para>
+ClamSAP is a new antivirus toolkit integration with the SAP Virus Scan
+Interface that improves cross-platform threat detection.</para>
+
+   <para>
+ClamSAP is a 'C' shared library to link between ClamAV and the virus scan
+interface of SAP (NW-VSI). A SAP application can use the ClamAV engine to scan
+for malicious uploads in HTTP uploads for example. If you want use Virus Scan
+within SAP applications you can use Virus Scan Interface in SAP (transaction
+VSCAN). There is an opensource adapter for the ClamAV engine on <ulink
+url="http://freshmeat.net/projects/clamsap/"/>. The library allows an
+integration of ClamAV into SAP and works also on Unix where most other products
+do not run.</para>
+
+   <para>
+ClamAV is an open source (GPL) antivirus engine designed for detecting
+Trojans, viruses, malware and other malicious threats. It is the de
+facto standard for mail gateway scanning. It provides a high performance
+mutli-threaded scanning daemon, command line utilities for on demand
+file scanning, and an intelligent tool for automatic signature updates.
+For more information, see <ulink url="http://www.clamav.net"/>.</para>
   </sect2>
  </sect1>
 
