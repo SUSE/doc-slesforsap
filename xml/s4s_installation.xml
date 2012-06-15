@@ -481,7 +481,8 @@
     <para>
      After applying the configuration settings, you are considered to
      continue with the <guimenu>SAP Product Installation</guimenu> using
-     the SAP Installation Wizard (Media-Changer).
+     the SAP Installation Wizard (Media-Changer) covering BOBJ,
+     Netweaver, and HANA.
 
      <!-- Confirm the popup; see <xref
      linkend="fig.s4s.inst.yast-start-sap-install"/>.  In the next
