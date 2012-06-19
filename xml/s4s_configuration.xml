@@ -53,7 +53,28 @@
       RAM in the system.
      </para>
      <para>
-      For more information, see SAP Note 1557506: Linux paging
+      Two new kernel options exists for configuration:
+     </para>
+     <itemizedlist>
+      <listitem>
+       <para>
+        vm.pagecache_limit_mb (/proc/sys/vm/pagecache_limit_mb)
+       </para>
+      </listitem>
+      <listitem>
+       <para>
+        vm.pagecache_limit_ignore_dirty (/proc/sys/vm/pagecache_limit_ignore_dirty)
+       </para>
+      </listitem>
+     </itemizedlist>
+     <para>
+      For permanent use, set them in <filename>/etc/sysctl.conf</filename>, e.g.
+     </para>
+     <screen>vm.pagecache_limit_mb = 1024
+vm.pagecache_limit_ignore_dirty = 0</screen>
+
+     <para>
+      For background information, see SAP Note 1557506: Linux paging
       improvements <ulink
       url="https://service.sap.com/sap/support/notes/1557506"/>.
      </para>
