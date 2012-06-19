@@ -114,10 +114,10 @@ Hier der Hinweis auf die SAP-Note mit SWAP
   <sect2 id="s4s.comp.wizard.suppl">
    <title>Supplement Media</title>
    <para>
-The basic idea of the “Supplement Media” is to enable partners or customers to add own tasks or workflows to the Installation Wizard based installation.
+The basic idea of the <quote>Supplement Media</quote> is to enable partners or customers to add own tasks or workflows to the Installation Wizard based installation.
    </para>
    <para>
-It is done by a small XML file, which is not different as a part of an &ay; XML file. This file must be called <filename>product.xml</filename>; then it will be included into the work flow.
+It is done by a small XML file, which is not different as a part of an &ay; XML file. This file must be called <filename>product.xml</filename>; then it will be included into the workflow.
    </para>
    <para>
 This can be used for various types of additions, e.g. adding your own
@@ -163,14 +163,14 @@ All other sections will be replaced.
 
 <para>
  For the details about other customization options, see the SLES &ay;
- Guide, Chapter <quote>4.12. Custom user scripts</quote>.
+ Guide, Chapter <quote>4.12. Custom User Scripts</quote>.
 </para>
    </sect3>
 
    <sect3>
     <title>Own &ay; Ask Dialogs</title>
     <para>
-For a general overview and the details of the Ask feature of &ay;, see Chapter <quote>4.17.  Ask the user for values during installation</quote> of the SLES &ay; Guide.
+For a general overview and the details of the Ask feature of &ay;, see Chapter <quote>4.17.  Ask the User for Values During Installation</quote> of the SLES &ay; Guide.
     </para>
     <para>
 For the supplement media you can only use dialogs within the
@@ -238,15 +238,15 @@ check_name "$VAL"
 </profile>]]></screen>
    </sect3>
    <sect3>
-    <title>Install additional packages</title>
+    <title>Install Additional Packages</title>
     <para>
-You can also install rpm packages within the
+You can also install RPM packages within the
 <filename>product.xml</filename> file. For this you could use the
 <literal>&lt;post-packages></literal> element for install in stage 2.
     </para>
     <para>
      For more information, see the SLES &ay; Guide, Chapter
-     <quote>4.5.6. Installing packages during stage 2</quote>.  An
+     <quote>4.5.6. Installing Packages during Stage 2</quote>.  An
      example looks as follows:
     </para>
 <screen><![CDATA[...
