@@ -7,13 +7,35 @@
 <chapter id="s4s.installation">
  <title>Default Installation Scenarios</title>
 
-  <para>
+  <para>After planning the installation with downloading the software
+  and checking the minimal hardware requirements, there are three
+  default installation scenarios:
   </para>
+
+  <itemizedlist>
+   <listitem>
+    <para>
+     <xref linkend="s4s.inst.inst" xrefstyle="select:title,nopage"/>
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     <xref linkend="s4s.inst.wizard" xrefstyle="select:title,nopage"/>
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     <xref linkend="s4s.inst.profile" xrefstyle="select:title,nopage"/>
+    </para>
+   </listitem>
+  </itemizedlist>
 
  <sect1 id="s4s.inst.planning">
   <title>Planning the Installation</title>
 
   <para>
+   Plan the installation with downloading the software and checking the
+   minimal hardware requirements.
   </para>
 
   <sect2>
@@ -483,6 +505,7 @@
      continue with the <guimenu>SAP Product Installation</guimenu> using
      the SAP Installation Wizard (Media-Changer) covering BOBJ,
      Netweaver, and HANA.
+    </para>
 
      <!-- Confirm the popup; see <xref
      linkend="fig.s4s.inst.yast-start-sap-install"/>.  In the next
@@ -497,7 +520,32 @@ PETER - missing: next part of the wizard: SAP + data partition
 KARL: Bislang habe/hatte ich keine Medien, um das zu testen...  Ich will
 jetzt mal schauen, was ich deiner Präsentation entnehmen kann.
      -->
-    </para>
+     <!--
+II)
+Die Installation besteht aus 4 Teilen
+
+1. OS-Installation
+2. Wizard Teil-1 kopiert die notwendigen Teile SAP medien auf die lokale
+Platte
+3. Wizard Teil-2 Fragt die parameter für die Installation ab
+4. Wizard Teil-3 Ruft sap-installer auf
+
+Jeder dieser Teile kann nahezu separat laufen.
+
+Damit kann man z.b.
+Einen Rechner mit OS vorbereiten und später den Wizard laufen lassen
+(=nur 1.)
+Eine Rechner mit OS vorbereiten und die SAP Medien kopieren und
+Parameter vorbereiten
+(=nur 1+2+3)
+Dies kann nun einfach kopiert werden und somit genau die gleiche
+Installation auf anderen Rechnern gemacht werden. Oder mit geringer
+Anpassung der Input-Parameter-Dateien abgewandelt werden.
+und dann nur 4. laufen lassen
+
+usw.
+     -->
+
 
    </sect2>
 
