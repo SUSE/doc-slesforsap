@@ -32,12 +32,12 @@
   <title>The Installation Wizard</title>
 
   <para>
-   The Installation Wizard offers a guided installation path for both,
+   The Installation Wizard offers a guided installation path for both
    the &sls; operating system and the SAP applications.
   </para>
 
-  <para>Additionally, it is an installation framework for third party
-   extension.</para>
+  <para>Additionally, it is an installation framework for 3rd party
+   extensions.</para>
 
   <para>
    The Installation Wizard consists of four parts:
@@ -65,23 +65,23 @@
   </orderedlist>
   
   <para>
-   It is possible to run all these parts mostly separately.  This way, very
-   flexible installation scenarios is possible.  Here are some examples:</para>
+   It is possible to run most of these parts separately.  This way, very
+   flexible installation scenarios are possible.  Here are some examples:</para>
 
   <itemizedlist>
    <listitem>
     <para>
-Just preparing a machine with the operating system (&sls;) and run the SAP
+Just prepare a machine with the operating system (&sls;) and run the SAP
 Wizard later.</para>
    </listitem>
    <listitem>
     <para>
-     Just preparing a machine with the operating system (&sls;), copying the
-     SAP media, and collecting the SAP installation parameters.</para>
+     Just prepare a machine with the operating system (&sls;), copy the
+     SAP media, and collect the SAP installation parameters.</para>
    </listitem>
    <listitem>
     <para>
-     You can copy such an installation to other machines, maybe with adjusting
+     You can copy such an installation to other machines, maybe adjusting
      just a few SAP installation parameters.  Then finally run the SAP
      Installer.</para>
    </listitem>
@@ -116,14 +116,15 @@ Hier der Hinweis auf die SAP-Note mit SWAP
   <sect2 id="s4s.comp.wizard.suppl">
    <title>Supplement Media</title>
    <para>
-The basic idea of the <quote>Supplement Media</quote> is to enable partners or customers to add own tasks or workflows to the Installation Wizard based installation.
+The basic idea of the <quote>Supplement Media</quote> is to enable
+partners or customers to add their own tasks or workflows to the Installation Wizard-based installation.
    </para>
    <para>
-It is done by a small XML file, which is not different as a part of an &ay; XML file. This file must be called <filename>product.xml</filename>; then it will be included into the workflow.
+It is done by adding a small XML file, which will be part of an &ay; XML file. This file must be called <filename>product.xml</filename>; then it will be included in the workflow.
    </para>
    <para>
-This can be used for various types of additions, e.g. adding your own
-RPMs, running your own scripts up to setting up a cluster file system or
+This can be used for various types of additions, such as adding your own
+RPMs, running your own scripts, setting up a cluster file system or
 creating your own dialogs and scripts.
    </para>
 
@@ -131,17 +132,18 @@ creating your own dialogs and scripts.
     <title><filename>product.xml</filename></title>
 
     <para>
-The <filename>product.xml</filename> looks like a normal &ay;
+The <filename>product.xml</filename> file looks like a normal &ay;
 XML file, but with some restrictions.
     </para>
     <para>
-The restriction are coming from the circumstance that only the parts for the second stage of the installation could be run, because the first stage was executed before.
+The restrictions relate to the fact that only the parts for the second
+stage of the installation can be run, because the first stage was executed before.
     </para>
     <para>
 Both XML files (<filename>autoyast.xml</filename> and
 <filename>product.xml</filename>) will be merged after the media is read
 and a <quote>new</quote> &ay; XML file is generated on the fly for the
-further workflow.
+additional workflow.
     </para>
     <para>
      The following areas or sections will be merged:
@@ -157,22 +159,22 @@ further workflow.
   <post-scripts>     (during the first boot of the installed system, no
                       services running)
   <init-scripts>     (during the first boot of the installed system, all
-                      services up and  running)
+                      services up and running)
   ...]]></screen>
 <para>
 All other sections will be replaced.
 </para>
 
 <para>
- For the details about other customization options, see the SLES &ay;
- Guide, Chapter <quote>4.12. Custom User Scripts</quote>.
+ For the details of other customization options, see the SLES &ay;
+ Guide, Chapter 4.12. <quote>Custom User Scripts</quote>.
 </para>
    </sect3>
 
    <sect3>
     <title>Own &ay; Ask Dialogs</title>
     <para>
-For a general overview and the details of the Ask feature of &ay;, see Chapter <quote>4.17.  Ask the User for Values During Installation</quote> of the SLES &ay; Guide.
+For a general overview and details of the Ask feature of &ay;, see Chapter 4.17.  <quote>Ask the User for Values During Installation</quote> of the SLES &ay; Guide.
     </para>
     <para>
 For the supplement media you can only use dialogs within the
@@ -187,9 +189,9 @@ Your file with the dialogs will be merged with the base &ay; XML file.
 As a best practice, your dialog should have a dialog number and an
 element number, best with steps of 10. This helps to include later
 additions and also could be used as targets for jumping over a dialog or
-element dependent on decisions. We use this too in our base dialogs and
-if you provide the right dialog number and element number you can place
-you dialog between our base dialogs.
+element dependent on decisions. We also use this in our base dialogs and
+if you provide the right dialog number and element number, you can place
+your dialog between our base dialogs.
     </para>
     <para>
 You can store the answer to a question in a file, to use it in one of
@@ -197,7 +199,7 @@ your scripts later.  Be aware that you <emphasis>must</emphasis> use the
 prefix <literal>/tmp/ay</literal> for this, because the Installation
 Wizard will copy such files from the <filename>/tmp</filename> directory
 to the directory where your media data also will be copied.  This is
-done because the next supplement media, could have the same dialogs or
+done because the next supplement media could have the same dialogs or
 same answer file names and would overwrite the values saved here.
     </para>
     <para>
@@ -215,7 +217,7 @@ same answer file names and would overwrite the values saved here.
           <element config:type="integer">10</element>
           <question>What is your name?</question>
           <default>Enter your name here</default>
-          <help>Please enter you full name within the field</help>
+          <help>Please enter your full name within the field</help>
           <file>/tmp/ay_q_my_name</file>
           <script>
              <filename>my_name.sh</filename>
@@ -243,12 +245,12 @@ check_name "$VAL"
     <title>Install Additional Packages</title>
     <para>
 You can also install RPM packages within the
-<filename>product.xml</filename> file. For this you could use the
-<literal>&lt;post-packages></literal> element for install in stage 2.
+<filename>product.xml</filename> file. To do this, you could use the
+<literal>&lt;post-packages></literal> element for installation in stage 2.
     </para>
     <para>
      For more information, see the SLES &ay; Guide, Chapter
-     <quote>4.5.6. Installing Packages during Stage 2</quote>.  An
+     4.5.6. <quote>Installing Packages during Stage 2</quote>.  An
      example looks as follows:
     </para>
 <screen><![CDATA[...
@@ -275,20 +277,21 @@ ClamSAP is a new antivirus toolkit integration with the SAP Virus Scan
 Interface that improves cross-platform threat detection.</para>
 
    <para>
-ClamSAP is a 'C' shared library to link between ClamAV and the virus scan
-interface of SAP (NW-VSI). A SAP application can use the ClamAV engine to scan
-for malicious uploads in HTTP uploads for example. If you want use Virus Scan
-within SAP applications you can use Virus Scan Interface in SAP (transaction
-VSCAN). There is an opensource adapter for the ClamAV engine on <ulink
-url="http://freshmeat.net/projects/clamsap/"/>. The library allows an
-integration of ClamAV into SAP and works also on Unix where most other products
-do not run.</para>
+ClamSAP is a ‘C’ shared library to link between ClamAV and the virus
+scan interface of SAP (NW-VSI). A SAP application can use the ClamAV
+engine to scan for malicious uploads in HTTP uploads for example. If you
+want to use Virus Scan within SAP applications, you can use Virus Scan
+Interface in SAP (transaction VSCAN). There is an open source adapter
+for the ClamAV engine on <ulink
+url="http://freshmeat.net/projects/clamsap/"/>. The library allows
+integration of ClamAV into SAP and works also on Unix, where most other
+anitvirus products do not run.</para>
 
    <para>
 ClamAV is an open source (GPL) antivirus engine designed for detecting
-Trojans, viruses, malware and other malicious threats. It is the de
+Trojans, viruses, malware, and other malicious threats. It is the de
 facto standard for mail gateway scanning. It provides a high performance
-mutli-threaded scanning daemon, command line utilities for on demand
+multi-threaded scanning daemon, command line utilities for on-demand
 file scanning, and an intelligent tool for automatic signature updates.
 For more information, see <ulink url="http://www.clamav.net"/>.</para>
   </sect2>
