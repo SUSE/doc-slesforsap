@@ -20,7 +20,7 @@
    <step>
     <para>
      Copy the &sles4sap; DVD content to a Web server (e.g.,
-    <literal>example.com</literal>) into the directory
+    <literal>example.com</literal>) to the directory
     <filename>/srv/www/htdocs/mydir</filename>.
 </para>
    </step>
@@ -28,9 +28,9 @@
     <para>Boot from DVD.</para>
    </step>
    <step>
-    <para>Choose one of the bootmenu options and edit the command line: Remove
+    <para>Choose one of the boot menu options and edit the command line: remove
     the parameter <literal>instmode=cd</literal> from the
-    commandline and change <literal>netsetup=0</literal> to
+    command line and change <literal>netsetup=0</literal> to
     <literal>netsetup=1</literal> and <literal>autoyast=file:///</literal> to
     <literal>autoyast=http://example.com/mydir/</literal>, and add the parameter
     <literal>install=http://example.com/mydir</literal>.</para>
@@ -38,7 +38,7 @@
   </procedure>
 
   <para>
-    That is all you need for a network installation. If you want to avoid using
+    This is all you need for a network installation. If you want to avoid using
     a DVD to bootstrap the system and boot from the network via PXE, read the
     SLES &ay; documentation about setting up a PXE environment.</para>
  </sect1>
