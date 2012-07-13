@@ -28,12 +28,12 @@
      </para>
      <para>
       Some SAP solutions use large amounts of memory for accelerated
-      access to business data. Parts of this memory are very seldom
+      access to business data. Parts of this memory are seldom
       accessed. When a user request then needs to access paged out
-      memory, the response time is poor.  It is being even worse, when
+      memory, the response time is poor.  It is even worse, when
       an SAP solution running on Java incurs a Java garbage
       collection. The system starts heavy page-in (disc I/O) activity
-      and incurs poor response time for an extended period of time.
+      and has a poor response time for an extended period of time.
      </para>
     </listitem>
    </varlistentry>
@@ -49,11 +49,11 @@
       page-cache is filled to the configured limit, application memory
       is more important and should thus not be paged out. No pages will
       be paged out if the memory footprint of the workload plus the
-      configured page cache limit do not exceed the amount of physical
+      configured page-cache limit do not exceed the amount of physical
       RAM in the system.
      </para>
      <para>
-      Two new kernel options exists for configuration:
+      Two new kernel options are available for configuration:
      </para>
      <itemizedlist>
       <listitem>
@@ -90,8 +90,8 @@ vm.pagecache_limit_ignore_dirty = 0</screen>
   <para>
    SAP applications require many open ports and port ranges.  The exact numbers
    depend on the selected instances, for example: 3200-3399, 3600, 4700-4899,
-   7200-7299, 50000-59999.  It is also required to open 1128 and 1129 (TCP and
-   DP), all the ports needed for the used databases (Oracle, DB2, MaxDB,
+   7200-7299, 50000-59999.  It is also necessary to open 1128 and 1129 (TCP and
+   DP), and all the ports needed for the databases used (Oracle, DB2, MaxDB,
    Sybase).
   </para>
  </sect2>
