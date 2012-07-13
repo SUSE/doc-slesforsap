@@ -92,9 +92,9 @@
  <sect1 id="s4s.inst.booting">
  <title>Booting the Installation Medium</title>
  <para>
-  Different scenarios to install &slsreg; for SAP Applications 11 are
-  available.  Select the wanted installation scenario from the DVD boot
-  menu:
+  Different scenarios are available to install &slsreg; for SAP
+  Applications 11.  Select the preferred installation scenario from the
+  DVD boot menu:
  </para>
 
  <figure id="fig.s4s.dvd.bootmenu">
@@ -126,7 +126,7 @@
     installation routines.
     </para>
     <para>
-    This scenario is suitable for experienced administrators, who want
+    This scenario is suitable for experienced administrators who want
     to install &sles4sap; according to their own plan.
     </para>
    </listitem>
@@ -137,8 +137,8 @@
    <listitem>
     <para>This is a guided installation of the operating system and the
     SAP applications.  After the installation of the operating system
-    the Media-Changer will start for installing a validated SAP
-    solution.</para>
+    the SAP Installation Wizard (Media-Changer) will start for
+    installation of a validated SAP solution.</para>
    </listitem>
   </varlistentry>
   <varlistentry>
@@ -146,11 +146,11 @@
    External Profile</guimenu> (see <xref
    linkend="s4s.inst.profile"/>)</term>
    <listitem>
-    <para>This installation is driven by a user provided &ay;
-    profile.  Without any &suse; provided SAP optimizations.</para>
+    <para>This installation is driven by a user-provided &ay;
+    profile.  There are no &suse;-provided SAP optimizations.</para>
 
-    <para>This scenario is suitable for experienced users, who are
-    familiar with with &ay; and want to deploy their own &ay; profiles
+    <para>This scenario is suitable for experienced users who are
+    familiar with &ay; and want to deploy their own &ay; profiles
     to install &sles4sap;.</para>
    </listitem>
   </varlistentry>
@@ -158,8 +158,8 @@
    <term>Rescue System</term>
    <listitem>
     <para>Starting a minimal Linux system without a graphical user
-    interface. For more information, see Chapter 34, Common Problems and
-    Their Solutions of the &admin;.</para>
+    interface. For more information, see the &admin;, Chapter 34, Common
+    Problems and Their Solutions.</para>
 
    </listitem>
   </varlistentry>
@@ -167,8 +167,8 @@
    <term>Memory Test</term>
    <listitem>
     <para>Testing the system RAM using repeated read and write
-    cycles. For more information, see Chapter 34, Common Problems and
-    Their Solutions of the &admin;.
+    cycles. For more information, see the &admin; Chapter 34, Common
+    Problems and Their Solutions.
     </para>
    </listitem>
   </varlistentry>
@@ -193,8 +193,8 @@
 
    In addition, the SAP Application Server Base
    (<systemitem>sap-loc</systemitem> and
-   <systemitem>sapconf</systemitem>) pattern will get installed by
-   default and basic settings will be done.
+   <systemitem>sapconf</systemitem>) pattern will be installed by
+   default and basic settings will be configured.
   </para>
 
   <para>
@@ -222,19 +222,19 @@
    <para>
         From the DVD boot menu (see <xref
         linkend="fig.s4s.dvd.bootmenu"/>), select <guimenu>SLES for SAP
-        Applications &mdash; Wizard</guimenu>.  The installation process
-        loads and configures a minimal Linux system to run the
-        installation procedure.  To view the boot messages and copyright
-        notices during this process, press <keycap>Esc</keycap>. On
-        completion of this process, the &yast; installation program
-        starts and displays the graphical installer, which will run
-        mostly automated.</para>
+        Applications &mdash; Installation with Wizard</guimenu>.  The
+        installation process loads and configures a minimal Linux system
+        to run the installation procedure.  To view the boot messages
+        and copyright notices during this process, press
+        <keycap>Esc</keycap>. On completion of this process, the &yast;
+        installation program starts and displays the graphical
+        installer, which will run mostly automatically.</para>
   </sect2>
 
   <sect2 id="sec.s4s.inst.wizard.prepauto">
    <title>Preparing System for Automated Installation</title>
    <para>
-    After analyzing your computer, the next &yast; popup dialog will let
+    After analyzing your computer, the next &yast; pop-up dialog will let
     you specify the volume configuration.  Here you configure the volume
     for the system and swap space.  The data volume comes later, after
     you select the SAP Application.
@@ -262,7 +262,7 @@
    <tip>
     <title>Size of the System Volume</title>
     <para>
-     At least, 60 GB is required for the system volume.  The swap space
+     At least 60 GB is required for the system volume.  The swap space
      depends on the available main memory (RAM).  For more information,
      see the SAP Note 1597355: <ulink
      url="https://service.sap.com/sap/support/notes/1597355"/>.
@@ -285,8 +285,8 @@
    </warning>
 
    <para>
-    After confirmation &yast; performs the software installation.
-    Packages are installed one by one, thus you can see the progress.
+    After confirmation, &yast; performs the software installation.
+    Packages are installed one by one, so you can see the progress.
    </para>
   </sect2>
 
@@ -298,7 +298,7 @@
    <secondary>root password</secondary></indexterm>
    <para>
     When all packages are installed, the basic installation is finished,
-    and the system rebooted for initial configuration, you will be
+    and the system is rebooted for initial configuration, you will be
     prompted to enter a Password for the System Administrator
     &rootuser;; see <xref linkend="fig.s4s.inst.yast-root-password"/>.
    </para>
@@ -332,14 +332,14 @@
    </para>
    <para>
     The &rootuser; password can be changed any time later in the
-    installed system. To do so run &yast; and start <menuchoice>
+    installed system. To do so, run &yast; and start <menuchoice>
     <guimenu>Security and Users</guimenu> <guimenu>User and Group
     Management</guimenu> </menuchoice>.
    </para>
    <warning>
     <title>The root User</title>
     <para>
-     The user &rootuser; has all the permissions needed to make changes to
+     The &rootuser; user has all the permissions needed to make changes to
      the system. To carry out such tasks, the &rootuser; password is
      required. You cannot carry out any administrative tasks without this
      password.
@@ -377,7 +377,7 @@
    </figure>
 
    <para>
-     The <guimenu>Hostname</guimenu> is the computer's name in the
+     The <guimenu>Hostname</guimenu> is the computer’s name in the
      network. The <guimenu>Domain Name</guimenu> is the name of the
      network. A hostname and domain are proposed by default.  If your
      system is part of a network, the hostname has to be unique in this
@@ -413,7 +413,7 @@
     </mediaobject>
    </figure>
    <para>
-     For Domain Name Service (DNS) configuration, enter <guimenu>Domain
+     For Domain Name Service (DNS) configuration, enter the <guimenu>Domain
      Searchlist</guimenu> and the <guimenu>IP Address of DNS
      Server</guimenu> plus the IP address of the <guimenu>Default
      Gateway</guimenu> of your network.
@@ -450,18 +450,18 @@
    </figure>
 
     <para>
-     Enter your <guimenu>E-Mail-Address</guimenu> and
+     Enter your <guimenu>E-Mail Address</guimenu> and
      <guimenu>Registration Code</guimenu> for the product.  If you
      provide the registration code now, operating system updates will be
-     automatically installed during the installation of the system.
+     installed automatically during the installation of the system.
     </para>
    </sect2>
 
    <sect2>
     <title>System Configuration Settings</title>
     <para>
-     After confirming the registration data, the system configuration
-     with the supplied settings will take place.
+     After confirming the registration data, the system will be
+     configured with the supplied settings.
     </para>
 
     <para>
@@ -471,12 +471,12 @@
     <warning>
      <title>Firewall Disabled</title>
      <para>
-      This wizard based installation scenario disables the firewall
+      This wizard-based installation scenario disables the firewall
       (SuSEfirewall2) completely.
      </para>
      <para>
       If needed, you can activate the firewall after the installation.
-      But then you have to make sure to open all required ports
+      But then you have to make sure you open all required ports
       manually.  For more information about required ports, see <xref
       linkend="s4s.config.ports"/>.
      </para>
@@ -501,9 +501,9 @@
    </figure>
 
     <para>
-     After applying the configuration settings, you are considered to
+     After applying the configuration settings, you are prompted to
      continue with the <guimenu>SAP Product Installation</guimenu> using
-     the SAP Installation Wizard (Media-Changer) covering BOBJ,
+     the SAP Installation Wizard (Media Changer) covering BOBJ,
      Netweaver, and HANA.
     </para>
 
@@ -556,20 +556,20 @@ usw.
     Installation with External Profile</guimenu></title>
 
     <para>
-     This automated installation is driven by a user provided &ay;
-     profile.  This scenario is suitable for experienced users, who are
-     familiar with with &ay; and want to deploy their own &ay; profiles
+     This automated installation is driven by a user-provided &ay;
+     profile.  This scenario is suitable for experienced users who are
+     familiar with &ay; and want to deploy their own &ay; profiles
      to install &sles4sap;.  For more information about &ay; profiles,
      see the SLES <emphasis>&ay; Guide</emphasis>.
     </para>
 
     <para>
-     In order to use a custom &ay; script select "Install SLES for SAP
-     Applications &mdash; Installation with External Profile" from the
-     DVD Boot Menu.  Within the boot options change the
-     <literal>autoyast=usb:///</literal> parameter to the location of a
-     custom &ay; script, or enter the location when &yast; asks for it
-     in the next dialog.
+     In order to use a custom &ay; script, select <quote>Install SLES
+     for SAP Applications &mdash; Installation with External
+     Profile</quote> from the DVD Boot Menu.  Within the boot options,
+     change the <literal>autoyast=usb:///</literal> parameter to the
+     location of a custom &ay; script, or enter the location when &yast;
+     asks for it in the next dialog.
     </para>
 
     <!-- commenting for the moment...
@@ -582,10 +582,10 @@ usw.
     -->
 
     <para>
-     You can choose the SAP specific pattern, the HA, WebYaST components
-     and SAP specific IBM Java as well in this installation scenario,
-     but they are <emphasis>not</emphasis> preselected.  This must be
-     done by yourself in your <filename>autoyast.xml</filename>.
+     You can also choose the SAP specific pattern, the HA and WebYaST components
+     and SAP-specific IBM Java as well in this installation scenario,
+     but they are <emphasis>not</emphasis> preselected.  You must 
+     do this yourself in your <filename>autoyast.xml</filename> file.
     </para>
 
     <sect2>
@@ -595,12 +595,11 @@ usw.
       &ay; is a system for installing one or more SUSE Linux systems
       automatically and without user intervention. &ay; installations
       are performed using  an &ay; profile with installation and configuration
-      data. That profile can be created using the configuration interface
-      of &ay; and can be  provided to &yast; during installation in
+      data. That profile can be created using the &ay; configuration interface
+      and can be  provided to &yast; during installation in
       different ways.
      </para>
     </sect2>
-
 
    </sect1>
 
