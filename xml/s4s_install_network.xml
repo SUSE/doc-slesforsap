@@ -8,10 +8,10 @@
  <title>Remote Installation from a Network Server</title>
 
  <para>For detailed information about installing &sls; from a network
- server, see the &deploy;, Chapter <quote>Remote
+ server in general, see the &deploy;, Chapter 14, <quote>Remote
  Installation</quote>.</para>
 
- <para>In the following section, find a short description about
+ <para>The following section provides a short description about
  installing from a network server.</para>
 
  <sect1>
