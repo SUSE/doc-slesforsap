@@ -89,10 +89,29 @@ vm.pagecache_limit_ignore_dirty = 0</screen>
 
   <para>
    SAP applications require many open ports and port ranges.  The exact numbers
-   depend on the selected instances, for example: 3200-3399, 3600, 4700-4899,
-   7200-7299, 50000-59999.  It is also necessary to open 1128 and 1129 (TCP and
-   DP), and all the ports needed for the databases used (Oracle, DB2, MaxDB,
-   Sybase).
+   depend on the selected instances, for example:
+  </para>
+  <itemizedlist>
+   <listitem>
+    <para>3200-3399,</para>
+   </listitem>
+   <listitem>
+    <para>3600,</para>
+   </listitem>
+   <listitem>
+    <para>4700-4899,</para>
+   </listitem>
+   <listitem>
+    <para>7200-7299,</para>
+   </listitem>
+   <listitem>
+    <para>50000-59999.</para>
+   </listitem>
+  </itemizedlist>
+
+  <para>
+   It is also necessary to open 1128 and 1129 (TCP and UDP), and all the
+   ports needed for the databases used (Oracle, DB2, MaxDB, Sybase).
   </para>
  </sect2>
 
