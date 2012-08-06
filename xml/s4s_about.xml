@@ -9,7 +9,7 @@
  <abstract>
  <para>
   &sles4sapreg; is a bundle of software and services that addresses
-  specific needs of SAP users.  It is the only operating system that is
+  the specific needs of SAP users.  It is the only operating system that is
   optimized for all SAP software solutions.
  </para>
  </abstract>
@@ -96,11 +96,11 @@ SUSE Linux Enterprise Server Priority Support for SAP Applications (optional)
   <sect2>
    <title>Installation Wizard</title>
 
-   <para>The Installation Wizard offers a guided installation path for both,
+   <para>The Installation Wizard offers a guided installation path for both
    the &sls; operating system and the SAP applications.</para>
 
    <para>Additionally, the workflow can be extended by 3rd party vendors
-   or the customers with the help of the <quote>Supplement Media</quote>
+   or customers with the help of the <quote>Supplement Media</quote>
    (see <xref linkend="s4s.comp.wizard.suppl"/>).</para>
   </sect2>
 
@@ -118,7 +118,7 @@ Cluster manager
     </listitem>
 <listitem>
      <para>
-Cluster filesystem
+Cluster file system
      </para>
 </listitem>
 <listitem>
@@ -138,8 +138,8 @@ Resource agents, also for SAP
    <title>Page-Cache Limit</title>
 
    <para>
-    Limit the kernel file system cache size to influence the swapping
-    behavior.  With this feature you gain better performance by
+    Limit the kernel file system cache size to influence swapping
+    behavior.  With this feature you can gain better performance by
     allocating memory to an application.
    </para>
   </sect2>
@@ -160,10 +160,15 @@ Resource agents, also for SAP
   <sect2>
    <title>Extended Service Pack Overlap Support</title>
 
+   <remark>
+    2012-07-13 ke: rephrased
+   </remark>
+
      <para>
-      Additional one year maintenance cycle to have more time to the
-      next upgrade.  Thus you have an 18 month upgrade window and in the
-      end an 18 month extended lifecycle.
+      One additional year of maintenance; thus you will have more time
+      until performing the next upgrade.  This mean you will have an 18
+      month upgrade window and in the end an 18 month extended
+      lifecycle.
     </para>
 
   </sect2>
@@ -173,12 +178,12 @@ Resource agents, also for SAP
     <itemizedlist>
      <listitem>
       <para>
-       Allows SAP specific patches
+       Allows SAP-specific patches
       </para>
      </listitem>
      <listitem>
       <para>
-       Updates for SAP specific packages
+       Updates for SAP-specific packages
       </para>
      </listitem>
     </itemizedlist>
