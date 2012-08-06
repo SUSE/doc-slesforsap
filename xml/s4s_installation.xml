@@ -79,8 +79,9 @@
     <term>Hard Disk</term>
     <listitem>
      <para>
-      At least 60 GB hard disk space for the system volume and 200 GB
-      for the data partition.
+      For the <guimenu>Installation with Wizard</guimenu>, at least 60
+      GB hard disk space for the system volume and 200 GB for the data
+      partition.
      </para>
     </listitem>
    </varlistentry>
@@ -476,9 +477,9 @@
      </para>
      <para>
       If needed, you can activate the firewall after the installation.
-      But then you have to make sure you open all required ports
-      manually.  For more information about required ports, see <xref
-      linkend="s4s.config.ports"/>.
+      If you activate the firewall after the installation, you must open
+      all required ports manually.  For more information about required
+      ports, see <xref linkend="s4s.config.ports"/>.
      </para>
     </warning>
 
