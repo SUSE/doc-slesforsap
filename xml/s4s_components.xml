@@ -18,10 +18,20 @@
   <para>The &sle; &hasi; infrastructure is part of &sles4sap;.</para>
 
   <para>
-   For more information about &sle; &hasi;, see the &haguide; and the
-   Best Practice Guides at <ulink
-   url="http://www.suse.com/products/sles-for-sap/resource-library/sap-best-practices.html"/>.
+   For more information about &sle; &hasi;, see
   </para>
+  
+  <itemizedlist>
+   <listitem>
+    <para>the &haguide; at <ulink
+    url="http://www.suse.com/documentation/sle_ha/"/> and</para>
+   </listitem>
+   <listitem>
+    <para>the Best Practice Guides at <ulink
+    url="http://www.suse.com/products/sles-for-sap/resource-library/sap-best-practices.html"/>.
+    </para>
+   </listitem>
+  </itemizedlist>
 </sect1>
 
  <!-- page cache limit -->
@@ -51,7 +61,7 @@
    <listitem>
     <para>
      SAP Wizard Part 1: Copying all required SAP media to the local
-     disk.</para>
+     disk or use a shared storage medium.</para>
    </listitem>
    <listitem>
     <para>
@@ -79,13 +89,13 @@ Wizard later.</para>
      Just prepare a machine with the operating system (&sls;), copy the
      SAP media, and collect the SAP installation parameters.</para>
    </listitem>
-   <listitem>
+  </itemizedlist>
+
     <para>
      You can copy such an installation to other machines, maybe adjusting
      just a few SAP installation parameters.  Then finally run the SAP
      Installer.</para>
-   </listitem>
-  </itemizedlist>
+
 
 <!-- FIXME:
 
@@ -148,19 +158,46 @@ additional workflow.
     <para>
      The following areas or sections will be merged:
     </para>
-<screen><![CDATA[<general> section
-  <ask-list>         (see 2)
+<screen>&lt;general>
+  &lt;ask-list>         <co id="co.s4s.ay.general"/>
   ...
-<software> section   (see 3)
-  <post-packages>
+&lt;software>           <co id="co.s4s.ay.software"/>
+  &lt;post-packages>
   ...
-<scripts> section
-  <chroot-scripts>   (after the package installation, before the first boot)
-  <post-scripts>     (during the first boot of the installed system, no
-                      services running)
-  <init-scripts>     (during the first boot of the installed system, all
-                      services up and running)
-  ...]]></screen>
+&lt;scripts>
+  &lt;chroot-scripts>   <co id="co.s4s.ay.chroot"/>
+  &lt;post-scripts>     <co id="co.s4s.ay.post"/>
+  &lt;init-scripts>     <co id="co.s4s.ay.init"/>
+  ...</screen>
+<calloutlist>
+ <callout arearefs="co.s4s.ay.general">
+  <para>
+   see 2
+  </para>
+ </callout>
+ <callout arearefs="co.s4s.ay.software">
+  <para>
+   see 3
+  </para>
+ </callout>
+ <callout arearefs="co.s4s.ay.chroot">
+  <para>
+   after the package installation, before the first boot
+  </para>
+ </callout>
+ <callout  arearefs="co.s4s.ay.post">
+  <para>
+during the first boot of the installed system, no
+                      services running
+  </para>
+ </callout>
+ <callout  arearefs="co.s4s.ay.init">
+  <para>
+during the first boot of the installed system, all
+                      services up and running
+  </para>
+ </callout>
+</calloutlist>
 <para>
 All other sections will be replaced.
 </para>
@@ -245,7 +282,7 @@ check_name "$VAL"
     <title>Install Additional Packages</title>
     <para>
 You can also install RPM packages within the
-<filename>product.xml</filename> file. To do this, you could use the
+<filename>product.xml</filename> file. To do this, you can use the
 <literal>&lt;post-packages></literal> element for installation in stage 2.
     </para>
     <para>
@@ -265,7 +302,7 @@ You can also install RPM packages within the
     <title>Example Directory for the Supplement Media</title>
     <screen># ls
 /
-|--Product.xml
+|--product.xml
 </screen>
    </sect3>
   </sect2>
