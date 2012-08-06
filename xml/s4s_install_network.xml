@@ -47,7 +47,7 @@
   <title>Installing from an NFS Server with the Installation Wizard</title>
 
   <para>
-   If you want to put your media on an NFS Server, proceed as follows:
+   If you want to put the SAP media on an NFS Server, proceed as follows:
   </para>
 
   <procedure>
@@ -59,7 +59,7 @@
    </step>
    <step>
     <para>
-     Edit your <filename>/etc/exports</filename> file on the installation
+     Edit the <filename>/etc/exports</filename> file on the installation
      server by adding the following:
     </para>
     <screen>/srv/www/htdocs/sap_repo *(ro,root_squash,sync)</screen>
