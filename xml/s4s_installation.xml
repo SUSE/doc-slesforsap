@@ -504,8 +504,8 @@
     <para>
      After applying the configuration settings, you are prompted to
      continue with the <guimenu>SAP Product Installation</guimenu> using
-     the SAP Installation Wizard (Media Changer) covering BOBJ,
-     Netweaver, and HANA.
+     the SAP Installation Wizard (Media Changer) covering BOBJ
+     and Netweaver.
     </para>
 
      <!-- Confirm the popup; see <xref
