@@ -14,7 +14,7 @@
  <bookinfo>
   <title>The Guide</title>
    <productname>&productname;</productname>
-   <productnumber>&productnumber;</productnumber>
+   <productnumber>11 SP2</productnumber>
   <date>
    <?dbtimestamp format="B d, Y"?>
   </date>
