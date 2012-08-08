@@ -489,6 +489,13 @@
     <!-- 220-yast-start-sap-install.png -->
     <title>SAP Product Installation</title>
 
+    <para>
+     After applying the configuration settings, you are prompted to
+     continue with the <guimenu>SAP Product Installation</guimenu> using
+     the SAP Installation Wizard (Media Changer) covering BOBJ
+     and Netweaver.
+    </para>
+
     <figure id="fig.s4s.inst.yast-start-sap-install">
     <title>SAP Product Installation</title>
     <mediaobject>
@@ -501,26 +508,93 @@
     </mediaobject>
    </figure>
 
-    <para>
-     After applying the configuration settings, you are prompted to
-     continue with the <guimenu>SAP Product Installation</guimenu> using
-     the SAP Installation Wizard (Media Changer) covering BOBJ
-     and Netweaver.
-    </para>
-
-     <!-- Confirm the popup; see <xref
-     linkend="fig.s4s.inst.yast-start-sap-install"/>.  In the next
-     dialog provide the <guimenu>Location of the SAP Installation
-     MasterMedia</guimenu>.  Then select the SAP Installation Master
-     medium, from where you can select SAP products.  After copying the
-     SAP media, enter the SAP data. -->
-
-     <!--
+        <!--
 FIXME
 PETER - missing: next part of the wizard: SAP + data partition 
 KARL: Bislang habe/hatte ich keine Medien, um das zu testen...  Ich will
 jetzt mal schauen, was ich deiner Präsentation entnehmen kann.
+
+KARL: the following is a start.
      -->
+
+
+   <para>
+    Confirm the pop-up; see <xref
+    linkend="fig.s4s.inst.yast-start-sap-install"/>.  In the next dialog
+    provide the <guimenu>Location of the SAP Installation
+    MasterMedia</guimenu>.  The location could be a local directory, a
+    locally connected device, or a remotely provided source (via NFS or
+    SMB).  As an NFS example, see <xref
+    linkend="fig.s4s.sap.wizard.source.nfs"/>.
+   </para>
+
+<!--
+    <figure id="fig.s4s.sap.wizard.source">
+    <title>SAP Installation Source</title>
+    <mediaobject>
+     <imageobject role="fo">
+      <imagedata fileref="s4s_sap_wizard_source.png" width="100%" format="PNG"/>
+     </imageobject>
+     <imageobject role="html">
+      <imagedata fileref="yast-start-sap-install.png" width="100%" format="PNG"/>
+     </imageobject>
+    </mediaobject>
+   </figure>
+-->
+
+    <figure id="fig.s4s.sap.wizard.source.nfs">
+    <title>SAP Installation Source: NFS</title>
+    <mediaobject>
+     <imageobject role="fo">
+      <imagedata fileref="s4s_sap_wizard_source_nfs.png" width="100%" format="PNG"/>
+     </imageobject>
+     <imageobject role="html">
+      <imagedata fileref="s4s_sap_wizard_source_nfs.png" width="100%" format="PNG"/>
+     </imageobject>
+    </mediaobject>
+   </figure>
+   <para>
+    Then select the SAP Installation Master medium, from where you can
+    select the SAP products you want to install; see <xref
+    linkend="fig.s4s.sap.wizard.avail.products"/>.
+   </para>
+
+    <figure id="fig.s4s.sap.wizard.avail.products">
+    <title>SAP Installation: Available Products</title>
+    <mediaobject>
+     <imageobject role="fo">
+      <imagedata fileref="s4s_sap_wizard_available_products.png" width="100%" format="PNG"/>
+     </imageobject>
+     <imageobject role="html">
+      <imagedata fileref="s4s_sap_wizard_available_products.png" width="100%" format="PNG"/>
+     </imageobject>
+    </mediaobject>
+   </figure>
+
+   <para>
+    After copying the SAP media, as step 2 enter the location of the
+    database medium; see <xref
+    linkend="fig.s4s.sap.wizard.location.db.medium"/>.
+   </para>
+
+
+    <figure id="fig.s4s.sap.wizard.location.db.medium">
+    <title>SAP Installation: Location of the Database Medium</title>
+    <mediaobject>
+     <imageobject role="fo">
+      <imagedata fileref="s4s_sap_wizard_step2_db_media.png" width="100%" format="PNG"/>
+     </imageobject>
+     <imageobject role="html">
+      <imagedata fileref="s4s_sap_wizard_step2_db_media.png" width="100%" format="PNG"/>
+     </imageobject>
+    </mediaobject>
+   </figure>
+
+   <para>
+    Then finish the installation according to the product
+    documentation.
+   </para>
+
      <!--
 II)
 Die Installation besteht aus 4 Teilen
