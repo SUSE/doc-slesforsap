@@ -492,8 +492,7 @@
     <para>
      After applying the configuration settings, you are prompted to
      continue with the <guimenu>SAP Product Installation</guimenu> using
-     the SAP Installation Wizard (Media Changer) covering BOBJ
-     and Netweaver.
+     the SAP Installation Wizard covering BOBJ and Netweaver.
     </para>
 
     <figure id="fig.s4s.inst.yast-start-sap-install">
