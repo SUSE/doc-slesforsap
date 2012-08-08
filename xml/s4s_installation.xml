@@ -555,12 +555,13 @@ KARL: the following is a start.
    </figure>
    <para>
     Then select the SAP Installation Master medium, from where you can
-    select the SAP products you want to install; see <xref
+    select the SAP products you want to install.  The offerings depend
+    on your needs; for example, see <xref
     linkend="fig.s4s.sap.wizard.avail.products"/>.
    </para>
 
     <figure id="fig.s4s.sap.wizard.avail.products">
-    <title>SAP Installation: Available Products</title>
+    <title>SAP Installation: Products Available</title>
     <mediaobject>
      <imageobject role="fo">
       <imagedata fileref="s4s_sap_wizard_available_products.png" width="100%" format="PNG"/>
