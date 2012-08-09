@@ -528,10 +528,12 @@ KARL: the following is a start.
 
     <para>
      To resume the SAP installation with the wizard, start &yast; and
-     select (Computer, then in the YaST Control Center click
-     Miscellaneous SAP Product Installer).  The functionality is the
-     same, but the layout of the dialogs is different; the left progress
-     pane is only displayed, if continue with the installation without a
+     select (<guimenu>Computer</guimenu>, then in the YaST Control
+     Center click
+     <menuchoice><guimenu>Miscellaneous</guimenu><guimenu>SAP Product
+     Installer</guimenu></menuchoice>).  The functionality is the same,
+     but the layout of the dialogs is different; the left progress pane
+     is only displayed, if continue with the installation without a
      restart.
     </para>
     <para>
