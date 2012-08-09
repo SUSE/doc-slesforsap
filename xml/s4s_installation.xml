@@ -516,14 +516,36 @@ jetzt mal schauen, was ich deiner Präsentation entnehmen kann.
 KARL: the following is a start.
      -->
 
-
    <para>
-    Confirm the pop-up; see <xref
-    linkend="fig.s4s.inst.yast-start-sap-install"/>.  In the next dialog
-    provide the <guimenu>Location of the SAP Installation
-    MasterMedia</guimenu>.  The location could be a local directory, a
-    locally connected device, or a remotely provided source (via NFS or
-    SMB).  As an NFS example, see <xref
+    Confirm the pop-up (see <xref
+    linkend="fig.s4s.inst.yast-start-sap-install"/>), if you want to
+    continue right away.  On the other hand, it is possible to interrupt
+    the installation process here and resume after a system restart.
+   </para>
+
+   <tip>
+    <title>Resuming SAP Installation after System Restart</title>
+
+    <para>
+     To resume the SAP installation with the wizard, start &yast; and
+     select (Computer, then in the YaST Control Center click
+     Miscellaneous SAP Product Installer).  The functionality is the
+     same, but the layout of the dialogs is different; the left progress
+     pane is only displayed, if continue with the installation without a
+     restart.
+    </para>
+    <para>
+     The following screen shots document the installation dialogs as
+     seen after a restart.
+    </para>
+   </tip>
+
+   
+   <para>
+    In the next dialog provide the <guimenu>Location of the SAP
+    Installation MasterMedia</guimenu>.  The location could be a local
+    directory, a locally connected device, or a remotely provided source
+    (via NFS or SMB).  As an NFS example, see <xref
     linkend="fig.s4s.sap.wizard.source.nfs"/>.
    </para>
 
@@ -572,8 +594,13 @@ KARL: the following is a start.
    </figure>
 
    <para>
+    Now the relevant part of the SAP media is copied to the hard drive
+    of the machine for the following SAP installation.  This is repeated
+    for all necessary SAP medias, with some additional simple questions.
+   </para>
+   <para>
     After copying the SAP media, as step 2 enter the location of the
-    database medium; see <xref
+    database medium (e.g., TREX.iso); see <xref
     linkend="fig.s4s.sap.wizard.location.db.medium"/>.
    </para>
 
