@@ -492,7 +492,9 @@
     <para>
      After applying the configuration settings, you are prompted to
      continue with the <guimenu>SAP Product Installation</guimenu> using
-     the SAP Installation Wizard covering BOBJ and Netweaver.
+     the SAP Installation Wizard.  The SAP Installation Wizard will
+     install the SAP application from the SAP media kits you received
+     from SAP.  It covers BOBJ and Netweaver.
     </para>
 
     <figure id="fig.s4s.inst.yast-start-sap-install">
@@ -519,8 +521,9 @@ KARL: the following is a start.
    <para>
     Confirm the pop-up (see <xref
     linkend="fig.s4s.inst.yast-start-sap-install"/>), if you want to
-    continue right away.  On the other hand, it is possible to interrupt
-    the installation process here and resume after a system restart.
+    continue with the installation right away.  On the other hand, it is
+    possible to interrupt the installation process at this point and
+    resume it after a system restart.
    </para>
 
    <tip>
@@ -528,32 +531,48 @@ KARL: the following is a start.
 
     <para>
      To resume the SAP installation with the wizard, start &yast; and
-     select (<guimenu>Computer</guimenu>, then in the YaST Control
-     Center click
+     select the <guimenu>SAP Product Installer</guimenu>
+     (<guimenu>Computer</guimenu>, then in the YaST Control Center click
      <menuchoice><guimenu>Miscellaneous</guimenu><guimenu>SAP Product
-     Installer</guimenu></menuchoice>).  The functionality is the same,
-     but the layout of the dialogs is different; the left progress pane
-     is only displayed, if continue with the installation without a
-     restart.
+     Installer</guimenu></menuchoice>; see <xref
+     linkend="fig.s4s.ycc.sap-product-installer"/>).  The functionality
+     is the same, but the layout of the dialogs is different; the left
+     progress pane is only displayed, if continue with the installation
+     without a restart.
     </para>
     <para>
-     The following screen shots document the installation dialogs as
-     seen after a restart.
+     The following screen shots document the installation with the
+     <guimenu>SAP Product Installer</guimenu> as seen after a restart.
     </para>
    </tip>
 
-   
+   <figure id="fig.s4s.ycc.sap-product-installer">
+    <title>&yast; Control Center: SAP Product Installer</title>
+    <mediaobject>
+     <imageobject role="fo">
+      <imagedata fileref="s4s-ycc-sap-product-installer.png" width="80%" format="PNG"/>
+     </imageobject>
+     <imageobject role="html">
+      <imagedata fileref="s4s-ycc-sap-product-installer.png" width="80%" format="PNG"/>
+     </imageobject>
+    </mediaobject>
+   </figure>
+ 
    <para>
     In the next dialog provide the <guimenu>Location of the SAP
-    Installation MasterMedia</guimenu>.  The location could be a local
-    directory, a locally connected device, or a remotely provided source
-    (via NFS or SMB).  As an NFS example, see <xref
-    linkend="fig.s4s.sap.wizard.source.nfs"/>.
+    Installation Master</guimenu> (<quote>Business Suite &mdash;
+    Installation Master</quote>); see <xref
+    linkend="fig.s4s.sap.wizard.source"/>.  The location could be a
+    local source (directory (<literal>dir://</literal>), locally
+    connected hard disk (<literal>device://</literal>), USB mass storage
+    (<literal>usb://</literal>), or CD-ROM
+    (<literal>cdrom://</literal>)) or a remotely provided installation
+    source (NFS (<literal>nfs://</literal>) or SMB
+    (<literal>smb://</literal>)).
    </para>
 
-<!--
     <figure id="fig.s4s.sap.wizard.source">
-    <title>SAP Installation Source</title>
+    <title>SAP Installation Master Location</title>
     <mediaobject>
      <imageobject role="fo">
       <imagedata fileref="s4s_sap_wizard_source.png" width="100%" format="PNG"/>
@@ -563,8 +582,9 @@ KARL: the following is a start.
      </imageobject>
     </mediaobject>
    </figure>
--->
 
+
+<!--
     <figure id="fig.s4s.sap.wizard.source.nfs">
     <title>SAP Installation Source: NFS</title>
     <mediaobject>
@@ -576,10 +596,11 @@ KARL: the following is a start.
      </imageobject>
     </mediaobject>
    </figure>
+-->
    <para>
-    Then select the SAP Installation Master medium, from where you can
-    select the SAP products you want to install.  The offerings depend
-    on your needs; for example, see <xref
+    In the next dialog you can select the SAP products you want to
+    install.  The offerings of available products depend on the media
+    you received from SAP; for example, see <xref
     linkend="fig.s4s.sap.wizard.avail.products"/>.
    </para>
 
