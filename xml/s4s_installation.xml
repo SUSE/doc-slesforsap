@@ -568,7 +568,8 @@ KARL: the following is a start.
     (<literal>usb://</literal>), or CD-ROM
     (<literal>cdrom://</literal>)) or a remotely provided installation
     source (NFS (<literal>nfs://</literal>) or SMB
-    (<literal>smb://</literal>)).
+    (<literal>smb://</literal>))&mdash;select the corresponding option
+    from the pull-down list on the left.
    </para>
 
     <figure id="fig.s4s.sap.wizard.source">
@@ -617,8 +618,10 @@ KARL: the following is a start.
    </figure>
 
    <para>
-    Now the relevant part of the SAP media is copied to the hard drive
-    of the machine for the following SAP installation.  This is repeated
+    For example, select <guimenu>CRMEhP1 &mdash; Enhancement Package&nbsp;1
+    for SAP CRM&nbsp;7.0</guimenu> and click <guimenu>Next</guimenu>.  Now
+    the relevant part of the SAP media will be copied to the hard drive of
+    the machine for the following SAP installation.  This is repeated
     for all necessary SAP medias, with some additional simple questions.
    </para>
    <para>
