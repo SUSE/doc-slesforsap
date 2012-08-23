@@ -542,7 +542,8 @@ KARL: the following is a start.
     </para>
     <para>
      The following screen shots document the installation with the
-     <guimenu>SAP Product Installer</guimenu> as seen after a restart.
+     <guimenu>SAP Product Installer</guimenu> that runs after a restart
+     of the system.
     </para>
    </tip>
 
@@ -560,20 +561,21 @@ KARL: the following is a start.
  
    <para>
     In the next dialog provide the <guimenu>Location of the SAP
-    Installation Master</guimenu> (<quote>Business Suite &mdash;
-    Installation Master</quote>); see <xref
-    linkend="fig.s4s.sap.wizard.source"/>.  The location could be a
-    local source (directory (<literal>dir://</literal>), locally
-    connected hard disk (<literal>device://</literal>), USB mass storage
+    Installation Master</guimenu> (that is the location of the medium,
+    which is called <quote>Business Suite &mdash; Installation
+    Master</quote>); see <xref linkend="fig.s4s.sap.wizard.source"/>.
+    The location could be a local source (directory
+    (<literal>dir://</literal>), locally connected hard disk
+    (<literal>device://</literal>), USB mass storage
     (<literal>usb://</literal>), or CD-ROM
-    (<literal>cdrom://</literal>)) or a remotely provided installation
-    source (NFS (<literal>nfs://</literal>) or SMB
+    (<literal>cdrom://</literal>)), or a remotely provided installation
+    source (either NFS (<literal>nfs://</literal>) or SMB
     (<literal>smb://</literal>))&mdash;select the corresponding option
     from the pull-down list on the left.
    </para>
 
     <figure id="fig.s4s.sap.wizard.source">
-    <title>SAP Installation Master Location</title>
+    <title>SAP Installation Wizard: SAP Installation Master Location</title>
     <mediaobject>
      <imageobject role="fo">
       <imagedata fileref="s4s_sap_wizard_source.png" width="100%" format="PNG"/>
@@ -606,7 +608,7 @@ KARL: the following is a start.
    </para>
 
     <figure id="fig.s4s.sap.wizard.avail.products">
-    <title>SAP Installation: Products Available</title>
+    <title>SAP Installation Wizard: Products Available</title>
     <mediaobject>
      <imageobject role="fo">
       <imagedata fileref="s4s_sap_wizard_available_products.png" width="100%" format="PNG"/>
@@ -621,13 +623,15 @@ KARL: the following is a start.
     For example, select <guimenu>CRMEhP1 &mdash; Enhancement Package&nbsp;1
     for SAP CRM&nbsp;7.0</guimenu> and click <guimenu>Next</guimenu>.  Now
     the relevant part of the SAP media will be copied to the hard drive of
-    the machine for the following SAP installation.  This is repeated
+    the machine for the following SAP installation (after copying, see
+    the contents of <filename>/data/SAP_CDs</filename>).  This is repeated
     for all necessary SAP medias, with some additional simple questions.
    </para>
    <para>
     After copying the SAP media, as step 2 enter the location of the
-    database medium (e.g., TREX.iso); see <xref
-    linkend="fig.s4s.sap.wizard.location.db.medium"/>.
+    database medium (e.g., the SAP MaxDB RDBMS); see <xref
+    linkend="fig.s4s.sap.wizard.location.db.medium"/> for an NFS
+    installation example.
    </para>
 
 
@@ -642,6 +646,8 @@ KARL: the following is a start.
      </imageobject>
     </mediaobject>
    </figure>
+
+<!-- FIXME: continue here -->
 
    <para>
     Then finish the installation according to the product
