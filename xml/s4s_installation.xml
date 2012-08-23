@@ -647,6 +647,27 @@ KARL: the following is a start.
     </mediaobject>
    </figure>
 
+   <para>
+    Now you must provide the medium with the application server
+    framework.  As step 3 you are asked for the <guimenu>Path to a
+    Kernel or Java Medium</guimenu>.  For example, if you want to install
+    an ABAP based system, provide the SAP Kernel for NW70 EHP1 Linux; see <xref
+    linkend="fig.s4s.sap.wizard.location.sap.kernel"/> for an NFS
+    installation example.
+   </para>
+
+    <figure id="fig.s4s.sap.wizard.location.sap.kernel">
+    <title>SAP Installation: Path to a Kernel or Java Medium</title>
+    <mediaobject>
+     <imageobject role="fo">
+      <imagedata fileref="s4s_sap_wizard_step2_kernel_medium.png" width="100%" format="PNG"/>
+     </imageobject>
+     <imageobject role="html">
+      <imagedata fileref="s4s_sap_wizard_step2_kernel_medium.png" width="100%" format="PNG"/>
+     </imageobject>
+    </mediaobject>
+   </figure>
+
 <!-- FIXME: continue here -->
 
    <para>
