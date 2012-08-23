@@ -660,10 +660,10 @@ KARL: the following is a start.
     <title>SAP Installation: Path to a Kernel or Java Medium</title>
     <mediaobject>
      <imageobject role="fo">
-      <imagedata fileref="s4s_sap_wizard_step2_kernel_medium.png" width="100%" format="PNG"/>
+      <imagedata fileref="s4s_sap_wizard_step3_kernel_medium.png" width="100%" format="PNG"/>
      </imageobject>
      <imageobject role="html">
-      <imagedata fileref="s4s_sap_wizard_step2_kernel_medium.png" width="100%" format="PNG"/>
+      <imagedata fileref="s4s_sap_wizard_step3_kernel_medium.png" width="100%" format="PNG"/>
      </imageobject>
     </mediaobject>
    </figure>
