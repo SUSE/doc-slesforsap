@@ -652,11 +652,11 @@ KARL: the following is a start.
     framework.  As step 3 you are asked for the <guimenu>Path to a
     Kernel or Java Medium</guimenu>.  For example, if you want to install
     an ABAP based system, provide the SAP Kernel for NW70 EHP1 Linux; see <xref
-    linkend="fig.s4s.sap.wizard.location.sap.kernel"/> for an NFS
+    linkend="fig.s4s.sap.wizard.path.sap.kernel"/> for an NFS
     installation example.
    </para>
 
-    <figure id="fig.s4s.sap.wizard.location.sap.kernel">
+    <figure id="fig.s4s.sap.wizard.path.sap.kernel">
     <title>SAP Installation: Path to a Kernel or Java Medium</title>
     <mediaobject>
      <imageobject role="fo">
@@ -686,7 +686,37 @@ KARL: the following is a start.
     </mediaobject>
    </figure>
 
+   <para>
+    As step 5 enter the location of the
+    <guimenu>Export Media</guimenu> (e.g., the SAP CRM Installation
+    Export DVD); see <xref
+    linkend="fig.s4s.sap.wizard.location.export.medium"/> for an NFS
+    installation example.
+   </para>
+
+    <figure id="fig.s4s.sap.wizard.location.export.medium">
+    <title>SAP Installation: Location of the Export Media</title>
+    <mediaobject>
+     <imageobject role="fo">
+      <imagedata fileref="s4s_sap_wizard_step5_export_media.png" width="80%" format="PNG"/>
+     </imageobject>
+     <imageobject role="html">
+      <imagedata fileref="s4s_sap_wizard_step5_export_media.png" width="80%" format="PNG"/>
+     </imageobject>
+    </mediaobject>
+   </figure>
+
 <!-- FIXME: continue here -->
+
+   <para>
+    If needed, add additional export media, when installation wizard
+    asks about it.
+   </para>
+
+   <para>
+    At this point, all required data for the SAP installation are
+    selected and copied; now the configuration dialogs will follow.
+   </para>
 
    <para>
     Then finish the installation according to the product
