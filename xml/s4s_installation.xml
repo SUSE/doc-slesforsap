@@ -551,10 +551,10 @@ KARL: the following is a start.
     <title>&yast; Control Center: SAP Product Installer</title>
     <mediaobject>
      <imageobject role="fo">
-      <imagedata fileref="s4s-ycc-sap-product-installer.png" width="80%" format="PNG"/>
+      <imagedata fileref="s4s-ycc-sap-product-installer.png" width="75%" format="PNG"/>
      </imageobject>
      <imageobject role="html">
-      <imagedata fileref="s4s-ycc-sap-product-installer.png" width="80%" format="PNG"/>
+      <imagedata fileref="s4s-ycc-sap-product-installer.png" width="75%" format="PNG"/>
      </imageobject>
     </mediaobject>
    </figure>
@@ -578,10 +578,10 @@ KARL: the following is a start.
     <title>SAP Installation Wizard: SAP Installation Master Location</title>
     <mediaobject>
      <imageobject role="fo">
-      <imagedata fileref="s4s_sap_wizard_source.png" width="100%" format="PNG"/>
+      <imagedata fileref="s4s_sap_wizard_source.png" width="80%" format="PNG"/>
      </imageobject>
      <imageobject role="html">
-      <imagedata fileref="yast-start-sap-install.png" width="100%" format="PNG"/>
+      <imagedata fileref="yast-start-sap-install.png" width="80%" format="PNG"/>
      </imageobject>
     </mediaobject>
    </figure>
@@ -592,10 +592,10 @@ KARL: the following is a start.
     <title>SAP Installation Source: NFS</title>
     <mediaobject>
      <imageobject role="fo">
-      <imagedata fileref="s4s_sap_wizard_source_nfs.png" width="100%" format="PNG"/>
+      <imagedata fileref="s4s_sap_wizard_source_nfs.png" width="80%" format="PNG"/>
      </imageobject>
      <imageobject role="html">
-      <imagedata fileref="s4s_sap_wizard_source_nfs.png" width="100%" format="PNG"/>
+      <imagedata fileref="s4s_sap_wizard_source_nfs.png" width="80%" format="PNG"/>
      </imageobject>
     </mediaobject>
    </figure>
@@ -611,10 +611,10 @@ KARL: the following is a start.
     <title>SAP Installation Wizard: Products Available</title>
     <mediaobject>
      <imageobject role="fo">
-      <imagedata fileref="s4s_sap_wizard_available_products.png" width="100%" format="PNG"/>
+      <imagedata fileref="s4s_sap_wizard_available_products.png" width="80%" format="PNG"/>
      </imageobject>
      <imageobject role="html">
-      <imagedata fileref="s4s_sap_wizard_available_products.png" width="100%" format="PNG"/>
+      <imagedata fileref="s4s_sap_wizard_available_products.png" width="80%" format="PNG"/>
      </imageobject>
     </mediaobject>
    </figure>
@@ -639,10 +639,10 @@ KARL: the following is a start.
     <title>SAP Installation: Location of the Database Medium</title>
     <mediaobject>
      <imageobject role="fo">
-      <imagedata fileref="s4s_sap_wizard_step2_db_media.png" width="100%" format="PNG"/>
+      <imagedata fileref="s4s_sap_wizard_step2_db_media.png" width="80%" format="PNG"/>
      </imageobject>
      <imageobject role="html">
-      <imagedata fileref="s4s_sap_wizard_step2_db_media.png" width="100%" format="PNG"/>
+      <imagedata fileref="s4s_sap_wizard_step2_db_media.png" width="80%" format="PNG"/>
      </imageobject>
     </mediaobject>
    </figure>
@@ -660,10 +660,10 @@ KARL: the following is a start.
     <title>SAP Installation: Path to a Kernel or Java Medium</title>
     <mediaobject>
      <imageobject role="fo">
-      <imagedata fileref="s4s_sap_wizard_step3_kernel_medium.png" width="100%" format="PNG"/>
+      <imagedata fileref="s4s_sap_wizard_step3_kernel_medium.png" width="80%" format="PNG"/>
      </imageobject>
      <imageobject role="html">
-      <imagedata fileref="s4s_sap_wizard_step3_kernel_medium.png" width="100%" format="PNG"/>
+      <imagedata fileref="s4s_sap_wizard_step3_kernel_medium.png" width="80%" format="PNG"/>
      </imageobject>
     </mediaobject>
    </figure>
@@ -678,10 +678,10 @@ KARL: the following is a start.
     <title>SAP Installation: Type of Installation</title>
     <mediaobject>
      <imageobject role="fo">
-      <imagedata fileref="s4s_sap_wizard_step4_installation_type.png" width="100%" format="PNG"/>
+      <imagedata fileref="s4s_sap_wizard_step4_installation_type.png" width="80%" format="PNG"/>
      </imageobject>
      <imageobject role="html">
-      <imagedata fileref="s4s_sap_wizard_step4_installation_type.png" width="100%" format="PNG"/>
+      <imagedata fileref="s4s_sap_wizard_step4_installation_type.png" width="80%" format="PNG"/>
      </imageobject>
     </mediaobject>
    </figure>
