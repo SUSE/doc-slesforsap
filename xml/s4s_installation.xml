@@ -668,6 +668,24 @@ KARL: the following is a start.
     </mediaobject>
    </figure>
 
+   <para>
+    As step 4 for the <guimenu>Type of Installation</guimenu>, select
+    <guimenu>Central Installation</guimenu>; see <xref
+    linkend="fig.s4s.sap.wizard.installation.type"/>.
+   </para>
+
+    <figure id="fig.s4s.sap.wizard.installation.type">
+    <title>SAP Installation: Type of Installation</title>
+    <mediaobject>
+     <imageobject role="fo">
+      <imagedata fileref="s4s_sap_wizard_step4_installation_type.png" width="100%" format="PNG"/>
+     </imageobject>
+     <imageobject role="html">
+      <imagedata fileref="s4s_sap_wizard_step4_installation_type.png" width="100%" format="PNG"/>
+     </imageobject>
+    </mediaobject>
+   </figure>
+
 <!-- FIXME: continue here -->
 
    <para>
