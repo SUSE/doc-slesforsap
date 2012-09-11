@@ -620,8 +620,8 @@ KARL: the following is a start.
    </figure>
 
    <para>
-    For example, select <guimenu>CRMEhP1 &mdash; Enhancement Package&nbsp;1
-    for SAP CRM&nbsp;7.0</guimenu> and click <guimenu>Next</guimenu>.  Now
+    For example, select <guimenu>ERPEhP5 &mdash; Enhancement Package&nbsp;5
+    for SAP ERP&nbsp;6.0</guimenu> and click <guimenu>Next</guimenu>.  Now
     the relevant part of the SAP media will be copied to the hard drive of
     the machine for the following SAP installation (after copying, see
     the contents of <filename>/data/SAP_CDs</filename>).  This is repeated
