@@ -718,8 +718,29 @@ KARL: the following is a start.
 
    <para>
     At this point, all required data for the SAP installation are
-    selected and copied; now the configuration dialogs will follow.
+    selected and copied.  In the following configuration dialogs enter
+    the details for the SAP installation.
    </para>
+
+    <figure id="fig.s4s.sap.wizard.sys.params">
+    <title>SAP System Parameters</title>
+    <mediaobject>
+     <imageobject role="fo">
+      <imagedata fileref="s4s_sap_wizard_sys_params.png" width="80%" format="PNG"/>
+     </imageobject>
+     <imageobject role="html">
+      <imagedata fileref="s4s_sap_wizard_sys_params.png" width="80%" format="PNG"/>
+     </imageobject>
+    </mediaobject>
+   </figure>
+
+   <para>In <xref linkend="fig.s4s.sap.wizard.sys.params"/>, as
+   <guimenu>SID (SAP System ID)</guimenu> enter the three letter SAP
+   System ID such as <literal>ERP</literal>.  Enter the <guimenu>SAP
+   Instance Number</guimenu>.  Enter and repeat the <guimenu>SAP Master
+   Password</guimenu> that must fulfill the requirements described in
+   the help text.  Finally specify the <guimenu>System
+   T-Shirt-Sizing</guimenu>.</para>
 
    <para>
     Then finish the installation according to the product
