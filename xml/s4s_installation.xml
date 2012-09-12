@@ -706,12 +706,15 @@ KARL: the following is a start.
     </mediaobject>
    </figure>
 
-<!-- FIXME: continue here -->
-
    <para>
-    If needed, add additional export media, when installation wizard
+    If needed, add the additional export media, when installation wizard
     asks about it.
    </para>
+
+   <para>To enable encryption, you can then copy a
+   <quote>CryptoAddOn</quote> medium; this is optional.</para>
+
+<!-- FIXME: continue here -->
 
    <para>
     At this point, all required data for the SAP installation are
