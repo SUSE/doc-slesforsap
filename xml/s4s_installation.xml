@@ -808,10 +808,6 @@ KARL: the following is a start.
     with the SAPinst tool.  The SAPinst tool visualized the installation
     steps it performs; see <xref linkend="fig.s4s.sapinst"/>.
    </para>
-   <para>
-    Then finish the installation according to the product
-    documentation.
-   </para>
 
      <!--
 II)
