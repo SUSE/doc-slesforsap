@@ -778,11 +778,25 @@ KARL: the following is a start.
    <para>
     In <xref linkend="fig.s4s.sap.wizard.db.logmode"/>, select the the
     database log mode, and&mdash;if needed&mdash;install the SAP
-    Cryptographic Library.
+    Cryptographic Library.  Provide the location of the Crypto Add-On
+    medium, if the wizard asks for it.
    </para>
 
-<!-- FIXME: continue here -->
+   <!-- Third party? p. -->
 
+   <!-- warning about compat:
+   images/src/png/s4s_sap_wizard_warning_compat.png -->
+
+   <!-- Another product? p. 26 -->
+
+   <!-- FIXME: continue here -->
+
+   <para>
+    Now all installation data (media and settings) are available to the
+    wizard, and the final deployment of the SAP system can take place
+    with the SAPinst tool.  The SAPinst tool visualized the installation
+    steps it performs.
+   </para>
    <para>
     Then finish the installation according to the product
     documentation.
