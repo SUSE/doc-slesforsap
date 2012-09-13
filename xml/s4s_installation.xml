@@ -746,7 +746,7 @@ KARL: the following is a start.
    </para>
 
     <figure id="fig.s4s.sap.wizard.virt.params">
-    <title>SAP System Parameters</title>
+    <title>SAP Virtual Network Settings</title>
     <mediaobject>
      <imageobject role="fo">
       <imagedata fileref="s4s_sap_wizard_virt_params.png" width="80%" format="PNG"/>
@@ -757,10 +757,28 @@ KARL: the following is a start.
     </mediaobject>
    </figure>
 
-
    <para>
     In <xref linkend="fig.s4s.sap.wizard.virt.params"/>, enter the
     virtual network settings.
+   </para>
+
+    <figure id="fig.s4s.sap.wizard.db.logmode">
+    <title>SAP Database Log Mode</title>
+    <mediaobject>
+     <imageobject role="fo">
+      <imagedata fileref="s4s_sap_wizard_db_logmode.png" width="80%" format="PNG"/>
+     </imageobject>
+     <imageobject role="html">
+      <imagedata fileref="s4s_sap_wizard_db_logmode.png" width="80%" format="PNG"/>
+     </imageobject>
+    </mediaobject>
+   </figure>
+
+
+   <para>
+    In <xref linkend="fig.s4s.sap.wizard.db.logmode"/>, select the the
+    database log mode, and&mdash;if needed&mdash;install the SAP
+    Cryptographic Library.
    </para>
 
 <!-- FIXME: continue here -->
