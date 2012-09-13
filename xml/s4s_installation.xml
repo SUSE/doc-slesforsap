@@ -791,11 +791,22 @@ KARL: the following is a start.
 
    <!-- FIXME: continue here -->
 
+    <figure id="fig.s4s.sapinst">
+    <title>SAPinit</title>
+    <mediaobject>
+     <imageobject role="fo">
+      <imagedata fileref="s4s_sapinst.png" width="80%" format="PNG"/>
+     </imageobject>
+     <imageobject role="html">
+      <imagedata fileref="s4s_sapinst.png" width="80%" format="PNG"/>
+     </imageobject>
+    </mediaobject>
+   </figure>
    <para>
     Now all installation data (media and settings) are available to the
     wizard, and the final deployment of the SAP system can take place
     with the SAPinst tool.  The SAPinst tool visualized the installation
-    steps it performs.
+    steps it performs; see <xref linkend="fig.s4s.sapinst"/>.
    </para>
    <para>
     Then finish the installation according to the product
