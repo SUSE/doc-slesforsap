@@ -740,7 +740,10 @@ KARL: the following is a start.
    Instance Number</guimenu>.  Enter and repeat the <guimenu>SAP Master
    Password</guimenu> that must fulfill the requirements described in
    the help text.  Finally specify the <guimenu>System
-   T-Shirt-Sizing</guimenu>.</para>
+   T-Shirt-Sizing</guimenu>.  The <guimenu>SAP SCS Instance
+   Number</guimenu> is only required for Java installations.</para>
+
+<!-- FIXME: continue here -->
 
    <para>
     Then finish the installation according to the product
