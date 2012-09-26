@@ -88,8 +88,9 @@ vm.pagecache_limit_ignore_dirty = 0</screen>
   <title>Ports Configuration</title>
 
   <para>
-   SAP applications require many open ports and port ranges.  The exact numbers
-   depend on the selected instances, for example:
+   SAP applications require many open ports and port ranges in the
+   firewall.  The exact numbers depend on the selected instances, for
+   example:
   </para>
   <itemizedlist>
    <listitem>
@@ -113,6 +114,15 @@ vm.pagecache_limit_ignore_dirty = 0</screen>
    It is also necessary to open 1128 and 1129 (TCP and UDP), and all the
    ports needed for the databases used (Oracle, DB2, MaxDB, Sybase).
   </para>
+
+  <warning>
+   <title>Firewall Activation</title>
+   <para>
+    The firewall is disabled if you use the wizard, and enabled if you
+    use the normal setup.
+   </para>
+  </warning>
+
  </sect2>
 
 <!--
