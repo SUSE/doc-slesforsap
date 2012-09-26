@@ -52,9 +52,10 @@
   </itemizedlist>
 
   <para>
-  &sles4sap; consists of software components and concepts (see <xref
-  linkend="s4s.about.sw"/>) and service offerings (see <xref
-  linkend="s4s.about.services"/>).</para>
+   &sles4sap; consists of software components (see <xref
+   linkend="s4s.about.sw"/>) and service offerings (see <xref
+   linkend="s4s.about.services"/>).
+  </para>
 
   <!--
   <itemizedlist>
@@ -140,7 +141,8 @@ Resource agents, also for SAP
    <para>
     Limit the kernel file system cache size to influence swapping
     behavior.  With this feature you can gain better performance by
-    allocating memory to an application.
+    allocating memory to an application.  For more
+    information, see <xref linkend="s4s.config.page-cache"/>.
    </para>
   </sect2>
   
