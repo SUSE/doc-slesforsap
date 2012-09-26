@@ -221,15 +221,15 @@
    <title>Selecting <guimenu>SLES for SAP Applications &mdash;
    Installation with Wizard</guimenu> from the DVD Boot Menu</title>
    <para>
-        From the DVD boot menu (see <xref
-        linkend="fig.s4s.dvd.bootmenu"/>), select <guimenu>SLES for SAP
-        Applications &mdash; Installation with Wizard</guimenu>.  The
-        installation process loads and configures a minimal Linux system
-        to run the installation procedure.  To view the boot messages
-        and copyright notices during this process, press
-        <keycap>Esc</keycap>. On completion of this process, the &yast;
-        installation program starts and displays the graphical
-        installer, which will run mostly automatically.</para>
+    From the DVD boot menu (see <xref linkend="fig.s4s.dvd.bootmenu"/>),
+    select <guimenu>SLES for SAP Applications &mdash; Installation with
+    Wizard</guimenu>.  The installation process loads and configures a
+    Linux system with all requirements for an SAP installations.  To
+    view the boot messages and copyright notices during this process,
+    press <keycap>Esc</keycap>. On completion of this process, the
+    &yast; installation program starts and displays the graphical
+    installer, which will run mostly automatically.
+   </para>
   </sect2>
 
   <sect2 id="sec.s4s.inst.wizard.prepauto">
@@ -494,7 +494,7 @@
      continue with the <guimenu>SAP Product Installation</guimenu> using
      the SAP Installation Wizard.  The SAP Installation Wizard will
      install the SAP application from the SAP media kits you received
-     from SAP.  It covers BOBJ and Netweaver.
+     from SAP.
     </para>
 
     <figure id="fig.s4s.inst.yast-start-sap-install">
@@ -792,7 +792,7 @@ KARL: the following is a start.
    <!-- FIXME: continue here -->
 
     <figure id="fig.s4s.sapinst">
-    <title>SAPinit</title>
+    <title>SAPinst</title>
     <mediaobject>
      <imageobject role="fo">
       <imagedata fileref="s4s_sapinst.png" width="80%" format="PNG"/>
