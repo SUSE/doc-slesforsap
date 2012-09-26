@@ -138,7 +138,7 @@ RPMs, running your own scripts, setting up a cluster file system or
 creating your own dialogs and scripts.
    </para>
 
-   <sect3>
+   <sect3 id="s4s.comp.wizard.suppl.productxml">
     <title><filename>product.xml</filename></title>
 
     <para>
@@ -172,12 +172,12 @@ additional workflow.
 <calloutlist>
  <callout arearefs="co.s4s.ay.general">
   <para>
-   see 2
+   see <xref linkend="s4s.comp.wizard.suppl.ask"/>
   </para>
  </callout>
  <callout arearefs="co.s4s.ay.software">
   <para>
-   see 3
+   see <xref linkend="s4s.comp.wizard.suppl.addpacks"/>
   </para>
  </callout>
  <callout arearefs="co.s4s.ay.chroot">
@@ -208,7 +208,7 @@ All other sections will be replaced.
 </para>
    </sect3>
 
-   <sect3>
+   <sect3 id="s4s.comp.wizard.suppl.ask">
     <title>Own &ay; Ask Dialogs</title>
     <para>
 For a general overview and details of the Ask feature of &ay;, see Chapter 4.17.  <quote>Ask the User for Values During Installation</quote> of the SLES &ay; Guide.
@@ -278,7 +278,7 @@ check_name "$VAL"
 </general>
 </profile>]]></screen>
    </sect3>
-   <sect3>
+   <sect3 id="s4s.comp.wizard.suppl.addpacks">
     <title>Install Additional Packages</title>
     <para>
 You can also install RPM packages within the
