@@ -182,7 +182,7 @@
   <para>
    The first part is similar to a standard manual &sls; installation;
    for details about such an SLES installation, see the SLES &deploy;,
-   Chapter 6, Installation with &yast;.
+   Chapter 6, <quote>Installation with &yast;</quote>.
 
    <!--
        License, Installation Mode, Time, Server Base scenario,
@@ -573,17 +573,17 @@ KARL: the following is a start.
    </para>
 
    <para>
-    For setting up a remote installation server, see the <emphasis>&sls; 11
-    &deploy;</emphasis>, Section 14.2, <quote>Setting Up the Server Holding
-    the Installation Sources</quote> (the <emphasis>&deploy;</emphasis> comes
+    For setting up a remote installation server, see the &sls; 11
+    &deploy;, Section 14.2, <quote>Setting Up the Server Holding
+    the Installation Sources</quote> (the &deploy; comes
     with the product or is available from <ulink
     url="http://www.suse.com/documentation/sles11/"/>).
    </para>
 
    <para>
     To save time and space, you can also loop mount ISO images on the
-    installation server.  For more information, see the <quote>&sls; 11
-    &deploy;</quote>, Section 14.2.6, <quote>Using ISO Images of the
+    installation server.  For more information, see the &sls; 11
+    &deploy;, Section 14.2.6, <quote>Using ISO Images of the
     Installation Media on the Server</quote>.
    </para>
 
