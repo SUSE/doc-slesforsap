@@ -561,17 +561,30 @@ KARL: the following is a start.
  
    <para>
     In the next dialog provide the <guimenu>Location of the SAP
-    Installation Master</guimenu> (that is the location of the medium,
-    which is called <quote>Business Suite &mdash; Installation
-    Master</quote>); see <xref linkend="fig.s4s.sap.wizard.source"/>.
-    The location could be a local source (directory
-    (<literal>dir://</literal>), locally connected hard disk
-    (<literal>device://</literal>), USB mass storage
+    Installation Master</guimenu>; see <xref
+    linkend="fig.s4s.sap.wizard.source"/>.  The location could be a
+    local source (directory (<literal>dir://</literal>), locally
+    connected hard disk (<literal>device://</literal>), USB mass storage
     (<literal>usb://</literal>), or CD-ROM
     (<literal>cdrom://</literal>)), or a remotely provided installation
     source (either NFS (<literal>nfs://</literal>) or SMB
     (<literal>smb://</literal>))&mdash;select the corresponding option
     from the pull-down list on the left.
+   </para>
+
+   <para>
+    For setting up a remote installation server, see the <quote>&sls; 11
+    &deploy;</quote>, Section 14.2, <quote>Setting Up the Server Holding
+    the Installation Sources</quote> (the <quote>&deploy;</quote> comes
+    with the product or is available from <ulink
+    url="http://www.suse.com/documentation/sles11/"/>).
+   </para>
+
+   <para>
+    To save time and space, you can also loop mount ISO images on the
+    installation server.  For more information, see the <quote>&sls; 11
+    &deploy;</quote>, Section 14.2.6, <quote>Using ISO Images of the
+    Installation Media on the Server</quote>.
    </para>
 
     <figure id="fig.s4s.sap.wizard.source">
@@ -602,9 +615,9 @@ KARL: the following is a start.
 -->
    <para>
     In the next dialog you can select the SAP products you want to
-    install.  The offerings of available products depend on the media
-    you received from SAP; for example, see <xref
-    linkend="fig.s4s.sap.wizard.avail.products"/>.
+    install.  The offerings of available products depend on the
+    media-set and installation master you received from SAP; for
+    example, see <xref linkend="fig.s4s.sap.wizard.avail.products"/>.
    </para>
 
     <figure id="fig.s4s.sap.wizard.avail.products">
@@ -628,9 +641,9 @@ KARL: the following is a start.
     for all necessary SAP medias, with some additional simple questions.
    </para>
    <para>
-    After copying the SAP media, as step 2 enter the location of the
-    database medium (e.g., the SAP MaxDB RDBMS); see <xref
-    linkend="fig.s4s.sap.wizard.location.db.medium"/> for an NFS
+    After copying the Installation Master Media, as step 2 enter the
+    location of the database medium (e.g., the SAP MaxDB RDBMS); see
+    <xref linkend="fig.s4s.sap.wizard.location.db.medium"/> for an NFS
     installation example.
    </para>
 
@@ -711,10 +724,12 @@ KARL: the following is a start.
     asks about it.
    </para>
 
-   <para>To enable encryption, you can then copy a
-   <quote>CryptoAddOn</quote> medium; this is optional.</para>
+   <para>
+    To enable encryption with the ABAP stack, you can then copy a
+    <quote>CryptoAddOn</quote> medium; this is optional.  Generally, the
+    encryption feature depends on the SAP product.
+   </para>
 
-<!-- FIXME: continue here -->
 
    <para>
     At this point, all required data for the SAP installation are
