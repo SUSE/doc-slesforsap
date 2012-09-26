@@ -67,18 +67,26 @@
    <step>
     <para>
      In <filename>/srv/www/htdocs/sap_repo</filename> create a directory for
-     every SAP media you have, for example <filename>sapcd_1</filename>,
-     <filename>sapcd_2</filename>, etc.
+     every SAP media you have, for example <filename>kernel</filename>,
+     <filename>java</filename>, <filename>maxdb</filename>, etc., which
+     will give you a hint about the contents.
     </para>
    </step>
    <step>
     <para>
-     Copy the content of all SAP media to the corresponding directory.
+     Copy the contents of all SAP media to the corresponding directory.
     </para>
    </step>
   </procedure>
   <para>
     Now you can install from the NFS server.
  </para>
+
+ <para>
+  For information about installing &sls; from an NFS server, see the
+  &deploy;, Chapter 14.2, <quote>Remote Installation</quote> and Section
+  14.2.2.
+ </para>
+
  </sect1>
 </chapter>
