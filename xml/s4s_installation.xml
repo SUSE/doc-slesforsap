@@ -730,7 +730,6 @@ KARL: the following is a start.
     encryption feature depends on the SAP product.
    </para>
 
-
    <para>
     At this point, all required data for the SAP installation are
     selected and copied.  In the following configuration dialogs enter
@@ -764,27 +763,27 @@ KARL: the following is a start.
     <title>SAP Virtual Network Settings</title>
     <mediaobject>
      <imageobject role="fo">
-      <imagedata fileref="s4s_sap_wizard_virt_params.png" width="80%" format="PNG"/>
+      <imagedata fileref="s4s_sap_wizard_virt_params.png" width="70%" format="PNG"/>
      </imageobject>
      <imageobject role="html">
-      <imagedata fileref="s4s_sap_wizard_virt_params.png" width="80%" format="PNG"/>
+      <imagedata fileref="s4s_sap_wizard_virt_params.png" width="70%" format="PNG"/>
      </imageobject>
     </mediaobject>
    </figure>
 
    <para>
     In <xref linkend="fig.s4s.sap.wizard.virt.params"/>, enter the
-    virtual network settings.
+    virtual network settings, if needed.
    </para>
 
     <figure id="fig.s4s.sap.wizard.db.logmode">
     <title>SAP Database Log Mode</title>
     <mediaobject>
      <imageobject role="fo">
-      <imagedata fileref="s4s_sap_wizard_db_logmode.png" width="80%" format="PNG"/>
+      <imagedata fileref="s4s_sap_wizard_db_logmode.png" width="78%" format="PNG"/>
      </imageobject>
      <imageobject role="html">
-      <imagedata fileref="s4s_sap_wizard_db_logmode.png" width="80%" format="PNG"/>
+      <imagedata fileref="s4s_sap_wizard_db_logmode.png" width="78%" format="PNG"/>
      </imageobject>
     </mediaobject>
    </figure>
@@ -795,6 +794,12 @@ KARL: the following is a start.
     database log mode, and&mdash;if needed&mdash;install the SAP
     Cryptographic Library.  Provide the location of the Crypto Add-On
     medium, if the wizard asks for it.
+   </para>
+
+   <para>
+    At this stage it is possible to install the Supplement Media.  For
+    more information about the Supplement Media, see <xref
+    linkend="s4s.comp.wizard.suppl"/>.
    </para>
 
    <!-- Third party? p. -->
@@ -820,9 +825,17 @@ KARL: the following is a start.
    <para>
     Now all installation data (media and settings) are available to the
     wizard, and the final deployment of the SAP system can take place
-    with the SAPinst tool.  The SAPinst tool visualized the installation
+    with the SAPinst tool.  The SAPinst tool visualizes the installation
     steps it performs; see <xref linkend="fig.s4s.sapinst"/>.
    </para>
+
+   <note>
+    <title>Installation Progress</title>
+    <para>
+     Depending on your machine it takes a while until the SAPinst tool
+     shows up.
+    </para>
+   </note>
 
      <!--
 II)
