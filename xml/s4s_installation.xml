@@ -763,10 +763,10 @@ KARL: the following is a start.
     <title>SAP Virtual Network Settings</title>
     <mediaobject>
      <imageobject role="fo">
-      <imagedata fileref="s4s_sap_wizard_virt_params.png" width="70%" format="PNG"/>
+      <imagedata fileref="s4s_sap_wizard_virt_params.png" width="54%" format="PNG"/>
      </imageobject>
      <imageobject role="html">
-      <imagedata fileref="s4s_sap_wizard_virt_params.png" width="70%" format="PNG"/>
+      <imagedata fileref="s4s_sap_wizard_virt_params.png" width="54%" format="PNG"/>
      </imageobject>
     </mediaobject>
    </figure>
@@ -780,10 +780,10 @@ KARL: the following is a start.
     <title>SAP Database Log Mode</title>
     <mediaobject>
      <imageobject role="fo">
-      <imagedata fileref="s4s_sap_wizard_db_logmode.png" width="78%" format="PNG"/>
+      <imagedata fileref="s4s_sap_wizard_db_logmode.png" width="66%" format="PNG"/>
      </imageobject>
      <imageobject role="html">
-      <imagedata fileref="s4s_sap_wizard_db_logmode.png" width="78%" format="PNG"/>
+      <imagedata fileref="s4s_sap_wizard_db_logmode.png" width="66%" format="PNG"/>
      </imageobject>
     </mediaobject>
    </figure>
