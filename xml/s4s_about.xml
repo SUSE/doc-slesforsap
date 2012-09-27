@@ -80,37 +80,39 @@ SUSE Linux Enterprise Server Priority Support for SAP Applications (optional)
 
  <sect1 id="s4s.about.sw">
   <title>Software Components</title>
-  <para>
-  </para>
+  <!-- <para> -->
+  <!-- </para> -->
 
-  <sect2>
-   <title>&sls;</title>
-
+  <variablelist>
+   <varlistentry>
+    <term><emphasis>&sls;</emphasis></term>
+    <listitem>
    <para>
     The current release is based on &sls; 11 Service Pack 2.  &sls; is
     the most interoperable platform for mission-critical computing, both
     physical and virtual.
    </para>
+    </listitem>
+   </varlistentry>
 
-  </sect2>
-
-  <sect2>
-   <title>Installation Wizard</title>
-
+   <varlistentry>
+    <term><emphasis>Installation Wizard</emphasis></term>
+    <listitem>
    <para>The Installation Wizard offers a guided installation path for both
    the &sls; operating system and the SAP applications.</para>
 
    <para>Additionally, the workflow can be extended by 3rd party vendors
    or customers with the help of the <quote>Supplement Media</quote>
    (see <xref linkend="s4s.comp.wizard.suppl"/>).</para>
-  </sect2>
+    </listitem>
+   </varlistentry>
 
-  <sect2>
-   <title>&sle; &hasi;</title>
-
-   <para>
-   </para>
-
+   <varlistentry>
+    <term><emphasis>&sle; &hasi;</emphasis></term>
+    <listitem>
+     <para>
+      This component consists of:
+     </para>
    <itemizedlist>
     <listitem>
      <para>
@@ -132,25 +134,29 @@ Resource agents, also for SAP
    <para>For more information about &sle; &hasi;, see the &haguide; and
    the Best Practice Guides at <ulink
    url="http://www.suse.com/products/sles-for-sap/resource-library/sap-best-practices.html"/>.</para>
+    </listitem>
+   </varlistentry>
 
-  </sect2>
-
-  <sect2>
-   <title>Page-Cache Limit</title>
-
+   <varlistentry>
+    <term><emphasis>Page-Cache Limit</emphasis></term>
+    <listitem>
    <para>
     Limit the kernel file system cache size to influence swapping
     behavior.  With this feature you can gain better performance by
     allocating memory to an application.  For more
     information, see <xref linkend="s4s.config.page-cache"/>.
    </para>
-  </sect2>
-  
-  <sect2>
-   <title>ClamSAP</title>
+    </listitem>
+   </varlistentry>
+ 
+   <varlistentry>
+    <term><emphasis>ClamSAP</emphasis></term>
+    <listitem>
    <para>ClamSAP is a new antivirus toolkit integration.  For more
    information, see <xref linkend="s4s.comp.clamsap"/>.</para>
-  </sect2>
+    </listitem>
+   </varlistentry>
+  </variablelist>
 
  </sect1>
 
