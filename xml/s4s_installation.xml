@@ -87,6 +87,227 @@
    </varlistentry>
   </variablelist>
  </sect2>
+
+ <sect2>
+  <title>Data Required for Installing the System</title>
+
+  <para>
+   The following data is required for the &sls; part of the
+   installation (required per physical server):
+  </para>
+
+  <informaltable>
+     <tgroup cols = "2">
+      <!-- <thead> -->
+      <!--  <row> -->
+      <!--   <entry> -->
+      <!--    <para> -->
+      <!--     Option -->
+      <!--    </para> -->
+      <!--   </entry> -->
+      <!--   <entry> -->
+      <!--    <para> -->
+      <!--     Description -->
+      <!--    </para> -->
+      <!--   </entry> -->
+      <!--  </row> -->
+      <!-- </thead> -->
+      <tbody>
+       <row>
+        <entry>
+         <para>
+          Hostname
+         </para>
+        </entry>
+        <entry>
+         <para/>
+        </entry>
+       </row>
+
+       <row>
+        <entry>
+         <para>
+          Domain
+         </para>
+        </entry>
+        <entry>
+         <para/>
+        </entry>
+       </row>
+
+       <row>
+        <entry>
+         <para>
+          IP address
+         </para>
+        </entry>
+        <entry>
+         <para/>
+        </entry>
+       </row>
+
+       <row>
+        <entry>
+         <para>
+          Subnet mask
+         </para>
+        </entry>
+        <entry>
+         <para/>
+        </entry>
+       </row>
+
+       <row>
+        <entry>
+         <para>
+          Domain searchlist (DNS)
+         </para>
+        </entry>
+        <entry>
+         <para/>
+        </entry>
+       </row>
+
+       <row>
+        <entry>
+         <para>
+          IP for nameserver
+         </para>
+        </entry>
+        <entry>
+         <para/>
+        </entry>
+       </row>
+
+       <row>
+        <entry>
+         <para>
+          IP for gateway
+         </para>
+        </entry>
+        <entry>
+         <para/>
+        </entry>
+       </row>
+
+       <row>
+        <entry>
+         <para>
+          Master password for the system installation (root password)
+         </para>
+        </entry>
+        <entry>
+         <para/>
+        </entry>
+       </row>
+
+      </tbody>
+     </tgroup>
+  </informaltable>
+
+  <para>
+   The following data is required for the SAP part of the
+   installation (required per SAP system):
+  </para>
+
+  <informaltable>
+     <tgroup cols = "2">
+      <tbody>
+       <row>
+        <entry>
+         <para>
+          System ID of the system to be built up for the customer
+         </para>
+        </entry>
+        <entry>
+         <para/>
+        </entry>
+       </row>
+
+       <row>
+        <entry>
+         <para>
+          Virtual hostname (*)
+         </para>
+        </entry>
+        <entry>
+         <para/>
+        </entry>
+       </row>
+
+       <row>
+        <entry>
+         <para>
+          Virtual IP address for SAP service (*)
+         </para>
+        </entry>
+        <entry>
+         <para/>
+        </entry>
+       </row>
+
+       <row>
+        <entry>
+         <para>
+          Virtual netmask (*)
+         </para>
+        </entry>
+        <entry>
+         <para/>
+        </entry>
+       </row>
+
+       <row>
+        <entry>
+         <para>
+          Instance number of the SAP system
+         </para>
+        </entry>
+        <entry>
+         <para/>
+        </entry>
+       </row>
+
+       <row>
+        <entry>
+         <para>
+          Solution Manager key for the SAP system (*)
+         </para>
+        </entry>
+        <entry>
+         <para/>
+        </entry>
+       </row>
+
+       <row>
+        <entry>
+         <para>
+          System T-Shirt Sizing (S, M, L, or customer-specific size) (*)
+         </para>
+        </entry>
+        <entry>
+         <para/>
+        </entry>
+       </row>
+
+       <row>
+        <entry>
+         <para>
+          Database Log Mode (*)
+         </para>
+        </entry>
+        <entry>
+         <para/>
+        </entry>
+       </row>
+
+      </tbody>
+     </tgroup>
+  </informaltable>
+
+  <para>(*) not required for TREX.</para>
+ </sect2>
+
 </sect1>
 
 
