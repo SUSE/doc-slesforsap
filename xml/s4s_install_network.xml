@@ -21,19 +21,22 @@
     <para>
      Copy the &sles4sap; DVD content to a Web server (e.g.,
     <literal>example.com</literal>) to the directory
-    <filename>/srv/www/htdocs/mydir</filename>.
+    <filename>/srv/www/htdocs/sap_repo</filename>.
 </para>
    </step>
    <step>
     <para>Boot from DVD.</para>
    </step>
    <step>
-    <para>Choose one of the boot menu options and edit the command line: remove
-    the parameter <literal>instmode=cd</literal> from the
-    command line and change <literal>netsetup=0</literal> to
-    <literal>netsetup=1</literal> and <literal>autoyast=file:///</literal> to
-    <literal>autoyast=http://example.com/mydir/</literal>, and add the parameter
-    <literal>install=http://example.com/mydir</literal>.</para>
+    <para>Choose one of the boot menu options and edit the command line:
+    remove the parameter <literal>instmode=cd</literal> from the command
+    line and change <literal>netsetup=0</literal> to
+    <literal>netsetup=1</literal> and
+    <literal>autoyast=file:///</literal> to
+    <literal>autoyast=http://example.com/sap_repo/</literal>, and add
+    the parameter
+    <literal>install=http://example.com/sap_repo</literal>.  With
+    <literal>netsetup=1</literal> you will start the network.</para>
    </step>
   </procedure>
 
@@ -44,10 +47,13 @@
  </sect1>
 
  <sect1>
-  <title>Installing from an NFS Server with the Installation Wizard</title>
+  <title>Copying SAP Media Sets from a Remote Server with the
+  Installation Wizard</title>
 
   <para>
-   If you want to put the SAP media on an NFS Server, proceed as follows:
+   It is possible to copy the SAP media sets from a remote server (NFS,
+   SMB, etc.).  For example, if you want to put the SAP media sets on an
+   NFS Server, proceed as follows:
   </para>
 
   <procedure>
@@ -74,8 +80,19 @@
    </step>
    <step>
     <para>
-     Copy the contents of all SAP media to the corresponding directory.
+     Copy the contents of all SAP media with <command>cp -a</command> to
+     the corresponding directory.
     </para>
+
+    <tip>
+     <title>Avoid Copying on a Windows Operating System</title>
+     <para>
+      Do not copy the media on a Windows operating system because it may
+      break permission settings and capitalization of files and
+      directories.
+     </para>
+    </tip>
+
    </step>
   </procedure>
   <para>
