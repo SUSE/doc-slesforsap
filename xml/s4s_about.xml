@@ -80,8 +80,6 @@ SUSE Linux Enterprise Server Priority Support for SAP Applications (optional)
 
  <sect1 id="s4s.about.sw">
   <title>Software Components</title>
-  <!-- <para> -->
-  <!-- </para> -->
 
   <variablelist>
    <varlistentry>
@@ -162,27 +160,26 @@ Resource agents, also for SAP
 
  <sect1 id="s4s.about.services">
   <title>Services for &sles4sap;</title>
-  <para>
-  </para>
 
-  <sect2>
-   <title>Extended Service Pack Overlap Support</title>
+  <variablelist>
+   <varlistentry>
+   <term><emphasis>Extended Service Pack Overlap Support</emphasis></term>
+   <listitem>
+    <para>
+     <remark>
+      2012-07-13 ke: rephrased
+     </remark>
 
-   <remark>
-    2012-07-13 ke: rephrased
-   </remark>
-
-     <para>
-      One additional year of maintenance; thus you will have more time
-      until performing the next upgrade.  This mean you will have an 18
-      month upgrade window and in the end an 18 month extended
-      lifecycle.
+     One additional year of maintenance; thus you will have more time
+     until performing the next upgrade.  This mean you will have an 18
+     month upgrade window and in the end an 18 month extended lifecycle.
     </para>
+   </listitem>
+   </varlistentry>
 
-  </sect2>
-  <sect2>
-   <title>Additional Update Channel</title>
-
+   <varlistentry>
+    <term><emphasis>Additional Update Channel</emphasis></term>
+    <listitem>
     <itemizedlist>
      <listitem>
       <para>
@@ -195,14 +192,18 @@ Resource agents, also for SAP
       </para>
      </listitem>
     </itemizedlist>
-  </sect2>
+    </listitem>
+   </varlistentry>
 
-  <sect2>
-    <title>SUSE Linux Enterprise Server Priority Support for SAP Applications</title>
-    
+   <varlistentry>
+    <term><emphasis>SUSE Linux Enterprise Server Priority Support for
+    SAP Applications</emphasis></term>
+    <listitem>
     <para>
      There is a Priority Support Subscription included.
     </para>
-  </sect2>
+    </listitem>
+   </varlistentry>
+  </variablelist>
  </sect1>
 </chapter>
