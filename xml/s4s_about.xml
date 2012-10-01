@@ -202,6 +202,11 @@ Resource agents, also for SAP
     <para>
      There is a Priority Support Subscription included.
     </para>
+     <para>
+      For background information, see SAP Note 1056161: SUSE Priority
+      Support for SAP Applications <ulink
+      url="https://service.sap.com/sap/support/notes/1056161"/>.
+     </para>
     </listitem>
    </varlistentry>
   </variablelist>
