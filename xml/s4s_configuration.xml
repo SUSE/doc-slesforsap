@@ -125,6 +125,34 @@ vm.pagecache_limit_ignore_dirty = 0</screen>
 
  </sect2>
 
+ <sect2 id="s4s.config.logs">
+  <title>Important Log Files</title>
+
+  <para>
+   The most important files for this product are:
+  </para>
+
+  <itemizedlist>
+   <listitem>
+    <para>
+     Auto-installation related log files are in
+     <filename>/var/adm/autoinstall/</filename>.
+    </para>
+   </listitem>
+   <listitem>
+    <para>The installation wizard is a &yast; module.  Thus find wizard
+    related log entries in <filename>/var/log/YaST/y2log</filename>.</para>
+   </listitem>
+   <listitem>
+    <para>
+     We use a library for all SAP knowledge.  Thus find related log
+     entries in <filename>/var/log/SAPmedia.log</filename>.
+    </para>
+   </listitem>
+  </itemizedlist>
+
+ </sect2>
+
 <!--
  <sect2>
   <title>For More Information</title>
