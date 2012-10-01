@@ -88,8 +88,138 @@
   </variablelist>
  </sect2>
 
+</sect1>
+
+
+ <sect1 id="s4s.inst.booting">
+ <title>Booting the Installation Medium</title>
+ <para>
+  Different scenarios are available to install &slsreg; for SAP
+  Applications 11.  Select the preferred installation scenario from the
+  DVD boot menu:
+ </para>
+
+ <figure id="fig.s4s.dvd.bootmenu">
+  <title>DVD Boot Menu</title>
+  <mediaobject>
+   <imageobject role="fo">
+    <imagedata fileref="s4s-dvd-boot-menu.png" width="100%" format="PNG"/>
+   </imageobject>
+   <imageobject role="html">
+    <imagedata fileref="s4s-dvd-boot-menu.png" width="100%" format="PNG"/>
+   </imageobject>
+  </mediaobject>
+ </figure>
+
+ <variablelist>
+  <varlistentry>
+   <term>Boot from Hard Disk</term>
+   <listitem>
+    <para>Booting the system installed on the local hard disk.</para>
+   </listitem>
+  </varlistentry>
+  <varlistentry>
+   <term><guimenu>SLES for SAP Applications &mdash;
+   Installation</guimenu> (see <xref linkend="s4s.inst.inst"/>)</term>
+   <listitem>
+    <para>
+    Basically a standard SLES installation prepared for installing SAP
+    applications later. You can install SAP applications with 3rd party
+    installation routines.
+    </para>
+    <para>
+    This scenario is suitable for experienced administrators who want
+    to install &sles4sap; according to their own plan.
+    </para>
+   </listitem>
+  </varlistentry>
+  <varlistentry>
+   <term><guimenu>SLES for SAP Applications &mdash; Installation with
+   Wizard</guimenu> (see <xref linkend="s4s.inst.wizard"/>)</term>
+   <listitem>
+    <para>This is a guided installation of the operating system and the
+    SAP applications.  After the installation of the operating system
+    the SAP Installation Wizard (Media-Changer) will start for
+    installation of a validated SAP solution.</para>
+   </listitem>
+  </varlistentry>
+  <varlistentry>
+   <term><guimenu>SLES for SAP Applications &mdash; Installation with
+   External Profile</guimenu> (see <xref
+   linkend="s4s.inst.profile"/>)</term>
+   <listitem>
+    <para>This installation is driven by a user-provided &ay;
+    profile.  There are no &suse;-provided SAP optimizations.</para>
+
+    <para>This scenario is suitable for experienced users who are
+    familiar with &ay; and want to deploy their own &ay; profiles
+    to install &sles4sap;.</para>
+   </listitem>
+  </varlistentry>
+  <varlistentry>
+   <term>Rescue System</term>
+   <listitem>
+    <para>Starting a minimal Linux system without a graphical user
+    interface. For more information, see the &admin;, Chapter 34, Common
+    Problems and Their Solutions.</para>
+
+   </listitem>
+  </varlistentry>
+  <varlistentry>
+   <term>Memory Test</term>
+   <listitem>
+    <para>Testing the system RAM using repeated read and write
+    cycles. For more information, see the &admin; Chapter 34, Common
+    Problems and Their Solutions.
+    </para>
+   </listitem>
+  </varlistentry>
+ </variablelist>
+ </sect1>
+
+ <sect1 id="s4s.inst.inst">
+  <title><guimenu>SLES for SAP Applications &mdash;
+  Installation</guimenu></title>
+  <para>
+   The first part is similar to a standard manual &sls; installation;
+   for details about such an SLES installation, see the SLES &deploy;,
+   Chapter 6, <quote>Installation with &yast;</quote>.
+
+   <!--
+       License, Installation Mode, Time, Server Base scenario,
+       Installation Settings (here change partitioning and other
+       settings, if needed).
+       After deploying the software: root password. network config,
+       NCC, Network Services, User Auth, Hardware Config 
+   -->
+
+   In addition, the SAP Application Server Base
+   (<systemitem>sap-loc</systemitem> and
+   <systemitem>sapconf</systemitem>) pattern will be installed by
+   default and basic settings will be configured.
+  </para>
+
+  <para>
+   You will be prompted for all common installation settings, like
+   partitioning of storage devices, network, or software packages.
+  </para>
+
+ </sect1>
+
+ <sect1 id="s4s.inst.wizard">
+  <title><guimenu>SLES for SAP Applications &mdash; Installation with
+  Wizard</guimenu></title>
+  <para>
+   This is a guided installation of the operating system
+       with optimized settings for SAP applications.
+  </para>
+
+  <para>During this installation scenario, the following installation
+  and configuration steps will take place and interactive settings
+  are required or possible.</para>
+
  <sect2>
-  <title>Data Required for Installing the System</title>
+  <title>Data Required for Installing the System (with Wizard)</title>
 
   <para>
    The following data is required for the &sls; part of the
@@ -308,135 +438,6 @@
   <para>(*) not required for TREX.</para>
  </sect2>
 
-</sect1>
-
-
- <sect1 id="s4s.inst.booting">
- <title>Booting the Installation Medium</title>
- <para>
-  Different scenarios are available to install &slsreg; for SAP
-  Applications 11.  Select the preferred installation scenario from the
-  DVD boot menu:
- </para>
-
- <figure id="fig.s4s.dvd.bootmenu">
-  <title>DVD Boot Menu</title>
-  <mediaobject>
-   <imageobject role="fo">
-    <imagedata fileref="s4s-dvd-boot-menu.png" width="100%" format="PNG"/>
-   </imageobject>
-   <imageobject role="html">
-    <imagedata fileref="s4s-dvd-boot-menu.png" width="100%" format="PNG"/>
-   </imageobject>
-  </mediaobject>
- </figure>
-
- <variablelist>
-  <varlistentry>
-   <term>Boot from Hard Disk</term>
-   <listitem>
-    <para>Booting the system installed on the local hard disk.</para>
-   </listitem>
-  </varlistentry>
-  <varlistentry>
-   <term><guimenu>SLES for SAP Applications &mdash;
-   Installation</guimenu> (see <xref linkend="s4s.inst.inst"/>)</term>
-   <listitem>
-    <para>
-    Basically a standard SLES installation prepared for installing SAP
-    applications later. You can install SAP applications with 3rd party
-    installation routines.
-    </para>
-    <para>
-    This scenario is suitable for experienced administrators who want
-    to install &sles4sap; according to their own plan.
-    </para>
-   </listitem>
-  </varlistentry>
-  <varlistentry>
-   <term><guimenu>SLES for SAP Applications &mdash; Installation with
-   Wizard</guimenu> (see <xref linkend="s4s.inst.wizard"/>)</term>
-   <listitem>
-    <para>This is a guided installation of the operating system and the
-    SAP applications.  After the installation of the operating system
-    the SAP Installation Wizard (Media-Changer) will start for
-    installation of a validated SAP solution.</para>
-   </listitem>
-  </varlistentry>
-  <varlistentry>
-   <term><guimenu>SLES for SAP Applications &mdash; Installation with
-   External Profile</guimenu> (see <xref
-   linkend="s4s.inst.profile"/>)</term>
-   <listitem>
-    <para>This installation is driven by a user-provided &ay;
-    profile.  There are no &suse;-provided SAP optimizations.</para>
-
-    <para>This scenario is suitable for experienced users who are
-    familiar with &ay; and want to deploy their own &ay; profiles
-    to install &sles4sap;.</para>
-   </listitem>
-  </varlistentry>
-  <varlistentry>
-   <term>Rescue System</term>
-   <listitem>
-    <para>Starting a minimal Linux system without a graphical user
-    interface. For more information, see the &admin;, Chapter 34, Common
-    Problems and Their Solutions.</para>
-
-   </listitem>
-  </varlistentry>
-  <varlistentry>
-   <term>Memory Test</term>
-   <listitem>
-    <para>Testing the system RAM using repeated read and write
-    cycles. For more information, see the &admin; Chapter 34, Common
-    Problems and Their Solutions.
-    </para>
-   </listitem>
-  </varlistentry>
- </variablelist>
- </sect1>
-
- <sect1 id="s4s.inst.inst">
-  <title><guimenu>SLES for SAP Applications &mdash;
-  Installation</guimenu></title>
-  <para>
-   The first part is similar to a standard manual &sls; installation;
-   for details about such an SLES installation, see the SLES &deploy;,
-   Chapter 6, <quote>Installation with &yast;</quote>.
-
-   <!--
-       License, Installation Mode, Time, Server Base scenario,
-       Installation Settings (here change partitioning and other
-       settings, if needed).
-       After deploying the software: root password. network config,
-       NCC, Network Services, User Auth, Hardware Config 
-   -->
-
-   In addition, the SAP Application Server Base
-   (<systemitem>sap-loc</systemitem> and
-   <systemitem>sapconf</systemitem>) pattern will be installed by
-   default and basic settings will be configured.
-  </para>
-
-  <para>
-   You will be prompted for all common installation settings, like
-   partitioning of storage devices, network, or software packages.
-  </para>
-
- </sect1>
-
- <sect1 id="s4s.inst.wizard">
-  <title><guimenu>SLES for SAP Applications &mdash; Installation with
-  Wizard</guimenu></title>
-  <para>
-   This is a guided installation of the operating system
-       with optimized settings for SAP applications.
-  </para>
-
-  <para>During this installation scenario, the following installation
-  and configuration steps will take place and interactive settings
-  are possible:</para>
 
   <sect2 id="s4s.inst.wizard.boot">
    <title>Selecting <guimenu>SLES for SAP Applications &mdash;
@@ -953,8 +954,42 @@ KARL: the following is a start.
 
    <para>
     At this point, all required data for the SAP installation are
-    selected and copied.  In the following configuration dialogs enter
-    the details for the SAP installation.
+    selected and copied to <filename>/data/SAP_CDs/0</filename>, one
+    directory per medium:
+   </para>
+   <screen>/data/SAP_CDs/0:
+total 48
+drwxr-xr-x 12 root root 4096 Sep 27 14:01 ./
+drwxr-xr-x  4 root root 4096 Sep 27 14:06 ../
+drwxr-xr-x  4 root root 4096 Sep 27 13:54 EXPORT1/
+drwxr-xr-x  4 root root 4096 Sep 27 13:56 EXPORT2/
+drwxr-xr-x  4 root root 4096 Sep 27 13:58 EXPORT3/
+drwxr-xr-x  4 root root 4096 Sep 27 14:00 EXPORT4/
+drwxr-xr-x  4 root root 4096 Sep 27 14:01 EXPORT5/
+drwxr-xr-x  4 root root 4096 Sep 27 14:03 EXPORT6/
+drwxr-xr-x 15 root root 4096 Sep 27 13:43 Instmaster/
+drwxr-xr-x  4 root root 4096 Sep 27 13:44 RDBMS-ADA/
+drwxr-xr-x  2 root root 4096 Sep 27 13:46 SAPLUP/
+drwxr-xr-x  7 root root 4096 Sep 27 13:46 UKERNEL/</screen>
+   <para>
+    Whenever you start the installation process again, a new directory
+    will be created with a higher number
+    (<filename>/data/SAP_CDs/0</filename>,
+    <filename>/data/SAP_CDs/1</filename>,
+    <filename>/data/SAP_CDs/2</filename>, etc.):
+   </para>
+
+   <screen>/data/SAP_CDs/1:
+total 16
+drwxr-xr-x  4 root root 4096 Sep 27 14:07 ./
+drwxr-xr-x  4 root root 4096 Sep 27 14:06 ../
+drwxr-xr-x 15 root root 4096 Sep 27 14:06 Instmaster/
+drwxr-xr-x  4 root root 4096 Sep 27 14:07 RDBMS-ADA/
+</screen>
+
+   <para>
+    In the following configuration dialogs enter the details for the SAP
+    installation.
    </para>
 
     <figure id="fig.s4s.sap.wizard.sys.params">
@@ -1033,7 +1068,7 @@ KARL: the following is a start.
    <!-- FIXME: continue here -->
 
     <figure id="fig.s4s.sapinst">
-    <title>SAPinst</title>
+    <title>SAP Installer (SAPinst)</title>
     <mediaobject>
      <imageobject role="fo">
       <imagedata fileref="s4s_sapinst.png" width="80%" format="PNG"/>
@@ -1046,8 +1081,9 @@ KARL: the following is a start.
    <para>
     Now all installation data (media and settings) are available to the
     wizard, and the final deployment of the SAP system can take place
-    with the SAPinst tool.  The SAPinst tool visualizes the installation
-    steps it performs; see <xref linkend="fig.s4s.sapinst"/>.
+    with the SAP installer (SAPinst).  The SAP installer visualizes the
+    installation steps it performs; see <xref
+    linkend="fig.s4s.sapinst"/>.
    </para>
 
    <note>
@@ -1057,6 +1093,13 @@ KARL: the following is a start.
      shows up.
     </para>
    </note>
+
+
+   <para>
+    After the SAP installer has finished, you will see a short summary
+    of the installation data.
+   </para>
+
 
      <!--
 II)
