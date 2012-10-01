@@ -780,10 +780,20 @@ KARL: the following is a start.
     from the pull-down list on the left.
    </para>
 
+   <tip>
+    <title>Remote Location Specification</title>
+
+    <para>
+     <remark>Peter V. is asked to provide info about SMB and ISO.</remark>
+     If you want to install from an NFS source, you must enter the name
+     of the server and the complete path to the media data.
+    </para>
+   </tip>
+
    <para>
-    For setting up a remote installation server, see the &sls; 11
-    &deploy;, Section 14.2, <quote>Setting Up the Server Holding
-    the Installation Sources</quote> (the &deploy; comes
+    For more information about setting up a remote installation server,
+    see the &sls; 11 &deploy;, Section 14.2, <quote>Setting Up the
+    Server Holding the Installation Sources</quote> (the &deploy; comes
     with the product or is available from <ulink
     url="http://www.suse.com/documentation/sles11/"/>).
    </para>
