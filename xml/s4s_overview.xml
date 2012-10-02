@@ -8,14 +8,15 @@
 <preface id="pre_smt">
  <title>About This Guide</title>
  <para>
-  What is SUSE® Linux Enterprise Server for SAP Applications?  &sles4sap; is
-  the reference platform for SAP's software development.  It
-  is optimized in various ways for SAP applications.  This guide provides detailed information
-  about installing and customizing &sles4sap;.
-
-  &sls; &hasi; is also part of the &sles4sap; platform.
-
+  &sles4sapreg; is the reference platform for SAP's software
+  development.  It is optimized in various ways for SAP applications.
+  This guide provides detailed information about installing and
+  customizing &sles4sap;.
  </para>
+ <para>
+  &sls; &hasi; is also part of &sles4sap;.
+ </para>
+<!-- -=-=-=-=-=-=-=-=-=-=-=-=-=- cut here -=-=-=-=-=-=-=-=-=-=-=-=-=- -->
  <sect1>
   <title>Overview</title>
 
@@ -36,7 +37,7 @@
     <term><xref linkend="s4s.installation" xrefstyle="select:title,nopage"/></term>
     <listitem>
      <para>
-      This chapter explains in detail the available installation scenarios fo
+      This chapter explains in detail the available installation scenarios for
       &sles4sap;.
      </para>
     </listitem>
@@ -46,7 +47,7 @@
     <term><xref linkend="s4s.inst.remote" xrefstyle="select:title,nopage"/></term>
     <listitem>
      <para>
-      This chapter provides some details about remote installation scenarios for
+      This chapter provides details about remote installation scenarios for
       &sles4sap;.
      </para>
     </listitem>
@@ -63,6 +64,7 @@
    </varlistentry>
   </variablelist>
  </sect1>
+<!-- -=-=-=-=-=-=-=-=-=-=-=-=-=- cut here -=-=-=-=-=-=-=-=-=-=-=-=-=- -->
  <sect1>
   <title>Additional Documentation and Resources</title>
 
@@ -77,6 +79,7 @@
    <ulink url="http://www.suse.com/documentation"/>.
   </para>
  </sect1>
+<!-- -=-=-=-=-=-=-=-=-=-=-=-=-=- cut here -=-=-=-=-=-=-=-=-=-=-=-=-=- -->
  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="common_intro_feedback_i.xml"/>
  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="common_intro_typografie_i.xml"/>
 </preface>
