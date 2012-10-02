@@ -5,7 +5,7 @@
 %entities;
 ]>
 <chapter id="s4s.components">
- <title>The &sles4sap; Components</title>
+ <title>&sles4sap; Components</title>
 
  <para>&sles4sap; consists of several components such as &sle; &hasi;,
  the Kernel page-cache limit feature, and an Installation Wizard, which
