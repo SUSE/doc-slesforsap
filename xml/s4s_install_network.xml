@@ -7,9 +7,13 @@
 <chapter id="s4s.inst.remote">
  <title>Remote Installation from a Network Server</title>
 
- <para>For detailed information about installing &sls; from a network
- server in general, see the &deploy;, Chapter 14, <quote>Remote
- Installation</quote>.</para>
+ <para>
+  For detailed information about installing &sls; from a network server
+  in general, see the &deploy;, Chapter 14, <quote>Remote
+  Installation</quote> (the &deploy; comes with the product or is
+  available from <ulink
+  url="http://www.suse.com/documentation/sles11/"/>).
+ </para>
 
  <para>The following section provides a short description about
  installing from a network server.</para>
@@ -41,9 +45,12 @@
   </procedure>
 
   <para>
-    This is all you need for a network installation. If you want to avoid using
-    a DVD to bootstrap the system and boot from the network via PXE, read the
-    SLES &ay; documentation about setting up a PXE environment.</para>
+    This is all you need for a network installation. If you want to
+    avoid using a DVD to bootstrap the system and boot from the network
+    via PXE, read the <emphasis>&ay; Guide</emphasis> about setting up a
+    PXE environment (the <emphasis>&ay; Guide</emphasis> comes with the
+    product or is available from <ulink
+    url="http://www.suse.com/documentation/sles11/"/>).</para>
  </sect1>
 
  <sect1>
