@@ -707,6 +707,18 @@
      from SAP.
     </para>
 
+    <tip>
+     <title>SAP Product Installation Default Settings</title>
+
+     <para>
+      SAP Product Installation default settings are specified and
+      documented in
+      <filename>/etc/sysconfig/sap-installation-wizard</filename>.  You
+      can change them according to your needs.
+     </para>
+    </tip>
+
+
     <figure id="fig.s4s.inst.yast-start-sap-install">
     <title>SAP Product Installation</title>
     <mediaobject>
