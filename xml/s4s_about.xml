@@ -26,12 +26,12 @@
   </mediaobject>
  </figure>
 
-
+<!-- -=-=-=-=-=-=-=-=-=-=-=-=-=- cut here -=-=-=-=-=-=-=-=-=-=-=-=-=- -->
  <sect1 id="s4s.about.overview">
   <title>Overview</title>
 
   <para>
-  Target use cases are:
+  Target use cases include:
   </para>
   <itemizedlist>
   <listitem>
@@ -97,7 +97,8 @@ SUSE Linux Enterprise Server Priority Support for SAP Applications (optional)
     <term><emphasis>Installation Wizard</emphasis></term>
     <listitem>
    <para>The Installation Wizard offers a guided installation path for both
-   the &sls; operating system and the SAP applications.</para>
+   the &sls; operating system and the SAP application.<!-- jweber does
+   not want plural ("applications") here.--></para>
 
    <para>Additionally, the workflow can be extended by 3rd party vendors
    or customers with the help of the <quote>Supplement Media</quote>
@@ -129,9 +130,11 @@ Resource agents, also for SAP
 </listitem>
    </itemizedlist>
 
-   <para>For more information about &sle; &hasi;, see the &haguide; and
-   the Best Practice Guides at <ulink
-   url="http://www.suse.com/products/sles-for-sap/resource-library/sap-best-practices.html"/>.</para>
+   <para>For more information about &sle; &hasi;, see the &haguide; (<ulink
+   url="http://www.suse.com/documentation/sle_ha/"/>)
+   and
+   the Best Practice Guides (<ulink
+   url="http://www.suse.com/products/sles-for-sap/resource-library/sap-best-practices.html"/>).</para>
     </listitem>
    </varlistentry>
 
