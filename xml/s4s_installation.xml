@@ -210,13 +210,15 @@
   <title><guimenu>SLES for SAP Applications &mdash; Installation with
   Wizard</guimenu></title>
   <para>
-   This is a guided installation of the operating system
-       with optimized settings for SAP applications.
+   This is a guided installation of the operating system with optimized
+   settings for SAP applications.
   </para>
 
-  <para>During this installation scenario, the following installation
-  and configuration steps will take place and interactive settings
-  are required or possible.</para>
+  <para>
+   During this installation scenario, the following installation and
+   configuration steps will take place and interactive settings are
+   required or possible.
+  </para>
 
  <sect2>
   <title>Data Required for Installing the System (with Wizard)</title>
@@ -716,15 +718,6 @@
      </imageobject>
     </mediaobject>
    </figure>
-
-        <!--
-FIXME
-PETER - missing: next part of the wizard: SAP + data partition 
-KARL: Bislang habe/hatte ich keine Medien, um das zu testen...  Ich will
-jetzt mal schauen, was ich deiner Präsentation entnehmen kann.
-
-KARL: the following is a start.
-     -->
 
    <para>
     Confirm the pop-up (see <xref
