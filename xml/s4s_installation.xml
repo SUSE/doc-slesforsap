@@ -718,6 +718,13 @@
      </para>
     </tip>
 
+   <para>
+    Confirm the pop-up (see <xref
+    linkend="fig.s4s.inst.yast-start-sap-install"/>), if you want to
+    continue with the installation right away.  On the other hand, it is
+    possible to interrupt the installation process at this point and
+    resume it after a system restart.
+   </para>
 
     <figure id="fig.s4s.inst.yast-start-sap-install">
     <title>SAP Product Installation</title>
@@ -730,14 +737,6 @@
      </imageobject>
     </mediaobject>
    </figure>
-
-   <para>
-    Confirm the pop-up (see <xref
-    linkend="fig.s4s.inst.yast-start-sap-install"/>), if you want to
-    continue with the installation right away.  On the other hand, it is
-    possible to interrupt the installation process at this point and
-    resume it after a system restart.
-   </para>
 
    <tip>
     <title>Resuming SAP Installation after System Restart</title>
