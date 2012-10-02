@@ -169,13 +169,15 @@ Resource agents, also for SAP
    <term><emphasis>Extended Service Pack Overlap Support</emphasis></term>
    <listitem>
     <para>
-     <remark>
-      2012-07-13 ke: rephrased
-     </remark>
-
-     One additional year of maintenance; thus you will have more time
-     until performing the next upgrade.  This mean you will have an 18
-     month upgrade window and in the end an 18 month extended lifecycle.
+     &sles4sap; includes Extended Service Pack Overlap Support.  This
+     extends the overlapping support period for two service packs by one
+     year.  This allows to perform a service pack migration within a 18
+     months time period as opposed to 6 months.  With Extended Service
+     Pack Overlap Support migrations can be scheduled more easily and
+     testing before migration can be performed under lesser time
+     constraints, while still remaining under full support and receiving
+     all relevant maintenance updates.  Extended Service Pack Overlap
+     Support is a unique offering being part of &sles4sap;.
     </para>
    </listitem>
    </varlistentry>
@@ -202,9 +204,17 @@ Resource agents, also for SAP
     <term><emphasis>SUSE Linux Enterprise Server Priority Support for
     SAP Applications</emphasis></term>
     <listitem>
-    <para>
-     There is a Priority Support Subscription included.
-    </para>
+     <para>
+Subscriptions for &sles4sap;
+include SUSE Linux Enterprise Server Priority Support for SAP Applications.
+SUSE Linux Enterprise Server Priority Support for SAP Applications
+offers technical support for &sles4sap; directly from SAP.
+The joint support infrastructure, used by support engineers from &suse;
+Technical Support and SAP, is based upon SAP Solution Manager and offers
+a seamless communication with both SAP and &suse; in a <quote>1 Face to the
+Customer</quote> manner, thus reducing complexity and lowering the total cost
+of ownership.
+     </para>
      <para>
       For background information, see SAP Note 1056161: SUSE Priority
       Support for SAP Applications <ulink
