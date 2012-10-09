@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE appendix PUBLIC 
+ "-//Novell//DTD NovDoc XML V1.0//EN" "novdocx.dtd" [
+<!ENTITY % NOVDOC.DEACTIVATE.IDREF "INCLUDE">
+<!ENTITY % entities SYSTEM "entity-decl.ent">
+%entities;
+]>
+<appendix id="s4s.appendix.cryptoaddon">
+ <title>Downloading CryptoAddOn (SAPCryptoLib)</title>
+ <para>
+Starting with SAP NetWeaver 7.03/7.3 the cryptographic functionality is
+already included in the SAP NetWeaver DVDs for most countries and does
+not have to be specified separately. In case the cryptographic
+functionality is not included download the SAPCRYPTOLIB and follow the
+documentation how to install the library: Installing the Cryptolib
+ </para>
+
+ <para>
+SAPCRYPTOLIB is available to entitled customers and partners on <ulink url="http://www.service.sap.com/swdc"/>. Click
+<menuchoice>
+ <guimenu>Installations and Upgrades</guimenu>
+ <guimenu>Browse our Download Catalog</guimenu>
+ <guimenu>SAP Cryptographic Software</guimenu>
+</menuchoice>. If you are
+an SAP customer or partner, contact the SAP subsidiary in the country from which you want to
+download the library, e.g. by opening a message on Service Marketplace under component <literal>XX-SER-SWFL-EXPORT</literal> asking for access to this section of the download area. You will be provided with the instructions
+required to download the package. You need the package for platform <literal>linux-x86_64-glibc2.3</literal>.
+ </para>
+
+<tip>
+ <title>Renaming Downloaded File</title>
+ <para>
+It might be necessary to rename the downloaded file to <filename>SAPCRYPTO.SAR</filename>.
+ </para>
+</tip>
+
+<important>
+<para>
+If you are not an SAP partner yourself but rather working together with an SAP partner, contact
+your partner to get access to the required archive.  Be aware that the
+installed server must not
+cross a border in order to not violate export regulations.
+</para>
+</important>
+</appendix>
