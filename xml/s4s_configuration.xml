@@ -140,13 +140,14 @@ vm.pagecache_limit_ignore_dirty = 0</screen>
     </para>
    </listitem>
    <listitem>
-    <para>The installation wizard is a &yast; module.  Thus find wizard
-    related log entries in <filename>/var/log/YaST/y2log</filename>.</para>
+    <para>The installation wizard is a &yast; module.  Thus you will
+    find wizard related log entries in
+    <filename>/var/log/YaST/y2log</filename>.</para>
    </listitem>
    <listitem>
     <para>
-     We use a library for all SAP knowledge.  Thus find related log
-     entries in <filename>/var/log/SAPmedia.log</filename>.
+     We use a library for all SAP knowledge.  Thus you will find related
+     log entries in <filename>/var/log/SAPmedia.log</filename>.
     </para>
    </listitem>
   </itemizedlist>
