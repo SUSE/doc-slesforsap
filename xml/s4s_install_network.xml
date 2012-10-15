@@ -32,15 +32,34 @@
     <para>Boot from DVD.</para>
    </step>
    <step>
-    <para>Choose one of the boot menu options and edit the command line:
-    remove the parameter <literal>instmode=cd</literal> from the command
-    line and change <literal>netsetup=0</literal> to
+    <para>Choose one of the boot menu options and edit the command
+    line:</para>
+    <orderedlist>
+     <listitem>
+      <para>
+       remove the parameter <literal>instmode=cd</literal> from the command
+       line
+      </para>
+     </listitem>
+     <listitem>
+      <para>
+       change <literal>netsetup=0</literal> to
     <literal>netsetup=1</literal> and
     <literal>autoyast=file:///</literal> to
-    <literal>autoyast=http://example.com/sap_repo/</literal>, and add
-    the parameter
-    <literal>install=http://example.com/sap_repo</literal>.  With
-    <literal>netsetup=1</literal> you will start the network.</para>
+    <literal>autoyast=http://example.com/sap_repo/</literal>, and
+      </para>
+     </listitem>
+     <listitem>
+      <para>
+       add the parameter
+       <literal>install=http://example.com/sap_repo</literal>.
+      </para>
+     </listitem>
+    </orderedlist>
+    <para>
+     With <literal>netsetup=1</literal> you will start the
+     network.
+    </para>
    </step>
   </procedure>
 
