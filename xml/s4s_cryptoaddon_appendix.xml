@@ -11,8 +11,9 @@
 Starting with SAP NetWeaver 7.03/7.3 the cryptographic functionality is
 already included in the SAP NetWeaver DVDs for most countries and does
 not have to be specified separately. In case the cryptographic
-functionality is not included download the SAPCRYPTOLIB and follow the
-documentation how to install the library: Installing the Cryptolib
+functionality is not included, download the SAPCRYPTOLIB and follow the
+documentation on how to install the library: <emphasis>Installing the
+Cryptolib</emphasis>.
  </para>
 
  <para>
@@ -39,7 +40,7 @@ It might be necessary to rename the downloaded file to <filename>SAPCRYPTO.SAR</
 If you are not an SAP partner yourself but rather working together with an SAP partner, contact
 your partner to get access to the required archive.  Be aware that the
 installed server must not
-cross a border in order to not violate export regulations.
+cross a border in order to avoid violating export regulations.
 </para>
 </important>
 </appendix>
