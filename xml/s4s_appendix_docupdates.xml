@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE appendix PUBLIC 
+ "-//Novell//DTD NovDoc XML V1.0//EN" "novdocx.dtd" [
+<!ENTITY % NOVDOC.DEACTIVATE.IDREF "INCLUDE">
+<!ENTITY % entities SYSTEM "entity-decl.ent">
+%entities;
+]>
+<appendix id="ap.s4s.docupdate">
+ <title>Documentation Updates</title>
+ <para>This section contains information about documentation content
+ changes made to the <citetitle>&productname; Guide</citetitle>.
+
+ </para>
+ <para>This document was updated on the following dates:</para>
+ <itemizedlist role="subtoc">
+  <listitem>
+   <para><xref linkend="ap.s4s.docupdate.nexxxt" xrefstyle="SectTitleOnPage"/></para>
+  </listitem>
+ </itemizedlist>
+
+ <sect1 id="ap.s4s.docupdate.nexxxt">
+  <!-- FIXME: enter date -->
+  <title>nexxxt, 2013</title>
+  <para>Updates were made to the following sections. The changes are
+  explained below.</para>
+
+   <variablelist>
+    <varlistentry>
+     <term><xref linkend="s4s.installation"
+     xrefstyle="SectTitleOnPage"/></term>
+     <listitem>
+      <para>
+       Update <quote>Hardware Requirements</quote>, <quote>Hard
+       Disk</quote> space.
+      </para>
+     </listitem>
+    </varlistentry>
+    <varlistentry>
+     <term><xref linkend="ap.s4s.docupdate"
+     xrefstyle="SectTitleOnPage"/></term>
+     <listitem>
+      <para>
+       New appendix.
+      </para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+ </sect1>
+</appendix>
