@@ -80,9 +80,9 @@
     <term>Hard Disk</term>
     <listitem>
      <para>
-      For the <guimenu>Installation with Wizard</guimenu>, at least 60
-      GB hard disk space for the system volume and 200 GB for the data
-      partition are required.
+      For the <guimenu>Installation with Wizard</guimenu>, at least
+      10 GB hard disk space for the system volume plus space for the
+      swap partition and 200 GB for the data partition are required.
      </para>
     </listitem>
    </varlistentry>
@@ -478,9 +478,9 @@
    <tip>
     <title>Size of the System Volume</title>
     <para>
-     At least 60 GB is required for the system volume.  The swap space
+     At least 10 GB is required for the system volume.  The swap space
      depends on the available main memory (RAM).  For more information,
-     see the SAP Note 1597355: <ulink
+     see the SAP Note 1597355: <ulink
      url="https://service.sap.com/sap/support/notes/1597355"/>.
     </para>
    </tip>
