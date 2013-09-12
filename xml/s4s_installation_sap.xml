@@ -424,8 +424,8 @@ drwxr-xr-x  4 root root 4096 Sep 27 14:07 RDBMS-ADA/
 
    <step>
     <para>
-     &sles4sap; 11 SP2 is delivered with the new Linux Kernel 3.0. If
-     the SAP Kernel does not support Linux Kernel 3.0 yet, a pop-up
+     &sles4sap; &productnumber; is delivered with the Linux Kernel 3.0. If
+     the SAP Kernel does not support Linux Kernel 3.0 yet, a pop-up
      dialog (<xref linkend="fig.s4s.sap.wizard.compat"/>) will inform
      you about the activation of a compatibility mode, which will make
      sure that you can still install your SAP product.
