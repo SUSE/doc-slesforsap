@@ -86,7 +86,7 @@ SUSE Linux Enterprise Server Priority Support for SAP Applications (optional)
     <term><emphasis>&sls;</emphasis></term>
     <listitem>
    <para>
-    The current release is based on &sls; 11 Service Pack 2.  &sls; is
+    The current release is based on &sls; &productnumber;.  &sls; is
     the most interoperable platform for mission-critical computing, both
     physical and virtual.
    </para>
