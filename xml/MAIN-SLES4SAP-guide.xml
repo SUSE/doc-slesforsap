@@ -27,4 +27,5 @@
  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="s4s_install_network.xml"/>
  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="s4s_components.xml"/>
  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="s4s_cryptoaddon_appendix.xml" />
+ <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="s4s_appendix_docupdates.xml" />
 </book>
