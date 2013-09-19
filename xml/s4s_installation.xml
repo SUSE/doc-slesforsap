@@ -767,6 +767,23 @@
      </para>
     </sect2>
 
+    <sect2>
+     <title>Partitioning with &ay;</title>
+
+     <para>
+      For standard systems find pre-defined partitioning settings in
+      <filename>/usr/share/YaST2/include/sap-installation-wizard/</filename>.
+      These could serve as examples if you want to create your custom
+      partitioning scripts.
+     </para>
+
+     <para>
+      For more information on partitioning with &ay;, see the
+      <emphasis>Chapter 4.4 <quote>Partitioning</quote></emphasis> of
+      the <emphasis>&ay; Guide</emphasis>.
+     </para>
+    </sect2>
+
    </sect1>
 
 </chapter>
