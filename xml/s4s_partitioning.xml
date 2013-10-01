@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapter PUBLIC "-//Novell//DTD NovDoc XML V1.0//EN" "novdocx.dtd" [
+<!ENTITY % NOVDOC.DEACTIVATE.IDREF "INCLUDE">
+<!ENTITY % entities SYSTEM "entity-decl.ent">
+%entities;
+]>
+<chapter id="s4s.part">
+ <title>Background Information on Partitioning</title>
+
+ <para>
+  During installation partitioning will be done in two steps.  The first
+  step happens while installing the operating system (stage 1, see <xref
+  linkend="sec.s4s.inst.wizard.prepauto"/>), and the second step while
+  installing your SAP product (stage 2, see <xref
+  linkend="sec.s4s.inst.wizard.sap-product-install"/>).
+ </para>
+
+ <sect1 id="sec.s4s.part.inst">
+  <title>Stage 1: Partitioning for the Operating System</title>
+
+  <para>
+   During stage 1 of the installation (see <xref
+  linkend="sec.s4s.inst.wizard.prepauto"/>), partitions for the
+  operating system will be created.
+  </para>
+
+  <para>
+   A logical volume group (LVG) named <literal>system</literal> will be
+   created.  This LVG contains two logical volumes (LVs) named
+   <literal>root_lv</literal> and <literal>swap_lv</literal>.
+
+   The size of <literal>swap_lv</literal> will be calculated according
+   to the SAP Note 1597355 (<ulink
+   url="https://service.sap.com/sap/support/notes/1597355"/>).  For
+   <literal>root_lv</literal> 35 GB will be assumed at first, and the
+   sum of <literal>root_lv</literal> and <literal>swap_lv</literal> will
+   be displayed as <quote>Set the system volume size in GB</quote>.
+  </para>
+
+  <para>
+1. Man kann beides ("Set the system volume size in GB" und "Set the SWAP
+size in GB" ) beliebig
+ändern.
+2. "Set the system volume size in GB" kann nicht größer sein, als die
+Phisikalische größe des Devices - 1GB. (1GB wird für Boot oder UEFI
+reserviert)
+3. "Set the SWAP size in GB" sollte man nicht ändern
+4. root_lv sollte nicht kleiner als 5GB sein.
+Nur wenn 2. nicht erfüllt ist oder Swap größer ist als Systemvolume
+kommt Fehlermeldung.
+
+
+Nach der Installation der Pakete wird, die für das SAP-Programm nötige
+Partitionierung durchgeführt.
+Das kann in der Stage 2 der Installation oder im laufendem System geschehen.
+Diese Partitionierung wird nicht von der autoinst.xml, die für die
+Installation verwendet wird gesteuert.
+(Im laufendem System gilt das nicht mehr.)
+2 Dateien steuern diese Partitionierung:
+1. In der /etc/sap-installation-wizard.xml wird durch den Tag
+&lt;partitioning> festgelegt für welche SAP-Programm welche
+Partitionierungsteuerdatei verwendet wird. Diese Dateien werden in
+/usr/share/YaST2/include/sap-installation-wizard/ gesucht. Existiert
+kein tag &lt;partitioning>-Tag für das Produkt wird base_partitioning.xml
+verwendet.
+2. Die Partitionierungsteuerdateien sind praktisch
+Autoyast-Steuerdateien die nur eine Section Partitionierung enthalten.
+Es gibt einige Erweiterungen:
+* Ist ein Tag &lt;partitioning_defined> true gesetzt, wird die
+Partitionierung ohne Benutzerinteraktion durchgeführt. Das ist zBp. der
+Fall in dem, für spezielle Hardware vorkonfiguriert erstellten
+Partitionierungsteuerdateien. So etwas liefern wir für Dell Fujitsu HP
+und IBM Server. Erkennt sap-installation-wizard so eine Hardware wird
+die entsprechende Datei ausgewählt.
+* Für jede Partition kann ein &lt;size_min> Tag angegeben werden. Diese
+kann  ein String im Format RAM*N enthalten. Dadurch kann angegeben
+werden wie groß eine Partition (wieviel fache Größe des Hauptspeichers)
+mindestens sein soll.
+
+Für alle NW basierte Produkten wird base_partitioning.xml verwendet.
+Möchte man zBp. für TREX etwas anderes haben muss man wie folgt vorgehen:
+1. Man erstellt eine Partitionierungsteuerdatei in
+/usr/share/YaST2/include/sap-installation-wizard/
+    (zBp TREX_partitioning.xml) Kann man zBp aus base_partitioning.xml 
+abwandeln.
+2. Man trägt in /etc/sap-installation-wizard.xml beim TREX folgenden Tag
+ein:
+    &lt;partitioning>TREX_partitioning.xml&lt;/partitioning>
+Das Bearbeiten von base_partitioning.xml empfehlen wir nicht, da diese
+beim Update überschireben wird.
+
+  </para>
+
+ </sect1>
+
+</chapter>
