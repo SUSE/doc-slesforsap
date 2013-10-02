@@ -55,7 +55,7 @@
   <orderedlist>
    <listitem>
     <para>
-     Installation of the operating system (&sls;)
+     Installation of the operating system (&sls;).
 </para>
    </listitem>
    <listitem>
@@ -204,8 +204,8 @@ All other sections will be replaced.
 </para>
 
 <para>
- For the details of other customization options, see the SLES &ay;
- Guide, Chapter 4.12. <quote>Custom User Scripts</quote>.
+ For the details of other customization options, see the SLES <emphasis>&ay;
+ Guide</emphasis>, Chapter 4.12. <quote>Custom User Scripts</quote>.
 </para>
    </sect3>
 

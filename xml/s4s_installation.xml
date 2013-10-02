@@ -478,9 +478,9 @@
    <tip>
     <title>Size of the System Volume</title>
     <para>
-     At least 10 GB is required for the system volume.  The swap space
-     depends on the available main memory (RAM).  For more information,
-     see the SAP Note 1597355: <ulink
+     Normally, at least 10 GB is required for the system volume.  The
+     swap space depends on the available main memory (RAM).  For more
+     information, see the SAP Note 1597355: <ulink
      url="https://service.sap.com/sap/support/notes/1597355"/>.
     </para>
    </tip>
@@ -488,7 +488,8 @@
    <para>
     If there is more than one hard disk, select the right one as the
     system volume device and set the size of the system volume (and the
-    swap space) in GB in the lower fields and confirm it.
+    swap space) in GB in the lower fields and confirm it.  For more
+    information about partitioning, see <xref linkend="s4s.part"/>.
    </para>
 
    <warning>
@@ -778,9 +779,8 @@
      </para>
 
      <para>
-      For more information on partitioning with &ay;, see the
-      <emphasis>Chapter 4.4 <quote>Partitioning</quote></emphasis> of
-      the <emphasis>&ay; Guide</emphasis>.
+      For background information on partitioning, see <xref
+      linkend="s4s.part"/>.
      </para>
     </sect2>
 
