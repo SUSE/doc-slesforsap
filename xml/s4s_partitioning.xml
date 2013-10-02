@@ -123,7 +123,10 @@
      angegeben werden. Diese kann ein String im Format RAM*N
      enthalten. Dadurch kann angegeben werden wie groß eine Partition
      (wieviel fache Größe des Hauptspeichers) mindestens sein soll.
-
+      </para>
+     </listitem>
+    </itemizedlist>
+    <para>
 Für alle NW basierte Produkten wird base_partitioning.xml verwendet.
 Möchte man zBp. für TREX etwas anderes haben muss man wie folgt vorgehen:
 1. Man erstellt eine Partitionierungsteuerdatei in
