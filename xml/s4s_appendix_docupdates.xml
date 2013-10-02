@@ -36,6 +36,15 @@
      </listitem>
     </varlistentry>
     <varlistentry>
+     <term><xref linkend="s4s.part"
+     xrefstyle="SectTitleOnPage"/></term>
+     <listitem>
+      <para>
+       New chapter.
+      </para>
+     </listitem>
+    </varlistentry>
+    <varlistentry>
      <term><xref linkend="ap.s4s.docupdate"
      xrefstyle="SectTitleOnPage"/></term>
      <listitem>
