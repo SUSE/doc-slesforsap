@@ -34,48 +34,95 @@
    url="https://service.sap.com/sap/support/notes/1597355"/>).  For
    <literal>root_lv</literal> 35 GB will be assumed at first, and the
    sum of <literal>root_lv</literal> and <literal>swap_lv</literal> will
-   be displayed as <quote>Set the system volume size in GB</quote>.
+   be displayed as <guimenu>Set the system volume size in GB</guimenu>.
   </para>
 
-  <para>
-1. Man kann beides ("Set the system volume size in GB" und "Set the SWAP
-size in GB" ) beliebig
-ändern.
-2. "Set the system volume size in GB" kann nicht größer sein, als die
-Phisikalische größe des Devices - 1GB. (1GB wird für Boot oder UEFI
-reserviert)
-3. "Set the SWAP size in GB" sollte man nicht ändern
-4. root_lv sollte nicht kleiner als 5GB sein.
-Nur wenn 2. nicht erfüllt ist oder Swap größer ist als Systemvolume
-kommt Fehlermeldung.
+    <para>
+     You can change both, the size of the system volume (<guimenu>Set
+     the system volume size in GB</guimenu>) and the size of the swap
+     partition (<guimenu>Set the SWAP size in GB</guimenu>).  When doing
+     this, mind some caveats:
+    </para>
+    
+    <itemizedlist>
+     <listitem>
+      <para>
+       The size of the system volume could not exceed the physical size
+       of the device minus 1 GB; 1 GB will be reserved for boot or for
+       UEFI.
+      </para>
+     </listitem>
 
+     <listitem>
+      <para>
+       Better do not change the size of the swap partition.
+      </para>
+     </listitem>
+     <listitem>
+      <para>
+       <literal>root_lv</literal> should not be smaller than 5 GB.
+      </para>
+     </listitem>
+    </itemizedlist>
+    <note>
+     <title>Error Messages</title>
+     <para>
+      Only if the size of the system volume (plus 1 GB) exceeds the
+      phuysical size of the device or if the swap partition exceeds the
+      size of the system volume, error messages are issued.
+     </para>
+    </note>
+    
+    <para>
+     After installing the operating system the partitioning for the SAP
+     system will take place.  This can be done during stage 2 of the
+     installation phase or in the running system.
+    </para>
 
-Nach der Installation der Pakete wird, die für das SAP-Programm nötige
-Partitionierung durchgeführt.
-Das kann in der Stage 2 der Installation oder im laufendem System geschehen.
-Diese Partitionierung wird nicht von der autoinst.xml, die für die
-Installation verwendet wird gesteuert.
-(Im laufendem System gilt das nicht mehr.)
-2 Dateien steuern diese Partitionierung:
-1. In der /etc/sap-installation-wizard.xml wird durch den Tag
-&lt;partitioning> festgelegt für welche SAP-Programm welche
-Partitionierungsteuerdatei verwendet wird. Diese Dateien werden in
-/usr/share/YaST2/include/sap-installation-wizard/ gesucht. Existiert
-kein tag &lt;partitioning>-Tag für das Produkt wird base_partitioning.xml
-verwendet.
-2. Die Partitionierungsteuerdateien sind praktisch
-Autoyast-Steuerdateien die nur eine Section Partitionierung enthalten.
-Es gibt einige Erweiterungen:
-* Ist ein Tag &lt;partitioning_defined> true gesetzt, wird die
-Partitionierung ohne Benutzerinteraktion durchgeführt. Das ist zBp. der
-Fall in dem, für spezielle Hardware vorkonfiguriert erstellten
-Partitionierungsteuerdateien. So etwas liefern wir für Dell Fujitsu HP
-und IBM Server. Erkennt sap-installation-wizard so eine Hardware wird
-die entsprechende Datei ausgewählt.
-* Für jede Partition kann ein &lt;size_min> Tag angegeben werden. Diese
-kann  ein String im Format RAM*N enthalten. Dadurch kann angegeben
-werden wie groß eine Partition (wieviel fache Größe des Hauptspeichers)
-mindestens sein soll.
+    <para>
+     The partitioning for the SAP system is not controlled by
+     <filename>autoinst.xml</filename> that is used for the installation
+     of the operating system.  The <filename>autoinst</filename>
+     functionality no longer exists in the running system.  Instead the
+     following files are controlling the partitioning for the SAP
+     system:
+    </para>
+
+    <para>
+     In <filename>/etc/sap-installation-wizard.xml</filename> the
+     <literal><![CDATA[<partitioning>]]></literal> tag defines for which
+     SAP programs which files for controlling the partitioning are used.
+     These files will be taken from
+     <filename>/usr/share/YaST2/include/sap-installation-wizard/</filename>.
+     In case there is no <literal><![CDATA[<partitioning>]]></literal>
+     tag for the wanted SAP product,
+     <filename>base_partitioning.xml</filename> will be used.
+    </para>
+
+    <para>
+     The files for controlling the partitioning are basically &ay;
+     control files that contain a partitioning section only.  There are
+     several extensions:
+    </para>
+
+    <itemizedlist>
+     <listitem>
+      <para>
+       If the <literal><![CDATA[<partitioning_defined>]]></literal> tag
+       is set to <literal>true</literal>, the partitioning will be
+       performed without any user interaction.  This, for example, is
+       preconfigured in files for controlling the partitioning of known
+       hardware such as Dell, Fujitsu, HP, or IBM Server systems.  If
+       the SAP Installation Wizard recognizes this hardware, the
+       appropriated file will be selected.
+      </para>
+     </listitem>
+     <listitem>
+      <para>
+     * Für jede Partition kann ein <literal><![CDATA[<size_min>]]></literal> Tag
+     angegeben werden. Diese kann ein String im Format RAM*N
+     enthalten. Dadurch kann angegeben werden wie groß eine Partition
+     (wieviel fache Größe des Hauptspeichers) mindestens sein soll.
 
 Für alle NW basierte Produkten wird base_partitioning.xml verwendet.
 Möchte man zBp. für TREX etwas anderes haben muss man wie folgt vorgehen:
