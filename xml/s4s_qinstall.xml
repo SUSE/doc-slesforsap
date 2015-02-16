@@ -21,7 +21,7 @@
   <procedure>
    <step>
     <para>
-     Download the DVD ISO image of &sles4sap; 11 (electronic media kit).
+     Download the DVD ISO image of &sles4sap; 12 (electronic media kit).
     </para>
    </step>
    <step>
@@ -69,7 +69,7 @@
   <procedure>
    <step>
     <para>
-     Insert the &sles4sap; 11 disk in the DVD drive and boot from the DVD.
+     Insert the &sles4sap; 12 disk in the DVD drive and boot from the DVD.
 </para>
    </step>
    <step>
