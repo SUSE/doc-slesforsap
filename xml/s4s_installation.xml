@@ -44,15 +44,16 @@
   <procedure>
    <step>
     <para>
-     Download the DVD ISO image of &sles4sapreg; 11 (electronic media
+     Download the DVD ISO image of &sles4sapreg; 12 (electronic media
      kit).
     </para>
    </step>
    <step>
     <para>
-    Burn the image onto a physical DVD and ensure that it is bootable.
-    Alternatively, you might use a virtual
-    CD-ROM device for installation into a virtual machine.</para>
+     Burn the image onto a physical DVD and ensure that it is bootable.
+     Alternatively, you might use a virtual CD-ROM device for
+     installation into a virtual machine.
+    </para>
    </step>
    <!--
    <step>
@@ -95,7 +96,7 @@
  <sect1 id="s4s.inst.booting">
  <title>Booting the Installation Medium</title>
  <para>
-  Different scenarios are available to install &sles4sap; 11.  Select
+  Different scenarios are available to install &sles4sap; 12.  Select
   the preferred installation scenario from the DVD boot menu:
  </para>
 
@@ -124,8 +125,8 @@
    <listitem>
     <para>
      A standard SLES installation prepared for installing SAP
-    applications later. You can install SAP applications with 3rd party
-    installation routines.
+     applications later. You can install SAP applications with 3rd party
+     installation routines.
     </para>
     <para>
     This scenario is suitable for experienced administrators who want
@@ -163,10 +164,11 @@
    <term>Rescue System</term>
    <listitem>
     <para>
+     <!-- FIXME checkit -->
      Starting a minimal Linux system without a graphical user
     interface. For more information, see the &admin;, Chapter 34, Common
     Problems and Their Solutions; find the &admin; at <ulink
-    url="https://www.suse.com/documentation/sles11/"/>.
+    url="https://www.suse.com/documentation/sles-12/"/>.
     </para>
    </listitem>
   </varlistentry>
@@ -718,7 +720,7 @@
      information about &ay; profiles, see the SLES <emphasis>&ay;
      Guide</emphasis> (the <emphasis>&ay; Guide</emphasis> comes
       with the product or is available from <ulink
-      url="http://www.suse.com/documentation/sles11/"/>).
+      url="http://www.suse.com/documentation/sles-12/"/>).
     </para>
 
     <para>
@@ -761,10 +763,10 @@
      </para>
 
      <para>
-      For more information about &ay;, see the <emphasis>&sls; 11 &ay;
+      For more information about &ay;, see the <emphasis>&sls; 12 &ay;
       Guide</emphasis> (the <emphasis>&ay; Guide</emphasis> comes
       with the product or is available from <ulink
-      url="http://www.suse.com/documentation/sles11/"/>).
+      url="http://www.suse.com/documentation/sles-12/"/>).
      </para>
     </sect2>
 
