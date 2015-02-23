@@ -455,64 +455,29 @@
 
   <sect2 id="sec.s4s.inst.wizard.prepauto">
    <title>Preparing System for Automated Installation</title>
-   <para>
-    After analyzing your computer, the next &yast; pop-up dialog will let
-    you specify the volume configuration.  Here you configure the volume
-    for the system and swap space.  The data volume comes later, after
-    you select the SAP Application.
-   </para>
 
-   <figure id="fig.s4s.inst.yast-storage-system">
-    <title>System Volume Configuration</title>
+   <para>
+    After analyzing your computer, enter the system administrator
+    password; see <xref linkend="fig.s4s.sap-wizard-admin-password"/>.
+    This is the root password for the system.
+   </para>
+    
+  <sect3 id="sec.s4s.inst.wizard.yast2.user.root">
+   <title>Password for the System Administrator &rootuser;</title>
+   
+   <figure id="fig.s4s.sap-wizard-admin-password">
+    <title>System Administrator Password</title>
     <mediaobject>
      <imageobject role="fo">
-      <imagedata fileref="yast-storage-system.png" width="100%" format="PNG"/>
+      <imagedata fileref="s4s_sap_wizard_admin_password.png" width="100%" format="PNG"/>
      </imageobject>
      <imageobject role="html">
-      <imagedata fileref="yast-storage-system.png" width="100%" format="PNG"/>
+      <imagedata fileref="s4s_sap_wizard_admin_password.png" width="100%" format="PNG"/>
      </imageobject>
     </mediaobject>
    </figure>
 
-   <para>
-    If there is just one hard disk, keep it as the system volume device
-    and set the size of the system volume (and the swap space) in GB in
-    the lower field and confirm it; see <xref
-    linkend="fig.s4s.inst.yast-storage-system"/>.
-   </para>
-
-   <tip>
-    <title>Size of the System Volume</title>
-    <para>
-     Normally, at least 10 GB is required for the system volume.  The
-     swap space depends on the available main memory (RAM).  For more
-     information, see the SAP Note 1597355: <ulink
-     url="https://service.sap.com/sap/support/notes/1597355"/>.
-    </para>
-   </tip>
-
-   <para>
-    If there is more than one hard disk, select the right one as the
-    system volume device and set the size of the system volume (and the
-    swap space) in GB in the lower fields and confirm it.  For more
-    information about partitioning, see <xref linkend="s4s.part"/>.
-   </para>
-
-   <warning>
-    <title>Deleting Data</title>
-    <para>
-     If you confirm the storage volume configuration, all existing data
-     on the hard disk will be deleted.  If you do not want this to
-     happen, turn off the system.
-    </para>
-   </warning>
-
-   <para>
-    After confirmation, &yast; performs the software installation.
-    Packages are installed one by one, so you can see the progress.
-   </para>
-  </sect2>
-
+<!--
   <sect2 id="sec.s4s.inst.wizard.yast2.user.root">
    <title>Password for the System Administrator &rootuser;</title><indexterm>
    <primary>&yast;</primary>
@@ -569,8 +534,72 @@
     </para>
    </warning>
   </sect2>
+-->
+  </sect3>
+  <sect3>
+   <title>System Volume Configuration</title>
+   <para>
+    The next &yast; pop-up dialog will let you specify the volume
+    configuration.  Here you configure the volume for the system and
+    swap space.  Suitable values depending on your available hardware
+    are pre-selected.  The data volume comes later, after you select the
+    SAP Application.
+   </para>
 
-  <sect2 id="sec.s4s.inst.wizard.yast2.conf.manual.hostname">
+   <figure id="fig.s4s.inst.yast-storage-system">
+    <title>System Volume Configuration</title>
+    <mediaobject>
+     <imageobject role="fo">
+      <imagedata fileref="yast-storage-system.png" width="100%" format="PNG"/>
+     </imageobject>
+     <imageobject role="html">
+      <imagedata fileref="yast-storage-system.png" width="100%" format="PNG"/>
+     </imageobject>
+    </mediaobject>
+   </figure>
+
+   <para>
+    If there is just one hard disk, keep it as the system volume device
+    and set the size of the system volume (and the swap space) in GB in
+    the lower field and confirm it; see <xref
+    linkend="fig.s4s.inst.yast-storage-system"/>.
+   </para>
+
+   <tip>
+    <title>Size of the System Volume</title>
+    <para>
+     Normally, at least 35 GB is required for the system volume.  The
+     swap space depends on the available main memory (RAM).  For more
+     information, see the SAP Note 1597355: <ulink
+     url="https://service.sap.com/sap/support/notes/1597355"/>.
+    </para>
+   </tip>
+
+   <para>
+    If there is more than one hard disk, select the right one as the
+    system volume device and set the size of the system volume (and the
+    swap space) in GB in the lower fields and confirm it.  For more
+    information about partitioning, see <xref linkend="s4s.part"/>.
+   </para>
+
+   <!--
+   <warning>
+    <title>Deleting Data</title>
+    <para>
+     If you confirm the storage volume configuration, all existing data
+     on the hard disk will be deleted.  If you do not want this to
+     happen, turn off the system.
+    </para>
+   </warning>
+
+   <para>
+    After confirmation, &yast; performs the software installation.
+    Packages are installed one by one, so you can see the progress.
+    </para>
+    -->
+  </sect3>
+
+  <sect3 id="sec.s4s.inst.wizard.yast2.conf.manual.hostname">
    <title>Hostname, Domain Name, and IP Address</title><indexterm>
    <primary>&yast;</primary>
     <secondary>hostname</secondary></indexterm><indexterm>
@@ -614,9 +643,9 @@
      unique and the netmask has to be common to all hosts on the
      network.
    </para>
-  </sect2>
+  </sect3>
 
-  <sect2 id="sec.s4s.inst.wizard.yast2.conf.manual.dns-ntp">
+  <sect3 id="sec.s4s.inst.wizard.yast2.conf.manual.dns-ntp">
    <title>Domain Name Service (DNS) and Time Server (NTP)</title>
 
    <para>
@@ -647,8 +676,9 @@
      synchronize automatically via Network Time Protocol (NTP).
     </para>
 
-   </sect2>
-
+  </sect3>
+ </sect2>
+ 
    <sect2 id="sec.s4s.inst.wizard.yast2.conf.manual.reg">
     <title>Registration</title>
     <!-- 215-yast-registration.png -->
