@@ -582,7 +582,6 @@
     information about partitioning, see <xref linkend="s4s.part"/>.
    </para>
 
-   <!--
    <warning>
     <title>Deleting Data</title>
     <para>
@@ -592,11 +591,6 @@
     </para>
    </warning>
 
-   <para>
-    After confirmation, &yast; performs the software installation.
-    Packages are installed one by one, so you can see the progress.
-    </para>
-    -->
   </sect3>
 
   <sect3 id="sec.s4s.inst.wizard.yast2.conf.manual.hostname">
@@ -677,9 +671,8 @@
     </para>
 
   </sect3>
- </sect2>
  
-   <sect2 id="sec.s4s.inst.wizard.yast2.conf.manual.reg">
+   <sect3 id="sec.s4s.inst.wizard.yast2.conf.manual.reg">
     <title>Registration</title>
     <!-- 215-yast-registration.png -->
 
@@ -708,6 +701,14 @@
      provide the registration code now, operating system updates will be
      installed automatically during the installation of the system.
     </para>
+
+    <!-- FIXME: Checkit -->
+   <para>
+    After confirmation, &yast; performs the software installation.
+    Packages are installed one by one, so you can see the progress.
+    </para>
+    
+   </sect3>
    </sect2>
 
    <sect2>
