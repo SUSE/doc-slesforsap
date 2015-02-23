@@ -96,7 +96,7 @@
  <sect1 id="s4s.inst.booting">
  <title>Booting the Installation Medium</title>
  <para>
-  Different scenarios are available to install &sles4sap; 12.  Select
+  Different scenarios are available to install &sles4sap; 12.  Select
   the preferred installation scenario from the DVD boot menu:
  </para>
 
@@ -163,21 +163,23 @@
   <varlistentry>
    <term>Rescue System</term>
    <listitem>
+    <!-- checked 2015-02-23, ke -->
     <para>
-     <!-- FIXME checkit -->
      Starting a minimal Linux system without a graphical user
-    interface. For more information, see the &admin;, Chapter 34, Common
-    Problems and Their Solutions; find the &admin; at <ulink
-    url="https://www.suse.com/documentation/sles-12/"/>.
+     interface. For more information, see the &admin;, Chapter 36,
+     Common Problems and Their Solutions; find the &admin; at <ulink
+     url="https://www.suse.com/documentation/sles-12/"/>.
     </para>
    </listitem>
   </varlistentry>
   <varlistentry>
    <term>Memory Test</term>
    <listitem>
-    <para>Testing the system RAM using repeated read and write
-    cycles. For more information, see the &admin; Chapter 34, Common
-    Problems and Their Solutions.
+    <!-- checked 2015-02-23, ke -->
+    <para>
+     Testing the system RAM using repeated read and write cycles. For
+     more information, see the &admin; Chapter 36, Common Problems and
+     Their Solutions.
     </para>
    </listitem>
   </varlistentry>
@@ -187,10 +189,11 @@
  <sect1 id="s4s.inst.inst">
   <title><guimenu>SLES for SAP Applications &mdash;
   Installation</guimenu></title>
+  <!-- checked 2015-02-23, ke -->
   <para>
-   The first part is a standard manual &sls; installation;
-   for details about such a SLES installation, see the SLES &deploy;,
-   Chapter 6, <quote>Installation with &yast;</quote>.
+   The first part is a standard manual &sls; installation; for details
+   about such a SLES installation, see the SLES &deploy;, Chapter 6,
+   <quote>Installation with &yast;</quote>.
 
    <!--
        License, Installation Mode, Time, Server Base scenario,
@@ -200,6 +203,7 @@
        NCC, Network Services, User Auth, Hardware Config 
    -->
 
+   <!-- FIXME: checkit -->
    In addition, the SAP Application Server Base
    (<systemitem>sap-loc</systemitem> and
    <systemitem>sapconf</systemitem>) pattern will be installed by
