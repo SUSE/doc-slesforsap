@@ -4,8 +4,8 @@
 <!ENTITY % entities SYSTEM "entity-decl.ent">
 %entities;
 ]>
-   <sect2 id="sec.s4s.inst.wizard.sap-product-install">
-    <!-- 220-yast-start-sap-install.png -->
+<sect2 id="sec.s4s.inst.wizard.sap-product-install">
+<!-- 220-yast-start-sap-install.png -->
     <title>SAP Product Installation</title>
 
     <para>
@@ -20,6 +20,7 @@
      <title>SAP Product Installation Default Settings</title>
 
      <para>
+      <!-- FIXME: checkit -->
       The SAP Product Installation default settings are specified and
       documented in
       <filename>/etc/sysconfig/sap-installation-wizard</filename>.  You
@@ -31,11 +32,18 @@
      <title>SAP Product Installation</title>
      <step>
    <para>
-    Confirm the pop-up (see <xref
+    Select <guimenu>Create SAP file systems and start SAP product
+    installation</guimenu> and confirm the pop-up (see <xref
     linkend="fig.s4s.inst.yast-start-sap-install"/>) if you want to
-    continue with the installation right away.  Otherwise, it is
-    possible to interrupt the installation process at this point and
-    resume it after a system restart.
+    continue with the installation right away.
+   </para>
+   <para>
+    Otherwise, it is possible to just prepare the SAP product
+    installation with <guimenu>Only create SAP HANA + B1 file systems,
+    do not install SAP products now</guimenu>, or completely interrupt
+    the installation process at this point with <guimenu>Finish wizard
+    and proceed to OS login</guimenu> and resume it after a system
+    restart.
    </para>
 
     <figure id="fig.s4s.inst.yast-start-sap-install">
