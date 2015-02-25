@@ -123,7 +123,7 @@
   </procedure>
   <para>
     Now you can install from the NFS server; e.g., from
-    <literal>http://example.com/srv/www/htdocs/sap_repo</literal>.
+    <literal>example.com:/srv/www/htdocs/sap_repo</literal>.
   </para>
 
  <para>
