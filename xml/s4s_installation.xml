@@ -82,8 +82,9 @@
     <listitem>
      <para>
       For the <guimenu>Installation with Wizard</guimenu>, at least
-      10 GB hard disk space for the system volume plus space for the
+      35 GB hard disk space for the system volume plus space for the
       swap partition and 200 GB for the data partition are required.
+      For more information, see <xref linkend="sec.s4s.part.inst"/>.
      </para>
     </listitem>
    </varlistentry>
