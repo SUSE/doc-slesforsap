@@ -336,95 +336,11 @@
   </informaltable>
 
   <para>
-   The following data is required for the SAP part of the
-   installation (required per SAP system):
+   Some more specific parameters are required depending on the SAP
+   application you want to install, for example <quote>SAP System
+   ID</quote> or <quote>System T-Shirt Sizing</quote>.
   </para>
 
-  <informaltable>
-     <tgroup cols = "2">
-      <tbody>
-       <row>
-        <entry>
-         <para>
-          SAP System ID of the system to be built up
-         </para>
-        </entry>
-        <entry>
-         <para/>
-        </entry>
-       </row>
-
-       <row>
-        <entry>
-         <para>
-          Virtual hostname (*)
-         </para>
-        </entry>
-        <entry>
-         <para/>
-        </entry>
-       </row>
-
-       <row>
-        <entry>
-         <para>
-          Virtual IP address for SAP service (*)
-         </para>
-        </entry>
-        <entry>
-         <para/>
-        </entry>
-       </row>
-
-       <row>
-        <entry>
-         <para>
-          Virtual netmask (*)
-         </para>
-        </entry>
-        <entry>
-         <para/>
-        </entry>
-       </row>
-
-       <row>
-        <entry>
-         <para>
-          Instance number of the SAP system
-         </para>
-        </entry>
-        <entry>
-         <para/>
-        </entry>
-       </row>
-
-       <row>
-        <entry>
-         <para>
-          Solution Manager key for the SAP system (*)
-         </para>
-        </entry>
-        <entry>
-         <para/>
-        </entry>
-       </row>
-
-       <row>
-        <entry>
-         <para>
-          System T-Shirt Sizing (S, M, L, or customer-specific size) (*)
-         </para>
-        </entry>
-        <entry>
-         <para/>
-        </entry>
-       </row>
-
-      </tbody>
-     </tgroup>
-  </informaltable>
-
-  <para>(*) not required for TREX.</para>
  </sect2>
 
 
