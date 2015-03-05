@@ -511,6 +511,17 @@
     <secondary>domain name</secondary>
    </indexterm>
 
+   <tip>
+    <title>Querying DHCP Server</title>
+    <para>
+     The installation wizard will query a locally running DHCP server to
+     get interesting network data such as names and IP adresses
+     for the local host, DNS server, NTP server, etc.  This ensures that
+     the entry fields of the next dialogs will be prefilled with these
+     data.
+    </para>
+   </tip>
+
    <para>
     The next dialog starts with the network configuration; see <xref
     linkend="fig.s4s.inst.yast-network-config"/>.
