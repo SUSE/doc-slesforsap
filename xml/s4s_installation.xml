@@ -420,17 +420,6 @@
         </entry>
        </row>
 
-       <row>
-        <entry>
-         <para>
-          Database Log Mode (*)
-         </para>
-        </entry>
-        <entry>
-         <para/>
-        </entry>
-       </row>
-
       </tbody>
      </tgroup>
   </informaltable>
