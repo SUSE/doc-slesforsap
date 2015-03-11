@@ -225,12 +225,16 @@
    </figure>
 
    <para>
-    <!-- checkit -->
-    <remark>checkit! compare with a default SLES installation!</remark>
+    <!-- checkit this is described in the Deployment Guide -->
     On the initial <guimenu>Registration</guimenu> dialog check your
     <guimenu>Network Configuration</guimenu> with the upper right
-    button, then enter your registration data and confirm the dialog
-    with <guimenu>Next</guimenu>.
+    button.  The <guimenu>Network Settings</guimenu> will automatically
+    pop up, if the automatic configuration via DHCP fails.
+   </para>
+
+   <para>
+    Once the network configuration is checked, enter your registration
+    data and confirm the dialog with <guimenu>Next</guimenu>.
    </para>
   <para>
    <!-- checkit -->
