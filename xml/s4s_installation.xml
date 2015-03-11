@@ -192,7 +192,7 @@
   Installation</guimenu></title>
   <!-- checked 2015-02-23, ke -->
   <para>
-   The first part is a standard manual &sls; installation; for details
+   This is mostly a standard manual &sls; installation; for details
    about such a SLES installation, see the SLES &deploy;, Chapter 6,
    <quote>Installation with &yast;</quote>.
 
@@ -211,7 +211,29 @@
    default and basic settings will be configured.
   </para>
 
+
+   <figure id="fig.s4s.install.reg-dialog">
+    <title>Initial Registration Dialog</title>
+    <mediaobject>
+     <imageobject role="fo">
+      <imagedata fileref="s4s_install_regdialog.png" width="100%" format="PNG"/>
+     </imageobject>
+     <imageobject role="html">
+      <imagedata fileref="s4s_install_regdialog.png" width="100%" format="PNG"/>
+     </imageobject>
+    </mediaobject>
+   </figure>
+
+   <para>
+    <!-- checkit -->
+    <remark>checkit! compare with a default SLES installation!</remark>
+    On the initial <guimenu>Registration</guimenu> dialog check your
+    <guimenu>Network Configuration</guimenu> with the upper right
+    button, then enter your registration data and confirm the dialog
+    with <guimenu>Next</guimenu>.
+   </para>
   <para>
+   <!-- checkit -->
    You will be prompted for all common installation settings, like
    partitioning of storage devices, network, or software packages.
   </para>
