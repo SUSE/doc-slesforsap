@@ -192,58 +192,53 @@
   Installation</guimenu></title>
   <!-- checked 2015-02-23, ke -->
   <para>
-   This is mostly a standard manual &sls; installation; for details
+   This is a standard manual &sls; installation; for details
    about such a SLES installation, see the SLES &deploy;, Chapter 6,
    <quote>Installation with &yast;</quote>.
-
-   <!--
+  </para>
+  <!--
        License, Installation Mode, Time, Server Base scenario,
        Installation Settings (here change partitioning and other
        settings, if needed).
        After deploying the software: root password. network config,
        NCC, Network Services, User Auth, Hardware Config 
-   -->
+  -->
 
-   <!-- FIXME: checkit -->
+  <!-- 2015-03-12: this intentionally no longer takes place -->
+  <!--
    In addition, the SAP Application Server Base
    (<systemitem>sap-loc</systemitem> and
    <systemitem>sapconf</systemitem>) pattern will be installed by
    default and basic settings will be configured.
   </para>
+  -->
 
+  <figure id="fig.s4s.install.reg-dialog">
+   <title>Initial Registration Dialog</title>
+   <mediaobject>
+    <imageobject role="fo">
+     <imagedata fileref="s4s_install_regdialog.png" width="100%" format="PNG"/>
+    </imageobject>
+    <imageobject role="html">
+     <imagedata fileref="s4s_install_regdialog.png" width="100%" format="PNG"/>
+    </imageobject>
+   </mediaobject>
+  </figure>
 
-   <figure id="fig.s4s.install.reg-dialog">
-    <title>Initial Registration Dialog</title>
-    <mediaobject>
-     <imageobject role="fo">
-      <imagedata fileref="s4s_install_regdialog.png" width="100%" format="PNG"/>
-     </imageobject>
-     <imageobject role="html">
-      <imagedata fileref="s4s_install_regdialog.png" width="100%" format="PNG"/>
-     </imageobject>
-    </mediaobject>
-   </figure>
-
-   <para>
-    <!-- checkit this is described in the Deployment Guide -->
-    On the initial <guimenu>Registration</guimenu> dialog check your
-    <guimenu>Network Configuration</guimenu> with the upper right
-    button.  The <guimenu>Network Settings</guimenu> will automatically
-    pop up, if the automatic configuration via DHCP fails.
-   </para>
-
-   <para>
-    Once the network configuration is checked, enter your registration
-    data and confirm the dialog with <guimenu>Next</guimenu>.
-   </para>
   <para>
-   <!-- checkit -->
+   On the initial <guimenu>Registration</guimenu> dialog check your
+   <guimenu>Network Configuration</guimenu> with the upper right button.
+   The <guimenu>Network Settings</guimenu> will automatically pop up, if
+   the automatic configuration via DHCP fails.  Once the network
+   configuration is checked, enter your registration data and confirm
+   the dialog with <guimenu>Next</guimenu>.
+  </para>
+  <para>
    You will be prompted for all common installation settings, like
    partitioning of storage devices, network, or software packages.
   </para>
-
  </sect1>
-
+<!-- ================================================================== -->
  <sect1 id="s4s.inst.wizard">
   <title><guimenu>SLES for SAP Applications &mdash; Installation with
   Wizard</guimenu></title>
@@ -720,6 +715,7 @@
     -->
 
     <para>
+     <remark>2015-03-12, ke: CHECKIT!</remark>
      You can also reference the SAP specific pattern, the HA and WebYaST
      components and SAP-specific IBM Java in your &ay; profile and then
      install it during this installation scenario.  As everything else,
