@@ -705,6 +705,18 @@
      when &yast; asks for it in the next dialog.
     </para>
 
+    <figure id="fig.s4s.profile.autoinst">
+    <title>&yast; Asking for System Profile Location</title>
+    <mediaobject>
+     <imageobject role="fo">
+      <imagedata fileref="s4s_profile_autoinst.png" width="100%" format="PNG"/>
+     </imageobject>
+     <imageobject role="html">
+      <imagedata fileref="s4s_profile_autoinst.png" width="100%" format="PNG"/>
+     </imageobject>
+    </mediaobject>
+   </figure>
+
     <!-- commenting for the moment...
     <para>
      &ay; will look on USB devices for the XML configuration file
