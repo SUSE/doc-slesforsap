@@ -404,32 +404,6 @@
     </mediaobject>
    </figure>
 
-<!--
-  <sect2 id="sec.s4s.inst.wizard.yast2.user.root">
-   <title>Password for the System Administrator &rootuser;</title><indexterm>
-   <primary>&yast;</primary>
-   <secondary>root password</secondary></indexterm><indexterm>
-   <primary>installation</primary>
-   <secondary>root password</secondary></indexterm>
-   <para>
-    When all packages are installed, the basic installation is finished,
-    and the system is rebooted for initial configuration, you will be
-    prompted to enter a Password for the System Administrator
-    &rootuser;; see <xref linkend="fig.s4s.inst.yast-root-password"/>.
-   </para>
-
-   <figure id="fig.s4s.inst.yast-root-password">
-    <title>Password for root User</title>
-    <mediaobject>
-     <imageobject role="fo">
-      <imagedata fileref="yast-root-password.png" width="100%" format="PNG"/>
-     </imageobject>
-     <imageobject role="html">
-      <imagedata fileref="yast-root-password.png" width="100%" format="PNG"/>
-     </imageobject>
-    </mediaobject>
-   </figure>
-
    <para>
     &rootuser; is the name of the superuser, or the administrator of the
     system. Unlike regular users (who may or may not have permission to
@@ -460,6 +434,33 @@
      password.
     </para>
    </warning>
+
+<!--
+  <sect2 id="sec.s4s.inst.wizard.yast2.user.root">
+   <title>Password for the System Administrator &rootuser;</title><indexterm>
+   <primary>&yast;</primary>
+   <secondary>root password</secondary></indexterm><indexterm>
+   <primary>installation</primary>
+   <secondary>root password</secondary></indexterm>
+   <para>
+    When all packages are installed, the basic installation is finished,
+    and the system is rebooted for initial configuration, you will be
+    prompted to enter a Password for the System Administrator
+    &rootuser;; see <xref linkend="fig.s4s.inst.yast-root-password"/>.
+   </para>
+
+   <figure id="fig.s4s.inst.yast-root-password">
+    <title>Password for root User</title>
+    <mediaobject>
+     <imageobject role="fo">
+      <imagedata fileref="yast-root-password.png" width="100%" format="PNG"/>
+     </imageobject>
+     <imageobject role="html">
+      <imagedata fileref="yast-root-password.png" width="100%" format="PNG"/>
+     </imageobject>
+    </mediaobject>
+   </figure>
+
   </sect2>
 -->
   </sect3>
