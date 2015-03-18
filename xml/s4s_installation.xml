@@ -646,7 +646,7 @@
     After confirmation, &yast; performs the software installation.
     Packages are installed one by one, so you can see the progress.
     </para>
-    
+    <!--
    </sect3>
    </sect2>
 
@@ -656,7 +656,7 @@
      After confirming the registration data, the system will be
      configured with the supplied settings.
     </para>
-
+    -->
     <para>
      No user action is required at this stage.
     </para>
@@ -674,7 +674,7 @@
       ports, see <xref linkend="s4s.config.ports"/>.
      </para>
     </warning>
-
+   </sect3>
    </sect2>
 
    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
