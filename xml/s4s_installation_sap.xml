@@ -181,7 +181,7 @@
     </mediaobject>
    </figure>
      </step>
-     <!-- ============================================================ -->
+
      <step>
 
    <para>
@@ -202,8 +202,13 @@
       </imageobject>
      </mediaobject>
     </figure>
+
+    <para>
+     For example, select <guimenu>SAP NetWeaver 7.4</guimenu>.
+    </para>
      </step>
 
+     <!-- ============================================================ -->
      <step id="pro.sap.wizard.products">
    <para>
     For example, select <quote>Enhancement Package&nbsp;5
