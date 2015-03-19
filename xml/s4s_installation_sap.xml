@@ -9,7 +9,7 @@
     <title>SAP Product Installation</title>
 
     <para>
-     After applying the configuration settings, you are prompted to
+     After an automatic reboot, you are prompted to
      continue with the <guimenu>SAP Product Installation</guimenu> using
      the SAP Installation Wizard.  The SAP Installation Wizard will
      install the SAP application from the SAP media kits you received
@@ -161,8 +161,30 @@
    </figure>
 -->
    <para>
-    In the next dialog you can select the SAP products you want to
-    install.  The offerings of available products depend on the
+    In the next dialog you select the <guimenu>Installation
+    Mode</guimenu> such as <guimenu>SAP Standard System</guimenu>,
+    <guimenu>SAP Standalone Engines</guimenu>, etc. and the
+    <guimenu>Database</guimenu> such as <guimenu>IBM DB2</guimenu>,
+    <guimenu>MaxDB</guimenu>, etc. you want to
+    deploy.
+   </para>
+
+    <figure id="fig.s4s.sap.wizard.mode.db">
+    <title>SAP Installation Wizard: Installation Mode and Database</title>
+    <mediaobject>
+     <imageobject role="fo">
+      <imagedata fileref="s4s_sap_wizard_mode_db.png" width="80%" format="PNG"/>
+     </imageobject>
+     <imageobject role="html">
+      <imagedata fileref="s4s_sap_wizard_mode_db.png" width="80%" format="PNG"/>
+     </imageobject>
+    </mediaobject>
+    </figure>
+
+    <!-- ============================================================ -->
+   
+   <para>
+    The offerings of available products depend on the
     media set and installation master you received from SAP; for
     example, see <xref linkend="fig.s4s.sap.wizard.avail.products"/>.
    </para>
