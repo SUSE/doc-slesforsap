@@ -92,7 +92,7 @@
     </mediaobject>
    </figure>
      </step>
-
+     
      <step>
    <para>
     In the next dialog provide the <guimenu>Location of the SAP
@@ -169,7 +169,7 @@
     deploy.
    </para>
 
-    <figure id="fig.s4s.sap.wizard.mode.db">
+   <figure id="fig.s4s.sap.wizard.mode.db">
     <title>SAP Installation Wizard: Installation Mode and Database</title>
     <mediaobject>
      <imageobject role="fo">
@@ -179,27 +179,29 @@
       <imagedata fileref="s4s_sap_wizard_mode_db.png" width="80%" format="PNG"/>
      </imageobject>
     </mediaobject>
-    </figure>
+   </figure>
+     </step>
+     <!-- ============================================================ -->
+     <step>
 
-    <!-- ============================================================ -->
-   
    <para>
+    In the next dialog you select a <guimenu>SAP Product</guimenu>.
     The offerings of available products depend on the
     media set and installation master you received from SAP; for
     example, see <xref linkend="fig.s4s.sap.wizard.avail.products"/>.
    </para>
 
     <figure id="fig.s4s.sap.wizard.avail.products">
-    <title>SAP Installation Wizard: Products Available</title>
-    <mediaobject>
-     <imageobject role="fo">
-      <imagedata fileref="s4s_sap_wizard_available_products.png" width="80%" format="PNG"/>
-     </imageobject>
-     <imageobject role="html">
-      <imagedata fileref="s4s_sap_wizard_available_products.png" width="80%" format="PNG"/>
-     </imageobject>
-    </mediaobject>
-   </figure>
+     <title>SAP Installation Wizard: SAP Products</title>
+     <mediaobject>
+      <imageobject role="fo">
+       <imagedata fileref="s4s_sap_wizard_available_products.png" width="80%" format="PNG"/>
+      </imageobject>
+      <imageobject role="html">
+       <imagedata fileref="s4s_sap_wizard_available_products.png" width="80%" format="PNG"/>
+      </imageobject>
+     </mediaobject>
+    </figure>
      </step>
 
      <step id="pro.sap.wizard.products">
