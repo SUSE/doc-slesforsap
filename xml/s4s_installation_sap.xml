@@ -20,7 +20,6 @@
      <title>SAP Product Installation Default Settings</title>
 
      <para>
-      <!-- FIXME: checkit -->
       The SAP Product Installation default settings are specified and
       documented in
       <filename>/etc/sysconfig/sap-installation-wizard</filename>.  You
