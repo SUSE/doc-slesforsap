@@ -114,7 +114,6 @@
      If you want to install from an NFS source, you must enter the name
      of the server and the complete path to the media data.
     </para>
-   </tip>
 
    <para>
     For more information about setting up a remote installation server,
@@ -122,15 +121,14 @@
     Server Holding the Installation Sources</quote> (the &deploy; comes
     with the product or is available from <ulink
     url="http://www.suse.com/documentation/sles-12/"/>).
-   </para>
-
-   <para>
     To save time and space, you can also loop mount ISO images on the
     installation server.  For more information, see the &sls; 12
     &deploy;, Section 14.2.6, <quote>Using ISO Images of the
     Installation Media on the Server</quote>.
    </para>
-    <figure id="fig.s4s.sap.wizard.source">
+   </tip>
+
+   <figure id="fig.s4s.sap.wizard.source">
     <title>SAP Installation Wizard: SAP Installation Master Location</title>
     <mediaobject>
      <imageobject role="fo">
@@ -164,8 +162,8 @@
     Mode</guimenu> such as <guimenu>SAP Standard System</guimenu>,
     <guimenu>SAP Standalone Engines</guimenu>, etc. and the
     <guimenu>Database</guimenu> such as <guimenu>IBM DB2</guimenu>,
-    <guimenu>MaxDB</guimenu>, etc. you want to
-    deploy.
+    <guimenu>MaxDB</guimenu>, etc. you want to deploy. See <xref
+    linkend="fig.s4s.sap.wizard.mode.db"/>.
    </para>
 
    <figure id="fig.s4s.sap.wizard.mode.db">
@@ -202,23 +200,38 @@
      </mediaobject>
     </figure>
 
-    <para>
-     For example, select <guimenu>SAP NetWeaver 7.4</guimenu>.
-    </para>
      </step>
-
      <!-- ============================================================ -->
      <step id="pro.sap.wizard.products">
-   <para>
-    For example, select <quote>Enhancement Package&nbsp;5
-    for SAP ERP</quote> and click <guimenu>Next</guimenu>.  Now
-    the relevant part of the SAP media will be copied to the hard drive of
-    the machine for the following SAP installation (after copying, see
-    the contents of <filename>/data/SAP_CDs</filename>; the layout is
-    explained later in this chapter).  This is repeated
-    for all necessary SAP media, with some additional simple questions.
-   </para>
+      <para>
+       For example, select <guimenu>SAP NetWeaver 7.4</guimenu> and
+       click <guimenu>Next</guimenu>.  Now the relevant part of the SAP
+       media will be copied to the hard drive of the machine for the
+       following SAP installation (after copying, see the contents of
+       <filename>/data/SAP_CDs</filename>; the layout is explained later
+       in this chapter).  This is repeated for all necessary SAP media,
+       with some additional simple questions.
+      </para>
      </step>
+     <step>
+      <para>
+       Now you are asked to provide the Location of the SAP medium.  In
+       this case, it would be NWKERNEL; ; see <xref
+       linkend="fig.s4s.sap.wizard.nwkernel"/>.
+      </para>
+      <figure id="fig.s4s.sap.wizard.nwkernel">
+     <title>SAP Installation Wizard: Location of the SAP Medium</title>
+     <mediaobject>
+      <imageobject role="fo">
+       <imagedata fileref="s4s_sap_wizard_location_nwkernel.png" width="80%" format="PNG"/>
+      </imageobject>
+      <imageobject role="html">
+       <imagedata fileref="s4s_sap_wizard_location_nwkernel.png" width="80%" format="PNG"/>
+      </imageobject>
+     </mediaobject>
+    </figure>
+    </step>
+
      <step>
       <para>
     After copying the Installation Master Media, as step 2 enter the
