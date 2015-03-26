@@ -215,8 +215,8 @@
      </step>
      <step>
       <para>
-       Now you are asked to provide the Location of the SAP medium.  In
-       this case, it would be NWKERNEL; ; see <xref
+       Now you are asked to provide the <guimenu>Location of the SAP
+       Medium</guimenu>.  In this case, it would be NWKERNEL; see <xref
        linkend="fig.s4s.sap.wizard.nwkernel"/>.
       </para>
       <figure id="fig.s4s.sap.wizard.nwkernel">
@@ -232,6 +232,7 @@
     </figure>
     </step>
 
+    <!--
      <step>
       <para>
     After copying the Installation Master Media, as step 2 enter the
@@ -320,7 +321,8 @@
     If needed, add the additional export media when installation wizard
     asks about it.
    </para>
-     </step>
+   </step>
+   -->
      <step>
    <para>
     Then you can then copy a <quote>CryptoAddOn</quote> medium; this is
@@ -339,9 +341,23 @@ files.
      <step>
    <para>
     At this point, all data required for the SAP installation is
-    selected and copied to <filename>/data/SAP_CDs/0</filename>, one
-    directory per medium:
+    selected and copied to <filename>/data/SAP_CDs</filename>, one
+    directory per medium, e.g.:
    </para>
+   <screen>/data/SAP_CDs:
+
+742-KERNEL-SAP-Kernel-742
+742-UKERNEL-SAP-Unicode-Kernel-742
+RDBMS-MAX-DB-LINUX_X86_64
+SAP-NetWeaver-740-SR2-Installation-Export-CD-1-3
+SAP-NetWeaver-740-SR2-Installation-Export-CD-2-3
+SAP-NetWeaver-740-SR2-Installation-Export-CD-3-3</screen>
+   <para>
+    <filename>/data/SAP_CDs</filename> is the default as specified in
+    the <filename>/etc/sysconfig/sap-installation-wizard</filename>
+    configuration file.
+   </para>
+<!--
    <screen>/data/SAP_CDs/0:
 total 48
 drwxr-xr-x 12 root root 4096 Sep 27 14:01 ./
@@ -371,19 +387,29 @@ drwxr-xr-x  4 root root 4096 Sep 27 14:06 ../
 drwxr-xr-x 15 root root 4096 Sep 27 14:06 Instmaster/
 drwxr-xr-x  4 root root 4096 Sep 27 14:07 RDBMS-ADA/
 </screen>
-
-   <para>
-    <filename>/data/SAP_CDs</filename> is the default as specified in
-    the <filename>/etc/sysconfig/sap-installation-wizard</filename>
-    configuration file.
-   </para>
+-->
      </step>
-     <step>
-   <para>
-    In the following configuration dialogs, enter the details for the SAP
-    installation.
-   </para>
 
+     <step>
+      <para>
+       In the following configuration dialogs, enter the details for the SAP
+       installation.  <!-- Such as size of the system -->
+      </para>
+      <para>
+       Specify the <guimenu>System T-Shirt-Sizing</guimenu>.
+      </para>
+    <figure id="fig.s4s.sap.wizard.sysparams.size">
+    <title>SAP System Parameters: T-Shirt-Sizing</title>
+    <mediaobject>
+     <imageobject role="fo">
+      <imagedata fileref="s4s_sap_wizard_sysparams_size.png" width="80%" format="PNG"/>
+     </imageobject>
+     <imageobject role="html">
+      <imagedata fileref="s4s_sap_wizard_sysparams_size.png" width="80%" format="PNG"/>
+     </imageobject>
+    </mediaobject>
+   </figure>
+<!--
     <figure id="fig.s4s.sap.wizard.sys.params">
     <title>SAP System Parameters</title>
     <mediaobject>
@@ -395,7 +421,8 @@ drwxr-xr-x  4 root root 4096 Sep 27 14:07 RDBMS-ADA/
      </imageobject>
     </mediaobject>
    </figure>
-
+-->
+<!--
    <para>
     In <xref linkend="fig.s4s.sap.wizard.sys.params"/>, as <guimenu>SID
     (SAP System ID)</guimenu> enter the three letter SAP System ID such
@@ -406,12 +433,14 @@ drwxr-xr-x  4 root root 4096 Sep 27 14:07 RDBMS-ADA/
     T-Shirt-Sizing</guimenu>.  The <guimenu>SAP SCS Instance
     Number</guimenu> is only required for Java installations.  For
     details, see the online help on the left.
-   </para>
+    </para>
+    -->
      </step>
      <step>
    <para>
     In <xref linkend="fig.s4s.sap.wizard.virt.params"/>, enter the
-    virtual network settings, if needed.
+    virtual network settings, if needed.  For details, see the online
+    help on the left.
    </para>
     <figure id="fig.s4s.sap.wizard.virt.params">
     <title>SAP Virtual Network Settings</title>
@@ -426,7 +455,8 @@ drwxr-xr-x  4 root root 4096 Sep 27 14:07 RDBMS-ADA/
    </figure>
 
      </step>
-
+     <!-- performing installation -->
+     <!--
      <step>
    <para>
     In <xref linkend="fig.s4s.sap.wizard.db.logmode"/>, select the the
@@ -447,7 +477,8 @@ drwxr-xr-x  4 root root 4096 Sep 27 14:07 RDBMS-ADA/
     </mediaobject>
    </figure>
 
-     </step>
+  </step>
+-->
      <step>
 
    <para>
