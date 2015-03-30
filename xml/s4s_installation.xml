@@ -384,14 +384,17 @@
    <title>Preparing System for Automated Installation</title>
 
    <para>
-    After analyzing your computer, enter the system administrator
-    password; see <xref linkend="fig.s4s.sap-wizard-admin-password"/>.
-    This is the root password for the system.
+    After analyzing your computer, &yast; allows you to specify options
+    for a customized installation.
    </para>
     
   <sect3 id="sec.s4s.inst.wizard.yast2.user.root">
    <title>Password for the System Administrator &rootuser;</title>
-   
+   <para>
+    First, &yast; prompts you to enter the system administrator password;
+    see <xref linkend="fig.s4s.sap-wizard-admin-password"/>.  This is
+    the root password for the system.
+   </para>
    <figure id="fig.s4s.sap-wizard-admin-password">
     <title>System Administrator Password</title>
     <mediaobject>
@@ -467,7 +470,7 @@
   <sect3>
    <title>System Volume Configuration</title>
    <para>
-    The next &yast; pop-up dialog will let you specify the volume
+    The next &yast; pop-up dialog lets you fine-tune the volume
     configuration.  Here you configure the volume for the system and
     swap space.  Suitable values depending on your available hardware
     are pre-selected.  The data volume comes later, after you select the
@@ -641,22 +644,12 @@
      installed automatically during the installation of the system.
     </para>
 
-    <!-- FIXME: Checkit -->
    <para>
-    After confirmation, &yast; performs the software installation.
-    Packages are installed one by one, so you can see the progress.
+    After confirmation, the system will be configured with the supplied
+    settings.  Then &yast; performs the partitioning and the software
+    installation.  Packages are installed one by one, so you can see the
+    progress.
     </para>
-    <!--
-   </sect3>
-   </sect2>
-
-   <sect2>
-    <title>System Configuration Settings</title>
-    <para>
-     After confirming the registration data, the system will be
-     configured with the supplied settings.
-    </para>
-    -->
     <para>
      No user action is required at this stage.
     </para>
