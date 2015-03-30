@@ -622,8 +622,8 @@
      To get technical support and product updates, you need to register
      and activate your product with the &ncc;; see <xref
      linkend="fig.s4s.inst.yast-reg"/>.  This dialog provides assistance
-     for doing so. Find detailed information about &ncc; at <ulink
-     url="http://www.novell.com/documentation/ncc/"/>.
+     for doing so. For information about &scc;, see <ulink
+     url="https://scc.suse.com"/>.
     </para>
    <figure id="fig.s4s.inst.yast-reg">
     <title>Registration</title>
