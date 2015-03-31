@@ -205,7 +205,7 @@ All other sections will be replaced.
 
 <para>
  For the details of other customization options, see the SLES <emphasis>&ay;
- Guide</emphasis>, Chapter 4.12. <quote>Custom User Scripts</quote>.
+ Guide</emphasis>, Chapter 4.16. <quote>Custom User Scripts</quote>.
 </para>
    </sect3>
 
@@ -213,11 +213,11 @@ All other sections will be replaced.
     <title>Own &ay; Ask Dialogs</title>
     <para>
      For a general overview and details of the Ask feature of &ay;, see
-     Chapter 4.17.  <quote>Ask the User for Values During
+     Chapter 4.19.  <quote>Ask the User for Values During
      Installation</quote> of the SLES <emphasis>&ay; Guide</emphasis>
      (the <emphasis>&ay; Guide</emphasis> comes with the product or is
      available from <ulink
-     url="http://www.suse.com/documentation/sles11/"/>).
+     url="http://www.suse.com/documentation/sles-12/"/>).
     </para>
     <para>
 For the supplement media you can only use dialogs within the
@@ -293,7 +293,7 @@ You can also install RPM packages within the
     </para>
     <para>
      For more information, see the SLES &ay; Guide, Chapter
-     4.5.6. <quote>Installing Packages during Stage 2</quote>.  An
+     4.6.5. <quote>Installing Packages in Stage 2</quote>.  An
      example looks as follows:
     </para>
 <screen><![CDATA[...
