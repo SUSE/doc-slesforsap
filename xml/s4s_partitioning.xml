@@ -68,7 +68,7 @@
    <title>Error Messages</title>
    <para>
     Only if the size of the system volume (plus 1 GB) exceeds the
-    phuysical size of the device or if the swap partition exceeds the
+    physical size of the device or if the swap partition exceeds the
     size of the system volume, error messages are issued.
    </para>
   </note>
