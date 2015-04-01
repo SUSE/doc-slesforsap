@@ -217,9 +217,9 @@
      <step>
       <para>
        Now you are asked to provide the <guimenu>Location of the SAP
-       Medium</guimenu> and if additional media are needed, you can add
-       them afterward; see <xref
-       linkend="fig.s4s.sap.wizard.sapmedia"/>.
+       Medium</guimenu> and if additional media are needed, you can also
+       add them afterwards; see <xref
+       linkend="fig.s4s.sap.wizard.sapmedia "/>.
        <!--
        In this case, it would be NWKERNEL; see <xref
        linkend="fig.s4s.sap.wizard.nwkernel"/>.
@@ -344,10 +344,15 @@
    -->
      <step>
    <para>
-    Then you can then copy a <quote>CryptoAddOn</quote> medium; this is
-    optional.  Generally, the encryption feature depends on the SAP
-    product.
-
+    Then you can optionally copy a <guimenu>Supplement</guimenu> or
+    <guimenu>3rd-Party Medium</guimenu>
+   </para>
+   <note>
+    <title><quote>CryptoAddOn</quote> Medium</title>
+   <para>
+    Generally, the encryption feature depends on the SAP product.
+   </para>
+   <para>
 Starting with SAP NetWeaver 7.03/7.3 the cryptographic functionality is
 already included in the SAP NetWeaver DVDs and does not have to be
 specified separately. If the wizard asks you to insert the
@@ -355,6 +360,7 @@ medium containing the cryptographic functionality, see the <xref
 linkend="s4s.appendix.cryptoaddon"/> on how to obtain the encryption
 files.
    </para>
+   </note>
      </step>
 
      <step>
