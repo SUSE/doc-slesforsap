@@ -345,7 +345,8 @@
      <step>
    <para>
     Then you can optionally copy a <guimenu>Supplement</guimenu> or
-    <guimenu>3rd-Party Medium</guimenu>
+    <guimenu>3rd-Party Medium</guimenu>.  For more information about a
+    Supplement Media, see <xref linkend="s4s.comp.wizard.suppl"/>.
    </para>
    <note>
     <title><quote>CryptoAddOn</quote> Medium</title>
@@ -463,9 +464,9 @@ drwxr-xr-x  4 root root 4096 Sep 27 14:07 RDBMS-ADA/
      </step>
      <step>
    <para>
-    In <xref linkend="fig.s4s.sap.wizard.virt.params"/>, then enter the
-    virtual network settings, if needed.  For details, see the online
-    help on the left.
+    In <xref linkend="fig.s4s.sap.wizard.virt.params"/>, then enalbe and
+    enter the virtual network settings, if needed.  For details, see the
+    online help on the left.
    </para>
     <figure id="fig.s4s.sap.wizard.virt.params">
     <title>SAP Virtual Network Settings</title>
@@ -504,28 +505,7 @@ drwxr-xr-x  4 root root 4096 Sep 27 14:07 RDBMS-ADA/
 
   </step>
 -->
-     <step>
 
-   <para>
-    At this stage it is possible to install a Supplement Medium; see
-    <xref linkend="fig.s4s.sap.wizard.suppl"/>.  For more information
-    about a Supplement Media, see <xref
-    linkend="s4s.comp.wizard.suppl"/>.
-   </para>
-    <figure id="fig.s4s.sap.wizard.suppl">
-    <title>SAP Installation: Supplement Medium</title>
-    <mediaobject>
-     <imageobject role="fo">
-      <imagedata fileref="s4s_sap_wizard_suppl_medium.png" width="80%" format="PNG"/>
-     </imageobject>
-     <imageobject role="html">
-      <imagedata fileref="s4s_sap_wizard_suppl_medium.png" width="80%" format="PNG"/>
-     </imageobject>
-    </mediaobject>
-   </figure>
-     </step>
-
-   <!-- Third party? p. -->
    <!--
    <step>
     <para>
