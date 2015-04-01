@@ -530,26 +530,26 @@ drwxr-xr-x  4 root root 4096 Sep 27 14:07 RDBMS-ADA/
 
    </step>
    -->
-   <step>
-   <!-- Another product? p. 26 -->
-
-    <!-- FIXME: Checkit -->
-   <para>
-    As the last step of the installation procedure, you can prepare the
-    installation of another SAP product, if wanted. If you confirm that
-    you wish to
-    install an additional product, the installation procedure will enter
-    into a new iteration and restart the installation process beginning
-    with <xref linkend="pro.sap.wizard.products"/> to set up an
-    additional product.
-   </para>
-   </step>
 
    <step>
    <para>
     Now all installation data (media and settings) is available to the
     wizard, and the final deployment of the SAP system can take place
-    with the SAP installer (SAPinst).  The SAP installer displays a
+    with the SAP installer (SAPinst).
+   </para>
+    <figure id="fig.s4s.sapinst.param">
+    <title>SAP Installer (SAPinst): Defining Parameters</title>
+    <mediaobject>
+     <imageobject role="fo">
+      <imagedata fileref="s4s_sapinst_param.png" width="80%" format="PNG"/>
+     </imageobject>
+     <imageobject role="html">
+      <imagedata fileref="s4s_sapinst_param.png" width="80%" format="PNG"/>
+     </imageobject>
+    </mediaobject>
+   </figure>
+
+   <para>The SAP installer displays a
     visualization of the installation steps it performs; see <xref
     linkend="fig.s4s.sapinst"/>.
    </para>
