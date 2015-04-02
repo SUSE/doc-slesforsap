@@ -536,6 +536,10 @@ drwxr-xr-x  4 root root 4096 Sep 27 14:07 RDBMS-ADA/
     Now all installation data (media and settings) is available to the
     wizard, and the final deployment of the SAP system can take place
     with the SAP installer (SAPinst).
+    <!--
+        Need parameters: xxx, SAP System
+        ID, password for all users, database ID,
+    -->
    </para>
     <figure id="fig.s4s.sapinst.param">
     <title>SAP Installer (SAPinst): Defining Parameters</title>
@@ -580,7 +584,6 @@ drwxr-xr-x  4 root root 4096 Sep 27 14:07 RDBMS-ADA/
     After the SAP installer has finished, you will see a short summary
     of the installation data.
    </para>
-
 
      <!--
 II)
