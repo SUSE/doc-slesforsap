@@ -33,7 +33,16 @@
      <listitem>
       <para>
        Replace &sls; 11 references with &sls; 12 everywhere, and adjust
-       the text accordingly.
+       the text according to the new installation flow.
+      </para>
+     </listitem>
+    </varlistentry>
+    <varlistentry>
+     <term><xref linkend="pre_s4s"
+     xrefstyle="SectTitleOnPage"/></term>
+     <listitem>
+      <para>
+       Update feedback information.
       </para>
      </listitem>
     </varlistentry>
