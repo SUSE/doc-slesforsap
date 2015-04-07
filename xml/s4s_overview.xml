@@ -5,7 +5,7 @@
           <!ENTITY % entities SYSTEM "entity-decl.ent">
           %entities;
 ]>
-<preface id="pre_smt">
+<preface id="pre_s4s">
  <title>About This Guide</title>
  <para>
   &sles4sapreg; is the reference platform for SAP's software
