@@ -51,7 +51,7 @@
      xrefstyle="SectTitleOnPage"/></term>
      <listitem>
       <para>
-       Add note about loading external profile via HTTP (<ulink
+       Add note about loading an external profile via HTTP (<ulink
          url="https://bugzilla.suse.com/show_bug.cgi?id=925747"/>).
       </para>
      </listitem>
