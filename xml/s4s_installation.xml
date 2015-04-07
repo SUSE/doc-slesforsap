@@ -711,6 +711,17 @@
     </mediaobject>
    </figure>
 
+   <note>
+    <title>Loading External Profile via HTTP</title>
+    <para>
+     It is possible to load the external profile from the network via
+     HTTP.  In this case, it is also needed to change the
+     <literal>netsetup</literal> boot parameter from
+     <literal>0</literal> (default) to <literal>1</literal>:
+    </para>
+    <screen>... autoyast=http://&wwwip;/autoinst.xml netsetup=1 ...</screen>
+   </note>
+
     <!-- commenting for the moment...
     <para>
      &ay; will look on USB devices for the XML configuration file
