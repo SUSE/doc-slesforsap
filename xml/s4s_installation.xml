@@ -733,8 +733,8 @@
 
     <para>
      <remark>2015-03-12, ke: CHECKIT!</remark>
-     You can also reference the SAP specific pattern, the HA and WebYaST
-     components and SAP-specific IBM Java in your &ay; profile and then
+     You can also reference the SAP specific pattern, the HA
+     component and SAP-specific IBM Java in your &ay; profile and then
      install it during this installation scenario.  As everything else,
      these components are <emphasis>not</emphasis> preselected and you
      must include this yourself in your
