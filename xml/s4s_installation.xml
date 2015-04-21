@@ -200,7 +200,7 @@
  <sect1 id="s4s.inst.inst">
   <title><guimenu>SLES for SAP Applications &mdash;
   Installation</guimenu></title>
-  <!-- checked 2015-02-23, ke -->
+  <!-- checked 2015-04-21, ke -->
   <para>
    This is a standard manual &sls; installation; for details
    about such a SLES installation, see the SLES &deploy;, Chapter 6,
@@ -223,6 +223,23 @@
   </para>
   -->
 
+  <figure id="fig.s4s.install.license">
+   <title>License Confirmation</title>
+   <mediaobject>
+    <imageobject role="fo">
+     <imagedata fileref="s4s_install_license.png" width="100%" format="PNG"/>
+    </imageobject>
+    <imageobject role="html">
+     <imagedata fileref="s4s_install_license.png" width="100%" format="PNG"/>
+    </imageobject>
+   </mediaobject>
+  </figure>
+
+  <para>
+   On the initial dialog confirm the license (see <xref
+   linkend="fig.s4s.install.license"/>).
+  </para>
+  
   <figure id="fig.s4s.install.reg-dialog">
    <title>Initial Registration Dialog</title>
    <mediaobject>
