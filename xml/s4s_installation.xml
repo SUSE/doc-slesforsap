@@ -162,6 +162,16 @@
    </listitem>
   </varlistentry>
   <varlistentry>
+   <term>Upgrade</term>
+   <listitem>
+    <para>
+     Upgrading the system. For more information, see the &deploy;, Chapter 7.4,
+     Upgrading to SUSE Linux Enterprise 12; find the &deploy; at <ulink
+     url="https://www.suse.com/documentation/sles-12/"/>.
+    </para>
+   </listitem>
+  </varlistentry>
+  <varlistentry>
    <term>Rescue System</term>
    <listitem>
     <!-- checked 2015-02-23, ke -->
