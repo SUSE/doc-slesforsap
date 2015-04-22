@@ -590,10 +590,10 @@
     <title>Hostname, Domain Name, and IP Address</title>
     <mediaobject>
      <imageobject role="fo">
-      <imagedata fileref="yast-network-config.png" width="100%" format="PNG"/>
+      <imagedata fileref="yast-network-config.png" width="80%" format="PNG"/>
      </imageobject>
      <imageobject role="html">
-      <imagedata fileref="yast-network-config.png" width="100%" format="PNG"/>
+      <imagedata fileref="yast-network-config.png" width="80%" format="PNG"/>
      </imageobject>
     </mediaobject>
    </figure>
@@ -638,10 +638,10 @@
     <title>Domain Name Service (DNS) and Time Server (NTP)</title>
     <mediaobject>
      <imageobject role="fo">
-      <imagedata fileref="yast-network-config2.png" width="100%" format="PNG"/>
+      <imagedata fileref="yast-network-config2.png" width="80%" format="PNG"/>
      </imageobject>
      <imageobject role="html">
-      <imagedata fileref="yast-network-config2.png" width="100%" format="PNG"/>
+      <imagedata fileref="yast-network-config2.png" width="80%" format="PNG"/>
      </imageobject>
     </mediaobject>
    </figure>
@@ -674,10 +674,10 @@
     <title>Registration</title>
     <mediaobject>
      <imageobject role="fo">
-      <imagedata fileref="yast-registration.png" width="100%" format="PNG"/>
+      <imagedata fileref="yast-registration.png" width="80%" format="PNG"/>
      </imageobject>
      <imageobject role="html">
-      <imagedata fileref="yast-registration.png" width="100%" format="PNG"/>
+      <imagedata fileref="yast-registration.png" width="80%" format="PNG"/>
      </imageobject>
     </mediaobject>
    </figure>
