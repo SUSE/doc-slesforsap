@@ -219,11 +219,16 @@ a seamless communication with both SAP and &suse; in a <quote>1 Face to the
 Customer</quote> manner, thus reducing complexity and lowering the total cost
 of ownership.
      </para>
+     <!--
+         2015-04-22, ke: Link is hidden and not confirmed by marketing
+     -->
+     <!--
      <para>
       For background information, see SAP Note 1056161: SUSE Priority
       Support for SAP Applications <ulink
       url="https://service.sap.com/sap/support/notes/1056161"/>.
      </para>
+     -->
     </listitem>
    </varlistentry>
   </variablelist>
