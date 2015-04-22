@@ -30,9 +30,9 @@
    <literal>root_lv</literal> and <literal>swap_lv</literal>.
 
    The size of <literal>swap_lv</literal> will be calculated according
-   to the SAP Note 1597355 (<ulink
-   url="https://service.sap.com/sap/support/notes/1597355"/>).  For
-   <literal>root_lv</literal>, 35 GB will be assumed at first, and the
+   to the SAP Note 1984787 (<ulink
+   url="https://service.sap.com/sap/support/notes/1984787"/>).  For
+   <literal>root_lv</literal>, 70 GB will be assumed at first, and the
    sum of <literal>root_lv</literal> and <literal>swap_lv</literal> will
    be displayed as <guimenu>Set the system volume size in GB</guimenu>.
   </para>
@@ -84,7 +84,7 @@
   
   <para>
    The partitioning for the SAP system is not controlled by
-   <filename>autoinst.xml</filename> that is used for the installation
+   <filename>autoinst.xml</filename>; this is used for the installation
    of the operating system.  The <filename>autoinst</filename>
    functionality no longer exists in the running system.  Instead the
    following files are controlling the partitioning for the SAP
@@ -97,8 +97,10 @@
    SAP programs which files for controlling the partitioning are used.
    These files will be taken from
    <filename>/usr/share/YaST2/include/sap-installation-wizard/</filename>.
-   In case there is no <literal><![CDATA[<partitioning>]]></literal> tag
-   for the wanted SAP product,
+   If no partitioning is needed (for example, if the installation is
+   based on HA or a distributed database is configured), set the
+   <literal><![CDATA[<partitioning>]]></literal> tag to
+   <literal>no</literal>, then
    <filename>base_partitioning.xml</filename> will be used.
   </para>
 
@@ -133,10 +135,6 @@
     </para>
    </listitem>
   </itemizedlist>
-  <para>
-   For all NW based products
-   <filename>base_partitioning.xml</filename> will be used.
-  </para>
   <para>
    If you need something different (e.g., for TREX), proceed as
    follows:
