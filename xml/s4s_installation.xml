@@ -444,10 +444,10 @@
     <title>System Administrator Password</title>
     <mediaobject>
      <imageobject role="fo">
-      <imagedata fileref="s4s_sap_wizard_admin_password.png" width="100%" format="PNG"/>
+      <imagedata fileref="s4s_sap_wizard_admin_password.png" width="80%" format="PNG"/>
      </imageobject>
      <imageobject role="html">
-      <imagedata fileref="s4s_sap_wizard_admin_password.png" width="100%" format="PNG"/>
+      <imagedata fileref="s4s_sap_wizard_admin_password.png" width="80%" format="PNG"/>
      </imageobject>
     </mediaobject>
    </figure>
@@ -518,7 +518,7 @@
     The next &yast; pop-up dialog lets you fine-tune the volume
     configuration.  Here you configure the volume for the system and
     swap space.  Suitable values depending on your available hardware
-    are pre-selected.  The data volume comes later, after you select the
+    are pre-selected.  The data volume comes later, after selecting the
     SAP Application.
    </para>
 
@@ -526,10 +526,10 @@
     <title>System Volume Configuration</title>
     <mediaobject>
      <imageobject role="fo">
-      <imagedata fileref="yast-storage-system.png" width="100%" format="PNG"/>
+      <imagedata fileref="yast-storage-system.png" width="80%" format="PNG"/>
      </imageobject>
      <imageobject role="html">
-      <imagedata fileref="yast-storage-system.png" width="100%" format="PNG"/>
+      <imagedata fileref="yast-storage-system.png" width="80%" format="PNG"/>
      </imageobject>
     </mediaobject>
    </figure>
@@ -546,8 +546,8 @@
     <para>
      Normally, at least 35 GB is required for the system volume.  The
      swap space depends on the available main memory (RAM).  For more
-     information, see the SAP Note 1597355: <ulink
-     url="https://service.sap.com/sap/support/notes/1597355"/>.
+     information, see the SAP Note 1984787: <ulink
+     url="https://service.sap.com/sap/support/notes/1984787"/>.
     </para>
    </tip>
 
