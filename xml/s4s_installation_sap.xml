@@ -167,8 +167,8 @@
        want to deploy. In the case of a B1 or HANA installation, such a
        selection does not exist.  See <xref
        linkend="fig.s4s.sap.wizard.mode.db"/>.  Enable
-       <guimenu>Preparation for autoinstallation</guimenu>, if you want
-       to enter the installation parameter, but not to perform the
+       <guimenu>Preparation for autoinstallation</guimenu>, if you only
+       want to enter the installation parameters, but not perform the
        actual installation now.
       </para>
 
