@@ -455,7 +455,7 @@ drwxr-xr-x  4 root root 4096 Sep 27 14:07 RDBMS-ADA/
      </step>
      <step>
    <para>
-    In <xref linkend="fig.s4s.sap.wizard.virt.params"/>, then enalbe and
+    In <xref linkend="fig.s4s.sap.wizard.virt.params"/>, then enable and
     enter the virtual network settings, if needed.  For details, see the
     online help on the left.
    </para>
