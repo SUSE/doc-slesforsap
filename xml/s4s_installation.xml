@@ -253,7 +253,7 @@
   </figure>
 
   <para>
-   On the initial <guimenu>Registration</guimenu> dialog check your
+   On the <guimenu>Registration</guimenu> dialog check your
    <guimenu>Network Configuration</guimenu> with the upper right button.
    The <guimenu>Network Settings</guimenu> will automatically pop up, if
    the automatic configuration via DHCP fails.  Once the network
@@ -265,7 +265,7 @@
    partitioning of storage devices, network, or software packages.
   </para>
  </sect1>
-<!-- ================================================================== -->
+<!-- ==== Installation with Wizard ======================================= -->
  <sect1 id="s4s.inst.wizard">
   <title><guimenu>SLES for SAP Applications &mdash; Installation with
   Wizard</guimenu></title>
@@ -276,8 +276,9 @@
 
   <para>
    During this installation scenario, the following installation and
-   configuration steps will take place and interactive settings are
-   required or possible.
+   configuration steps will take place.  Interactive settings are
+   required or possible.  At the end of the &suselinux; installation,
+   you will be prompted to insert your SAP product media.
   </para>
 
  <sect2>
@@ -399,12 +400,29 @@
     From the DVD boot menu (see <xref linkend="fig.s4s.dvd.bootmenu"/>),
     select <guimenu>SLES for SAP Applications &mdash; Installation with
     Wizard</guimenu>.  The installation process loads and configures a
-    Linux system with all requirements for a SAP installation.  To
+    &suselinux; system with all requirements for a SAP installation.  To
     view the boot messages and copyright notices during this process,
     press <keycap>Esc</keycap>. On completion of this process, the
     &yast; installation program starts and displays the graphical
     installer, which will run mostly automatically.
    </para>
+   <!--
+  <figure id="fig.s4s.install.license">
+   <title>License Confirmation</title>
+   <mediaobject>
+    <imageobject role="fo">
+     <imagedata fileref="s4s_install_license.png" width="80%" format="PNG"/>
+    </imageobject>
+    <imageobject role="html">
+     <imagedata fileref="s4s_install_license.png" width="80%" format="PNG"/>
+    </imageobject>
+   </mediaobject>
+  </figure>
+   -->
+  <para>
+   On the initial dialog confirm the license (see <xref
+   linkend="fig.s4s.install.license"/>).
+  </para>
   </sect2>
 
   <sect2 id="sec.s4s.inst.wizard.prepauto">
