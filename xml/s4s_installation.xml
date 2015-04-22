@@ -105,10 +105,10 @@
   <title>DVD Boot Menu</title>
   <mediaobject>
    <imageobject role="fo">
-    <imagedata fileref="s4s-dvd-boot-menu.png" width="100%" format="PNG"/>
+    <imagedata fileref="s4s-dvd-boot-menu.png" width="80%" format="PNG"/>
    </imageobject>
    <imageobject role="html">
-    <imagedata fileref="s4s-dvd-boot-menu.png" width="100%" format="PNG"/>
+    <imagedata fileref="s4s-dvd-boot-menu.png" width="80%" format="PNG"/>
    </imageobject>
   </mediaobject>
  </figure>
@@ -227,10 +227,10 @@
    <title>License Confirmation</title>
    <mediaobject>
     <imageobject role="fo">
-     <imagedata fileref="s4s_install_license.png" width="100%" format="PNG"/>
+     <imagedata fileref="s4s_install_license.png" width="80%" format="PNG"/>
     </imageobject>
     <imageobject role="html">
-     <imagedata fileref="s4s_install_license.png" width="100%" format="PNG"/>
+     <imagedata fileref="s4s_install_license.png" width="80%" format="PNG"/>
     </imageobject>
    </mediaobject>
   </figure>
@@ -244,10 +244,10 @@
    <title>Initial Registration Dialog</title>
    <mediaobject>
     <imageobject role="fo">
-     <imagedata fileref="s4s_install_regdialog.png" width="100%" format="PNG"/>
+     <imagedata fileref="s4s_install_regdialog.png" width="80%" format="PNG"/>
     </imageobject>
     <imageobject role="html">
-     <imagedata fileref="s4s_install_regdialog.png" width="100%" format="PNG"/>
+     <imagedata fileref="s4s_install_regdialog.png" width="80%" format="PNG"/>
     </imageobject>
    </mediaobject>
   </figure>
