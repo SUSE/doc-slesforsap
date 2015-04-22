@@ -145,7 +145,7 @@
      </step>
 
      <step>
-<!--
+      <!--
     <figure id="fig.s4s.sap.wizard.source.nfs">
     <title>SAP Installation Source: NFS</title>
     <mediaobject>
@@ -157,15 +157,20 @@
      </imageobject>
     </mediaobject>
    </figure>
--->
-   <para>
-    In the next dialog you select the <guimenu>Installation
-    Mode</guimenu> such as <guimenu>SAP Standard System</guimenu>,
-    <guimenu>SAP Standalone Engines</guimenu>, etc. and the
-    <guimenu>Database</guimenu> such as <guimenu>IBM DB2</guimenu>,
-    <guimenu>MaxDB</guimenu>, etc. you want to deploy. See <xref
-    linkend="fig.s4s.sap.wizard.mode.db"/>.
-   </para>
+      -->
+      <para>
+       Only in the case of a NetWeaver installation, in the next dialog
+       you must select the <guimenu>Installation Mode</guimenu> such as
+       <guimenu>SAP Standard System</guimenu>, <guimenu>SAP Standalone
+       Engines</guimenu>, etc. and the <guimenu>Database</guimenu> such
+       as <guimenu>IBM DB2</guimenu>, <guimenu>MaxDB</guimenu>, etc. you
+       want to deploy. In the case of a B1 or HANA installation, such a
+       selection does not exist.  See <xref
+       linkend="fig.s4s.sap.wizard.mode.db"/>.  Enable
+       <guimenu>Preparation for autoinstallation</guimenu>, if you want
+       to enter the installation parameter, but not to perform the
+       actual installation now.
+      </para>
 
    <figure id="fig.s4s.sap.wizard.mode.db">
     <title>SAP Installation Wizard: Installation Mode and Database</title>
