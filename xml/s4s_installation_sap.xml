@@ -40,7 +40,7 @@
    </para>
    <para>
     Otherwise, it is possible to just prepare the SAP product
-    installation with <guimenu>Only create SAP HANA + B1 file systems,
+    installation with <guimenu>Only create SAP Business One file systems,
     do not install SAP products now</guimenu>, or completely interrupt
     the installation process at this point with <guimenu>Finish wizard
     and proceed to OS login</guimenu> and resume it after a system
