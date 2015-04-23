@@ -357,9 +357,9 @@
 
      <step>
    <para>
-    At this point, all data required for the SAP installation is
-    selected and copied to <filename>/data/SAP_CDs</filename>, one
-    directory per medium, e.g.:
+    At this point, all data (product images) required for the SAP
+    installation is selected and copied to
+    <filename>/data/SAP_CDs</filename>, one directory per medium, e.g.:
    </para>
    <screen>/data/SAP_CDs:
 742-KERNEL-SAP-Kernel-742
