@@ -166,12 +166,8 @@
        as <guimenu>IBM DB2</guimenu>, <guimenu>MaxDB</guimenu>, etc. you
        want to deploy. In the case of a B1 or HANA installation, such a
        selection does not exist.  See <xref
-       linkend="fig.s4s.sap.wizard.mode.db"/>.  Enable
-       <guimenu>Preparation for autoinstallation</guimenu>, if you only
-       want to enter the installation parameters, but not perform the
-       actual installation now.
+       linkend="fig.s4s.sap.wizard.mode.db"/>.
       </para>
-
    <figure id="fig.s4s.sap.wizard.mode.db">
     <title>SAP Installation Wizard: Installation Mode and Database</title>
     <mediaobject>
@@ -183,14 +179,38 @@
      </imageobject>
     </mediaobject>
    </figure>
+      <para>
+       Enable <guimenu>Preparation for autoinstallation</guimenu>, if
+       you only want to enter the installation parameters, but not
+       perform the actual installation now.  In this case, the installer
+       will copy the product images to
+       <filename>/data/SAP_CDs</filename> and prepare an installation
+       environment for every product as follows:
+      </para>
+      <screen>/data/SAP_INST/0/Instmaster
+/data/SAP_INST/0/Instmaster
+/data/SAP_INST/1/Instmaster
+/data/SAP_INST/2/Instmaster
+...</screen>
+      <para>
+       If you later actually want to run the auto installation, set
+       <literal>SAP_AUTO_INSTALL="yes"</literal> in
+       <filename>/etc/sysconfig/sap-installation-wizard</filename>.
+       If you then click the <guimenu>SAP Product Installer</guimenu>
+       in the &yast; Control Center to run the auto installation, all
+       settings will be displayed and offered for optional fine-tuning
+       (NetWeaver) or the parameters are written to the &ay; files in
+       the
+       <filename>/data/SAP_INST/<replaceable>number</replaceable></filename>
+       directories (HANA/B1).
+      </para>
      </step>
 
      <step>
-
    <para>
-    In the next dialog you select a <guimenu>SAP Product</guimenu>.
-    The offerings of available products depend on the
-    media set and installation master you received from SAP; for
+    In case of a NetWeaver installation you now select a <guimenu>SAP
+    Product</guimenu>.  The offerings of available products depend on
+    the media set and installation master you received from SAP; for
     example, see <xref linkend="fig.s4s.sap.wizard.avail.products"/>.
    </para>
 
@@ -221,10 +241,11 @@
      </step>
      <step>
       <para>
-       Now you are asked to provide the <guimenu>Location of the SAP
+       You are asked to provide the <guimenu>Location of the SAP
        Medium</guimenu> and if additional media are needed, you can also
        add them afterwards; see <xref
-       linkend="fig.s4s.sap.wizard.sapmedia "/>.
+       linkend="fig.s4s.sap.wizard.sapmedia "/> (here you see the
+       list of already copied or linked SAP media).
        <!--
        In this case, it would be NWKERNEL; see <xref
        linkend="fig.s4s.sap.wizard.nwkernel"/>.
