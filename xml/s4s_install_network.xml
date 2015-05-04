@@ -18,7 +18,7 @@
  <para>The following section provides a short description about
  installing from a network server.</para>
 
- <sect1>
+ <sect1 id="s4s.inst.remote.instmedia">
   <title>Installing with Installation Media from the Network</title>
   <procedure>
    <step>
@@ -72,7 +72,7 @@
     url="http://www.suse.com/documentation/sles-12/"/>).</para>
  </sect1>
 
- <sect1>
+ <sect1 id="s4s.inst.remote.sapsets">
   <title>Copying SAP Media Sets from a Remote Server with the
   Installation Wizard</title>
 
