@@ -14,6 +14,7 @@
  <bookinfo>
   <title>The Guide</title>
    <productname>&productname;</productname>
+   <productname role="abbrev">&sles4sapa;</productname>
    <productnumber>&productnumber;</productnumber>
   <date>
    <?dbtimestamp format="B d, Y"?>
