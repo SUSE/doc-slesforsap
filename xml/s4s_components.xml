@@ -15,20 +15,21 @@
  <sect1 id="s4s.comp.hasi">
   <title>&sle; &hasi;</title>
 
-  <para>The &sle; &hasi; add-on is part of &sles4sap;.</para>
+  <para>The &sle; &hasi; is part of &sles4sap;.</para>
 
   <para>
    For more information about &sle; &hasi;, see
   </para>
-  
+
   <itemizedlist>
    <listitem>
     <para>the &haguide; at <ulink
     url="http://www.suse.com/documentation/sle-ha-12/"/> and</para>
    </listitem>
    <listitem>
-    <para>the <emphasis>Best Practice Guides</emphasis> at <ulink
-    url="http://www.suse.com/products/sles-for-sap/resource-library/sap-best-practices.html"/>.
+    <para>the <emphasis>White Papers</emphasis> and <emphasis>Best
+    Practice Guides</emphasis> in the Resource Library at <ulink
+    url="http://www.suse.com/products/sles-for-sap/resource-library/"/>.
     </para>
    </listitem>
   </itemizedlist>
