@@ -183,7 +183,7 @@
 <!ENTITY hbvs          "Heartbeat 2">
 <!ENTITY hbgui         "Linux HA Management Client">
 <!ENTITY smtool        "Subscription Management Tool">
-<!ENTITY sles4sapa     "SLES4SAP">
+<!ENTITY sles4sapa     "SLES for SAP">
 <!ENTITY sles4sap      "&sls; for SAP Applications">
 <!ENTITY sles4sapreg   "&slsreg; for SAP Applications">
 <!ENTITY productname   '&sles4sap;'>
