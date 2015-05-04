@@ -116,22 +116,46 @@ SUSE Linux Enterprise Server Priority Support for SAP Applications (optional)
      <para>
       This component consists of:
      </para>
+     <!--
+         2015-05-04: https://www.suse.com/products/highavailability/features/
+     -->
    <itemizedlist>
     <listitem>
      <para>
-Cluster manager
+      Flexible, policy-driven clustering
      </para>
     </listitem>
-<listitem>
+    <listitem>
      <para>
-Cluster file system
+      Cluster-aware file system and volume management
      </para>
-</listitem>
-<listitem>
+    </listitem>
+    <listitem>
      <para>
-Resource agents, also for SAP
+      Continuous data replication
      </para>
-</listitem>
+    </listitem>
+    <listitem>
+     <para>
+      Set-up and installation
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      Management and administration tools
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      Resource agents, also for SAP
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      Virtualization aware
+     </para>
+    </listitem>
+
    </itemizedlist>
 
    <para>For more information about &sle; &hasi;, see the &haguide; (<ulink
