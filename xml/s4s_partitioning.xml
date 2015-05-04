@@ -55,7 +55,8 @@
 
    <listitem>
     <para>
-     Better do not change the size of the swap partition.
+     Better do not change the size of the swap partition.  Only in the
+     case of HANA, set 2 GB here.
     </para>
    </listitem>
    <listitem>
@@ -119,7 +120,7 @@
      in files for controlling the partitioning of known hardware such as
      Dell, Fujitsu, HP, or IBM Server systems.  If the SAP Installation
      Wizard recognizes this hardware, the appropriated file will be
-     selected.
+     selected.  <!--Note-->This applies for SAP BusinessOne HANA only!
     </para>
    </listitem>
    <listitem>
