@@ -5,11 +5,11 @@
 %entities;
 ]>
 <chapter id="s4s.installation">
- <title>Default Installation Scenarios</title>
+ <title>Default Installation Options</title>
 
   <para>After planning the installation with downloading the software
   and checking the minimal hardware requirements, there are three
-  default installation scenarios:
+  default installation options:
   </para>
 
   <itemizedlist>
@@ -45,7 +45,7 @@
    <step>
     <para>
      Download the DVD ISO image of &sles4sapreg; 12 (electronic media
-     kit).
+     kit) from <ulink url="https://www.suse.com/products/sles-for-sap/"/>.
     </para>
    </step>
    <step>
