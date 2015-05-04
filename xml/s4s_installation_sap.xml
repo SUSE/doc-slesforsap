@@ -178,7 +178,6 @@
        environment for every product as follows:
       </para>
       <screen>/data/SAP_INST/0/Instmaster
-/data/SAP_INST/0/Instmaster
 /data/SAP_INST/1/Instmaster
 /data/SAP_INST/2/Instmaster
 ...</screen>
