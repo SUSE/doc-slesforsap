@@ -93,7 +93,7 @@
     </mediaobject>
    </figure>
      </step>
-     
+
      <step>
    <para>
     In the next dialog provide the <guimenu>Location of the SAP
@@ -114,19 +114,9 @@
     <para>
      If you want to install from an NFS source, you must enter the name
      of the server and the complete path to the media data.
+     For more information about setting up a remote installation server,
+     see <xref linkend="s4s.inst.remote.sapsets"/>.
     </para>
-
-   <para>
-    For more information about setting up a remote installation server,
-    see the &sls; 12 &deploy;, Section 14.2, <quote>Setting Up the
-    Server Holding the Installation Sources</quote> (the &deploy; comes
-    with the product or is available from <ulink
-    url="http://www.suse.com/documentation/sles-12/"/>).
-    To save time and space, you can also loop mount ISO images on the
-    installation server.  For more information, see the &sls; 12
-    &deploy;, Section 14.2.6, <quote>Using ISO Images of the
-    Installation Media on the Server</quote>.
-   </para>
    </tip>
 
    <figure id="fig.s4s.sap.wizard.source">
