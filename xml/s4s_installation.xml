@@ -261,6 +261,7 @@
    the dialog with <guimenu>Next</guimenu>.
   </para>
   <!-- 2015-05-04, ke: Packages Pre-Selected noticed by peters -->
+  <!--                 the same repeated later                 -->
   <note>
    <title>Additional Packages Pre-Selected</title>
    <para>
@@ -698,6 +699,17 @@
      provide the registration code now, operating system updates will be
      installed automatically during the installation of the system.
     </para>
+    <!-- 2015-05-04, ke: Packages Pre-Selected noticed by peters -->
+    <!--                 also see above                          -->
+    <note>
+     <title>Additional Packages Pre-Selected</title>
+     <para>
+      If you install with registration, the &sle; &hasi; repository by
+      default will be activated and some few &sle; &hasi; packages will
+      get installed.  This will not happen, if you will register the
+      product after the installation.
+     </para>
+    </note>
 
    <para>
     After confirmation, the system will be configured with the supplied
