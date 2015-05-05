@@ -65,6 +65,16 @@
      </para>
     </listitem>
    </varlistentry>
+   <varlistentry>
+    <term><xref linkend="s4s.inst.inst"
+    xrefstyle="SectTitleOnPage"/></term>
+    <listitem>
+     <para>
+      Add note about pre-selected packages in case of registration at
+      this stage of the installation.
+     </para>
+    </listitem>
+   </varlistentry>
   </variablelist>
  </sect1>
  <sect1 id="ap.s4s.docupdate.2015-04-29">
