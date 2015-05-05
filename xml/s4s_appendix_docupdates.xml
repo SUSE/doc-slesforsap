@@ -85,6 +85,16 @@
      </para>
     </listitem>
    </varlistentry>
+   
+   <varlistentry>
+    <term><xref linkend="sec.s4s.inst.wizard.sap-product-install"
+    xrefstyle="SectTitleOnPage"/></term>
+    <listitem>
+     <para>
+      Rewrite remote location specification.
+     </para>
+    </listitem>
+   </varlistentry>
   </variablelist>
  </sect1>
  <!-- ============================================================ -->
