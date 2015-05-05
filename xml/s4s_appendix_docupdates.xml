@@ -14,6 +14,9 @@
  <para>This document was updated on the following dates:</para>
  <itemizedlist role="subtoc">
   <listitem>
+   <para><xref linkend="ap.s4s.docupdate.2015-xxx" xrefstyle="SectTitleOnPage"/></para>
+  </listitem>
+  <listitem>
    <para><xref linkend="ap.s4s.docupdate.2015-04-29" xrefstyle="SectTitleOnPage"/></para>
   </listitem>
   <listitem>
@@ -21,8 +24,26 @@
   </listitem>
  </itemizedlist>
 
- <sect1 id="ap.s4s.docupdate.2015-04-29">
+ <sect1 id="ap.s4s.docupdate.2015-xxx">
   <!-- FIXME: enter date -->
+  <title>xxx, 2015</title>
+  <para>
+   Updates were made to the following sections. The changes are
+   explained below.
+  </para>
+  <variablelist>
+   <varlistentry>
+    <term><xref linkend="s4s.about.sw"
+    xrefstyle="SectTitleOnPage"/></term>
+    <listitem>
+     <para>
+      Add more information on &sle; &hasi;.
+     </para>
+    </listitem>
+   </varlistentry>
+  </variablelist>
+ </sect1>
+ <sect1 id="ap.s4s.docupdate.2015-04-29">
   <title>April 29, 2015</title>
   <para>Updates were made to the following sections. The changes are
   explained below.</para>
