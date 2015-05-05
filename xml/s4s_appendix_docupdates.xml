@@ -95,6 +95,17 @@
      </para>
     </listitem>
    </varlistentry>
+   
+   <varlistentry>
+    <term><xref linkend="sec.s4s.part.inst"
+    xrefstyle="SectTitleOnPage"/></term>
+    <listitem>
+     <para>
+      HANA requires 2 GB of swap.
+     </para>
+    </listitem>
+   </varlistentry>
+
   </variablelist>
  </sect1>
  <!-- ============================================================ -->
