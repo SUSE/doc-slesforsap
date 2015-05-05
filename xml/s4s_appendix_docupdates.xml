@@ -75,8 +75,19 @@
      </para>
     </listitem>
    </varlistentry>
+   <varlistentry>
+    <term><xref linkend="sec.s4s.inst.wizard.yast2.conf.manual.reg"
+    xrefstyle="SectTitleOnPage"/></term>
+    <listitem>
+     <para>
+      Add note about pre-selected packages in case of registration at
+      this stage of the installation.
+     </para>
+    </listitem>
+   </varlistentry>
   </variablelist>
  </sect1>
+ <!-- ============================================================ -->
  <sect1 id="ap.s4s.docupdate.2015-04-29">
   <title>April 29, 2015</title>
   <para>Updates were made to the following sections. The changes are
