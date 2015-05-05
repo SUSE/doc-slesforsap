@@ -61,17 +61,17 @@
    </listitem>
    <listitem>
     <para>
-     SAP Wizard Part 1: Copying all required SAP media to the local
+     SAP Installation Wizard Part 1: Copying all required SAP media to the local
      disk or use a shared storage medium.</para>
    </listitem>
    <listitem>
     <para>
-     SAP Wizard Part 2: Collecting all parameters for the actual installation
+     SAP Installation Wizard Part 2: Collecting all parameters for the actual installation
      by querying the user interactively.</para>
    </listitem>
    <listitem>
     <para>
-     SAP Wizard Part 3: Running the SAP Installer.</para>
+     SAP Installation Wizard Part 3: Running the SAP Installer.</para>
    </listitem>
   </orderedlist>
   
@@ -123,8 +123,8 @@ Hier der Hinweis auf die SAP-Note mit SWAP
         neues feature -> Peter Varkoly
 
   -->
-
-  <sect2 id="s4s.comp.wizard.suppl">
+ </sect1>
+  <sect1 id="s4s.comp.wizard.suppl">
    <title>Supplement Media</title>
    <para>
     The basic idea of the <quote>Supplement Media</quote> is to enable
@@ -140,7 +140,7 @@ RPMs, running your own scripts, setting up a cluster file system or
 creating your own dialogs and scripts.
    </para>
 
-   <sect3 id="s4s.comp.wizard.suppl.productxml">
+   <sect2 id="s4s.comp.wizard.suppl.productxml">
     <title><filename>product.xml</filename></title>
 
     <para>
@@ -208,9 +208,9 @@ All other sections will be replaced.
  For the details of other customization options, see the SLES <emphasis>&ay;
  Guide</emphasis>, Chapter 4.16. <quote>Custom User Scripts</quote>.
 </para>
-   </sect3>
+   </sect2>
 
-   <sect3 id="s4s.comp.wizard.suppl.ask">
+   <sect2 id="s4s.comp.wizard.suppl.ask">
     <title>Own &ay; Ask Dialogs</title>
     <para>
      For a general overview and details of the Ask feature of &ay;, see
@@ -284,8 +284,8 @@ check_name "$VAL"
   </ask-list>
 </general>
 </profile>]]></screen>
-   </sect3>
-   <sect3 id="s4s.comp.wizard.suppl.addpacks">
+   </sect2>
+   <sect2 id="s4s.comp.wizard.suppl.addpacks">
     <title>Install Additional Packages</title>
     <para>
 You can also install RPM packages within the
@@ -304,17 +304,16 @@ You can also install RPM packages within the
  </post-packages>
 </software>
 ...]]></screen>
-   </sect3>
-   <sect3>
+   </sect2>
+   <sect2>
     <title>Example Directory for the Supplement Media</title>
     <screen># ls
 /
 |--product.xml
 </screen>
-   </sect3>
   </sect2>
-
-  <sect2  id="s4s.comp.clamsap">
+  </sect1>
+  <sect1  id="s4s.comp.clamsap">
    <title>ClamSAP</title>
    <para>
 ClamSAP is a new antivirus toolkit integration with the SAP Virus Scan
@@ -338,7 +337,6 @@ facto standard for mail gateway scanning. It provides a high performance
 multi-threaded scanning daemon, command line utilities for on-demand
 file scanning, and an intelligent tool for automatic signature updates.
 For more information, see <ulink url="http://www.clamav.net"/>.</para>
-  </sect2>
  </sect1>
 
 </chapter>
