@@ -39,6 +39,19 @@
      <para>
       Add more information on &sle; &hasi;.
      </para>
+     <para>
+      There are also White Papers about &sle; &hasi; and &sles4sap;.
+     </para>
+    </listitem>
+   </varlistentry>
+
+   <varlistentry>
+    <term><xref linkend="s4s.inst.planning"
+    xrefstyle="SectTitleOnPage"/></term>
+    <listitem>
+     <para>
+      Provide ISO image download URL.
+     </para>
     </listitem>
    </varlistentry>
   </variablelist>
