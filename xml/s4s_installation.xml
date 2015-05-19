@@ -97,8 +97,8 @@
  <sect1 id="s4s.inst.booting">
  <title>Booting the Installation Medium</title>
  <para>
-  Different scenarios are available to install &sles4sap; 12.  Select
-  the preferred installation scenario from the DVD boot menu:
+  Different options are available to install &sles4sap; 12.  Select
+  the preferred installation option from the DVD boot menu:
  </para>
 
  <figure id="fig.s4s.dvd.bootmenu">
@@ -130,7 +130,7 @@
      installation routines.
     </para>
     <para>
-    This scenario is suitable for experienced administrators who want
+    This option is suitable for experienced administrators who want
     to install &sles4sap; according to their own plan.  The default
     package selection is identical to a standard SLES installations.
     </para>

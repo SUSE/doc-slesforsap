@@ -154,6 +154,20 @@ vm.pagecache_limit_ignore_dirty = 0</screen>
 
  </sect2>
 
+  <sect2 id="s4s.config.fw">
+  <title>Operating System Security Hardening</title>
+
+  <para>
+   For hardening the underlying operating system, see the
+   <quote>Operating System Security Hardening Guide for SAP
+   HANA</quote>:
+  </para>
+  <itemizedlist>
+   <listitem>
+    <para><ulink url="https://www.suse.com/promo/security-guide-for-sap-hana.html"/></para>
+   </listitem>
+  </itemizedlist>
+  </sect2>
 <!--
  <sect2>
   <title>For More Information</title>

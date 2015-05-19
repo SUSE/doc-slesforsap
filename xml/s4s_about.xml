@@ -161,8 +161,9 @@ SUSE Linux Enterprise Server Priority Support for SAP Applications (optional)
    <para>For more information about &sle; &hasi;, see the &haguide; (<ulink
    url="http://www.suse.com/documentation/sle-ha-12/"/>)
    and
-   the <emphasis>Best Practice Guides</emphasis> (<ulink
-   url="http://www.suse.com/products/sles-for-sap/resource-library/sap-best-practices.html"/>).</para>
+   the <emphasis>White Papers</emphasis> and <emphasis>Best Practice
+   Guides</emphasis> in the Resource Library (<ulink
+   url="http://www.suse.com/products/sles-for-sap/resource-library/"/>).</para>
     </listitem>
    </varlistentry>
 

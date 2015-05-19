@@ -106,6 +106,17 @@
     </listitem>
    </varlistentry>
 
+   <varlistentry>
+    <term><xref linkend="s4s.config.fw"
+    xrefstyle="SectTitleOnPage"/></term>
+    <listitem>
+     <para>
+      New section (<ulink
+      url="https://bugzilla.suse.com/show_bug.cgi?id=929625"/>).
+     </para>
+    </listitem>
+   </varlistentry>
+
   </variablelist>
  </sect1>
  <!-- ============================================================ -->
