@@ -182,7 +182,7 @@ SUSE Linux Enterprise Server Priority Support for SAP Applications (optional)
    <varlistentry>
     <term><emphasis>ClamSAP</emphasis></term>
     <listitem>
-   <para>ClamSAP is a new antivirus toolkit integration.  For more
+   <para>ClamSAP is an antivirus toolkit integration.  For more
    information, see <xref linkend="s4s.comp.clamsap"/>.</para>
     </listitem>
    </varlistentry>
@@ -211,6 +211,20 @@ SUSE Linux Enterprise Server Priority Support for SAP Applications (optional)
    </listitem>
    </varlistentry>
 
+   <!--
+   <varlistentry>
+    <!-\- FIXME??? -\->
+    <term><emphasis>Channel for Additional &sles4sapa; Packages</emphasis></term>
+    <listitem>
+    <itemizedlist>
+     <listitem>
+      <para>
+      </para>
+     </listitem>
+    </itemizedlist>
+    </listitem>
+   </varlistentry>
+   -->
    <varlistentry>
     <term><emphasis>Additional Update Channel</emphasis></term>
     <listitem>
