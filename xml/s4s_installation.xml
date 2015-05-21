@@ -529,7 +529,8 @@
     The next &yast; pop-up dialog lets you fine-tune the volume
     configuration.  Here you configure the volume for the system and
     swap space.  Suitable values depending on your available hardware
-    are pre-selected.  The data volume comes later, after selecting the
+    are pre-selected.  This is for the &suselinux; operating system
+    only; the data volume comes later, after selecting the
     SAP Application.
    </para>
 
