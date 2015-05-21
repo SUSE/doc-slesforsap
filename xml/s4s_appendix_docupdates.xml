@@ -14,7 +14,7 @@
  <para>This document was updated on the following dates:</para>
  <itemizedlist role="subtoc">
   <listitem>
-   <para><xref linkend="ap.s4s.docupdate.2015-xxx" xrefstyle="SectTitleOnPage"/></para>
+   <para><xref linkend="ap.s4s.docupdate.2015-05-29" xrefstyle="SectTitleOnPage"/></para>
   </listitem>
   <listitem>
    <para><xref linkend="ap.s4s.docupdate.2015-04-29" xrefstyle="SectTitleOnPage"/></para>
@@ -24,9 +24,9 @@
   </listitem>
  </itemizedlist>
 
- <sect1 id="ap.s4s.docupdate.2015-xxx">
+ <sect1 id="ap.s4s.docupdate.2015-05-29">
   <!-- FIXME: enter date -->
-  <title>xxx, 2015</title>
+  <title>May 29, 2015</title>
   <para>
    Updates were made to the following sections. The changes are
    explained below.
@@ -106,6 +106,16 @@
     </listitem>
    </varlistentry>
 
+   <varlistentry>
+    <term><xref linkend="s4s.comp.hasi"
+    xrefstyle="SectTitleOnPage"/></term>
+    <listitem>
+     <para>
+      Address SAP HANA System Replication (<ulink
+      url="https://bugzilla.suse.com/show_bug.cgi?id=929626"/>).
+     </para>
+    </listitem>
+   </varlistentry>
    <varlistentry>
     <term><xref linkend="s4s.config.fw"
     xrefstyle="SectTitleOnPage"/></term>
