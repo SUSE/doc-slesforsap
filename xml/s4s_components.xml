@@ -13,12 +13,32 @@
  </para>
 
  <sect1 id="s4s.comp.hasi">
-  <title>&sle; &hasi;</title>
+  <title>&sle; &hasi; and SAP HANA System Replication</title>
 
   <para>The &sle; &hasi; is part of &sles4sap;.</para>
 
   <para>
-   For more information about &sle; &hasi;, see
+   &sles4sap; supports SAP HANA System Replication by including
+   components of &sle; &hasi;.
+  </para>
+  <para>
+   SUSE has implemented the scale-up scenario with the SAPHana resource
+   agent (RA), which performs the actual check of the SAP HANA database
+   instances and is configured as a master/slave resource. In the
+   scale-up scenario, the master assumes responsibility for the SAP HANA
+   databases running in primary mode, and the slave is responsible for
+   instances that are operated in synchronous (secondary) status.
+  </para>
+  <para>
+   To make configuring the cluster as simple as possible, SUSE also
+   developed its SAPHanaTopology resource agent. This agent runs on all
+   nodes of an SLE HAE cluster and gathers information about the
+   status and configurations of SAP HANA system replications. It is
+   designed as a normal (stateless) clone.
+  </para>
+
+  <para>
+   For more information, see
   </para>
 
   <itemizedlist>
@@ -29,7 +49,9 @@
    <listitem>
     <para>the <emphasis>White Papers</emphasis> and <emphasis>Best
     Practice Guides</emphasis> in the Resource Library at <ulink
-    url="http://www.suse.com/products/sles-for-sap/resource-library/"/>.
+    url="http://www.suse.com/products/sles-for-sap/resource-library/"/>
+    (for example, <ulink
+    url="https://www.suse.com/promo/saphana-replication.html"/>).
     </para>
    </listitem>
   </itemizedlist>
@@ -316,7 +338,7 @@ You can also install RPM packages within the
   <sect1  id="s4s.comp.clamsap">
    <title>ClamSAP</title>
    <para>
-ClamSAP is a new antivirus toolkit integration with the SAP Virus Scan
+ClamSAP is an antivirus toolkit integration with the SAP Virus Scan
 Interface that improves cross-platform threat detection.</para>
 
    <para>
