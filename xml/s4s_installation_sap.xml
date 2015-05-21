@@ -98,13 +98,57 @@
    <para>
     In the next dialog provide the <guimenu>Location of the SAP
     Installation Master</guimenu>; see <xref
-    linkend="fig.s4s.sap.wizard.source"/>.  The location could be a
-    local source (either directory (<literal>dir://</literal>), locally
-    connected hard disk (<literal>device://</literal>), USB mass storage
-    (<literal>usb://</literal>), or CD-ROM
-    (<literal>cdrom://</literal>)), or a remotely provided installation
-    source (either NFS (<literal>nfs://</literal>) or SMB
-    (<literal>smb://</literal>))&mdash;select the corresponding option
+    linkend="fig.s4s.sap.wizard.source"/>.  The location can either be a
+    local source or a remotely provided installation source.
+   </para>
+
+   <variablelist>
+    <varlistentry>
+     <term>Local Source</term>
+     <listitem>
+      <itemizedlist>
+       <listitem>
+        <para>a directory (<literal>dir://</literal> and <literal><replaceable>/path/to/dir/</replaceable></literal>)</para>
+       </listitem>
+       <listitem>
+        <para>
+         a locally connected hard disk (<literal>device://</literal> and
+         <literal><replaceable>devicename</replaceable>/<replaceable>/path/to/dir/on/device</replaceable></literal>)
+        </para>
+       </listitem>
+       <listitem>
+        <para>
+         a USB mass storage (<literal>usb://</literal> and <literal><replaceable>/path/to/dir/on/USB</replaceable></literal>)
+        </para>
+       </listitem>
+       <listitem>
+        <para>
+         a CD-ROM (<literal>cdrom://</literal>)
+        </para>
+       </listitem>
+      </itemizedlist>
+     </listitem>
+    </varlistentry>
+    <varlistentry>
+     <term>A Remotely Provided Installation Source</term>
+      <listitem>
+       <itemizedlist>
+        <listitem>
+         <para>
+          NFS (<literal>nfs://</literal> and <literal><replaceable>server_name</replaceable>/<replaceable>/path/to/dir/on/server</replaceable></literal>)
+         </para>
+        </listitem>
+        <listitem>
+         <para>
+          SMB (<literal>smb://</literal> and <literal>[<replaceable>username</replaceable>:<replaceable>password</replaceable>@]<replaceable>server_name</replaceable>/<replaceable>/path/to/dir/on/server</replaceable>[?workgroup=<replaceable>workgroup_name</replaceable>]</literal>)
+         </para>
+        </listitem>
+       </itemizedlist>
+      </listitem>
+    </varlistentry>
+   </variablelist>
+   <para>
+    &mdash;select the corresponding option
     from the pull-down list on the left.
    </para>
 
