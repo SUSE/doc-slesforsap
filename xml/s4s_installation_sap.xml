@@ -113,7 +113,7 @@
        <listitem>
         <para>
          a locally connected hard disk (<literal>device://</literal> and
-         <literal><replaceable>devicename</replaceable>/<replaceable>/path/to/dir/on/device</replaceable></literal>)
+         <literal><replaceable>devicename</replaceable><replaceable>/path/to/dir/on/device</replaceable></literal>)
         </para>
        </listitem>
        <listitem>
@@ -200,7 +200,8 @@
        as <guimenu>IBM DB2</guimenu>, <guimenu>MaxDB</guimenu>, etc. you
        want to deploy. In the case of a B1 or HANA installation, such a
        selection does not exist.  See <xref
-       linkend="fig.s4s.sap.wizard.mode.db"/>.
+       linkend="fig.s4s.sap.wizard.mode.db"/>.  Click
+       <guimenu>Help</guimenu> for information.
       </para>
    <figure id="fig.s4s.sap.wizard.mode.db">
     <title>SAP Installation Wizard: Installation Mode and Database</title>
@@ -235,7 +236,8 @@
        (NetWeaver) or the parameters are written to the &ay; files in
        the
        <filename>/data/SAP_INST/<replaceable>number</replaceable></filename>
-       directories (HANA/B1).
+       directories, where you can modify them according to your needs
+       (HANA/B1).
       </para>
      </step>
 
@@ -277,8 +279,9 @@
        You are asked to provide the <guimenu>Location of the SAP
        Medium</guimenu> and if additional media are needed, you can also
        add them afterwards; see <xref
-       linkend="fig.s4s.sap.wizard.sapmedia "/> (here you see the
-       list of already copied or linked SAP media).
+       linkend="fig.s4s.sap.wizard.sapmedia "/> (here you see the list
+       of already copied or linked SAP media).  Click
+       <guimenu>Help</guimenu> for information.
        <!--
        In this case, it would be NWKERNEL; see <xref
        linkend="fig.s4s.sap.wizard.nwkernel"/>.
