@@ -14,12 +14,34 @@
  <para>This document was updated on the following dates:</para>
  <itemizedlist role="subtoc">
   <listitem>
+   <para><xref linkend="ap.s4s.docupdate.2015-07-31" xrefstyle="SectTitleOnPage"/></para>
+  </listitem>
+  <listitem>
    <para><xref linkend="ap.s4s.docupdate.2013-10-28" xrefstyle="SectTitleOnPage"/></para>
   </listitem>
  </itemizedlist>
 
- <sect1 id="ap.s4s.docupdate.2013-10-28">
+
+ <sect1 id="ap.s4s.docupdate.2015-07-31">
   <!-- FIXME: enter date -->
+  <title>July 31, 2015</title>
+  <para>Updates were made to the following sections. The changes are
+  explained below.</para>
+
+   <variablelist>
+    <varlistentry>
+     <term><xref linkend="s4s.inst.booting"
+     xrefstyle="SectTitleOnPage"/></term>
+     <listitem>
+      <para>
+       Add note about installing on &power;.
+      </para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+ </sect1>
+
+ <sect1 id="ap.s4s.docupdate.2013-10-28">
   <title>October 28, 2013</title>
   <para>Updates were made to the following sections. The changes are
   explained below.</para>
