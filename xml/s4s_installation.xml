@@ -96,8 +96,22 @@
  <title>Booting the Installation Medium</title>
  <para>
   Different scenarios are available to install &sles4sap; 11.  Select
-  the preferred installation scenario from the DVD boot menu:
+  the preferred installation scenario from the DVD boot menu.
  </para>
+
+ <note arch="power">
+  <title>Installing on the &power; Architecture</title>
+  <para>
+   Since version 11 SP4, &sles4sap; supports the &power; architecture.  On
+   &power;, you perform a &sles; standard installation as outlined in
+   the SLES &deploy;.  Then you finish the installation of the product
+   with the <quote>SAP Product Installation</quote>.
+  </para>
+  <para>
+   On &power;, the <guimenu>Installation with Wizard</guimenu> is not
+   available.
+  </para>
+ </note>
 
  <figure id="fig.s4s.dvd.bootmenu">
   <title>DVD Boot Menu</title>
