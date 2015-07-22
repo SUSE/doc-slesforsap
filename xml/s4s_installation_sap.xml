@@ -168,7 +168,7 @@
       <imagedata fileref="s4s_sap_wizard_source.png" width="80%" format="PNG"/>
      </imageobject>
      <imageobject role="html">
-      <imagedata fileref="yast-start-sap-install.png" width="80%" format="PNG"/>
+      <imagedata fileref="s4s_sap_wizard_source.png" width="80%" format="PNG"/>
      </imageobject>
     </mediaobject>
    </figure>
