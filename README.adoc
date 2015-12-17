@@ -1,12 +1,10 @@
 = SUSE Linux Enterprise Server for SAP Applications Documentation
 
-This is the source for the official SUSE Linux Enterprise for SAP Applications
-documentation.
+This is the source for the official SUSE Linux Enterprise Server for
+SAP Applications documentation.
 
 This repository hosts the documentation sources including translations (if
-available) for the following product:
-
-* SUSE Linux Enterprise Desktop (SLES for SAP)
+available).
 
 Released versions of the documentation are published at
 https://www.suse.com/documentation/.
