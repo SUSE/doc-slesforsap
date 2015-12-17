@@ -19,8 +19,8 @@ https://www.suse.com/documentation/.
 |================================================
 | Name            | Purpose
 | `develop` | SLE 12 SP1 doc development
-| `release/SLE11` |  SLE 11 doc maintenance
-| `release/SLE12` |  SLE 12 doc maintenance
+| `release/SLES11` |  SLE 11 doc maintenance
+| `release/SLES12` |  SLE 12 doc maintenance
 |================================================
 
 
