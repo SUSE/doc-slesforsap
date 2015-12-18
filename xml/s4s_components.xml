@@ -115,20 +115,20 @@
   <itemizedlist mark="bullet" spacing="normal">
    <listitem>
     <para>
-     Just prepare a machine with the operating system (&sls;) and run the
+     Prepare a machine with the operating system (&sls;) and run the
      SAP Wizard later.
     </para>
    </listitem>
    <listitem>
     <para>
-     Just prepare a machine with the operating system (&sls;), copy the
+     Prepare a machine with the operating system (&sls;), copy the
      SAP media, and collect the SAP installation parameters.
     </para>
    </listitem>
   </itemizedlist>
 
   <para>
-   You can copy such an installation to other machines, maybe adjusting just
+   You can copy such an installation to other machines, maybe adjusting
    a few SAP installation parameters. Then finally run the SAP Installer.
   </para>
 
@@ -364,7 +364,7 @@ check_name "$VAL"
 
   <para>
    ClamSAP is a ‘C’ shared library to link between ClamAV and the virus
-   scan interface of SAP (NW-VSI). A SAP application can use the ClamAV
+   scan interface of SAP (NW-VSI). An SAP application can use the ClamAV
    engine to scan for malicious uploads in HTTP uploads for example. If you
    want to use Virus Scan within SAP applications, you can use Virus Scan
    Interface in SAP (transaction VSCAN). There is an open source adapter for

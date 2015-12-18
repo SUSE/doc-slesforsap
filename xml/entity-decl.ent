@@ -59,7 +59,7 @@
 <!ENTITY umtsmon        "UMTSmon">
 <!ENTITY ooo            "&libo;">
 <!ENTITY libo           "LibreOffice">
-<!ENTITY aide		"AIDE">
+<!ENTITY aide		        "AIDE">
 
 <!-- ============================================================= -->
 <!--                    Books                                      -->
@@ -110,6 +110,7 @@
 <!ENTITY ppc           "POWER">
 <!ENTITY em64t         "Intel EM64T">
 <!ENTITY intel64       "Intel 64">
+<!ENTITY x86-64        "&amd64/&intel64;">
 
 
 <!-- ============================================================= -->
@@ -183,12 +184,12 @@
 <!ENTITY hbvs          "Heartbeat 2">
 <!ENTITY hbgui         "Linux HA Management Client">
 <!ENTITY smtool        "Subscription Management Tool">
-<!ENTITY sles4sapa     "SLES for SAP">
+<!ENTITY sles4sapa     "&slsa; for SAP">
 <!ENTITY sles4sap      "&sls; for SAP Applications">
 <!ENTITY sles4sapreg   "&slsreg; for SAP Applications">
 <!ENTITY productname   '&sles4sap;'>
 <!ENTITY productnamereg '&sles4sapreg;'>
-<!ENTITY productnumber '12'>
+<!ENTITY productnumber '12 SP1'>
 <!ENTITY smt           "SMT">
 <!ENTITY lxc           "LXC">
 <!ENTITY xen           "Xen">
@@ -221,8 +222,8 @@
 <!ENTITY powertop      "powerTOP">
 <!-- oddities -->
 <!ENTITY thrdmrk       "*">
-<!ENTITY kexec         "kexec">
-<!ENTITY kdump         "kdump">
+<!ENTITY kexec         "Kexec">
+<!ENTITY kdump         "Kdump">
 
 <!-- ============================================================= -->
 <!--                    yast desktop entities                      -->
@@ -252,6 +253,9 @@
 
 <!-- Additional Entities                                           -->
 <!ENTITY euro            "&#x20AC;">
+
+<!-- SAP-Specific Entities -->
+
 
 
 <!ENTITY % network-entities SYSTEM "network-decl.ent">

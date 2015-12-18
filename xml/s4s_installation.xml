@@ -42,8 +42,8 @@
    <procedure>
     <step>
      <para>
-      Download the DVD ISO image of &sles4sapreg; 12 (electronic media
-      kit) from
+      Download the DVD ISO image of &sles4sapreg; &productnumber;
+      (electronic media kit) from
       <link xlink:href="https://www.suse.com/products/sles-for-sap/"/>.
      </para>
     </step>
@@ -74,7 +74,7 @@
      <term>CPU</term>
      <listitem>
       <para>
-       64bit (x86_64).
+       &x86-64;
       </para>
      </listitem>
     </varlistentry>
@@ -96,8 +96,8 @@
   <title>Booting the Installation Medium</title>
 
   <para>
-   Different options are available to install &sles4sap; 12. Select the
-   preferred installation option from the DVD boot menu:
+   Different options are available to install &sles4sap; &productnumber;.
+   Select the preferred installation option from the DVD boot menu:
   </para>
 
   <figure xml:id="fig.s4s.dvd.bootmenu">
@@ -142,7 +142,7 @@
    Wizard</guimenu> (see <xref linkend="s4s.inst.wizard"/>)</term>
     <listitem>
      <para>
-      This is a guided installation of the operating system and a SAP
+      This is a guided installation of the operating system and an SAP
       application. After the installation of the operating system the SAP
       Installation Wizard will start for installation of a validated SAP
       solution.
@@ -206,8 +206,8 @@
 <!-- checked 2015-04-21, ke -->
 
   <para>
-   This is a standard manual &sls; installation; for details about such a
-   SLES installation, see the SLES &deploy;, Chapter 6,
+   This is a standard manual &sls; installation, for details about such a
+   &slsa; installation, see the SLES &deploy;, Chapter 6,
    <quote>Installation with &yast;</quote>.
   </para>
 
@@ -298,7 +298,7 @@
   <para>
    During this installation scenario, the following installation and
    configuration steps will take place. Interactive settings are required or
-   possible. At the end of the &suselinux; installation, you will be
+   possible. At the end of the &sle; installation, you will be
    prompted to insert your SAP product media.
   </para>
 
@@ -314,7 +314,7 @@
       <row>
        <entry>
         <para>
-         Hostname
+         Host name
         </para>
        </entry>
        <entry>
@@ -364,7 +364,7 @@
       <row>
        <entry>
         <para>
-         IP for nameserver
+         IP for name server
         </para>
        </entry>
        <entry>
@@ -407,9 +407,9 @@
     From the DVD boot menu (see <xref linkend="fig.s4s.dvd.bootmenu"/>),
     select <guimenu>SLES for SAP Applications &mdash; Installation with
     Wizard</guimenu>. The installation process loads and configures a
-    &suselinux; system with all requirements for a SAP installation. To
+    &sle; system with all requirements for an SAP installation. To
     view the boot messages and copyright notices during this process, press
-    <keycap>Esc</keycap>. On completion of this process, the &yast;
+    <keycap function="escape"/>. On completion of this process, the &yast;
     installation program starts and displays the graphical installer, which
     will run mostly automatically.
    </para>
@@ -521,7 +521,7 @@
      The next &yast; pop-up dialog lets you fine-tune the volume
      configuration. Here you configure the volume for the system and swap
      space. Suitable values depending on your available hardware are
-     pre-selected. This is for the &suselinux; operating system only; the
+     pre-selected. This is for the &sle; operating system only. The
      data volume comes later, after selecting the SAP Application.
     </para>
     <figure xml:id="fig.s4s.inst.yast-storage-system">
@@ -566,13 +566,13 @@
     </warning>
    </sect3>
    <sect3 xml:id="sec.s4s.inst.wizard.yast2.conf.manual.hostname">
-    <title>Hostname, Domain Name, and IP Address</title><indexterm>
+    <title>Host Name, Domain Name, and IP Address</title><indexterm>
     <primary>&yast;</primary>
-    <secondary>hostname</secondary></indexterm><indexterm>
+    <secondary>host name</secondary></indexterm><indexterm>
     <primary>&yast;</primary>
     <secondary>domain name</secondary></indexterm><indexterm>
     <primary>installation</primary>
-    <secondary>hostname</secondary></indexterm><indexterm>
+    <secondary>host name</secondary></indexterm><indexterm>
     <primary>installation</primary>
     <secondary>domain name</secondary></indexterm>
     <para>
@@ -580,7 +580,7 @@
      <xref linkend="fig.s4s.inst.yast-network-config"/>.
     </para>
     <figure xml:id="fig.s4s.inst.yast-network-config">
-     <title>Hostname, Domain Name, and IP Address</title>
+     <title>Host Name, Domain Name, and IP Address</title>
      <mediaobject>
       <imageobject role="fo">
        <imagedata fileref="yast-network-config.png" width="80%" format="PNG"/>
@@ -600,10 +600,10 @@
      </para>
     </tip>
     <para>
-     The <guimenu>Hostname</guimenu> is the computer’s name in the
+     The <guimenu>Host name</guimenu> is the computer’s name in the
      network. The <guimenu>Domain Name</guimenu> is the name of the network.
-     A hostname and domain are proposed by default. If your system is part
-     of a network, the hostname has to be unique in this network, whereas
+     A host name and domain are proposed by default. If your system is part
+     of a network, the host name has to be unique in this network, whereas
      the domain name has to be common to all hosts on the network.
     </para>
     <para>
@@ -771,7 +771,7 @@
   <sect2>
    <title>About &ay;</title>
    <para>
-    &ay; is a system for installing one or more SUSE Linux systems
+    &ay; is a system for installing one or more &sle; systems
     automatically and without user intervention. &ay; installations are
     performed using an &ay; profile with installation and configuration
     data. That profile can be created using the &ay; configuration
@@ -779,7 +779,7 @@
     different ways.
    </para>
    <para>
-    For more information about &ay;, see the <emphasis>&sls; 12
+    For more information about &ay;, see the <emphasis>&sls; &productnumber;
     &ay; Guide</emphasis> (the <emphasis>&ay; Guide</emphasis> comes
     with the product or is available from
     <link xlink:href="http://www.suse.com/documentation/sles-12/"/>).
