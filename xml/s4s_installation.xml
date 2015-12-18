@@ -5,14 +5,13 @@
     %entities;
 ]>
 <chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="s4s.installation">
- <title>Default Installation Options</title>
+ <title>Installation Options</title>
  <info/>
  <para>
-  After planning the installation with downloading the software and checking
-  the minimal hardware requirements, there are three default installation
-  options:
+  After planning the installation, downloading the software, and checking
+  the minimal hardware requirements, there are two installation options:
  </para>
- <itemizedlist mark="bullet" spacing="normal">
+ <itemizedlist>
   <listitem>
    <para>
     <xref linkend="s4s.inst.inst" xrefstyle="select:title,nopage"/>
@@ -20,78 +19,66 @@
   </listitem>
   <listitem>
    <para>
-    <xref linkend="s4s.inst.wizard" xrefstyle="select:title,nopage"/>
-   </para>
-  </listitem>
-  <listitem>
-   <para>
     <xref linkend="s4s.inst.profile" xrefstyle="select:title,nopage"/>
+    (unsupported, provided for convenience)
    </para>
   </listitem>
  </itemizedlist>
- <sect1 xml:id="s4s.inst.planning">
-  <title>Planning the Installation</title>
 
-  <para>
-   Plan the installation with downloading the software and checking the
-   minimal hardware requirements.
-  </para>
-
-  <sect2>
-   <title>Download and Installation Preparations</title>
-   <procedure>
-    <step>
-     <para>
-      Download the DVD ISO image of &sles4sapreg; &productnumber;
-      (electronic media kit) from
-      <link xlink:href="https://www.suse.com/products/sles-for-sap/"/>.
-     </para>
-    </step>
-    <step>
-     <para>
-      Burn the image onto a physical DVD and ensure that it is bootable.
-      Alternatively, you might use a virtual CD-ROM device for installation
-      into a virtual machine.
-     </para>
-    </step>
-<!--
+ <sect1 id="s4s.download">
+  <title>Download and Installation Preparations</title>
+  <procedure>
    <step>
     <para>
-    (Optional) Get the SAP Business All-in-One or another SAP solution for
-    Media-Changer installation media from SAP.
+     Download the DVD ISO image of &sles4sapreg; &productnumber;
+     (electronic media kit) from
+     <link xlink:href="https://www.suse.com/products/sles-for-sap/"/>.
     </para>
    </step>
-   -->
-   </procedure>
-  </sect2>
-
-<!-- ================================================================== -->
-
-  <sect2>
-   <title>Hardware Requirements</title>
-   <variablelist>
-    <varlistentry>
-     <term>CPU</term>
-     <listitem>
-      <para>
-       &x86-64;
-      </para>
-     </listitem>
-    </varlistentry>
-    <varlistentry>
-     <term>Hard Disk</term>
-     <listitem>
-      <para>
-       For the <guimenu>Installation with Wizard</guimenu>, at least 35 GB
-       hard disk space for the system volume plus space for the swap
-       partition and 200 GB for the data partition are required. For more
-       information, see <xref linkend="sec.s4s.part.inst"/>.
-      </para>
-     </listitem>
-    </varlistentry>
-   </variablelist>
-  </sect2>
+   <step>
+    <para>
+     Burn the image onto a physical DVD and ensure that it is bootable.
+     Alternatively, you might use a virtual CD-ROM device for installation
+     into a virtual machine.
+    </para>
+   </step>
+  </procedure>
  </sect1>
+
+ <sect1 id="s4s.hardware">
+  <title>Hardware Requirements</title>
+  <variablelist>
+   <varlistentry>
+    <term>CPU</term>
+    <listitem>
+     <para>
+      &x86-64;
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term>Hard Disk</term>
+    <listitem>
+     <para>
+      At least 35 GB
+      hard disk space for the system volume plus space for the swap
+      partition and 200 GB for the data partition are required. For more
+      information, see <xref linkend="sec.s4s.part.inst"/>.
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term>RAM</term>
+    <listitem>
+     <para>
+      At least 4 GB of RAM ar required.
+      <remark>True? - sknorr, 2015-12-18</remark>
+     </para>
+    </listitem>
+   </varlistentry>
+  </variablelist>
+ </sect1>
+
  <sect1 xml:id="s4s.inst.booting">
   <title>Booting the Installation Medium</title>
 
