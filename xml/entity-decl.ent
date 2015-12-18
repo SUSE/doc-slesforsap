@@ -31,7 +31,7 @@
 <!ENTITY exampleclientIIslip  "sl&exampleclientII;">
 <!ENTITY exampleclientIIuucp  "uu&exampleclientII;">
 
-<!ENTITY rootuser       '<systemitem class="username">root</systemitem>'>
+<!ENTITY rootuser       '<systemitem xmlns="http://docbook.org/ns/docbook" class="username">root</systemitem>'>
 <!ENTITY grub           "GRUB">
 
 <!-- lilo will become obsolete with code 11 -->
@@ -65,36 +65,36 @@
 <!--                    Books                                      -->
 <!-- ============================================================= -->
 
-<!ENTITY deploy         "<emphasis>Deployment Guide</emphasis>"> 
-<!ENTITY kdeuser        "<emphasis>KDE User Guide</emphasis>">
-<!ENTITY gnomeuser      "<emphasis>GNOME User Guide</emphasis>">
-<!ENTITY moblinuser     "<emphasis>Moblin User Guide</emphasis>">
-<!ENTITY instquick      "<emphasis>Installation Quick Start</emphasis>">
-<!ENTITY gnomequick     "<emphasis>GNOME Quick Start</emphasis>">
-<!ENTITY kdequick       "<emphasis>KDE Quick Start</emphasis>">
-<!ENTITY moblinquick    "<emphasis>Moblin Quick Start</emphasis>">
-<!ENTITY oofficequick   "<emphasis>LibreOffice.org Quick Start</emphasis>">
-<!ENTITY apps           "<emphasis>Application Guide</emphasis>">
-<!ENTITY admin          "<emphasis>Administration Guide</emphasis>">
-<!ENTITY reference      "<emphasis>Reference</emphasis>">
-<!ENTITY startup       	"<emphasis>Start-Up</emphasis>"> 
-<!ENTITY aaadmin        "<emphasis>&aa; Administration Guide</emphasis>">
-<!ENTITY aaquick        "<emphasis>&aa; Quick Start</emphasis>">
-<!ENTITY lfl            "<emphasis>Lessons For Lizards</emphasis>">
-<!ENTITY storage        "<emphasis>Storage Administration Guide</emphasis>">
-<!ENTITY haguide        "<emphasis>High Availability Guide</emphasis>">
-<!ENTITY virtual        "<emphasis>Virtualization Guide</emphasis>">
-<!ENTITY xenguide       "<emphasis>Virtualization with &xen;</emphasis>">
-<!ENTITY kvmguide       "<emphasis>Virtualization with &kvm;</emphasis>">
-<!ENTITY auditguide     "<emphasis>The Linux Audit Framework</emphasis>">
-<!ENTITY auditquick     "<emphasis>Linux Audit Quick Start</emphasis>"> 
-<!ENTITY tuning         "<emphasis>System Analysis and Tuning Guide</emphasis>">
-<!ENTITY tuningsub      "<emphasis>Problem Detection, Resolution, and Optimization</emphasis>">
-<!ENTITY secguide       "<emphasis>Security Guide</emphasis>">
-<!ENTITY smtguide       "<emphasis>Subscription Management Tool Guide</emphasis>">
-<!ENTITY webyastconfguide       "<emphasis>WebYaST Configuration Guide</emphasis>"> 
-<!ENTITY studioadmin    "<emphasis>Administration Guide</emphasis>">
-<!ENTITY studioinstall  "<emphasis>Installation &amp; Deployment Guide</emphasis>">
+<!ENTITY deploy         "<emphasis xmlns='http://docbook.org/ns/docbook'>Deployment Guide</emphasis>">
+<!ENTITY kdeuser        "<emphasis xmlns='http://docbook.org/ns/docbook'>KDE User Guide</emphasis>">
+<!ENTITY gnomeuser      "<emphasis xmlns='http://docbook.org/ns/docbook'>GNOME User Guide</emphasis>">
+<!ENTITY moblinuser     "<emphasis xmlns='http://docbook.org/ns/docbook'>Moblin User Guide</emphasis>">
+<!ENTITY instquick      "<emphasis xmlns='http://docbook.org/ns/docbook'>Installation Quick Start</emphasis>">
+<!ENTITY gnomequick     "<emphasis xmlns='http://docbook.org/ns/docbook'>GNOME Quick Start</emphasis>">
+<!ENTITY kdequick       "<emphasis xmlns='http://docbook.org/ns/docbook'>KDE Quick Start</emphasis>">
+<!ENTITY moblinquick    "<emphasis xmlns='http://docbook.org/ns/docbook'>Moblin Quick Start</emphasis>">
+<!ENTITY oofficequick   "<emphasis xmlns='http://docbook.org/ns/docbook'>LibreOffice.org Quick Start</emphasis>">
+<!ENTITY apps           "<emphasis xmlns='http://docbook.org/ns/docbook'>Application Guide</emphasis>">
+<!ENTITY admin          "<emphasis xmlns='http://docbook.org/ns/docbook'>Administration Guide</emphasis>">
+<!ENTITY reference      "<emphasis xmlns='http://docbook.org/ns/docbook'>Reference</emphasis>">
+<!ENTITY startup       	"<emphasis xmlns='http://docbook.org/ns/docbook'>Start-Up</emphasis>">
+<!ENTITY aaadmin        "<emphasis xmlns='http://docbook.org/ns/docbook'>&aa; Administration Guide</emphasis>">
+<!ENTITY aaquick        "<emphasis xmlns='http://docbook.org/ns/docbook'>&aa; Quick Start</emphasis>">
+<!ENTITY lfl            "<emphasis xmlns='http://docbook.org/ns/docbook'>Lessons For Lizards</emphasis>">
+<!ENTITY storage        "<emphasis xmlns='http://docbook.org/ns/docbook'>Storage Administration Guide</emphasis>">
+<!ENTITY haguide        "<emphasis xmlns='http://docbook.org/ns/docbook'>High Availability Guide</emphasis>">
+<!ENTITY virtual        "<emphasis xmlns='http://docbook.org/ns/docbook'>Virtualization Guide</emphasis>">
+<!ENTITY xenguide       "<emphasis xmlns='http://docbook.org/ns/docbook'>Virtualization with &xen;</emphasis>">
+<!ENTITY kvmguide       "<emphasis xmlns='http://docbook.org/ns/docbook'>Virtualization with &kvm;</emphasis>">
+<!ENTITY auditguide     "<emphasis xmlns='http://docbook.org/ns/docbook'>The Linux Audit Framework</emphasis>">
+<!ENTITY auditquick     "<emphasis xmlns='http://docbook.org/ns/docbook'>Linux Audit Quick Start</emphasis>">
+<!ENTITY tuning         "<emphasis xmlns='http://docbook.org/ns/docbook'>System Analysis and Tuning Guide</emphasis>">
+<!ENTITY tuningsub      "<emphasis xmlns='http://docbook.org/ns/docbook'>Problem Detection, Resolution, and Optimization</emphasis>">
+<!ENTITY secguide       "<emphasis xmlns='http://docbook.org/ns/docbook'>Security Guide</emphasis>">
+<!ENTITY smtguide       "<emphasis xmlns='http://docbook.org/ns/docbook'>Subscription Management Tool Guide</emphasis>">
+<!ENTITY webyastconfguide       "<emphasis xmlns='http://docbook.org/ns/docbook'>WebYaST Configuration Guide</emphasis>">
+<!ENTITY studioadmin    "<emphasis xmlns='http://docbook.org/ns/docbook'>Administration Guide</emphasis>">
+<!ENTITY studioinstall  "<emphasis xmlns='http://docbook.org/ns/docbook'>Installation &amp; Deployment Guide</emphasis>">
 
 
 <!-- ============================================================= -->
@@ -197,8 +197,8 @@
 <!ENTITY vmhost        "VM Host Server">
 <!ENTITY vmguest       "VM Guest">
 <!ENTITY dom0          "Domain0">
-<!ENTITY libvirt       '<systemitem class="library">libvirt</systemitem>'>
-<!ENTITY libvirtd      '<systemitem class="daemon">libvirtd</systemitem>'>
+<!ENTITY libvirt       '<systemitem xmlns="http://docbook.org/ns/docbook" class="library">libvirt</systemitem>'>
+<!ENTITY libvirtd      '<systemitem xmlns="http://docbook.org/ns/docbook" class="daemon">libvirtd</systemitem>'>
 <!ENTITY vmm           "Virtual Machine Manager">
 <!ENTITY pk            "PolicyKit">
 <!ENTITY ha            "High Availability">
@@ -241,13 +241,13 @@
 <!ENTITY nomad           "Nomad">
 <!ENTITY cpufreq         "CPUfreq">
 <!ENTITY qemu            "QEMU">
-<!ENTITY altf2           '<keycombo><keycap function="alt"/><keycap>F2</keycap></keycombo>'>
+<!ENTITY altf2           '<keycombo xmlns="http://docbook.org/ns/docbook"><keycap function="alt"/><keycap>F2</keycap></keycombo>'>
 
 
 <!ENTITY wypublic          "/srv/www/yast/public/">
-<!ENTITY mac               "<replaceable>MAC</replaceable>">
-<!ENTITY hwmac             "hwtype.<replaceable>MAC</replaceable>">
-<!ENTITY confmac           "config.<replaceable>MAC</replaceable>">
+<!ENTITY mac               "<replaceable xmlns='http://docbook.org/ns/docbook'>MAC</replaceable>">
+<!ENTITY hwmac             "hwtype.<replaceable xmlns='http://docbook.org/ns/docbook'>MAC</replaceable>">
+<!ENTITY confmac           "config.<replaceable xmlns='http://docbook.org/ns/docbook'>MAC</replaceable>">
 
 
 <!-- Additional Entities                                           -->
@@ -255,8 +255,12 @@
 
 
 <!ENTITY % network-entities SYSTEM "network-decl.ent">
-%network-entities; 
+%network-entities;
 
-<!--                             End of file                       -->
-<!-- ............................................................. -->
 
+<!ENTITY % sgml.features "IGNORE">
+<!ENTITY % xml.features "INCLUDE">
+<!ENTITY % dbcent PUBLIC "-//OASIS//ENTITIES DocBook Character
+  Entities V4.5//EN"
+  "http://www.oasis-open.org/docbook/xml/4.5/dbcentx.mod">
+    %dbcent;

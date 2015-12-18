@@ -1,23 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE chapter PUBLIC "-//Novell//DTD NovDoc XML V1.0//EN" "novdocx.dtd" [
-<!ENTITY % NOVDOC.DEACTIVATE.IDREF "INCLUDE">
-<!ENTITY % entities SYSTEM "entity-decl.ent">
-%entities;
+<!DOCTYPE chapter
+[
+  <!ENTITY % entities SYSTEM "entity-decl.ent">
+    %entities;
 ]>
-<chapter id="s4s.about">
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="s4s.about">
  <title>What is &sles4sap;?</title>
- <abstract>
- <para>
-  &sles4sapreg; is a bundle of software and services that addresses
-  the specific needs of SAP users.  It is the only operating system that is
-  optimized for all SAP software solutions.
- </para>
- </abstract>
-
- <!--
+ <info>
+  <abstract>
+   <para>
+    &sles4sapreg; is a bundle of software and services that addresses the
+    specific needs of SAP users. It is the only operating system that is
+    optimized for all SAP software solutions.
+   </para>
+  </abstract>
+ </info>
+<!--
      webyast no longer exists.
  -->
- <!--
+<!--
   <figure id="fig.s4s-picture">
   <title>What is &sles4sap;?</title>
   <mediaobject>
@@ -31,37 +32,38 @@
  </figure>
  -->
 <!-- -=-=-=-=-=-=-=-=-=-=-=-=-=- cut here -=-=-=-=-=-=-=-=-=-=-=-=-=- -->
- <sect1 id="s4s.about.overview">
+ <sect1 xml:id="s4s.about.overview">
   <title>Overview</title>
 
   <para>
-  Target use cases include:
+   Target use cases include:
   </para>
-  <itemizedlist>
-  <listitem>
-   <para>
-    Unix to Linux Migrations and Replatforming
-   </para>
-  </listitem>
-  <listitem>
-   <para>
-    SAP Appliances
-   </para>
-  </listitem>
-  <listitem>
-   <para>
-    SAP Cloud Deployments
-   </para>
-  </listitem>
+
+  <itemizedlist mark="bullet" spacing="normal">
+   <listitem>
+    <para>
+     Unix to Linux Migrations and Replatforming
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     SAP Appliances
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     SAP Cloud Deployments
+    </para>
+   </listitem>
   </itemizedlist>
 
   <para>
-   &sles4sap; consists of software components (see <xref
-   linkend="s4s.about.sw"/>) and service offerings (see <xref
-   linkend="s4s.about.services"/>).
+   &sles4sap; consists of software components (see
+   <xref linkend="s4s.about.sw"/>) and service offerings (see
+   <xref linkend="s4s.about.services"/>).
   </para>
 
-  <!--
+<!--
   <itemizedlist>
    <listitem>
     <para>
@@ -81,137 +83,140 @@ SUSE Linux Enterprise Server Priority Support for SAP Applications (optional)
   </itemizedlist>
   -->
  </sect1>
-
- <sect1 id="s4s.about.sw">
+ <sect1 xml:id="s4s.about.sw">
   <title>Software Components</title>
 
   <variablelist>
    <varlistentry>
-    <term><emphasis>&sls;</emphasis></term>
+    <term><emphasis>&sls;</emphasis>
+    </term>
     <listitem>
-   <para>
-    The current release is based on &sls; &productnumber;.  &sls; is
-    the most interoperable platform for mission-critical computing, both
-    physical and virtual.
-   </para>
+     <para>
+      The current release is based on &sls; &productnumber;. &sls;
+      is the most interoperable platform for mission-critical computing,
+      both physical and virtual.
+     </para>
     </listitem>
    </varlistentry>
-
    <varlistentry>
-    <term><emphasis>Installation Wizard</emphasis></term>
+    <term><emphasis>Installation Wizard</emphasis>
+    </term>
     <listitem>
-   <para>The Installation Wizard offers a guided installation path for both
-   the &sls; operating system and the SAP application.<!-- jweber does
-   not want plural ("applications") here.--></para>
-
-   <para>Additionally, the workflow can be extended by 3rd party vendors
-   or customers with the help of the <quote>Supplement Media</quote>
-   (see <xref linkend="s4s.comp.wizard.suppl"/>).</para>
+     <para>
+      The Installation Wizard offers a guided installation path for both the
+      &sls; operating system and the SAP application.
+<!-- jweber does
+   not want plural ("applications") here.-->
+     </para>
+     <para>
+      Additionally, the workflow can be extended by 3rd party vendors or
+      customers with the help of the <quote>Supplement Media</quote> (see
+      <xref linkend="s4s.comp.wizard.suppl"/>).
+     </para>
     </listitem>
    </varlistentry>
-
    <varlistentry>
-    <term><emphasis>&sle; &hasi;</emphasis></term>
+    <term><emphasis>&sle; &hasi;</emphasis>
+    </term>
     <listitem>
      <para>
       This component consists of:
      </para>
-     <!--
+<!--
          2015-05-04: https://www.suse.com/products/highavailability/features/
      -->
-   <itemizedlist>
-    <listitem>
+     <itemizedlist mark="bullet" spacing="normal">
+      <listitem>
+       <para>
+        Flexible, policy-driven clustering
+       </para>
+      </listitem>
+      <listitem>
+       <para>
+        Cluster-aware file system and volume management
+       </para>
+      </listitem>
+      <listitem>
+       <para>
+        Continuous data replication
+       </para>
+      </listitem>
+      <listitem>
+       <para>
+        Set-up and installation
+       </para>
+      </listitem>
+      <listitem>
+       <para>
+        Management and administration tools
+       </para>
+      </listitem>
+      <listitem>
+       <para>
+        Resource agents, also for SAP
+       </para>
+      </listitem>
+      <listitem>
+       <para>
+        Virtualization aware
+       </para>
+      </listitem>
+     </itemizedlist>
      <para>
-      Flexible, policy-driven clustering
+      For more information about &sle; &hasi;, see the &haguide;
+      (<link xlink:href="http://www.suse.com/documentation/sle-ha-12/"/>)
+      and the <emphasis>White Papers</emphasis> and <emphasis>Best Practice
+      Guides</emphasis> in the Resource Library
+      (<link xlink:href="http://www.suse.com/products/sles-for-sap/resource-library/"/>).
      </para>
-    </listitem>
-    <listitem>
-     <para>
-      Cluster-aware file system and volume management
-     </para>
-    </listitem>
-    <listitem>
-     <para>
-      Continuous data replication
-     </para>
-    </listitem>
-    <listitem>
-     <para>
-      Set-up and installation
-     </para>
-    </listitem>
-    <listitem>
-     <para>
-      Management and administration tools
-     </para>
-    </listitem>
-    <listitem>
-     <para>
-      Resource agents, also for SAP
-     </para>
-    </listitem>
-    <listitem>
-     <para>
-      Virtualization aware
-     </para>
-    </listitem>
-
-   </itemizedlist>
-
-   <para>For more information about &sle; &hasi;, see the &haguide; (<ulink
-   url="http://www.suse.com/documentation/sle-ha-12/"/>)
-   and
-   the <emphasis>White Papers</emphasis> and <emphasis>Best Practice
-   Guides</emphasis> in the Resource Library (<ulink
-   url="http://www.suse.com/products/sles-for-sap/resource-library/"/>).</para>
     </listitem>
    </varlistentry>
-
    <varlistentry>
-    <term><emphasis>Page-Cache Limit</emphasis></term>
+    <term><emphasis>Page-Cache Limit</emphasis>
+    </term>
     <listitem>
-   <para>
-    Limit the kernel file system cache size to influence swapping
-    behavior.  With this feature you can gain better performance by
-    allocating memory to an application.  For more
-    information, see <xref linkend="s4s.config.page-cache"/>.
-   </para>
+     <para>
+      Limit the kernel file system cache size to influence swapping
+      behavior. With this feature you can gain better performance by
+      allocating memory to an application. For more information, see
+      <xref linkend="s4s.config.page-cache"/>.
+     </para>
     </listitem>
    </varlistentry>
- 
    <varlistentry>
-    <term><emphasis>ClamSAP</emphasis></term>
+    <term><emphasis>ClamSAP</emphasis>
+    </term>
     <listitem>
-   <para>ClamSAP is an antivirus toolkit integration.  For more
-   information, see <xref linkend="s4s.comp.clamsap"/>.</para>
+     <para>
+      ClamSAP is an antivirus toolkit integration. For more information, see
+      <xref linkend="s4s.comp.clamsap"/>.
+     </para>
     </listitem>
    </varlistentry>
   </variablelist>
-
  </sect1>
-
- <sect1 id="s4s.about.services">
+ <sect1 xml:id="s4s.about.services">
   <title>Services for &sles4sap;</title>
 
   <variablelist>
    <varlistentry>
-   <term><emphasis>Extended Service Pack Overlap Support</emphasis></term>
-   <listitem>
-    <para>
-     &sles4sap; includes Extended Service Pack Overlap Support.  This
-     extends the overlapping support period for two service packs by one
-     year.  This allows to perform a service pack migration within a 18
-     months time period as opposed to 6 months.  With Extended Service
-     Pack Overlap Support migrations can be scheduled more easily and
-     testing before migration can be performed under lesser time
-     constraints, while still remaining under full support and receiving
-     all relevant maintenance updates.  Extended Service Pack Overlap
-     Support is a unique offering being part of &sles4sap;.
-    </para>
-   </listitem>
+    <term><emphasis>Extended Service Pack Overlap Support</emphasis>
+    </term>
+    <listitem>
+     <para>
+      &sles4sap; includes Extended Service Pack Overlap Support. This
+      extends the overlapping support period for two service packs by one
+      year. This allows to perform a service pack migration within a 18
+      months time period as opposed to 6 months. With Extended Service Pack
+      Overlap Support migrations can be scheduled more easily and testing
+      before migration can be performed under lesser time constraints, while
+      still remaining under full support and receiving all relevant
+      maintenance updates. Extended Service Pack Overlap Support is a unique
+      offering being part of &sles4sap;.
+     </para>
+    </listitem>
    </varlistentry>
-
-   <!--
+<!--
    <varlistentry>
     <!-\- FIXME??? -\->
     <term><emphasis>Channel for Additional &sles4sapa; Packages</emphasis></term>
@@ -226,42 +231,43 @@ SUSE Linux Enterprise Server Priority Support for SAP Applications (optional)
    </varlistentry>
    -->
    <varlistentry>
-    <term><emphasis>Additional Update Channel</emphasis></term>
+    <term><emphasis>Additional Update Channel</emphasis>
+    </term>
     <listitem>
-    <itemizedlist>
-     <listitem>
-      <para>
-       Allows SAP-specific patches
-      </para>
-     </listitem>
-     <listitem>
-      <para>
-       Updates for SAP-specific packages
-      </para>
-     </listitem>
-    </itemizedlist>
+     <itemizedlist mark="bullet" spacing="normal">
+      <listitem>
+       <para>
+        Allows SAP-specific patches
+       </para>
+      </listitem>
+      <listitem>
+       <para>
+        Updates for SAP-specific packages
+       </para>
+      </listitem>
+     </itemizedlist>
     </listitem>
    </varlistentry>
-
    <varlistentry>
     <term><emphasis>SUSE Linux Enterprise Server Priority Support for
-    SAP Applications</emphasis></term>
+    SAP Applications</emphasis>
+    </term>
     <listitem>
      <para>
-Subscriptions for &sles4sap;
-include SUSE Linux Enterprise Server Priority Support for SAP Applications.
-SUSE Linux Enterprise Server Priority Support for SAP Applications
-offers technical support for &sles4sap; directly from SAP.
-The joint support infrastructure, used by support engineers from &suse;
-Technical Support and SAP, is based upon SAP Solution Manager and offers
-a seamless communication with both SAP and &suse; in a <quote>1 Face to the
-Customer</quote> manner, thus reducing complexity and lowering the total cost
-of ownership.
+      Subscriptions for &sles4sap; include SUSE Linux Enterprise Server
+      Priority Support for SAP Applications. SUSE Linux Enterprise Server
+      Priority Support for SAP Applications offers technical support for
+      &sles4sap; directly from SAP. The joint support infrastructure,
+      used by support engineers from &suse; Technical Support and SAP, is
+      based upon SAP Solution Manager and offers a seamless communication
+      with both SAP and &suse; in a <quote>1 Face to the Customer</quote>
+      manner, thus reducing complexity and lowering the total cost of
+      ownership.
      </para>
-     <!--
+<!--
          2015-04-22, ke: Link is hidden and not confirmed by marketing
      -->
-     <!--
+<!--
      <para>
       For background information, see SAP Note 1056161: SUSE Priority
       Support for SAP Applications <ulink

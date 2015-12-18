@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE chapter PUBLIC "-//Novell//DTD NovDoc XML V1.0//EN" "novdocx.dtd"
-          [
-          <!ENTITY % NOVDOC.DEACTIVATE.IDREF "INCLUDE">
-          <!ENTITY % entities SYSTEM "entity-decl.ent">
-          %entities;
+<!DOCTYPE preface
+[
+  <!ENTITY % entities SYSTEM "entity-decl.ent">
+    %entities;
 ]>
-<preface id="pre_s4s">
+<preface xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="pre_s4s">
  <title>About This Guide</title>
+ <info/>
  <para>
-  &sles4sapreg; is the reference platform for SAP's software
-  development.  It is optimized in various ways for SAP applications.
-  This guide provides detailed information about installing and
-  customizing &sles4sap;.
+  &sles4sapreg; is the reference platform for SAP's software development.
+  It is optimized in various ways for SAP applications. This guide provides
+  detailed information about installing and customizing &sles4sap;.
  </para>
  <para>
   &sls; &hasi; is also part of &sles4sap;.
@@ -26,7 +25,8 @@
 
   <variablelist>
    <varlistentry>
-    <term><xref linkend="s4s.about" xrefstyle="select:title,nopage"/></term>
+    <term><xref linkend="s4s.about" xrefstyle="select:title,nopage"/>
+    </term>
     <listitem>
      <para>
       Here you will find an overview of &sles4sap;.
@@ -34,17 +34,18 @@
     </listitem>
    </varlistentry>
    <varlistentry>
-    <term><xref linkend="s4s.installation" xrefstyle="select:title,nopage"/></term>
+    <term><xref linkend="s4s.installation" xrefstyle="select:title,nopage"/>
+    </term>
     <listitem>
      <para>
-      This chapter explains in detail the available installation scenarios for
-      &sles4sap;.
+      This chapter explains in detail the available installation scenarios
+      for &sles4sap;.
      </para>
     </listitem>
    </varlistentry>
-
    <varlistentry>
-    <term><xref linkend="s4s.inst.remote" xrefstyle="select:title,nopage"/></term>
+    <term><xref linkend="s4s.inst.remote" xrefstyle="select:title,nopage"/>
+    </term>
     <listitem>
      <para>
       This chapter provides details about remote installation scenarios for
@@ -52,13 +53,13 @@
      </para>
     </listitem>
    </varlistentry>
-
    <varlistentry>
-    <term><xref linkend="s4s.components" xrefstyle="select:title,nopage"/></term>
+    <term><xref linkend="s4s.components" xrefstyle="select:title,nopage"/>
+    </term>
     <listitem>
      <para>
-      In this chapter the components are listed and additionally you
-      will find hints about configuring &sles4sap;.
+      In this chapter the components are listed and additionally you will
+      find hints about configuring &sles4sap;.
      </para>
     </listitem>
    </varlistentry>
@@ -76,10 +77,10 @@
   <para>
    For an overview of the documentation available for your product and the
    latest documentation updates, refer to
-   <ulink url="http://www.suse.com/documentation"/>.
+   <link xlink:href="http://www.suse.com/documentation"/>.
   </para>
  </sect1>
 <!-- -=-=-=-=-=-=-=-=-=-=-=-=-=- cut here -=-=-=-=-=-=-=-=-=-=-=-=-=- -->
- <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="common_intro_feedback_i.xml"/>
- <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="common_intro_typografie_i.xml"/>
+ <xi:include href="common_intro_feedback_i.xml" parse="xml"/>
+ <xi:include href="common_intro_typografie_i.xml" parse="xml"/>
 </preface>

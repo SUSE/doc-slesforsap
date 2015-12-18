@@ -1,36 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE chapter PUBLIC "-//Novell//DTD NovDoc XML V1.0//EN" "novdocx.dtd" [
-<!ENTITY % NOVDOC.DEACTIVATE.IDREF "INCLUDE">
-<!ENTITY % entities SYSTEM "entity-decl.ent">
-%entities;
+<!DOCTYPE chapter
+[
+  <!ENTITY % entities SYSTEM "entity-decl.ent">
+    %entities;
 ]>
-<chapter id="s4s.installation">
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="s4s.installation">
  <title>Default Installation Options</title>
-
-  <para>After planning the installation with downloading the software
-  and checking the minimal hardware requirements, there are three
-  default installation options:
-  </para>
-
-  <itemizedlist>
-   <listitem>
-    <para>
-     <xref linkend="s4s.inst.inst" xrefstyle="select:title,nopage"/>
-    </para>
-   </listitem>
-   <listitem>
-    <para>
-     <xref linkend="s4s.inst.wizard" xrefstyle="select:title,nopage"/>
-    </para>
-   </listitem>
-   <listitem>
-    <para>
-     <xref linkend="s4s.inst.profile" xrefstyle="select:title,nopage"/>
-    </para>
-   </listitem>
-  </itemizedlist>
-
- <sect1 id="s4s.inst.planning">
+ <info/>
+ <para>
+  After planning the installation with downloading the software and checking
+  the minimal hardware requirements, there are three default installation
+  options:
+ </para>
+ <itemizedlist mark="bullet" spacing="normal">
+  <listitem>
+   <para>
+    <xref linkend="s4s.inst.inst" xrefstyle="select:title,nopage"/>
+   </para>
+  </listitem>
+  <listitem>
+   <para>
+    <xref linkend="s4s.inst.wizard" xrefstyle="select:title,nopage"/>
+   </para>
+  </listitem>
+  <listitem>
+   <para>
+    <xref linkend="s4s.inst.profile" xrefstyle="select:title,nopage"/>
+   </para>
+  </listitem>
+ </itemizedlist>
+ <sect1 xml:id="s4s.inst.planning">
   <title>Planning the Installation</title>
 
   <para>
@@ -40,22 +39,22 @@
 
   <sect2>
    <title>Download and Installation Preparations</title>
-
-  <procedure>
-   <step>
-    <para>
-     Download the DVD ISO image of &sles4sapreg; 12 (electronic media
-     kit) from <ulink url="https://www.suse.com/products/sles-for-sap/"/>.
-    </para>
-   </step>
-   <step>
-    <para>
-     Burn the image onto a physical DVD and ensure that it is bootable.
-     Alternatively, you might use a virtual CD-ROM device for
-     installation into a virtual machine.
-    </para>
-   </step>
-   <!--
+   <procedure>
+    <step>
+     <para>
+      Download the DVD ISO image of &sles4sapreg; 12 (electronic media
+      kit) from
+      <link xlink:href="https://www.suse.com/products/sles-for-sap/"/>.
+     </para>
+    </step>
+    <step>
+     <para>
+      Burn the image onto a physical DVD and ensure that it is bootable.
+      Alternatively, you might use a virtual CD-ROM device for installation
+      into a virtual machine.
+     </para>
+    </step>
+<!--
    <step>
     <para>
     (Optional) Get the SAP Business All-in-One or another SAP solution for
@@ -63,159 +62,166 @@
     </para>
    </step>
    -->
-  </procedure>
- </sect2>
+   </procedure>
+  </sect2>
 
- <!-- ================================================================== -->
- <sect2>
-  <title>Hardware Requirements</title>
+<!-- ================================================================== -->
+
+  <sect2>
+   <title>Hardware Requirements</title>
+   <variablelist>
+    <varlistentry>
+     <term>CPU</term>
+     <listitem>
+      <para>
+       64bit (x86_64).
+      </para>
+     </listitem>
+    </varlistentry>
+    <varlistentry>
+     <term>Hard Disk</term>
+     <listitem>
+      <para>
+       For the <guimenu>Installation with Wizard</guimenu>, at least 35 GB
+       hard disk space for the system volume plus space for the swap
+       partition and 200 GB for the data partition are required. For more
+       information, see <xref linkend="sec.s4s.part.inst"/>.
+      </para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </sect2>
+ </sect1>
+ <sect1 xml:id="s4s.inst.booting">
+  <title>Booting the Installation Medium</title>
+
+  <para>
+   Different options are available to install &sles4sap; 12. Select the
+   preferred installation option from the DVD boot menu:
+  </para>
+
+  <figure xml:id="fig.s4s.dvd.bootmenu">
+   <title>DVD Boot Menu</title>
+   <mediaobject>
+    <imageobject role="fo">
+     <imagedata fileref="s4s-dvd-boot-menu.png" width="80%" format="PNG"/>
+    </imageobject>
+    <imageobject role="html">
+     <imagedata fileref="s4s-dvd-boot-menu.png" width="80%" format="PNG"/>
+    </imageobject>
+   </mediaobject>
+  </figure>
 
   <variablelist>
    <varlistentry>
-    <term>CPU</term>
+    <term>Boot from Hard Disk</term>
     <listitem>
-     <para>64bit (x86_64).</para>
+     <para>
+      Booting the system installed on the local hard disk.
+     </para>
     </listitem>
    </varlistentry>
    <varlistentry>
-    <term>Hard Disk</term>
+    <term><guimenu>SLES for SAP Applications &mdash;
+   Installation</guimenu> (see <xref linkend="s4s.inst.inst"/>)</term>
     <listitem>
      <para>
-      For the <guimenu>Installation with Wizard</guimenu>, at least
-      35 GB hard disk space for the system volume plus space for the
-      swap partition and 200 GB for the data partition are required.
-      For more information, see <xref linkend="sec.s4s.part.inst"/>.
+      A standard SLES installation prepared for installing SAP applications
+      later. You can install SAP applications with 3rd party installation
+      routines.
+     </para>
+     <para>
+      This option is suitable for experienced administrators who want to
+      install &sles4sap; according to their own plan. The default package
+      selection is identical to a standard SLES installations.
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term><guimenu>SLES for SAP Applications &mdash; Installation with
+   Wizard</guimenu> (see <xref linkend="s4s.inst.wizard"/>)</term>
+    <listitem>
+     <para>
+      This is a guided installation of the operating system and a SAP
+      application. After the installation of the operating system the SAP
+      Installation Wizard will start for installation of a validated SAP
+      solution.
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term><guimenu>SLES for SAP Applications &mdash; Installation with
+   External Profile</guimenu> (see <xref linkend="s4s.inst.profile"/>)</term>
+    <listitem>
+     <para>
+      This installation is driven by a user-provided &ay; profile. There
+      are no &suse;-provided SAP optimizations.
+     </para>
+     <para>
+      This scenario is suitable for experienced users who are familiar with
+      &ay; and want to deploy their own &ay; profiles to install
+      &sles4sap;.
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term>Upgrade</term>
+    <listitem>
+     <para>
+      Upgrading the system. For more information, see the &deploy;,
+      Chapter 7.4, Upgrading to SUSE Linux Enterprise 12; find the
+      &deploy; at
+      <link xlink:href="https://www.suse.com/documentation/sles-12/"/>.
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term>Rescue System</term>
+    <listitem>
+<!-- checked 2015-02-23, ke -->
+     <para>
+      Starting a minimal Linux system without a graphical user interface.
+      For more information, see the &admin;, Chapter 36, Common Problems
+      and Their Solutions; find the &admin; at
+      <link xlink:href="https://www.suse.com/documentation/sles-12/"/>.
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term>Memory Test</term>
+    <listitem>
+<!-- checked 2015-02-23, ke -->
+     <para>
+      Testing the system RAM using repeated read and write cycles. For more
+      information, see the &admin; Chapter 36, Common Problems and Their
+      Solutions.
      </para>
     </listitem>
    </varlistentry>
   </variablelist>
- </sect2>
-
-</sect1>
-
-
- <sect1 id="s4s.inst.booting">
- <title>Booting the Installation Medium</title>
- <para>
-  Different options are available to install &sles4sap; 12.  Select
-  the preferred installation option from the DVD boot menu:
- </para>
-
- <figure id="fig.s4s.dvd.bootmenu">
-  <title>DVD Boot Menu</title>
-  <mediaobject>
-   <imageobject role="fo">
-    <imagedata fileref="s4s-dvd-boot-menu.png" width="80%" format="PNG"/>
-   </imageobject>
-   <imageobject role="html">
-    <imagedata fileref="s4s-dvd-boot-menu.png" width="80%" format="PNG"/>
-   </imageobject>
-  </mediaobject>
- </figure>
-
- <variablelist>
-  <varlistentry>
-   <term>Boot from Hard Disk</term>
-   <listitem>
-    <para>Booting the system installed on the local hard disk.</para>
-   </listitem>
-  </varlistentry>
-  <varlistentry>
-   <term><guimenu>SLES for SAP Applications &mdash;
-   Installation</guimenu> (see <xref linkend="s4s.inst.inst"/>)</term>
-   <listitem>
-    <para>
-     A standard SLES installation prepared for installing SAP
-     applications later. You can install SAP applications with 3rd party
-     installation routines.
-    </para>
-    <para>
-    This option is suitable for experienced administrators who want
-    to install &sles4sap; according to their own plan.  The default
-    package selection is identical to a standard SLES installations.
-    </para>
-   </listitem>
-  </varlistentry>
-  <varlistentry>
-   <term><guimenu>SLES for SAP Applications &mdash; Installation with
-   Wizard</guimenu> (see <xref linkend="s4s.inst.wizard"/>)</term>
-   <listitem>
-    <para>
-     This is a guided installation of the operating system and a SAP
-     application.  After the installation of the operating system the
-     SAP Installation Wizard will start for installation of a validated
-     SAP solution.
-    </para>
-   </listitem>
-  </varlistentry>
-  <varlistentry>
-   <term><guimenu>SLES for SAP Applications &mdash; Installation with
-   External Profile</guimenu> (see <xref
-   linkend="s4s.inst.profile"/>)</term>
-   <listitem>
-    <para>This installation is driven by a user-provided &ay;
-    profile.  There are no &suse;-provided SAP optimizations.</para>
-
-    <para>This scenario is suitable for experienced users who are
-    familiar with &ay; and want to deploy their own &ay; profiles
-    to install &sles4sap;.</para>
-   </listitem>
-  </varlistentry>
-  <varlistentry>
-   <term>Upgrade</term>
-   <listitem>
-    <para>
-     Upgrading the system. For more information, see the &deploy;, Chapter 7.4,
-     Upgrading to SUSE Linux Enterprise 12; find the &deploy; at <ulink
-     url="https://www.suse.com/documentation/sles-12/"/>.
-    </para>
-   </listitem>
-  </varlistentry>
-  <varlistentry>
-   <term>Rescue System</term>
-   <listitem>
-    <!-- checked 2015-02-23, ke -->
-    <para>
-     Starting a minimal Linux system without a graphical user
-     interface. For more information, see the &admin;, Chapter 36,
-     Common Problems and Their Solutions; find the &admin; at <ulink
-     url="https://www.suse.com/documentation/sles-12/"/>.
-    </para>
-   </listitem>
-  </varlistentry>
-  <varlistentry>
-   <term>Memory Test</term>
-   <listitem>
-    <!-- checked 2015-02-23, ke -->
-    <para>
-     Testing the system RAM using repeated read and write cycles. For
-     more information, see the &admin; Chapter 36, Common Problems and
-     Their Solutions.
-    </para>
-   </listitem>
-  </varlistentry>
- </variablelist>
  </sect1>
+ <sect1 xml:id="s4s.inst.inst">
+  <title><guimenu>SLES for SAP Applications &mdash; Installation</guimenu></title>
 
- <sect1 id="s4s.inst.inst">
-  <title><guimenu>SLES for SAP Applications &mdash;
-  Installation</guimenu></title>
-  <!-- checked 2015-04-21, ke -->
+<!-- checked 2015-04-21, ke -->
+
   <para>
-   This is a standard manual &sls; installation; for details
-   about such a SLES installation, see the SLES &deploy;, Chapter 6,
+   This is a standard manual &sls; installation; for details about such a
+   SLES installation, see the SLES &deploy;, Chapter 6,
    <quote>Installation with &yast;</quote>.
   </para>
-  <!--
+
+<!--
        License, Installation Mode, Time, Server Base scenario,
        Installation Settings (here change partitioning and other
        settings, if needed).
        After deploying the software: root password. network config,
-       NCC, Network Services, User Auth, Hardware Config 
+       NCC, Network Services, User Auth, Hardware Config
   -->
 
-  <!-- 2015-03-12: this intentionally no longer takes place -->
-  <!--
+<!-- 2015-03-12: this intentionally no longer takes place -->
+
+<!--
    In addition, the SAP Application Server Base
    (<systemitem>sap-loc</systemitem> and
    <systemitem>sapconf</systemitem>) pattern will be installed by
@@ -223,7 +229,7 @@
   </para>
   -->
 
-  <figure id="fig.s4s.install.license">
+  <figure xml:id="fig.s4s.install.license">
    <title>License Confirmation</title>
    <mediaobject>
     <imageobject role="fo">
@@ -236,11 +242,11 @@
   </figure>
 
   <para>
-   On the initial dialog confirm the license (see <xref
-   linkend="fig.s4s.install.license"/>).
+   On the initial dialog confirm the license (see
+   <xref linkend="fig.s4s.install.license"/>).
   </para>
-  
-  <figure id="fig.s4s.install.reg-dialog">
+
+  <figure xml:id="fig.s4s.install.reg-dialog">
    <title>Initial Registration Dialog</title>
    <mediaobject>
     <imageobject role="fo">
@@ -253,33 +259,37 @@
   </figure>
 
   <para>
-   On the <guimenu>Registration</guimenu> dialog check your
-   <guimenu>Network Configuration</guimenu> with the upper right button.
-   The <guimenu>Network Settings</guimenu> will automatically pop up, if
-   the automatic configuration via DHCP fails.  Once the network
-   configuration is checked, enter your registration data and confirm
-   the dialog with <guimenu>Next</guimenu>.
+   On the <guimenu>Registration</guimenu> dialog check your <guimenu>Network
+   Configuration</guimenu> with the upper right button. The <guimenu>Network
+   Settings</guimenu> will automatically pop up, if the automatic
+   configuration via DHCP fails. Once the network configuration is checked,
+   enter your registration data and confirm the dialog with
+   <guimenu>Next</guimenu>.
   </para>
-  <!-- 2015-05-04, ke: Packages Pre-Selected noticed by peters -->
-  <!--                 the same repeated later                 -->
+
+<!-- 2015-05-04, ke: Packages Pre-Selected noticed by peters -->
+
+<!--                 the same repeated later                 -->
+
   <note>
    <title>Additional Packages Pre-Selected</title>
    <para>
     If you install with registration, the &sle; &hasi; repository by
     default will be activated and some few &sle; &hasi; packages will
-    get installed.  This will not happen, if you will register the
-    product after the installation.
+    get installed. This will not happen, if you will register the product
+    after the installation.
    </para>
   </note>
+
   <para>
    You will be prompted for all common installation settings, like
    partitioning of storage devices, network, or software packages.
   </para>
  </sect1>
 <!-- ==== Installation with Wizard ======================================= -->
- <sect1 id="s4s.inst.wizard">
-  <title><guimenu>SLES for SAP Applications &mdash; Installation with
-  Wizard</guimenu></title>
+ <sect1 xml:id="s4s.inst.wizard">
+  <title><guimenu>SLES for SAP Applications &mdash; Installation with Wizard</guimenu></title>
+
   <para>
    This is a guided installation of the operating system with optimized
    settings for SAP applications.
@@ -287,137 +297,123 @@
 
   <para>
    During this installation scenario, the following installation and
-   configuration steps will take place.  Interactive settings are
-   required or possible.  At the end of the &suselinux; installation,
-   you will be prompted to insert your SAP product media.
+   configuration steps will take place. Interactive settings are required or
+   possible. At the end of the &suselinux; installation, you will be
+   prompted to insert your SAP product media.
   </para>
 
- <sect2>
-  <title>Data Required for Installing the System (with Wizard)</title>
+  <sect2>
+   <title>Data Required for Installing the System (with Wizard)</title>
+   <para>
+    The following data is required for the &sls; part of the installation
+    (required per physical server):
+   </para>
+   <informaltable>
+    <tgroup cols="2">
+     <tbody>
+      <row>
+       <entry>
+        <para>
+         Hostname
+        </para>
+       </entry>
+       <entry>
+        <para/>
+       </entry>
+      </row>
+      <row>
+       <entry>
+        <para>
+         Domain
+        </para>
+       </entry>
+       <entry>
+        <para/>
+       </entry>
+      </row>
+      <row>
+       <entry>
+        <para>
+         IP address
+        </para>
+       </entry>
+       <entry>
+        <para/>
+       </entry>
+      </row>
+      <row>
+       <entry>
+        <para>
+         Subnet mask
+        </para>
+       </entry>
+       <entry>
+        <para/>
+       </entry>
+      </row>
+      <row>
+       <entry>
+        <para>
+         Domain searchlist (DNS)
+        </para>
+       </entry>
+       <entry>
+        <para/>
+       </entry>
+      </row>
+      <row>
+       <entry>
+        <para>
+         IP for nameserver
+        </para>
+       </entry>
+       <entry>
+        <para/>
+       </entry>
+      </row>
+      <row>
+       <entry>
+        <para>
+         IP for gateway
+        </para>
+       </entry>
+       <entry>
+        <para/>
+       </entry>
+      </row>
+      <row>
+       <entry>
+        <para>
+         Master password for the system installation (root password)
+        </para>
+       </entry>
+       <entry>
+        <para/>
+       </entry>
+      </row>
+     </tbody>
+    </tgroup>
+   </informaltable>
+   <para>
+    Some more specific parameters are required depending on the SAP
+    application you want to install, for example <quote>SAP System
+    ID</quote> or <quote>System T-Shirt Sizing</quote>.
+   </para>
+  </sect2>
 
-  <para>
-   The following data is required for the &sls; part of the
-   installation (required per physical server):
-  </para>
-
-  <informaltable>
-     <tgroup cols = "2">
-      <tbody>
-       <row>
-        <entry>
-         <para>
-          Hostname
-         </para>
-        </entry>
-        <entry>
-         <para/>
-        </entry>
-       </row>
-
-       <row>
-        <entry>
-         <para>
-          Domain
-         </para>
-        </entry>
-        <entry>
-         <para/>
-        </entry>
-       </row>
-
-       <row>
-        <entry>
-         <para>
-          IP address
-         </para>
-        </entry>
-        <entry>
-         <para/>
-        </entry>
-       </row>
-
-       <row>
-        <entry>
-         <para>
-          Subnet mask
-         </para>
-        </entry>
-        <entry>
-         <para/>
-        </entry>
-       </row>
-
-       <row>
-        <entry>
-         <para>
-          Domain searchlist (DNS)
-         </para>
-        </entry>
-        <entry>
-         <para/>
-        </entry>
-       </row>
-
-       <row>
-        <entry>
-         <para>
-          IP for nameserver
-         </para>
-        </entry>
-        <entry>
-         <para/>
-        </entry>
-       </row>
-
-       <row>
-        <entry>
-         <para>
-          IP for gateway
-         </para>
-        </entry>
-        <entry>
-         <para/>
-        </entry>
-       </row>
-
-       <row>
-        <entry>
-         <para>
-          Master password for the system installation (root password)
-         </para>
-        </entry>
-        <entry>
-         <para/>
-        </entry>
-       </row>
-
-      </tbody>
-     </tgroup>
-  </informaltable>
-
-  <para>
-   Some more specific parameters are required depending on the SAP
-   application you want to install, for example <quote>SAP System
-   ID</quote> or <quote>System T-Shirt Sizing</quote>.
-  </para>
-
- </sect2>
-
-
-  <sect2 id="s4s.inst.wizard.boot">
-   <title>Selecting <guimenu>SLES for SAP Applications &mdash;
-   Installation with Wizard</guimenu> from the DVD Boot Menu</title>
+  <sect2 xml:id="s4s.inst.wizard.boot">
+   <title>Selecting <guimenu>SLES for SAP Applications &mdash; Installation with Wizard</guimenu> from the DVD Boot Menu</title>
    <para>
     From the DVD boot menu (see <xref linkend="fig.s4s.dvd.bootmenu"/>),
     select <guimenu>SLES for SAP Applications &mdash; Installation with
-    Wizard</guimenu>.  The installation process loads and configures a
-    &suselinux; system with all requirements for a SAP installation.  To
-    view the boot messages and copyright notices during this process,
-    press <keycap>Esc</keycap>. On completion of this process, the
-    &yast; installation program starts and displays the graphical
-    installer, which will run mostly automatically.
+    Wizard</guimenu>. The installation process loads and configures a
+    &suselinux; system with all requirements for a SAP installation. To
+    view the boot messages and copyright notices during this process, press
+    <keycap>Esc</keycap>. On completion of this process, the &yast;
+    installation program starts and displays the graphical installer, which
+    will run mostly automatically.
    </para>
-   <!--
+<!--
   <figure id="fig.s4s.install.license">
    <title>License Confirmation</title>
    <mediaobject>
@@ -430,70 +426,66 @@
    </mediaobject>
   </figure>
    -->
-  <para>
-   On the initial dialog confirm the license (see <xref
-   linkend="fig.s4s.install.license"/>).
-  </para>
+   <para>
+    On the initial dialog confirm the license (see
+    <xref linkend="fig.s4s.install.license"/>).
+   </para>
   </sect2>
 
-  <sect2 id="sec.s4s.inst.wizard.prepauto">
+  <sect2 xml:id="sec.s4s.inst.wizard.prepauto">
    <title>Preparing System for Automated Installation</title>
-
    <para>
     After analyzing your computer, &yast; allows you to specify options
     for a customized installation.
    </para>
-    
-  <sect3 id="sec.s4s.inst.wizard.yast2.user.root">
-   <title>Password for the System Administrator &rootuser;</title>
-   <para>
-    First, &yast; prompts you to enter the system administrator password;
-    see <xref linkend="fig.s4s.sap-wizard-admin-password"/>.  This is
-    the root password for the system.
-   </para>
-   <figure id="fig.s4s.sap-wizard-admin-password">
-    <title>System Administrator Password</title>
-    <mediaobject>
-     <imageobject role="fo">
-      <imagedata fileref="s4s_sap_wizard_admin_password.png" width="80%" format="PNG"/>
-     </imageobject>
-     <imageobject role="html">
-      <imagedata fileref="s4s_sap_wizard_admin_password.png" width="80%" format="PNG"/>
-     </imageobject>
-    </mediaobject>
-   </figure>
-
-   <para>
-    &rootuser; is the name of the superuser, or the administrator of the
-    system. Unlike regular users (who may or may not have permission to
-    access certain areas or execute certain commands on the system),
-    &rootuser; has unlimited access to change the system configuration,
-    install programs, and set up new hardware.  The &rootuser; account
-    should only be used for system administration, maintenance, and
-    repair. Logging in as &rootuser; for daily work is rather risky: a
-    single mistake could lead to irretrievable loss of system files.
-   </para>
-   <para>
-    For verification purposes, the password for &rootuser; must be entered
-    twice. Do not forget the &rootuser; password. Once entered, this
-    password cannot be retrieved.
-   </para>
-   <para>
-    The &rootuser; password can be changed any time later in the
-    installed system. To do so, run &yast; and start <menuchoice>
-    <guimenu>Security and Users</guimenu> <guimenu>User and Group
-    Management</guimenu> </menuchoice>.
-   </para>
-   <warning>
-    <title>The root User</title>
+   <sect3 xml:id="sec.s4s.inst.wizard.yast2.user.root">
+    <title>Password for the System Administrator &rootuser;</title>
     <para>
-     The &rootuser; user has all the permissions needed to make changes to
-     the system. To carry out such tasks, the &rootuser; password is
-     required. You cannot carry out any administrative tasks without this
-     password.
+     First, &yast; prompts you to enter the system administrator
+     password; see <xref linkend="fig.s4s.sap-wizard-admin-password"/>. This
+     is the root password for the system.
     </para>
-   </warning>
-
+    <figure xml:id="fig.s4s.sap-wizard-admin-password">
+     <title>System Administrator Password</title>
+     <mediaobject>
+      <imageobject role="fo">
+       <imagedata fileref="s4s_sap_wizard_admin_password.png" width="80%" format="PNG"/>
+      </imageobject>
+      <imageobject role="html">
+       <imagedata fileref="s4s_sap_wizard_admin_password.png" width="80%" format="PNG"/>
+      </imageobject>
+     </mediaobject>
+    </figure>
+    <para>
+     &rootuser; is the name of the superuser, or the administrator of the
+     system. Unlike regular users (who may or may not have permission to
+     access certain areas or execute certain commands on the system),
+     &rootuser; has unlimited access to change the system configuration,
+     install programs, and set up new hardware. The &rootuser; account
+     should only be used for system administration, maintenance, and repair.
+     Logging in as &rootuser; for daily work is rather risky: a single
+     mistake could lead to irretrievable loss of system files.
+    </para>
+    <para>
+     For verification purposes, the password for &rootuser; must be
+     entered twice. Do not forget the &rootuser; password. Once entered,
+     this password cannot be retrieved.
+    </para>
+    <para>
+     The &rootuser; password can be changed any time later in the
+     installed system. To do so, run &yast; and start <menuchoice>
+     <guimenu>Security and Users</guimenu> <guimenu>User and Group
+     Management</guimenu> </menuchoice>.
+    </para>
+    <warning>
+     <title>The root User</title>
+     <para>
+      The &rootuser; user has all the permissions needed to make changes
+      to the system. To carry out such tasks, the &rootuser; password is
+      required. You cannot carry out any administrative tasks without this
+      password.
+     </para>
+    </warning>
 <!--
   <sect2 id="sec.s4s.inst.wizard.yast2.user.root">
    <title>Password for the System Administrator &rootuser;</title><indexterm>
@@ -522,206 +514,179 @@
 
   </sect2>
 -->
-  </sect3>
-  <sect3>
-   <title>System Volume Configuration</title>
-   <para>
-    The next &yast; pop-up dialog lets you fine-tune the volume
-    configuration.  Here you configure the volume for the system and
-    swap space.  Suitable values depending on your available hardware
-    are pre-selected.  This is for the &suselinux; operating system
-    only; the data volume comes later, after selecting the
-    SAP Application.
-   </para>
-
-   <figure id="fig.s4s.inst.yast-storage-system">
+   </sect3>
+   <sect3>
     <title>System Volume Configuration</title>
-    <mediaobject>
-     <imageobject role="fo">
-      <imagedata fileref="yast-storage-system.png" width="80%" format="PNG"/>
-     </imageobject>
-     <imageobject role="html">
-      <imagedata fileref="yast-storage-system.png" width="80%" format="PNG"/>
-     </imageobject>
-    </mediaobject>
-   </figure>
-
-   <para>
-    If there is just one hard disk, keep it as the system volume device
-    and set the size of the system volume (and the swap space) in GB in
-    the lower field and confirm it; see <xref
-    linkend="fig.s4s.inst.yast-storage-system"/>.
-   </para>
-
-   <tip>
-    <title>Size of the System Volume</title>
     <para>
-     Normally, at least 35 GB is required for the system volume.  The
-     swap space depends on the available main memory (RAM).  For more
-     information, see the SAP Note 1984787: <ulink
-     url="https://service.sap.com/sap/support/notes/1984787"/>.
+     The next &yast; pop-up dialog lets you fine-tune the volume
+     configuration. Here you configure the volume for the system and swap
+     space. Suitable values depending on your available hardware are
+     pre-selected. This is for the &suselinux; operating system only; the
+     data volume comes later, after selecting the SAP Application.
     </para>
-   </tip>
-
-   <para>
-    If there is more than one hard disk, select the right one as the
-    system volume device and set the size of the system volume (and the
-    swap space) in GB in the lower fields and confirm it.  For more
-    information about partitioning, see <xref linkend="s4s.part"/>.
-   </para>
-
-   <warning>
-    <title>Deleting Data</title>
+    <figure xml:id="fig.s4s.inst.yast-storage-system">
+     <title>System Volume Configuration</title>
+     <mediaobject>
+      <imageobject role="fo">
+       <imagedata fileref="yast-storage-system.png" width="80%" format="PNG"/>
+      </imageobject>
+      <imageobject role="html">
+       <imagedata fileref="yast-storage-system.png" width="80%" format="PNG"/>
+      </imageobject>
+     </mediaobject>
+    </figure>
     <para>
-     If you confirm the storage volume configuration, all existing data
-     on the hard disk will be deleted.  If you do not want this to
-     happen, turn off the system.
+     If there is just one hard disk, keep it as the system volume device and
+     set the size of the system volume (and the swap space) in GB in the
+     lower field and confirm it; see
+     <xref linkend="fig.s4s.inst.yast-storage-system"/>.
     </para>
-   </warning>
-
-  </sect3>
-
-  <sect3 id="sec.s4s.inst.wizard.yast2.conf.manual.hostname">
-   <title>Hostname, Domain Name, and IP Address</title><indexterm>
-   <primary>&yast;</primary>
+    <tip>
+     <title>Size of the System Volume</title>
+     <para>
+      Normally, at least 35 GB is required for the system volume. The swap
+      space depends on the available main memory (RAM). For more
+      information, see the SAP Note 1984787:
+      <link xlink:href="https://service.sap.com/sap/support/notes/1984787"/>.
+     </para>
+    </tip>
+    <para>
+     If there is more than one hard disk, select the right one as the system
+     volume device and set the size of the system volume (and the swap
+     space) in GB in the lower fields and confirm it. For more information
+     about partitioning, see <xref linkend="s4s.part"/>.
+    </para>
+    <warning>
+     <title>Deleting Data</title>
+     <para>
+      If you confirm the storage volume configuration, all existing data on
+      the hard disk will be deleted. If you do not want this to happen, turn
+      off the system.
+     </para>
+    </warning>
+   </sect3>
+   <sect3 xml:id="sec.s4s.inst.wizard.yast2.conf.manual.hostname">
+    <title>Hostname, Domain Name, and IP Address</title><indexterm>
+    <primary>&yast;</primary>
     <secondary>hostname</secondary></indexterm><indexterm>
     <primary>&yast;</primary>
     <secondary>domain name</secondary></indexterm><indexterm>
     <primary>installation</primary>
     <secondary>hostname</secondary></indexterm><indexterm>
     <primary>installation</primary>
-    <secondary>domain name</secondary>
-   </indexterm>
-
-   <para>
-    The next dialog starts with the network configuration; see <xref
-    linkend="fig.s4s.inst.yast-network-config"/>.
-   </para>
-
-   <figure id="fig.s4s.inst.yast-network-config">
-    <title>Hostname, Domain Name, and IP Address</title>
-    <mediaobject>
-     <imageobject role="fo">
-      <imagedata fileref="yast-network-config.png" width="80%" format="PNG"/>
-     </imageobject>
-     <imageobject role="html">
-      <imagedata fileref="yast-network-config.png" width="80%" format="PNG"/>
-     </imageobject>
-    </mediaobject>
-   </figure>
-
-   <tip>
-    <title>Querying DHCP Server</title>
+    <secondary>domain name</secondary></indexterm>
     <para>
-     The installation wizard will query a locally running DHCP server to
-     get interesting network data such as names and IP adresses
-     for the local host, DNS server, NTP server, etc.  This ensures that
-     the entry fields of the next dialogs will be prefilled with these
-     data.
+     The next dialog starts with the network configuration; see
+     <xref linkend="fig.s4s.inst.yast-network-config"/>.
     </para>
-   </tip>
-
-   <para>
+    <figure xml:id="fig.s4s.inst.yast-network-config">
+     <title>Hostname, Domain Name, and IP Address</title>
+     <mediaobject>
+      <imageobject role="fo">
+       <imagedata fileref="yast-network-config.png" width="80%" format="PNG"/>
+      </imageobject>
+      <imageobject role="html">
+       <imagedata fileref="yast-network-config.png" width="80%" format="PNG"/>
+      </imageobject>
+     </mediaobject>
+    </figure>
+    <tip>
+     <title>Querying DHCP Server</title>
+     <para>
+      The installation wizard will query a locally running DHCP server to
+      get interesting network data such as names and IP adresses for the
+      local host, DNS server, NTP server, etc. This ensures that the entry
+      fields of the next dialogs will be prefilled with these data.
+     </para>
+    </tip>
+    <para>
      The <guimenu>Hostname</guimenu> is the computer’s name in the
-     network. The <guimenu>Domain Name</guimenu> is the name of the
-     network. A hostname and domain are proposed by default.  If your
-     system is part of a network, the hostname has to be unique in this
-     network, whereas the domain name has to be common to all hosts on
-     the network.
-   </para>
-
-   <para>
+     network. The <guimenu>Domain Name</guimenu> is the name of the network.
+     A hostname and domain are proposed by default. If your system is part
+     of a network, the hostname has to be unique in this network, whereas
+     the domain name has to be common to all hosts on the network.
+    </para>
+    <para>
      Also enter the <guimenu>IP Address</guimenu> and
-     <guimenu>Netmask</guimenu> for this host.  The IP address must be
-     unique and the netmask has to be common to all hosts on the
-     network.
-   </para>
-  </sect3>
-
-  <sect3 id="sec.s4s.inst.wizard.yast2.conf.manual.dns-ntp">
-   <title>Domain Name Service (DNS) and Time Server (NTP)</title>
-
-   <para>
-    The next dialog continues with the network configuration; see <xref
-    linkend="fig.s4s.inst.yast-network-config2"/>.
-   </para>
-
-   <figure id="fig.s4s.inst.yast-network-config2">
+     <guimenu>Netmask</guimenu> for this host. The IP address must be unique
+     and the netmask has to be common to all hosts on the network.
+    </para>
+   </sect3>
+   <sect3 xml:id="sec.s4s.inst.wizard.yast2.conf.manual.dns-ntp">
     <title>Domain Name Service (DNS) and Time Server (NTP)</title>
-    <mediaobject>
-     <imageobject role="fo">
-      <imagedata fileref="yast-network-config2.png" width="80%" format="PNG"/>
-     </imageobject>
-     <imageobject role="html">
-      <imagedata fileref="yast-network-config2.png" width="80%" format="PNG"/>
-     </imageobject>
-    </mediaobject>
-   </figure>
-   <para>
+    <para>
+     The next dialog continues with the network configuration; see
+     <xref linkend="fig.s4s.inst.yast-network-config2"/>.
+    </para>
+    <figure xml:id="fig.s4s.inst.yast-network-config2">
+     <title>Domain Name Service (DNS) and Time Server (NTP)</title>
+     <mediaobject>
+      <imageobject role="fo">
+       <imagedata fileref="yast-network-config2.png" width="80%" format="PNG"/>
+      </imageobject>
+      <imageobject role="html">
+       <imagedata fileref="yast-network-config2.png" width="80%" format="PNG"/>
+      </imageobject>
+     </mediaobject>
+    </figure>
+    <para>
      For Domain Name Service (DNS) configuration, enter the <guimenu>Domain
      Searchlist</guimenu> and the <guimenu>IP Address of DNS
      Server</guimenu> plus the IP address of the <guimenu>Default
      Gateway</guimenu> of your network.
     </para>
-
     <para>
      Also enter the address of the <guimenu>NTP Server</guimenu> to
      synchronize automatically via Network Time Protocol (NTP).
     </para>
-
-  </sect3>
- 
-   <sect3 id="sec.s4s.inst.wizard.yast2.conf.manual.reg">
+   </sect3>
+   <sect3 xml:id="sec.s4s.inst.wizard.yast2.conf.manual.reg">
     <title>Registration</title>
-    <!-- 215-yast-registration.png -->
-
+<!-- 215-yast-registration.png -->
     <para>
-     To get technical support and product updates, you need to register
-     and activate your product with the &ncc;; see <xref
-     linkend="fig.s4s.inst.yast-reg"/>.  This dialog provides assistance
-     for doing so. For information about &scc;, see <ulink
-     url="https://scc.suse.com"/>.
+     To get technical support and product updates, you need to register and
+     activate your product with the &ncc;; see
+     <xref linkend="fig.s4s.inst.yast-reg"/>. This dialog provides
+     assistance for doing so. For information about &scc;, see
+     <link xlink:href="https://scc.suse.com"/>.
     </para>
-   <figure id="fig.s4s.inst.yast-reg">
-    <title>Registration</title>
-    <mediaobject>
-     <imageobject role="fo">
-      <imagedata fileref="yast-registration.png" width="80%" format="PNG"/>
-     </imageobject>
-     <imageobject role="html">
-      <imagedata fileref="yast-registration.png" width="80%" format="PNG"/>
-     </imageobject>
-    </mediaobject>
-   </figure>
-
+    <figure xml:id="fig.s4s.inst.yast-reg">
+     <title>Registration</title>
+     <mediaobject>
+      <imageobject role="fo">
+       <imagedata fileref="yast-registration.png" width="80%" format="PNG"/>
+      </imageobject>
+      <imageobject role="html">
+       <imagedata fileref="yast-registration.png" width="80%" format="PNG"/>
+      </imageobject>
+     </mediaobject>
+    </figure>
     <para>
-     Enter your <guimenu>E-Mail Address</guimenu> and
-     <guimenu>Registration Code</guimenu> for the product.  If you
-     provide the registration code now, operating system updates will be
-     installed automatically during the installation of the system.
+     Enter your <guimenu>E-Mail Address</guimenu> and <guimenu>Registration
+     Code</guimenu> for the product. If you provide the registration code
+     now, operating system updates will be installed automatically during
+     the installation of the system.
     </para>
-    <!-- 2015-05-04, ke: Packages Pre-Selected noticed by peters -->
-    <!--                 also see above                          -->
+<!-- 2015-05-04, ke: Packages Pre-Selected noticed by peters -->
+<!--                 also see above                          -->
     <note>
      <title>Additional Packages Pre-Selected</title>
      <para>
       If you install with registration, the &sle; &hasi; repository by
-      default will be activated and some few &sle; &hasi; packages will
-      get installed.  This will not happen, if you will register the
+      default will be activated and some few &sle; &hasi; packages
+      will get installed. This will not happen, if you will register the
       product after the installation.
      </para>
     </note>
-
-   <para>
-    After confirmation, the system will be configured with the supplied
-    settings.  Then &yast; performs the partitioning and the software
-    installation.  Packages are installed one by one, so you can see the
-    progress.
+    <para>
+     After confirmation, the system will be configured with the supplied
+     settings. Then &yast; performs the partitioning and the software
+     installation. Packages are installed one by one, so you can see the
+     progress.
     </para>
     <para>
      No user action is required at this stage.
     </para>
-
     <warning>
      <title>Firewall Disabled</title>
      <para>
@@ -729,68 +694,63 @@
       (SuSEfirewall2) completely.
      </para>
      <para>
-      If needed, you can activate the firewall after the installation.
-      If you activate the firewall after the installation, you must open
-      all required ports manually.  For more information about required
-      ports, see <xref linkend="s4s.config.ports"/>.
+      If needed, you can activate the firewall after the installation. If
+      you activate the firewall after the installation, you must open all
+      required ports manually. For more information about required ports,
+      see <xref linkend="s4s.config.ports"/>.
      </para>
     </warning>
    </sect3>
-   </sect2>
+  </sect2>
 
-   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-               href="s4s_installation_sap.xml"/>
+  <xi:include href="s4s_installation_sap.xml" parse="xml"/>
+ </sect1>
+ <sect1 xml:id="s4s.inst.profile">
+  <title><guimenu>SLES for SAP Applications &mdash; Installation with External Profile</guimenu></title>
 
-   </sect1>
+  <para>
+   This installation is driven by a user-provided &ay; profile and there
+   is no wizard support. This scenario is suitable for experienced users who
+   are familiar with &ay; and want to deploy their own &ay; profiles
+   to install &sles4sap;. For more information about &ay; profiles,
+   see the SLES <emphasis>&ay; Guide</emphasis> (the <emphasis>&ay;
+   Guide</emphasis> comes with the product or is available from
+   <link xlink:href="http://www.suse.com/documentation/sles-12/"/>).
+  </para>
 
-   <sect1 id="s4s.inst.profile">
-    <title><guimenu>SLES for SAP Applications &mdash;
-    Installation with External Profile</guimenu></title>
+  <para>
+   In order to use a user-provided &ay; profile, select <quote>Install
+   SLES for SAP Applications &mdash; Installation with External
+   Profile</quote> from the DVD Boot Menu. Within the boot options, change
+   the <literal>autoyast=usb:///</literal> parameter to the location of a
+   user-provided &ay; profile, or enter the location when &yast; asks
+   for it in the next dialog.
+  </para>
 
-    <para>
-     This installation is driven by a user-provided &ay; profile and
-     there is no wizard support.  This scenario is suitable for
-     experienced users who are familiar with &ay; and want to deploy
-     their own &ay; profiles to install &sles4sap;.  For more
-     information about &ay; profiles, see the SLES <emphasis>&ay;
-     Guide</emphasis> (the <emphasis>&ay; Guide</emphasis> comes
-      with the product or is available from <ulink
-      url="http://www.suse.com/documentation/sles-12/"/>).
-    </para>
+  <figure xml:id="fig.s4s.profile.autoinst">
+   <title>&yast; Asking for System Profile Location</title>
+   <mediaobject>
+    <imageobject role="fo">
+     <imagedata fileref="s4s_profile_autoinst.png" width="100%" format="PNG"/>
+    </imageobject>
+    <imageobject role="html">
+     <imagedata fileref="s4s_profile_autoinst.png" width="100%" format="PNG"/>
+    </imageobject>
+   </mediaobject>
+  </figure>
 
-    <para>
-     In order to use a user-provided &ay; profile, select <quote>Install
-     SLES for SAP Applications &mdash; Installation with External
-     Profile</quote> from the DVD Boot Menu.  Within the boot options,
-     change the <literal>autoyast=usb:///</literal> parameter to the
-     location of a user-provided &ay; profile, or enter the location
-     when &yast; asks for it in the next dialog.
-    </para>
+  <note>
+   <title>Loading External Profile via HTTP</title>
+   <para>
+    It is possible to load the external profile from the network via HTTP.
+    In this case, it is also needed to change the
+    <literal>netsetup</literal> boot parameter from <literal>0</literal>
+    (default) to <literal>1</literal>:
+   </para>
+<screen><![CDATA[... autoyast=http://&wwwip;/autoinst.xml netsetup=1 ...]]></screen>
+  </note>
 
-    <figure id="fig.s4s.profile.autoinst">
-    <title>&yast; Asking for System Profile Location</title>
-    <mediaobject>
-     <imageobject role="fo">
-      <imagedata fileref="s4s_profile_autoinst.png" width="100%" format="PNG"/>
-     </imageobject>
-     <imageobject role="html">
-      <imagedata fileref="s4s_profile_autoinst.png" width="100%" format="PNG"/>
-     </imageobject>
-    </mediaobject>
-   </figure>
-
-   <note>
-    <title>Loading External Profile via HTTP</title>
-    <para>
-     It is possible to load the external profile from the network via
-     HTTP.  In this case, it is also needed to change the
-     <literal>netsetup</literal> boot parameter from
-     <literal>0</literal> (default) to <literal>1</literal>:
-    </para>
-    <screen>... autoyast=http://&wwwip;/autoinst.xml netsetup=1 ...</screen>
-   </note>
-
-    <!-- commenting for the moment...
+<!-- commenting for the moment...
     <para>
      &ay; will look on USB devices for the XML configuration file
      (external profile). Plug in an USB device and store your config in
@@ -799,52 +759,45 @@
     </para>
     -->
 
-    <para>
-     <remark>2015-03-12, ke: CHECKIT!</remark>
-     You can also reference the SAP specific pattern, the HA
-     component and SAP-specific IBM Java in your &ay; profile and then
-     install it during this installation scenario.  As everything else,
-     these components are <emphasis>not</emphasis> preselected and you
-     must include this yourself in your
-     <filename>autoyast.xml</filename> file.
-    </para>
+  <para>
+   <remark>2015-03-12, ke: CHECKIT!</remark>
+   You can also reference the SAP specific pattern, the HA component and
+   SAP-specific IBM Java in your &ay; profile and then install it during
+   this installation scenario. As everything else, these components are
+   <emphasis>not</emphasis> preselected and you must include this yourself
+   in your <filename>autoyast.xml</filename> file.
+  </para>
 
-    <sect2>
-     <title>About &ay;</title>
+  <sect2>
+   <title>About &ay;</title>
+   <para>
+    &ay; is a system for installing one or more SUSE Linux systems
+    automatically and without user intervention. &ay; installations are
+    performed using an &ay; profile with installation and configuration
+    data. That profile can be created using the &ay; configuration
+    interface and can be provided to &yast; during installation in
+    different ways.
+   </para>
+   <para>
+    For more information about &ay;, see the <emphasis>&sls; 12
+    &ay; Guide</emphasis> (the <emphasis>&ay; Guide</emphasis> comes
+    with the product or is available from
+    <link xlink:href="http://www.suse.com/documentation/sles-12/"/>).
+   </para>
+  </sect2>
 
-     <para>
-      &ay; is a system for installing one or more SUSE Linux systems
-      automatically and without user intervention. &ay; installations
-      are performed using  an &ay; profile with installation and configuration
-      data. That profile can be created using the &ay; configuration interface
-      and can be  provided to &yast; during installation in
-      different ways.
-     </para>
-
-     <para>
-      For more information about &ay;, see the <emphasis>&sls; 12 &ay;
-      Guide</emphasis> (the <emphasis>&ay; Guide</emphasis> comes
-      with the product or is available from <ulink
-      url="http://www.suse.com/documentation/sles-12/"/>).
-     </para>
-    </sect2>
-
-    <sect2>
-     <title>Partitioning with &ay;</title>
-
-     <para>
-      For standard systems find pre-defined partitioning settings in
-      <filename>/usr/share/YaST2/include/sap-installation-wizard/</filename>.
-      These could serve as examples if you want to create your custom
-      partitioning scripts.
-     </para>
-
-     <para>
-      For background information on partitioning, see <xref
-      linkend="s4s.part"/>.
-     </para>
-    </sect2>
-
-   </sect1>
-
+  <sect2>
+   <title>Partitioning with &ay;</title>
+   <para>
+    For standard systems find pre-defined partitioning settings in
+    <filename>/usr/share/YaST2/include/sap-installation-wizard/</filename>.
+    These could serve as examples if you want to create your custom
+    partitioning scripts.
+   </para>
+   <para>
+    For background information on partitioning, see
+    <xref linkend="s4s.part"/>.
+   </para>
+  </sect2>
+ </sect1>
 </chapter>

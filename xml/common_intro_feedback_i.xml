@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE sect1 PUBLIC "-//Novell//DTD NovDoc XML V1.0//EN" "novdocx.dtd"
+<!DOCTYPE sect1
 [
-  <!ENTITY % NOVDOC.DEACTIVATE.IDREF "INCLUDE">
   <!ENTITY % entities SYSTEM "entity-decl.ent">
-  %entities;
+    %entities;
 ]>
-<!--taroth 080104: included several times, therefore no ID here, all products-->
-<sect1>
+<!-- No IDs here! -->
+<sect1 xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0">
  <title>Feedback</title>
 
  <para>
@@ -19,15 +18,14 @@
    <listitem>
     <para>
      For services and support options available for your product, refer to
-     <ulink url="http://www.suse.com/support/"></ulink>.
+     <link xlink:href="http://www.suse.com/support/"/>.
     </para>
     <para>
      <remark>taroth 2014-06-10: figured this out together with fhassels,
      but probably bound to change for SLE 12 - filed
      http://bugzilla.suse.com/show_bug.cgi?id=882059 for this</remark>
      To report bugs for a product component, go to
-     <ulink
-      url="http://www.suse.com/mysupport"/>, log in, and select
+     <link xlink:href="http://www.suse.com/mysupport"/>, log in, and select
      <guimenu>Submit New SR</guimenu>.
     </para>
    </listitem>
@@ -39,18 +37,14 @@
      We want to hear your comments about and suggestions for this manual and
      the other documentation included with this product. Use the User
      Comments feature at the bottom of each page in the online documentation
-     or go to <ulink url="http://www.suse.com/doc/feedback.html"/> and enter
-     your comments there.
-     <remark>taroth 2012-01-25: this at least now redirects to the novell
-      feedback page, see bnc#723015</remark>
-     <remark>sknorr 2014-08-21: since the Novell documentation redesign, this
-      leads to an empty grey page, see bnc#892966.</remark>
+     or go to <link xlink:href="http://www.suse.com/doc/feedback.html"/> and
+     enter your comments there.
     </para>
    </listitem>
   </varlistentry>
   <varlistentry>
-  <term>Mail</term>
-  <listitem>
+   <term>Mail</term>
+   <listitem>
     <para>
      For feedback on the documentation of this product, you can also send a
      mail to <literal>doc-team@suse.de</literal>. Make sure to include the
@@ -58,8 +52,8 @@
      documentation. To report errors or suggest enhancements, provide a
      concise description of the problem and refer to the respective section
      number and page (or URL).
-   </para>
-  </listitem>
-   </varlistentry>
+    </para>
+   </listitem>
+  </varlistentry>
  </variablelist>
 </sect1>

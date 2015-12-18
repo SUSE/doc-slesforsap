@@ -1,61 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE chapter PUBLIC "-//Novell//DTD NovDoc XML V1.0//EN" "novdocx.dtd" [
-<!ENTITY % NOVDOC.DEACTIVATE.IDREF "INCLUDE">
-<!ENTITY % entities SYSTEM "entity-decl.ent">
-%entities;
+<!DOCTYPE sect1
+[
+  <!ENTITY % entities SYSTEM "entity-decl.ent">
+    %entities;
 ]>
-<sect1 id="s4s.configuration">
-
+<sect1 xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="s4s.configuration">
  <title>Configuring &sles4sap;</title>
- <para>
- </para>
 
- <sect2 id="s4s.config.page-cache">
+ <para></para>
 
+ <sect2 xml:id="s4s.config.page-cache">
   <title>Kernel: Page-Cache Limit</title>
-
-  <para>
-  </para>
-
+  <para></para>
   <variablelist>
    <varlistentry>
     <term>Problem</term>
     <listitem>
      <para>
       The kernel swaps out rarely accessed memory pages in order to use
-      freed memory pages as cache to speed up file system operations,
-      for instance during backup operations.
+      freed memory pages as cache to speed up file system operations, for
+      instance during backup operations.
      </para>
      <para>
-      Some SAP solutions use large amounts of memory for accelerated
-      access to business data. Parts of this memory are seldom
-      accessed. When a user request then needs to access paged out
-      memory, the response time is poor.  It is even worse, when
-      an SAP solution running on Java incurs a Java garbage
-      collection. The system starts heavy page-in (disc I/O) activity
-      and has a poor response time for an extended period of time.
+      Some SAP solutions use large amounts of memory for accelerated access
+      to business data. Parts of this memory are seldom accessed. When a
+      user request then needs to access paged out memory, the response time
+      is poor. It is even worse, when an SAP solution running on Java incurs
+      a Java garbage collection. The system starts heavy page-in (disc I/O)
+      activity and has a poor response time for an extended period of time.
      </para>
     </listitem>
    </varlistentry>
-
    <varlistentry>
     <term>Solution</term>
     <listitem>
      <para>
-      A kernel tune option has been introduced that allows the
-      system administrator to limit the amount of page-cache that the
-      kernel uses when there is competition between application memory
-      and page-cache.  This option tells the kernel that once the
-      page-cache is filled to the configured limit, application memory
-      is more important and should thus not be paged out. No pages will
-      be paged out if the memory footprint of the workload plus the
-      configured page-cache limit do not exceed the amount of physical
-      RAM in the system.
+      A kernel tune option has been introduced that allows the system
+      administrator to limit the amount of page-cache that the kernel uses
+      when there is competition between application memory and page-cache.
+      This option tells the kernel that once the page-cache is filled to the
+      configured limit, application memory is more important and should thus
+      not be paged out. No pages will be paged out if the memory footprint
+      of the workload plus the configured page-cache limit do not exceed the
+      amount of physical RAM in the system.
      </para>
      <para>
       These kernel options are available for configuration:
      </para>
-     <itemizedlist>
+     <itemizedlist mark="bullet" spacing="normal">
       <listitem>
        <para>
         vm.pagecache_limit_mb (/proc/sys/vm/pagecache_limit_mb)
@@ -63,91 +55,96 @@
       </listitem>
       <listitem>
        <para>
-        vm.pagecache_limit_ignore_dirty (/proc/sys/vm/pagecache_limit_ignore_dirty)
+        vm.pagecache_limit_ignore_dirty
+        (/proc/sys/vm/pagecache_limit_ignore_dirty)
        </para>
       </listitem>
      </itemizedlist>
      <para>
-      For permanent use, set them in <filename>/etc/sysctl.conf</filename>, e.g.
+      For permanent use, set them in <filename>/etc/sysctl.conf</filename>,
+      e.g.
      </para>
-     <screen>vm.pagecache_limit_mb = 1024
-vm.pagecache_limit_ignore_dirty = 0</screen>
-
+<screen><![CDATA[vm.pagecache_limit_mb = 1024
+vm.pagecache_limit_ignore_dirty = 0]]></screen>
      <para>
       For background information, see SAP Note 1557506: Linux paging
-      improvements (<ulink
-      url="https://service.sap.com/sap/support/notes/1557506"/>).
+      improvements
+      (<link xlink:href="https://service.sap.com/sap/support/notes/1557506"/>).
      </para>
     </listitem>
    </varlistentry>
   </variablelist>
  </sect2>
- <!-- ==================================================================== -->
- <sect2 id="s4s.config.ports">
 
+<!-- ==================================================================== -->
+
+ <sect2 xml:id="s4s.config.ports">
   <title>Ports Configuration</title>
-
   <para>
-   SAP applications require many open ports and port ranges in the
-   firewall.  The exact numbers depend on the selected instances, for
-   example:
+   SAP applications require many open ports and port ranges in the firewall.
+   The exact numbers depend on the selected instances, for example:
   </para>
-  <itemizedlist>
+  <itemizedlist mark="bullet" spacing="normal">
    <listitem>
-    <para>3200-3399,</para>
+    <para>
+     3200-3399,
+    </para>
    </listitem>
    <listitem>
-    <para>3600,</para>
+    <para>
+     3600,
+    </para>
    </listitem>
    <listitem>
-    <para>4700-4899,</para>
+    <para>
+     4700-4899,
+    </para>
    </listitem>
    <listitem>
-    <para>7200-7299,</para>
+    <para>
+     7200-7299,
+    </para>
    </listitem>
    <listitem>
-    <para>50000-59999.</para>
+    <para>
+     50000-59999.
+    </para>
    </listitem>
   </itemizedlist>
-
   <para>
    It is also necessary to open 1128 and 1129 (TCP and UDP), and all the
    ports needed for the databases used (Oracle, DB2, MaxDB, Sybase).
   </para>
-
   <warning>
    <title>Firewall Activation</title>
    <para>
-    The firewall is disabled if you use the wizard, and enabled if you
-    use the normal setup.
+    The firewall is disabled if you use the wizard, and enabled if you use
+    the normal setup.
    </para>
   </warning>
-
  </sect2>
 
- <sect2 id="s4s.config.fw">
+ <sect2 xml:id="s4s.config.fw">
   <title>Operating System Security Hardening</title>
-
   <para>
-   For hardening the underlying operating system, see the
-   <quote>Operating System Security Hardening Guide for SAP
-   HANA</quote>:
+   For hardening the underlying operating system, see the <quote>Operating
+   System Security Hardening Guide for SAP HANA</quote>:
   </para>
-  <itemizedlist>
+  <itemizedlist mark="bullet" spacing="normal">
    <listitem>
-    <para><ulink url="https://www.suse.com/promo/security-guide-for-sap-hana.html"/></para>
+    <para>
+     <link xlink:href="https://www.suse.com/promo/security-guide-for-sap-hana.html"/>
+    </para>
    </listitem>
   </itemizedlist>
  </sect2>
 
- <sect2 id="s4s.config.logs">
+ <sect2 xml:id="s4s.config.logs">
   <title>Important Log Files</title>
-
   <para>
    The most important files for this product are:
   </para>
-
-  <itemizedlist>
+  <itemizedlist mark="bullet" spacing="normal">
    <listitem>
     <para>
      Auto-installation related log files are in
@@ -155,25 +152,18 @@ vm.pagecache_limit_ignore_dirty = 0</screen>
     </para>
    </listitem>
    <listitem>
-    <para>The installation wizard is a &yast; module.  Thus you will
-    find wizard related log entries in
-    <filename>/var/log/YaST/y2log</filename>.</para>
+    <para>
+     The installation wizard is a &yast; module. Thus you will find
+     wizard related log entries in <filename>/var/log/YaST/y2log</filename>.
+    </para>
    </listitem>
    <listitem>
     <para>
-     We use a library for all SAP knowledge.  Thus you will find related
-     log entries in <filename>/var/log/SAPmedia.log</filename>.
+     We use a library for all SAP knowledge. Thus you will find related log
+     entries in <filename>/var/log/SAPmedia.log</filename>.
     </para>
    </listitem>
   </itemizedlist>
-
  </sect2>
 
-<!--
- <sect2>
-  <title>For More Information</title>
-
-  <para>For more information about tuning &sls; see the SLES &tuning;.</para>
- </sect2>
--->
 </sect1>

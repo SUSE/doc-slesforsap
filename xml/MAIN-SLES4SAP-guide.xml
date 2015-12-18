@@ -1,36 +1,29 @@
-<?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet href="urn:x-suse:xslt:profiling:novdoc-profile.xsl"
-                 type="text/xml" 
-                 title="Profiling step"?>
-<!DOCTYPE book PUBLIC "-//Novell//DTD NovDoc XML V1.0//EN"
-                      "novdocx.dtd"
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE book
 [
-  <!ENTITY % NOVDOC.DEACTIVATE.IDREF "IGNORE">
   <!ENTITY % entities SYSTEM "entity-decl.ent">
-  %entities;
+    %entities;
 ]>
-<book lang="en" id="book.s4s">
+<?xml-stylesheet href="urn:x-suse:xslt:profiling:docbook50-profile.xsl"
+   type="text/xml"
+   title="Profiling step"?>
+<book xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:lang="en" xml:id="book.s4s">
 <?dbhtml filename="index.html"?>
- <bookinfo>
-  <title>The Guide</title>
-   <productname>&productname;</productname>
-   <productname role="abbrev">&sles4sapa;</productname>
-   <productnumber>&productnumber;</productnumber>
-  <date>
-   <?dbtimestamp format="B d, Y"?>
-  </date>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="common_copyright_gfdl.xml"/>
- </bookinfo>
- <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="s4s_overview.xml"/>
- <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="s4s_about.xml"/>
- <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="s4s_installation.xml"/>
- <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="s4s_partitioning.xml"/>
- <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="s4s_install_network.xml"/>
- <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-             href="s4s_components.xml"/>
- <!--
+ <title>The Guide</title>
+ <info><productname>&productname;</productname><productname role="abbrev">&sles4sapa;</productname>
+  <productnumber>&productnumber;</productnumber><date>
+<?dbtimestamp format="B d, Y"?></date>
+  <xi:include href="common_copyright_gfdl.xml" parse="xml"/>
+ </info>
+ <xi:include href="s4s_overview.xml" parse="xml"/>
+ <xi:include href="s4s_about.xml" parse="xml"/>
+ <xi:include href="s4s_installation.xml" parse="xml"/>
+ <xi:include href="s4s_partitioning.xml" parse="xml"/>
+ <xi:include href="s4s_install_network.xml" parse="xml"/>
+ <xi:include href="s4s_components.xml" parse="xml"/>
+<!--
  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
  href="s4s_appendix_cryptoaddon.xml" />
  -->
- <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="s4s_appendix_docupdates.xml" />
+ <xi:include href="s4s_appendix_docupdates.xml" parse="xml"/>
 </book>

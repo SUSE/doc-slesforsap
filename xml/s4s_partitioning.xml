@@ -1,62 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE chapter PUBLIC "-//Novell//DTD NovDoc XML V1.0//EN" "novdocx.dtd" [
-<!ENTITY % NOVDOC.DEACTIVATE.IDREF "INCLUDE">
-<!ENTITY % entities SYSTEM "entity-decl.ent">
-%entities;
+<!DOCTYPE chapter
+[
+  <!ENTITY % entities SYSTEM "entity-decl.ent">
+    %entities;
 ]>
-<chapter id="s4s.part">
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="s4s.part">
  <title>Background Information on Partitioning</title>
-
+ <info/>
  <para>
-  During installation partitioning will be done in two steps.  The first
-  step happens while installing the operating system (stage 1, see <xref
-  linkend="sec.s4s.inst.wizard.prepauto"/>), and the second step while
-  installing your SAP product (stage 2, see <xref
-  linkend="sec.s4s.inst.wizard.sap-product-install"/>).
+  During installation partitioning will be done in two steps. The first step
+  happens while installing the operating system (stage 1, see
+  <xref linkend="sec.s4s.inst.wizard.prepauto"/>), and the second step while
+  installing your SAP product (stage 2, see
+  <xref linkend="sec.s4s.inst.wizard.sap-product-install"/>).
  </para>
-
- <sect1 id="sec.s4s.part.inst">
+ <sect1 xml:id="sec.s4s.part.inst">
   <title>Stage 1: Partitioning for the Operating System</title>
 
   <para>
-   During stage 1 of the installation (see <xref
-   linkend="sec.s4s.inst.wizard.prepauto"/>), partitions for the
+   During stage 1 of the installation (see
+   <xref linkend="sec.s4s.inst.wizard.prepauto"/>), partitions for the
    operating system will be created.
   </para>
 
   <para>
    A logical volume group (LVG) named <literal>system</literal> will be
-   created.  This LVG contains two logical volumes (LVs) named
-   <literal>root_lv</literal> and <literal>swap_lv</literal>.
-
-   The size of <literal>swap_lv</literal> will be calculated according
-   to the SAP Note 1984787 (<ulink
-   url="https://service.sap.com/sap/support/notes/1984787"/>).  For
-   <literal>root_lv</literal>, 70 GB will be assumed at first, and the
-   sum of <literal>root_lv</literal> and <literal>swap_lv</literal> will
-   be displayed as <guimenu>Set the system volume size in GB</guimenu>.
+   created. This LVG contains two logical volumes (LVs) named
+   <literal>root_lv</literal> and <literal>swap_lv</literal>. The size of
+   <literal>swap_lv</literal> will be calculated according to the SAP
+   Note 1984787
+   (<link xlink:href="https://service.sap.com/sap/support/notes/1984787"/>).
+   For <literal>root_lv</literal>, 70 GB will be assumed at first, and the
+   sum of <literal>root_lv</literal> and <literal>swap_lv</literal> will be
+   displayed as <guimenu>Set the system volume size in GB</guimenu>.
   </para>
 
   <para>
    You can change both, the size of the system volume (<guimenu>Set the
-   system volume size in GB</guimenu>) and the size of the swap
-   partition (<guimenu>Set the SWAP size in GB</guimenu>).  When doing
-   this, mind some caveats:
+   system volume size in GB</guimenu>) and the size of the swap partition
+   (<guimenu>Set the SWAP size in GB</guimenu>). When doing this, mind some
+   caveats:
   </para>
-    
-  <itemizedlist>
+
+  <itemizedlist mark="bullet" spacing="normal">
    <listitem>
     <para>
-     The size of the system volume could not exceed the physical size
-     of the device minus 1 GB; 1 GB will be reserved for boot or for
-     UEFI.
+     The size of the system volume could not exceed the physical size of the
+     device minus 1 GB; 1 GB will be reserved for boot or for UEFI.
     </para>
    </listitem>
-
    <listitem>
     <para>
-     Better do not change the size of the swap partition.  Only in the
-     case of HANA, set 2 GB here.
+     Better do not change the size of the swap partition. Only in the case
+     of HANA, set 2 GB here.
     </para>
    </listitem>
    <listitem>
@@ -65,90 +61,91 @@
     </para>
    </listitem>
   </itemizedlist>
+
   <note>
    <title>Error Messages</title>
    <para>
-    Only if the size of the system volume (plus 1 GB) exceeds the
-    physical size of the device or if the swap partition exceeds the
-    size of the system volume, error messages are issued.
+    Only if the size of the system volume (plus 1 GB) exceeds the physical
+    size of the device or if the swap partition exceeds the size of the
+    system volume, error messages are issued.
    </para>
   </note>
  </sect1>
- <!-- ============================================================ -->
- <sect1 id="sec.s4s.part.sap">
+<!-- ============================================================ -->
+ <sect1 xml:id="sec.s4s.part.sap">
   <title>Stage 2: Partitioning for the SAP System</title>
+
   <para>
-   After installing the operating system the partitioning for the SAP
-   system will take place.  This can be done during stage 2 of the
-   installation phase or in the running system.
+   After installing the operating system the partitioning for the SAP system
+   will take place. This can be done during stage 2 of the installation
+   phase or in the running system.
   </para>
-  
+
   <para>
    The partitioning for the SAP system is not controlled by
-   <filename>autoinst.xml</filename>; this is used for the installation
-   of the operating system.  The <filename>autoinst</filename>
-   functionality no longer exists in the running system.  Instead the
-   following files are controlling the partitioning for the SAP
-   system:
+   <filename>autoinst.xml</filename>; this is used for the installation of
+   the operating system. The <filename>autoinst</filename> functionality no
+   longer exists in the running system. Instead the following files are
+   controlling the partitioning for the SAP system:
   </para>
 
   <para>
    In <filename>/etc/sap-installation-wizard.xml</filename> the
-   <literal><![CDATA[<partitioning>]]></literal> tag defines for which
-   SAP programs which files for controlling the partitioning are used.
-   These files will be taken from
+   <literal>&lt;partitioning&gt;</literal> tag defines for which SAP
+   programs which files for controlling the partitioning are used. These
+   files will be taken from
    <filename>/usr/share/YaST2/include/sap-installation-wizard/</filename>.
-   If no partitioning is needed (for example, if the installation is
-   based on HA or a distributed database is configured), set the
-   <literal><![CDATA[<partitioning>]]></literal> tag to
-   <literal>no</literal>, then
-   <filename>base_partitioning.xml</filename> will be used.
+   If no partitioning is needed (for example, if the installation is based
+   on HA or a distributed database is configured), set the
+   <literal>&lt;partitioning&gt;</literal> tag to <literal>no</literal>,
+   then <filename>base_partitioning.xml</filename> will be used.
   </para>
 
   <para>
    The files for controlling the partitioning are basically &ay; control
-   files that contain a partitioning section only.  There are several
+   files that contain a partitioning section only. There are several
    extensions:
   </para>
 
-  <itemizedlist>
+  <itemizedlist mark="bullet" spacing="normal">
    <listitem>
     <para>
-     If the <literal><![CDATA[<partitioning_defined>]]></literal> tag is
-     set to <literal>true</literal>, the partitioning will be performed
-     without any user interaction.  This, for example, is preconfigured
-     in files for controlling the partitioning of known hardware such as
-     Dell, Fujitsu, HP, or IBM Server systems.  If the SAP Installation
-     Wizard recognizes this hardware, the appropriated file will be
-     selected.  <!--Note-->This applies for SAP BusinessOne HANA only!
+     If the <literal>&lt;partitioning_defined&gt;</literal> tag is set to
+     <literal>true</literal>, the partitioning will be performed without any
+     user interaction. This, for example, is preconfigured in files for
+     controlling the partitioning of known hardware such as Dell, Fujitsu,
+     HP, or IBM Server systems. If the SAP Installation Wizard recognizes
+     this hardware, the appropriated file will be selected.
+<!--Note-->
+     This applies for SAP BusinessOne HANA only!
     </para>
    </listitem>
    <listitem>
     <para>
      For every partition you can specify the
-     <literal><![CDATA[<size_min>]]></literal> tag.  The size value can
-     be given as a string in the format of
-     <literal><replaceable>RAM</replaceable>*<replaceable
-     >N</replaceable></literal>.  This way you can specify, how large
-     the partition should be minimally (x-times
-     (<replaceable>N</replaceable>) the size of the available memory
-     (<replaceable>RAM</replaceable>)).
+     <literal>&lt;size_min&gt;</literal> tag. The size value can be given as
+     a string in the format of
+     <literal><replaceable>RAM</replaceable>*<replaceable>N</replaceable></literal>.
+     This way you can specify, how large the partition should be minimally
+     (x-times (<replaceable>N</replaceable>) the size of the available
+     memory (<replaceable>RAM</replaceable>)).
     </para>
    </listitem>
   </itemizedlist>
+
   <para>
-   If you need something different (e.g., for TREX), proceed as
-   follows:
+   If you need something different (e.g., for TREX), proceed as follows:
   </para>
+
   <procedure>
    <step>
     <para>
      In
      <filename>/usr/share/YaST2/include/sap-installation-wizard/</filename>
      create a new file for controlling the partitioning (e.g.,
-     <filename>TREX_partitioning.xml</filename>).  You can base the new
-     file on <filename>base_partitioning.xml</filename> and change it
-     according to your needs.
+     <filename>TREX_partitioning.xml</filename>). You can base the new file
+     on <filename>base_partitioning.xml</filename> and change it according
+     to your needs.
     </para>
    </step>
    <step>
@@ -156,23 +153,22 @@
      In <filename>/etc/sap-installation-wizard.xml</filename>, at the
      <literal>TREX</literal> following tag insert:
     </para>
-    <screen><![CDATA[<partitioning>TREX_partitioning.xml</partitioning>]]></screen>
+<screen><![CDATA[<partitioning>TREX_partitioning.xml</partitioning>]]></screen>
    </step>
   </procedure>
+
   <warning>
    <title>Do Not Edit <filename>base_partitioning.xml</filename></title>
    <para>
-    Do Not Edit <filename>base_partitioning.xml</filename> directly.
-    With the next update this file will be overridden.
+    Do Not Edit <filename>base_partitioning.xml</filename> directly. With
+    the next update this file will be overridden.
    </para>
   </warning>
 
   <para>
    For more information on partitioning with &ay;, see the
-   <emphasis>Chapter 4.4 <quote>Partitioning</quote></emphasis> of
-   the <emphasis>&ay; Guide</emphasis>.
+   <emphasis>Chapter 4.4 <quote>Partitioning</quote></emphasis> of the
+   <emphasis>&ay; Guide</emphasis>.
   </para>
-
  </sect1>
 </chapter>
-  

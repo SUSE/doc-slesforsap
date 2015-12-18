@@ -1,40 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE chapter PUBLIC "-//Novell//DTD NovDoc XML V1.0//EN" "novdocx.dtd" [
-<!ENTITY % NOVDOC.DEACTIVATE.IDREF "INCLUDE">
-<!ENTITY % entities SYSTEM "entity-decl.ent">
-%entities;
+<!DOCTYPE chapter
+[
+  <!ENTITY % entities SYSTEM "entity-decl.ent">
+    %entities;
 ]>
-<chapter id="s4s.inst.remote">
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="s4s.inst.remote">
  <title>Remote Installation from a Network Server</title>
-
+ <info/>
  <para>
   For detailed information about installing &sls; from a network server
   in general, see the &deploy;, Chapter 14, <quote>Remote
   Installation</quote> (the &deploy; comes with the product or is
-  available from <ulink
-  url="http://www.suse.com/documentation/sles-12/"/>).
+  available from
+  <link xlink:href="http://www.suse.com/documentation/sles-12/"/>).
  </para>
-
- <para>The following section provides a short description about
- installing from a network server.</para>
-
- <sect1 id="s4s.inst.remote.instmedia">
+ <para>
+  The following section provides a short description about installing from a
+  network server.
+ </para>
+ <sect1 xml:id="s4s.inst.remote.instmedia">
   <title>Installing with Installation Media from the Network</title>
+
   <procedure>
    <step>
     <para>
      Copy the &sles4sap; DVD content to a Web server (e.g.,
-    <literal>example.com</literal>) to the directory
-    <filename>/srv/www/htdocs/sap_repo</filename>.
-</para>
+     <literal>example.com</literal>) to the directory
+     <filename>/srv/www/htdocs/sap_repo</filename>.
+    </para>
    </step>
    <step>
-    <para>Boot from DVD.</para>
+    <para>
+     Boot from DVD.
+    </para>
    </step>
    <step>
-    <para>Choose one of the boot menu options and edit the command
-    line:</para>
-    <orderedlist>
+    <para>
+     Choose one of the boot menu options and edit the command line:
+    </para>
+    <orderedlist spacing="normal">
      <listitem>
       <para>
        remove the parameter <literal>instmode=cd</literal> from the command
@@ -43,10 +47,9 @@
      </listitem>
      <listitem>
       <para>
-       change <literal>netsetup=0</literal> to
-    <literal>netsetup=1</literal> and
-    <literal>autoyast=file:///</literal> to
-    <literal>autoyast=http://example.com/sap_repo/</literal>, and
+       change <literal>netsetup=0</literal> to <literal>netsetup=1</literal>
+       and <literal>autoyast=file:///</literal> to
+       <literal>autoyast=http://example.com/sap_repo/</literal>, and
       </para>
      </listitem>
      <listitem>
@@ -57,36 +60,34 @@
      </listitem>
     </orderedlist>
     <para>
-     With <literal>netsetup=1</literal> you will start the
-     network.
+     With <literal>netsetup=1</literal> you will start the network.
     </para>
    </step>
   </procedure>
 
   <para>
-    This is all you need for a network installation. If you want to
-    avoid using a DVD to bootstrap the system and boot from the network
-    via PXE, read the <emphasis>&ay; Guide</emphasis> about setting up a
-    PXE environment (the <emphasis>&ay; Guide</emphasis> comes with the
-    product or is available from <ulink
-    url="http://www.suse.com/documentation/sles-12/"/>).</para>
+   This is all you need for a network installation. If you want to avoid
+   using a DVD to bootstrap the system and boot from the network via PXE,
+   read the <emphasis>&ay; Guide</emphasis> about setting up a PXE
+   environment (the <emphasis>&ay; Guide</emphasis> comes with the
+   product or is available from
+   <link xlink:href="http://www.suse.com/documentation/sles-12/"/>).
+  </para>
  </sect1>
-
- <sect1 id="s4s.inst.remote.sapsets">
-  <title>Copying SAP Media Sets from a Remote Server with the
-  Installation Wizard</title>
+ <sect1 xml:id="s4s.inst.remote.sapsets">
+  <title>Copying SAP Media Sets from a Remote Server with the Installation Wizard</title>
 
   <para>
-   It is possible to copy the SAP media sets from a remote server (NFS,
-   SMB, etc.).  For example, if you want to put the SAP media sets on an
-   NFS Server, proceed as follows:
+   It is possible to copy the SAP media sets from a remote server (NFS, SMB,
+   etc.). For example, if you want to put the SAP media sets on an NFS
+   Server, proceed as follows:
   </para>
 
   <procedure>
    <step>
     <para>
-     Create a directory <filename>/srv/www/htdocs/sap_repo</filename>
-     on your installation server.
+     Create a directory <filename>/srv/www/htdocs/sap_repo</filename> on
+     your installation server.
     </para>
    </step>
    <step>
@@ -94,43 +95,40 @@
      Edit the <filename>/etc/exports</filename> file on the installation
      server by adding the following:
     </para>
-    <screen>/srv/www/htdocs/sap_repo *(ro,root_squash,sync)</screen>
+<screen><![CDATA[/srv/www/htdocs/sap_repo *(ro,root_squash,sync)]]></screen>
    </step>
    <step>
     <para>
      In <filename>/srv/www/htdocs/sap_repo</filename> create a directory for
      every SAP media you have, for example <filename>kernel</filename>,
-     <filename>java</filename>, <filename>maxdb</filename>, etc., which
-     will give you a hint about the contents.
+     <filename>java</filename>, <filename>maxdb</filename>, etc., which will
+     give you a hint about the contents.
     </para>
    </step>
    <step>
     <para>
-     Copy the contents of all SAP media with <command>cp -a</command> to
-     the corresponding directory.
+     Copy the contents of all SAP media with <command>cp -a</command> to the
+     corresponding directory.
     </para>
-
     <tip>
      <title>Avoid Copying on a Windows Operating System</title>
      <para>
       Do not copy the media on a Windows operating system because it may
-      break permission settings and capitalization of files and
-      directories.
+      break permission settings and capitalization of files and directories.
      </para>
     </tip>
-
    </step>
   </procedure>
+
   <para>
-    Now you can install from the NFS server; e.g., from
-    <literal>example.com:/srv/www/htdocs/sap_repo</literal>.
+   Now you can install from the NFS server; e.g., from
+   <literal>example.com:/srv/www/htdocs/sap_repo</literal>.
   </para>
 
- <para>
-  For information about installing &sls; from an NFS server, see the
-  &deploy;, Chapter 14.2, <quote>Remote Installation</quote> and Section
-  14.2.2.
- </para>
-
+  <para>
+   For information about installing &sls; from an NFS server, see the
+   &deploy;, Chapter 14.2, <quote>Remote Installation</quote> and Section
+   14.2.2.
+  </para>
  </sect1>
 </chapter>
