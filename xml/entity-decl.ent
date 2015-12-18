@@ -110,7 +110,7 @@
 <!ENTITY ppc           "POWER">
 <!ENTITY em64t         "Intel EM64T">
 <!ENTITY intel64       "Intel 64">
-<!ENTITY x86-64        "&amd64/&intel64;">
+<!ENTITY x86-64        "&amd64;/&intel64;">
 
 
 <!-- ============================================================= -->
