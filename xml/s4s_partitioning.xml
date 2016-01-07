@@ -115,7 +115,7 @@
      user interaction. This, for example, is preconfigured in files for
      controlling the partitioning of known hardware such as Dell, Fujitsu,
      HP, or IBM Server systems. If the SAP Installation Wizard recognizes
-     this hardware, the appropriated file will be selected.
+     this hardware, the appropriate file will be selected.
 <!--Note-->
      This applies for SAP Business One/HANA only!
     </para>
