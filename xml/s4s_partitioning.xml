@@ -117,7 +117,7 @@
      HP, or IBM Server systems. If the SAP Installation Wizard recognizes
      this hardware, the appropriated file will be selected.
 <!--Note-->
-     This applies for SAP BusinessOne HANA only!
+     This applies for SAP Business One/HANA only!
     </para>
    </listitem>
    <listitem>

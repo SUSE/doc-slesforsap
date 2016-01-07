@@ -185,7 +185,7 @@
     <guimenu>SAP Standard System</guimenu>, <guimenu>SAP Standalone
     Engines</guimenu>, etc. and the <guimenu>Database</guimenu> such as
     <guimenu>IBM DB2</guimenu>, <guimenu>MaxDB</guimenu>, etc. you want to
-    deploy. In the case of a B1 or HANA installation, such a selection does
+    deploy. In the case of a Business One or HANA installation, such a selection does
     not exist. See <xref linkend="fig.s4s.sap.wizard.mode.db"/>. Click
     <guimenu>Help</guimenu> for information.
    </para>
@@ -221,7 +221,7 @@
     parameters are written to the &ay; files in the
     <filename>/data/SAP_INST/<replaceable>number</replaceable></filename>
     directories, where you can modify them according to your needs
-    (HANA/B1).
+    (HANA/Business One).
    </para>
   </step>
   <step>
