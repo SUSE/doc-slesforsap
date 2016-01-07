@@ -99,14 +99,13 @@ SUSE Linux Enterprise Server Priority Support for SAP Applications (optional)
     </listitem>
    </varlistentry>
    <varlistentry>
-    <term><emphasis>Installation Wizard</emphasis>
+    <term><emphasis>Installation Workflow</emphasis>
     </term>
     <listitem>
      <para>
-      The Installation Wizard offers a guided installation path for both the
+      The Installation Workflow offers a guided installation path for both the
       &sls; operating system and the SAP application.
-<!-- jweber does
-   not want plural ("applications") here.-->
+      <!-- jweber does not want plural ("applications") here.-->
      </para>
      <para>
       Additionally, the workflow can be extended by third-party vendors or
@@ -204,15 +203,18 @@ SUSE Linux Enterprise Server Priority Support for SAP Applications (optional)
     </term>
     <listitem>
      <para>
-      &sles4sap; includes Extended Service Pack Overlap Support. This
-      extends the overlapping support period for two service packs by one
-      year. This allows to perform a service pack migration within a 18
-      months time period as opposed to 6 months. With Extended Service Pack
-      Overlap Support migrations can be scheduled more easily and testing
-      before migration can be performed under lesser time constraints, while
-      still remaining under full support and receiving all relevant
-      maintenance updates. Extended Service Pack Overlap Support is a unique
-      offering being part of &sles4sap;.
+      &sles4sap; includes Extended Service Pack Overlap Support which
+      extends the overlap between the support periods of two consecutive
+      service packs by one year.
+      Within this period, you remain under full support and
+      receive all relevant maintenance updates.
+      As a standard offering, this is unique.
+    </para>
+    <para>
+      Extended Service Pack Overlap Support allows you to perform
+      service pack migrations within 18 months instead of only 6 months.
+      Migrations can be scheduled more easily and testing before a migration
+      can be performed under lesser time constraints.
      </para>
     </listitem>
    </varlistentry>
@@ -255,8 +257,7 @@ SUSE Linux Enterprise Server Priority Support for SAP Applications (optional)
     <listitem>
      <para>
       Subscriptions for &sles4sap; include SUSE Linux Enterprise Server
-      Priority Support for SAP Applications. SUSE Linux Enterprise Server
-      Priority Support for SAP Applications offers technical support for
+      Priority Support for SAP Applications which offers technical support for
       &sles4sap; directly from SAP. The joint support infrastructure,
       used by support engineers from &suse; Technical Support and SAP, is
       based upon SAP Solution Manager and offers a seamless communication
