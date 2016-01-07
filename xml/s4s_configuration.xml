@@ -36,9 +36,9 @@
     <listitem>
      <para>
       A kernel tune option has been introduced that allows the system
-      administrator to limit the amount of page-cache that the kernel uses
+      administrator to limit the amount of page cache that the kernel uses
       when there is competition between application memory and page-cache.
-      This option tells the kernel that once the page-cache is filled to the
+      This option tells the kernel that once the page cache is filled to the
       configured limit, application memory is more important and should thus
       not be paged out. No pages will be paged out if the memory footprint
       of the workload plus the configured page-cache limit do not exceed the
