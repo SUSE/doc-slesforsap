@@ -83,14 +83,14 @@
 
   <para>
    The partitioning for the SAP system is not controlled by
-   <filename>autoinst.xml</filename>; this is used for the installation of
-   the operating system. The <filename>autoinst</filename> functionality no
-   longer exists in the running system. Instead the following files are
-   controlling the partitioning for the SAP system:
+   <filename>autoinst.xml</filename> which is only used for the installation of
+   the operating system. The <filename>autoinst.xml</filename> functionality no
+   longer exists in the running system. Instead, the following files
+   control the partitioning for the SAP system:
   </para>
 
   <para>
-   In <filename>/etc/sap-installation-wizard.xml</filename> the
+   In <filename>/etc/sap-installation-wizard.xml</filename>, the
    <literal>&lt;partitioning&gt;</literal> tag defines for which SAP
    programs which files for controlling the partitioning are used. These
    files will be taken from
@@ -122,12 +122,12 @@
    </listitem>
    <listitem>
     <para>
-     For every partition you can specify the
+     For every partition, you can specify the
      <literal>&lt;size_min&gt;</literal> tag. The size value can be given as
      a string in the format of
      <literal><replaceable>RAM</replaceable>*<replaceable>N</replaceable></literal>.
-     This way you can specify, how large the partition should be minimally
-     (x-times (<replaceable>N</replaceable>) the size of the available
+     This way you can specify how large the partition should be minimally
+     (<replaceable>N</replaceable> times the size of the available
      memory (<replaceable>RAM</replaceable>)).
     </para>
    </listitem>
@@ -141,8 +141,8 @@
    <step>
     <para>
      In
-     <filename>/usr/share/YaST2/include/sap-installation-wizard/</filename>
-     create a new file for controlling the partitioning (e.g.,
+     <filename>/usr/share/YaST2/include/sap-installation-wizard/</filename>,
+     create a new file for controlling the partitioning (for example,
      <filename>TREX_partitioning.xml</filename>). You can base the new file
      on <filename>base_partitioning.xml</filename> and change it according
      to your needs.
@@ -160,8 +160,8 @@
   <warning>
    <title>Do Not Edit <filename>base_partitioning.xml</filename></title>
    <para>
-    Do Not Edit <filename>base_partitioning.xml</filename> directly. With
-    the next update this file will be overridden.
+    Do not edit <filename>base_partitioning.xml</filename> directly. With
+    the next update, this file will be overridden.
    </para>
   </warning>
 

@@ -74,7 +74,7 @@
   </para>
 
   <para>
-   Additionally, it includes an installation framework for 3rd party
+   Additionally, it includes an installation framework for third-party
    extensions.
   </para>
 
@@ -199,17 +199,17 @@ Hier der Hinweis auf die SAP-Note mit SWAP
    <para>
     The following areas or sections will be merged:
    </para>
-<screen><![CDATA[&lt;general>
-  &lt;ask-list>         ]]><co xml:id="co.s4s.ay.general"/><![CDATA[
+<screen>&lt;general&gt;
+  &lt;ask-list&gt;         <co xml:id="co.s4s.ay.general"/>
   ...
-&lt;software>           ]]><co xml:id="co.s4s.ay.software"/><![CDATA[
-  &lt;post-packages>
+&lt;software&gt;           <co xml:id="co.s4s.ay.software"/>
+  &lt;post-packages&gt;
   ...
-&lt;scripts>
-  &lt;chroot-scripts>   ]]><co xml:id="co.s4s.ay.chroot"/><![CDATA[
-  &lt;post-scripts>     ]]><co xml:id="co.s4s.ay.post"/><![CDATA[
-  &lt;init-scripts>     ]]><co xml:id="co.s4s.ay.init"/><![CDATA[
-  ...]]></screen>
+&lt;scripts&gt;
+  &lt;chroot-scripts&gt;   <co xml:id="co.s4s.ay.chroot"/>
+  &lt;post-scripts&gt;     <co xml:id="co.s4s.ay.post"/>
+  &lt;init-scripts&gt;     <co xml:id="co.s4s.ay.init"/>
+  ...</screen>
    <calloutlist>
     <callout arearefs="co.s4s.ay.general">
      <para>
@@ -258,7 +258,7 @@ Hier der Hinweis auf die SAP-Note mit SWAP
     <link xlink:href="http://www.suse.com/documentation/sles-12/"/>).
    </para>
    <para>
-    For the supplement media you can only use dialogs within the
+    For the supplement media, you can only use dialogs within the
     <literal>cont</literal> stage
     (<literal>&lt;stage&gt;cont&lt;/stage&gt;</literal>), which means they
     are executed after the first reboot.
@@ -363,15 +363,15 @@ check_name "$VAL"
   </para>
 
   <para>
-   ClamSAP is a ‘C’ shared library to link between ClamAV and the virus
-   scan interface of SAP (NW-VSI). An SAP application can use the ClamAV
-   engine to scan for malicious uploads in HTTP uploads for example. If you
-   want to use Virus Scan within SAP applications, you can use Virus Scan
-   Interface in SAP (transaction VSCAN). There is an open source adapter for
-   the ClamAV engine on
-   <link xlink:href="http://freshmeat.net/projects/clamsap/"/>. The library
-   allows integration of ClamAV into SAP and works also on Unix, where most
-   other anitvirus products do not run.
+   ClamSAP is a shared library that links between ClamAV and the virus
+   scan interface of SAP (NW-VSI) written in C. An SAP application can use the
+   ClamAV engine to scan for malicious uploads in HTTP uploads for example.
+   If you want to use Virus Scan within SAP applications, you can use the
+   Virus Scan Interface in SAP (transaction VSCAN).
+   There is an open source adapter for the ClamAV engine at
+   <link xlink:href="http://sourceforge.net/projects/clamsap/"/>. The library
+   allows integration of ClamAV into SAP and also works on Unix where most
+   other antivirus products do not run.
   </para>
 
   <para>

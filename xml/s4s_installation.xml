@@ -60,7 +60,7 @@
     <term>Hard Disk</term>
     <listitem>
      <para>
-      At least 35 GB
+      At least 35 GB of
       hard disk space for the system volume plus space for the swap
       partition and 200 GB for the data partition are required. For more
       information, see <xref linkend="sec.s4s.part.inst"/>.
@@ -71,8 +71,8 @@
     <term>RAM</term>
     <listitem>
      <para>
-      At least 4 GB of RAM ar required.
-      <remark>True? - sknorr, 2015-12-18</remark>
+      At least 4 GB of RAM are required.
+      <remark>True? Application-specific? Ask varkoly - sknorr, 2015-12-18</remark>
      </para>
     </listitem>
    </varlistentry>
@@ -114,7 +114,7 @@
     <listitem>
      <para>
       A standard SLES installation prepared for installing SAP applications
-      later. You can install SAP applications with 3rd party installation
+      later. You can install SAP applications with third-party installation
       routines.
      </para>
      <para>
@@ -533,8 +533,8 @@
      <para>
       Normally, at least 35 GB is required for the system volume. The swap
       space depends on the available main memory (RAM). For more
-      information, see the SAP Note 1984787:
-      <link xlink:href="https://service.sap.com/sap/support/notes/1984787"/>.
+      information, see <citetitle>SAP Note 1984787</citetitle>
+      (<link xlink:href="https://service.sap.com/sap/support/notes/1984787"/>)
      </para>
     </tip>
     <para>
@@ -632,7 +632,7 @@
 <!-- 215-yast-registration.png -->
     <para>
      To get technical support and product updates, you need to register and
-     activate your product with the &ncc;; see
+     activate your product with the &scc;; see
      <xref linkend="fig.s4s.inst.yast-reg"/>. This dialog provides
      assistance for doing so. For information about &scc;, see
      <link xlink:href="https://scc.suse.com"/>.
@@ -748,7 +748,7 @@
 
   <para>
    <remark>2015-03-12, ke: CHECKIT!</remark>
-   You can also reference the SAP specific pattern, the HA component and
+   You can also reference the SAP-specific pattern, the HA component and
    SAP-specific IBM Java in your &ay; profile and then install it during
    this installation scenario. As everything else, these components are
    <emphasis>not</emphasis> preselected and you must include this yourself

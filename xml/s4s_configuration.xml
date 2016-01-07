@@ -23,9 +23,9 @@
      </para>
      <para>
       Some SAP solutions use large amounts of memory for accelerated access
-      to business data. Parts of this memory are seldom accessed. When a
+      to business data. Parts of this memory are rarely accessed. When a
       user request then needs to access paged out memory, the response time
-      is poor. It is even worse, when an SAP solution running on Java incurs
+      is poor. It is even worse when an SAP solution running on Java incurs
       a Java garbage collection. The system starts heavy page-in (disc I/O)
       activity and has a poor response time for an extended period of time.
      </para>
@@ -50,25 +50,26 @@
      <itemizedlist mark="bullet" spacing="normal">
       <listitem>
        <para>
-        vm.pagecache_limit_mb (/proc/sys/vm/pagecache_limit_mb)
+        <literal>vm.pagecache_limit_mb</literal>
+        (<filename>/proc/sys/vm/pagecache_limit_mb</filename>)
        </para>
       </listitem>
       <listitem>
        <para>
-        vm.pagecache_limit_ignore_dirty
-        (/proc/sys/vm/pagecache_limit_ignore_dirty)
+        <literal>vm.pagecache_limit_ignore_dirty</literal>
+        (<filename>/proc/sys/vm/pagecache_limit_ignore_dirty</filename>)
        </para>
       </listitem>
      </itemizedlist>
      <para>
       For permanent use, set them in <filename>/etc/sysctl.conf</filename>,
-      e.g.
+      for example:
      </para>
 <screen><![CDATA[vm.pagecache_limit_mb = 1024
 vm.pagecache_limit_ignore_dirty = 0]]></screen>
      <para>
-      For background information, see SAP Note 1557506: Linux paging
-      improvements
+      For background information, see <citetitle>SAP Note 1557506: Linux Paging
+      Improvements</citetitle>
       (<link xlink:href="https://service.sap.com/sap/support/notes/1557506"/>).
      </para>
     </listitem>
@@ -79,7 +80,7 @@ vm.pagecache_limit_ignore_dirty = 0]]></screen>
 <!-- ==================================================================== -->
 
  <sect2 xml:id="s4s.config.ports">
-  <title>Ports Configuration</title>
+  <title>Port Configuration</title>
   <para>
    SAP applications require many open ports and port ranges in the firewall.
    The exact numbers depend on the selected instances, for example:
@@ -112,7 +113,7 @@ vm.pagecache_limit_ignore_dirty = 0]]></screen>
    </listitem>
   </itemizedlist>
   <para>
-   It is also necessary to open 1128 and 1129 (TCP and UDP), and all the
+   It is also necessary to open the ports 1128 and 1129 (TCP and UDP), and all
    ports needed for the databases used (Oracle, DB2, MaxDB, Sybase).
   </para>
   <warning>

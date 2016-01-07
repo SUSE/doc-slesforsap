@@ -121,7 +121,7 @@
   </procedure>
 
   <para>
-   Now you can install from the NFS server; e.g., from
+   Now you can install from the NFS server, for example, from
    <literal>example.com:/srv/www/htdocs/sap_repo</literal>.
   </para>
 

@@ -109,7 +109,7 @@ SUSE Linux Enterprise Server Priority Support for SAP Applications (optional)
    not want plural ("applications") here.-->
      </para>
      <para>
-      Additionally, the workflow can be extended by 3rd party vendors or
+      Additionally, the workflow can be extended by third-party vendors or
       customers with the help of the <quote>Supplement Media</quote> (see
       <xref linkend="s4s.comp.wizard.suppl"/>).
      </para>
@@ -269,9 +269,9 @@ SUSE Linux Enterprise Server Priority Support for SAP Applications (optional)
      -->
 <!--
      <para>
-      For background information, see SAP Note 1056161: SUSE Priority
-      Support for SAP Applications <ulink
-      url="https://service.sap.com/sap/support/notes/1056161"/>.
+      For background information, see <citetitle>SAP Note 1056161: SUSE
+      Priority Support for SAP Applications</citetitle> (<link
+      xlink:href="https://service.sap.com/sap/support/notes/1056161"/>).
      </para>
      -->
     </listitem>
