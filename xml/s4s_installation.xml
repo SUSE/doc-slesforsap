@@ -38,8 +38,8 @@
    <step>
     <para>
      Burn the image onto a physical DVD and ensure that it is bootable.
-     Alternatively, you might use a virtual CD-ROM device for installation
-     into a virtual machine.
+     Alternatively, use a virtual CD-ROM device for installation
+     in a virtual machine.
     </para>
    </step>
   </procedure>
@@ -104,50 +104,17 @@
     <term>Boot from Hard Disk</term>
     <listitem>
      <para>
-      Booting the system installed on the local hard disk.
+      Boot the system that is already installed on the local hard disk.
      </para>
     </listitem>
    </varlistentry>
    <varlistentry>
-    <term><guimenu>SLES for SAP Applications &mdash;
-   Installation</guimenu> (see <xref linkend="s4s.inst.inst"/>)</term>
+    <term><guimenu>Installation</guimenu> (see <xref linkend="s4s.inst.inst"/>)</term>
     <listitem>
      <para>
-      A standard SLES installation prepared for installing SAP applications
-      later. You can install SAP applications with third-party installation
-      routines.
-     </para>
-     <para>
-      This option is suitable for experienced administrators who want to
-      install &sles4sap; according to their own plan. The default package
-      selection is identical to a standard SLES installations.
-     </para>
-    </listitem>
-   </varlistentry>
-   <varlistentry>
-    <term><guimenu>SLES for SAP Applications &mdash; Installation with
-   Wizard</guimenu> (see <xref linkend="s4s.inst.wizard"/>)</term>
-    <listitem>
-     <para>
-      This is a guided installation of the operating system and an SAP
-      application. After the installation of the operating system the SAP
-      Installation Wizard will start for installation of a validated SAP
-      solution.
-     </para>
-    </listitem>
-   </varlistentry>
-   <varlistentry>
-    <term><guimenu>SLES for SAP Applications &mdash; Installation with
-   External Profile</guimenu> (see <xref linkend="s4s.inst.profile"/>)</term>
-    <listitem>
-     <para>
-      This installation is driven by a user-provided &ay; profile. There
-      are no &suse;-provided SAP optimizations.
-     </para>
-     <para>
-      This scenario is suitable for experienced users who are familiar with
-      &ay; and want to deploy their own &ay; profiles to install
-      &sles4sap;.
+      Start a &slsa; installation workflow which allows you to choose whether to
+      prepare for installing SAP applications later or installing
+      SAP applications directly after the OS installation.
      </para>
     </listitem>
    </varlistentry>
@@ -155,42 +122,56 @@
     <term>Upgrade</term>
     <listitem>
      <para>
-      Upgrading the system. For more information, see the &deploy;,
-      Chapter 7.4, Upgrading to SUSE Linux Enterprise 12; find the
-      &deploy; at
-      <link xlink:href="https://www.suse.com/documentation/sles-12/"/>.
+      Upgrade the system. For more information, see
+      <citetitle>&deploy;, Chapter 17,
+       <quote>Upgrading SUSE Linux Enterprise</quote>
+      </citetitle>
+      (<link xlink:href="https://www.suse.com/documentation/sles-12/"/>).
+      <remark>Better use Chapter 18, Service Pack Migration? or reference the
+       entire part? Part III, Updating and Upgrading SUSE Linux Enterprise?
+      </remark>
      </para>
     </listitem>
    </varlistentry>
    <varlistentry>
     <term>Rescue System</term>
     <listitem>
-<!-- checked 2015-02-23, ke -->
      <para>
-      Starting a minimal Linux system without a graphical user interface.
-      For more information, see the &admin;, Chapter 36, Common Problems
-      and Their Solutions; find the &admin; at
-      <link xlink:href="https://www.suse.com/documentation/sles-12/"/>.
+      Start a minimal Linux system without a graphical user interface.
+      For more information, see
+      <citetitle>&admin;, Chapter 37,
+       <quote>Common Problems and Their Solutions</quote>
+      </citetitle>
+      (<link xlink:href="https://www.suse.com/documentation/sles-12/"/>).
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term>Check Installation Media</term>
+    <listitem>
+     <para>
+      Check the data integrity of the installation media.
+      For more information, see
+      <citetitle>&admin;, Chapter 37,
+       <quote>Common Problems and Their Solutions</quote>
+      </citetitle>
+      (<link xlink:href="https://www.suse.com/documentation/sles-12/"/>).
      </para>
     </listitem>
    </varlistentry>
    <varlistentry>
     <term>Memory Test</term>
     <listitem>
-<!-- checked 2015-02-23, ke -->
      <para>
-      Testing the system RAM using repeated read and write cycles. For more
-      information, see the &admin; Chapter 36, Common Problems and Their
-      Solutions.
+      Test the system RAM using repeated read and write cycles.
+      <remark>Citetitle wanted...</remark>
      </para>
     </listitem>
    </varlistentry>
   </variablelist>
  </sect1>
  <sect1 xml:id="s4s.inst.inst">
-  <title><guimenu>SLES for SAP Applications &mdash; Installation</guimenu></title>
-
-<!-- checked 2015-04-21, ke -->
+  <title>Installation</title>
 
   <para>
    This is a standard manual &sls; installation, for details about such a
