@@ -15,7 +15,7 @@
  <para>
   &sls; &hasi; is also part of &sles4sap;.
  </para>
-<!-- -=-=-=-=-=-=-=-=-=-=-=-=-=- cut here -=-=-=-=-=-=-=-=-=-=-=-=-=- -->
+
  <sect1>
   <title>Overview</title>
 
@@ -65,7 +65,7 @@
    </varlistentry>
   </variablelist>
  </sect1>
-<!-- -=-=-=-=-=-=-=-=-=-=-=-=-=- cut here -=-=-=-=-=-=-=-=-=-=-=-=-=- -->
+
  <sect1>
   <title>Additional Documentation and Resources</title>
 
@@ -80,7 +80,7 @@
    <link xlink:href="http://www.suse.com/documentation"/>.
   </para>
  </sect1>
-<!-- -=-=-=-=-=-=-=-=-=-=-=-=-=- cut here -=-=-=-=-=-=-=-=-=-=-=-=-=- -->
+
  <xi:include href="common_intro_feedback_i.xml" parse="xml"/>
  <xi:include href="common_intro_typografie_i.xml" parse="xml"/>
 </preface>
