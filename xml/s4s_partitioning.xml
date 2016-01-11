@@ -5,13 +5,15 @@
     %entities;
 ]>
 <sect1 xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="s4s.part">
- <title>Background Information on Partitioning</title>
+ <title>Partitioning</title>
  <info/>
  <para>
-  During installation partitioning will be done in two steps. The first step
+  <remark>FIXME: "happen" is probably the wrong word. - sknorr, 2016-01-11
+  </remark>
+  During installation, partitioning will be done in two steps. The first step
   happens while installing the operating system (stage 1, see
-  <xref linkend="sec.s4s.inst.wizard.prepauto"/>), and the second step while
-  installing your SAP product (stage 2, see
+  <xref linkend="sec.s4s.inst.wizard.prepauto"/>).
+  The second step happens while installing your SAP product (stage 2, see
   <xref linkend="sec.s4s.inst.wizard.sap-product-install"/>).
  </para>
  <sect2 xml:id="sec.s4s.part.inst">
@@ -42,17 +44,29 @@
    caveats:
   </para>
 
+  <remark>
+   According to varkoly, there is a new partitioning proposal... no home,
+   max-60GB Btrfs root, 2GB swap, LVM-based, swap can be resized by SAP
+   installer. - sknorr, 2016-01-11
+  </remark>
+
+  <remark>
+   According to varkoly, Netweaver stuff generally needs 80GB (or more) to
+   itself, HANA needs 60GB to itself. - sknorr, 2016-01-11
+  </remark>
+
   <itemizedlist mark="bullet" spacing="normal">
    <listitem>
     <para>
-     The size of the system volume could not exceed the physical size of the
-     device minus 1 GB; 1 GB will be reserved for boot or for UEFI.
+     1 GB of space will be reserved for the boot partition or UEFI.
+     This means that the size of the system volume must be at least 1 GB smaller
+     then the physical size of the device.
     </para>
    </listitem>
    <listitem>
     <para>
-     Better do not change the size of the swap partition. Only in the case
-     of HANA, set 2 GB here.
+     Avoid changing the size of the swap partition. Only in the case
+     that you are installing HANA, set its size to 2 GB.
     </para>
    </listitem>
    <listitem>
@@ -65,9 +79,9 @@
   <note>
    <title>Error Messages</title>
    <para>
-    Only if the size of the system volume (plus 1 GB) exceeds the physical
-    size of the device or if the swap partition exceeds the size of the
-    system volume, error messages are issued.
+    Error messages are only issued, if the size of the system volume (plus 1 GB)
+    exceeds the physical size of the device or if the swap partition exceeds
+    the size of the system volume.
    </para>
   </note>
  </sect2>
@@ -76,7 +90,7 @@
   <title>Stage 2: Partitioning for the SAP System</title>
 
   <para>
-   After installing the operating system the partitioning for the SAP system
+   After installing the operating system, the partitioning for the SAP system
    will take place. This can be done during stage 2 of the installation
    phase or in the running system.
   </para>
