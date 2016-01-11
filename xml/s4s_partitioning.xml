@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE chapter
+<!DOCTYPE sect1
 [
   <!ENTITY % entities SYSTEM "entity-decl.ent">
     %entities;
 ]>
-<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="s4s.part">
+<sect1 xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="s4s.part">
  <title>Background Information on Partitioning</title>
  <info/>
  <para>
@@ -14,7 +14,7 @@
   installing your SAP product (stage 2, see
   <xref linkend="sec.s4s.inst.wizard.sap-product-install"/>).
  </para>
- <sect1 xml:id="sec.s4s.part.inst">
+ <sect2 xml:id="sec.s4s.part.inst">
   <title>Stage 1: Partitioning for the Operating System</title>
 
   <para>
@@ -70,9 +70,9 @@
     system volume, error messages are issued.
    </para>
   </note>
- </sect1>
+ </sect2>
 <!-- ============================================================ -->
- <sect1 xml:id="sec.s4s.part.sap">
+ <sect2 xml:id="sec.s4s.part.sap">
   <title>Stage 2: Partitioning for the SAP System</title>
 
   <para>
@@ -170,5 +170,5 @@
    <emphasis>Chapter 4.4 <quote>Partitioning</quote></emphasis> of the
    <emphasis>&ay; Guide</emphasis>.
   </para>
- </sect1>
-</chapter>
+ </sect2>
+</sect1>
