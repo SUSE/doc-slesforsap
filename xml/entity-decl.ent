@@ -65,6 +65,9 @@
 <!--                    Books                                      -->
 <!-- ============================================================= -->
 
+
+<!ENTITY docaddress     "<link xmlns='http://docbook.org/ns/docbook' xmlns:xlink='http://www.w3.org/1999/xlink' xlink:href='http://www.suse.com/documentation/sles-12/'/>">
+
 <!ENTITY deploy         "<emphasis xmlns='http://docbook.org/ns/docbook'>Deployment Guide</emphasis>">
 <!ENTITY kdeuser        "<emphasis xmlns='http://docbook.org/ns/docbook'>KDE User Guide</emphasis>">
 <!ENTITY gnomeuser      "<emphasis xmlns='http://docbook.org/ns/docbook'>GNOME User Guide</emphasis>">

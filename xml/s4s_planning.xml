@@ -125,4 +125,23 @@
   </procedure>
  </sect1>
 
+ <sect1>
+  <title>Choosing the Installation Type</title>
+  <para>
+   There are two basic installation types:
+  </para>
+  <itemizedlist>
+   <listitem>
+    <para>
+     <xref linkend="s4s.installation" xrefstyle="select:title,nopage"/>
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     <xref linkend="s4s.inst.profile" xrefstyle="select:title,nopage"/>
+     (unsupported, provided for convenience only)
+    </para>
+   </listitem>
+  </itemizedlist>
+ </sect1>
 </chapter>

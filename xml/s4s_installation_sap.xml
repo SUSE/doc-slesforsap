@@ -4,7 +4,7 @@
   <!ENTITY % entities SYSTEM "entity-decl.ent">
     %entities;
 ]>
-<sect2 xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="sec.s4s.inst.wizard.sap-product-install">
+<sect1 xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="sec.s4s.inst.wizard.sap-product-install">
 <!-- 220-yast-start-sap-install.png -->
  <title>SAP Product Installation</title>
  <para>
@@ -627,4 +627,4 @@ und dann nur 4. laufen lassen
 
 usw.
      -->
-</sect2>
+</sect1>

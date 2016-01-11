@@ -76,8 +76,7 @@
     </listitem>
    </varlistentry>
    <varlistentry>
-    <term><xref linkend="s4s.inst.inst" xrefstyle="SectTitleOnPage"/>
-    </term>
+    <term>Section 2.2, <quote>Booting the Installation Medium</quote></term>
     <listitem>
      <para>
       Add note about pre-selected packages in case of registration at this
