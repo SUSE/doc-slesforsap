@@ -150,8 +150,10 @@
     <para>
      Read the license agreement. If you agree, select
      <guimenu>I Agree to the License Terms</guimenu>.
-     Otherwise, choose <guimenu>Abort</guimenu> which cancels the installation.
      Proceed with <guimenu>Next</guimenu>.
+    </para>
+    <para>
+     Otherwise, cancel the installation with <guimenu>Abort</guimenu>.
     </para>
    </step>
    <step performance="optional">
