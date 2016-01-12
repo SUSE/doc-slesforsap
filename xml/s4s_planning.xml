@@ -126,14 +126,15 @@
  </sect1>
 
  <sect1>
-  <title>Choosing the Installation Type</title>
+  <title>Choosing How to Install</title>
   <para>
-   There are two basic installation types:
+   There are two ways of installing &sles4sap;:
   </para>
   <itemizedlist>
    <listitem>
     <para>
      <xref linkend="s4s.installation" xrefstyle="select:title,nopage"/>
+     (supported standard way of installation)
     </para>
    </listitem>
    <listitem>
