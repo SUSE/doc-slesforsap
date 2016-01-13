@@ -65,7 +65,8 @@
     </listitem>
    </varlistentry>
    <varlistentry>
-    <term><xref linkend="s4s.inst.booting" xrefstyle="SectTitleOnPage"/>
+    <term>
+      <citetitle>Section 2.2, <quote>Booting the Installation Medium</quote></citetitle>
     </term>
     <listitem>
      <para>
@@ -76,7 +77,9 @@
     </listitem>
    </varlistentry>
    <varlistentry>
-    <term>Section 2.2, <quote>Booting the Installation Medium</quote></term>
+    <term>
+      <citetitle>Section 2.3, <quote>SLES for SAP &mdash; Installation</quote></citetitle>
+    </term>
     <listitem>
      <para>
       Add note about pre-selected packages in case of registration at this
@@ -85,7 +88,8 @@
     </listitem>
    </varlistentry>
    <varlistentry>
-    <term><xref linkend="sec.s4s.inst.wizard.yast2.conf.manual.reg" xrefstyle="SectTitleOnPage"/>
+    <term>
+      <citetitle>Section 2.4.3.5, <quote>Registration</quote></citetitle>
     </term>
     <listitem>
      <para>
