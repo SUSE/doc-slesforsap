@@ -15,9 +15,8 @@
   media when the &sls; installation is finished.
  </para>
 
- <sect1 xml:id="s4s.inst.booting">
-  <title>Starting the Installation of the Operating System</title>
-  <remark>Section title could be better... - sknorr, 2016-01-11</remark>
+ <sect1 xml:id="s4s.inst.os">
+  <title>Installing the Operating System</title>
 
   <procedure>
    <step>
@@ -153,28 +152,24 @@
      Proceed with <guimenu>Next</guimenu>.
     </para>
     <para>
-     Otherwise, cancel the installation with <guimenu>Abort</guimenu>.
+     Otherwise, cancel the installation with
+     <menuchoice><guimenu>Abort</guimenu>
+     <guimenu>Abort Installation</guimenu></menuchoice>.
     </para>
    </step>
    <step performance="optional">
     <para>
-     If automatic network configuration via DHCP fails, the
+     If automatic network configuration via DHCP fails, the screen
      <guimenu>Network Settings</guimenu> will automatically open.
     </para>
     <para>
-     If you are already on the screen <guimenu>Registration</guimenu>, your
-     network conntection works. To change network settings anyway, click
+     If you find yourself already on the screen <guimenu>Registration</guimenu>,
+     your network connection works. To change network settings anyway, click
      <guimenu>Network Configuration</guimenu>.
     </para>
     <para>
-     For details regarding network configuration, see
-     <citetitle>
-      &admin;, Chapter 19 <quote>Basic Networking</quote>,
-      Section 19.4 <quote>Configuring a Network Connection with YaST</quote>
-     </citetitle> (&docaddress;).
-    </para>
-    <para>
-     Proceed with <guimenu>Next</guimenu>.
+     When you are finished configuring networking, proceed with
+     <guimenu>Next</guimenu>.
     </para>
     <important>
      <title>Configure Networking as Recommended by SAP</title>
@@ -183,6 +178,13 @@
       documentation of your SAP application.
      </para>
     </important>
+    <para>
+     For details regarding network configuration, see
+     <citetitle>
+      &admin;, Chapter 19 <quote>Basic Networking</quote>,
+      Section 19.4 <quote>Configuring a Network Connection with YaST</quote>
+     </citetitle> (&docaddress;).
+    </para>
    </step>
    <step>
     <para>
@@ -306,13 +308,6 @@
      </mediaobject>
     </figure>
    </step>
-  </procedure>
- </sect1>
-
- <sect1>
-  <title>Finishing the Installation of the Operating System</title>
-
-  <procedure>
    <step>
     <para>
      You can now choose whether to install an <guimenu>Add On Product</guimenu>.
@@ -321,7 +316,17 @@
    </step>
    <step>
     <para>
-     Review the partition setup proposed by the system. If necessary, change it.
+     Review the proposed partition setup for the volumes
+     <literal>root</literal> and <literal>swap</literal>.
+     The volume <literal>data</literal> will be created later, as described in
+     <xref linkend="s4s.part"/>.
+    </para>
+    <para>
+     <remark>The old guide was a bit more detailed about the situation with
+     multiple hard disks. Basically, you need to use Create Partition Setup but
+     in more elaborate prose. Fixme? - sknorr, 2016-01-13</remark>
+     Suitable values are preselected. However, if necessary, change the
+     partition layout.
      You have the following options:
     </para>
     <variablelist>
@@ -419,6 +424,15 @@
      To change parts of the configuration, click the headline or other
      underlined items.
     </para>
+    <!-- Ask varkoly, if this is true... Probably not. -->
+    <!--<warning>
+     <title>Firewall Configuration</title>
+     <para>
+      If you activate the firewall, you need to open all required ports
+      manually. For more information about required ports,
+      see <xref linkend="s4s.config.ports"/>.
+     </para>
+    </warning>-->
     <remark>
      Is there a need to copy the descriptions of all the categories from
      the Installation Quick Start here too? Or just a reference there? - sknorr,
@@ -427,14 +441,27 @@
    </step>
    <step>
     <para>
-     When you have finalized the system configuration on the, click
+     When you are satisfied with the system configuration, click
      <guimenu>Install</guimenu>.
     </para>
     <para>
      Depending on your software selection, you may need to agree to further
-     license agreements before the installation confirmation box opens.
-     To start the installation process, in the installation confirmation box,
-     click <guimenu>Install</guimenu>.
+     license agreements before you are asked to confirm that you want to start
+     the installation process.
+    </para>
+    <warning>
+     <title>Deletion of Data</title>
+     <para>
+      Starting the installation process means that information on the disk you
+      are installing on will fully or partly be deleted.
+     </para>
+     <remark>
+      Is this really necessary? It is not in the original installation QS...
+      - sknorr, 2016-01-13
+     </remark>
+    </warning>
+    <para>
+     In the installation confirmation box, click <guimenu>Install</guimenu>.
     </para>
     <para>
      When the installation if the operating system is finished, the system
@@ -444,139 +471,12 @@
   </procedure>
  </sect1>
 
+ <xi:include href="s4s_installation_sap.xml" parse="xml"/>
+
   <sect1 xml:id="sec.s4s.inst.wizard.prepauto">
    <title>Preparing System for Automated Installation</title>
-   <para>
-    After analyzing your computer, &yast; allows you to specify options
-    for a customized installation.
-   </para>
-   <sect2 xml:id="sec.s4s.inst.wizard.yast2.user.root">
-    <title>Password for the System Administrator &rootuser;</title>
-    <para>
-     First, &yast; prompts you to enter the system administrator
-     password; see <xref linkend="fig.s4s.sap-wizard-admin-password"/>. This
-     is the root password for the system.
-    </para>
-    <figure xml:id="fig.s4s.sap-wizard-admin-password">
-     <title>System Administrator Password</title>
-     <mediaobject>
-      <imageobject role="fo">
-       <imagedata fileref="s4s_sap_wizard_admin_password.png" width="80%" format="PNG"/>
-      </imageobject>
-      <imageobject role="html">
-       <imagedata fileref="s4s_sap_wizard_admin_password.png" width="80%" format="PNG"/>
-      </imageobject>
-     </mediaobject>
-    </figure>
-    <para>
-     &rootuser; is the name of the superuser, or the administrator of the
-     system. Unlike regular users (who may or may not have permission to
-     access certain areas or execute certain commands on the system),
-     &rootuser; has unlimited access to change the system configuration,
-     install programs, and set up new hardware. The &rootuser; account
-     should only be used for system administration, maintenance, and repair.
-     Logging in as &rootuser; for daily work is rather risky: a single
-     mistake could lead to irretrievable loss of system files.
-    </para>
-    <para>
-     For verification purposes, the password for &rootuser; must be
-     entered twice. Do not forget the &rootuser; password. Once entered,
-     this password cannot be retrieved.
-    </para>
-    <para>
-     The &rootuser; password can be changed any time later in the
-     installed system. To do so, run &yast; and start <menuchoice>
-     <guimenu>Security and Users</guimenu> <guimenu>User and Group
-     Management</guimenu> </menuchoice>.
-    </para>
-    <warning>
-     <title>The root User</title>
-     <para>
-      The &rootuser; user has all the permissions needed to make changes
-      to the system. To carry out such tasks, the &rootuser; password is
-      required. You cannot carry out any administrative tasks without this
-      password.
-     </para>
-    </warning>
-<!--
-  <sect2 id="sec.s4s.inst.wizard.yast2.user.root">
-   <title>Password for the System Administrator &rootuser;</title><indexterm>
-   <primary>&yast;</primary>
-   <secondary>root password</secondary></indexterm><indexterm>
-   <primary>installation</primary>
-   <secondary>root password</secondary></indexterm>
-   <para>
-    When all packages are installed, the basic installation is finished,
-    and the system is rebooted for initial configuration, you will be
-    prompted to enter a Password for the System Administrator
-    &rootuser;; see <xref linkend="fig.s4s.inst.yast-root-password"/>.
-   </para>
 
-   <figure id="fig.s4s.inst.yast-root-password">
-    <title>Password for root User</title>
-    <mediaobject>
-     <imageobject role="fo">
-      <imagedata fileref="yast-root-password.png" width="100%" format="PNG"/>
-     </imageobject>
-     <imageobject role="html">
-      <imagedata fileref="yast-root-password.png" width="100%" format="PNG"/>
-     </imageobject>
-    </mediaobject>
-   </figure>
 
-  </sect2>
--->
-   </sect2>
-   <sect2>
-    <title>System Volume Configuration</title>
-    <para>
-     The next &yast; pop-up dialog lets you fine-tune the volume
-     configuration. Here you configure the volume for the system and swap
-     space. Suitable values depending on your available hardware are
-     pre-selected. This is for the &sle; operating system only. The
-     data volume comes later, after selecting the SAP Application.
-    </para>
-    <figure xml:id="fig.s4s.inst.yast-storage-system">
-     <title>System Volume Configuration</title>
-     <mediaobject>
-      <imageobject role="fo">
-       <imagedata fileref="yast-storage-system.png" width="80%" format="PNG"/>
-      </imageobject>
-      <imageobject role="html">
-       <imagedata fileref="yast-storage-system.png" width="80%" format="PNG"/>
-      </imageobject>
-     </mediaobject>
-    </figure>
-    <para>
-     If there is just one hard disk, keep it as the system volume device and
-     set the size of the system volume (and the swap space) in GB in the
-     lower field and confirm it; see
-     <xref linkend="fig.s4s.inst.yast-storage-system"/>.
-    </para>
-    <tip>
-     <title>Size of the System Volume</title>
-     <para>
-      Normally, at least 35 GB is required for the system volume. The swap
-      space depends on the available main memory (RAM). For more
-      information, see <citetitle>SAP Note 1984787</citetitle>
-      (<link xlink:href="https://service.sap.com/sap/support/notes/1984787"/>)
-     </para>
-    </tip>
-    <para>
-     If there is more than one hard disk, select the right one as the system
-     volume device and set the size of the system volume (and the swap
-     space) in GB in the lower fields and confirm it. For more information
-     about partitioning, see <xref linkend="s4s.part"/>.
-    </para>
-    <warning>
-     <title>Deleting Data</title>
-     <para>
-      If you confirm the storage volume configuration, all existing data on
-      the hard disk will be deleted. If you do not want this to happen, turn
-      off the system.
-     </para>
-    </warning>
-   </sect2>
    <sect2 xml:id="sec.s4s.inst.wizard.yast2.conf.manual.hostname">
     <title>Host Name, Domain Name, and IP Address</title><indexterm>
     <primary>&yast;</primary>
@@ -652,70 +552,8 @@
      synchronize automatically via Network Time Protocol (NTP).
     </para>
    </sect2>
-   <sect2 xml:id="sec.s4s.inst.wizard.yast2.conf.manual.reg">
-    <title>Registration</title>
-<!-- 215-yast-registration.png -->
-    <para>
-     To get technical support and product updates, you need to register and
-     activate your product with the &scc;; see
-     <xref linkend="fig.s4s.inst.yast-reg"/>. This dialog provides
-     assistance for doing so. For information about &scc;, see
-     <link xlink:href="https://scc.suse.com"/>.
-    </para>
-    <figure xml:id="fig.s4s.inst.yast-reg">
-     <title>Registration</title>
-     <mediaobject>
-      <imageobject role="fo">
-       <imagedata fileref="yast-registration.png" width="80%" format="PNG"/>
-      </imageobject>
-      <imageobject role="html">
-       <imagedata fileref="yast-registration.png" width="80%" format="PNG"/>
-      </imageobject>
-     </mediaobject>
-    </figure>
-    <para>
-     Enter your <guimenu>E-Mail Address</guimenu> and <guimenu>Registration
-     Code</guimenu> for the product. If you provide the registration code
-     now, operating system updates will be installed automatically during
-     the installation of the system.
-    </para>
-<!-- 2015-05-04, ke: Packages Pre-Selected noticed by peters -->
-<!--                 also see above                          -->
-    <note>
-     <title>Additional Packages Pre-Selected</title>
-     <para>
-      If you install with registration, the &sle; &hasi; repository by
-      default will be activated and some few &sle; &hasi; packages
-      will get installed. This will not happen, if you will register the
-      product after the installation.
-     </para>
-    </note>
-    <para>
-     After confirmation, the system will be configured with the supplied
-     settings. Then &yast; performs the partitioning and the software
-     installation. Packages are installed one by one, so you can see the
-     progress.
-    </para>
-    <para>
-     No user action is required at this stage.
-    </para>
-    <warning>
-     <title>Firewall Disabled</title>
-     <para>
-      This wizard-based installation scenario disables the firewall
-      (SuSEfirewall2) completely.
-     </para>
-     <para>
-      If needed, you can activate the firewall after the installation. If
-      you activate the firewall after the installation, you must open all
-      required ports manually. For more information about required ports,
-      see <xref linkend="s4s.config.ports"/>.
-     </para>
-    </warning>
-   </sect2>
   </sect1>
 
-  <xi:include href="s4s_installation_sap.xml" parse="xml"/>
 
  <sect1 xml:id="s4s.inst.profile">
   <title><guimenu>SLES for SAP Applications &mdash; Installation with External Profile</guimenu></title>

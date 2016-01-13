@@ -39,6 +39,15 @@
    By default, <literal>root_lv</literal> will be set to a maximum of
    60 GB.
   </para>
+  <tip>
+   <title>Size of the System Volume</title>
+   <para>
+    Normally, at least 35 GB is required for the system volume. The swap
+    space depends on the available main memory (RAM). For more
+    information, see <citetitle>SAP Note 1984787</citetitle>
+    (<link xlink:href="https://service.sap.com/sap/support/notes/1984787"/>)
+   </para>
+  </tip>
 
   <para>
    You can change both, the size of the system volume (<guimenu>Set the
