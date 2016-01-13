@@ -249,6 +249,12 @@
         </citetitle> (&docaddress;).
        </para>
       </formalpara>
+      <remark>
+       Actually, it seems that the only difference between the SLES and the
+       SLES for SAP installation in terms of necessary steps is that the
+       SLES for SAP does not allow you to define a user password. So, is
+       the Installation Quick Start really necessary? - sknorr, 2016-01-12
+      </remark>
      </listitem>
      <listitem>
       <formalpara>
@@ -263,7 +269,7 @@
       <itemizedlist>
        <listitem>
         <para>
-         To install an SAP Application together with the &slsa;,
+         To install an SAP Application together with the system,
          check <guimenu>Start the SAP Installation Wizard right after the OS
          installation</guimenu>.
         </para>
@@ -292,6 +298,141 @@
       </imageobject>
      </mediaobject>
     </figure>
+   </step>
+  </procedure>
+ </sect1>
+
+ <sect1>
+  <title>Finishing the Installation of the Operating System</title>
+
+  <procedure>
+   <step>
+    <para>
+     You can now choose whether to install an <guimenu>Add On Product</guimenu>.
+     Proceed with <guimenu>Next</guimenu>.
+    </para>
+   </step>
+   <step>
+    <para>
+     Review the partition setup proposed by the system. If necessary, change it.
+     You have the following options:
+    </para>
+    <variablelist>
+     <varlistentry>
+      <term><guimenu>Edit Proposal Settings</guimenu></term>
+      <listitem>
+       <para>
+        Allows you to change the options for the proposed settings, but not the
+        suggested partition layout itself.
+       </para>
+      </listitem>
+     </varlistentry>
+     <varlistentry>
+      <term><guimenu>Create Partition Setup</guimenu></term>
+      <listitem>
+       <para>
+        Select a disk to which to apply the proposal.
+       </para>
+      </listitem>
+     </varlistentry>
+     <varlistentry>
+      <term><guimenu>Expert Partitioner</guimenu></term>
+      <listitem>
+       <para>
+        Open the <guimenu>Expert Partitioner</guimenu> described in
+        <citetitle>Deployment Guide,
+         Chapter 14 <quote>Advanced Disk Setup</quote>,
+         Section 14.1 <quote>Using the YaST Partitioner</quote></citetitle>
+         (&docaddress;).
+       </para>
+       <para>
+        For partitioning advice specific to &sles4sap;, see
+        <xref linkend="s4s.part"/>.
+       </para>
+      </listitem>
+     </varlistentry>
+    </variablelist>
+    <para>
+     To accept the proposed setup without changes, proceed with
+     <guimenu>Next</guimenu>.
+    </para>
+   </step>
+   <step>
+    <para>
+     Select the clock and time zone to use in your system. To manually adjust
+     the time or to configure an NTP server for time synchronization, choose
+     <guimenu>Other Settings</guimenu>.
+     For detailed information, see
+     <citetitle>Deployment Guide,
+     Chapter 6 <quote>Installation with YaST</quote>,
+     Section 6.10 <quote>Clock and Time Zone</quote></citetitle> (&docaddress;).
+    </para>
+    <para>
+     Proceed with <guimenu>Next</guimenu>.
+    </para>
+   </step>
+   <step>
+    <para>
+     Type a password for the system administrator account (called
+     <systemitem>root</systemitem>) and repeat the password under
+     <guimenu>Confirm Password</guimenu>.
+     You can use the input box <guimenu>Test Keyboard Layout</guimenu> to
+     make sure that all special characters appear correctly.
+    </para>
+    <para>
+     For more information, see
+     <citetitle>Deployment Guide,
+     Chapter 6 <quote>Installation with YaST</quote>,
+     Section 6.12 <quote>Password for the System Administrator
+     <systemitem class="username">root</systemitem></quote></citetitle>
+     (&docaddress;).
+    </para>
+    <para>
+     Proceed with <guimenu>Next</guimenu>.
+    </para>
+    <important>
+     <title>Do Not Forget the <systemitem>root</systemitem> Password</title>
+     <para>
+      The user <systemitem class="username">root</systemitem> has the
+      permission to carry out all administrative tasks. Without this password,
+      you will not be able to log in to the system as
+      <systemitem class="username">root</systemitem>.
+     </para>
+     <para>
+      After you have entered the <systemitem class="username">root</systemitem>
+      password here, it cannot be retrieved again.
+     </para>
+    </important>
+   </step>
+   <step>
+    <para>
+     On the screen <guimenu>Installation Settings</guimenu>, you can review
+     and, if necessary, change several proposed installation settings.
+     Each setting is shown alongside its current configuration.
+     To change parts of the configuration, click the headline or other
+     underlined items.
+    </para>
+    <remark>
+     Is there a need to copy the descriptions of all the categories from
+     the Installation Quick Start here too? Or just a reference there? - sknorr,
+     2016-01-12
+    </remark>
+   </step>
+   <step>
+    <para>
+     When you have finalized the system configuration on the, click
+     <guimenu>Install</guimenu>.
+    </para>
+    <para>
+     Depending on your software selection, you may need to agree to further
+     license agreements before the installation confirmation box opens.
+     To start the installation process, in the installation confirmation box,
+     click <guimenu>Install</guimenu>.
+    </para>
+    <para>
+     When the installation if the operating system is finished, the system
+     will reboot automatically.
+    </para>
    </step>
   </procedure>
  </sect1>
