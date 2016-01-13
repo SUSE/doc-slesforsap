@@ -176,6 +176,13 @@
     <para>
      Proceed with <guimenu>Next</guimenu>.
     </para>
+    <important>
+     <title>Configure Networking as Recommended by SAP</title>
+     <para>
+      Make sure to configure the network connection as recommended by the
+      documentation of your SAP application.
+     </para>
+    </important>
    </step>
    <step>
     <para>
