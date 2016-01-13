@@ -8,8 +8,8 @@
 <!-- 220-yast-start-sap-install.png -->
  <title>SAP Product Installation</title>
  <para>
-  After an automatic reboot (<menuchoice><guimenu>Boot from
-  Harddisk</guimenu><guimenu>Booting SLE-12-SAP</guimenu></menuchoice>) and
+  After an automatic reboot (in the boot menu, choose <guimenu>Boot from
+  Harddisk</guimenu>) and
   applying previously supplied configuration settings, you are prompted to
   continue with the <guimenu>SAP Product Installation</guimenu> using the
   SAP Installation Wizard. The SAP Installation Wizard will install the SAP
@@ -84,8 +84,8 @@
   </step>
   <step>
    <para>
-    In the next dialog provide the <guimenu>Location of the SAP Installation
-    Master</guimenu>; see <xref linkend="fig.s4s.sap.wizard.source"/>. The
+    In the next dialog, provide the <guimenu>Location of the SAP Installation
+    Master</guimenu> (<xref linkend="fig.s4s.sap.wizard.source"/>). The
     location can either be a local source or a remotely provided
     installation source.
    </para>

@@ -26,15 +26,18 @@
   </para>
 
   <para>
+   <remark>Ask varkoly/ke why we are using root_lv and swap_lv here, despite the
+   fact that neither of these names is ever mentined in the UI...</remark>
    A logical volume group (LVG) named <literal>system</literal> will be
    created. This LVG contains two logical volumes (LVs) named
    <literal>root_lv</literal> and <literal>swap_lv</literal>. The size of
    <literal>swap_lv</literal> will be calculated according to the SAP
    Note 1984787
    (<link xlink:href="https://service.sap.com/sap/support/notes/1984787"/>).
-   For <literal>root_lv</literal>, 70 GB will be assumed at first, and the
-   sum of <literal>root_lv</literal> and <literal>swap_lv</literal> will be
-   displayed as <guimenu>Set the system volume size in GB</guimenu>.
+  </para>
+  <para>
+   By default, <literal>root_lv</literal> will be set to a maximum of
+   60 GB.
   </para>
 
   <para>
@@ -53,6 +56,10 @@
   <remark>
    According to varkoly, Netweaver stuff generally needs 80GB (or more) to
    itself, HANA needs 60GB to itself. - sknorr, 2016-01-11
+  </remark>
+  <remark>
+   I can't actually see the system reserving 1GB for boot. Huh. (Out of 100GB,
+   it reserves 99.99GB for the system LVG) - sknorr, 2016-01-12
   </remark>
 
   <itemizedlist mark="bullet" spacing="normal">
