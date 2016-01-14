@@ -320,6 +320,9 @@
     </para>
    </step>
    <step>
+    <remark>
+     Add screenshots below. - sknorr, 2016-01-14
+    </remark>
     <para>
      Review the proposed partition setup for the volumes
      <literal>root</literal> and <literal>swap</literal>.

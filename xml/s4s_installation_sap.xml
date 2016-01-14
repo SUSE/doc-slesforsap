@@ -18,8 +18,6 @@
   Start it from
   <menuchoice><guimenu>Applications</guimenu><guimenu>System</guimenu>
   <guimenu>YaST</guimenu><guimenu>SAP Product Installation FIXME!</guimenu></menuchoice>.
-  <remark>FIXME: Actually, I think there are two... - sknorr, 2016-01-14
-  </remark>
  </para>
  <tip>
   <title>SAP Product Installation Default Settings</title>
@@ -37,6 +35,10 @@
   <para>
    These first steps are only relevant during the installation workflow.
   </para>
+
+  <remark>
+   Add screenshots below. - sknorr, 2016-01-14
+  </remark>
 
   <procedure>
    <step>
