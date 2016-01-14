@@ -8,6 +8,14 @@
   xml:id="cha.s4s.autoyast">
   <title>Installation with an External &ay; Profile</title>
 
+  <important>
+    <title>&ay; Is Not Supported</title>
+    <para>
+      Using &ay; to install &sles4sap; is not officially supported.
+      Documentation for this procedure is only provided for convenience.
+    </para>
+  </important>
+
   <para>
    This installation is driven by a user-provided &ay; profile and there
    is no wizard support. This scenario is suitable for experienced users who
