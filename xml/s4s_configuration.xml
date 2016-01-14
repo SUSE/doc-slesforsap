@@ -4,12 +4,12 @@
   <!ENTITY % entities SYSTEM "entity-decl.ent">
     %entities;
 ]>
-<sect1 xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="s4s.configuration">
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="cha.s4s.configure">
  <title>Configuring &sles4sap;</title>
 
  <para></para>
 
- <sect2 xml:id="s4s.config.page-cache">
+ <sect1 xml:id="sec.s4s.configure.page-cache">
   <title>Kernel: Page-Cache Limit</title>
   <para></para>
   <variablelist>
@@ -75,11 +75,11 @@ vm.pagecache_limit_ignore_dirty = 0]]></screen>
     </listitem>
    </varlistentry>
   </variablelist>
- </sect2>
+ </sect1>
 
 <!-- ==================================================================== -->
 
- <sect2 xml:id="s4s.config.ports">
+ <sect1 xml:id="s4s.configure.port">
   <title>Port Configuration</title>
   <para>
    SAP applications require many open ports and port ranges in the firewall.
@@ -123,9 +123,9 @@ vm.pagecache_limit_ignore_dirty = 0]]></screen>
     the normal setup.
    </para>
   </warning>
- </sect2>
+ </sect1>
 
- <sect2 xml:id="s4s.config.fw">
+ <sect1 xml:id="sec.s4s.configure.harden">
   <title>Operating System Security Hardening</title>
   <para>
    For hardening the underlying operating system, see the <quote>Operating
@@ -138,9 +138,9 @@ vm.pagecache_limit_ignore_dirty = 0]]></screen>
     </para>
    </listitem>
   </itemizedlist>
- </sect2>
+ </sect1>
 
- <sect2 xml:id="s4s.config.logs">
+ <sect1 xml:id="s4s.configure.log">
   <title>Important Log Files</title>
   <para>
    The most important files for this product are:
@@ -165,6 +165,6 @@ vm.pagecache_limit_ignore_dirty = 0]]></screen>
     </para>
    </listitem>
   </itemizedlist>
- </sect2>
+ </sect1>
 
-</sect1>
+</chapter>

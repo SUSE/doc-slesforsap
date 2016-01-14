@@ -4,7 +4,7 @@
   <!ENTITY % entities SYSTEM "entity-decl.ent">
     %entities;
 ]>
-<sect1 xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="s4s.part">
+<sect1 xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="sec.s4s.partition">
  <title>Partitioning</title>
  <info/>
  <para>
@@ -12,16 +12,16 @@
   </remark>
   During installation, partitioning will be done in two steps. The first step
   happens while installing the operating system (stage 1, see
-  <xref linkend="sec.s4s.inst.wizard.prepauto"/>).
+  <xref linkend="sec.s4s.install.os"/>).
   The second step happens while installing your SAP product (stage 2, see
-  <xref linkend="sec.s4s.inst.wizard.sap-product-install"/>).
+  <xref linkend="sec.s4s.install.sap"/>).
  </para>
- <sect2 xml:id="sec.s4s.part.inst">
+ <sect2 xml:id="sec.s4s.partition.os">
   <title>Stage 1: Partitioning for the Operating System</title>
 
   <para>
    During stage 1 of the installation (see
-   <xref linkend="sec.s4s.inst.wizard.prepauto"/>), partitions for the
+   <xref linkend="sec.s4s.install.os"/>), partitions for the
    operating system will be created.
   </para>
 
@@ -102,7 +102,7 @@
   </note>
  </sect2>
 <!-- ============================================================ -->
- <sect2 xml:id="sec.s4s.part.sap">
+ <sect2 xml:id="sec.s4s.partition.sap">
   <title>Stage 2: Partitioning for the SAP System</title>
 
   <para>

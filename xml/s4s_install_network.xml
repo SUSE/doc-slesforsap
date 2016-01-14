@@ -4,27 +4,25 @@
   <!ENTITY % entities SYSTEM "entity-decl.ent">
     %entities;
 ]>
-<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="s4s.inst.remote">
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="cha.s4s.install.remote">
  <title>Remote Installation from a Network Server</title>
  <info/>
  <para>
   For detailed information about installing &sls; from a network server
   in general, see the &deploy;, Chapter 14, <quote>Remote
-  Installation</quote> (the &deploy; comes with the product or is
-  available from
-  <link xlink:href="http://www.suse.com/documentation/sles-12/"/>).
+  Installation</quote> (&docaddress;).
  </para>
  <para>
   The following section provides a short description about installing from a
   network server.
  </para>
- <sect1 xml:id="s4s.inst.remote.instmedia">
+ <sect1 xml:id="s4s.install.remote.installmedia">
   <title>Installing with Installation Media from the Network</title>
 
   <procedure>
    <step>
     <para>
-     Copy the &sles4sap; DVD content to a Web server (e.g.,
+     Copy the &sles4sap; DVD content to a Web server (for example,
      <literal>example.com</literal>) to the directory
      <filename>/srv/www/htdocs/sap_repo</filename>.
     </para>
@@ -74,7 +72,7 @@
    <link xlink:href="http://www.suse.com/documentation/sles-12/"/>).
   </para>
  </sect1>
- <sect1 xml:id="s4s.inst.remote.sapsets">
+ <sect1 xml:id="sec.s4s.install.sap.mediaset">
   <title>Copying SAP Media Sets from a Remote Server with the Installation Wizard</title>
 
   <para>

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapter
+[
+  <!ENTITY % entities SYSTEM "entity-decl.ent">
+    %entities;
+]>
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink"
+  xml:id="cha.s4s.autoyast">
+  <title>Installation with an External &ay; Profile</title>
+
+  <para>
+   This installation is driven by a user-provided &ay; profile and there
+   is no wizard support. This scenario is suitable for experienced users who
+   are familiar with &ay; and want to deploy their own &ay; profiles
+   to install &sles4sap;. For more information about &ay; profiles,
+   see the SLES <emphasis>&ay; Guide</emphasis> (&docaddress;).
+  </para>
+
+  <para>
+   In order to use a user-provided &ay; profile, select <quote>Install
+   SLES for SAP Applications &mdash; Installation with External
+   Profile</quote> from the DVD Boot Menu. Within the boot options, change
+   the <literal>autoyast=usb:///</literal> parameter to the location of a
+   user-provided &ay; profile, or enter the location when &yast; asks
+   for it in the next dialog.
+  </para>
+
+  <figure xml:id="fig.s4s.profile.autoinst">
+   <title>&yast; Asking for System Profile Location</title>
+   <mediaobject>
+    <imageobject role="fo">
+     <imagedata fileref="s4s_profile_autoinst.png" width="100%" format="PNG"/>
+    </imageobject>
+    <imageobject role="html">
+     <imagedata fileref="s4s_profile_autoinst.png" width="100%" format="PNG"/>
+    </imageobject>
+   </mediaobject>
+  </figure>
+
+  <note>
+   <title>Loading External Profile via HTTP</title>
+   <para>
+    It is possible to load the external profile from the network via HTTP.
+    In this case, it is also needed to change the
+    <literal>netsetup</literal> boot parameter from <literal>0</literal>
+    (default) to <literal>1</literal>:
+   </para>
+<screen><![CDATA[... autoyast=http://&wwwip;/autoinst.xml netsetup=1 ...]]></screen>
+  </note>
+
+<!-- commenting for the moment...
+    <para>
+     &ay; will look on USB devices for the XML configuration file
+     (external profile). Plug in an USB device and store your config in
+     a way like it is on the DVD in the
+     <filename>/sap-apl/rules</filename> directory.
+    </para>
+    -->
+
+  <para>
+   <remark>2015-03-12, ke: CHECKIT!</remark>
+   You can also reference the SAP-specific pattern, the HA component and
+   SAP-specific IBM Java in your &ay; profile and then install it during
+   this installation scenario. As everything else, these components are
+   <emphasis>not</emphasis> preselected and you must include this yourself
+   in your <filename>autoyast.xml</filename> file.
+  </para>
+
+  <sect1 xml:id="sec.autoyast.about">
+   <title>About &ay;</title>
+   <para>
+    &ay; is a system for installing one or more &sle; systems
+    automatically and without user intervention. &ay; installations are
+    performed using an &ay; profile with installation and configuration
+    data. That profile can be created using the &ay; configuration
+    interface and can be provided to &yast; during installation in
+    different ways.
+   </para>
+   <para>
+    For more information about &ay;, see the <emphasis>&sls; &productnumber;
+    &ay; Guide</emphasis> (&docaddress;).
+   </para>
+  </sect1>
+
+  <sect1 xml:id="sec.autoyast.partition">
+   <title>Partitioning with &ay;</title>
+   <para>
+    For standard systems find pre-defined partitioning settings in
+    <filename>/usr/share/YaST2/include/sap-installation-wizard/</filename>.
+    These could serve as examples if you want to create your custom
+    partitioning scripts.
+   </para>
+   <para>
+    For background information on partitioning, see
+    <xref linkend="sec.s4s.partition"/>.
+   </para>
+  </sect1>
+ </chapter>

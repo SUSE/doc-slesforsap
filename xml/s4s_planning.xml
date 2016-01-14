@@ -4,7 +4,7 @@
   <!ENTITY % entities SYSTEM "entity-decl.ent">
     %entities;
 ]>
-<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="s4s.planning">
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="cha.s4s.plan">
  <title>Planning the Installation</title>
 
  <para>
@@ -30,7 +30,7 @@
       At least 35 GB of
       hard disk space for the system volume plus space for the swap
       partition and 200 GB for the data partition are required. For more
-      information, see <xref linkend="sec.s4s.part.inst"/>.
+      information, see <xref linkend="sec.s4s.partition"/>.
      </para>
     </listitem>
    </varlistentry>
@@ -102,10 +102,9 @@
   </para>
  </sect1>
 
-
  <xi:include href="s4s_partitioning.xml" parse="xml"/>
 
- <sect1 xml:id="s4s.download">
+ <sect1 xml:id="sec.s4s.download">
   <title>Downloading the Installation Image</title>
   <procedure>
    <step>
@@ -125,7 +124,7 @@
   </procedure>
  </sect1>
 
- <sect1>
+ <sect1 xml:id="sec.s4s.how-install">
   <title>Choosing How to Install</title>
   <para>
    There are two ways of installing &sles4sap;:
@@ -133,13 +132,13 @@
   <itemizedlist>
    <listitem>
     <para>
-     <xref linkend="s4s.installation" xrefstyle="select:title,nopage"/>
+     <xref linkend="cha.s4s.install" xrefstyle="select:title,nopage"/>
      (supported standard way of installation)
     </para>
    </listitem>
    <listitem>
     <para>
-     <xref linkend="s4s.inst.profile" xrefstyle="select:title,nopage"/>
+     <xref linkend="cha.s4s.autoyast" xrefstyle="select:title,nopage"/>
      (unsupported, provided for convenience only)
     </para>
    </listitem>

@@ -4,7 +4,7 @@
   <!ENTITY % entities SYSTEM "entity-decl.ent">
     %entities;
 ]>
-<preface xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="pre_s4s">
+<preface xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="pre.s4s">
  <title>About This Guide</title>
  <info/>
  <para>
@@ -23,43 +23,44 @@
    The &sles4sap; Guide is divided into the following chapters:
   </para>
 
+  <remark>
+    FIXME: Some things still missing in the following list. - sknorr, 2016-01-14
+  </remark>
+
   <variablelist>
    <varlistentry>
-    <term><xref linkend="s4s.about" xrefstyle="select:title,nopage"/>
+    <term><xref linkend="cha.s4s.about" xrefstyle="select:title,nopage"/>
     </term>
     <listitem>
      <para>
-      Here you will find an overview of &sles4sap;.
+      An overview of &sles4sap;
      </para>
     </listitem>
    </varlistentry>
    <varlistentry>
-    <term><xref linkend="s4s.installation" xrefstyle="select:title,nopage"/>
+    <term><xref linkend="cha.s4s.install" xrefstyle="select:title,nopage"/>
     </term>
     <listitem>
      <para>
-      This chapter explains in detail the available installation scenarios
-      for &sles4sap;.
+      Available installation scenarios for &sles4sap;
      </para>
     </listitem>
    </varlistentry>
    <varlistentry>
-    <term><xref linkend="s4s.inst.remote" xrefstyle="select:title,nopage"/>
+    <term><xref linkend="cha.s4s.install.remote" xrefstyle="select:title,nopage"/>
     </term>
     <listitem>
      <para>
-      This chapter provides details about remote installation scenarios for
-      &sles4sap;.
+      Remote installation scenarios for &sles4sap;
      </para>
     </listitem>
    </varlistentry>
    <varlistentry>
-    <term><xref linkend="s4s.components" xrefstyle="select:title,nopage"/>
+    <term><xref linkend="cha.s4s.component" xrefstyle="select:title,nopage"/>
     </term>
     <listitem>
      <para>
-      In this chapter the components are listed and additionally you will
-      find hints about configuring &sles4sap;.
+      Listing of components and configuration hints for &sles4sap;.
      </para>
     </listitem>
    </varlistentry>

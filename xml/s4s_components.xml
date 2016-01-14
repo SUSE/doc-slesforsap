@@ -4,15 +4,15 @@
   <!ENTITY % entities SYSTEM "entity-decl.ent">
     %entities;
 ]>
-<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="s4s.components">
- <title>&sles4sap; Components</title>
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="cha.s4s.component">
+ <title>Components of &sles4sap;</title>
  <info/>
  <para>
   &sles4sapreg; consists of several components such as &sle;
   &hasi;, the Kernel page-cache limit feature, and an Installation
   Wizard, which are briefly explained in the following sections.
  </para>
- <sect1 xml:id="s4s.comp.hasi">
+ <sect1 xml:id="sec.s4s.component.hana-replicate">
   <title>&sle; &hasi; and SAP HANA System Replication</title>
 
   <para>
@@ -63,9 +63,8 @@
    </listitem>
   </itemizedlist>
  </sect1>
-<!-- page cache limit, etc. -->
- <xi:include href="s4s_configuration.xml" parse="xml"/>
- <sect1 xml:id="s4s.comp.wizard">
+
+ <sect1 xml:id="sec.s4s.component.wizard">
   <title>The Installation Wizard</title>
 
   <para>
@@ -158,7 +157,7 @@ Hier der Hinweis auf die SAP-Note mit SWAP
 
   -->
  </sect1>
- <sect1 xml:id="s4s.comp.wizard.suppl">
+ <sect1 xml:id="sec.s4s.component.supplement">
   <title>Supplement Media</title>
 
   <para>
@@ -179,7 +178,7 @@ Hier der Hinweis auf die SAP-Note mit SWAP
    creating your own dialogs and scripts.
   </para>
 
-  <sect2 xml:id="s4s.comp.wizard.suppl.productxml">
+  <sect2 xml:id="sec.s4s.component.supplement.productxml">
    <title><filename>product.xml</filename></title>
    <para>
     The <filename>product.xml</filename> file looks like a normal &ay;
@@ -213,12 +212,12 @@ Hier der Hinweis auf die SAP-Note mit SWAP
    <calloutlist>
     <callout arearefs="co.s4s.ay.general">
      <para>
-      see <xref linkend="s4s.comp.wizard.suppl.ask"/>
+      see <xref linkend="sec.s4s.component.supplement.ask"/>
      </para>
     </callout>
     <callout arearefs="co.s4s.ay.software">
      <para>
-      see <xref linkend="s4s.comp.wizard.suppl.addpacks"/>
+      see <xref linkend="sec.s4s.component.supplement.rpm"/>
      </para>
     </callout>
     <callout arearefs="co.s4s.ay.chroot">
@@ -248,7 +247,7 @@ Hier der Hinweis auf die SAP-Note mit SWAP
    </para>
   </sect2>
 
-  <sect2 xml:id="s4s.comp.wizard.suppl.ask">
+  <sect2 xml:id="sec.s4s.component.supplement.ask">
    <title>Own &ay; Ask Dialogs</title>
    <para>
     For a general overview and details of the Ask feature of &ay;, see
@@ -324,7 +323,7 @@ check_name "$VAL"
 </profile>]]></screen>
   </sect2>
 
-  <sect2 xml:id="s4s.comp.wizard.suppl.addpacks">
+  <sect2 xml:id="sec.s4s.component.supplement.rpm">
    <title>Install Additional Packages</title>
    <para>
     You can also install RPM packages within the
@@ -354,7 +353,7 @@ check_name "$VAL"
 ]]></screen>
   </sect2>
  </sect1>
- <sect1 xml:id="s4s.comp.clamsap">
+ <sect1 xml:id="sec.s4s.component.clamsap">
   <title>ClamSAP</title>
 
   <para>

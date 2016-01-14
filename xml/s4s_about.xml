@@ -4,7 +4,7 @@
   <!ENTITY % entities SYSTEM "entity-decl.ent">
     %entities;
 ]>
-<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="s4s.about">
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="cha.s4s.about">
  <title>What Is &sles4sap;?</title>
  <info>
   <abstract>
@@ -32,7 +32,7 @@
  </figure>
  -->
 <!-- -=-=-=-=-=-=-=-=-=-=-=-=-=- cut here -=-=-=-=-=-=-=-=-=-=-=-=-=- -->
- <sect1 xml:id="s4s.about.overview">
+ <sect1 xml:id="sec.s4s.about.overview">
   <title>Overview</title>
 
   <para>
@@ -59,8 +59,8 @@
 
   <para>
    &sles4sap; consists of software components (see
-   <xref linkend="s4s.about.sw"/>) and service offerings (see
-   <xref linkend="s4s.about.services"/>).
+   <xref linkend="sec.s4s.about.component"/>) and service offerings (see
+   <xref linkend="s4s.about.service"/>).
   </para>
 
 <!--
@@ -83,7 +83,7 @@ SUSE Linux Enterprise Server Priority Support for SAP Applications (optional)
   </itemizedlist>
   -->
  </sect1>
- <sect1 xml:id="s4s.about.sw">
+ <sect1 xml:id="sec.s4s.about.component">
   <title>Software Components</title>
 
   <variablelist>
@@ -110,7 +110,7 @@ SUSE Linux Enterprise Server Priority Support for SAP Applications (optional)
      <para>
       Additionally, the workflow can be extended by third-party vendors or
       customers with the help of the <quote>Supplement Media</quote> (see
-      <xref linkend="s4s.comp.wizard.suppl"/>).
+      <xref linkend="sec.s4s.component.supplement"/>).
      </para>
     </listitem>
    </varlistentry>
@@ -178,7 +178,7 @@ SUSE Linux Enterprise Server Priority Support for SAP Applications (optional)
       Limit the kernel file system cache size to influence swapping
       behavior. With this feature you can gain better performance by
       allocating memory to an application. For more information, see
-      <xref linkend="s4s.config.page-cache"/>.
+      <xref linkend="sec.s4s.configure.page-cache"/>.
      </para>
     </listitem>
    </varlistentry>
@@ -188,13 +188,13 @@ SUSE Linux Enterprise Server Priority Support for SAP Applications (optional)
     <listitem>
      <para>
       ClamSAP is an antivirus toolkit integration. For more information, see
-      <xref linkend="s4s.comp.clamsap"/>.
+      <xref linkend="sec.s4s.component.clamsap"/>.
      </para>
     </listitem>
    </varlistentry>
   </variablelist>
  </sect1>
- <sect1 xml:id="s4s.about.services">
+ <sect1 xml:id="s4s.about.service">
   <title>Services for &sles4sap;</title>
 
   <variablelist>

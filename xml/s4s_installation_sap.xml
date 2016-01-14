@@ -4,16 +4,22 @@
   <!ENTITY % entities SYSTEM "entity-decl.ent">
     %entities;
 ]>
-<sect1 xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="sec.s4s.inst.wizard.sap-product-install">
-<!-- 220-yast-start-sap-install.png -->
+<sect1 xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="sec.s4s.install.sap">
  <title>SAP Product Installation</title>
+
  <para>
-  After an automatic reboot (in the boot menu, choose <guimenu>Boot from
-  Harddisk</guimenu>) and
-  applying previously supplied configuration settings, you are prompted to
-  continue with the <guimenu>SAP Product Installation</guimenu> using the
-  SAP Installation Wizard. The SAP Installation Wizard will install the SAP
-  application from the SAP media kits you received from SAP.
+  This section will guide you through the installation of SAP media kits you
+  received from SAP.
+ </para>
+ <para>
+  This process is documented as it appears during the installation workflow.
+  However, there is a functionally equivalent but differently looking
+  &yast; dialog available from the installed system.
+  Start it from
+  <menuchoice><guimenu>Applications</guimenu><guimenu>System</guimenu>
+  <guimenu>YaST</guimenu><guimenu>SAP Product Installation FIXME!</guimenu></menuchoice>.
+  <remark>FIXME: Actually, I think there are two... - sknorr, 2016-01-14
+  </remark>
  </para>
  <tip>
   <title>SAP Product Installation Default Settings</title>
@@ -24,15 +30,131 @@
    change them according to your needs.
   </para>
  </tip>
+
+ <sect2 xml:id="sec.s4s.install.sap.welcome">
+  <title>First Steps</title>
+
+  <para>
+   These first steps are only relevant during the installation workflow.
+  </para>
+
+  <procedure>
+   <step>
+    <para>
+     When the system has booted, you will be presented with the screen
+     <guimenu>Welcome</guimenu>.
+     Proceed with <guimenu>Next</guimenu>.
+    </para>
+   </step>
+   <step>
+    <para>
+     The screen <guimenu>Network Settings</guimenu> will now open.
+     This gives you another chance to change the network settings.
+    </para>
+    <para>
+     When you are finished configuring networking, proceed with
+     <guimenu>Next</guimenu>.
+    </para>
+    <important>
+     <title>Configure Networking as Recommended by SAP</title>
+     <para>
+      Make sure to configure the network connection as recommended by the
+      documentation of your SAP application.
+     </para>
+    </important>
+    <para>
+     For details regarding network configuration, see
+     <citetitle>
+      &admin;, Chapter 19 <quote>Basic Networking</quote>,
+      Section 19.4 <quote>Configuring a Network Connection with YaST</quote>
+     </citetitle> (&docaddress;).
+    </para>
+    <note>
+     <title>
+      The Screen <guimenu>Welcome</guimenu> May Appear Shortly
+     </title>
+     <para>
+      Before the next screen appears, the <guimenu>Welcome</guimenu> screen may
+      appear again for a few seconds before the following page loads.
+     </para>
+     <remark>
+      This note necessary? (It does appear for around 8s for me.)
+      - sknorr, 2016-01-14
+     </remark>
+    </note>
+   </step>
+   <step>
+    <para>
+     You can now choose how to continue:
+    </para>
+    <variablelist>
+     <varlistentry>
+      <term>
+       <guimenu>Create SAP file systems and start SAP product
+       installation</guimenu>
+      </term>
+      <listitem>
+       <para>
+        Allows installing an SAP product or setting up the system as a
+        server providing SAP installation routines to other systems.
+       </para>
+       <remark>Correct terminology? - sknorr, 2016-01-14</remark>
+       <para>
+        Continue with <xref linkend="sec.s4s.install.sap.product"/>.
+       </para>
+      </listitem>
+     </varlistentry>
+     <varlistentry>
+      <term>
+       <guimenu>Only create SAP HANA file systems, do not install SAP products
+       now</guimenu>
+      </term>
+      <listitem>
+       <para>
+        Only create an SAP HANA file system.
+       </para>
+       <remark>
+        For whatever reason there is no way out after clicking Next. You click
+        OK twice and suddenly, there is a HANA fs. - sknorr, 2016-01-14
+       </remark>
+       <important>
+        <title>Use Hardware Certified for SAP HANA</title>
+        <para>
+         To use this functionality, your hardware needs to certified
+         for SAP HANA.
+         Otherwise, this option will not create a new file system and the
+         installation workflow ends at this point.
+        </para>
+        <remark>
+         Unfortunately, the installer claims to have the "SAP file system
+         creation successfully done" at this point. Meh. - sknorr, 2016-01-14
+        </remark>
+       </important>
+      </listitem>
+     </varlistentry>
+     <varlistentry>
+      <term>
+       <guimenu>Finish wizard and proceed to OS login</guimenu>
+      </term>
+      <listitem>
+       <para>
+        Do not install an SAP application and continue to the login screen of
+        &sles4sap;.
+       </para>
+      </listitem>
+     </varlistentry>
+    </variablelist>
+    <para>
+     Proceed with <guimenu>Next</guimenu>.
+    </para>
+   </step>
+  </procedure>
+ </sect2>
+
+ <sect2 xml:id="sec.s4s.install.sap.product">
+  <title>Installing an SAP Product</title>
  <procedure>
-  <title>SAP Product Installation</title>
   <step>
-   <para>
-    Select <guimenu>Create SAP file systems and start SAP product
-    installation</guimenu> and confirm the pop-up (see
-    <xref linkend="fig.s4s.inst.yast-start-sap-install"/>) if you want to
-    continue with the installation right away.
-   </para>
    <para>
     Otherwise, it is possible to just prepare the SAP product installation
     with <guimenu>Only create SAP Business One file systems, do not install
@@ -65,7 +187,7 @@
      without a restart.
     </para>
     <para>
-     The following screen shots document the installation with the
+     The following screenshots document the installation with the
      <guimenu>SAP Product Installer</guimenu> that runs after a restart of
      the system.
     </para>
@@ -150,7 +272,7 @@
      If you want to install from an NFS source, you must enter the name of
      the server and the complete path to the media data. For more
      information about setting up a remote installation server, see
-     <xref linkend="s4s.inst.remote.sapsets"/>.
+     <xref linkend="sec.s4s.install.sap.mediaset"/>.
     </para>
    </tip>
    <figure xml:id="fig.s4s.sap.wizard.source">
@@ -244,7 +366,7 @@
    </figure>
   </step>
 <!-- ============================================================ -->
-  <step xml:id="pro.sap.wizard.products">
+  <step xml:id="pro.install.sap.wizard.products">
    <para>
     For example, select <guimenu>SAP NetWeaver 7.4</guimenu> and click
     <guimenu>Next</guimenu>. Now the relevant part of the SAP media will be
@@ -387,7 +509,7 @@
    <para>
     Then you can optionally copy a <guimenu>Supplement</guimenu> or
     <guimenu>Third-Party Medium</guimenu>. For more information about a
-    Supplement Media, see <xref linkend="s4s.comp.wizard.suppl"/>.
+    Supplement Media, see <xref linkend="sec.s4s.component.supplement"/>.
    </para>
   </step>
   <step>
@@ -607,7 +729,7 @@ II)
 Die Installation besteht aus 4 Teilen
 
 1. OS-Installation
-2. Wizard Teil-1 kopiert die notwendigen Teile SAP medien auf die lokale
+2. Wizard Teil-1 kopiert die notwendigen Teile SAP-Medien auf die lokale
 Platte
 3. Wizard Teil-2 Fragt die parameter für die Installation ab
 4. Wizard Teil-3 Ruft sap-installer auf
@@ -617,7 +739,7 @@ Jeder dieser Teile kann nahezu separat laufen.
 Damit kann man z.b.
 Einen Rechner mit OS vorbereiten und später den Wizard laufen lassen
 (=nur 1.)
-Eine Rechner mit OS vorbereiten und die SAP Medien kopieren und
+Einen Rechner mit OS vorbereiten und die SAP-Medien kopieren und
 Parameter vorbereiten
 (=nur 1+2+3)
 Dies kann nun einfach kopiert werden und somit genau die gleiche
@@ -627,4 +749,5 @@ und dann nur 4. laufen lassen
 
 usw.
      -->
+    </sect2>
 </sect1>
