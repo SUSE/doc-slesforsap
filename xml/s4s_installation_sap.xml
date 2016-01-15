@@ -11,23 +11,6 @@
   This section will guide you through the installation of SAP media kits you
   received from SAP.
  </para>
- <para>
-  This process is documented as it appears during the installation workflow.
-  However, there is a functionally equivalent but differently looking
-  &yast; dialog available from the installed system.
-  Start it from
-  <menuchoice><guimenu>Applications</guimenu><guimenu>System</guimenu>
-  <guimenu>YaST</guimenu><guimenu>SAP Product Installation FIXME!</guimenu></menuchoice>.
- </para>
- <tip>
-  <title>SAP Product Installation Default Settings</title>
-  <para>
-   The SAP Product Installation default settings are specified and
-   documented in
-   <filename>/etc/sysconfig/sap-installation-wizard</filename>. You can
-   change them according to your needs.
-  </para>
- </tip>
 
  <sect2 xml:id="sec.s4s.install.sap.welcome">
   <title>First Steps</title>
@@ -155,57 +138,34 @@
 
  <sect2 xml:id="sec.s4s.install.sap.product">
   <title>Installing an SAP Product</title>
+  <tip>
+   <title>Installing an SAP Product in a Fully Installed System</title>
+   <para>
+    This process is documented as it appears during the installation workflow.
+    However, there is a functionally equivalent &yast; dialog available within
+    the installed system.
+    It has a different color scheme and lacks the left pane.
+   </para>
+   <para>
+    To start it, from the desktop, choose
+    <menuchoice><guimenu>Applications</guimenu><guimenu>System</guimenu>
+    <guimenu>YaST</guimenu></menuchoice>, continue in the &yast; control center
+    by choosing
+    <menuchoice><guimenu>Miscellaneous</guimenu>
+    <guimenu>SAP Product Installer</guimenu></menuchoice>.
+   </para>
+  </tip>
+  <tip>
+   <title>SAP Product Installation Default Settings</title>
+   <para>
+    The SAP Product Installation default settings are specified and
+    documented in
+    <filename>/etc/sysconfig/sap-installation-wizard</filename>. You can
+    change them according to your needs.
+   </para>
+  </tip>
+
   <procedure>
-   <step>
-    <para>
-     Otherwise, it is possible to just prepare the SAP product installation
-     with <guimenu>Only create SAP Business One file systems, do not install
-     SAP products now</guimenu>, or completely interrupt the installation
-     process at this point with <guimenu>Finish wizard and proceed to OS
-     login</guimenu> and resume it after a system restart.
-    </para>
-    <figure xml:id="fig.s4s.inst.yast-start-sap-install">
-     <title>SAP Product Installation</title>
-     <mediaobject>
-      <imageobject role="fo">
-       <imagedata fileref="yast-start-sap-install.png" width="80%" format="PNG"/>
-      </imageobject>
-      <imageobject role="html">
-       <imagedata fileref="yast-start-sap-install.png" width="80%" format="PNG"/>
-      </imageobject>
-     </mediaobject>
-    </figure>
-    <tip>
-     <title>Resuming SAP Installation after System Restart</title>
-     <para>
-      To resume the SAP installation with the wizard, start &yast; and
-      select the <guimenu>SAP Product Installer</guimenu>
-      (<guimenu>Computer</guimenu>, then in the YaST Control Center click
-      <menuchoice><guimenu>Miscellaneous</guimenu><guimenu>SAP Product
-      Installer</guimenu></menuchoice>; see
-      <xref linkend="fig.s4s.ycc.sap-product-installer"/>). The functionality
-      is the same, but the layout of the dialogs is different; the left
-      progress pane is only displayed when continuing with the installation
-      without a restart.
-     </para>
-     <para>
-      The following screenshots document the installation with the
-      <guimenu>SAP Product Installer</guimenu> that runs after a restart of
-      the system.
-     </para>
-    </tip>
-    <figure xml:id="fig.s4s.ycc.sap-product-installer">
-     <title>&yast; Control Center: SAP Product Installer</title>
-     <mediaobject>
-      <imageobject role="fo">
-       <imagedata fileref="s4s-ycc-sap-product-installer.png" width="75%" format="PNG"/>
-      </imageobject>
-      <imageobject role="html">
-       <imagedata fileref="s4s-ycc-sap-product-installer.png" width="75%" format="PNG"/>
-      </imageobject>
-     </mediaobject>
-    </figure>
-   </step>
    <step>
     <para>
      In the next dialog, provide the <guimenu>Location of the SAP Installation
