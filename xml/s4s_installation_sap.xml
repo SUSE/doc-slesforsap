@@ -168,70 +168,167 @@
   <procedure>
    <step>
     <para>
-     In the next dialog, provide the <guimenu>Location of the SAP Installation
+     <remark>Screen name unique? - sknorr, 2016-01-15</remark>
+     In the screen <guimenu>SAP Installation Wizard</guimenu>, provide the <guimenu>Location of the SAP Installation
      Master</guimenu> (<xref linkend="fig.s4s.sap.wizard.source"/>). The
-     location can either be a local source or a remotely provided
-     installation source.
+     location can either be a local, removable, or remote installation source.
     </para>
-    <variablelist>
-     <varlistentry>
-      <term>Local Source</term>
-      <listitem>
-       <itemizedlist mark="bullet" spacing="normal">
-        <listitem>
-         <para>
-          a directory (<literal>dir://</literal> and
-          <literal><replaceable>/path/to/dir/</replaceable></literal>)
-         </para>
-        </listitem>
-        <listitem>
-         <para>
-          a locally connected hard disk (<literal>device://</literal> and
-          <literal><replaceable>devicename</replaceable><replaceable>/path/to/dir/on/device</replaceable></literal>)
-         </para>
-        </listitem>
-        <listitem>
-         <para>
-          a USB mass storage (<literal>usb://</literal> and
-          <literal><replaceable>/path/to/dir/on/USB</replaceable></literal>)
-         </para>
-        </listitem>
-        <listitem>
-         <para>
-          a CD-ROM (<literal>cdrom://</literal>)
-         </para>
-        </listitem>
-       </itemizedlist>
-      </listitem>
-     </varlistentry>
-     <varlistentry>
-      <term>A Remotely Provided Installation Source</term>
-      <listitem>
-       <itemizedlist mark="bullet" spacing="normal">
-        <listitem>
-         <para>
-          NFS (<literal>nfs://</literal> and
-          <literal><replaceable>server_name</replaceable>/<replaceable>/path/to/dir/on/server</replaceable></literal>)
-         </para>
-        </listitem>
-        <listitem>
-         <para>
-          SMB (<literal>smb://</literal> and
-          <literal>[<replaceable>username</replaceable>:<replaceable>password</replaceable>@]<replaceable>server_name</replaceable>/<replaceable>/path/to/dir/on/server</replaceable>[?workgroup=<replaceable>workgroup_name</replaceable>]</literal>)
-         </para>
-        </listitem>
-       </itemizedlist>
-      </listitem>
-     </varlistentry>
-    </variablelist>
     <para>
-     &mdash;select the corresponding option from the pull-down list on the
+     Select the corresponding option from the pull-down list on the
      left.
     </para>
+
+    <informaltable>
+     <tgroup cols="3">
+      <colspec colnum="1" colname="option" colwidth="15*"/>
+      <colspec colnum="2" colname="desc" colwidth="30*"/>
+      <colspec colnum="3" colname="format" colwidth="55*"/>
+      <thead>
+       <row>
+        <entry>
+         <para>
+          Option
+         </para>
+        </entry>
+        <entry>
+         <para>
+          Description
+         </para>
+        </entry>
+        <entry>
+         <para>
+          Format of Path
+         </para>
+        </entry>
+       </row>
+      </thead>
+      <tbody>
+       <row>
+        <entry namest="option" nameend="format">
+         <emphasis role="strong">Local Sources</emphasis>
+        </entry>
+       </row>
+       <row>
+        <entry>
+         <para>
+          <guimenu>dir://</guimenu>
+         </para>
+        </entry>
+        <entry>
+         <para>
+          a local directory
+         </para>
+        </entry>
+        <entry>
+         <para>
+          <filename><replaceable>/path/to/dir/</replaceable></filename>
+         </para>
+        </entry>
+       </row>
+       <row>
+        <entry namest="option" nameend="format">
+         <emphasis role="strong">Removable Sources</emphasis>
+        </entry>
+       </row>
+       <row>
+        <entry>
+         <para>
+          <guimenu>device://</guimenu>
+         </para>
+        </entry>
+        <entry>
+         <para>
+          a locally connected hard disk
+         </para>
+        </entry>
+        <entry>
+         <para>
+          <filename><replaceable>devicename</replaceable><replaceable>/path/to/dir/on/device</replaceable></filename>
+         </para>
+        </entry>
+       </row>
+       <row>
+        <entry>
+         <para>
+          <guimenu>usb://</guimenu>
+         </para>
+        </entry>
+        <entry>
+         <para>
+          a USB mass storage device
+         </para>
+        </entry>
+        <entry>
+         <para>
+          <filename><replaceable>/path/to/dir/on/USB</replaceable></filename>
+         </para>
+        </entry>
+       </row>
+       <row>
+        <entry>
+         <para>
+          <guimenu>cdrom://</guimenu>
+         </para>
+        </entry>
+        <entry>
+         <para>
+          a CD-ROM
+          <remark>What about DVDs? - sknorr, 2016-01-15</remark>
+         </para>
+        </entry>
+        <entry>
+         <para>
+          <filename><replaceable>//</replaceable></filename>
+         </para>
+        </entry>
+       </row>
+       <row>
+        <entry namest="option" nameend="format">
+         <emphasis role="strong">Remote Sources</emphasis>
+        </entry>
+       </row>
+       <row>
+        <entry>
+         <para>
+          <guimenu>nfs://</guimenu>
+         </para>
+        </entry>
+        <entry>
+         <para>
+          an NFS share
+         </para>
+        </entry>
+        <entry>
+         <para>
+          <filename><replaceable>devicename</replaceable><replaceable>/path/to/dir/on/device</replaceable></filename>
+         </para>
+        </entry>
+       </row>
+       <row>
+        <entry>
+         <para>
+          <guimenu>smb://</guimenu>
+         </para>
+        </entry>
+        <entry>
+         <para>
+          an SMB share
+         </para>
+        </entry>
+        <entry>
+         <para>
+          <filename>[<replaceable>username</replaceable>:<replaceable>password</replaceable>@]<replaceable>server_name</replaceable>/<replaceable>/path/to/dir/on/server</replaceable>[?workgroup=<replaceable>workgroup_name</replaceable>]</filename>
+         </para>
+        </entry>
+       </row>
+      </tbody>
+     </tgroup>
+    </informaltable>
+
     <tip>
      <title>Remote Location Specification</title>
      <para>
-      If you want to install from an NFS source, you must enter the name of
+      To install from an NFS source, enter the name of
       the server and the complete path to the media data. For more
       information about setting up a remote installation server, see
       <xref linkend="sec.s4s.install.sap.mediaset"/>.
@@ -250,19 +347,6 @@
     </figure>
    </step>
    <step>
-    <!--
-    <figure id="fig.s4s.sap.wizard.source.nfs">
-     <title>SAP Installation Source: NFS</title>
-     <mediaobject>
-      <imageobject role="fo">
-       <imagedata fileref="s4s_sap_wizard_source_nfs.png" width="80%" format="PNG"/>
-      </imageobject>
-      <imageobject role="html">
-       <imagedata fileref="s4s_sap_wizard_source_nfs.png" width="80%" format="PNG"/>
-      </imageobject>
-     </mediaobject>
-    </figure>
-    -->
     <para>
      Only in the case of a NetWeaver installation, in the next dialog you
      must select the <guimenu>Installation Mode</guimenu> such as
@@ -343,7 +427,7 @@
     <para>
      You are asked to provide the <guimenu>Location of the SAP
      Medium</guimenu> and if additional media are needed, you can also add
-     them afterwards; see <xref linkend="fig.s4s.sap.wizard.sapmedia "/>
+     them afterwards; see <xref linkend="fig.s4s.sap.wizard.sapmedia"/>
      (here you see the list of already copied or linked SAP media). Click
      <guimenu>Help</guimenu> for information.
      <!--
