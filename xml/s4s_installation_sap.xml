@@ -156,9 +156,13 @@
    </para>
   </tip>
   <tip>
-   <title>SAP Product Installation Default Settings</title>
+   <title>SAP Product Installer Configuration</title>
+   <remark>
+    The terminological discrepancy between "SAP Product Installer" and
+    "SAP Installation Wizard" is pretty annoying. - sknorr, 2016-01-15
+   </remark>
    <para>
-    The SAP Product Installation default settings are specified and
+    The SAP Product Installer configuration are specified and
     documented in
     <filename>/etc/sysconfig/sap-installation-wizard</filename>. You can
     change them according to your needs.
