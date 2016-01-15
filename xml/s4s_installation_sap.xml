@@ -172,14 +172,25 @@
   <procedure>
    <step>
     <para>
-     <remark>Screen name unique? - sknorr, 2016-01-15</remark>
      In the screen <guimenu>SAP Installation Wizard</guimenu>, provide the <guimenu>Location of the SAP Installation
      Master</guimenu> (<xref linkend="fig.s4s.sap.wizard.source"/>). The
      location can either be a local, removable, or remote installation source.
     </para>
+    <figure xml:id="fig.s4s.sap.wizard.source">
+     <title>SAP Installation Wizard: SAP Installation Master Location</title>
+     <mediaobject>
+      <imageobject role="fo">
+       <imagedata fileref="s4s_sap_wizard_source.png" width="80%" format="PNG"/>
+      </imageobject>
+      <imageobject role="html">
+       <imagedata fileref="yast-start-sap-install.png" width="80%" format="PNG"/>
+      </imageobject>
+     </mediaobject>
+    </figure>
     <para>
-     Select the corresponding option from the pull-down list on the
-     left.
+     Select the corresponding option from the drop-down box.
+     In the text box, specify the path to your source according to the format
+     given in the following table.
     </para>
 
     <informaltable>
@@ -338,28 +349,181 @@
       <xref linkend="sec.s4s.install.sap.mediaset"/>.
      </para>
     </tip>
-    <figure xml:id="fig.s4s.sap.wizard.source">
-     <title>SAP Installation Wizard: SAP Installation Master Location</title>
-     <mediaobject>
-      <imageobject role="fo">
-       <imagedata fileref="s4s_sap_wizard_source.png" width="80%" format="PNG"/>
-      </imageobject>
-      <imageobject role="html">
-       <imagedata fileref="yast-start-sap-install.png" width="80%" format="PNG"/>
-      </imageobject>
-     </mediaobject>
-    </figure>
+
+    <remark>
+     It seems likely to me that I have not grasped the gravity of this UI elm.
+     Needs update. - sknorr, 2016-01-15
+    </remark>
+    <para>
+     If your system is already an installation server (<quote>Software
+     Provisioning Master</quote>), you can additionally choose your own system
+     as the provider of the installation master.
+     To do so, use the drop-down box below <guimenu>Choose an installation
+     master</guimenu>.
+    </para>
    </step>
    <step>
     <para>
-     Only in the case of a NetWeaver installation, in the next dialog you
-     must select the <guimenu>Installation Mode</guimenu> such as
-     <guimenu>SAP Standard System</guimenu>, <guimenu>SAP Standalone
-     Engines</guimenu>, etc. and the <guimenu>Database</guimenu> such as
-     <guimenu>IBM DB2</guimenu>, <guimenu>MaxDB</guimenu>, etc. you want to
-     deploy. In the case of a Business One or HANA installation, such a selection does
-     not exist. See <xref linkend="fig.s4s.sap.wizard.mode.db"/>. Click
-     <guimenu>Help</guimenu> for information.
+     Under <guimenu>Advanced Options</guimenu>, choose from among the follwing
+     options:
+    </para>
+    <variablelist>
+     <varlistentry>
+      <term>
+       <guimenu>Collect installation profile but do not execute
+        installation</guimenu>
+      </term>
+      <listitem>
+       <remark>
+        Is any of this true? This was just copied from the description of an
+        option existing in SLES for SAP 12 GA. - sknorr, 2016-01-15
+       </remark>
+       <para>
+        Use this option if you only want to set the installation parameters,
+        but not perform the actual installation now.
+        The installer will copy the product images to
+        <filename>/data/SAP_CDs</filename> and prepare an installation
+        environment for every product as follows:
+       </para>
+<screen><![CDATA[/data/SAP_INST/0/Instmaster
+/data/SAP_INST/1/Instmaster
+/data/SAP_INST/2/Instmaster
+...]]></screen>
+       <para>
+        To run an automatic installation, start by setting
+        <literal>SAP_AUTO_INSTALL="yes"</literal> in
+        <filename>/etc/sysconfig/sap-installation-wizard</filename>.
+       </para>
+       <para>
+        If you then
+        click the <guimenu>SAP Product Installer</guimenu> in the &yast;
+        Control Center to run the auto installation, all settings will be
+        displayed and offered for optional fine-tuning (NetWeaver) or the
+        parameters are written to the &ay; files in the
+        <filename>/data/SAP_INST/<replaceable>number</replaceable></filename>
+        directories, where you can modify them according to your needs
+        (HANA/Business One).
+       </para>
+      </listitem>
+     </varlistentry>
+     <varlistentry>
+      <term>
+       <guimenu>Link to the installation master without copying its content to
+       local location (SAP NetWeaver only)</guimenu>
+      </term>
+      <listitem>
+       <para>
+        Use this option to avoid copying an installation master from one
+        local location to another.
+        This option is only active when the drop-down box above is set to
+        <guimenu>dir://</guimenu>.
+       </para>
+      </listitem>
+     </varlistentry>
+     <varlistentry>
+      <term>
+       <guimenu>Serve all installation media (including master) to local
+       network via NFS</guimenu>
+      </term>
+      <listitem>
+       <para>
+        Set up this system as an installation server (<quote>Software
+        Provisioning Master</quote>) for other &sles4sap;
+        systems.
+        The media copied to this installation server will be offer through
+        Service Location Protocol (SLP).
+       </para>
+       <remark>
+        Might be best to add a separate procedure for this. - sknorr, 2016-01-15
+       </remark>
+       <remark>
+        Also, I don't quite get why this option should be available only
+        together with an installation/preparation for an installation.
+        Need to ask varkoly. - sknorr, 2016-01-15
+       </remark>
+      </listitem>
+     </varlistentry>
+    </variablelist>
+    <para>
+     Proceed with <guimenu>Next</guimenu>.
+    </para>
+   </step>
+   <step>
+    <remark>
+     Would this fit? "When the SAP installation master you selected is based on
+     NetWeaver..." - sknorr, 2016-01-15
+    </remark>
+    <para>
+     When installing a NetWeaver application, you will now see the screen
+     <guimenu>What Would You Like to Install</guimenu>.
+     Under <guimenu>The SAP product is</guimenu>, choose the how you want to
+     install the product:
+    </para>
+    <remark>
+     Complete this list with help from the Help button? Or remove? (As before?)
+    </remark>
+    <variablelist>
+     <varlistentry>
+      <term><guimenu>SAP Standard System</guimenu></term>
+      <listitem>
+       <para>
+        Install a standard product.
+       </para>
+      </listitem>
+     </varlistentry>
+     <varlistentry>
+      <term><guimenu>SAP Standalone Engines</guimenu></term>
+      <listitem>
+       <para>
+        Engines that add functionality to a standard product.
+       </para>
+       <remark>
+        Why is "engines" in plural? This is certainly not a typo, it was the
+        same way before the redesign. - sknorr, 2016-01-15
+       </remark>
+      </listitem>
+     </varlistentry>
+     <varlistentry>
+      <term><guimenu>Distributed System</guimenu></term>
+      <listitem>
+       <para>
+        A product that is separated onto multiple servers.
+       </para>
+       <remark>
+        UI inconsistency? Why is this not called "SAP Distributed System"?
+        - sknorr, 2016-01-15
+       </remark>
+      </listitem>
+     </varlistentry>
+     <varlistentry>
+      <term><guimenu>SAP High-Availability System</guimenu></term>
+      <listitem>
+       <para>
+        Installation of
+       </para>
+      </listitem>
+     </varlistentry>
+     <varlistentry>
+      <term><guimenu>System Rename</guimenu></term>
+      <listitem>
+       <para>
+        Rename an existing installation.
+       </para>
+       <remark>
+        Should this be a different procedure? - sknorr, 2016-01-15
+       </remark>
+      </listitem>
+     </varlistentry>
+    </variablelist>
+    <para>
+     If you selected <guimenu>SAP Standard System</guimenu>,
+     <guimenu>Distributed System</guimenu>, or
+     <guimenu>SAP High-Availability System</guimenu>,
+     additionally choose a back-end database under
+     <guimenu>The back-end database system is</guimenu>.
+    </para>
+    <para>
+     Proceed with <guimenu>Next</guimenu>
     </para>
     <figure xml:id="fig.s4s.sap.wizard.mode.db">
      <title>SAP Installation Wizard: Installation Mode and Database</title>
@@ -372,29 +536,6 @@
       </imageobject>
      </mediaobject>
     </figure>
-    <para>
-     Enable <guimenu>Preparation for autoinstallation</guimenu>, if you only
-     want to enter the installation parameters, but not perform the actual
-     installation now. In this case, the installer will copy the product
-     images to <filename>/data/SAP_CDs</filename> and prepare an installation
-     environment for every product as follows:
-    </para>
-<screen><![CDATA[/data/SAP_INST/0/Instmaster
-/data/SAP_INST/1/Instmaster
-/data/SAP_INST/2/Instmaster
-...]]></screen>
-    <para>
-     If you later actually want to run the auto installation, set
-     <literal>SAP_AUTO_INSTALL="yes"</literal> in
-     <filename>/etc/sysconfig/sap-installation-wizard</filename>. If you then
-     click the <guimenu>SAP Product Installer</guimenu> in the &yast;
-     Control Center to run the auto installation, all settings will be
-     displayed and offered for optional fine-tuning (NetWeaver) or the
-     parameters are written to the &ay; files in the
-     <filename>/data/SAP_INST/<replaceable>number</replaceable></filename>
-     directories, where you can modify them according to your needs
-     (HANA/Business One).
-    </para>
    </step>
    <step>
     <para>
