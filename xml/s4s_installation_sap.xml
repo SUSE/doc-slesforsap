@@ -100,12 +100,12 @@
        </para>
        <remark>
         For whatever reason there is no way out after clicking Next. You click
-        OK twice and suddenly, there is a HANA fs. - sknorr, 2016-01-14
+        OK twice and suddenly, there is a/no HANA fs. - sknorr, 2016-01-14
        </remark>
        <important>
         <title>Use Hardware Certified for SAP HANA</title>
         <para>
-         To use this functionality, your hardware needs to certified
+         To use this functionality, your hardware needs to be certified
          for SAP HANA.
          Otherwise, this option will not create a new file system and the
          installation workflow ends at this point.
