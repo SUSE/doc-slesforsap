@@ -446,6 +446,25 @@
      the Installation Quick Start here too? Or just a reference there? - sknorr,
      2016-01-12
     </remark>
+    <!-- bsc#959535: When registering, High Availability pattern is selected -->
+    <!-- FIXME: Check for SLES for SAP 12 SP2 -->
+    <tip>
+     <title>
+      Pattern <quote>High Availability</quote> Is Unnecessary
+     </title>
+     <para>
+      To save hard drive space, you can remove the pattern
+      <quote>High Availability</quote> from the installation.
+      Note that this pattern is distinct from the product &sle; &hasi; which you
+      should not try to remove.
+     </para>
+     <para>
+      To remove the pattern, click <guimenu>Software</guimenu> and then
+      deselect <menuchoice><guimenu>Primary Functions</guimenu>
+      <guimenu>High Availability</guimenu></menuchoice>.
+      Return to the overview with <guimenu>OK</guimenu>.
+     </para>
+    </tip>
    </step>
    <step>
     <para>
