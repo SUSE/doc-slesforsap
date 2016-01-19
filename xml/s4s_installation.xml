@@ -465,6 +465,17 @@
       Return to the overview with <guimenu>OK</guimenu>.
      </para>
     </tip>
+    <figure xml:id="fig.s4s.install.overview">
+     <title>Installation Settings</title>
+     <mediaobject>
+      <imageobject role="fo">
+       <imagedata fileref="s4s-install-overview.png" width="80%" format="PNG"/>
+      </imageobject>
+      <imageobject role="html">
+       <imagedata fileref="s4s-install-overview.png" width="80%" format="PNG"/>
+      </imageobject>
+     </mediaobject>
+    </figure>
    </step>
    <step>
     <para>
