@@ -331,8 +331,8 @@
     </para>
     <para>
      <remark>The old guide was a bit more detailed about the situation with
-     multiple hard disks. Basically, you need to use Create Partition Setup but
-     in more elaborate prose. Fixme? - sknorr, 2016-01-13</remark>
+     multiple hard disks. Basically, "you need to use Create Partition Setup"
+     but in more elaborate prose. Fixme? - sknorr, 2016-01-13</remark>
      Suitable values are preselected. However, if necessary, change the
      partition layout.
      You have the following options:
