@@ -320,9 +320,6 @@
     </para>
    </step>
    <step>
-    <remark>
-     Add screenshots below. - sknorr, 2016-01-14
-    </remark>
     <para>
      Review the proposed partition setup for the volumes
      <literal>root</literal> and <literal>swap</literal>.
@@ -376,6 +373,21 @@
      To accept the proposed setup without changes, proceed with
      <guimenu>Next</guimenu>.
     </para>
+    <remark>
+      Figure is maybe not ideal - it shows a hard drive with only 100GB of
+      space... Fixme? - sknorr, 2016-01-20
+    </remark>
+    <figure xml:id="fig.s4s.install.partition">
+     <title>Suggested Partitioning</title>
+     <mediaobject>
+      <imageobject role="fo">
+       <imagedata fileref="s4s-install-partitioning.png" width="80%" format="PNG"/>
+      </imageobject>
+      <imageobject role="html">
+       <imagedata fileref="s4s-install-partitioning.png" width="80%" format="PNG"/>
+      </imageobject>
+     </mediaobject>
+    </figure>
    </step>
    <step>
     <para>
@@ -432,7 +444,11 @@
      To change parts of the configuration, click the headline or other
      underlined items.
     </para>
-    <!-- Ask varkoly if this is true... Probably not. -->
+    <remark>
+      Ask varkoly for Firewall settings: do you really need to open ports when
+      enabling firewall here? How about when you enable Fw later?
+      - sknorr, 2016-01-20
+    </remark>
     <!--<warning>
      <title>Firewall Configuration</title>
      <para>

@@ -99,8 +99,15 @@
         Only create an SAP HANA file system.
        </para>
        <remark>
+        In former versions, this was was called "Business One" fs... Mention
+        "Business One" here? - sknorr, 2016-01-20
+       </remark>
+       <remark>
         For whatever reason there is no way out after clicking Next. You click
         OK twice and suddenly, there is a/no HANA fs. - sknorr, 2016-01-14
+       </remark>
+       <remark>
+        Create a procedure for HANA fs creation? - sknorr, 2016-01-20
        </remark>
        <important>
         <title>Use Hardware Certified for SAP HANA</title>
@@ -172,12 +179,13 @@
   <procedure>
    <step>
     <para>
-     In the screen <guimenu>SAP Installation Wizard</guimenu>, provide the <guimenu>Location of the SAP Installation
-     Master</guimenu> (<xref linkend="fig.s4s.sap.wizard.source"/>). The
+     In the screen <guimenu>SAP Installation Wizard</guimenu>, provide the
+     <guimenu>Location of the SAP Installation Master</guimenu>
+     (<xref linkend="fig.s4s.sap.wizard.source"/>). The
      location can either be a local, removable, or remote installation source.
     </para>
     <figure xml:id="fig.s4s.sap.wizard.source">
-     <title>SAP Installation Wizard: SAP Installation Master Location</title>
+     <title>Location of SAP Installation Master</title>
      <mediaobject>
       <imageobject role="fo">
        <imagedata fileref="s4s_sap_wizard_source.png" width="80%" format="PNG"/>
@@ -294,6 +302,7 @@
         <entry>
          <para>
           <filename><replaceable>//</replaceable></filename>
+          <remark>Correct? - sknorr, 2016-01-20</remark>
          </para>
         </entry>
        </row>
@@ -499,7 +508,8 @@
       <term><guimenu>SAP High-Availability System</guimenu></term>
       <listitem>
        <para>
-        Installation of
+        Installation of a SAP NetWeaver application in a high-availability
+        setup.
        </para>
       </listitem>
      </varlistentry>
@@ -507,10 +517,15 @@
       <term><guimenu>System Rename</guimenu></term>
       <listitem>
        <para>
-        Rename an existing installation.
+        Allows changing the various system properties such as the SAP system ID,
+        database ID, instance number or host name.
        </para>
        <remark>
         Should this be a different procedure? - sknorr, 2016-01-15
+       </remark>
+       <remark>
+        Does this even make sense within the installer? Ask varkoly. Maybe this
+        point should be hidden during first-boot. - sknorr, 2016-01-20
        </remark>
       </listitem>
      </varlistentry>
@@ -538,6 +553,9 @@
     </figure>
    </step>
    <step>
+    <remark>
+      What are the other cases? Ask varkoly. - sknorr, 2016-01-20
+    </remark>
     <para>
      In case of a NetWeaver installation you now select a <guimenu>SAP
      Product</guimenu>. The offerings of available products depend on the
