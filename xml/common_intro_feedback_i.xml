@@ -21,12 +21,9 @@
      <link xlink:href="http://www.suse.com/support/"/>.
     </para>
     <para>
-     <remark>taroth 2014-06-10: figured this out together with fhassels,
-     but probably bound to change for SLE 12 - filed
-     http://bugzilla.suse.com/show_bug.cgi?id=882059 for this</remark>
      To report bugs for a product component, go to
-     <link xlink:href="http://www.suse.com/mysupport"/>, log in, and select
-     <guimenu>Submit New SR</guimenu>.
+     <link xlink:href="https://scc.suse.com/support/requests"/>, log in, and
+     select <guimenu>Submit New SR</guimenu>.
     </para>
    </listitem>
   </varlistentry>
