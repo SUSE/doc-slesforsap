@@ -407,7 +407,7 @@
         If you then
         click the <guimenu>SAP Product Installer</guimenu> in the &yast;
         Control Center to run the auto installation, all settings will be
-        displayed and offered for optional fine-tuning (NetWeaver) or the
+        displayed and offered for optional fine-tuning (&netweaver;) or the
         parameters are written to the &ay; files in the
         <filename>/data/SAP_INST/<replaceable>number</replaceable></filename>
         directories, where you can modify them according to your needs
@@ -462,8 +462,12 @@
      Would this fit? "When the SAP installation master you selected is based on
      NetWeaver..." - sknorr, 2016-01-15
     </remark>
+    <remark>
+      Is NetWeaver a single app or is it a family of apps? Ask varkoly.
+      - sknorr, 2016-01-20
+    </remark>
     <para>
-     When installing a NetWeaver application, you will now see the screen
+     When installing &netweaver;, you will now see the screen
      <guimenu>What Would You Like to Install</guimenu>.
      Under <guimenu>The SAP product is</guimenu>, choose the how you want to
      install the product:
@@ -508,8 +512,7 @@
       <term><guimenu>SAP High-Availability System</guimenu></term>
       <listitem>
        <para>
-        Installation of a SAP NetWeaver application in a high-availability
-        setup.
+        Installation of &netweaver; in a high-availability setup.
        </para>
       </listitem>
      </varlistentry>
@@ -557,7 +560,7 @@
       What are the other cases? Ask varkoly. - sknorr, 2016-01-20
     </remark>
     <para>
-     In case of a NetWeaver installation you now select a <guimenu>SAP
+     In case of a &netweaver; installation you now select a <guimenu>SAP
      Product</guimenu>. The offerings of available products depend on the
      media set and installation master you received from SAP; for example,
      see <xref linkend="fig.s4s.sap.wizard.avail.products"/>.

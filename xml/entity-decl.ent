@@ -60,6 +60,7 @@
 <!ENTITY ooo            "&libo;">
 <!ENTITY libo           "LibreOffice">
 <!ENTITY aide		        "AIDE">
+<!ENTITY netweaver      "SAP NetWeaver">
 
 <!-- ============================================================= -->
 <!--                    Books                                      -->
