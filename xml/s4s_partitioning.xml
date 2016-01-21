@@ -72,7 +72,7 @@
     SAP system or SAP product? (System could be multiple products.)
     What's better? - sknorr, 2016-01-21
    </remark>
-   The partitioning for the SAP system is done by the SAP Installation Wizard
+   The partitioning for the SAP system is done by the &sapwiz;
    and can only take place after the operating system has been installed.
    That means the partitions are created either during the installation workflow
    after the reboot or in the running system.
@@ -117,7 +117,7 @@
      <literal>true</literal>, the partitioning will be performed without any
      user interaction. This, for example, is preconfigured in files for
      controlling the partitioning of known hardware such as Dell, Fujitsu,
-     HP, or IBM Server systems. If the SAP Installation Wizard recognizes
+     HP, or IBM Server systems. If the &sapwiz; recognizes
      this hardware, the appropriate file will be selected.
 <!--Note-->
      This applies for SAP Business One/HANA only!

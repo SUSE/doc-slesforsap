@@ -28,19 +28,19 @@
   </listitem>
   <listitem>
    <para>
-    SAP Installation Wizard, part 1: Copying all required SAP media to the
+    &sapwiz;, part 1: Copying all required SAP media to the
     local disk or use a shared storage medium.
    </para>
   </listitem>
   <listitem>
    <para>
-    SAP Installation Wizard, part 2: Collecting all parameters for the
+    &sapwiz;, part 2: Collecting all parameters for the
     actual installation by querying the user interactively.
    </para>
   </listitem>
   <listitem>
    <para>
-    SAP Installation Wizard, part 3: Running the SAP Installer.
+    &sapwiz;, part 3: Running the SAP Installer.
    </para>
   </listitem>
  </orderedlist>

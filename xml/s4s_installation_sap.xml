@@ -165,8 +165,9 @@
   <tip>
    <title>SAP Product Installer Configuration</title>
    <remark>
-    The terminological discrepancy between "SAP Product Installer" and
-    "SAP Installation Wizard" is pretty annoying. - sknorr, 2016-01-15
+    Terminology: "SAP Product Installer" and "SAP Installation Wizard" are
+    pretty close. Maybe SUSE should change the wizard's name some time in the
+    future..? - sknorr, 2016-01-15
    </remark>
    <para>
     The SAP Product Installer configuration are specified and
@@ -544,7 +545,7 @@
      Proceed with <guimenu>Next</guimenu>
     </para>
     <figure xml:id="fig.s4s.sap.wizard.mode.db">
-     <title>SAP Installation Wizard: Installation Mode and Database</title>
+     <title>&sapwiz;: Installation Mode and Database</title>
      <mediaobject>
       <imageobject role="fo">
        <imagedata fileref="s4s_sap_wizard_mode_db.png" width="80%" format="PNG"/>
@@ -566,7 +567,7 @@
      see <xref linkend="fig.s4s.sap.wizard.avail.products"/>.
     </para>
     <figure xml:id="fig.s4s.sap.wizard.avail.products">
-     <title>SAP Installation Wizard: SAP Products</title>
+     <title>&sapwiz;: SAP Products</title>
      <mediaobject>
       <imageobject role="fo">
        <imagedata fileref="s4s_sap_wizard_available_products.png" width="80%" format="PNG"/>
@@ -603,7 +604,7 @@
     </para>
     <!--
        <figure id="fig.s4s.sap.wizard.nwkernel">
-      <title>SAP Installation Wizard: Location of the SAP Medium</title>
+      <title>&sapwiz;: Location of the SAP Medium</title>
       <mediaobject>
        <imageobject role="fo">
         <imagedata fileref="s4s_sap_wizard_location_nwkernel.png" width="80%" format="PNG"/>
@@ -615,7 +616,7 @@
       </figure>
     -->
     <figure xml:id="fig.s4s.sap.wizard.sapmedia">
-     <title>SAP Installation Wizard: Additional SAP Media</title>
+     <title>&sapwiz;: Additional SAP Media</title>
      <mediaobject>
       <imageobject role="fo">
        <imagedata fileref="s4s_sap_wizard_location_sapmedia.png" width="80%" format="PNG"/>
