@@ -10,9 +10,9 @@
  <para>
   This is a guided installation of the operating system with optimized
   settings for SAP applications. During the installation workflow, you can
-  choose whether you want to install an SAP application during the
-  installation workflow. If so, you will be asked to provide SAP installation
-  media when the &sls; installation is finished.
+  choose whether you want to install an SAP application. If so, you will be
+  asked to provide SAP installation media when the &sls; installation is
+  finished.
  </para>
 
  <sect1 xml:id="sec.s4s.install.os">
