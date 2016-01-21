@@ -8,108 +8,81 @@
  <title>Partitioning</title>
  <info/>
  <para>
-  <remark>FIXME: "happen" is probably the wrong word. - sknorr, 2016-01-11
-  </remark>
-  During installation, partitioning will be done in two steps. The first step
-  happens while installing the operating system (stage 1, see
-  <xref linkend="sec.s4s.install.os"/>).
-  The second step happens while installing your SAP product (stage 2, see
-  <xref linkend="sec.s4s.install.sap"/>).
+  &sles4sap; creates the partitioning table in two stages:
  </para>
- <sect2 xml:id="sec.s4s.partition.os">
-  <title>Stage 1: Partitioning for the Operating System</title>
-
-  <para>
-   During stage 1 of the installation (see
-   <xref linkend="sec.s4s.install.os"/>), partitions for the
-   operating system will be created.
-  </para>
-
-  <para>
-   <remark>Ask varkoly/ke why we are using root_lv and swap_lv here, despite the
-   fact that neither of these names is ever mentined in the UI...</remark>
-   A logical volume group (LVG) named <literal>system</literal> will be
-   created. This LVG contains two logical volumes (LVs) named
-   <literal>root_lv</literal> and <literal>swap_lv</literal>. The size of
-   <literal>swap_lv</literal> will be calculated according to the SAP
-   Note 1984787
-   (<link xlink:href="https://service.sap.com/sap/support/notes/1984787"/>).
-  </para>
-  <para>
-   By default, <literal>root_lv</literal> will be set to a maximum of
-   60 GB.
-  </para>
-  <tip>
-   <title>Size of the System Volume</title>
+ <orderedlist>
+  <listitem>
    <para>
-    Normally, at least 35 GB is required for the system volume. The swap
-    space depends on the available main memory (RAM). For more
-    information, see <citetitle>SAP Note 1984787</citetitle>
-    (<link xlink:href="https://service.sap.com/sap/support/notes/1984787"/>)
+    <xref linkend="sec.s4s.partition.os"/> (during the installation of the
+    operating system)
    </para>
-  </tip>
+  </listitem>
+  <listitem>
+   <para>
+    <xref linkend="sec.s4s.partition.sap"/> (during the installation of the
+    SAP product)
+   </para>
+  </listitem>
+ </orderedlist>
+
+ <sect2 xml:id="sec.s4s.partition.os">
+  <title>Partitioning for the Operating System (stage 1)</title>
 
   <para>
-   You can change both, the size of the system volume (<guimenu>Set the
-   system volume size in GB</guimenu>) and the size of the swap partition
-   (<guimenu>Set the SWAP size in GB</guimenu>). When doing this, mind some
-   caveats:
+   During the installation of the operating system, partitions for the
+   operating system are created.
   </para>
 
-  <remark>
-   According to varkoly, there is a new partitioning proposal... no home,
-   max-60GB Btrfs root, 2GB swap, LVM-based, swap can be resized by SAP
-   installer. - sknorr, 2016-01-11
-  </remark>
+  <para>
+   A logical volume group (LVG) named <literal>system</literal> will be
+   created. This LVG contains two logical volumes (LVs):
+  </para>
 
-  <remark>
-   According to varkoly, Netweaver stuff generally needs 80GB (or more) to
-   itself, HANA needs 60GB to itself. - sknorr, 2016-01-11
-  </remark>
-  <remark>
-   I can't actually see the system reserving 1GB for boot. Huh. (Out of 100GB,
-   it reserves 99.99GB for the system LVG) - sknorr, 2016-01-12
-  </remark>
-
-  <itemizedlist mark="bullet" spacing="normal">
+  <itemizedlist>
    <listitem>
     <para>
-     1 GB of space will be reserved for the boot partition or UEFI.
-     This means that the size of the system volume must be at least 1 GB smaller
-     then the physical size of the device.
+     <filename>/dev/system/root</filename> (by default: 60 GB, do not set
+     smaller than 5 GB)
+     <remark>5GB min is from old guide. Still good? - sknorr, 2016-01-21</remark>
     </para>
    </listitem>
    <listitem>
     <para>
-     Avoid changing the size of the swap partition. Only in the case
-     that you are installing HANA, set its size to 2 GB.
-    </para>
-   </listitem>
-   <listitem>
-    <para>
-     <literal>root_lv</literal> should not be smaller than 5 GB.
+     <filename>/dev/system/swap</filename> (by default: 2 GB, avoid setting a
+     smaller size)
     </para>
    </listitem>
   </itemizedlist>
+  <para>
+   Additionally, a <filename>boot</filename> or UEFI partition will be created
+   as necessary.
+   The partitions are created according to
+   <citetitle>SAP Note 1984787</citetitle>
+   (<link xlink:href="https://service.sap.com/sap/support/notes/1984787"/>).
+   <remark>SAP Note is for SLES 12! FIXME - sknorr, 2016-01-21</remark>
+  </para>
 
-  <note>
-   <title>Error Messages</title>
-   <para>
-    Error messages are only issued, if the size of the system volume (plus 1 GB)
-    exceeds the physical size of the device or if the swap partition exceeds
-    the size of the system volume.
-   </para>
-  </note>
  </sect2>
-<!-- ============================================================ -->
+
  <sect2 xml:id="sec.s4s.partition.sap">
-  <title>Stage 2: Partitioning for the SAP System</title>
+  <title>Partitioning for the SAP System (stage 2)</title>
 
   <para>
-   After installing the operating system, the partitioning for the SAP system
-   will take place. This can be done during stage 2 of the installation
-   phase or in the running system.
+   <remark>
+    SAP system or SAP product? (System could be multiple products.)
+    What's better? - sknorr, 2016-01-21
+   </remark>
+   The partitioning for the SAP system is done by the SAP Installation Wizard
+   and can only take place after the operating system has been installed.
+   That means the partitions are created either during the installation workflow
+   after the reboot or in the running system.
   </para>
+
+  <remark>
+   According to varkoly, Netweaver stuff generally needs 80GB (or more) to
+   itself, HANA needs 60GB to itself. Should I put this here or is this info
+   too info...rmal? - sknorr, 2016-01-21
+  </remark>
 
   <para>
    The partitioning for the SAP system is not controlled by
