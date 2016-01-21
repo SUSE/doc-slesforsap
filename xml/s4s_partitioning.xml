@@ -187,13 +187,13 @@
    </step>
   </procedure>
 
-  <warning>
+  <important>
    <title>Do Not Edit <filename>base_partitioning.xml</filename></title>
    <para>
     Do not edit <filename>base_partitioning.xml</filename> directly. With
     the next update, this file will be overridden.
    </para>
-  </warning>
+  </important>
 
   <para>
    For more information on partitioning with &ay;, see the
