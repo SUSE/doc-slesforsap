@@ -60,6 +60,7 @@
 <!ENTITY ooo            "&libo;">
 <!ENTITY libo           "LibreOffice">
 <!ENTITY aide		        "AIDE">
+<!ENTITY sapwiz         "SAP Installation Wizard">
 <!ENTITY netweaver      "SAP NetWeaver">
 
 <!-- ============================================================= -->
