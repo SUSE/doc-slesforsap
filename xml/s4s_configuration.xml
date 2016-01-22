@@ -176,26 +176,33 @@ vm.pagecache_limit_ignore_dirty = 0]]></screen>
 
  <sect1 xml:id="s4s.configure.log">
   <title>Important Log Files</title>
+
+  <remark>
+   This section does not really fit the configuration theme. Any better place
+   for it? - sknorr, 2016-01-22
+  </remark>
+
   <para>
    The most important files for this product are:
   </para>
-  <itemizedlist mark="bullet" spacing="normal">
+
+  <itemizedlist>
    <listitem>
     <para>
-     Auto-installation related log files are in
-     <filename>/var/adm/autoinstall/</filename>.
+     The &sapwiz; is a &yast; module. You can find its log entries in
+     <filename>/var/log/YaST/y2log</filename>.
     </para>
    </listitem>
    <listitem>
     <para>
-     The installation wizard is a &yast; module. Thus you will find
-     wizard related log entries in <filename>/var/log/YaST/y2log</filename>.
-    </para>
-   </listitem>
-   <listitem>
-    <para>
-     We use a library for all SAP knowledge. Thus you will find related log
+     All SAP knowledge is bundled in a library. You can find its log entries in
      entries in <filename>/var/log/SAPmedia.log</filename>.
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     You can find log files related to auto-installation in
+     <filename>/var/adm/autoinstall/logs</filename>.
     </para>
    </listitem>
   </itemizedlist>
