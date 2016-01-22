@@ -79,8 +79,39 @@ vm.pagecache_limit_ignore_dirty = 0]]></screen>
 
 <!-- ==================================================================== -->
 
- <sect1 xml:id="s4s.configure.port">
-  <title>Port Configuration</title>
+ <sect1 xml:id="sec.s4s.configure.firewall">
+  <title>Firewall Configuration</title>
+
+  <para>
+   By default, the installation workflow of &sles4sap; enables
+   <phrase role="productname">SuSEfirewall</phrase>. The firewall needs to
+   manually be configured to allow network access for the following:
+  </para>
+
+  <itemizedlist>
+   <listitem>
+    <para>
+     SAP application
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     Database (for HANA, see <xref linkend="sec.s4s.configure.firewall-hana"/>,
+     otherwise see the documentation of your database vendor)
+    </para>
+   </listitem>
+  </itemizedlist>
+  <para>
+   Additionally, open the ports 1128 (TCP) and 1129 (UDP).
+  </para>
+
+  <remark>
+   Would be good to have the instances where each of the opened port ranges is
+   needed spelled out OR otherwise, we could just refer to SAP documentation
+   for the relevant product and put a description of how to open ports here.
+   The current thing we have here is the general specific and only helpful if
+   you want overly many holes in your wall, it seems. - sknorr, 2016-01-22
+  </remark>
   <para>
    SAP applications require many open ports and port ranges in the firewall.
    The exact numbers depend on the selected instances, for example:
@@ -112,17 +143,20 @@ vm.pagecache_limit_ignore_dirty = 0]]></screen>
     </para>
    </listitem>
   </itemizedlist>
-  <para>
-   It is also necessary to open the ports 1128 and 1129 (TCP and UDP), and all
-   ports needed for the databases used (Oracle, DB2, MaxDB, Sybase).
-  </para>
-  <warning>
-   <title>Firewall Activation</title>
+
+  <sect2 xml:id="sec.s4s.configure.firewall-hana">
+   <title>Firewall Rules for HANA</title>
+
    <para>
-    The firewall is disabled if you use the wizard, and enabled if you use
-    the normal setup.
+    For HANA, you do not have to set up firewall rules manually.
+    Instead, they can be installed from the package
+    <systemitem>HANA-Firewall</systemitem>.
    </para>
-  </warning>
+   <remark>
+    Check if this package is installed automatically and mention that if so.
+    FIXME - sknorr, 2016-01-22
+   </remark>
+  </sect2>
  </sect1>
 
  <sect1 xml:id="sec.s4s.configure.harden">

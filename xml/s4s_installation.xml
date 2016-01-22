@@ -501,19 +501,19 @@
      To change parts of the configuration, click the headline or other
      underlined items.
     </para>
-    <remark>
-      Ask varkoly for Firewall settings: do you really need to open ports when
-      enabling firewall here? How about when you enable Fw later?
-      - sknorr, 2016-01-20
-    </remark>
-    <!--<warning>
+    <important>
      <title>Firewall Configuration</title>
      <para>
-      If you activate the firewall, you need to open all required ports
-      manually. For more information about required ports,
-      see <xref linkend="s4s.config.ports"/>.
+      The software firewall of &sles4sapa; is enabled by default.
+      However, in many cases, the ports your SAP product requires to be open
+      are not opened automatically.
+      This means that there may be network issues until you open the required
+      ports manually.
      </para>
-    </warning>-->
+     <para>
+      For details, see <xref linkend="sec.s4s.configure.firewall"/>.
+     </para>
+    </important>
     <remark>
      Is there a need to copy the descriptions of all the categories from
      the Installation Quick Start here too? Or just a reference there? - sknorr,
