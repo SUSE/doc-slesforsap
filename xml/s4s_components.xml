@@ -258,35 +258,32 @@ check_name "$VAL"
 /
 |--product.xml
 ]]></screen>
+   <remark>
+    This seems wrong. FIXME. - sknorr, 2016-01-21
+   </remark>
   </sect2>
  </sect1>
  <sect1 xml:id="sec.s4s.component.clamsap">
   <title>ClamSAP</title>
 
+  <remark>
+    Do we need this or is this filler content? If we need this, we might want to
+    clean up the relationship NW-VSI ~ virus scan interface ~ transaction VSCAN.
+    - sknorr, 2016-01-22
+  </remark>
+
   <para>
-   ClamSAP is an antivirus toolkit integration with the SAP Virus Scan
-   Interface that improves cross-platform threat detection.
+   ClamSAP integrates the ClamAV antivirus toolkit with the SAP Virus Scan
+   Interface and helps improve cross-platform threat detection.
+   It can be installed from the package <systemitem>clamsap</systemitem>.
   </para>
 
   <para>
    ClamSAP is a shared library that links between ClamAV and the virus
-   scan interface of SAP (NW-VSI) written in C. An SAP application can use the
-   ClamAV engine to scan for malicious uploads in HTTP uploads for example.
-   If you want to use Virus Scan within SAP applications, you can use the
+   scan interface of SAP (NW-VSI). An example use case of it would be allowing
+   an SAP application to scan for malicious uploads in HTTP uploads.
+   If you want to use virus scanning within SAP applications, you can use the
    Virus Scan Interface in SAP (transaction VSCAN).
-   There is an open source adapter for the ClamAV engine at
-   <link xlink:href="http://sourceforge.net/projects/clamsap/"/>. The library
-   allows integration of ClamAV into SAP and also works on Unix where most
-   other antivirus products do not run.
-  </para>
-
-  <para>
-   ClamAV is an open source (GPL) antivirus engine designed for detecting
-   Trojans, viruses, malware, and other malicious threats. It is the de
-   facto standard for mail gateway scanning. It provides a high performance
-   multi-threaded scanning daemon, command line utilities for on-demand file
-   scanning, and an intelligent tool for automatic signature updates. For
-   more information, see <link xlink:href="http://www.clamav.net"/>.
   </para>
  </sect1>
 </chapter>
