@@ -112,7 +112,7 @@
     </term>
     <listitem>
      <para>
-      HANA requires 2 GB of swap.
+      &hana; requires 2 GB of swap.
      </para>
     </listitem>
    </varlistentry>
@@ -121,7 +121,7 @@
     </term>
     <listitem>
      <para>
-      Address SAP HANA System Replication
+      Address &hana; System Replication
       (<link xlink:href="https://bugzilla.suse.com/show_bug.cgi?id=929626"/>).
      </para>
     </listitem>

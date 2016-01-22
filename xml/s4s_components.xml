@@ -13,14 +13,14 @@
   Wizard, which are briefly explained in the following sections.
  </para>
  <sect1 xml:id="sec.s4s.component.hana-replicate">
-  <title>&sleha; and SAP HANA System Replication</title>
+  <title>&sleha; and &hana; System Replication</title>
 
   <para>
    The &sleha; is part of &sles4sap;.
   </para>
 
   <para>
-   &sles4sap; supports SAP HANA System Replication by including
+   &sles4sap; supports &hana; System Replication by including
    components of &sleha;.
   </para>
 
@@ -36,8 +36,8 @@
   <para>
    To make configuring the cluster as simple as possible, SUSE also
    developed its SAPHanaTopology resource agent. This agent runs on all
-   nodes of an SLE HAE cluster and gathers information about the status and
-   configurations of SAP HANA system replications. It is designed as a
+   nodes of an &sleha; cluster and gathers information about the status and
+   configurations of &hana; system replications. It is designed as a
    normal (stateless) clone.
   </para>
 

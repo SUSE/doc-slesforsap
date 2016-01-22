@@ -96,7 +96,7 @@
       </term>
       <listitem>
        <para>
-        Only create an SAP HANA file system.
+        Only create an &hana; file system.
        </para>
        <remark>
         In former versions, this was was called "Business One" fs... Mention
@@ -110,10 +110,10 @@
         Create a procedure for HANA fs creation? - sknorr, 2016-01-20
        </remark>
        <important>
-        <title>Use Hardware Certified for SAP HANA</title>
+        <title>Use Hardware Certified for &hana;</title>
         <para>
          To use this functionality, your hardware needs to be certified
-         for SAP HANA.
+         for &hana;.
          Otherwise, this option will not create a new file system and the
          installation workflow ends at this point.
         </para>

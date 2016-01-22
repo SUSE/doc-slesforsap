@@ -96,7 +96,7 @@ vm.pagecache_limit_ignore_dirty = 0]]></screen>
    </listitem>
    <listitem>
     <para>
-     Database (for HANA, see <xref linkend="sec.s4s.configure.firewall-hana"/>,
+     Database (for &hana;, see <xref linkend="sec.s4s.configure.firewall-hana"/>,
      otherwise see the documentation of your database vendor)
     </para>
    </listitem>
@@ -145,10 +145,10 @@ vm.pagecache_limit_ignore_dirty = 0]]></screen>
   </itemizedlist>
 
   <sect2 xml:id="sec.s4s.configure.firewall-hana">
-   <title>Firewall Rules for HANA</title>
+   <title>Firewall Rules for &hana;</title>
 
    <para>
-    For HANA, you do not have to set up firewall rules manually.
+    For &hana;, you do not have to set up firewall rules manually.
     Instead, they can be installed from the package
     <systemitem>HANA-Firewall</systemitem>.
    </para>
@@ -163,7 +163,7 @@ vm.pagecache_limit_ignore_dirty = 0]]></screen>
   <title>Operating System Security Hardening</title>
   <para>
    For hardening the underlying operating system, see the <quote>Operating
-   System Security Hardening Guide for SAP HANA</quote>:
+   System Security Hardening Guide for &hana;</quote>:
   </para>
   <itemizedlist mark="bullet" spacing="normal">
    <listitem>
