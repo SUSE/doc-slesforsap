@@ -262,9 +262,12 @@
      <title>Register at This Step</title>
      <para>
       Make sure to register your system at this step in the installation.
-      Otherwise, you will not receive package updates immediately and your
-      finished installation will lack vital packages from the
-      &sle; &hasi; repository.
+      Otherwise, you will not receive vital package updates immediately.
+     </para>
+     <para>
+      Additionally, your system will also not be set up to receive packages
+      from the &sle; &hasi; repository.
+      This is important if you want to install a highly available SAP product.
      </para>
     </important>
     <figure xml:id="fig.s4s.install.reg-dialog">
@@ -519,15 +522,19 @@
      the Installation Quick Start here too? Or just a reference there? - sknorr,
      2016-01-12
     </remark>
+
     <!-- bsc#959535: When registering, High Availability pattern is selected -->
-    <!-- FIXME: Check for SLES for SAP 12 SP2 -->
+    <!-- Future FIXME: Check for SLES for SAP 12 SP2 -->
     <tip>
      <title>
-      Pattern <quote>High Availability</quote> Is Unnecessary
+      Pattern <quote>High Availability</quote> Is Necessary for High-Availability
+      Installations
      </title>
      <para>
-      To save hard drive space, you can remove the pattern
-      <quote>High Availability</quote> from the installation.
+      If you are not planning to install a highly available SAP product, you can
+      deselect the pattern <quote>High Availability</quote> from the
+      installation.
+      This saves space on the hard disk and download bandwidth for updates.
       Note that this pattern is distinct from the product &sle; &hasi; which you
       should not try to remove.
      </para>
@@ -538,6 +545,7 @@
       Return to the overview with <guimenu>OK</guimenu>.
      </para>
     </tip>
+
     <figure xml:id="fig.s4s.install.overview">
      <title>Installation Settings</title>
      <mediaobject>
