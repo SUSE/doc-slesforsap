@@ -147,6 +147,7 @@
 <!ENTITY slert         "&sle; Real Time">
 <!ENTITY slertreg      "&slereg; Real Time">
 <!ENTITY hasi          "High Availability Extension">
+<!ENTITY sleha         "&sle; &hasi;">
 <!ENTITY sletcreg      "&slereg; Thin Client">
 <!ENTITY sletc         "&sle; Thin Client">
 <!ENTITY sletca        "SLETC">

@@ -266,7 +266,7 @@
      </para>
      <para>
       Additionally, your system will also not be set up to receive packages
-      from the &sle; &hasi; repository.
+      from the &sleha; repository.
       This is important if you want to install a highly available SAP product.
      </para>
     </important>
@@ -535,7 +535,7 @@
       deselect the pattern <quote>High Availability</quote> from the
       installation.
       This saves space on the hard disk and download bandwidth for updates.
-      Note that this pattern is distinct from the product &sle; &hasi; which you
+      Note that this pattern is distinct from the product &sleha; which you
       should not try to remove.
      </para>
      <para>

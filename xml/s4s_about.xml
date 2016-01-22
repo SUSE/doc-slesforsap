@@ -115,7 +115,7 @@ SUSE Linux Enterprise Server Priority Support for SAP Applications (optional)
     </listitem>
    </varlistentry>
    <varlistentry>
-    <term><emphasis>&sle; &hasi;</emphasis>
+    <term><emphasis>&sleha;</emphasis>
     </term>
     <listitem>
      <para>
@@ -162,7 +162,7 @@ SUSE Linux Enterprise Server Priority Support for SAP Applications (optional)
       </listitem>
      </itemizedlist>
      <para>
-      For more information about &sle; &hasi;, see the &haguide;
+      For more information about &sleha;, see the &haguide;
       (<link xlink:href="http://www.suse.com/documentation/sle-ha-12/"/>)
       and the <emphasis>White Papers</emphasis> and <emphasis>Best Practice
       Guides</emphasis> in the Resource Library

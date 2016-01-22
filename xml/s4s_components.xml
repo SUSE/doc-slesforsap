@@ -8,20 +8,20 @@
  <title>Components of &sles4sap;</title>
  <info/>
  <para>
-  &sles4sapreg; consists of several components such as &sle;
-  &hasi;, the Kernel page-cache limit feature, and an Installation
+  &sles4sapreg; consists of several components such as &sleha;,
+  the Kernel page-cache limit feature, and an Installation
   Wizard, which are briefly explained in the following sections.
  </para>
  <sect1 xml:id="sec.s4s.component.hana-replicate">
-  <title>&sle; &hasi; and SAP HANA System Replication</title>
+  <title>&sleha; and SAP HANA System Replication</title>
 
   <para>
-   The &sle; &hasi; is part of &sles4sap;.
+   The &sleha; is part of &sles4sap;.
   </para>
 
   <para>
    &sles4sap; supports SAP HANA System Replication by including
-   components of &sle; &hasi;.
+   components of &sleha;.
   </para>
 
   <para>
