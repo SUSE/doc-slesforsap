@@ -6,7 +6,7 @@
 ]>
 <preface xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="pre.s4s">
  <title>About This Guide</title>
- <info/>
+
  <para>
   &sles4sapreg; is the reference platform for SAP's software development.
   It is optimized in various ways for SAP applications. This guide provides

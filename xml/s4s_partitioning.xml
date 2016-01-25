@@ -6,7 +6,7 @@
 ]>
 <sect1 xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="sec.s4s.partition">
  <title>Partitioning</title>
- <info/>
+
  <para>
   &sles4sap; creates the partitioning table in two stages:
  </para>

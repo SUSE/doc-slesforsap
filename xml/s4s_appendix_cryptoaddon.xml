@@ -6,7 +6,7 @@
 ]>
 <appendix xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="s4s.appendix.cryptoaddon">
  <title>Downloading CryptoAddOn (SAPCryptoLib)</title>
- <info/>
+
  <para>
   Starting with &netweaver; 7.03/7.3, the cryptographic functionality is
   already included in the &netweaver; DVDs for most countries and does not

@@ -6,7 +6,7 @@
 ]>
 <appendix xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="app.s4s.docupdate">
  <title>Documentation Updates</title>
- <info/>
+
  <para>
   This section contains information about documentation content changes made
   to the <citetitle>&productname; Guide</citetitle>.

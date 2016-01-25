@@ -6,7 +6,7 @@
 ]>
 <chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="cha.s4s.install.remote">
  <title>Remote Installation from a Network Server</title>
- <info/>
+
  <para>
   For detailed information about installing &sls; from a network server
   in general, see the &deploy;, Chapter 14, <quote>Remote

@@ -6,7 +6,7 @@
 ]>
 <chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="cha.s4s.component">
  <title>Components of &sles4sap;</title>
- <info/>
+
  <para>
   &sles4sapreg; consists of several components such as &sleha;,
   the Kernel page-cache limit feature, and an Installation
@@ -25,17 +25,19 @@
   </para>
 
   <para>
-   SUSE has implemented the scale-up scenario with the SAPHana resource
-   agent (RA), which performs the actual check of the SAP HANA database
+   SUSE has implemented the scale-up scenario with the
+   <systemitem>SAPHana</systemitem> resource
+   agent (RA), which performs the actual check of the &hana; database
    instances and is configured as a master/slave resource. In the scale-up
-   scenario, the master assumes responsibility for the SAP HANA databases
+   scenario, the master assumes responsibility for the &hana; databases
    running in primary mode, and the slave is responsible for instances that
    are operated in synchronous (secondary) status.
   </para>
 
   <para>
    To make configuring the cluster as simple as possible, SUSE also
-   developed its SAPHanaTopology resource agent. This agent runs on all
+   developed its <systemitem>SAPHanaTopology</systemitem> resource agent.
+   This agent runs on all
    nodes of an &sleha; cluster and gathers information about the status and
    configurations of &hana; system replications. It is designed as a
    normal (stateless) clone.
