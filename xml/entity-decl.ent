@@ -64,6 +64,7 @@
 <!ENTITY sapwiz         "SAP Installation Wizard">
 <!ENTITY netweaver      "SAP NetWeaver">
 <!ENTITY hana           "SAP HANA">
+<!ENTITY b1           "SAP BusinessOne">
 
 <!-- ============================================================= -->
 <!--                    Books                                      -->
