@@ -54,19 +54,14 @@
       Section 19.4 <quote>Configuring a Network Connection with YaST</quote>
      </citetitle> (&docaddress;).
     </para>
-    <note>
-     <title>
-      The Screen <guimenu>Welcome</guimenu> May Appear Shortly
-     </title>
      <para>
-      Before the next screen appears, the <guimenu>Welcome</guimenu> screen may
-      appear again for a few seconds before the following page loads.
+      (While the the next screen loads, the <guimenu>Welcome</guimenu>
+      screen may appear again for a few seconds.)
      </para>
      <remark>
-      This note necessary? (It does appear for around 8s for me.)
-      - sknorr, 2016-01-14
+      It does appear for around 8s for me which makes you wonder a bit as a
+      user. - sknorr, 2016-01-25
      </remark>
-    </note>
    </step>
    <step>
     <para>
