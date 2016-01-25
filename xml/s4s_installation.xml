@@ -522,7 +522,7 @@
     <tip>
      <title>
       Pattern <quote>High Availability</quote> Is Necessary for High-Availability
-      Installations
+      Installations Only
      </title>
      <para>
       If you are not planning to install a highly available SAP product, you can
