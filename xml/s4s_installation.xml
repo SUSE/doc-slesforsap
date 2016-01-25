@@ -323,12 +323,6 @@
         </citetitle> (&docaddress;).
        </para>
       </formalpara>
-      <remark>
-       Actually, it seems that the only difference between the SLES and the
-       SLES for SAP installation in terms of necessary steps is that the
-       SLES for SAP does not allow you to define a user password. So, is
-       the Installation Quick Start really necessary? - sknorr, 2016-01-12
-      </remark>
      </listitem>
      <listitem>
       <formalpara>
