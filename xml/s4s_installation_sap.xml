@@ -291,14 +291,14 @@
         </entry>
         <entry>
          <para>
-          a CD-ROM
-          <remark>What about DVDs? - sknorr, 2016-01-15</remark>
+          a CD or DVD
          </para>
         </entry>
         <entry>
          <para>
           <filename><replaceable>//</replaceable></filename>
-          <remark>Correct? - sknorr, 2016-01-20</remark>
+          <remark>This is correct: the relevant files are usually at the top
+          level which is //. - sknorr, 2016-01-20</remark>
          </para>
         </entry>
        </row>
@@ -320,7 +320,7 @@
         </entry>
         <entry>
          <para>
-          <filename><replaceable>devicename</replaceable><replaceable>/path/to/dir/on/device</replaceable></filename>
+          <filename><replaceable>server_name</replaceable><replaceable>/path/to/dir/on/device</replaceable></filename>
          </para>
         </entry>
        </row>
@@ -337,7 +337,7 @@
         </entry>
         <entry>
          <para>
-          <filename>[<replaceable>username</replaceable>:<replaceable>password</replaceable>@]<replaceable>server_name</replaceable>/<replaceable>/path/to/dir/on/server</replaceable>[?workgroup=<replaceable>workgroup_name</replaceable>]</filename>
+          <filename>[<replaceable>user_name</replaceable>:<replaceable>password</replaceable>@]<replaceable>server_name</replaceable>/<replaceable>/path/to/dir/on/server</replaceable>[?workgroup=<replaceable>workgroup_name</replaceable>]</filename>
          </para>
         </entry>
        </row>
@@ -379,35 +379,12 @@
         installation</guimenu>
       </term>
       <listitem>
-       <remark>
-        Is any of this true? This was just copied from the description of an
-        option existing in SLES for SAP 12 GA. - sknorr, 2016-01-15
-       </remark>
        <para>
         Use this option if you only want to set the installation parameters,
         but not perform the actual installation now.
-        The installer will copy the product images to
-        <filename>/data/SAP_CDs</filename> and prepare an installation
-        environment for every product as follows:
-       </para>
-<screen><![CDATA[/data/SAP_INST/0/Instmaster
-/data/SAP_INST/1/Instmaster
-/data/SAP_INST/2/Instmaster
-...]]></screen>
-       <para>
-        To run an automatic installation, start by setting
-        <literal>SAP_AUTO_INSTALL="yes"</literal> in
-        <filename>/etc/sysconfig/sap-installation-wizard</filename>.
        </para>
        <para>
-        If you then
-        click the <guimenu>SAP Product Installer</guimenu> in the &yast;
-        Control Center to run the auto installation, all settings will be
-        displayed and offered for optional fine-tuning (&netweaver;) or the
-        parameters are written to the &ay; files in the
-        <filename>/data/SAP_INST/<replaceable>number</replaceable></filename>
-        directories, where you can modify them according to your needs
-        (HANA/Business One).
+        For more information, see <xref linkend="sec.s4s.install.continue"/>.
        </para>
       </listitem>
      </varlistentry>
@@ -930,30 +907,74 @@ drwxr-xr-x  4 root root 4096 Sep 27 14:07 RDBMS-ADA/</screen>
    After the SAP installer has finished, you will see a short summary of the
    installation data.
   </para>
-  <!--
-  II)
-  Die Installation besteht aus 4 Teilen
+ </sect2>
 
-  1. OS-Installation
-  2. Wizard Teil-1 kopiert die notwendigen Teile SAP-Medien auf die lokale
-  Platte
-  3. Wizard Teil-2 Fragt die parameter für die Installation ab
-  4. Wizard Teil-3 Ruft sap-installer auf
+ <sect2 xml:id="sec.s4s.install.continue">
+  <title>Continuing an Installation Using an Installation Profile</title>
 
-  Jeder dieser Teile kann nahezu separat laufen.
+  <remark>
+   Any previous run or just the last one? - sknorr, 2016-01-27
+  </remark>
+  <para>
+   If you chose <guimenu>Collect installation profile but do not execute
+   installation</guimenu> during a previous run of the &sapwiz;, this section
+   will show you how to continue the installation of the selected
+   SAP applications.
+  </para>
+  <para>
+   When collecting an installation profile, the &sapwiz; copies
+   product images to <filename>/data/SAP_CDs</filename>.
+   It also prepares an installation environment for every product under the
+   path <filename>/data/SAP_INST</filename>:
+  </para>
+<screen>/data/SAP_INST/0/Instmaster
+/data/SAP_INST/1/Instmaster
+/data/SAP_INST/2/Instmaster
+...</screen>
 
-  Damit kann man z.b.
-  Einen Rechner mit OS vorbereiten und später den Wizard laufen lassen
-  (=nur 1.)
-  Einen Rechner mit OS vorbereiten und die SAP-Medien kopieren und
-  Parameter vorbereiten
-  (=nur 1+2+3)
-  Dies kann nun einfach kopiert werden und somit genau die gleiche
-  Installation auf anderen Rechnern gemacht werden. Oder mit geringer
-  Anpassung der Input-Parameter-Dateien abgewandelt werden.
-  und dann nur 4. laufen lassen
+  <para>
+   To continue the installation, follow the below steps:
+  </para>
 
-  usw.
-  -->
+  <procedure>
+   <step>
+    <para>
+     In <filename>/etc/sysconfig/sap-installation-wizard</filename>,
+     set the following: <literal>SAP_AUTO_INSTALL="yes"</literal> .
+    </para>
+   </step>
+   <step performance="optional">
+    <para>
+     In the case of a &hana;/&b1; installation, the &sapwiz; will later use
+     the parameters documented in the &ay; files in
+     <filename>/data/SAP_INST/<replaceable>number</replaceable></filename>.
+    </para>
+    <para>
+     If you need to change any parameters, adapt these &ay; files at this point.
+     <remark>
+      Crossref to partitioning/2 section? Fixme - sknorr, 2016-01-28
+     </remark>
+    </para>
+   </step>
+   <step>
+    <para>
+     Open the &yast; control center and start
+     <guimenu>SAP Product Installer</guimenu>
+    </para>
+   </step>
+   <step>
+    <para>
+     In the case of &netweaver; installation, all settings will be offered again
+     for fine-tuning.
+     <remark>
+      Crossref to another procedure somewhere? Fixme - sknorr, 2016-01-28
+     </remark>
+    </para>
+    <para>
+     In the case of &hana;/&b1; installation, the installation will not be
+     offered to make any changes to parameters.
+    </para>
+   </step>
+  </procedure>
  </sect2>
 </sect1>

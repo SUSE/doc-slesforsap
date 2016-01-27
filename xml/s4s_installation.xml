@@ -17,7 +17,7 @@
  </para>
 
  <para>
-  The installation workflow can be separated into these steps:
+  The installation workflow can be separated into steps:
  </para>
 
  <orderedlist>
@@ -46,15 +46,18 @@
  </orderedlist>
 
  <para>
-  Most of these parts can be run separately which allows for flexibility in
-  how you install systems. This means, you can prepare a single installation as
-  a first step and then continue from there. For example:
+  Most of these steps do not have to be run directly after each other which
+  allows for flexibility in how you install systems.
+  This means that you can prepare a single installation
+  as a first step and then continue from there. For example:
  </para>
 
  <itemizedlist>
   <listitem>
    <para>
     Install the operating system (&sls;) only.
+   </para>
+   <para>
     <emphasis>or</emphasis>
    </para>
   </listitem>
@@ -67,7 +70,7 @@
  </itemizedlist>
 
  <para>
-  Then, create disk images and copy them to other systems, and adjust SAP
+  Then, create disk images, copy them to other systems, and adjust SAP
   installation parameters. Finally, finish the installation on each machine
   individually.
  </para>
