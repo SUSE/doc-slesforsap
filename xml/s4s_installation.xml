@@ -15,64 +15,8 @@
   asked to provide SAP installation media when the &sls; installation is
   finished. You can also choose whether to install third-party extensions.
  </para>
-
  <para>
-  The installation workflow can be separated into steps:
- </para>
-
- <orderedlist>
-  <listitem>
-   <para>
-    Installation of the operating system (&sls;).
-   </para>
-  </listitem>
-  <listitem>
-   <para>
-    &sapwiz;, part 1: Copying all required SAP media to the
-    local disk or use a shared storage medium.
-   </para>
-  </listitem>
-  <listitem>
-   <para>
-    &sapwiz;, part 2: Collecting all parameters for the
-    actual installation by querying the user interactively.
-   </para>
-  </listitem>
-  <listitem>
-   <para>
-    &sapwiz;, part 3: Running the SAP Installer.
-   </para>
-  </listitem>
- </orderedlist>
-
- <para>
-  Most of these steps do not have to be run directly after each other which
-  allows for flexibility in how you install systems.
-  This means that you can prepare a single installation
-  as a first step and then continue from there. For example:
- </para>
-
- <itemizedlist>
-  <listitem>
-   <para>
-    Install the operating system (&sls;) only.
-   </para>
-   <para>
-    <emphasis>or</emphasis>
-   </para>
-  </listitem>
-  <listitem>
-   <para>
-    Install the operating system (&sls;), copy SAP media, and collect
-    SAP installation parameters.
-   </para>
-  </listitem>
- </itemizedlist>
-
- <para>
-  Then, create disk images, copy them to other systems, and adjust SAP
-  installation parameters. Finally, finish the installation on each machine
-  individually.
+  For more information, see <xref linkend="sec.s4s.workflow-overview"/>.
  </para>
 
  <sect1 xml:id="sec.s4s.install.os">
