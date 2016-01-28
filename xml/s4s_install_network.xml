@@ -39,26 +39,34 @@
     <orderedlist spacing="normal">
      <listitem>
       <para>
-       remove the parameter <literal>instmode=cd</literal> from the command
-       line
+       Remove the parameter <literal>instmode=cd</literal> from the command
+       line.
       </para>
      </listitem>
      <listitem>
       <para>
-       change <literal>netsetup=0</literal> to <literal>netsetup=1</literal>
-       and <literal>autoyast=file:///</literal> to
-       <literal>autoyast=http://example.com/sap_repo/</literal>, and
+       To start the network, change <literal>netsetup=0</literal> to
+       <literal>netsetup=1</literal>
       </para>
      </listitem>
      <listitem>
       <para>
-       add the parameter
+       Change the parameter <literal>autoyast=file:///</literal> to
+       <literal>autoyast=http://example.com/sap_repo/</literal>.
+      </para>
+      <remark>
+        Double-check if "netsetup" parameter is correct and not just legacy.
+        See other remark in s4s_autoyast. - sknorr, 2016-01-28
+      </remark>
+     </listitem>
+     <listitem>
+      <para>
+       Add the parameter
        <literal>install=http://example.com/sap_repo</literal>.
       </para>
      </listitem>
     </orderedlist>
     <para>
-     With <literal>netsetup=1</literal> you will start the network.
     </para>
    </step>
   </procedure>
@@ -93,15 +101,18 @@
      Edit the <filename>/etc/exports</filename> file on the installation
      server by adding the following:
     </para>
-<screen><![CDATA[/srv/www/htdocs/sap_repo *(ro,root_squash,sync)]]></screen>
+<screen>/srv/www/htdocs/sap_repo *(ro,root_squash,sync)</screen>
    </step>
    <step>
     <para>
-     In <filename>/srv/www/htdocs/sap_repo</filename> create a directory for
+     In <filename>/srv/www/htdocs/sap_repo</filename>, create a directory for
      every SAP media you have, for example <filename>kernel</filename>,
      <filename>java</filename>, <filename>maxdb</filename>, etc., which will
      give you a hint about the contents.
     </para>
+    <remark>
+     "Which will give you a hint"? Necessary sentence? - sknorr, 2016-01-29
+    </remark>
    </step>
    <step>
     <para>
@@ -114,6 +125,9 @@
       Do not copy the media on a Windows operating system because it may
       break permission settings and capitalization of files and directories.
      </para>
+     <remark>
+      What does "on" mean here? - sknorr, 2016-01-29
+     </remark>
     </tip>
    </step>
   </procedure>

@@ -102,7 +102,8 @@
         OK twice and suddenly, there is a/no HANA fs. - sknorr, 2016-01-14
        </remark>
        <remark>
-        Create a procedure for HANA fs creation? - sknorr, 2016-01-20
+        Create a procedure for HANA fs creation? According to varkoly, it just
+        does stuff and you can't do much anyway. - sknorr, 2016-01-28
        </remark>
        <important>
         <title>Use Hardware Certified for &hana;</title>
