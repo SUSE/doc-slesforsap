@@ -8,14 +8,13 @@
  <title>Remote Installation from a Network Server</title>
 
  <para>
-  For detailed information about installing &sls; from a network server
-  in general, see the &deploy;, Chapter 14, <quote>Remote
-  Installation</quote> (&docaddress;).
+  The following sections provide a short description of how to install
+  &sles4sap; from a network server.
+  For more detailed information, see
+  <citetitle>&deploy;, Chapter 13 <quote>Remote Installation</quote></citetitle>
+  (&docaddress;).
  </para>
- <para>
-  The following section provides a short description about installing from a
-  network server.
- </para>
+
  <sect1 xml:id="s4s.install.remote.installmedia">
   <title>Installing with Installation Media from the Network</title>
 
@@ -34,30 +33,37 @@
    </step>
    <step>
     <para>
-     Choose one of the boot menu options and edit the command line:
+     Select one of the boot menu options using the keys
+     <keycap function="down"/>/<keycap function="up"/>.
+     Then add to the command line. To do so, type out the parameters listed
+     below:
     </para>
-    <orderedlist spacing="normal">
-     <listitem>
+    <remark>
+     What to do about the instmode=cd parameters that needed to be removed?
+     Can I use another instmode? Parameter is not mentioned in %deploy;. fixme
+     - sknorr, 2016-01-29
+    </remark>
+    <orderedlist>
+     <!--<listitem>
       <para>
        Remove the parameter <literal>instmode=cd</literal> from the command
        line.
       </para>
-     </listitem>
+     </listitem>-->
      <listitem>
       <para>
-       To start the network, change <literal>netsetup=0</literal> to
-       <literal>netsetup=1</literal>
-      </para>
-     </listitem>
-     <listitem>
-      <para>
-       Change the parameter <literal>autoyast=file:///</literal> to
-       <literal>autoyast=http://example.com/sap_repo/</literal>.
+       To start the network, add <literal>netsetup=1</literal>
       </para>
       <remark>
         Double-check if "netsetup" parameter is correct and not just legacy.
         See other remark in s4s_autoyast. - sknorr, 2016-01-28
       </remark>
+     </listitem>
+     <listitem>
+      <para>
+       Add the parameter
+       <literal>autoyast=http://example.com/sap_repo/</literal>.
+      </para>
      </listitem>
      <listitem>
       <para>
@@ -72,75 +78,89 @@
   </procedure>
 
   <para>
-   This is all you need for a network installation. If you want to avoid
-   using a DVD to bootstrap the system and boot from the network via PXE,
-   read the <emphasis>&ay; Guide</emphasis> about setting up a PXE
-   environment (the <emphasis>&ay; Guide</emphasis> comes with the
-   product or is available from
-   <link xlink:href="http://www.suse.com/documentation/sles-12/"/>).
+   To avoid having to use a DVD to bootstrap the system, you can boot over the
+   network via PXE.
+   For details, see
+   <citetitle>&ay; Guide,
+   Chapter 6.2.3 <quote>Booting via PXE over the Network</quote></citetitle>
+   (&docaddress;).
   </para>
  </sect1>
+
  <sect1 xml:id="sec.s4s.install.sap.mediaset">
-  <title>Copying SAP Media Sets from a Remote Server with the Installation Wizard</title>
+  <title>Setting Up an Installation Server</title>
 
   <para>
-   It is possible to copy the SAP media sets from a remote server (NFS, SMB,
-   etc.). For example, if you want to put the SAP media sets on an NFS
+   Using the &sapwiz;, it is possible to copy the SAP media sets from a
+   remote server (for example, via NFS or SMB).
+   While the &sapwiz; itself provides the option to create an
+   installation server when installing a SAP product, it does not offer a way
+   to copy all SAP media used in your organization to a single server.
+  </para>
+  <para>
+   However, you can easily create such a server on your own.
+   For example, if you want to put the SAP media sets on an NFS
    Server, proceed as follows:
   </para>
 
   <procedure>
    <step>
     <para>
-     Create a directory <filename>/srv/www/htdocs/sap_repo</filename> on
-     your installation server.
+     On your installation server, create the directory
+     <filename>/srv/www/htdocs/sap_repo</filename>.
     </para>
    </step>
    <step>
     <para>
-     Edit the <filename>/etc/exports</filename> file on the installation
-     server by adding the following:
+     Open the file <filename>/etc/exports</filename> and add the following:
     </para>
 <screen>/srv/www/htdocs/sap_repo *(ro,root_squash,sync)</screen>
    </step>
    <step>
     <para>
      In <filename>/srv/www/htdocs/sap_repo</filename>, create a directory for
-     every SAP media you have, for example <filename>kernel</filename>,
-     <filename>java</filename>, <filename>maxdb</filename>, etc., which will
-     give you a hint about the contents.
+     every SAP medium you have. Give these directories speaking names, so you
+     can identify them late. For example, you could use names like
+     <filename>kernel</filename>, <filename>java</filename>, or
+     <filename>maxdb</filename>.
     </para>
-    <remark>
-     "Which will give you a hint"? Necessary sentence? - sknorr, 2016-01-29
-    </remark>
    </step>
    <step>
     <para>
-     Copy the contents of all SAP media with <command>cp -a</command> to the
-     corresponding directory.
+     Copy the contents of each SAP medium to the corresponding directory
+     with <command>cp -a</command>.
     </para>
-    <tip>
-     <title>Avoid Copying on a Windows Operating System</title>
+    <important>
+     <title>Avoid Using Windows&ast; Operating Systems for Copying</title>
      <para>
-      Do not copy the media on a Windows operating system because it may
-      break permission settings and capitalization of files and directories.
+      Using Windows operating system for copying or copying from/to Windows
+      file systems like NTFS may break permission settings and capitalization
+      of files and directories.
      </para>
      <remark>
-      What does "on" mean here? - sknorr, 2016-01-29
+      Significantly reworded. Still correct? - sknorr, 2016-01-29
      </remark>
-    </tip>
+    </important>
    </step>
   </procedure>
 
   <para>
-   Now you can install from the NFS server, for example, from
-   <literal>example.com:/srv/www/htdocs/sap_repo</literal>.
+   You can now install from the NFS server you just set up.
+   In the &sapwiz;, specify the path this way:
+   <filename><replaceable>server_name</replaceable>/srv/www/htdocs/sap_repo</filename>.
   </para>
+  <remark>
+   The NFS path originally had a colon after server_name. Double-check if that
+   had a meaning. (But it was inconsistent with other docs and a colon there
+   would mean that you would see a specific port number, normally)
+   - sknorr, 2015-01-29
+  </remark>
 
   <para>
-   For information about installing &sls; from an NFS server, see the
-   &deploy;, Chapter 14.2, <quote>Remote Installation</quote> and Section
-   14.2.2.
+   For information about installing &sls; from an NFS server, see
+   <citetitle>&deploy;, Chapter 13 <quote>Remote Installation</quote>,
+   Section 13.2.2 <quote>Setting Up an NFS Repository Manually</quote>
+   </citetitle> (&docaddress;).
   </para>
  </sect1>
 </chapter>

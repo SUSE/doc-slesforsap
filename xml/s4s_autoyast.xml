@@ -55,7 +55,7 @@
    <remark>
     According to varkoly, netsetup=1 is somewhat outdated and * is a better
     value... Double check.
-    According to &deploy;, you need =1 if "repository is provided locally (for
+    According to the %deploy;, you need =1 if "repository is provided locally (for
     example, via DVD or local iso image) and the info file is loaded from the
     network" (2.5.15 Creating the info file, p. 304).
     Otherwise, this parameter seems like it is little documented.
