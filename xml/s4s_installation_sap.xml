@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE sect2
+<!DOCTYPE chapter
 [
   <!ENTITY % entities SYSTEM "entity-decl.ent">
     %entities;
 ]>
-<sect1 xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="sec.s4s.install.sap">
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="sec.s4s.install.sap">
  <title>SAP Product Installation</title>
 
  <para>
@@ -12,7 +12,7 @@
   received from SAP.
  </para>
 
- <sect2 xml:id="sec.s4s.install.sap.welcome">
+ <sect1 xml:id="sec.s4s.install.sap.welcome">
   <title>First Steps</title>
 
   <para>
@@ -137,9 +137,9 @@
     </para>
    </step>
   </procedure>
- </sect2>
+ </sect1>
 
- <sect2 xml:id="sec.s4s.install.sap.product">
+ <sect1 xml:id="sec.s4s.install.sap.product">
   <title>Installing an SAP Product</title>
   <tip>
    <title>Installing an SAP Product in a Fully Installed System</title>
@@ -356,14 +356,9 @@
      </para>
     </tip>
 
-    <remark>
-     It seems likely to me that I have not grasped the gravity of this UI elm.
-     Needs update. - sknorr, 2016-01-15
-    </remark>
     <para>
-     If your system is already an installation server (<quote>Software
-     Provisioning Master</quote>), you can additionally choose your own system
-     as the provider of the installation master.
+     If your system is already an installation server, you can additionally
+     choose your own system as the provider of the installation master.
      To do so, use the drop-down box below <guimenu>Choose an installation
      master</guimenu>.
     </para>
@@ -436,14 +431,10 @@
      Would this fit? "When the SAP installation master you selected is based on
      NetWeaver..." - sknorr, 2016-01-15
     </remark>
-    <remark>
-      Is NetWeaver a single app or is it a family of apps? Ask varkoly.
-      - sknorr, 2016-01-20
-    </remark>
     <para>
-     When installing &netweaver;, you will now see the screen
+     When installing an &netweaver; application, you will now see the screen
      <guimenu>What Would You Like to Install</guimenu>.
-     Under <guimenu>The SAP product is</guimenu>, choose the how you want to
+     Under <guimenu>The SAP product is</guimenu>, choose how you want to
      install the product:
     </para>
     <remark>
@@ -908,9 +899,9 @@ drwxr-xr-x  4 root root 4096 Sep 27 14:07 RDBMS-ADA/</screen>
    After the SAP installer has finished, you will see a short summary of the
    installation data.
   </para>
- </sect2>
+ </sect1>
 
- <sect2 xml:id="sec.s4s.install.continue">
+ <sect1 xml:id="sec.s4s.install.continue">
   <title>Continuing an Installation Using an Installation Profile</title>
 
   <remark>
@@ -965,17 +956,17 @@ drwxr-xr-x  4 root root 4096 Sep 27 14:07 RDBMS-ADA/</screen>
    </step>
    <step>
     <para>
-     In the case of &netweaver; installation, all settings will be offered again
-     for fine-tuning.
+     In the case of an &netweaver; installation, all settings will be offered
+     again for fine-tuning.
      <remark>
       Crossref to another procedure somewhere? Fixme - sknorr, 2016-01-28
      </remark>
     </para>
     <para>
-     In the case of &hana;/&b1; installation, the installation will not be
+     In the case of an &hana;/&b1; installation, the installation will not be
      offered to make any changes to parameters.
     </para>
    </step>
   </procedure>
- </sect2>
-</sect1>
+ </sect1>
+</chapter>
