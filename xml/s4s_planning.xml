@@ -176,7 +176,7 @@
   </orderedlist>
 
   <para>
-   Most of these steps do not have to be run immediately after each other which
+   Most of these steps do not need to be run immediately after each other which
    allows for flexibility in how you install systems.
    This means that you can prepare a single installation
    as a first step and then continue from there. For example:

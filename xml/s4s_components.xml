@@ -178,7 +178,7 @@
    <para>
     As a best practice, your dialog should have a dialog number and an
     element number, best with steps of 10. This helps to include later
-    additions and also could be used as targets for jumping over a dialog or
+    additions and could be used as targets for jumping over a dialog or
     element dependent on decisions. We also use this in our base dialogs and
     if you provide the right dialog number and element number, you can place
     your dialog between our base dialogs.
@@ -284,7 +284,7 @@ check_name "$VAL"
    ClamSAP is a shared library that links between ClamAV and the virus
    scan interface of SAP (NW-VSI). An example use case of it would be allowing
    an SAP application to scan for malicious uploads in HTTP uploads.
-   If you want to use virus scanning within SAP applications, you can use the
+   To use virus scanning within SAP applications, you can use the
    Virus Scan Interface in SAP (transaction VSCAN).
   </para>
  </sect1>

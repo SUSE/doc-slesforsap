@@ -55,7 +55,7 @@
      </citetitle> (&docaddress;).
     </para>
      <para>
-      (While the the next screen loads, the <guimenu>Welcome</guimenu>
+      (While the next screen loads, the <guimenu>Welcome</guimenu>
       screen may appear again for a few seconds.)
      </para>
      <remark>
@@ -534,7 +534,7 @@
       What are the other cases? Ask varkoly. - sknorr, 2016-01-20
     </remark>
     <para>
-     In case of a &netweaver; installation you now select a <guimenu>SAP
+     In case of an &netweaver; installation you now select a <guimenu>SAP
      Product</guimenu>. The offerings of available products depend on the
      media set and installation master you received from SAP; for example,
      see <xref linkend="fig.s4s.sap.wizard.avail.products"/>.
@@ -556,7 +556,7 @@
     <para>
      For example, select <guimenu>SAP NetWeaver 7.4</guimenu> and click
      <guimenu>Next</guimenu>. Now the relevant part of the SAP media will be
-     copied to the hard drive of the machine for the following SAP
+     copied to the hard disk of the machine for the following SAP
      installation (after copying, see the contents of
      <filename>/data/SAP_CDs</filename>; the layout is explained later in
      this chapter). This is repeated for all necessary SAP media, with some
@@ -946,7 +946,7 @@ drwxr-xr-x  4 root root 4096 Sep 27 14:07 RDBMS-ADA/</screen>
    </step>
    <step performance="optional">
     <para>
-     In the case of a &hana;/&b1; installation, the &sapwiz; will later use
+     In the case of an &hana;/&b1; installation, the &sapwiz; will later use
      the parameters documented in the &ay; files in
      <filename>/data/SAP_INST/<replaceable>number</replaceable></filename>.
     </para>

@@ -94,7 +94,7 @@
    Using the &sapwiz;, it is possible to copy the SAP media sets from a
    remote server (for example, via NFS or SMB).
    While the &sapwiz; itself provides the option to create an
-   installation server when installing a SAP product, it does not offer a way
+   installation server when installing an SAP product, it does not offer a way
    to copy all SAP media used in your organization to a single server.
   </para>
   <para>
@@ -145,7 +145,7 @@
   </procedure>
 
   <para>
-   You can now install from the NFS server you just set up.
+   You can now install from the NFS server you set up.
    In the &sapwiz;, specify the path this way:
    <filename><replaceable>server_name</replaceable>/srv/www/htdocs/sap_repo</filename>.
   </para>

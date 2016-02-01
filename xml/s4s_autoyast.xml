@@ -25,7 +25,7 @@
   </para>
 
   <para>
-   In order to use a user-provided &ay; profile, select <quote>Install
+   To use a user-provided &ay; profile, select <quote>Install
    SLES for SAP Applications &mdash; Installation with External
    Profile</quote> from the DVD Boot Menu. Within the boot options, change
    the <literal>autoyast=usb:///</literal> parameter to the location of a

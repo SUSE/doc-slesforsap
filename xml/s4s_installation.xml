@@ -291,7 +291,7 @@
        </listitem>
        <listitem>
         <para>
-         To prepare the system for later installation of a SAP Application,
+         To prepare the system for later installation of an SAP application,
          leave <guimenu>Start the SAP Installation Wizard right after the OS
          installation</guimenu> unchecked.
         </para>
@@ -409,7 +409,7 @@
      Type a password for the system administrator account (called
      <systemitem>root</systemitem>) and repeat the password under
      <guimenu>Confirm Password</guimenu>.
-     You can use the input box <guimenu>Test Keyboard Layout</guimenu> to
+     You can use the text box <guimenu>Test Keyboard Layout</guimenu> to
      make sure that all special characters appear correctly.
     </para>
     <para>
@@ -428,7 +428,7 @@
      <para>
       The user <systemitem class="username">root</systemitem> has the
       permission to carry out all administrative tasks. Without this password,
-      you will not be able to log in to the system as
+      you cannot log in to the system as
       <systemitem class="username">root</systemitem>.
      </para>
      <para>
@@ -449,7 +449,7 @@
      <title>Firewall Configuration</title>
      <para>
       The software firewall of &sles4sapa; is enabled by default.
-      However, in many cases, the ports your SAP product requires to be open
+      However, often, the ports your SAP product requires to be open
       are not opened automatically.
       This means that there may be network issues until you open the required
       ports manually.
@@ -537,7 +537,7 @@
      <listitem>
       <para>
        If you chose to install an SAP application immediately after the
-       operating system, the installation will continue after the the reboot.
+       operating system, the installation will continue after the reboot.
       </para>
      </listitem>
     </itemizedlist>
