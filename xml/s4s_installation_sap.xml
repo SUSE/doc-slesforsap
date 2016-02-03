@@ -185,10 +185,10 @@
      <title>Location of SAP Installation Master</title>
      <mediaobject>
       <imageobject role="fo">
-       <imagedata fileref="s4s_sap_wizard_source.png" width="80%" format="PNG"/>
+       <imagedata fileref="s4s_sap_wizard_source.png" width="75%" format="PNG"/>
       </imageobject>
       <imageobject role="html">
-       <imagedata fileref="yast-start-sap-install.png" width="80%" format="PNG"/>
+       <imagedata fileref="yast-start-sap-install.png" width="75%" format="PNG"/>
       </imageobject>
      </mediaobject>
     </figure>
@@ -373,13 +373,16 @@
     <variablelist>
      <varlistentry>
       <term>
-       <guimenu>Collect installation profile but do not execute
+       <guimenu>Collect installation profiles but do not execute
         installation</guimenu>
       </term>
       <listitem>
        <para>
         Use this option if you only want to set the installation parameters,
-        but not perform the actual installation now.
+        but not perform the actual installation. If you choose this option,
+        the installation will continue as it would without this option but the
+        &sapin; (&sapina;) will stop earlier. However, the following steps
+        fully apply.
        </para>
        <para>
         For more information, see <xref linkend="sec.s4s.install.continue"/>.
@@ -424,7 +427,7 @@
    </step>
    <step>
     <remark>
-     From here on out, we're NetWeaver-only... Branch this procedure.
+     From here on out, we're NetWeaver-only... Branch this procedure...?
      - sknorr, 2016-02-02
     </remark>
     <para>
@@ -498,10 +501,10 @@
      <title>&sapwiz;: Installation Mode and Database</title>
      <mediaobject>
       <imageobject role="fo">
-       <imagedata fileref="s4s_sap_wizard_mode_db.png" width="80%" format="PNG"/>
+       <imagedata fileref="s4s_sap_wizard_mode_db.png" width="75%" format="PNG"/>
       </imageobject>
       <imageobject role="html">
-       <imagedata fileref="s4s_sap_wizard_mode_db.png" width="80%" format="PNG"/>
+       <imagedata fileref="s4s_sap_wizard_mode_db.png" width="75%" format="PNG"/>
       </imageobject>
      </mediaobject>
     </figure>
@@ -535,10 +538,10 @@
      <title>&sapwiz;: Choose a Product</title>
      <mediaobject>
       <imageobject role="fo">
-       <imagedata fileref="s4s_sap_wizard_available_products.png" width="80%" format="PNG"/>
+       <imagedata fileref="s4s_sap_wizard_available_products.png" width="75%" format="PNG"/>
       </imageobject>
       <imageobject role="html">
-       <imagedata fileref="s4s_sap_wizard_available_products.png" width="80%" format="PNG"/>
+       <imagedata fileref="s4s_sap_wizard_available_products.png" width="75%" format="PNG"/>
       </imageobject>
      </mediaobject>
     </figure>
@@ -595,10 +598,10 @@
      <title>&sapwiz;: Additional &instmedia;</title>
      <mediaobject>
       <imageobject role="fo">
-       <imagedata fileref="s4s_sap_wizard_location_sapmedia.png" width="80%" format="PNG"/>
+       <imagedata fileref="s4s_sap_wizard_location_sapmedia.png" width="75%" format="PNG"/>
       </imageobject>
       <imageobject role="html">
-       <imagedata fileref="s4s_sap_wizard_location_sapmedia.png" width="80%" format="PNG"/>
+       <imagedata fileref="s4s_sap_wizard_location_sapmedia.png" width="75%" format="PNG"/>
       </imageobject>
      </mediaobject>
     </figure>
@@ -691,10 +694,10 @@ SAP-NetWeaver-740-SR2-Installation-Export-CD-3-3</screen>
      <title>SAP System Parameters: T-Shirt-Sizing</title>
      <mediaobject>
       <imageobject role="fo">
-       <imagedata fileref="s4s_sap_wizard_sysparams_size.png" width="80%" format="PNG"/>
+       <imagedata fileref="s4s_sap_wizard_sysparams_size.png" width="75%" format="PNG"/>
       </imageobject>
       <imageobject role="html">
-       <imagedata fileref="s4s_sap_wizard_sysparams_size.png" width="80%" format="PNG"/>
+       <imagedata fileref="s4s_sap_wizard_sysparams_size.png" width="75%" format="PNG"/>
       </imageobject>
      </mediaobject>
     </figure>
@@ -724,10 +727,10 @@ SAP-NetWeaver-740-SR2-Installation-Export-CD-3-3</screen>
      <title>Virtual Network Settings</title>
      <mediaobject>
       <imageobject role="fo">
-       <imagedata fileref="s4s_sap_wizard_virt_params.png" width="54%" format="PNG"/>
+       <imagedata fileref="s4s_sap_wizard_virt_params.png" width="75%" format="PNG"/>
       </imageobject>
       <imageobject role="html">
-       <imagedata fileref="s4s_sap_wizard_virt_params.png" width="54%" format="PNG"/>
+       <imagedata fileref="s4s_sap_wizard_virt_params.png" width="75%" format="PNG"/>
       </imageobject>
      </mediaobject>
     </figure>
@@ -746,10 +749,10 @@ SAP-NetWeaver-740-SR2-Installation-Export-CD-3-3</screen>
      <title>&sapin;: Defining Parameters</title>
      <mediaobject>
       <imageobject role="fo">
-       <imagedata fileref="s4s_sapinst_param.png" width="80%" format="PNG"/>
+       <imagedata fileref="s4s_sapinst_param.png" width="75%" format="PNG"/>
       </imageobject>
       <imageobject role="html">
-       <imagedata fileref="s4s_sapinst_param.png" width="80%" format="PNG"/>
+       <imagedata fileref="s4s_sapinst_param.png" width="75%" format="PNG"/>
       </imageobject>
      </mediaobject>
     </figure>
@@ -793,7 +796,7 @@ SAP-NetWeaver-740-SR2-Installation-Export-CD-3-3</screen>
    Any previous run or just the last one? - sknorr, 2016-01-27
   </remark>
   <para>
-   If you chose <guimenu>Collect installation profile but do not execute
+   If you chose <guimenu>Collect installation profiles but do not execute
    installation</guimenu> during a previous run of the &sapwiz;, this section
    will show you how to continue the installation of the selected
    SAP applications.
@@ -817,8 +820,9 @@ SAP-NetWeaver-740-SR2-Installation-Export-CD-3-3</screen>
    <step>
     <para>
      In <filename>/etc/sysconfig/sap-installation-wizard</filename>,
-     set the following: <literal>SAP_AUTO_INSTALL="yes"</literal> .
+     set the following:
     </para>
+<screen>SAP_AUTO_INSTALL="yes"</screen>
    </step>
    <step performance="optional">
     <para>
@@ -827,30 +831,48 @@ SAP-NetWeaver-740-SR2-Installation-Export-CD-3-3</screen>
      <filename>/data/SAP_INST/<replaceable>number</replaceable></filename>.
     </para>
     <para>
-     If you need to change any parameters, adapt these &ay; files at this point.
-     <remark>
-      Crossref to partitioning/2 section? Fixme - sknorr, 2016-01-28
-     </remark>
+     If you need to change any parameters, make sure to adapt the &ay; files at
+     this point.
     </para>
    </step>
    <step>
     <para>
      Open the &yast; control center and start
-     <guimenu>SAP Product Installer</guimenu>
+     <guimenu>SAP Product Installer</guimenu>.
+    </para>
+   </step>
+   <step>
+    <remark>
+     This question appears whether the SAP_AUTO_INSTALL=yes or not. However,
+     if not, all questions will be asked again. There seems to be partial state
+     at least, in that the installer remembers what is already copied. Could
+     be luck. - sknorr, 2016-02-03
+    </remark>
+    <para>
+     You will be asked whether to continue the pending installation.
+     Select <guimenu>Install</guimenu>.
     </para>
    </step>
    <step>
     <para>
-     In the case of an &netweaver; installation, all settings will be offered
-     again for fine-tuning.
-     <remark>
-      Crossref to another procedure somewhere? Fixme - sknorr, 2016-01-28
-     </remark>
+     All further interactions happen within the &sapin;.
+     Follow the steps of &sapin; as described in the documentation provided to
+     you by SAP.
     </para>
-    <para>
-     In the case of an &hana;/&b1; installation, the installation will not be
-     offered to make any changes to parameters.
-    </para>
+    <itemizedlist>
+     <listitem>
+      <para>
+       In the case of an &netweaver; installation, all parameter of the &sapin;
+       will be offered again for fine-tuning.
+      </para>
+     </listitem>
+     <listitem>
+      <para>
+       In the case of an &hana;/&b1; installation, the installation will not be
+       offering to make any changes to parameters.
+      </para>
+     </listitem>
+    </itemizedlist>
    </step>
   </procedure>
  </sect1>
