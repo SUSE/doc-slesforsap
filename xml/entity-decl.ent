@@ -250,8 +250,12 @@
 <!ENTITY hana           "SAP HANA">
 <!ENTITY b1             "SAP BusinessOne">
 <!ENTITY instmaster     "Installation Master">
-<!ENTITY instmedia      "Installation Media"> <!-- Always using the plural here -->
+<!-- Almost always using the plural here: one dir to copy from can contain
+     multiple "CDs": -->
+<!ENTITY instmedia      "Installation Media">
 <!ENTITY mediaset       "Media Set">
+<!ENTITY sapin          "SAP Installer">
+<!ENTITY sapina         "SAPinst">
 
 
 

@@ -169,10 +169,10 @@
    <step performance="optional">
     <para>
      If automatic network configuration via DHCP fails, the screen
-     <guimenu>Network Settings</guimenu> will automatically open.
+     <guimenu>Network Settings</guimenu> will open automatically.
     </para>
     <para>
-     If you find yourself already on the screen <guimenu>Registration</guimenu>,
+     If instead the screen <guimenu>Registration</guimenu> appears,
      your network connection works. To change network settings anyway, click
      <guimenu>Network Configuration</guimenu>.
     </para>
@@ -183,8 +183,8 @@
     <important>
      <title>Configure Networking as Recommended by SAP</title>
      <para>
-      Make sure to configure the network connection as recommended by the
-      documentation of your SAP application.
+      Make sure to configure the network connection as recommended in the
+      documentation provided to you by SAP.
      </para>
     </important>
     <para>
