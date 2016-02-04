@@ -109,8 +109,8 @@ SUSE Linux Enterprise Server Priority Support for SAP Applications (optional)
      </para>
      <para>
       Additionally, the workflow can be extended by third-party vendors or
-      customers using <quote>Supplement Media</quote> (see
-      <xref linkend="sec.s4s.component.supplement"/>).
+      customers using &supmedia;. For more information, see
+      <xref linkend="sec.s4s.component.supplement"/>.
      </para>
     </listitem>
    </varlistentry>

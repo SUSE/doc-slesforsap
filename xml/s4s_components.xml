@@ -67,16 +67,16 @@
  </sect1>
 
  <sect1 xml:id="sec.s4s.component.supplement">
-  <title>Supplement Media</title>
+  <title>&supmedia;</title>
 
   <para>
-   The basic idea of the <quote>Supplement Media</quote> is to enable
+   The idea behind &supmedia; is to enable
    partners or customers to add their own tasks or workflows to the
    Installation Wizard.
   </para>
 
   <para>
-   It is done by adding a small XML file, which will be part of an &ay;
+   This is done by adding a small XML file, which will be part of an &ay;
    XML file. This file must be called <filename>product.xml</filename>; then
    it will be included in the workflow.
   </para>
@@ -166,7 +166,7 @@
     <link xlink:href="http://www.suse.com/documentation/sles-12/"/>).
    </para>
    <para>
-    For the supplement media, you can only use dialogs within the
+    For the &supmedia;, you can only use dialogs within the
     <literal>cont</literal> stage
     (<literal>&lt;stage&gt;cont&lt;/stage&gt;</literal>), which means they
     are executed after the first reboot.
@@ -189,7 +189,7 @@
     prefix <literal>/tmp/ay</literal> for this, because the Installation
     Wizard will copy such files from the <filename>/tmp</filename> directory
     to the directory where your media data also will be copied. This is done
-    because the next supplement media could have the same dialogs or same
+    because the next supplemenary media could have the same dialogs or same
     answer file names and would overwrite the values saved here.
    </para>
    <para>
@@ -233,7 +233,7 @@ check_name "$VAL"
   </sect2>
 
   <sect2 xml:id="sec.s4s.component.supplement.rpm">
-   <title>Install Additional Packages</title>
+   <title>Installing Additional Packages</title>
    <para>
     You can also install RPM packages within the
     <filename>product.xml</filename> file. To do this, you can use the
@@ -255,13 +255,11 @@ check_name "$VAL"
   </sect2>
 
   <sect2>
-   <title>Example Directory for the Supplement Media</title>
-<screen><![CDATA[# ls
-/
-|--product.xml
-]]></screen>
+   <title>Example Directory for the &supmedia;</title>
+<screen>&prompt.user; ls
+product.xml</screen>
    <remark>
-    This seems wrong. FIXME. - sknorr, 2016-01-21
+    This alright now? FIXME. - sknorr, 2016-01-21
    </remark>
   </sect2>
  </sect1>

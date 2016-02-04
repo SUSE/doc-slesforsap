@@ -254,9 +254,9 @@
      multiple "CDs": -->
 <!ENTITY instmedia      "Installation Media">
 <!ENTITY mediaset       "Media Set">
+<!ENTITY supmedia       "Supplementary Media">
 <!ENTITY sapin          "SAP Installer">
 <!ENTITY sapina         "SAPinst">
-
 
 
 <!ENTITY % network-entities SYSTEM "network-decl.ent">
