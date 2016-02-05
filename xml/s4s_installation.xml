@@ -5,7 +5,7 @@
     %entities;
 ]>
 <chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="cha.s4s.install">
- <title>Installing Using the Installation Workflow</title>
+ <title>Installing the Operating System Using the Installation Workflow</title>
 
  <para>
   The installation workflow is a guided installation of the operating system
@@ -18,9 +18,6 @@
  <para>
   For more information, see <xref linkend="sec.s4s.workflow-overview"/>.
  </para>
-
- <sect1 xml:id="sec.s4s.install.os">
-  <title>Installing the Operating System</title>
 
   <para>
    This section will guide you through the installation of the &sles4sap;
@@ -539,11 +536,13 @@
        If you chose to install an SAP application immediately after the
        operating system, the installation will continue after the reboot.
       </para>
+      <para>
+       In this case, continue with <xref linkend="sec.s4s.install.sap"/>.
+      </para>
      </listitem>
     </itemizedlist>
    </step>
   </procedure>
- </sect1>
 
  <!-- <sect1 xml:id="sec.s4s.inst.wizard.prepauto">
    <title>Preparing System for Automated Installation</title>
