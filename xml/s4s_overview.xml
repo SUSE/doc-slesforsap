@@ -76,9 +76,14 @@
   </para>
 
   <para>
-   For an overview of the documentation available for your product and the
-   latest documentation updates, refer to
+   For the latest documentation updates, see
    <link xlink:href="http://www.suse.com/documentation"/>.
+  </para>
+
+  <para>
+    You can also find numerous whitepapers, a best-practices guide, and other
+    resources at the &sles4sap; resource library:
+    <link xlink:href="https://www.suse.com/products/sles-for-sap/resource-library/"/>.
   </para>
  </sect1>
 
