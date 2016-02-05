@@ -46,8 +46,52 @@
   </variablelist>
  </sect1>
 
+ <sect1 xml:id="sec.s4s.download">
+  <title>Downloading the Installation Image</title>
+  <procedure>
+   <step>
+    <para>
+     Download the DVD ISO image of &sles4sapreg; &productnumber;
+     (electronic media kit) from
+     <link xlink:href="https://www.suse.com/products/sles-for-sap/"/>.
+    </para>
+   </step>
+   <step>
+    <para>
+     Burn the image onto a physical DVD and ensure that it is bootable.
+     Alternatively, use a virtual DVD-ROM device for installation
+     in a virtual machine.
+    </para>
+   </step>
+  </procedure>
+ </sect1>
+
+ <sect1 xml:id="sec.s4s.how-install">
+  <title>Choosing How to Install</title>
+  <para>
+   There are two ways of installing &sles4sap;:
+  </para>
+  <itemizedlist>
+   <listitem>
+    <para>
+     <xref linkend="cha.s4s.install" xrefstyle="select:title,nopage"/>
+     (supported standard way of installation)
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     <xref linkend="cha.s4s.autoyast" xrefstyle="select:title,nopage"/>
+     (unsupported, provided for convenience only)
+    </para>
+   </listitem>
+  </itemizedlist>
+ </sect1>
+
  <sect1>
   <title>Required Data for Installing the System</title>
+  <remark>
+   Do we need this? Especially in this space-wasting form? - sknorr, 2016-02-05
+  </remark>
   <para>
    The &sls; part of the installation requires the following data for every
    physical server:
@@ -97,50 +141,9 @@
   </itemizedlist>
   <para>
    Depending on the SAP application you want to install, further parameters are
-   required, for example, an <quote>SAP System ID</quote> or
+   required, for example, an <quote>SAP System ID</quote> or a
    <quote>System T-Shirt Size</quote>.
   </para>
- </sect1>
-
- <sect1 xml:id="sec.s4s.download">
-  <title>Downloading the Installation Image</title>
-  <procedure>
-   <step>
-    <para>
-     Download the DVD ISO image of &sles4sapreg; &productnumber;
-     (electronic media kit) from
-     <link xlink:href="https://www.suse.com/products/sles-for-sap/"/>.
-    </para>
-   </step>
-   <step>
-    <para>
-     Burn the image onto a physical DVD and ensure that it is bootable.
-     Alternatively, use a virtual DVD-ROM device for installation
-     in a virtual machine.
-    </para>
-   </step>
-  </procedure>
- </sect1>
-
- <sect1 xml:id="sec.s4s.how-install">
-  <title>Choosing How to Install</title>
-  <para>
-   There are two ways of installing &sles4sap;:
-  </para>
-  <itemizedlist>
-   <listitem>
-    <para>
-     <xref linkend="cha.s4s.install" xrefstyle="select:title,nopage"/>
-     (supported standard way of installation)
-    </para>
-   </listitem>
-   <listitem>
-    <para>
-     <xref linkend="cha.s4s.autoyast" xrefstyle="select:title,nopage"/>
-     (unsupported, provided for convenience only)
-    </para>
-   </listitem>
-  </itemizedlist>
  </sect1>
 
  <sect1 xml:id="sec.s4s.workflow-overview">
