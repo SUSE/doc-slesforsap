@@ -17,126 +17,121 @@
 
   <para>
    &sles4sap; supports &hana; System Replication using components of &sleha;
-   and two additional resource agents (RA):
+   and two additional resource agents (RA).
   </para>
 
-  <variablelist>
-   <varlistentry>
-    <term>SAPHana</term>
+  <sect2>
+   <title><systemitem>SAPHana</systemitem> Resource Agent</title>
+   <!--
+    Terms:
+    + scale-up: adding more resources to an existing system
+    + scale-out: adding complementary systems to your existing ones
+
+    Replication is orthogonal to either of these: It is possible with either
+    scale-up or scale-out scenarios. (It is just that SLES does not support
+    scale-out at the moment.)
+
+    Fixme/12 SP2: Are scale-out scenarios supported? FATE#318793
+    - sknorr, 2016-02-04
+   -->
+   <para>
+    This resource agent from SUSE supports scale-up scenarios by checking the
+    &hana; database instances for whether a failover needs to happen.
+   </para>
+   <para>
+    It is configured as a master/slave resource: The master assumes
+    responsibility for the &hana; databases running in primary mode,
+    whereas the slave is responsible for instances
+    that are operated in synchronous (secondary) status. In the case of a
+    failover, the slave can automatically become the master.
+   </para>
+
+   <para>
+    This resource agent supports system replication for the following in
+    scale-up scenarios:
+   </para>
+   <itemizedlist>
     <listitem>
-     <!--
-      Definitions:
-      + scale-up: adding more resources to an existing system
-      + scale-out: adding complementary systems to your existing ones
-
-      From my outsider's view, replication actually seems orthogonal to either
-      of these, as it is possible with either scale-up or scale-out scenarios.
-
-      Fixme/12 SP2: Are scale-out scenarios supported? FATE#318793
-      - sknorr, 2016-02-04
-     -->
-     <para>
-      This resource agent from SUSE supports scale-up scenarios by checking the
-      &hana; database instances for whether a failover needs to happen.
-     </para>
-     <para>
-      It is configured as a master/slave resource. In scale-up scenarios,
-      the master assumes responsibility for the &hana; databases
-      running in primary mode, whereas the slave is responsible for instances
-      that are operated in synchronous (secondary) status. In the case of a
-      failover, the slave can automatically become the master.
-     </para>
-     <para>
-      The following scale-up scenarios are supported through this resource
-      agent:
-     </para>
-     <itemizedlist>
-      <listitem>
-       <formalpara>
-        <title>Performance-Optimized Scenario</title>
-        <para>
-         Two systems (A and B) within the same &sleha; cluster, one primary (A)
-         and one secondary (B). The primary system (A) is
-         replicated synchronously to the secondary system (B).
-        </para>
-       </formalpara>
-      </listitem>
-      <listitem>
-       <formalpara>
-        <title>Cost-Optimized Scenario</title>
-        <para>
-         Two systems (A and B) within the same &sleha; cluster, one primary (A)
-         and one secondary (B). The primary system (A) is
-         replicated synchronously to the secondary system (B).
-        </para>
-       </formalpara>
-       <para>
-        However, the secondary system is also used for non-productive purposes
-        (such as a development or QA database). If a failover occurs, the
-        resources for the production database are increased as quickly as
-        possible.
-       </para>
-      </listitem>
-      <listitem>
-       <formalpara>
-        <title>Chain/Multi-Tier Scenario</title>
-        <para>
-         Three systems (A, B, and C), of which two are located within the
-         same &sleha; cluster (A and B) and the third system is located (C)
-         externally. The primary system (A) is replicated synchronously to the
-         secondary system (B). The secondary system (B) is
-         replicated asynchronously to the external system (C).
-        </para>
-       </formalpara>
-       <para>
-        When a failover from A to B occurs, the connection to C is broken to
-        allow the former secondary system (B) to replicate to the
-        former primary system (A). This is necessary because a system can only
-        be replicated to a single other system.
-       </para>
-      </listitem>
-     </itemizedlist>
+     <formalpara>
+      <title>Performance-Optimized Scenario</title>
+      <para>
+       Two systems (A and B) within the same &sleha; cluster, one primary (A)
+       and one secondary (B). The primary system (A) is
+       replicated synchronously to the secondary system (B).
+      </para>
+     </formalpara>
     </listitem>
-   </varlistentry>
-   <varlistentry>
-    <term>SAPHanaTopology</term>
     <listitem>
+     <formalpara>
+      <title>Cost-Optimized Scenario</title>
+      <para>
+       The basic setup of A and B is the same as in the
+       <emphasis>Performance-Optimized Scenario</emphasis>.
+       However, the secondary system (B) is also used for non-productive
+       purposes, such as for a development or QA database. If a failover
+       occurs, the resources for the production database are increased
+       as quickly as possible.
+      </para>
+     </formalpara>
+    </listitem>
+    <listitem>
+     <formalpara>
+      <title>Chain/Multi-Tier Scenario</title>
+      <para>
+       Three systems (A, B, and C), of which two are located within the
+       same &sleha; cluster (A and B) and the third system is located (C)
+       externally. The primary system (A) is replicated synchronously to the
+       secondary system (B). The secondary system (B) is
+       replicated asynchronously to the external system (C).
+      </para>
+     </formalpara>
      <para>
-      To make configuring the cluster as simple as possible, SUSE has
-      developed the <systemitem>SAPHanaTopology</systemitem> resource agent.
-      This agent runs on all
-      nodes of a &sleha; cluster and gathers information about the status and
-      configurations of &hana; system replications. It is designed as a
-      normal (stateless) clone.
+      When a failover from A to B occurs, the connection to C is broken to
+      allow the former secondary system (B) to replicate to the
+      former primary system (A). This is necessary because a system can only
+      be replicated to a single other system.
      </para>
     </listitem>
-   </varlistentry>
-  </variablelist>
-
-  <para>
-   For more information, see:
-  </para>
-  <remark>
-   Enhance with Ilya's links? - sknorr, 2016-02-04
-  </remark>
-
-  <itemizedlist mark="bullet" spacing="normal">
-   <listitem>
+   </itemizedlist>
     <para>
-     the &haguide; at
-     <link xlink:href="http://www.suse.com/documentation/sle-ha-12/"/> and
+     For all of the scenarios, &sles4sap; supports both single-tenant and
+     multi-tenant &hana; databases. That is, you can use &hana; databases that
+     serve multiple SAP applications.
     </para>
-   </listitem>
-   <listitem>
-    <para>
-     the <emphasis>White Papers</emphasis> and <emphasis>Best Practice
-     Guides</emphasis> in the Resource Library at
-     <link xlink:href="https://www.suse.com/products/sles-for-sap/resource-library/"/>
-     (for example,
-     <link xlink:href="https://www.suse.com/promo/sap/hana/replication.html"/>).
-    </para>
-   </listitem>
-  </itemizedlist>
+  </sect2>
+  <sect2>
+   <title><systemitem>SAPHanaTopology</systemitem> Resource Agent</title>
+   <para>
+    To make configuring the cluster as simple as possible, SUSE has
+    developed the <systemitem>SAPHanaTopology</systemitem> resource agent.
+    This agent runs on all
+    nodes of a &sleha; cluster and gathers information about the status and
+    configurations of &hana; system replications. It is designed as a
+    normal (stateless) clone.
+   </para>
+  </sect2>
+  <sect2>
+   <title>For More Information</title>
+   <para>
+    For more information, see:
+   </para>
+   <itemizedlist mark="bullet" spacing="normal">
+    <listitem>
+     <para>
+      The &haguide; at &docaddress;.
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      The <emphasis>White Papers</emphasis> and <emphasis>Best Practice
+      Guides</emphasis> in the Resource Library at
+      <link xlink:href="https://www.suse.com/products/sles-for-sap/resource-library/"/>.
+      For example,
+      <link xlink:href="https://www.suse.com/promo/sap/hana/replication.html"/>.
+     </para>
+    </listitem>
+   </itemizedlist>
+  </sect2>
  </sect1>
 
  <sect1 xml:id="sec.s4s.component.supplement">
