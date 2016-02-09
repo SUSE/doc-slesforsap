@@ -168,7 +168,7 @@ vm.pagecache_limit_ignore_dirty = 0]]></screen>
   <itemizedlist mark="bullet" spacing="normal">
    <listitem>
     <para>
-     <link xlink:href="https://www.suse.com/promo/security-guide-for-sap-hana.html"/>
+     <link xlink:href="https://www.suse.com/promo/sap/hana/security-guide.html"/>
     </para>
    </listitem>
   </itemizedlist>
