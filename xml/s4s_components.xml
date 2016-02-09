@@ -12,7 +12,7 @@
   the Kernel page-cache limit feature, and an Installation
   Wizard, which are briefly explained in the following sections.
  </para>
- <sect1 xml:id="sec.s4s.component.hana-replicate">
+ <sect1 xml:id="sec.s4s.hana-replicate">
   <title>Resource Agents for &hana;</title>
 
   <para>
@@ -20,7 +20,7 @@
    and two additional resource agents (RA).
   </para>
 
-  <sect2>
+  <sect2 xml:id="sec.s4s.hana-ra">
    <title><systemitem>SAPHana</systemitem> Resource Agent</title>
    <!--
     Terms:
@@ -99,7 +99,7 @@
      serve multiple SAP applications.
     </para>
   </sect2>
-  <sect2>
+  <sect2 xml:id="sec.s4s.topology-ra">
    <title><systemitem>SAPHanaTopology</systemitem> Resource Agent</title>
    <para>
     To make configuring the cluster as simple as possible, SUSE has
@@ -110,7 +110,7 @@
     normal (stateless) clone.
    </para>
   </sect2>
-  <sect2>
+  <sect2 xml:id="sec.s4s.hana-replicate.more">
    <title>For More Information</title>
    <para>
     For more information, see:

@@ -117,7 +117,7 @@
     </listitem>
    </varlistentry>
    <varlistentry>
-    <term><xref linkend="sec.s4s.component.hana-replicate" xrefstyle="SectTitleOnPage"/>
+    <term><xref linkend="sec.s4s.hana-replicate" xrefstyle="SectTitleOnPage"/>
     </term>
     <listitem>
      <para>
