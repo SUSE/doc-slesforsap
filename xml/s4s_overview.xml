@@ -75,16 +75,21 @@
    resources that are either available on the system or on the Internet.
   </para>
 
-  <para>
-   For the latest documentation updates, see
-   <link xlink:href="http://www.suse.com/documentation"/>.
-  </para>
-
-  <para>
-    You can also find numerous whitepapers, a best-practices guide, and other
-    resources at the &sles4sap; resource library:
-    <link xlink:href="https://www.suse.com/products/sles-for-sap/resource-library/"/>.
-  </para>
+  <itemizedlist>
+   <listitem>
+    <para>
+     For the latest documentation updates, see
+     <link xlink:href="http://www.suse.com/documentation"/>.
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     You can find numerous whitepapers, a best-practices guide, and other
+     resources at the &sles4sap; resource library:
+     <link xlink:href="https://www.suse.com/products/sles-for-sap/resource-library/"/>.
+    </para>
+   </listitem>
+  </itemizedlist>
  </sect1>
 
  <xi:include href="common_intro_feedback_i.xml" parse="xml"/>
