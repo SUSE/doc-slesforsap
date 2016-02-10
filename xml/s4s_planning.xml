@@ -38,8 +38,10 @@
     <term>RAM</term>
     <listitem>
      <para>
-      At least 4 GB of RAM are required.
-      <remark>True? Application-specific? Ask varkoly - sknorr, 2015-12-18</remark>
+      The &sls; operating system itself requires a minimum of 512 MB of RAM.
+      However, any SAP application you install needs additional RAM resources.
+      For more information information, see the
+      <citetitle>Sizing Guidelines</citetitle> from SAP for your application.
      </para>
     </listitem>
    </varlistentry>
