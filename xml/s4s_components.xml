@@ -100,22 +100,22 @@
       If a takeover from A to B occurs, the connection between B and C remains
       untouched. However, B is not allowed to be the source for two systems
       (A and C), as this would be a <quote>star</quote> topology which
-      is not supported with current SAP HANA versions (such as SPS11).
+      is not supported with current &hana; versions (such as SPS11).
      </para>
      <para>
-      Using operation instructions, you can configure what happens then:
+      Using &hana; commands, you can then manually decide what to do:
      </para>
      <itemizedlist>
       <listitem>
        <para>
-        The connection between B and C can be broken, so that A to B can
-        connect.
+        The connection between B and C can be broken, so that B can
+        connect to A.
        </para>
       </listitem>
       <listitem>
        <para>
-        The connection between B and C can be kept if the replication to
-        another site is even more important than the local system replication.
+        If replication to the external system site is more important than
+        local system replication, the connection between B and C can be kept.
        </para>
       </listitem>
      </itemizedlist>
