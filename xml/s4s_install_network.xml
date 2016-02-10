@@ -137,9 +137,6 @@
       file systems like NTFS may break permission settings and capitalization
       of files and directories.
      </para>
-     <remark>
-      Significantly reworded. Still correct? - sknorr, 2016-01-29
-     </remark>
     </important>
    </step>
   </procedure>
