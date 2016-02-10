@@ -62,27 +62,8 @@
    <xref linkend="sec.s4s.about.component"/>) and service offerings (see
    <xref linkend="s4s.about.service"/>).
   </para>
-
-<!--
-  <itemizedlist>
-   <listitem>
-    <para>
-     Extended Service Pack Overlap Support
-    </para>
-   </listitem>
-   <listitem>
-    <para>
-     Separate Update Channel
-    </para>
-   </listitem>
-   <listitem>
-    <para>
-SUSE Linux Enterprise Server Priority Support for SAP Applications (optional)
-  </para>
-   </listitem>
-  </itemizedlist>
-  -->
  </sect1>
+
  <sect1 xml:id="sec.s4s.about.component">
   <title>Software Components</title>
 
@@ -261,9 +242,8 @@ SUSE Linux Enterprise Server Priority Support for SAP Applications (optional)
       &sles4sap; directly from SAP. The joint support infrastructure,
       used by support engineers from &suse; Technical Support and SAP, is
       based upon SAP Solution Manager and offers a seamless communication
-      with both SAP and &suse; in a <quote>1 Face to the Customer</quote>
-      manner, thus reducing complexity and lowering the total cost of
-      ownership.
+      with both SAP and &suse;. This <quote>One Face to the Customer</quote>
+      support model reduces complexity and lowers the total cost of ownership.
      </para>
 <!--
          2015-04-22, ke: Link is hidden and not confirmed by marketing
