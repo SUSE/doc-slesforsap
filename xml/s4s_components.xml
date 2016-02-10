@@ -34,16 +34,25 @@
     Fixme/12 SP2: Are scale-out scenarios supported? FATE#318793
     - sknorr, 2016-02-04
    -->
+   <!--
+    Feedback from Fabian Herschel regarding the word "failover":
+    "[W]e should be careful about terms like "failover" or "takeover". Because
+    in the SAP HANA ecosystem the terms are all used twice but differently
+    than we do. As normally only SAP HANA users will be interested in details
+    about the RAs, I suggest to follow the SAP wording to avoid confusion."
+   -->
    <para>
     This resource agent from SUSE supports scale-up scenarios by checking the
-    &hana; database instances for whether a failover needs to happen.
+    &hana; database instances for whether a takeover needs to happen.
+    Unlike with the pure SAP solution, takeovers can be automated.
    </para>
    <para>
     It is configured as a master/slave resource: The master assumes
     responsibility for the &hana; databases running in primary mode,
     whereas the slave is responsible for instances
-    that are operated in synchronous (secondary) status. In the case of a
-    failover, the slave can automatically become the master.
+    that are operated in synchronous (secondary) status. In case of takeover,
+    the secondary (slave resource instance) can automatically be promoted to
+    become the new primary (master resource instance).
    </para>
 
    <para>
@@ -68,9 +77,10 @@
        The basic setup of A and B is the same as in the
        <emphasis>Performance-Optimized Scenario</emphasis>.
        However, the secondary system (B) is also used for non-productive
-       purposes, such as for a development or QA database. If a failover
-       occurs, the resources for the production database are increased
-       as quickly as possible.
+       purposes, such as for a development or QA database. If a takeover occurs,
+       the system resources for the productive database are increased via a
+       SAP hook call-out script. The non-productive system will be stopped
+       before the takeover is being processed.
       </para>
      </formalpara>
     </listitem>
@@ -79,18 +89,35 @@
       <title>Chain/Multi-Tier Scenario</title>
       <para>
        Three systems (A, B, and C), of which two are located within the
-       same &sleha; cluster (A and B) and the third system is located (C)
+       same &sleha; cluster (A and B). The third system (C) is located
        externally. The primary system (A) is replicated synchronously to the
        secondary system (B). The secondary system (B) is
        replicated asynchronously to the external system (C).
       </para>
      </formalpara>
      <para>
-      When a failover from A to B occurs, the connection to C is broken to
-      allow the former secondary system (B) to replicate to the
-      former primary system (A). This is necessary because a system can only
-      be replicated to a single other system.
+      If a takeover from A to B occurs, the connection between B and C remains
+      untouched. However, B is not allowed to be the source for two systems
+      (A and C), as this would be a <quote>star</quote> topology which
+      is not supported with current SAP HANA versions (such as SPS11).
      </para>
+     <para>
+      Using operation instructions, you can configure what happens then:
+     </para>
+     <itemizedlist>
+      <listitem>
+       <para>
+        The connection between B and C can be broken, so that A to B can
+        connect.
+       </para>
+      </listitem>
+      <listitem>
+       <para>
+        The connection between B and C can be kept if the replication to
+        another site is even more important than the local system replication.
+       </para>
+      </listitem>
+     </itemizedlist>
     </listitem>
    </itemizedlist>
     <para>
