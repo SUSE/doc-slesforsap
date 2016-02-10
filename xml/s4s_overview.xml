@@ -78,8 +78,8 @@
   <itemizedlist>
    <listitem>
     <para>
-     For the latest documentation updates, see
-     <link xlink:href="http://www.suse.com/documentation"/>.
+     For the latest uppdates to this guide, see
+     <link xlink:href="https://www.suse.com/documentation/sles_for_sap/"/>.
     </para>
    </listitem>
    <listitem>
@@ -87,6 +87,18 @@
      You can find numerous whitepapers, a best-practices guide, and other
      resources at the &sles4sap; resource library:
      <link xlink:href="https://www.suse.com/products/sles-for-sap/resource-library/"/>.
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     For documentation on &sls;, see
+     <link xlink:href="https://www.suse.com/documentation/sles-12/"/>.
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     For documentation on &sleha;, see
+     <link xlink:href="https://www.suse.com/documentation/sle-ha-12/"/>.
     </para>
    </listitem>
   </itemizedlist>
