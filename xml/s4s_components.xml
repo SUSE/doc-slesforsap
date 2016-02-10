@@ -37,9 +37,10 @@
    <!--
     Feedback from Fabian Herschel regarding the word "failover":
     "[W]e should be careful about terms like "failover" or "takeover". Because
-    in the SAP HANA ecosystem the terms are all used twice but differently
+    in the SAP HANA ecosystem, the terms are all used twice but differently
     than we do. As normally only SAP HANA users will be interested in details
     about the RAs, I suggest to follow the SAP wording to avoid confusion."
+    => Use "takeover".
    -->
    <para>
     This resource agent from SUSE supports scale-up scenarios by checking the
