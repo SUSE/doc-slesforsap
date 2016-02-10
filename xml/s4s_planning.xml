@@ -143,7 +143,7 @@
   <title>Overview of the Installation Workflow</title>
 
   <para>
-   The installation workflow can be separated into steps:
+   The installation workflow of &sles4sap; can be separated into steps:
   </para>
 
   <orderedlist>
@@ -170,6 +170,14 @@
     </para>
    </listitem>
   </orderedlist>
+
+  <note>
+   <title>Installation of Only &sls;</title>
+   <para>
+    You can also choose to only install a base &sls; system. In that case,
+    only the first step of the installation workflow is executed.
+   </para>
+  </note>
 
   <para>
    Most of these steps do not need to be run immediately after each other which
