@@ -89,62 +89,53 @@
   </itemizedlist>
  </sect1>
 
- <sect1>
-  <title>Required Data for Installing the System</title>
-  <remark>
-   Do we need this? Especially in this space-wasting form? - sknorr, 2016-02-05
-  </remark>
+ <sect1 xml:id="sec.s4s.data-os">
+  <title>Required Data for Installing the Operating System</title>
   <para>
-   The &sls; part of the installation requires the following data for every
+   The &sls; installation requires the following data for every
    physical server:
   </para>
   <itemizedlist>
    <listitem>
     <para>
-      Host name
+     Network configuration parameters, such as host name, domain, IP address,
+     subnet mask, domain searchlist (DNS), IP for name server, IP for gateway
     </para>
    </listitem>
    <listitem>
     <para>
-      Domain
+     Administrator (<systemitem>root</systemitem>) password for the &sls;
+     installation
+    </para>
+   </listitem>
+  </itemizedlist>
+ </sect1>
+
+ <sect1 xml:id="sec.s4s.data-sap">
+  <title>Required Data for Installing SAP Applications</title>
+  <para>
+   The installation of an SAP application generally requires:
+  </para>
+  <itemizedlist>
+   <listitem>
+    <para>
+     SAP SID
     </para>
    </listitem>
    <listitem>
     <para>
-      IP address
+     SAP Instance Number
     </para>
    </listitem>
    <listitem>
     <para>
-      Subnet mask
-    </para>
-   </listitem>
-   <listitem>
-    <para>
-      Domain searchlist (DNS)
-    </para>
-   </listitem>
-   <listitem>
-    <para>
-      IP for name server
-    </para>
-   </listitem>
-   <listitem>
-    <para>
-      IP for gateway
-    </para>
-   </listitem>
-   <listitem>
-    <para>
-      Master password for the system installation
-      (<systemitem>root</systemitem> password)
+     A password for the SAP application
     </para>
    </listitem>
   </itemizedlist>
   <para>
-   Depending on the SAP application you want to install, further parameters are
-   required, for example, an <quote>SAP System ID</quote> or a
-   <quote>System T-Shirt Size</quote>.
+   Depending on the SAP application you are installing, more parameters may be
+   necessary, such as T-Shirt Sizing or parameters for virtual networking.
   </para>
  </sect1>
 
