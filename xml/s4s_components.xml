@@ -13,7 +13,7 @@
   Wizard, which are briefly explained in the following sections.
  </para>
  <sect1 xml:id="sec.s4s.hana-replicate">
-  <title>Resource Agents for &hana;</title>
+  <title>Resource Agents for &hana; System Replication</title>
 
   <para>
    &sles4sap; supports &hana; System Replication using components of &sleha;
