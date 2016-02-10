@@ -41,10 +41,14 @@
   <itemizedlist>
    <listitem>
     <para>
-     <filename>/dev/system/root</filename> (by default: 60 GB, do not set
-     smaller than 5 GB)
-     <remark>5GB min is from old guide. Still good? - sknorr, 2016-01-21</remark>
+     <filename>/dev/system/root</filename> (by default: 60 GB to account for
+     the operating system and SAP media; even on virtualized installations, this
+     should not be set smaller than 5 GB)
     </para>
+     <remark>
+      5GB min is from old guide. Only double-check with varkoly, seemed
+      fine to pschinagl. - sknorr, 2016-01-21
+     </remark>
    </listitem>
    <listitem>
     <para>
@@ -56,10 +60,14 @@
   <para>
    Additionally, a <filename>boot</filename> or UEFI partition will be created
    as necessary.
-   The partitions are created according to
+   <!--The partitions are created according to
    <citetitle>SAP Note 1984787</citetitle>
-   (<link xlink:href="https://service.sap.com/sap/support/notes/1984787"/>).
+   (<link xlink:href="https://service.sap.com/sap/support/notes/1984787"/>). -->
    <remark>SAP Note is for SLES 12! FIXME - sknorr, 2016-01-21</remark>
+   <remark>
+    pschinagl looked at it and seemed unconvinced that this note even
+    touched the topic of partitioning. Commented. FIXME - sknorr, 2016-01-21
+   </remark>
   </para>
 
  </sect2>
@@ -85,18 +93,32 @@
    </para>
   </note>-->
 
-  <remark>
-   According to varkoly, Netweaver stuff generally needs 80GB (or more) to
-   itself, HANA needs 60GB to itself. Should I put this here or is this info
-   too info...rmal? - sknorr, 2016-01-21
-  </remark>
+  <para>
+   Depending on the product you are installing and your particular use case,
+   the amount of hard disk space necessary can vary. Consider the
+   following minimal amounts:
+  </para>
+  <itemizedlist>
+   <listitem>
+    <formalpara>
+     <title>&netweaver;</title>
+     <para>At least 80 GB of hard disk space are necessary.</para>
+    </formalpara>
+   </listitem>
+   <listitem>
+    <formalpara>
+     <title>&hana;</title>
+     <para>At least 60 GB of hard disk space are necessary.</para>
+    </formalpara>
+   </listitem>
+  </itemizedlist>
 
   <para>
    Partitioning for the SAP system is controlled by the files from the directory
    <filename>/usr/share/YaST2/include/sap-installation-wizard/</filename>.
-   Depending on the SAP application being installed and your hardware, different
-   files will be chosen, using the definitions in
-   <filename>/etc/sap-installation-wizard.xml</filename>.
+   In most cases, <filename>base_partitioning.xml</filename> will be used.
+   When installing &hana; on certified hardware, other files will be chosen,
+   as defined in <filename>/etc/sap-installation-wizard.xml</filename>.
    Here, the content of the element <tag>partitioning</tag> is
    decisive.
   </para>
@@ -108,12 +130,14 @@
   </para>
 
   <remark>
-   Not happy with "based on HA"... Can sth be based on HA? Would
-   "high-availability system" or so work? - sknorr, 2016-01-25
+   Not happy with "based on HA"... Can sth. be based on HA? Would
+   "high-availability system" or so work? According to pschinagl, this refers
+   to the SAP app installation type that can be chosen SIW - sknorr, 2016-01-25
   </remark>
   <remark>
    The old guide claimed that base_partitioning.xml does nothing. True?
-   Does not really look like it, but I am no expert. - sknorr, 2016-01-25
+   Does not really look like it, but I am no expert. Are base_part and NO really
+   the same thing? - sknorr, 2016-01-25
   </remark>
 
   <para>
@@ -130,7 +154,7 @@
      user interaction.
     </para>
     <para>
-     This is used, for example, when creating &hana; file systems on systems
+     By default, this is only used when creating &hana; file systems on systems
      certified for &hana; (such as from Dell, Fujitsu, HP, IBM, or Lenovo).
     </para>
    </listitem>
