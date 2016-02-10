@@ -657,18 +657,15 @@
     <para>
      Proceed with <guimenu>Next</guimenu>.
     </para>
-   </step>
-   <step>
-    <remark>
-     This is somewhat important but not really a step... - sknorr, 2016-02-03
-    </remark>
-    <para>
-     At this point, all data required for the SAP installation should have been
-     copied to <filename>/data/SAP_CDs</filename> (unless you chose to skip
-     the process of copying).
-     Each Installation Medium is copied to a separate directory. You might find
-     the following directory structure, for example:
-    </para>
+    <note>
+     <title>Location of Copied SAP Media</title>
+     <para>
+      At this point, all data required for the SAP installation should have been
+      copied to <filename>/data/SAP_CDs</filename> (unless you chose to skip
+      the process of copying).
+      Each Installation Medium is copied to a separate directory. You might find
+      the following directory structure, for example:
+     </para>
 <screen>&prompt.user;ls /data/SAP_CDs
 742-KERNEL-SAP-Kernel-742
 742-UKERNEL-SAP-Unicode-Kernel-742
@@ -676,11 +673,12 @@ RDBMS-MAX-DB-LINUX_X86_64
 SAP-NetWeaver-740-SR2-Installation-Export-CD-1-3
 SAP-NetWeaver-740-SR2-Installation-Export-CD-2-3
 SAP-NetWeaver-740-SR2-Installation-Export-CD-3-3</screen>
-    <para>
-     <filename>/data/SAP_CDs</filename> is the default directory as specified
-     in the <filename>/etc/sysconfig/sap-installation-wizard</filename>
-     configuration file.
-    </para>
+     <para>
+      <filename>/data/SAP_CDs</filename> is the default directory as specified
+      in the <filename>/etc/sysconfig/sap-installation-wizard</filename>
+      configuration file.
+     </para>
+    </note>
    </step>
    <step>
     <para>
