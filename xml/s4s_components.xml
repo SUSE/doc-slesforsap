@@ -361,25 +361,26 @@ product.xml</screen>
  </sect1>
  <sect1 xml:id="sec.s4s.component.clamsap">
   <title>ClamSAP</title>
-
+  <para>
+   ClamSAP integrates the ClamAV antivirus toolkit into &netweaver; applications
+   and helps improve cross-platform threat detection.
+   For example, you can use it to allow an SAP application to scan for
+   malicious uploads in HTTP uploads.
+   ClamSAP can be installed from the package <systemitem>clamsap</systemitem>.
+  </para>
+  <para>
+   ClamSAP is a shared library that links between ClamAV and the
+   &netweaver; Virus Scan Interface (NW-VSI) by SAP. The version of ClamSAP
+   shipped with &productname; &productnumber; supports NW-VSI version 2.0.
+  </para>
+  <para>
+   To use virus scanning within &netweaver;, you have to enable it there.
+   <!-- To do so, choose <menuchoice><guimenu>Transactions</guimenu>
+   <guimenu>VSCAN</guimenu></menuchoice>. -->
+  </para>
   <remark>
-    Do we need this or is this filler content? If we need this, we might want to
-    clean up the relationship NW-VSI ~ virus scan interface ~ transaction VSCAN.
-    - sknorr, 2016-01-22
+   Commented away part about enabling ClamSAP from NW menu, because I have not
+   seen this in the flesh. FIXME - sknorr, 2016-02-10
   </remark>
-
-  <para>
-   ClamSAP integrates the ClamAV antivirus toolkit with the SAP Virus Scan
-   Interface and helps improve cross-platform threat detection.
-   It can be installed from the package <systemitem>clamsap</systemitem>.
-  </para>
-
-  <para>
-   ClamSAP is a shared library that links between ClamAV and the virus
-   scan interface of SAP (NW-VSI). An example use case of it would be allowing
-   an SAP application to scan for malicious uploads in HTTP uploads.
-   To use virus scanning within SAP applications, you can use the
-   Virus Scan Interface in SAP (transaction VSCAN).
-  </para>
  </sect1>
 </chapter>
