@@ -4,15 +4,125 @@
   <!ENTITY % entities SYSTEM "entity-decl.ent">
     %entities;
 ]>
-<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="cha.s4s.component">
- <title>Components of &sles4sap;</title>
+<sect1 xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="sec.s4s.component">
+ <title>Software Components of &sles4sap;</title>
 
  <para>
   &sles4sapreg; consists of several components such as &sleha;,
   the Kernel page-cache limit feature, and an Installation
   Wizard, which are briefly explained in the following sections.
  </para>
- <sect1 xml:id="sec.s4s.hana-replicate">
+
+ <variablelist>
+  <varlistentry>
+   <term><emphasis>&sls;</emphasis>
+   </term>
+   <listitem>
+    <para>
+     The current release is based on &sls; &productnumber;. &sls;
+     is the most interoperable platform for mission-critical computing,
+     both physical and virtual.
+    </para>
+   </listitem>
+  </varlistentry>
+  <varlistentry>
+   <term><emphasis>Installation Workflow</emphasis>
+   </term>
+   <listitem>
+    <para>
+     The Installation Workflow offers a guided installation path for both the
+     &sls; operating system and the SAP application.
+     <!-- jweber does not want plural ("applications") here.-->
+    </para>
+    <para>
+     Additionally, the workflow can be extended by third-party vendors or
+     customers using &supmedia;. For more information, see
+     <xref linkend="app.s4s.component.supplement"/>.
+    </para>
+   </listitem>
+  </varlistentry>
+  <varlistentry>
+   <term><emphasis>&sleha;</emphasis>
+   </term>
+   <listitem>
+    <para>
+     This component consists of:
+    </para>
+<!--
+        2015-05-04: https://www.suse.com/products/highavailability/features/
+    -->
+    <itemizedlist mark="bullet" spacing="normal">
+     <listitem>
+      <para>
+       Flexible, policy-driven clustering
+      </para>
+     </listitem>
+     <listitem>
+      <para>
+       Cluster-aware file system and volume management
+      </para>
+     </listitem>
+     <listitem>
+      <para>
+       Continuous data replication
+      </para>
+     </listitem>
+     <listitem>
+      <para>
+       Setup and installation
+      </para>
+     </listitem>
+     <listitem>
+      <para>
+       Management and administration tools
+      </para>
+     </listitem>
+     <listitem>
+      <para>
+       Resource agents, also for SAP
+      </para>
+     </listitem>
+     <listitem>
+      <para>
+       Virtualization-aware
+      </para>
+     </listitem>
+    </itemizedlist>
+    <para>
+     For more information about &sleha;, see the &haguide;
+     (<link xlink:href="http://www.suse.com/documentation/sle-ha-12/"/>)
+     and the <emphasis>White Papers</emphasis> and <emphasis>Best Practice
+     Guides</emphasis> in the Resource Library
+     (<link xlink:href="http://www.suse.com/products/sles-for-sap/resource-library/"/>).
+    </para>
+   </listitem>
+  </varlistentry>
+  <varlistentry>
+   <term><emphasis>Page-Cache Limit</emphasis>
+   </term>
+   <listitem>
+    <para>
+     Limit the kernel file system cache size to influence swapping
+     behavior. With this feature you can gain better performance by
+     allocating memory to an application. For more information, see
+     <xref linkend="sec.s4s.configure.page-cache"/>.
+    </para>
+   </listitem>
+  </varlistentry>
+  <varlistentry>
+   <term><emphasis>ClamSAP</emphasis>
+   </term>
+   <listitem>
+    <para>
+     ClamSAP is an antivirus toolkit integration. For more information, see
+     <xref linkend="sec.s4s.component.clamsap"/>.
+    </para>
+   </listitem>
+  </varlistentry>
+ </variablelist>
+
+
+ <sect2 xml:id="sec.s4s.hana-replicate">
   <title>Resource Agents for &hana; System Replication</title>
 
   <para>
@@ -20,7 +130,7 @@
    and two additional resource agents (RA).
   </para>
 
-  <sect2 xml:id="sec.s4s.hana-ra">
+  <sect3 xml:id="sec.s4s.hana-ra">
    <title><systemitem>SAPHana</systemitem> Resource Agent</title>
    <!--
     Terms:
@@ -126,8 +236,8 @@
      multi-tenant &hana; databases. That is, you can use &hana; databases that
      serve multiple SAP applications.
     </para>
-  </sect2>
-  <sect2 xml:id="sec.s4s.topology-ra">
+  </sect3>
+  <sect3 xml:id="sec.s4s.topology-ra">
    <title><systemitem>SAPHanaTopology</systemitem> Resource Agent</title>
    <para>
     To make configuring the cluster as simple as possible, SUSE has
@@ -137,8 +247,8 @@
     configurations of &hana; system replications. It is designed as a
     normal (stateless) clone.
    </para>
-  </sect2>
-  <sect2 xml:id="sec.s4s.hana-replicate.more">
+  </sect3>
+  <sect3 xml:id="sec.s4s.hana-replicate.more">
    <title>For More Information</title>
    <para>
     For more information, see:
@@ -159,207 +269,10 @@
      </para>
     </listitem>
    </itemizedlist>
-  </sect2>
- </sect1>
+  </sect3>
+ </sect2>
 
- <sect1 xml:id="sec.s4s.component.supplement">
-  <title>&supmedia;</title>
-
-  <para>
-   The idea behind &supmedia; is to enable
-   partners or customers to add their own tasks or workflows to the
-   Installation Wizard.
-  </para>
-
-  <para>
-   This is done by adding a small XML file, which will be part of an &ay;
-   XML file. This file must be called <filename>product.xml</filename>; then
-   it will be included in the workflow.
-  </para>
-
-  <para>
-   This can be used for various types of additions, such as adding your own
-   RPMs, running your own scripts, setting up a cluster file system or
-   creating your own dialogs and scripts.
-  </para>
-
-  <sect2 xml:id="sec.s4s.component.supplement.productxml">
-   <title><filename>product.xml</filename></title>
-   <para>
-    The <filename>product.xml</filename> file looks like a normal &ay;
-    XML file, but with some restrictions.
-   </para>
-   <para>
-    The restrictions relate to the fact that only the parts for the second
-    stage of the installation can be run, because the first stage was
-    executed before.
-   </para>
-   <para>
-    Both XML files (<filename>autoyast.xml</filename> and
-    <filename>product.xml</filename>) will be merged after the media is read
-    and a <quote>new</quote> &ay; XML file is generated on the fly for
-    the additional workflow.
-   </para>
-   <para>
-    The following areas or sections will be merged:
-   </para>
-<screen>&lt;general&gt;
-  &lt;ask-list&gt;         <co xml:id="co.s4s.ay.general"/>
-  ...
-&lt;software&gt;           <co xml:id="co.s4s.ay.software"/>
-  &lt;post-packages&gt;
-  ...
-&lt;scripts&gt;
-  &lt;chroot-scripts&gt;   <co xml:id="co.s4s.ay.chroot"/>
-  &lt;post-scripts&gt;     <co xml:id="co.s4s.ay.post"/>
-  &lt;init-scripts&gt;     <co xml:id="co.s4s.ay.init"/>
-  ...</screen>
-   <calloutlist>
-    <callout arearefs="co.s4s.ay.general">
-     <para>
-      see <xref linkend="sec.s4s.component.supplement.ask"/>
-     </para>
-    </callout>
-    <callout arearefs="co.s4s.ay.software">
-     <para>
-      see <xref linkend="sec.s4s.component.supplement.rpm"/>
-     </para>
-    </callout>
-    <callout arearefs="co.s4s.ay.chroot">
-     <para>
-      after the package installation, before the first boot
-     </para>
-    </callout>
-    <callout arearefs="co.s4s.ay.post">
-     <para>
-      during the first boot of the installed system, no services running
-     </para>
-    </callout>
-    <callout arearefs="co.s4s.ay.init">
-     <para>
-      during the first boot of the installed system, all services up and
-      running
-     </para>
-    </callout>
-   </calloutlist>
-   <para>
-    All other sections will be replaced.
-   </para>
-   <para>
-    For the details of other customization options, see the SLES
-    <emphasis>&ay; Guide</emphasis>, Chapter 4.16. <quote>Custom User
-    Scripts</quote>.
-   </para>
-  </sect2>
-
-  <sect2 xml:id="sec.s4s.component.supplement.ask">
-   <title>Own &ay; Ask Dialogs</title>
-   <para>
-    For a general overview and details of the Ask feature of &ay;, see
-    Chapter 4.19. <quote>Ask the User for Values During Installation</quote>
-    of the SLES <emphasis>&ay; Guide</emphasis> (the <emphasis>&ay;
-    Guide</emphasis> comes with the product or is available from
-    <link xlink:href="http://www.suse.com/documentation/sles-12/"/>).
-   </para>
-   <para>
-    For the &supmedia;, you can only use dialogs within the
-    <literal>cont</literal> stage
-    (<literal>&lt;stage&gt;cont&lt;/stage&gt;</literal>), which means they
-    are executed after the first reboot.
-   </para>
-   <para>
-    Your file with the dialogs will be merged with the base &ay; XML
-    file.
-   </para>
-   <para>
-    As a best practice, your dialog should have a dialog number and an
-    element number, best with steps of 10. This helps to include later
-    additions and could be used as targets for jumping over a dialog or
-    element dependent on decisions. We also use this in our base dialogs and
-    if you provide the right dialog number and element number, you can place
-    your dialog between our base dialogs.
-   </para>
-   <para>
-    You can store the answer to a question in a file, to use it in one of
-    your scripts later. Be aware that you <emphasis>must</emphasis> use the
-    prefix <literal>/tmp/ay</literal> for this, because the Installation
-    Wizard will copy such files from the <filename>/tmp</filename> directory
-    to the directory where your media data also will be copied. This is done
-    because the next supplemenary media could have the same dialogs or same
-    answer file names and would overwrite the values saved here.
-   </para>
-   <para>
-    Here is an example with several options:
-   </para>
-<screen><![CDATA[<?xml version="1.0"?>
-<!DOCTYPE profile>
-<profile xmlns="http://www.suse.com/1.0/yast2ns"
-         xmlns:config="http://www.suse.com/1.0/configns">
-<general>
-  <ask-list config:type="list">
-      <ask>
-          <stage>cont</stage>
-          <dialog config:type="integer">20</dialog>
-          <element config:type="integer">10</element>
-          <question>What is your name?</question>
-          <default>Enter your name here</default>
-          <help>Please enter your full name within the field</help>
-          <file>/tmp/ay_q_my_name</file>
-          <script>
-             <filename>my_name.sh</filename>
-             <rerun_on_error config:type="boolean">true</rerun_on_error>
-             <environment config:type="boolean">true</environment>
-             <source><![CDATA[
-function check_name() {
-           local name=$1
-           LC_ALL=POSIX
-           [ -z "$name" ] && echo "You need to provide a name." && return 1
-           return 0
-}
-check_name "$VAL"
-]]]]><![CDATA[>
-             </source>
-             <debug config:type="boolean">false</debug>
-             <feedback config:type="boolean">true</feedback>
-          </script>
-      </ask>
-  </ask-list>
-</general>
-</profile>]]></screen>
-  </sect2>
-
-  <sect2 xml:id="sec.s4s.component.supplement.rpm">
-   <title>Installing Additional Packages</title>
-   <para>
-    You can also install RPM packages within the
-    <filename>product.xml</filename> file. To do this, you can use the
-    <literal>&lt;post-packages&gt;</literal> element for installation in
-    stage 2.
-   </para>
-   <para>
-    For more information, see the SLES &ay; Guide, Chapter 4.6.5.
-    <quote>Installing Packages in Stage 2</quote>. An example looks as
-    follows:
-   </para>
-<screen><![CDATA[...
-<software>
- <post-packages config:type="list">
-  <package>yast2-cim</package>
- </post-packages>
-</software>
-...]]></screen>
-  </sect2>
-
-  <sect2>
-   <title>Example Directory for the &supmedia;</title>
-<screen>&prompt.user; ls
-product.xml</screen>
-   <remark>
-    This alright now? FIXME. - sknorr, 2016-01-21
-   </remark>
-  </sect2>
- </sect1>
- <sect1 xml:id="sec.s4s.component.clamsap">
+ <sect2 xml:id="sec.s4s.component.clamsap">
   <title>ClamSAP</title>
   <para>
    ClamSAP integrates the ClamAV antivirus toolkit into &netweaver; applications
@@ -382,5 +295,5 @@ product.xml</screen>
    Commented away part about enabling ClamSAP from NW menu, because I have not
    seen this in the flesh. FIXME - sknorr, 2016-02-10
   </remark>
- </sect1>
-</chapter>
+ </sect2>
+</sect1>

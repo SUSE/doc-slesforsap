@@ -635,8 +635,8 @@
      Otherwise, click <guimenu>No</guimenu>.
     </para>
     <para>
-     For more information on &supmedia;, see
-     <xref linkend="sec.s4s.component.supplement"/>.
+     For information on creating &supmedia;, see
+     <xref linkend="app.s4s.component.supplement"/>.
     </para>
     <remark>
      Two crossrefs in one step. Not ideal. - sknorr, 2016-02-03

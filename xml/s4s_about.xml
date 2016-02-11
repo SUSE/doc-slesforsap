@@ -15,25 +15,6 @@
    </para>
   </abstract>
  </info>
-<!--
-     webyast no longer exists.
- -->
-<!--
-  <figure id="fig.s4s-picture">
-  <title>What Is &sles4sap;?</title>
-  <mediaobject>
-   <imageobject role="fo">
-    <imagedata fileref="sles-for-sap-picture.png" width="100%" format="PNG"/>
-   </imageobject>
-   <imageobject role="html">
-    <imagedata fileref="sles-for-sap-picture.png" width="100%" format="PNG"/>
-   </imageobject>
-  </mediaobject>
- </figure>
- -->
-<!-- -=-=-=-=-=-=-=-=-=-=-=-=-=- cut here -=-=-=-=-=-=-=-=-=-=-=-=-=- -->
- <sect1 xml:id="sec.s4s.about.overview">
-  <title>Overview</title>
 
   <para>
    Target use cases include:
@@ -59,124 +40,26 @@
 
   <para>
    &sles4sap; consists of software components (see
-   <xref linkend="sec.s4s.about.component"/>) and service offerings (see
-   <xref linkend="s4s.about.service"/>).
+   <xref linkend="sec.s4s.component"/>) and service offerings (see
+   <xref linkend="sec.s4s.service"/>).
   </para>
- </sect1>
 
- <sect1 xml:id="sec.s4s.about.component">
-  <title>Software Components</title>
+ <figure xml:id="fig.s4s.offering">
+  <title>Offerings of &sles4sap;</title>
+  <mediaobject>
+   <imageobject role="fo">
+    <imagedata fileref="s4s_overview.svg" width="85%" format="SVG"/>
+   </imageobject>
+   <imageobject role="html">
+    <imagedata fileref="s4s_overview.png" width="85%" format="PNG"/>
+   </imageobject>
+  </mediaobject>
+ </figure>
 
-  <variablelist>
-   <varlistentry>
-    <term><emphasis>&sls;</emphasis>
-    </term>
-    <listitem>
-     <para>
-      The current release is based on &sls; &productnumber;. &sls;
-      is the most interoperable platform for mission-critical computing,
-      both physical and virtual.
-     </para>
-    </listitem>
-   </varlistentry>
-   <varlistentry>
-    <term><emphasis>Installation Workflow</emphasis>
-    </term>
-    <listitem>
-     <para>
-      The Installation Workflow offers a guided installation path for both the
-      &sls; operating system and the SAP application.
-      <!-- jweber does not want plural ("applications") here.-->
-     </para>
-     <para>
-      Additionally, the workflow can be extended by third-party vendors or
-      customers using &supmedia;. For more information, see
-      <xref linkend="sec.s4s.component.supplement"/>.
-     </para>
-    </listitem>
-   </varlistentry>
-   <varlistentry>
-    <term><emphasis>&sleha;</emphasis>
-    </term>
-    <listitem>
-     <para>
-      This component consists of:
-     </para>
-<!--
-         2015-05-04: https://www.suse.com/products/highavailability/features/
-     -->
-     <itemizedlist mark="bullet" spacing="normal">
-      <listitem>
-       <para>
-        Flexible, policy-driven clustering
-       </para>
-      </listitem>
-      <listitem>
-       <para>
-        Cluster-aware file system and volume management
-       </para>
-      </listitem>
-      <listitem>
-       <para>
-        Continuous data replication
-       </para>
-      </listitem>
-      <listitem>
-       <para>
-        Setup and installation
-       </para>
-      </listitem>
-      <listitem>
-       <para>
-        Management and administration tools
-       </para>
-      </listitem>
-      <listitem>
-       <para>
-        Resource agents, also for SAP
-       </para>
-      </listitem>
-      <listitem>
-       <para>
-        Virtualization-aware
-       </para>
-      </listitem>
-     </itemizedlist>
-     <para>
-      For more information about &sleha;, see the &haguide;
-      (<link xlink:href="http://www.suse.com/documentation/sle-ha-12/"/>)
-      and the <emphasis>White Papers</emphasis> and <emphasis>Best Practice
-      Guides</emphasis> in the Resource Library
-      (<link xlink:href="http://www.suse.com/products/sles-for-sap/resource-library/"/>).
-     </para>
-    </listitem>
-   </varlistentry>
-   <varlistentry>
-    <term><emphasis>Page-Cache Limit</emphasis>
-    </term>
-    <listitem>
-     <para>
-      Limit the kernel file system cache size to influence swapping
-      behavior. With this feature you can gain better performance by
-      allocating memory to an application. For more information, see
-      <xref linkend="sec.s4s.configure.page-cache"/>.
-     </para>
-    </listitem>
-   </varlistentry>
-   <varlistentry>
-    <term><emphasis>ClamSAP</emphasis>
-    </term>
-    <listitem>
-     <para>
-      ClamSAP is an antivirus toolkit integration. For more information, see
-      <xref linkend="sec.s4s.component.clamsap"/>.
-     </para>
-    </listitem>
-   </varlistentry>
-  </variablelist>
- </sect1>
- <sect1 xml:id="s4s.about.service">
-  <title>Services for &sles4sap;</title>
+ <xi:include href="s4s_components.xml" parse="xml"/>
+
+ <sect1 xml:id="sec.s4s.service">
+  <title>Services Included with &sles4sap;</title>
 
   <variablelist>
    <varlistentry>
