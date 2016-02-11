@@ -82,20 +82,6 @@
      </para>
     </listitem>
    </varlistentry>
-<!--
-   <varlistentry>
-    <!-\- FIXME??? -\->
-    <term><emphasis>Channel for Additional &sles4sapa; Packages</emphasis></term>
-    <listitem>
-    <itemizedlist>
-     <listitem>
-      <para>
-      </para>
-     </listitem>
-    </itemizedlist>
-    </listitem>
-   </varlistentry>
-   -->
    <varlistentry>
     <term><emphasis>Additional Update Channel</emphasis>
     </term>
