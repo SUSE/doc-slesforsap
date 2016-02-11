@@ -345,8 +345,8 @@
     <systemitem>ClusterTools2</systemitem> provides tools that help setting up
     and managing a Corosync/<systemitem>pacemaker</systemitem> cluster. Among
     them are <systemitem>wow</systemitem> which helps create
-    HA system resources, and <systemitem>ClusterService</systemitem> which
-    allows managing a cluster.
+    highly available system resources, and
+    <systemitem>ClusterService</systemitem> which allows managing a cluster.
    </para>
   </sect3>
 
@@ -408,17 +408,19 @@
    </itemizedlist>
    <important>
     <title>
-     Patterns Cannot Be Updated over the Lifetime of a &sles4sapa; Version
+     Packages May Be Missing from Patterns
     </title>
     <para>
-     The contents of the software patterns are defined before a specific version
-     (service pack) of &sles4sap; is released. When working with SAP applications
-     that could not be taken into account at that time, dependencies may be
-     missing.
+     The selection of packages of the software patterns are defined as a
+     specific release (Service Pack or major version) of &sles4sap; is
+     developed. This package selection is stable over the lifetime of this
+     particular release. When working with SAP applications that have been
+     released more recently than the your &sles4sap; version,
+     dependencies may be missing from the patterns.
     </para>
     <para>
      For definitive information about the dependencies of your SAP application,
-     see the documentation provided to you by SAP.
+     consult the documentation provided to you by SAP.
     </para>
    </important>
   </sect3>
