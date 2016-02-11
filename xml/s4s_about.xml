@@ -62,7 +62,7 @@
  <xi:include href="s4s_components.xml" parse="xml"/>
 
  <sect1 xml:id="sec.s4s.service">
-  <title>Services Included with &sles4sap;</title>
+  <title>Included Services</title>
 
   <variablelist>
    <varlistentry>

@@ -5,7 +5,7 @@
     %entities;
 ]>
 <sect1 xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="sec.s4s.component">
- <title>Software Components of &sles4sap;</title>
+ <title>Software Components</title>
 
  <para>
   As depicted in <xref linkend="fig.s4s.offering"/>,
