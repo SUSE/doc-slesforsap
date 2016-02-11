@@ -245,7 +245,7 @@
   </sect3>
  </sect2>
 
- <sect2>
+ <sect2 xml:id="sec.s4s.component.install">
  <title>Installation Workflow</title>
   <para>
    The installation workflow offers a guided installation path for both the
@@ -261,10 +261,10 @@
   </para>
  </sect2>
 
- <sect2>
+ <sect2 xml:id="sec.s4s.component.page-cache">
   <title>Page-Cache Limit</title>
   <para>
-   Limit the kernel file system cache size to influence swapping
+   You can limit the kernel file system cache size to influence swapping
    behavior. With this feature, you can in many cases gain better performance by
    allocating memory to an application. For more information, see
    <xref linkend="sec.s4s.configure.page-cache"/>.

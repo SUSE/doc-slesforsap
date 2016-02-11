@@ -76,13 +76,13 @@
   <itemizedlist>
    <listitem>
     <para>
-     <xref linkend="cha.s4s.install" xrefstyle="select:title,nopage"/>
+     <xref linkend="sec.s4s.install.workflow" xrefstyle="select:title,nopage"/>
      (supported standard way of installation)
     </para>
    </listitem>
    <listitem>
     <para>
-     <xref linkend="cha.s4s.autoyast" xrefstyle="select:title,nopage"/>
+     <xref linkend="sec.s4s.autoyast" xrefstyle="select:title,nopage"/>
      (unsupported, provided for convenience only)
     </para>
    </listitem>

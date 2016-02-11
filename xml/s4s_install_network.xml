@@ -4,160 +4,76 @@
   <!ENTITY % entities SYSTEM "entity-decl.ent">
     %entities;
 ]>
-<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="cha.s4s.install.remote">
- <title>Remote Installation from a Network Server</title>
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="cha.s4s.serve-mediaset">
+ <title>Setting Up an Installation Server</title>
 
  <para>
-  The following sections provide a short description of how to install
-  &sles4sap; from a network server.
-  For more detailed information, see
-  <citetitle>&deploy;, Chapter 13 <quote>Remote Installation</quote></citetitle>
-  (&docaddress;).
+  Using the &sapwiz;, it is possible to copy the SAP media sets from a
+  remote server (for example, via NFS or SMB).
+  While the &sapwiz; itself provides the option to create an
+  installation server when installing an SAP product, it does not offer a way
+  to copy all SAP media used in your organization to a single server.
+ </para>
+ <para>
+  However, you can easily create such a server on your own.
+  For example, if you want to put the SAP media sets on an NFS
+  Server, proceed as follows:
  </para>
 
- <sect1 xml:id="s4s.install.remote.installmedia">
-  <title>Installing with Installation Media from the Network</title>
-
-  <procedure>
-   <step>
-    <para>
-     Copy the &sles4sap; DVD content to a Web server (for example,
-     <literal>example.com</literal>) to the directory
-     <filename>/srv/www/htdocs/sap_repo</filename>.
-    </para>
-   </step>
-   <step>
-    <para>
-     Boot from DVD.
-    </para>
-   </step>
-   <step>
-    <para>
-     Select one of the boot menu options using the keys
-     <keycap function="down"/>/<keycap function="up"/>.
-     Then add to the command line. To do so, type out the parameters listed
-     below:
-    </para>
-    <remark>
-     What to do about the instmode=cd parameters that needed to be removed?
-     Can I use another instmode? Parameter is not mentioned in %deploy;. fixme
-     - sknorr, 2016-01-29
-    </remark>
-    <orderedlist>
-     <!--<listitem>
-      <para>
-       Remove the parameter <literal>instmode=cd</literal> from the command
-       line.
-      </para>
-     </listitem>-->
-     <listitem>
-      <para>
-       To start the network, add <literal>netsetup=1</literal>
-      </para>
-      <remark>
-        Double-check if "netsetup" parameter is correct and not just legacy.
-        See other remark in s4s_autoyast. - sknorr, 2016-01-28
-      </remark>
-     </listitem>
-     <listitem>
-      <para>
-       Add the parameter
-       <literal>autoyast=http://example.com/sap_repo/</literal>.
-      </para>
-     </listitem>
-     <listitem>
-      <para>
-       Add the parameter
-       <literal>install=http://example.com/sap_repo</literal>.
-      </para>
-     </listitem>
-    </orderedlist>
-    <para>
-    </para>
-   </step>
-  </procedure>
-
-  <para>
-   To avoid having to use a DVD to bootstrap the system, you can boot over the
-   network via PXE.
-   For details, see
-   <citetitle>&ay; Guide,
-   Chapter 6.2.3 <quote>Booting via PXE over the Network</quote></citetitle>
-   (&docaddress;).
-  </para>
- </sect1>
-
- <sect1 xml:id="sec.s4s.install.sap.mediaset">
-  <title>Setting Up an Installation Server</title>
-
-  <para>
-   Using the &sapwiz;, it is possible to copy the SAP media sets from a
-   remote server (for example, via NFS or SMB).
-   While the &sapwiz; itself provides the option to create an
-   installation server when installing an SAP product, it does not offer a way
-   to copy all SAP media used in your organization to a single server.
-  </para>
-  <para>
-   However, you can easily create such a server on your own.
-   For example, if you want to put the SAP media sets on an NFS
-   Server, proceed as follows:
-  </para>
-
-  <procedure>
-   <step>
-    <para>
-     On your installation server, create the directory
-     <filename>/srv/www/htdocs/sap_repo</filename>.
-    </para>
-   </step>
-   <step>
-    <para>
-     Open the file <filename>/etc/exports</filename> and add the following:
-    </para>
+ <procedure>
+  <step>
+   <para>
+    On your installation server, create the directory
+    <filename>/srv/www/htdocs/sap_repo</filename>.
+   </para>
+  </step>
+  <step>
+   <para>
+    Open the file <filename>/etc/exports</filename> and add the following:
+   </para>
 <screen>/srv/www/htdocs/sap_repo *(ro,root_squash,sync)</screen>
-   </step>
-   <step>
+  </step>
+  <step>
+   <para>
+    In <filename>/srv/www/htdocs/sap_repo</filename>, create a directory for
+    every SAP medium you have. Give these directories speaking names, so you
+    can identify them late. For example, you could use names like
+    <filename>kernel</filename>, <filename>java</filename>, or
+    <filename>maxdb</filename>.
+   </para>
+  </step>
+  <step>
+   <para>
+    Copy the contents of each SAP medium to the corresponding directory
+    with <command>cp -a</command>.
+   </para>
+   <important>
+    <title>Avoid Using Windows&ast; Operating Systems for Copying</title>
     <para>
-     In <filename>/srv/www/htdocs/sap_repo</filename>, create a directory for
-     every SAP medium you have. Give these directories speaking names, so you
-     can identify them late. For example, you could use names like
-     <filename>kernel</filename>, <filename>java</filename>, or
-     <filename>maxdb</filename>.
+     Using Windows operating system for copying or copying from/to Windows
+     file systems like NTFS may break permission settings and capitalization
+     of files and directories.
     </para>
-   </step>
-   <step>
-    <para>
-     Copy the contents of each SAP medium to the corresponding directory
-     with <command>cp -a</command>.
-    </para>
-    <important>
-     <title>Avoid Using Windows&ast; Operating Systems for Copying</title>
-     <para>
-      Using Windows operating system for copying or copying from/to Windows
-      file systems like NTFS may break permission settings and capitalization
-      of files and directories.
-     </para>
-    </important>
-   </step>
-  </procedure>
+   </important>
+  </step>
+ </procedure>
 
-  <para>
-   You can now install from the NFS server you set up.
-   In the &sapwiz;, specify the path this way:
-   <filename><replaceable>server_name</replaceable>/srv/www/htdocs/sap_repo</filename>.
-  </para>
-  <remark>
-   The NFS path originally had a colon after server_name. Double-check if that
-   had a meaning. (But it was inconsistent with other docs and a colon there
-   would mean that you would see a specific port number, normally)
-   - sknorr, 2015-01-29
-  </remark>
+ <para>
+  You can now install from the NFS server you set up.
+  In the &sapwiz;, specify the path this way:
+  <filename><replaceable>server_name</replaceable>/srv/www/htdocs/sap_repo</filename>.
+ </para>
+ <remark>
+  The NFS path originally had a colon after server_name. Double-check if that
+  had a meaning. (But it was inconsistent with other docs and a colon there
+  would mean that you would see a specific port number, normally)
+  - sknorr, 2015-01-29
+ </remark>
 
-  <para>
-   For information about installing &sls; from an NFS server, see
-   <citetitle>&deploy;, Chapter 13 <quote>Remote Installation</quote>,
-   Section 13.2.2 <quote>Setting Up an NFS Repository Manually</quote>
-   </citetitle> (&docaddress;).
-  </para>
- </sect1>
+ <para>
+  For information about installing &sls; from an NFS server, see
+  <citetitle>&deploy;, Chapter 13 <quote>Remote Installation</quote>,
+  Section 13.2.2 <quote>Setting Up an NFS Repository Manually</quote>
+  </citetitle> (&docaddress;).
+ </para>
 </chapter>

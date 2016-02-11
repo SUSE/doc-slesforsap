@@ -353,7 +353,7 @@
       To install from an NFS source, enter the name of
       the server and the complete path to the media data. For more
       information about setting up a remote installation server, see
-      <xref linkend="sec.s4s.install.sap.mediaset"/>.
+      <xref linkend="cha.s4s.serve-mediaset"/>.
      </para>
     </tip>
 

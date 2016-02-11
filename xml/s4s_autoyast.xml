@@ -4,8 +4,8 @@
   <!ENTITY % entities SYSTEM "entity-decl.ent">
     %entities;
 ]>
-<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink"
-  xml:id="cha.s4s.autoyast">
+<sect1 xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink"
+  xml:id="sec.s4s.autoyast">
  <title>Installing the Operating System Using an External &ay; Profile</title>
 
  <important>
@@ -37,4 +37,4 @@
   For more information on partitioning for SAP applications with &ay;, see
   <xref linkend="sec.s4s.partition"/>.
  </para>
-</chapter>
+</sect1>

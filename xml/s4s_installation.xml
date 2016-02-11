@@ -5,26 +5,36 @@
     %entities;
 ]>
 <chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="cha.s4s.install">
- <title>Installing the Operating System Using the Installation Workflow</title>
+ <title>Installing the Operating System</title>
 
  <para>
-  The installation workflow is a guided installation of the operating system
-  with optimized
-  settings for SAP applications. During the installation workflow, you can
-  choose whether you want to install an SAP application. If so, you will be
-  asked to provide SAP installation media when the &sls; installation is
-  finished. You can also choose whether to install third-party extensions.
+  The following section provides instructions on how to install the
+  base operating system, &sls; either using the installation workflow,
+  over the network or using &ay;.
  </para>
- <para>
-  For more information, see <xref linkend="sec.s4s.workflow-overview"/>.
- </para>
+
+ <sect1 xml:id="sec.s4s.install.workflow">
+  <title>Using the Installation Workflow</title>
+
+  <para>
+   The installation workflow is a guided installation of the operating system
+   with optimized
+   settings for SAP applications. During the installation workflow, you can
+   choose whether you want to install an SAP application. If so, you will be
+   asked to provide SAP installation media when the &sls; installation is
+   finished. You can also choose whether to install third-party extensions.
+  </para>
+  <para>
+   For more information, see <xref linkend="sec.s4s.workflow-overview"/>.
+  </para>
 
   <para>
    This section will guide you through the installation of the &sles4sap;
    operating system.
   </para>
 
-  <procedure>
+  <procedure xml:id="pro.s4s.workflow.start">
+   <title>Starting the OS Installation</title>
    <step>
     <para>
      Boot from the DVD.
@@ -292,13 +302,13 @@
          leave <guimenu>Start the SAP Installation Wizard right after the OS
          installation</guimenu> unchecked.
         </para>
+        <para>
+         Proceed with <guimenu>Next</guimenu>.
+        </para>
        </listitem>
       </itemizedlist>
      </listitem>
     </itemizedlist>
-    <para>
-     Proceed with <guimenu>Next</guimenu>.
-    </para>
     <figure xml:id="fig.s4s.install.type">
      <title>Installation Type</title>
      <mediaobject>
@@ -311,6 +321,14 @@
      </mediaobject>
     </figure>
    </step>
+  </procedure>
+
+  <!-- Breaking the procedure to make it more obvious that if you want to go
+       through the SLES workflow, you have to stop here and read the SLES
+       Installation Quick Start. Probably not ideal. - sknorr, 2016-02-11. -->
+
+  <procedure xml:id="pro.s4s.workflow.finish">
+   <title>Finishing the OS Installation</title>
    <step>
     <para>
      You can now choose whether to install an <guimenu>Add On Product</guimenu>.
@@ -543,86 +561,96 @@
     </itemizedlist>
    </step>
   </procedure>
+ </sect1>
 
- <!-- <sect1 xml:id="sec.s4s.inst.wizard.prepauto">
-   <title>Preparing System for Automated Installation</title>
+ <sect1 xml:id="s4s.install.network">
+  <title>Using &sles4sap; Media from the Network</title>
 
+  <para>
+   The following provides a short description of how to install from an
+   installation medium served over the network.
+  </para>
 
-   <sect2 xml:id="sec.s4s.inst.wizard.yast2.conf.manual.hostname">
-    <title>Host Name, Domain Name, and IP Address</title><indexterm>
-    <primary>&yast;</primary>
-    <secondary>host name</secondary></indexterm><indexterm>
-    <primary>&yast;</primary>
-    <secondary>domain name</secondary></indexterm><indexterm>
-    <primary>installation</primary>
-    <secondary>host name</secondary></indexterm><indexterm>
-    <primary>installation</primary>
-    <secondary>domain name</secondary></indexterm>
+  <procedure>
+   <step>
     <para>
-     The next dialog starts with the network configuration; see
-     <xref linkend="fig.s4s.inst.yast-network-config"/>.
+     Copy the content of the &sles4sap; DVD to a Web server (for example,
+     <literal>example.com</literal>), to the directory
+     <filename>/srv/www/htdocs/sap_repo</filename>.
     </para>
-    <figure xml:id="fig.s4s.inst.yast-network-config">
-     <title>Host Name, Domain Name, and IP Address</title>
-     <mediaobject>
-      <imageobject role="fo">
-       <imagedata fileref="yast-network-config.png" width="80%" format="PNG"/>
-      </imageobject>
-      <imageobject role="html">
-       <imagedata fileref="yast-network-config.png" width="80%" format="PNG"/>
-      </imageobject>
-     </mediaobject>
-    </figure>
-    <tip>
-     <title>Querying DHCP Server</title>
-     <para>
-      The installation wizard will query a locally running DHCP server to
-      get interesting network data such as names and IP adresses for the
-      local host, DNS server, NTP server, etc. This ensures that the entry
-      fields of the next dialogs will be prefilled with these data.
-     </para>
-    </tip>
+   </step>
+   <step>
     <para>
-     The <guimenu>Host name</guimenu> is the computer’s name in the
-     network. The <guimenu>Domain Name</guimenu> is the name of the network.
-     A host name and domain are proposed by default. If your system is part
-     of a network, the host name has to be unique in this network, whereas
-     the domain name has to be common to all hosts on the network.
+     Boot from DVD.
     </para>
+   </step>
+   <step>
     <para>
-     Also enter the <guimenu>IP Address</guimenu> and
-     <guimenu>Netmask</guimenu> for this host. The IP address must be unique
-     and the netmask has to be common to all hosts on the network.
+     Select one of the boot menu options using the keys
+     <keycap function="down"/>/<keycap function="up"/>.
+     Then add to the command line. To do so, specify the parameters listed
+     below:
     </para>
-   </sect2>
-   <sect2 xml:id="sec.s4s.inst.wizard.yast2.conf.manual.dns-ntp">
-    <title>Domain Name Service (DNS) and Time Server (NTP)</title>
+    <remark>
+     What to do about the instmode=cd parameters that needed to be removed?
+     Can I use another instmode? Parameter is not mentioned in %deploy;. fixme
+     - sknorr, 2016-01-29
+    </remark>
+    <itemizedlist>
+     <!--<listitem>
+      <para>
+       Remove the parameter <literal>instmode=cd</literal> from the command
+       line.
+      </para>
+     </listitem>-->
+     <listitem>
+      <para>
+       To start the network, add <literal>netsetup=1</literal>
+      </para>
+      <remark>
+        Double-check if "netsetup" parameter is correct and not just legacy.
+        See other remark in s4s_autoyast. - sknorr, 2016-01-28
+      </remark>
+     </listitem>
+     <listitem>
+      <para>
+       Add the parameter
+       <literal>autoyast=http://example.com/sap_repo/</literal>.
+      </para>
+     </listitem>
+     <listitem>
+      <para>
+       Add the parameter
+       <literal>install=http://example.com/sap_repo</literal>.
+      </para>
+     </listitem>
+    </itemizedlist>
+   </step>
+   <step>
     <para>
-     The next dialog continues with the network configuration; see
-     <xref linkend="fig.s4s.inst.yast-network-config2"/>.
+     Follow the instructions in <xref linkend="sec.s4s.install.workflow"/>.
     </para>
-    <figure xml:id="fig.s4s.inst.yast-network-config2">
-     <title>Domain Name Service (DNS) and Time Server (NTP)</title>
-     <mediaobject>
-      <imageobject role="fo">
-       <imagedata fileref="yast-network-config2.png" width="80%" format="PNG"/>
-      </imageobject>
-      <imageobject role="html">
-       <imagedata fileref="yast-network-config2.png" width="80%" format="PNG"/>
-      </imageobject>
-     </mediaobject>
-    </figure>
-    <para>
-     For Domain Name Service (DNS) configuration, enter the <guimenu>Domain
-     Searchlist</guimenu> and the <guimenu>IP Address of DNS
-     Server</guimenu> plus the IP address of the <guimenu>Default
-     Gateway</guimenu> of your network.
-    </para>
-    <para>
-     Also enter the address of the <guimenu>NTP Server</guimenu> to
-     synchronize automatically via Network Time Protocol (NTP).
-    </para>
-   </sect2>
-  </sect1> -->
+    <remark>
+     True? - sknorr, 2016-01-11
+    </remark>
+   </step>
+  </procedure>
+
+  <para>
+   For more information, see
+   <citetitle>&deploy;, Chapter 13 <quote>Remote Installation</quote></citetitle>
+   (&docaddress;).
+  </para>
+
+  <para>
+   To avoid having to use a DVD to bootstrap the system, you can boot over the
+   network via PXE.
+   For details, see <citetitle>&ay; Guide,
+   Chapter 6.2.3 <quote>Booting via PXE over the Network</quote></citetitle>
+   (&docaddress;).
+  </para>
+ </sect1>
+
+ <xi:include href="s4s_autoyast.xml" parse="xml"/>
 
 </chapter>
