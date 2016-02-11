@@ -83,7 +83,7 @@ vm.pagecache_limit_ignore_dirty = 0</screen>
 
   <para>
    By default, the installation workflow of &sles4sap; enables
-   <phrase role="productname">SuSEfirewall</phrase>. The firewall needs to
+   &susefirewall;. The firewall needs to
    manually be configured to allow network access for the following:
   </para>
 
@@ -151,10 +151,6 @@ vm.pagecache_limit_ignore_dirty = 0</screen>
     Instead, they can be installed from the package
     <systemitem>HANA-Firewall</systemitem>.
    </para>
-   <remark>
-    Check if this package is installed automatically and mention that if so.
-    FIXME - sknorr, 2016-01-22
-   </remark>
   </sect2>
  </sect1>
 

@@ -8,122 +8,76 @@
  <title>Software Components of &sles4sap;</title>
 
  <para>
-  &sles4sapreg; consists of several components such as &sleha;,
-  the Kernel page-cache limit feature, and an Installation
-  Wizard, which are briefly explained in the following sections.
+  As depicted in <xref linkend="fig.s4s.offering"/>,
+  &sles4sap; is based on &sls; but contains a number of added
+  software components such as &sleha;,
+  the kernel page-cache limit feature, and the installation
+  workflow. These software components are briefly explained in the
+  following sections.
  </para>
 
- <variablelist>
-  <varlistentry>
-   <term><emphasis>&sls;</emphasis>
-   </term>
-   <listitem>
-    <para>
-     The current release is based on &sls; &productnumber;. &sls;
-     is the most interoperable platform for mission-critical computing,
-     both physical and virtual.
-    </para>
-   </listitem>
-  </varlistentry>
-  <varlistentry>
-   <term><emphasis>Installation Workflow</emphasis>
-   </term>
-   <listitem>
-    <para>
-     The Installation Workflow offers a guided installation path for both the
-     &sls; operating system and the SAP application.
-     <!-- jweber does not want plural ("applications") here.-->
-    </para>
-    <para>
-     Additionally, the workflow can be extended by third-party vendors or
-     customers using &supmedia;. For more information, see
-     <xref linkend="app.s4s.component.supplement"/>.
-    </para>
-   </listitem>
-  </varlistentry>
-  <varlistentry>
-   <term><emphasis>&sleha;</emphasis>
-   </term>
-   <listitem>
-    <para>
-     This component consists of:
-    </para>
-<!--
-        2015-05-04: https://www.suse.com/products/highavailability/features/
-    -->
-    <itemizedlist mark="bullet" spacing="normal">
-     <listitem>
-      <para>
-       Flexible, policy-driven clustering
-      </para>
-     </listitem>
-     <listitem>
-      <para>
-       Cluster-aware file system and volume management
-      </para>
-     </listitem>
-     <listitem>
-      <para>
-       Continuous data replication
-      </para>
-     </listitem>
-     <listitem>
-      <para>
-       Setup and installation
-      </para>
-     </listitem>
-     <listitem>
-      <para>
-       Management and administration tools
-      </para>
-     </listitem>
-     <listitem>
-      <para>
-       Resource agents, also for SAP
-      </para>
-     </listitem>
-     <listitem>
-      <para>
-       Virtualization-aware
-      </para>
-     </listitem>
-    </itemizedlist>
-    <para>
-     For more information about &sleha;, see the &haguide;
-     (<link xlink:href="http://www.suse.com/documentation/sle-ha-12/"/>)
-     and the <emphasis>White Papers</emphasis> and <emphasis>Best Practice
-     Guides</emphasis> in the Resource Library
-     (<link xlink:href="http://www.suse.com/products/sles-for-sap/resource-library/"/>).
-    </para>
-   </listitem>
-  </varlistentry>
-  <varlistentry>
-   <term><emphasis>Page-Cache Limit</emphasis>
-   </term>
-   <listitem>
-    <para>
-     Limit the kernel file system cache size to influence swapping
-     behavior. With this feature you can gain better performance by
-     allocating memory to an application. For more information, see
-     <xref linkend="sec.s4s.configure.page-cache"/>.
-    </para>
-   </listitem>
-  </varlistentry>
-  <varlistentry>
-   <term><emphasis>ClamSAP</emphasis>
-   </term>
-   <listitem>
-    <para>
-     ClamSAP is an antivirus toolkit integration. For more information, see
-     <xref linkend="sec.s4s.component.clamsap"/>.
-    </para>
-   </listitem>
-  </varlistentry>
- </variablelist>
+ <sect2>
+  <title>&sls;</title>
+  <para>
+   The current release is based on &sls; &productnumber;. &sls;
+   is the most interoperable platform for mission-critical computing,
+   both physical and virtual.
+  </para>
+ </sect2>
 
+ <sect2>
+  <title>&sleha;</title>
+  <para>
+   This component consists of:
+  </para>
+  <!-- ke 2015-05-04: https://www.suse.com/products/highavailability/features/
+  -->
+  <itemizedlist mark="bullet" spacing="normal">
+   <listitem>
+    <para>
+     Flexible, policy-driven clustering
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     Cluster-aware file system and volume management
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     Continuous data replication
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     Setup and installation
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     Management and administration tools
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     Resource agents, also for SAP
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     Virtualization-aware
+    </para>
+   </listitem>
+  </itemizedlist>
+  <para>
+   For more information about &sleha;, see the &haguide; (&ha-docaddress;)
+   and the <emphasis>White Papers</emphasis> and <emphasis>Best Practice
+   Guides</emphasis> in the &sles4sap; Resource Library (&reslibrary;).
+  </para>
+ </sect2>
 
  <sect2 xml:id="sec.s4s.hana-replicate">
-  <title>Resource Agents for &hana; System Replication</title>
+  <title>HA Resource Agents for &hana; System Replication</title>
 
   <para>
    &sles4sap; supports &hana; System Replication using components of &sleha;
@@ -262,14 +216,39 @@
     <listitem>
      <para>
       The <emphasis>White Papers</emphasis> and <emphasis>Best Practice
-      Guides</emphasis> in the Resource Library at
-      <link xlink:href="https://www.suse.com/products/sles-for-sap/resource-library/"/>.
-      For example,
-      <link xlink:href="https://www.suse.com/promo/sap/hana/replication.html"/>.
+      Guides</emphasis> in the Resource Library at &reslibrary;.
+      In particular, see
+      <citetitle>Automate your SAP HANA System Replication Failover</citetitle>.
      </para>
     </listitem>
    </itemizedlist>
   </sect3>
+ </sect2>
+
+ <sect2>
+ <title>Installation Workflow</title>
+  <para>
+   The installation workflow offers a guided installation path for both the
+   &sls; operating system and the SAP application.
+   <!-- ke: jweber does not want plural ("applications") here.-->
+   For more information, see <xref linkend="cha.s4s.install"/> and
+   <xref linkend="cha.s4s.install.sap"/>.
+  </para>
+  <para>
+   Additionally, the installation workflow can be extended by
+   third-party vendors or customers using &supmedia;. For more information on
+   creating &supmedia;, see <xref linkend="app.s4s.component.supplement"/>.
+  </para>
+ </sect2>
+
+ <sect2>
+  <title>Page-Cache Limit</title>
+  <para>
+   Limit the kernel file system cache size to influence swapping
+   behavior. With this feature, you can in many cases gain better performance by
+   allocating memory to an application. For more information, see
+   <xref linkend="sec.s4s.configure.page-cache"/>.
+  </para>
  </sect2>
 
  <sect2 xml:id="sec.s4s.component.clamsap">
@@ -295,5 +274,41 @@
    Commented away part about enabling ClamSAP from NW menu, because I have not
    seen this in the flesh. FIXME - sknorr, 2016-02-10
   </remark>
+ </sect2>
+
+ <sect2 xml:id="sec.s4s.component.hana-secure">
+  <title>SAP HANA Security</title>
+  <para>
+   &sles4sap; contains additional features to help set up well-secured &hana;
+   installations.
+  </para>
+
+  <sect3 xml:id="sec.s4s.component.firewall-hana">
+   <title>Firewall for &hana;</title>
+   <para>
+    &hana; often requires more firewall zones than the standard installation of
+    &susefirewall; can provide. For this reason, &sles4sap; additionally
+    provides the package <systemitem>HANA-Firewall</systemitem> which
+    integrates with &susefirewall;. It contains preconfigured zone setups and
+    rules to make securing &hana; as simple as possible.
+   </para>
+   <para>
+    For more information, see <xref linkend="sec.s4s.configure.firewall"/>.
+   </para>
+  </sect3>
+
+  <sect3 xml:id="sec.s4s.component.harden">
+   <title>Security Hardening Guide for &hana;</title>
+   <para>
+    For information on hardening the underlying operating system, see the
+    &sles4sap; resource library: &reslibrary;. In particular, see
+    <citetitle>OS Security Hardening for &hana;</citetitle>.
+   </para>
+   <remark>
+    Calling a Guide "software" is a bit of a stretch... But it is not really a
+    service either, unfortunately. If those are the only two categories we can
+    work with... - sknorr, 2016-02-11
+   </remark>
+  </sect3>
  </sect2>
 </sect1>

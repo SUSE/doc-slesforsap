@@ -85,20 +85,17 @@
    <listitem>
     <para>
      You can find numerous whitepapers, a best-practices guide, and other
-     resources at the &sles4sap; resource library:
-     <link xlink:href="https://www.suse.com/products/sles-for-sap/resource-library/"/>.
+     resources at the &sles4sap; resource library: &reslibrary;.
     </para>
    </listitem>
    <listitem>
     <para>
-     For documentation on &sls;, see
-     <link xlink:href="https://www.suse.com/documentation/sles-12/"/>.
+     For documentation on &sls;, see &docaddress;.
     </para>
    </listitem>
    <listitem>
     <para>
-     For documentation on &sleha;, see
-     <link xlink:href="https://www.suse.com/documentation/sle-ha-12/"/>.
+     For documentation on &sleha;, see &ha-docaddress;.
     </para>
    </listitem>
   </itemizedlist>
