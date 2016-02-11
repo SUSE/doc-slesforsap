@@ -368,6 +368,20 @@
    </para>
   </sect3>
 
+  <!-- Apparently unsupported in 12 SP1, so commenting. - sknorr, 2016-02-11 -->
+  <!-- <sect3 xml:id="sec.s4s.component.clusterconnector">
+   <title><systemitem>suse_sap_cluster_connector</systemitem></title>
+   <para>
+    <systemitem>suse_sap_cluster_connector</systemitem> allows making all
+    products based on <systemitem>sapstartstopsrv</systemitem> aware of
+    high-availability clusters created with &sles4sap;.
+   </para>
+   <para>
+    This allows you use tools such as the Microsoft&thrdmrk; Management Console
+    or <systemitem>sapcontrol</systemitem> to manage &sles4sap; clusters.
+   </para>
+  </sect3> -->
+
   <sect3 xml:id="sec.s4s.component.pattern">
    <title>Patterns Providing Dependencies of Various SAP Applications</title>
    <para>
