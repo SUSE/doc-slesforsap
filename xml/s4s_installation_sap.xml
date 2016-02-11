@@ -5,10 +5,15 @@
     %entities;
 ]>
 <chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="cha.s4s.install.sap">
- <title>SAP Product Installation</title>
+ <title>Installing SAP Applications</title>
+
+ <remark>
+  Fixme! Title sounds too much like the section title two sections below it!
+  - sknorr, 2015-02-11
+ </remark>
 
  <para>
-  This section will guide you through the installation of SAP media kits you
+  This section will guide you through the installation of SAP media sets you
   received from SAP.
  </para>
 
@@ -17,6 +22,8 @@
 
   <para>
    These first steps are only relevant during the installation workflow.
+   If you want to start the installation of an SAP application from a running
+   system, see <xref linkend="sec.s4s.install.sap.product"/>.
   </para>
 
   <remark>
@@ -140,9 +147,9 @@
  </sect1>
 
  <sect1 xml:id="sec.s4s.install.sap.product">
-  <title>Installing an SAP Product</title>
+  <title>Installing an SAP Application</title>
   <tip>
-   <title>Installing an SAP Product in a Fully Installed System</title>
+   <title>Installing an SAP Application in a Fully Installed System</title>
    <para>
     This process is documented as it appears during the installation workflow.
     However, there is a functionally equivalent &yast; dialog available within
@@ -150,7 +157,7 @@
     It has a different color scheme and lacks the left pane.
    </para>
    <para>
-    To start it, from the desktop, choose
+    To start the &sapin;, from the desktop, choose
     <menuchoice><guimenu>Applications</guimenu><guimenu>System</guimenu>
     <guimenu>YaST</guimenu></menuchoice>, continue in the &yast; control center
     by choosing
@@ -159,14 +166,15 @@
    </para>
   </tip>
   <tip>
-   <title>SAP Product Installer Configuration</title>
+   <title>&sapwiz; Configuration</title>
    <remark>
-    Terminology: "SAP Product Installer" and "SAP Installation Wizard" are
+    Terminology: "SAP Installer"/"SAPinst" and "SAP Installation Wizard" are
     pretty close. Maybe SUSE should change the wizard's name some time in the
-    future..? - sknorr, 2016-01-15
+    future..? Also, the "SAP Product Installer" calls itself the
+    "SAP Installation Wizard".- sknorr, 2016-01-15
    </remark>
    <para>
-    The SAP Product Installer configuration are specified and
+    The &sapwiz; configuration is specified and
     documented in
     <filename>/etc/sysconfig/sap-installation-wizard</filename>. You can
     change them according to your needs.
