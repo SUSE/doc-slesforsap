@@ -70,9 +70,29 @@
    </listitem>
   </itemizedlist>
   <para>
-   For more information about &sleha;, see the &haguide; (&ha-docaddress;)
-   and the <emphasis>White Papers</emphasis> and <emphasis>Best Practice
-   Guides</emphasis> in the &sles4sap; Resource Library (&reslibrary;).
+   &sleha; also providees two resource agents specifically for working with
+   SAP applications:
+  </para>
+  <itemizedlist>
+   <listitem>
+    <para>
+     <systemitem>SAPInstance</systemitem> which allows starting
+     and stopping SAP instances.
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     <systemitem>SAPDatabase</systemitem> which allows starting
+     and stopping all databases supported by SAP applications (&hana;,
+     SAP MaxDB, SAP ASE, Oracle, Sybase, IBM DB2).
+    </para>
+   </listitem>
+  </itemizedlist>
+
+  <para>
+   For more information on &sleha;, see the &haguide; (&ha-docaddress;)
+   and the White Papers and Best Practice Guides in the
+   &sles4sap; Resource Library (&reslibrary;).
   </para>
  </sect2>
 
@@ -252,7 +272,7 @@
  </sect2>
 
  <sect2 xml:id="sec.s4s.component.clamsap">
-  <title>ClamSAP</title>
+  <title>Antivirus Protection with ClamSAP</title>
   <para>
    ClamSAP integrates the ClamAV antivirus toolkit into &netweaver; applications
    and helps improve cross-platform threat detection.
@@ -298,10 +318,10 @@
   </sect3>
 
   <sect3 xml:id="sec.s4s.component.harden">
-   <title>Security Hardening Guide for &hana;</title>
+   <title>Hardening Guide for &hana;</title>
    <para>
     For information on hardening the underlying operating system, see the
-    &sles4sap; resource library: &reslibrary;. In particular, see
+    &sles4sap; resource library: &reslibrary;. There, find the document
     <citetitle>OS Security Hardening for &hana;</citetitle>.
    </para>
    <remark>
@@ -311,4 +331,84 @@
    </remark>
   </sect3>
  </sect2>
+
+ <sect2 xml:id="sec.s4s.component.manage-operation">
+  <title>Simplified Operations Management</title>
+  <para>
+    &sles4sap; combines a number of features that enable simplified operations
+    management.
+  </para>
+
+  <sect3 xml:id="sec.s4s.component.clustertool">
+   <title><systemitem>ClusterTools2</systemitem></title>
+   <para>
+    <systemitem>ClusterTools2</systemitem> provides tools that help setting up
+    and managing a Corosync/<systemitem>pacemaker</systemitem> cluster. Among
+    them are <systemitem>wow</systemitem> which helps create
+    HA system resources, and <systemitem>ClusterService</systemitem> which
+    allows managing a cluster.
+   </para>
+  </sect3>
+
+  <sect3 xml:id="sec.s4s.component.sapconf">
+   <title><systemitem>sapconf</systemitem></title>
+   <para>
+    <systemitem>sapconf</systemitem> allows you to comprehensively tune your
+    system for various SAP applications, such as &netweaver; or &hana;, as
+    recommended by SAP. To do this, <systemitem>sapconf</systemitem> sets a
+    number of kernel parameters, in many cases depending on available
+    hardware, such as RAM.
+    <!-- For more information, see #FIXME -->
+    <remark>
+     Need section on sapconf in conf section! - sknorr, 2016-02-11
+    </remark>
+    <remark>
+     sapconf actually comes from SLES directly. Move? - sknorr, 2016-02-11
+    </remark>
+   </para>
+  </sect3>
+
+  <sect3 xml:id="sec.s4s.component.pattern">
+   <title>Patterns Providing Dependencies of Various SAP Applications</title>
+   <para>
+    To simplify working with software dependencies of SAP applications, &suse;
+    has created patterns that combine relevant dependency RPM packages for
+    specific applications:
+   </para>
+   <itemizedlist>
+    <listitem>
+     <para>
+      <guimenu>SAP BusinessOne Server Base</guimenu>
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      <guimenu>SAP HANA Server Base</guimenu>
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      <guimenu>SAP NetWeaver Server Base</guimenu>
+     </para>
+    </listitem>
+   </itemizedlist>
+   <important>
+    <title>
+     Patterns Cannot Be Updated over the Lifetime of a &sles4sapa; Version
+    </title>
+    <para>
+     The contents of the software patterns are defined before a specific version
+     (service pack) of &sles4sap; is released. When working with SAP applications
+     that could not be taken into account at that time, dependencies may be
+     missing.
+    </para>
+    <para>
+     For definitive information about the dependencies of your SAP application,
+     see the documentation provided to you by SAP.
+    </para>
+   </important>
+  </sect3>
+
+ </sect2>
+
 </sect1>

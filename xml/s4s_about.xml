@@ -5,44 +5,47 @@
     %entities;
 ]>
 <chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="cha.s4s.about">
- <title>What Is &sles4sap;?</title>
- <info>
-  <abstract>
+<title>What Is &sles4sap;?</title>
+<info>
+ <abstract>
+  <para>
+   &sles4sapreg; is a bundle of software and services that addresses the
+   specific needs of SAP users. It is the only operating system that is
+   optimized for all SAP software solutions.
+  </para>
+ </abstract>
+</info>
+
+ <para>
+  Target use cases include:
+ </para>
+
+ <itemizedlist mark="bullet" spacing="normal">
+  <listitem>
    <para>
-    &sles4sapreg; is a bundle of software and services that addresses the
-    specific needs of SAP users. It is the only operating system that is
-    optimized for all SAP software solutions.
+    Unix to Linux Migrations and Replatforming
    </para>
-  </abstract>
- </info>
+  </listitem>
+  <listitem>
+   <para>
+    SAP Appliances
+   </para>
+  </listitem>
+  <listitem>
+   <para>
+    SAP Cloud Deployments
+   </para>
+  </listitem>
+ </itemizedlist>
 
-  <para>
-   Target use cases include:
-  </para>
-
-  <itemizedlist mark="bullet" spacing="normal">
-   <listitem>
-    <para>
-     Unix to Linux Migrations and Replatforming
-    </para>
-   </listitem>
-   <listitem>
-    <para>
-     SAP Appliances
-    </para>
-   </listitem>
-   <listitem>
-    <para>
-     SAP Cloud Deployments
-    </para>
-   </listitem>
-  </itemizedlist>
-
-  <para>
-   &sles4sap; consists of software components (see
-   <xref linkend="sec.s4s.component"/>) and service offerings (see
-   <xref linkend="sec.s4s.service"/>).
-  </para>
+ <para>
+  &sles4sap; consists of software components and service offerings which are
+  described in the following sections. The figure
+  <xref linkend="fig.s4s.offering" xrefstyle="select:title"/> shows an
+  overview of which software components and services
+  are also available with other products from &suse; (green)
+  and which are exclusively available with &sles4sap; (blue).
+ </para>
 
  <figure xml:id="fig.s4s.offering">
   <title>Offerings of &sles4sap;</title>
