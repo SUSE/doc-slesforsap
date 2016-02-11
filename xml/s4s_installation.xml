@@ -292,7 +292,7 @@
        <listitem>
         <para>
          To install an SAP Application together with the system,
-         check <guimenu>Start the SAP Installation Wizard right after the OS
+         activate <guimenu>Start the SAP Installation Wizard right after the OS
          installation</guimenu>.
         </para>
        </listitem>
@@ -300,7 +300,7 @@
         <para>
          To prepare the system for later installation of an SAP application,
          leave <guimenu>Start the SAP Installation Wizard right after the OS
-         installation</guimenu> unchecked.
+         installation</guimenu> deactivated.
         </para>
         <para>
          Proceed with <guimenu>Next</guimenu>.
