@@ -9,14 +9,14 @@
 
  <para>
   As depicted in <xref linkend="fig.s4s.offering"/>,
-  &sles4sap; is based on &sls; but contains a number of added
+  &sles4sap; is based on &sls; but contains several additional
   software components such as &sleha;,
   the kernel page-cache limit feature, and the installation
   workflow. These software components are briefly explained in the
   following sections.
  </para>
 
- <sect2>
+ <sect2 xml:id="sec.s4s.component.sles">
   <title>&sls;</title>
   <para>
    The current release is based on &sls; &productnumber;. &sls;
@@ -25,7 +25,7 @@
   </para>
  </sect2>
 
- <sect2>
+ <sect2  xml:id="sec.s4s.component.sleha">
   <title>&sleha;</title>
   <para>
    This component consists of:
@@ -70,7 +70,7 @@
    </listitem>
   </itemizedlist>
   <para>
-   &sleha; also providees two resource agents specifically for working with
+   &sleha; also provides two resource agents specifically for working with
    SAP applications:
   </para>
   <itemizedlist>
@@ -149,7 +149,7 @@
      <formalpara>
       <title>Performance-Optimized Scenario</title>
       <para>
-       Two systems (A and B) within the same &sleha; cluster, one primary (A)
+       Two systems (A and B) in the same &sleha; cluster, one primary (A)
        and one secondary (B). The primary system (A) is
        replicated synchronously to the secondary system (B).
       </para>
@@ -264,7 +264,7 @@
   <title>Page-Cache Limit</title>
   <para>
    You can limit the kernel file system cache size to influence swapping
-   behavior. With this feature, you can in many cases gain better performance by
+   behavior. With this feature, you can often gain better performance by
    allocating memory to an application. For more information, see
    <xref linkend="sec.s4s.configure.page-cache"/>.
   </para>
@@ -329,7 +329,7 @@
  <sect2 xml:id="sec.s4s.component.manage-operation">
   <title>Simplified Operations Management</title>
   <para>
-    &sles4sap; combines a number of features that enable simplified operations
+    &sles4sap; combines several features that enable simplified operations
     management.
   </para>
 
@@ -355,8 +355,8 @@
     <systemitem>sapconf</systemitem> allows you to automatically and
     comprehensively tune your system as recommended by SAP for use with
     &netweaver; or &hana;/&b1;.
-    To do this, <systemitem>sapconf</systemitem> sets a
-    number of kernel parameters, in many cases depending on available
+    To do this, <systemitem>sapconf</systemitem> sets
+    several kernel parameters, often depending on available
     hardware, such as RAM.
     For more information, see <xref linkend="sec.s4s.configure.sapconf"/>.
    </para>

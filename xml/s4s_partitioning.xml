@@ -116,7 +116,7 @@
   <para>
    Partitioning for the SAP system is controlled by the files from the directory
    <filename>/usr/share/YaST2/include/sap-installation-wizard/</filename>.
-   In most cases, <filename>base_partitioning.xml</filename> will be used.
+   Usually, <filename>base_partitioning.xml</filename> will be used.
    When installing &hana; on certified hardware, other files will be chosen,
    as defined in <filename>/etc/sap-installation-wizard.xml</filename>.
    Here, the content of the element <tag>partitioning</tag> is
@@ -196,7 +196,7 @@
     <para>
      Finally, adapt <filename>/etc/sap-installation-wizard.xml</filename> to
      include your custom file.
-     In the <tag>listitem</tag> for <literal>TREX</literal>, insert the
+     In the <tag>partitioning</tag> for <literal>TREX</literal>, insert the
      following line:
     </para>
 <screen><![CDATA[<partitioning>TREX_partitioning</partitioning>]]></screen>

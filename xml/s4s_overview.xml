@@ -58,7 +58,7 @@
     </term>
     <listitem>
      <para>
-      Installing SAP applications on &sles4sap;, either directaly after the
+      Installing SAP applications on &sles4sap;, either directly after the
       installation of the operating system or in a running system.
      </para>
     </listitem>
@@ -95,7 +95,7 @@
   <itemizedlist>
    <listitem>
     <para>
-     For the latest uppdates to this guide, see
+     For the latest updates to this guide, see
      <link xlink:href="https://www.suse.com/documentation/sles_for_sap/"/>.
     </para>
    </listitem>
