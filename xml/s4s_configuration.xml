@@ -154,21 +154,6 @@ vm.pagecache_limit_ignore_dirty = 0</screen>
   </sect2>
  </sect1>
 
- <sect1 xml:id="sec.s4s.configure.harden">
-  <title>Operating System Security Hardening</title>
-  <para>
-   For hardening the underlying operating system, see the <quote>Operating
-   System Security Hardening Guide for &hana;</quote>:
-  </para>
-  <itemizedlist mark="bullet" spacing="normal">
-   <listitem>
-    <para>
-     <link xlink:href="https://www.suse.com/promo/sap/hana/security-guide.html"/>
-    </para>
-   </listitem>
-  </itemizedlist>
- </sect1>
-
  <sect1 xml:id="s4s.configure.log">
   <title>Important Log Files</title>
 
