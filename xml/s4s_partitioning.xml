@@ -34,7 +34,7 @@
   </para>
 
   <para>
-   A logical volume group (LVG) named <literal>system</literal> will be
+   A logical volume group (LVG) named <literal>/dev/system</literal> will be
    created. This LVG contains two logical volumes (LVs):
   </para>
 
