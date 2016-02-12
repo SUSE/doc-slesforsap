@@ -7,23 +7,30 @@
 <chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="cha.s4s.install.sap">
  <title>Installing SAP Applications</title>
 
- <remark>
-  Fixme! Title sounds too much like the section title two sections below it!
-  - sknorr, 2015-02-11
- </remark>
-
  <para>
   This section will guide you through the installation of SAP media sets you
   received from SAP.
  </para>
+ <itemizedlist>
+  <listitem>
+   <para>
+    If are installing of an SAP application within the installation workflow,
+    continue with <xref linkend="sec.s4s.install.sap.welcome"/>.
+   </para>
+  </listitem>
+  <listitem>
+   <para>
+    If are installing of an SAP application within an installed system,
+    continue with <xref linkend="sec.s4s.install.sap.product"/>.
+   </para>
+  </listitem>
+ </itemizedlist>
 
  <sect1 xml:id="sec.s4s.install.sap.welcome">
   <title>First Steps</title>
 
   <para>
    These first steps are only relevant during the installation workflow.
-   If you want to start the installation of an SAP application from a running
-   system, see <xref linkend="sec.s4s.install.sap.product"/>.
   </para>
 
   <remark>
@@ -147,7 +154,7 @@
  </sect1>
 
  <sect1 xml:id="sec.s4s.install.sap.product">
-  <title>Installing an SAP Application</title>
+  <title>Using the &sapwiz;</title>
   <tip>
    <title>Installing an SAP Application in a Fully Installed System</title>
    <para>
