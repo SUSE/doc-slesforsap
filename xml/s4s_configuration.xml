@@ -21,9 +21,9 @@
       instance during backup operations.
      </para>
      <para>
-      Some SAP solutions use large amounts of memory for accelerated access
+      &netweaver; and &hana; use large amounts of memory for accelerated access
       to business data. Parts of this memory are rarely accessed. When a
-      user request then needs to access paged out memory, the response time
+      user request needs to access paged-out memory, the response time
       is poor. It is even worse when an SAP solution running on Java incurs
       a Java garbage collection. The system starts heavy page-in (disc I/O)
       activity and has a poor response time for an extended period of time.
@@ -34,7 +34,7 @@
     <term>Solution</term>
     <listitem>
      <para>
-      A kernel tune option has been introduced that allows the system
+      A kernel tuning option has been introduced that allows the system
       administrator to limit the amount of page cache that the kernel uses
       when there is competition between application memory and page-cache.
       This option tells the kernel that when the page cache is filled to the
@@ -43,6 +43,18 @@
       of the workload plus the configured page-cache limit do not exceed the
       amount of physical RAM in the system.
      </para>
+     <important>
+      <title>Example Values</title>
+      <para>
+       The values reproduced in the following are examples only.
+       Do not set the following parameters on a productive system without
+       first trying and calibrating them on a non-productive system.
+      </para>
+      <para>
+       If your system does not exhibit page-cache limit issues under the
+       work loads it is running, there is no need to adjust this parameter.
+      </para>
+     </important>
      <para>
       These kernel options are available for configuration:
      </para>
@@ -64,8 +76,8 @@
       For permanent use, set them in <filename>/etc/sysctl.conf</filename>,
       for example:
      </para>
-<screen>vm.pagecache_limit_mb = 1024
-vm.pagecache_limit_ignore_dirty = 0</screen>
+<screen>vm.pagecache_limit_mb = <replaceable>1024</replaceable>
+vm.pagecache_limit_ignore_dirty = <replaceable>0</replaceable></screen>
      <para>
       For background information, see <citetitle>SAP Note 1557506: Linux Paging
       Improvements</citetitle>
