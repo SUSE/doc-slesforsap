@@ -352,9 +352,10 @@
   <sect3 xml:id="sec.s4s.component.sapconf">
    <title><systemitem>sapconf</systemitem></title>
    <para>
-    <systemitem>sapconf</systemitem> allows you to comprehensively tune your
-    system for various SAP applications, such as &netweaver; or &hana;, as
-    recommended by SAP. To do this, <systemitem>sapconf</systemitem> sets a
+    <systemitem>sapconf</systemitem> allows you to automatically and
+    comprehensively tune your system as recommended by SAP for use with
+    &netweaver; or &hana;/&b1;.
+    To do this, <systemitem>sapconf</systemitem> sets a
     number of kernel parameters, in many cases depending on available
     hardware, such as RAM.
     <!-- For more information, see #FIXME -->
