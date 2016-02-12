@@ -493,11 +493,10 @@
       <listitem>
        <para>
         Allows changing the various system properties such as the SAP system ID,
-        database ID, instance number or host name.
+        database ID, instance number or host name. This is useful, for example,
+        when you want to install the same product in a very similar
+        configuration on a different computer.
        </para>
-       <remark>
-        Should this be a different procedure? - sknorr, 2016-01-15
-       </remark>
        <remark>
         Does this even make sense within the installer? Ask varkoly. Maybe this
         point should be hidden during first-boot. - sknorr, 2016-01-20
