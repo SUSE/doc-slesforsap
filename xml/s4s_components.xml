@@ -70,7 +70,7 @@
    </listitem>
   </itemizedlist>
   <para>
-   &sleha; also provides two resource agents specifically for working with
+   &sleha; provides two resource agents specifically for working with
    SAP applications:
   </para>
   <itemizedlist>
@@ -135,7 +135,7 @@
     It is configured as a master/slave resource: The master assumes
     responsibility for the &hana; databases running in primary mode,
     whereas the slave is responsible for instances
-    that are operated in synchronous (secondary) status. In case of takeover,
+    that are operated in synchronous (secondary) status. In case of a takeover,
     the secondary (slave resource instance) can automatically be promoted to
     become the new primary (master resource instance).
    </para>
@@ -162,10 +162,12 @@
        The basic setup of A and B is the same as in the
        <emphasis>Performance-Optimized Scenario</emphasis>.
        However, the secondary system (B) is also used for non-productive
-       purposes, such as for a development or QA database. If a takeover occurs,
-       the system resources for the productive database are increased via an
-       SAP hook call-out script. The non-productive system will be stopped
-       before the takeover is being processed.
+       purposes, such as for a development or QA database. The production
+       database is only kept on permanent memory, such as a hard disk.
+       If a takeover needs to occur, the non-productive system will is stopped
+       before the takeover is processed. The system resources for the
+       productive database are then increased as quickly as possible via an
+       SAP hook call-out script.
       </para>
      </formalpara>
     </listitem>
@@ -173,7 +175,7 @@
      <formalpara>
       <title>Chain/Multi-Tier Scenario</title>
       <para>
-       Three systems (A, B, and C), of which two are located within the
+       Three systems (A, B, and C), of which two are located in the
        same &sleha; cluster (A and B). The third system (C) is located
        externally. The primary system (A) is replicated synchronously to the
        secondary system (B). The secondary system (B) is
@@ -301,13 +303,13 @@
    <title>Firewall for &hana;</title>
    <para>
     &hana; often requires more firewall zones than the standard installation of
-    &susefirewall; can provide. For this reason, &sles4sap; additionally
+    &susefirewall; provides. For this reason, &sles4sap; additionally
     provides the package <systemitem>HANA-Firewall</systemitem> which
     integrates with &susefirewall;. It contains preconfigured zone setups and
     rules to make securing &hana; as simple as possible.
    </para>
    <para>
-    For more information, see <xref linkend="sec.s4s.configure.firewall"/>.
+    For more information, see <xref linkend="sec.s4s.configure.firewall-hana"/>.
    </para>
   </sect3>
 
@@ -412,7 +414,7 @@
      specific release (Service Pack or major version) of &sles4sap; is
      developed. This package selection is stable over the lifetime of this
      particular release. When working with SAP applications that have been
-     released more recently than the your &sles4sap; version,
+     released more recently than your &sles4sap; version,
      dependencies may be missing from the patterns.
     </para>
     <para>

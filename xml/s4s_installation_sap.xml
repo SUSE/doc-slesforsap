@@ -33,10 +33,6 @@
    These first steps are only relevant during the installation workflow.
   </para>
 
-  <remark>
-   Add screenshots below. - sknorr, 2016-01-14
-  </remark>
-
   <procedure>
    <step>
     <para>
@@ -89,10 +85,9 @@
       </term>
       <listitem>
        <para>
-        Allows installing an SAP product or setting up the system as a
+        Allows installing an SAP application and setting up the system as a
         server providing SAP installation routines to other systems.
        </para>
-       <remark>Correct terminology? - sknorr, 2016-01-14</remark>
        <para>
         Continue with <xref linkend="sec.s4s.install.sap.product"/>.
        </para>
@@ -196,7 +191,7 @@
     The &sapwiz; configuration is specified and
     documented in
     <filename>/etc/sysconfig/sap-installation-wizard</filename>. You can
-    change them according to your needs.
+    change it according to your needs.
    </para>
   </tip>
 
@@ -212,10 +207,10 @@
      <title>Location of SAP Installation Master</title>
      <mediaobject>
       <imageobject role="fo">
-       <imagedata fileref="s4s_sap_wizard_source.png" width="75%" format="PNG"/>
+       <imagedata fileref="s4s_sap_wizard_source.png" width="73%" format="PNG"/>
       </imageobject>
       <imageobject role="html">
-       <imagedata fileref="s4s_sap_wizard_source.png" width="75%" format="PNG"/>
+       <imagedata fileref="s4s_sap_wizard_source.png" width="73%" format="PNG"/>
       </imageobject>
      </mediaobject>
     </figure>
@@ -506,7 +501,7 @@
       <term><guimenu>Distributed System</guimenu></term>
       <listitem>
        <para>
-        A product that is separated onto multiple servers.
+        An SAP application that is separated onto multiple servers.
        </para>
        <remark>
         UI inconsistency? Why is this not called "SAP Distributed System"?
@@ -529,7 +524,7 @@
         Allows changing the various system properties such as the SAP system ID,
         database ID, instance number or host name. This is useful, for example,
         when you want to install the same product in a very similar
-        configuration on a different computer.
+        configuration on different systems.
        </para>
        <remark>
         Does this even make sense within the installer? Ask varkoly. Maybe this
@@ -542,10 +537,10 @@
      <title>&sapwiz;: Installation Mode and Database</title>
      <mediaobject>
       <imageobject role="fo">
-       <imagedata fileref="s4s_sap_wizard_mode_db.png" width="75%" format="PNG"/>
+       <imagedata fileref="s4s_sap_wizard_mode_db.png" width="73%" format="PNG"/>
       </imageobject>
       <imageobject role="html">
-       <imagedata fileref="s4s_sap_wizard_mode_db.png" width="75%" format="PNG"/>
+       <imagedata fileref="s4s_sap_wizard_mode_db.png" width="73%" format="PNG"/>
       </imageobject>
      </mediaobject>
     </figure>
@@ -576,10 +571,10 @@
      <title>&sapwiz;: Choose a Product</title>
      <mediaobject>
       <imageobject role="fo">
-       <imagedata fileref="s4s_sap_wizard_available_products.png" width="75%" format="PNG"/>
+       <imagedata fileref="s4s_sap_wizard_available_products.png" width="73%" format="PNG"/>
       </imageobject>
       <imageobject role="html">
-       <imagedata fileref="s4s_sap_wizard_available_products.png" width="75%" format="PNG"/>
+       <imagedata fileref="s4s_sap_wizard_available_products.png" width="73%" format="PNG"/>
       </imageobject>
      </mediaobject>
     </figure>
@@ -619,7 +614,9 @@
         &instmedia;, you will later need to provide the &sapin; (&sapina;)
         with the relevant paths.
        </para>
-       <important>
+       <!-- We don't even get to this step when installing HANA...
+       - sknorr, 2016-02-12 -->
+       <!--<important>
         <title>Do Not Choose When Installing &hana;</title>
         <para>
          This option does not work for &hana;. Choosing it will lead the
@@ -630,7 +627,7 @@
          not just r somehow according to hguo. Check again before putting this
          here - sknorr, 2016-01-12
         </remark>
-       </important>
+       </important>-->
       </listitem>
      </varlistentry>
     </variablelist>
@@ -645,10 +642,10 @@
      <title>&sapwiz;: Additional &instmedia;</title>
      <mediaobject>
       <imageobject role="fo">
-       <imagedata fileref="s4s_sap_wizard_location_sapmedia.png" width="75%" format="PNG"/>
+       <imagedata fileref="s4s_sap_wizard_location_sapmedia.png" width="73%" format="PNG"/>
       </imageobject>
       <imageobject role="html">
-       <imagedata fileref="s4s_sap_wizard_location_sapmedia.png" width="75%" format="PNG"/>
+       <imagedata fileref="s4s_sap_wizard_location_sapmedia.png" width="73%" format="PNG"/>
       </imageobject>
      </mediaobject>
     </figure>
@@ -691,7 +688,7 @@
     <para>
      On the screen <guimenu>Additional software repositories for your
      SAP installation</guimenu>, you can add further software repositories.
-     This can be useful, for example for installing add-ons that are packaged
+     This can be useful, for example, for installing add-ons that are packaged
      as RPM. To do so, click <guimenu>Add new software repositories</guimenu>.
      For more information on adding repositories, see
      <citetitle>Deployment Guide,
@@ -737,10 +734,10 @@ SAP-NetWeaver-740-SR2-Installation-Export-CD-3-3</screen>
      <title>SAP System Parameters: T-Shirt-Sizing</title>
      <mediaobject>
       <imageobject role="fo">
-       <imagedata fileref="s4s_sap_wizard_sysparams_size.png" width="75%" format="PNG"/>
+       <imagedata fileref="s4s_sap_wizard_sysparams_size.png" width="73%" format="PNG"/>
       </imageobject>
       <imageobject role="html">
-       <imagedata fileref="s4s_sap_wizard_sysparams_size.png" width="75%" format="PNG"/>
+       <imagedata fileref="s4s_sap_wizard_sysparams_size.png" width="73%" format="PNG"/>
       </imageobject>
      </mediaobject>
     </figure>
@@ -770,10 +767,10 @@ SAP-NetWeaver-740-SR2-Installation-Export-CD-3-3</screen>
      <title>Virtual Network Settings</title>
      <mediaobject>
       <imageobject role="fo">
-       <imagedata fileref="s4s_sap_wizard_virt_params.png" width="75%" format="PNG"/>
+       <imagedata fileref="s4s_sap_wizard_virt_params.png" width="73%" format="PNG"/>
       </imageobject>
       <imageobject role="html">
-       <imagedata fileref="s4s_sap_wizard_virt_params.png" width="75%" format="PNG"/>
+       <imagedata fileref="s4s_sap_wizard_virt_params.png" width="73%" format="PNG"/>
       </imageobject>
      </mediaobject>
     </figure>
@@ -813,10 +810,10 @@ SAP-NetWeaver-740-SR2-Installation-Export-CD-3-3</screen>
      <title>&sapin;: Defining Parameters</title>
      <mediaobject>
       <imageobject role="fo">
-       <imagedata fileref="s4s_sapinst_param.png" width="75%" format="PNG"/>
+       <imagedata fileref="s4s_sapinst_param.png" width="73%" format="PNG"/>
       </imageobject>
       <imageobject role="html">
-       <imagedata fileref="s4s_sapinst_param.png" width="75%" format="PNG"/>
+       <imagedata fileref="s4s_sapinst_param.png" width="73%" format="PNG"/>
       </imageobject>
      </mediaobject>
     </figure>
@@ -824,7 +821,7 @@ SAP-NetWeaver-740-SR2-Installation-Export-CD-3-3</screen>
      <title>Installation Log Files</title>
      <para>
       If the installation of the SAP application fails, it may help to look at
-      installation <filename>.err</filename> log files located in
+      installation log files ending in <filename>.err</filename> located in
       <filename>/var/adm/autoinstall</filename>.
      </para>
      <para>
@@ -920,7 +917,7 @@ SAP-NetWeaver-740-SR2-Installation-Export-CD-3-3</screen>
    </step>
    <step>
     <remark>
-     This question appears whether the SAP_AUTO_INSTALL=yes or not. However,
+     This question appears whether SAP_AUTO_INSTALL is yes or not. However,
      if not, all questions will be asked again. There seems to be partial state
      at least, in that the installer remembers what is already copied. Could
      be luck. - sknorr, 2016-02-03

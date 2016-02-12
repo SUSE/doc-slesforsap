@@ -49,10 +49,10 @@
      <title>DVD Boot Menu</title>
      <mediaobject>
       <imageobject role="fo">
-       <imagedata fileref="s4s-dvd-boot-menu.png" width="75%" format="PNG"/>
+       <imagedata fileref="s4s-dvd-boot-menu.png" width="73%" format="PNG"/>
       </imageobject>
       <imageobject role="html">
-       <imagedata fileref="s4s-dvd-boot-menu.png" width="75%" format="PNG"/>
+       <imagedata fileref="s4s-dvd-boot-menu.png" width="73%" format="PNG"/>
       </imageobject>
      </mediaobject>
     </figure>
@@ -146,10 +146,10 @@
      <title>Language, Keyboard and License Agreement</title>
      <mediaobject>
       <imageobject role="fo">
-       <imagedata fileref="s4s-install-license.png" width="75%" format="PNG"/>
+       <imagedata fileref="s4s-install-license.png" width="73%" format="PNG"/>
       </imageobject>
       <imageobject role="html">
-       <imagedata fileref="s4s-install-license.png" width="75%" format="PNG"/>
+       <imagedata fileref="s4s-install-license.png" width="73%" format="PNG"/>
       </imageobject>
      </mediaobject>
     </figure>
@@ -228,10 +228,10 @@
      <title>Registration</title>
      <mediaobject>
       <imageobject role="fo">
-       <imagedata fileref="s4s-install-registration.png" width="75%" format="PNG"/>
+       <imagedata fileref="s4s-install-registration.png" width="73%" format="PNG"/>
       </imageobject>
       <imageobject role="html">
-       <imagedata fileref="s4s-install-registration.png" width="75%" format="PNG"/>
+       <imagedata fileref="s4s-install-registration.png" width="73%" format="PNG"/>
       </imageobject>
      </mediaobject>
     </figure>
@@ -313,10 +313,10 @@
      <title>Installation Type</title>
      <mediaobject>
       <imageobject role="fo">
-       <imagedata fileref="s4s-install-installationtype.png" width="75%" format="PNG"/>
+       <imagedata fileref="s4s-install-installationtype.png" width="73%" format="PNG"/>
       </imageobject>
       <imageobject role="html">
-       <imagedata fileref="s4s-install-installationtype.png" width="75%" format="PNG"/>
+       <imagedata fileref="s4s-install-installationtype.png" width="73%" format="PNG"/>
       </imageobject>
      </mediaobject>
     </figure>
@@ -338,9 +338,9 @@
    <step>
     <para>
      Review the proposed partition setup for the volumes
-     <literal>root</literal> and <literal>swap</literal>.
-     The volume <literal>data</literal> will be created later, as described in
-     <xref linkend="sec.s4s.partition"/>.
+     <literal>/dev/system/root</literal> and <literal>/dev/system/swap</literal>.
+     The volume <literal>/dev/system/data</literal> will be created later,
+     as described in <xref linkend="sec.s4s.partition"/>.
     </para>
     <para>
      Suitable values are preselected. However, if necessary, change the
@@ -394,10 +394,10 @@
      <title>Suggested Partitioning</title>
      <mediaobject>
       <imageobject role="fo">
-       <imagedata fileref="s4s-install-partitioning.png" width="75%" format="PNG"/>
+       <imagedata fileref="s4s-install-partitioning.png" width="73%" format="PNG"/>
       </imageobject>
       <imageobject role="html">
-       <imagedata fileref="s4s-install-partitioning.png" width="75%" format="PNG"/>
+       <imagedata fileref="s4s-install-partitioning.png" width="73%" format="PNG"/>
       </imageobject>
      </mediaobject>
     </figure>
@@ -503,10 +503,10 @@
      <title>Installation Settings</title>
      <mediaobject>
       <imageobject role="fo">
-       <imagedata fileref="s4s-install-overview.png" width="75%" format="PNG"/>
+       <imagedata fileref="s4s-install-overview.png" width="73%" format="PNG"/>
       </imageobject>
       <imageobject role="html">
-       <imagedata fileref="s4s-install-overview.png" width="75%" format="PNG"/>
+       <imagedata fileref="s4s-install-overview.png" width="73%" format="PNG"/>
       </imageobject>
      </mediaobject>
     </figure>

@@ -170,11 +170,21 @@
    </varlistentry>
    <varlistentry>
     <term>
-      <xref linkend="sec.s4s.configure.firewall" xrefstyle="SectTitleOnPage"/>
+      <xref linkend="sec.s4s.configure.firewall-hana" xrefstyle="SectTitleOnPage"/>
     </term>
     <listitem>
      <para>
-      Add information about firewall for &hana;.
+      Add new section.
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term>
+      <xref linkend="sec.s4s.configure.sapconf" xrefstyle="SectTitleOnPage"/>
+    </term>
+    <listitem>
+     <para>
+      Add new section.
      </para>
     </listitem>
    </varlistentry>

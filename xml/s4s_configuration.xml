@@ -159,7 +159,7 @@ vm.pagecache_limit_ignore_dirty = <replaceable>0</replaceable></screen>
   <itemizedlist>
    <listitem>
     <para>
-     A &yast; module: <guimenu>HANA Firewall</guimenu>)
+     A &yast; module: <guimenu>HANA Firewall</guimenu>
     </para>
    </listitem>
    <listitem>
@@ -181,8 +181,8 @@ vm.pagecache_limit_ignore_dirty = <replaceable>0</replaceable></screen>
   </itemizedlist>
   <para>
    <systemitem>HANA-Firewall</systemitem> works by adding rule sets
-   to your existing &susefirewall; configuration. You can configure within
-   the &yast; module which rule sets are applied.
+   to your existing &susefirewall; configuration. In the &yast; module, you can
+   configure which rule sets are applied.
   </para>
   <para>
    For single-tenant databases, the specific port numbers that need to be
@@ -210,7 +210,7 @@ vm.pagecache_limit_ignore_dirty = <replaceable>0</replaceable></screen>
    the application you installed.
   </para>
   <para>
-   If that is note the case, you can tune the system for &netweaver; with:
+   If that is not the case, you can tune the system for &netweaver; with:
   </para>
 <screen>&prompt.root;<command>sapconf</command> start</screen>
   <para>
