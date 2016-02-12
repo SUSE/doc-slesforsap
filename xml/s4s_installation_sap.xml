@@ -846,7 +846,7 @@ SAP-NetWeaver-740-SR2-Installation-Export-CD-3-3</screen>
     <para>
      You can later change this configuration using
      <systemitem>sapconf</systemitem>.
-     <remark>Fixme! xref wanted. - sknorr, 2016-01-12</remark>
+     For more information, see <xref linkend="sec.s4s.configure.sapconf"/>.
     </para>
    </step>
    <step>

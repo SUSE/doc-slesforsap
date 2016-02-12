@@ -358,14 +358,11 @@
     To do this, <systemitem>sapconf</systemitem> sets a
     number of kernel parameters, in many cases depending on available
     hardware, such as RAM.
-    <!-- For more information, see #FIXME -->
-    <remark>
-     Need section on sapconf in conf section! - sknorr, 2016-02-11
-    </remark>
-    <remark>
-     sapconf actually comes from SLES directly. Move? - sknorr, 2016-02-11
-    </remark>
+    For more information, see <xref linkend="sec.s4s.configure.sapconf"/>.
    </para>
+   <remark>
+    sapconf actually comes from SLES directly. Move? - sknorr, 2016-02-11
+   </remark>
   </sect3>
 
   <!-- Apparently unsupported in 12 SP1, so commenting. - sknorr, 2016-02-11 -->

@@ -195,6 +195,62 @@ vm.pagecache_limit_ignore_dirty = <replaceable>0</replaceable></screen>
   </remark>
  </sect1>
 
+ <sect1 xml:id="sec.s4s.configure.sapconf">
+  <title><systemitem>sapconf</systemitem></title>
+
+  <para>
+   <systemitem>sapconf</systemitem> can automatically tune a system for
+   &netweaver; and &hana;/&b1; applications. To do so, it relies on the
+   system tuning service <systemitem>tuned</systemitem>. (Before using
+   <systemitem>sapconf</systemitem>, make sure that the package
+   <systemitem>tuned</systemitem> is installed.)
+  </para>
+  <para>
+   If you used the &sapwiz; to install an SAP application,
+   <systemitem>sapconf</systemitem> is usually already active and configured for
+   the application you installed.
+  </para>
+  <para>
+   If that is note the case, you can tune the system for &netweaver; with:
+  </para>
+<screen>&prompt.root;<command>sapconf</command> start</screen>
+  <para>
+   To tune the system for &hana; or &b1; (both use the same tuning profile),
+   use:
+  </para>
+<screen>&prompt.root;<command>sapconf</command> hana start</screen>
+  <para>
+   To apply a different tuning profile when <systemitem>sapconf</systemitem>
+   is already running, make sure to stop it first.
+  </para>
+  <para>
+   For more information, see the following man pages:
+  </para>
+  <itemizedlist>
+   <listitem>
+    <para>
+     <literal>sapconf(8)</literal>
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     <literal>tuned-adm(8)</literal>
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     <literal>tuned-profiles-sap-hana(7)</literal>
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     <literal>tuned-profiles-sap-netweaver(7)</literal>
+    </para>
+   </listitem>
+  </itemizedlist>
+ </sect1>
+
+
  <sect1 xml:id="s4s.configure.log">
   <title>Important Log Files</title>
 
