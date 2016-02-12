@@ -17,6 +17,11 @@
  <itemizedlist role="subtoc" mark="bullet" spacing="normal">
   <listitem>
    <para>
+    <xref linkend="app.s4s.docupdate.2016-02-15" xrefstyle="SectTitleOnPage"/>
+   </para>
+  </listitem>
+  <listitem>
+   <para>
     <xref linkend="app.s4s.docupdate.2015-05-29" xrefstyle="SectTitleOnPage"/>
    </para>
   </listitem>
@@ -31,9 +36,180 @@
    </para>
   </listitem>
  </itemizedlist>
- <sect1 xml:id="app.s4s.docupdate.2015-05-29">
-<!-- FIXME: enter date -->
 
+
+ <sect1 xml:id="app.s4s.docupdate.2016-02-15">
+  <title>February 15, 2016</title>
+
+  <para>
+   Updates were made to the following sections. The changes are explained
+   below.
+  </para>
+
+  <variablelist>
+   <varlistentry>
+    <term>Updates to the Structure of the Guide
+    </term>
+    <listitem>
+     <para>
+      Improve organization of the guide by updating its structure.
+      <xref linkend="cha.s4s.plan" xrefstyle="SectTitleOnPage"/>,
+      <xref linkend="cha.s4s.install.sap" xrefstyle="SectTitleOnPage"/>,
+      <xref linkend="cha.s4s.configure" xrefstyle="SectTitleOnPage"/>, and
+      <xref linkend="cha.s4s.serve-mediaset" xrefstyle="SectTitleOnPage"/> are now
+      chapters instead of sections.
+     </para>
+     <para>
+      <xref linkend="app.s4s.component.supplement" xrefstyle="SectTitleOnPage"/>
+      is now an appendix instead of section.
+     </para>
+     <para>
+      <xref linkend="sec.s4s.partition" xrefstyle="SectTitleOnPage"/>
+      is now an section within
+      <xref linkend="cha.s4s.plan" xrefstyle="SectTitleOnPage"/>
+      instead of a chapter.
+     </para>
+     <para>
+      Merge <xref linkend="sec.s4s.component" xrefstyle="SectTitleOnPage"/>
+      and <citetitle>Chapter 5, <quote>&sles4sap; Components</quote></citetitle>.
+     </para>
+     <para>
+      Move <xref linkend="s4s.install.network" xrefstyle="SectTitleOnPage"/>
+      from <citetitle>Chapter 3, <quote>Remote Installation from a Netwrok Server</quote>
+      </citetitle> to <xref linkend="s4s.install" xrefstyle="SectTitleOnPage"/>.
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term><xref linkend="sec.s4s.about" xrefstyle="SectTitleOnPage"/>
+    </term>
+    <listitem>
+     <para>
+      Add figure.
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term><xref linkend="sec.s4s.hana-replicate" xrefstyle="SectTitleOnPage"/>
+    </term>
+    <listitem>
+     <para>
+      Add information on supported scenarios.
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term><xref linkend="sec.s4s.component.clamsap" xrefstyle="SectTitleOnPage"/>
+    </term>
+    <listitem>
+     <para>
+      Mention added support for NW-VSI 2.0.
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term><xref linkend="sec.s4s.component.secure-hana" xrefstyle="SectTitleOnPage"/>
+    </term>
+    <listitem>
+     <para>
+      Add new section.
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term><xref linkend="sec.s4s.component.manage-operation" xrefstyle="SectTitleOnPage"/>
+    </term>
+    <listitem>
+     <para>
+      Add new section.
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term><xref linkend="cha.s4s.plan" xrefstyle="SectTitleOnPage"/>
+    </term>
+    <listitem>
+     <para>
+      Provide ISO image download URL.
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term>
+      <citetitle>Section 2.2, <quote>Booting the Installation Medium</quote></citetitle>
+    </term>
+    <listitem>
+     <para>
+      The package scope of the <guimenu>SLES for SAP Applications &mdash;
+      Installation</guimenu> is identical to a default &sls;
+      installation.
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term>
+      <citetitle>Section 2.3, <quote>SLES for SAP &mdash; Installation</quote></citetitle>
+    </term>
+    <listitem>
+     <para>
+      Add note about pre-selected packages in case of registration at this
+      stage of the installation.
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term>
+      <citetitle>Section 2.4.3.5, <quote>Registration</quote></citetitle>
+    </term>
+    <listitem>
+     <para>
+      Add note about pre-selected packages in case of registration at this
+      stage of the installation.
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term><xref linkend="cha.s4s.install.sap" xrefstyle="SectTitleOnPage"/>
+    </term>
+    <listitem>
+     <para>
+      Rewrite remote location specification.
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term><xref linkend="sec.s4s.partition" xrefstyle="SectTitleOnPage"/>
+    </term>
+    <listitem>
+     <para>
+      &hana; requires 2 GB of swap.
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term><xref linkend="sec.s4s.hana-replicate" xrefstyle="SectTitleOnPage"/>
+    </term>
+    <listitem>
+     <para>
+      Address &hana; System Replication
+      (<link xlink:href="https://bugzilla.suse.com/show_bug.cgi?id=929626"/>).
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term><xref linkend="sec.s4s.configure.harden" xrefstyle="SectTitleOnPage"/>
+    </term>
+    <listitem>
+     <para>
+      New section
+      (<link xlink:href="https://bugzilla.suse.com/show_bug.cgi?id=929625"/>).
+     </para>
+    </listitem>
+   </varlistentry>
+  </variablelist>
+ </sect1>
+
+ <sect1 xml:id="app.s4s.docupdate.2015-05-29">
   <title>May 29, 2015</title>
 
   <para>

@@ -274,26 +274,21 @@
  <sect2 xml:id="sec.s4s.component.clamsap">
   <title>Antivirus Protection with ClamSAP</title>
   <para>
-   ClamSAP integrates the ClamAV antivirus toolkit into &netweaver; applications
-   and helps improve cross-platform threat detection.
-   For example, you can use it to allow an SAP application to scan for
+   ClamSAP integrates the ClamAV antivirus toolkit into &netweaver; and
+   SAP Mobile Platform applications to enable
+   cross-platform threat detection.
+   For example, you can use ClamSAP to allow an SAP application to scan for
    malicious uploads in HTTP uploads.
    ClamSAP can be installed from the package <systemitem>clamsap</systemitem>.
+   To use virus scanning within &netweaver;, you need to enable it there
+   (<menuchoice><guimenu>Transaction</guimenu>
+   <guimenu>VSCAN</guimenu></menuchoice>).
   </para>
   <para>
    ClamSAP is a shared library that links between ClamAV and the
    &netweaver; Virus Scan Interface (NW-VSI) by SAP. The version of ClamSAP
    shipped with &productname; &productnumber; supports NW-VSI version 2.0.
   </para>
-  <para>
-   To use virus scanning within &netweaver;, you have to enable it there.
-   <!-- To do so, choose <menuchoice><guimenu>Transactions</guimenu>
-   <guimenu>VSCAN</guimenu></menuchoice>. -->
-  </para>
-  <remark>
-   Commented away part about enabling ClamSAP from NW menu, because I have not
-   seen this in the flesh. FIXME - sknorr, 2016-02-10
-  </remark>
  </sect2>
 
  <sect2 xml:id="sec.s4s.component.hana-secure">
