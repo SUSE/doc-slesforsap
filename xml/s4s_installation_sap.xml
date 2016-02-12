@@ -742,7 +742,7 @@ SAP-NetWeaver-740-SR2-Installation-Export-CD-3-3</screen>
    </step>
    <step xml:id="st.s4s.sapinst">
     <para>
-     Now the actual installation of the SAP system can be performed using the
+     Now the actual installation of the SAP system can be performed using
      the &sapin; (&sapina;). Depending on your system, it can take a while
      until &sapin; is ready.
     </para>

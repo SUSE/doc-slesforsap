@@ -163,7 +163,7 @@
        <emphasis>Performance-Optimized Scenario</emphasis>.
        However, the secondary system (B) is also used for non-productive
        purposes, such as for a development or QA database. If a takeover occurs,
-       the system resources for the productive database are increased via a
+       the system resources for the productive database are increased via an
        SAP hook call-out script. The non-productive system will be stopped
        before the takeover is being processed.
       </para>
