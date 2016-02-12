@@ -95,7 +95,7 @@ vm.pagecache_limit_ignore_dirty = 0</screen>
    </listitem>
    <listitem>
     <para>
-     Database (for &hana;, see <xref linkend="sec.s4s.configure.firewall-hana"/>,
+     Database (for &hana;, see the note below,
      otherwise see the documentation of your database vendor)
     </para>
    </listitem>
@@ -143,7 +143,7 @@ vm.pagecache_limit_ignore_dirty = 0</screen>
    </listitem>
   </itemizedlist>
 
-  <sect2 xml:id="sec.s4s.configure.firewall-hana">
+  <note>
    <title>Firewall Rules for &hana;</title>
 
    <para>
@@ -151,7 +151,7 @@ vm.pagecache_limit_ignore_dirty = 0</screen>
     Instead, they can be installed from the package
     <systemitem>HANA-Firewall</systemitem>.
    </para>
-  </sect2>
+  </note>
  </sect1>
 
  <sect1 xml:id="s4s.configure.log">
