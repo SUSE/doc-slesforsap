@@ -24,8 +24,8 @@
       &netweaver; and &hana; use large amounts of memory for accelerated access
       to business data. Parts of this memory are rarely accessed. When a
       user request needs to access paged-out memory, the response time
-      is poor. It is even worse when an SAP solution running on Java incurs
-      a Java garbage collection. The system starts heavy page-in (disc I/O)
+      is poor. It is even worse when an SAP application running on Java incurs
+      a Java garbage collection: The system starts heavy page-in (disc I/O)
       activity and has a poor response time for an extended period of time.
      </para>
     </listitem>
@@ -34,7 +34,7 @@
     <term>Solution</term>
     <listitem>
      <para>
-      A kernel tuning option has been introduced that allows the system
+      &sles4sap; includes a kernel tuning option that allows the system
       administrator to limit the amount of page cache that the kernel uses
       when there is competition between application memory and page-cache.
       This option tells the kernel that when the page cache is filled to the
@@ -43,8 +43,25 @@
       of the workload plus the configured page-cache limit do not exceed the
       amount of physical RAM in the system.
      </para>
+     <tip>
+      <title>
+       <systemitem>sapconf</systemitem> Configures These Parameters
+      </title>
+      <para>
+       The parameters reproduced below are also configured by
+       <systemitem>sapconf</systemitem>.
+       <!-- which, for &netweaver; and &hana;
+       sets the page-cache limit to 2 percent of the system's RAM. -->
+       <remark>Ask howard again if this is true for all modes... - sknorr,
+        2016-02-12</remark>
+      </para>
+      <para>
+       <remark>Linkend ... - sknorr, 2016-02-12</remark>
+       <!--For more information, see <xref linkend="fixme"/>.-->
+      </para>
+     </tip>
      <important>
-      <title>Example Values</title>
+      <title>The Following Are Example Values</title>
       <para>
        The values reproduced in the following are examples only.
        Do not set the following parameters on a productive system without
@@ -52,7 +69,7 @@
       </para>
       <para>
        If your system does not exhibit page-cache limit issues under the
-       work loads it is running, there is no need to adjust this parameter.
+       workloads it is running, there is no need to adjust this parameter.
       </para>
      </important>
      <para>
