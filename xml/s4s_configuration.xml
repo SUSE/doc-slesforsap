@@ -61,8 +61,7 @@
         2016-02-12</remark>
       </para>
       <para>
-       <remark>Linkend ... - sknorr, 2016-02-12</remark>
-       <!--For more information, see <xref linkend="fixme"/>.-->
+       For more information, see <xref linkend="sec.s4s.configure.sapconf"/>.
       </para>
      </tip>
      <important>
@@ -80,7 +79,7 @@
      <para>
       These kernel options are available for configuration:
      </para>
-     <itemizedlist mark="bullet" spacing="normal">
+     <itemizedlist>
       <listitem>
        <para>
         <literal>vm.pagecache_limit_mb</literal>

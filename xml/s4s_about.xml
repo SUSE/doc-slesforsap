@@ -20,7 +20,7 @@
   Target use cases include:
  </para>
 
- <itemizedlist mark="bullet" spacing="normal">
+ <itemizedlist>
   <listitem>
    <para>
     Unix to Linux Migrations and Replatforming
@@ -89,7 +89,7 @@
     <term><emphasis>Additional Update Channel</emphasis>
     </term>
     <listitem>
-     <itemizedlist mark="bullet" spacing="normal">
+     <itemizedlist>
       <listitem>
        <para>
         Allows SAP-specific patches

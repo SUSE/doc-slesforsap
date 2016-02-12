@@ -8,7 +8,7 @@
  <title>About This Guide</title>
 
  <para>
-  &sles4sapreg; is the reference platform for SAP's software development.
+  &sles4sapreg; is the reference platform for the software development of SAP.
   It is optimized in various ways for SAP applications. This guide provides
   detailed information about installing and customizing &sles4sap;.
  </para>
@@ -23,17 +23,23 @@
    The &sles4sap; Guide is divided into the following chapters:
   </para>
 
-  <remark>
-    FIXME: Some things still missing in the following list. - sknorr, 2016-01-14
-  </remark>
-
   <variablelist>
    <varlistentry>
     <term><xref linkend="cha.s4s.about" xrefstyle="select:title,nopage"/>
     </term>
     <listitem>
      <para>
-      An overview of &sles4sap;
+      An overview of &sles4sap;.
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term><xref linkend="cha.s4s.plan" xrefstyle="select:title,nopage"/>
+    </term>
+    <listitem>
+     <para>
+      Information on hardware requirements, the installation workflow,
+      partitioning, and other installation planning aspects.
      </para>
     </listitem>
    </varlistentry>
@@ -42,7 +48,18 @@
     </term>
     <listitem>
      <para>
-      Available installation scenarios for &sles4sap;
+      Installing the &sls; operating system that forms the basis of
+      &sles4sap;.
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term><xref linkend="cha.s4s.install.sap" xrefstyle="select:title,nopage"/>
+    </term>
+    <listitem>
+     <para>
+      Installing SAP applications on &sles4sap;, either directaly after the
+      installation of the operating system or in a running system.
      </para>
     </listitem>
    </varlistentry>
@@ -51,7 +68,7 @@
     </term>
     <listitem>
      <para>
-      Remote installation scenarios for &sles4sap;
+      Setting up a server for all &instmedia; used within your organization.
      </para>
     </listitem>
    </varlistentry>
@@ -60,7 +77,7 @@
     </term>
     <listitem>
      <para>
-      Listing of components and configuration hints for &sles4sap;.
+      Description of tools to configure &sles4sap;.
      </para>
     </listitem>
    </varlistentry>

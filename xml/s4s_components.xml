@@ -32,7 +32,7 @@
   </para>
   <!-- ke 2015-05-04: https://www.suse.com/products/highavailability/features/
   -->
-  <itemizedlist mark="bullet" spacing="normal">
+  <itemizedlist>
    <listitem>
     <para>
      Flexible, policy-driven clustering
@@ -227,7 +227,7 @@
    <para>
     For more information, see:
    </para>
-   <itemizedlist mark="bullet" spacing="normal">
+   <itemizedlist>
     <listitem>
      <para>
       The &haguide; at &docaddress;.
