@@ -74,15 +74,25 @@
       and <citetitle>Chapter 5, <quote>&sles4sap; Components</quote></citetitle>.
      </para>
      <para>
-      Move <xref linkend="s4s.install.network" xrefstyle="SectTitleOnPage"/>
-      from <citetitle>Chapter 3, <quote>Remote Installation from a Netwrok Server</quote>
-      </citetitle> to <xref linkend="s4s.install" xrefstyle="SectTitleOnPage"/>.
+      Move <xref linkend="sec.s4s.install.network" xrefstyle="SectTitleOnPage"/>
+      from <citetitle>Chapter 3,
+      <quote>Remote Installation from a Network Server</quote></citetitle>
+      to <xref linkend="cha.s4s.install" xrefstyle="SectTitleOnPage"/>.
+     </para>
+     <para>
+      Move <xref linkend="sec.s4s.data" xrefstyle="SectTitleOnPage"/>
+      from <xref linkend="cha.s4s.install" xrefstyle="SectTitleOnPage"/> to
+      <xref linkend="cha.s4s.plan" xrefstyle="SectTitleOnPage"/>.
+     </para>
+     <para>
+      Move certain information from
+      <xref linkend="sec.s4s.component.install" xrefstyle="SectTitleOnPage"/> to
+      <xref linkend="sec.s4s.workflow-overview" xrefstyle="SectTitleOnPage"/>.
      </para>
     </listitem>
    </varlistentry>
    <varlistentry>
-    <term><xref linkend="sec.s4s.about" xrefstyle="SectTitleOnPage"/>
-    </term>
+    <term><xref linkend="cha.s4s.about" xrefstyle="SectTitleOnPage"/></term>
     <listitem>
      <para>
       Add figure.
@@ -99,7 +109,8 @@
     </listitem>
    </varlistentry>
    <varlistentry>
-    <term><xref linkend="sec.s4s.component.clamsap" xrefstyle="SectTitleOnPage"/>
+    <term>
+      <xref linkend="sec.s4s.component.clamsap" xrefstyle="SectTitleOnPage"/>
     </term>
     <listitem>
      <para>
@@ -108,7 +119,8 @@
     </listitem>
    </varlistentry>
    <varlistentry>
-    <term><xref linkend="sec.s4s.component.secure-hana" xrefstyle="SectTitleOnPage"/>
+    <term>
+      <xref linkend="sec.s4s.component.hana-secure" xrefstyle="SectTitleOnPage"/>
     </term>
     <listitem>
      <para>
@@ -117,7 +129,8 @@
     </listitem>
    </varlistentry>
    <varlistentry>
-    <term><xref linkend="sec.s4s.component.manage-operation" xrefstyle="SectTitleOnPage"/>
+    <term>
+      <xref linkend="sec.s4s.component.manage-operation" xrefstyle="SectTitleOnPage"/>
     </term>
     <listitem>
      <para>
@@ -126,83 +139,42 @@
     </listitem>
    </varlistentry>
    <varlistentry>
-    <term><xref linkend="cha.s4s.plan" xrefstyle="SectTitleOnPage"/>
+    <term>
+      <xref linkend="sec.s4s.install.workflow" xrefstyle="SectTitleOnPage"/>
     </term>
     <listitem>
      <para>
-      Provide ISO image download URL.
+      Remove outdated installation options. Update Installation Workflow.
      </para>
     </listitem>
    </varlistentry>
    <varlistentry>
     <term>
-      <citetitle>Section 2.2, <quote>Booting the Installation Medium</quote></citetitle>
+      <xref linkend="sec.s4s.autoyast" xrefstyle="SectTitleOnPage"/>
     </term>
     <listitem>
      <para>
-      The package scope of the <guimenu>SLES for SAP Applications &mdash;
-      Installation</guimenu> is identical to a default &sls;
-      installation.
+      Remove information that duplicated.
      </para>
     </listitem>
    </varlistentry>
    <varlistentry>
     <term>
-      <citetitle>Section 2.3, <quote>SLES for SAP &mdash; Installation</quote></citetitle>
+      <xref linkend="cha.s4s.install.sap" xrefstyle="SectTitleOnPage"/>
     </term>
     <listitem>
      <para>
-      Add note about pre-selected packages in case of registration at this
-      stage of the installation.
+      Update Installation Workflow.
      </para>
     </listitem>
    </varlistentry>
    <varlistentry>
     <term>
-      <citetitle>Section 2.4.3.5, <quote>Registration</quote></citetitle>
+      <xref linkend="sec.s4s.configure.firewall" xrefstyle="SectTitleOnPage"/>
     </term>
     <listitem>
      <para>
-      Add note about pre-selected packages in case of registration at this
-      stage of the installation.
-     </para>
-    </listitem>
-   </varlistentry>
-   <varlistentry>
-    <term><xref linkend="cha.s4s.install.sap" xrefstyle="SectTitleOnPage"/>
-    </term>
-    <listitem>
-     <para>
-      Rewrite remote location specification.
-     </para>
-    </listitem>
-   </varlistentry>
-   <varlistentry>
-    <term><xref linkend="sec.s4s.partition" xrefstyle="SectTitleOnPage"/>
-    </term>
-    <listitem>
-     <para>
-      &hana; requires 2 GB of swap.
-     </para>
-    </listitem>
-   </varlistentry>
-   <varlistentry>
-    <term><xref linkend="sec.s4s.hana-replicate" xrefstyle="SectTitleOnPage"/>
-    </term>
-    <listitem>
-     <para>
-      Address &hana; System Replication
-      (<link xlink:href="https://bugzilla.suse.com/show_bug.cgi?id=929626"/>).
-     </para>
-    </listitem>
-   </varlistentry>
-   <varlistentry>
-    <term><xref linkend="sec.s4s.configure.harden" xrefstyle="SectTitleOnPage"/>
-    </term>
-    <listitem>
-     <para>
-      New section
-      (<link xlink:href="https://bugzilla.suse.com/show_bug.cgi?id=929625"/>).
+      Add information about firewall for &hana;.
      </para>
     </listitem>
    </varlistentry>
@@ -303,7 +275,7 @@
     </listitem>
    </varlistentry>
    <varlistentry>
-    <term><xref linkend="sec.s4s.configure.harden" xrefstyle="SectTitleOnPage"/>
+    <term><xref linkend="sec.s4s.component.harden" xrefstyle="SectTitleOnPage"/>
     </term>
     <listitem>
      <para>
