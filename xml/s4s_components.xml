@@ -342,6 +342,11 @@
     highly available system resources, and
     <systemitem>ClusterService</systemitem> which allows managing a cluster.
    </para>
+   <para>
+    Additionally, <systemitem>ClusterTools2</systemitem> provides scripts that
+    automate the most common cluster tasks. For more information, see the
+    man page of the respective tool.
+   </para>
   </sect3>
 
   <sect3 xml:id="sec.s4s.component.sapconf">
