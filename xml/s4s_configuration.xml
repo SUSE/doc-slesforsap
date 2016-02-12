@@ -110,15 +110,13 @@ vm.pagecache_limit_ignore_dirty = <replaceable>0</replaceable></screen>
   </variablelist>
  </sect1>
 
-<!-- ==================================================================== -->
-
  <sect1 xml:id="sec.s4s.configure.firewall">
-  <title>Firewall Configuration</title>
+  <title>Configuring &susefirewall;</title>
 
   <para>
    By default, the installation workflow of &sles4sap; enables
    &susefirewall;. The firewall needs to
-   manually be configured to allow network access for the following:
+   be manually configured to allow network access for the following:
   </para>
 
   <itemizedlist>
@@ -129,63 +127,72 @@ vm.pagecache_limit_ignore_dirty = <replaceable>0</replaceable></screen>
    </listitem>
    <listitem>
     <para>
-     Database (for &hana;, see the note below,
-     otherwise see the documentation of your database vendor)
+     Database (see the documentation of your database vendor; for &hana;, see
+     <xref linkend="sec.s4s.configure.firewall-hana"/>)
     </para>
    </listitem>
   </itemizedlist>
   <para>
-   Additionally, open the ports 1128 (TCP) and 1129 (UDP).
+   Additionally, open the ports <literal>1128</literal> (TCP) and
+   <literal>1129</literal> (UDP).
   </para>
 
-  <remark>
-   Would be good to have the instances where each of the opened port ranges is
-   needed spelled out OR otherwise, we could just refer to SAP documentation
-   for the relevant product and put a description of how to open ports here.
-   The current thing we have here is the general specific and only helpful if
-   you want overly many holes in your wall, it seems. - sknorr, 2016-01-22
-  </remark>
   <para>
    SAP applications require many open ports and port ranges in the firewall.
-   The exact numbers depend on the selected instances, for example:
+   The exact numbers depend on the selected instance. For more information,
+   see the documentation provided to you by SAP.
   </para>
-  <itemizedlist mark="bullet" spacing="normal">
+ </sect1>
+
+ <sect1 xml:id="sec.s4s.configure.firewall-hana">
+  <title>Configuring <systemitem>HANA-Firewall</systemitem></title>
+
+  <para>
+   To simplify setting up a firewall for &hana;, you can install an extension
+   for &susefirewall; using the package <systemitem>HANA-Firewall</systemitem>.
+   Whereas standard &susefirewall; allows only three zones (internal, DMZ, and
+   external), HANA-Firewall enables you to configure more zones to accommodate
+   all running &hana; instances.
+  </para>
+  <para>
+   <systemitem>HANA-Firewall</systemitem> consists of the following parts:
+  </para>
+  <itemizedlist>
    <listitem>
     <para>
-     3200-3399,
+     A &yast; module: <guimenu>HANA Firewall</guimenu>)
     </para>
    </listitem>
    <listitem>
     <para>
-     3600,
+     A command-line utility: <systemitem>hana-firewall</systemitem>
     </para>
    </listitem>
    <listitem>
     <para>
-     4700-4899,
+     A service: <systemitem>hana-firewall</systemitem>
     </para>
    </listitem>
-   <listitem>
+   <!-- Should this one be here? - sknorr, 2016-02-12 -->
+   <!-- <listitem>
     <para>
-     7200-7299,
+     A configuration file: <filename>/etc/sysconfig/hana-firewall</filename>
     </para>
-   </listitem>
-   <listitem>
-    <para>
-     50000-59999.
-    </para>
-   </listitem>
+   </listitem> -->
   </itemizedlist>
-
-  <note>
-   <title>Firewall Rules for &hana;</title>
-
-   <para>
-    For &hana;, you do not need to set up firewall rules manually.
-    Instead, they can be installed from the package
-    <systemitem>HANA-Firewall</systemitem>.
-   </para>
-  </note>
+  <para>
+   <systemitem>HANA-Firewall</systemitem> works by adding rule sets
+   to your existing &susefirewall; configuration. You can configure within
+   the &yast; module which rule sets are applied.
+  </para>
+  <para>
+   For single-tenant databases, the specific port numbers that need to be
+   inserted into the rules are automatically generated from the
+   instance number of the &hana; database.
+  </para>
+  <remark>
+   Make this a procedure... - sknorr, 2016-02-12
+  </remark>
  </sect1>
 
  <sect1 xml:id="s4s.configure.log">
