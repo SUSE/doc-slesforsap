@@ -89,54 +89,63 @@
   </itemizedlist>
  </sect1>
 
- <sect1 xml:id="sec.s4s.data-os">
-  <title>Required Data for Installing the Operating System</title>
-  <para>
-   The &sls; installation requires the following data for every
-   physical server:
-  </para>
-  <itemizedlist>
-   <listitem>
-    <para>
-     Network configuration parameters, such as host name, domain, IP address,
-     subnet mask, domain searchlist (DNS), IP for name server, IP for gateway
-    </para>
-   </listitem>
-   <listitem>
-    <para>
-     Administrator (<systemitem>root</systemitem>) password for the &sls;
-     installation
-    </para>
-   </listitem>
-  </itemizedlist>
- </sect1>
+ <sect1 xml:id="sec.s4s.data">
+  <title>Required Data for Installing</title>
 
- <sect1 xml:id="sec.s4s.data-sap">
-  <title>Required Data for Installing SAP Applications</title>
-  <para>
-   The installation of an SAP application generally requires:
-  </para>
-  <itemizedlist>
-   <listitem>
-    <para>
-     SAP SID
-    </para>
-   </listitem>
-   <listitem>
-    <para>
-     SAP Instance Number
-    </para>
-   </listitem>
-   <listitem>
-    <para>
-     A password for the SAP application
-    </para>
-   </listitem>
-  </itemizedlist>
-  <para>
-   Depending on the SAP application you are installing, more parameters may be
-   necessary, such as T-Shirt Sizing or parameters for virtual networking.
-  </para>
+  <variablelist>
+   <varlistentry>
+    <term>Operating System</term>
+    <listitem>
+     <para>
+      The &sls; installation requires the following data for every
+      physical server:
+     </para>
+     <itemizedlist>
+      <listitem>
+       <para>
+        Network configuration parameters, such as host name, domain, IP address,
+        subnet mask, domain searchlist (DNS), IP for name server, IP for gateway
+       </para>
+      </listitem>
+      <listitem>
+       <para>
+        Administrator (<systemitem>root</systemitem>) password for the &sls;
+        installation
+       </para>
+      </listitem>
+     </itemizedlist>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term>SAP Application</term>
+    <listitem>
+     <para>
+      The installation of an SAP application generally requires:
+     </para>
+     <itemizedlist>
+      <listitem>
+       <para>
+        SAP SID
+       </para>
+      </listitem>
+      <listitem>
+       <para>
+        SAP Instance Number
+       </para>
+      </listitem>
+      <listitem>
+       <para>
+        A password for the SAP application
+       </para>
+      </listitem>
+     </itemizedlist>
+     <para>
+      Depending on the SAP application you are installing, more parameters may be
+      necessary, such as T-Shirt Sizing or parameters for virtual networking.
+     </para>
+    </listitem>
+   </varlistentry>
+  </variablelist>
  </sect1>
 
  <sect1 xml:id="sec.s4s.workflow-overview">
