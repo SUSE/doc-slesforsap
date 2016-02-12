@@ -62,13 +62,9 @@
   You can now install from the NFS server you set up.
   In the &sapwiz;, specify the path this way:
   <filename><replaceable>server_name</replaceable>/srv/www/htdocs/sap_repo</filename>.
+  For more information on how to specify the path, see
+  <xref linkend="tab.sap.media.source"/>.
  </para>
- <remark>
-  The NFS path originally had a colon after server_name. Double-check if that
-  had a meaning. (But it was inconsistent with other docs and a colon there
-  would mean that you would see a specific port number, normally)
-  - sknorr, 2015-01-29
- </remark>
 
  <para>
   For information about installing &sls; from an NFS server, see
