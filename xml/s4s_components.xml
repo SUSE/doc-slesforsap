@@ -251,8 +251,7 @@
    The installation workflow offers a guided installation path for both the
    &sls; operating system and the SAP application.
    <!-- ke: jweber does not want plural ("applications") here.-->
-   For more information, see <xref linkend="cha.s4s.install"/> and
-   <xref linkend="cha.s4s.install.sap"/>.
+   For more information, see <xref linkend="sec.s4s.workflow-overview"/>.
   </para>
   <para>
    Additionally, the installation workflow can be extended by

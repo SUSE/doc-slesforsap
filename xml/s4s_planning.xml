@@ -89,6 +89,84 @@
   </itemizedlist>
  </sect1>
 
+ <sect1 xml:id="sec.s4s.workflow-overview">
+  <title>Overview of the Installation Workflow</title>
+
+  <para>
+   The installation workflow of &sles4sap; can be separated into steps:
+  </para>
+
+  <orderedlist>
+   <listitem>
+    <para>
+     Installation of the operating system (&sls;). See
+     <xref linkend="sec.s4s.install.workflow"/>.
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     &sapwiz;, part 1: Copying all required SAP media to the
+     local disk or selecting a shared storage medium to use.
+     See <xref linkend="sec.s4s.install.sap.product"/>, in particular
+     <xref linkend="st.s4s.copy-media" xrefstyle="select:title"/>.
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     &sapwiz;, part 2: Collecting all parameters for the
+     actual installation by querying the user interactively.
+     See <xref linkend="sec.s4s.install.sap.product"/>, in particular
+     <xref linkend="st.s4s.collect-parameter" xrefstyle="select:title"/>.
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     &sapwiz;, part 3: Running the SAP Installer.
+     See <xref linkend="sec.s4s.install.sap.product"/>, in particular
+     <xref linkend="st.s4s.sapinst" xrefstyle="select:title"/>.
+    </para>
+   </listitem>
+  </orderedlist>
+
+  <note>
+   <title>Installation of Only &sls;</title>
+   <para>
+    You can also choose to only install a base &sls; system. In that case,
+    only the first step of the installation workflow is executed.
+   </para>
+  </note>
+
+  <para>
+   Most of these steps do not need to be run immediately after each other which
+   allows for flexibility in how you install systems.
+   This means that you can prepare a single installation
+   as a first step and then continue from there. For example:
+  </para>
+
+  <itemizedlist>
+   <listitem>
+    <para>
+     Install the operating system (&sls;) only.
+    </para>
+    <para>
+     <emphasis>or</emphasis>
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     Install the operating system (&sls;), copy SAP media, and collect
+     SAP installation parameters.
+    </para>
+   </listitem>
+  </itemizedlist>
+
+  <para>
+   Then, create disk images, copy them to other systems, and adjust SAP
+   installation parameters. Finally, finish the installation on each machine
+   individually.
+  </para>
+ </sect1>
+
  <sect1 xml:id="sec.s4s.data">
   <title>Required Data for Installing</title>
 
@@ -148,76 +226,6 @@
   </variablelist>
  </sect1>
 
- <sect1 xml:id="sec.s4s.workflow-overview">
-  <title>Overview of the Installation Workflow</title>
-
-  <para>
-   The installation workflow of &sles4sap; can be separated into steps:
-  </para>
-
-  <orderedlist>
-   <listitem>
-    <para>
-     Installation of the operating system (&sls;).
-    </para>
-   </listitem>
-   <listitem>
-    <para>
-     &sapwiz;, part 1: Copying all required SAP media to the
-     local disk or selecting a shared storage medium to use.
-    </para>
-   </listitem>
-   <listitem>
-    <para>
-     &sapwiz;, part 2: Collecting all parameters for the
-     actual installation by querying the user interactively.
-    </para>
-   </listitem>
-   <listitem>
-    <para>
-     &sapwiz;, part 3: Running the SAP Installer.
-    </para>
-   </listitem>
-  </orderedlist>
-
-  <note>
-   <title>Installation of Only &sls;</title>
-   <para>
-    You can also choose to only install a base &sls; system. In that case,
-    only the first step of the installation workflow is executed.
-   </para>
-  </note>
-
-  <para>
-   Most of these steps do not need to be run immediately after each other which
-   allows for flexibility in how you install systems.
-   This means that you can prepare a single installation
-   as a first step and then continue from there. For example:
-  </para>
-
-  <itemizedlist>
-   <listitem>
-    <para>
-     Install the operating system (&sls;) only.
-    </para>
-    <para>
-     <emphasis>or</emphasis>
-    </para>
-   </listitem>
-   <listitem>
-    <para>
-     Install the operating system (&sls;), copy SAP media, and collect
-     SAP installation parameters.
-    </para>
-   </listitem>
-  </itemizedlist>
-
-  <para>
-   Then, create disk images, copy them to other systems, and adjust SAP
-   installation parameters. Finally, finish the installation on each machine
-   individually.
-  </para>
- </sect1>
 
  <xi:include href="s4s_partitioning.xml" parse="xml"/>
 

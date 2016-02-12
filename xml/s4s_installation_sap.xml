@@ -182,7 +182,7 @@
   </tip>
 
   <procedure>
-   <step>
+   <step xml:id="st.s4s.copy-media">
     <para>
      In the screen <guimenu>SAP Installation Wizard</guimenu>, provide the
      <guimenu>Location of the SAP Installation Master</guimenu>
@@ -688,7 +688,7 @@ SAP-NetWeaver-740-SR2-Installation-Export-CD-3-3</screen>
      </para>
     </note>
    </step>
-   <step>
+   <step xml:id="st.s4s.collect-parameter">
     <para>
      In <guimenu>SAP System Parameters</guimenu>, select the appropriate
      <guimenu>System T-Shirt Sizing</guimenu>.
@@ -741,7 +741,7 @@ SAP-NetWeaver-740-SR2-Installation-Export-CD-3-3</screen>
      </mediaobject>
     </figure>
    </step>
-   <step>
+   <step xml:id="st.s4s.sapinst">
     <para>
      Now the actual installation of the SAP system can be performed using the
      the &sapin; (&sapina;). Depending on your system, it can take a while
