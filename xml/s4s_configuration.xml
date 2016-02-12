@@ -11,6 +11,11 @@
 
  <sect1 xml:id="sec.s4s.configure.page-cache">
   <title>Kernel: Page-Cache Limit</title>
+  <remark>
+   The presentation of Problem/Solution is on one hand quite useful, on the
+   other it is very inconsistent with the rest of this chapter.
+   - sknorr, 2016-02-12
+  </remark>
   <variablelist>
    <varlistentry>
     <term>Problem</term>
@@ -18,7 +23,7 @@
      <para>
       The kernel swaps out rarely accessed memory pages to use
       freed memory pages as cache to speed up file system operations, for
-      instance during backup operations.
+      example during backup operations.
      </para>
      <para>
       &netweaver; and &hana; use large amounts of memory for accelerated access
