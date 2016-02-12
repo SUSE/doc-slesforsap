@@ -302,11 +302,11 @@
          leave <guimenu>Start the SAP Installation Wizard right after the OS
          installation</guimenu> deactivated.
         </para>
-        <para>
-         Proceed with <guimenu>Next</guimenu>.
-        </para>
        </listitem>
       </itemizedlist>
+      <para>
+       Proceed with <guimenu>Next</guimenu>.
+      </para>
      </listitem>
     </itemizedlist>
     <figure xml:id="fig.s4s.install.type">
