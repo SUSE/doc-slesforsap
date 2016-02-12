@@ -108,7 +108,7 @@
      &sapwiz;, part 1: Copying all required SAP media to the
      local disk or selecting a shared storage medium to use.
      See <xref linkend="sec.s4s.install.sap.product"/>, in particular
-     <xref linkend="st.s4s.copy-media" xrefstyle="select:title"/>.
+     <xref linkend="st.s4s.copy-master" xrefstyle="select:title"/>.
     </para>
    </listitem>
    <listitem>

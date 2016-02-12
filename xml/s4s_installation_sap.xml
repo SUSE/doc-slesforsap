@@ -155,6 +155,18 @@
 
  <sect1 xml:id="sec.s4s.install.sap.product">
   <title>Using the &sapwiz;</title>
+
+  <para>
+   Use the &sapwiz; to install an &netweaver; system (including database) or a
+   simple &hana; system (single tenant, same password for all initial
+   users, default settings).
+  </para>
+  <para>
+   To install other SAP applications or to create a more sophisticated &hana;
+   setup, directly use one of the installation methods provided by SAP instead
+   of this wizard.
+  </para>
+
   <tip>
    <title>Installing an SAP Application in a Fully Installed System</title>
    <para>
@@ -189,7 +201,7 @@
   </tip>
 
   <procedure>
-   <step xml:id="st.s4s.copy-media">
+   <step xml:id="st.s4s.copy-master">
     <para>
      In the screen <guimenu>SAP Installation Wizard</guimenu>, provide the
      <guimenu>Location of the SAP Installation Master</guimenu>
@@ -314,9 +326,11 @@
         <entry>
          <para>
           <filename><replaceable>//</replaceable></filename>
-          <remark>This is correct: the relevant files are usually at the top
-          level which is //. - sknorr, 2016-01-20</remark>
          </para>
+         <remark>
+          This is correct: the relevant files are usually at the top
+          level which is //. - sknorr, 2016-01-20
+         </remark>
         </entry>
        </row>
        <row>
@@ -339,6 +353,10 @@
          <para>
           <filename><replaceable>server_name</replaceable><replaceable>/path/to/dir/on/device</replaceable></filename>
          </para>
+         <remark>
+          This is correct: YaST does not need a colon after the server_name.
+          - sknorr, 2016-02-12
+         </remark>
         </entry>
        </row>
        <row>
@@ -428,7 +446,7 @@
         Set up this system as an installation server for other &sles4sap;
         systems.
         The media copied to this installation server will be offered through
-        Service Location Protocol (SLP).
+        NFS and can be discovered via Service Location Protocol (SLP).
        </para>
       </listitem>
      </varlistentry>
@@ -438,28 +456,37 @@
     </para>
     <para>
      The &sapwiz; will now copy the &instmaster; to your local hard disk.
+     Depending on the type of &instmaster; you selected, the installation
+     will continue differently:
     </para>
+    <itemizedlist>
+     <listitem>
+      <para>
+       If you are installing an &hana; database, skip ahead to
+       <xref linkend="st.s4s.supplement" xrefstyle="select:label"/>.
+      </para>
+     </listitem>
+     <listitem>
+      <para>
+       If you are installing an &netweaver; application, continue with the
+       next step.
+      </para>
+     </listitem>
+    </itemizedlist>
    </step>
    <step>
-    <remark>
-     From here on out, we're NetWeaver-only... Branch this procedure...?
-     - sknorr, 2016-02-02
-    </remark>
     <para>
      You will now see the screen
      <guimenu>What Would You Like to Install</guimenu>.
      Under <guimenu>The SAP product is</guimenu>, choose how you want to
      install the product:
     </para>
-    <remark>
-     Refe to the Help button and remove (as in old guide)? - sknorr, 2016
-    </remark>
     <variablelist>
      <varlistentry>
       <term><guimenu>SAP Standard System</guimenu></term>
       <listitem>
        <para>
-        Install a standard product.
+        Install an SAP application including its database onto this system.
        </para>
       </listitem>
      </varlistentry>
@@ -536,9 +563,6 @@
     </para>
    </step>
    <step>
-    <remark>
-      What are the other cases? Ask varkoly. - sknorr, 2016-01-20
-    </remark>
     <para>
      You will now see the screen <guimenu>Choose a Product</guimenu>.
      The products shown depend on the &mediaset; and &instmaster; you received
@@ -560,7 +584,7 @@
      </mediaobject>
     </figure>
    </step>
-   <step xml:id="st.copy.media">
+   <step xml:id="st.s4s.copy-media">
     <para>
      On the screen <guimenu>SAP Installation Wizard</guimenu>, you can provide
      the location of additional &instmedia; you want to install.
@@ -587,17 +611,26 @@
        <para>
         Do not copy additional &instmedia;. Choose this option
         if you do not need additional &instmedia; or if you want to install
-        additional &instmedia; directly from their source.
+        additional &instmedia; directly from their source, for example
+        CDs/DVDs or flash disks.
        </para>
        <para>
         When choosing this option despite your SAP product requiring additional
-        &instmedia;, you will later need to provide the SAP Installer (SAPinst)
+        &instmedia;, you will later need to provide the &sapin; (&sapina;)
         with the relevant paths.
        </para>
-       <remark>
-        Is this option somehow recommended/useful for any particular case?
-        - sknorr, 2016-02-03
-       </remark>
+       <important>
+        <title>Do Not Choose When Installing &hana;</title>
+        <para>
+         This option does not work for &hana;. Choosing it will lead the
+         installation to fail.
+        </para>
+        <remark>
+         Reasoning was something about HANA media having to be rw,
+         not just r somehow according to hguo. Check again before putting this
+         here - sknorr, 2016-01-12
+        </remark>
+       </important>
       </listitem>
      </varlistentry>
     </variablelist>
@@ -620,30 +653,31 @@
      </mediaobject>
     </figure>
    </step>
-   <step performance="optional">
+   <step>
     <remark>
-     Actually, I am being asked whether I want to prepare more media...
-     However, either you copy or bust. Check if we should fix the usage of
-     "prepare". - sknorr, 2016-02-03
+     I am being asked whether I want to prepare more media which really just
+     means copying. Check if we really want "prepare" here.
+     (hguo says we probably do, to motivate the user...)
+     - sknorr, 2016-02-12
     </remark>
     <para>
      After copying the &instmedia;, you will be asked whether you want to copy
-     more &instmedia;.
+     (<quote>prepare</quote>) more &instmedia;.
      To do so, click <guimenu>Yes</guimenu>.
      After doing so, follow the instructions in
-     <xref linkend="st.copy.media" xrefstyle="select:label"/>.
+     <xref linkend="st.s4s.copy-media" xrefstyle="select:label"/>.
     </para>
     <para>
      Otherwise, click <guimenu>No</guimenu>.
     </para>
    </step>
-   <step>
+   <step xml:id="st.s4s.supplement">
     <para>
-     You will be asked whether you want to copy Supplementary or
+     You will be asked whether you want to copy &supmedia; or
      Third-Party Media.
      To do so, click <guimenu>Yes</guimenu>.
      After doing so, follow the instructions in
-     <xref linkend="st.copy.media" xrefstyle="select:label"/>.
+     <xref linkend="st.s4s.copy-media" xrefstyle="select:label"/>.
     </para>
     <para>
      Otherwise, click <guimenu>No</guimenu>.
@@ -652,9 +686,6 @@
      For information on creating &supmedia;, see
      <xref linkend="app.s4s.component.supplement"/>.
     </para>
-    <remark>
-     Two crossrefs in one step. Not ideal. - sknorr, 2016-02-03
-    </remark>
    </step>
    <step>
     <para>
@@ -749,14 +780,35 @@ SAP-NetWeaver-740-SR2-Installation-Export-CD-3-3</screen>
    </step>
    <step xml:id="st.s4s.sapinst">
     <para>
-     Now the actual installation of the SAP system can be performed using
-     the &sapin; (&sapina;). Depending on your system, it can take a while
-     until &sapin; is ready.
+     The following steps differ somewhat depending on the type of
+     SAP application you are installing:
     </para>
-    <para>
-     Follow the steps of &sapin; as described in the documentation provided to
-     you by SAP.
-    </para>
+    <itemizedlist>
+     <listitem>
+      <para>
+       When installing an &hana; database, you will be asked for a
+       <guimenu>SID</guimenu>, an <guimenu>SAP HANA Instance Number</guimenu>,
+       and a <guimenu>SAP HANA Master Password</guimenu>.
+      </para>
+      <para>
+       Proceed with <guimenu>OK</guimenu>.
+      </para>
+      <para>
+       &hana; will then be installed without further questions.
+      </para>
+     </listitem>
+     <listitem>
+      <para>
+       When installing an &netweaver; application, the actual installation will
+       be performed using the &sapin; (&sapina;). Depending on your system,
+       it can take a while until &sapin; is ready.
+      </para>
+      <para>
+       Follow the steps of &sapin; as described in the documentation provided to
+       you by SAP.
+      </para>
+     </listitem>
+    </itemizedlist>
     <figure xml:id="fig.s4s.sapinst.param">
      <title>&sapin;: Defining Parameters</title>
      <mediaobject>
@@ -768,6 +820,18 @@ SAP-NetWeaver-740-SR2-Installation-Export-CD-3-3</screen>
       </imageobject>
      </mediaobject>
     </figure>
+    <tip>
+     <title>Installation Log Files</title>
+     <para>
+      If the installation of the SAP application fails, it may help to look at
+      installation <filename>.err</filename> log files located in
+      <filename>/var/adm/autoinstall</filename>.
+     </para>
+     <para>
+      For more information on log files, see
+      <xref linkend="s4s.configure.log"/>.
+     </para>
+    </tip>
    </step>
    <step>
     <para>
@@ -779,10 +843,11 @@ SAP-NetWeaver-740-SR2-Installation-Export-CD-3-3</screen>
     <para>
      Proceed with <guimenu>Next</guimenu>, then click <guimenu>OK</guimenu>.
     </para>
-    <remark>
-     Help recommends using sapconf "in combination with" tuned to change this
-     later on. Need to put that here? - sknorr, 2016-02-02
-    </remark>
+    <para>
+     You can later change this configuration using
+     <systemitem>sapconf</systemitem>.
+     <remark>Fixme! xref wanted. - sknorr, 2016-01-12</remark>
+    </para>
    </step>
    <step>
     <para>
@@ -825,7 +890,7 @@ SAP-NetWeaver-740-SR2-Installation-Export-CD-3-3</screen>
 ...</screen>
 
   <para>
-   To continue the installation, follow the below steps:
+   To continue the installation, follow these steps:
   </para>
 
   <procedure>
@@ -836,7 +901,7 @@ SAP-NetWeaver-740-SR2-Installation-Export-CD-3-3</screen>
     </para>
 <screen>SAP_AUTO_INSTALL="yes"</screen>
    </step>
-   <step performance="optional">
+   <step>
     <para>
      In the case of an &hana;/&b1; installation, the &sapwiz; will later use
      the parameters documented in the &ay; files in
