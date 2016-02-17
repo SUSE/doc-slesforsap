@@ -196,9 +196,11 @@
     <para>
      Finally, adapt <filename>/etc/sap-installation-wizard.xml</filename> to
      include your custom file.
-     In the <tag>partitioning</tag> for <literal>TREX</literal>, insert the
+     In the <tag>listitem</tag> for <literal>TREX</literal>, insert the
      following line:
     </para>
+    <!-- Yes, "listitem" above is correct even though it sounds like DocBook!
+    - sknorr, 2016-02-17 -->
 <screen><![CDATA[<partitioning>TREX_partitioning</partitioning>]]></screen>
    </step>
   </procedure>
