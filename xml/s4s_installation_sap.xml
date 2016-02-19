@@ -671,7 +671,7 @@
    <step xml:id="st.s4s.supplement">
     <para>
      You will be asked whether you want to copy &supmedia; or
-     Third-Party Media.
+     &thirdmedia;.
      To do so, click <guimenu>Yes</guimenu>.
      After doing so, follow the instructions in
      <xref linkend="st.s4s.copy-media" xrefstyle="select:label"/>.
@@ -679,6 +679,32 @@
     <para>
      Otherwise, click <guimenu>No</guimenu>.
     </para>
+    <tip>
+     <!-- FIXME: 12/SP2? See discussion in FATE#319061 - sknorr, 2016-02-19 -->
+     <title>Difference Between &supmedia; and &thirdmedia;</title>
+     <para>
+      Both types of additional media are used to add installers for software
+      that is neither part of the &sles4sap; media nor part of your &mediaset;
+      from SAP. However, the delivery mechanism is different:
+     </para>
+     <itemizedlist>
+      <listitem>
+       <para>
+        &supmedia; is installed using an &ay; file which allows creating
+        an installation wizard, if necessary. How the actual installation is
+        performed is left to the author of the &supmedia;: It can, for example,
+        be done using Bash scripts that copy files.
+       </para>
+      </listitem>
+      <listitem>
+       <para>
+        &thirdmedia; is installed from RPM package repositories that you will
+        remain subscribed to. This means, you receive updates for &thirdmedia;
+        along with your regular system updates.
+       </para>
+      </listitem>
+     </itemizedlist>
+    </tip>
     <para>
      For information on creating &supmedia;, see
      <xref linkend="app.s4s.component.supplement"/>.

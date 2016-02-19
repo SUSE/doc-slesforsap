@@ -259,7 +259,7 @@
 <!ENTITY supmedia       "Supplementary Media">
 <!ENTITY sapin          "SAP Installer">
 <!ENTITY sapina         "SAPinst">
-
+<!ENTITY thirdmedia     "Third-Party Media">
 
 <!ENTITY % network-entities SYSTEM "network-decl.ent">
 %network-entities;
