@@ -33,6 +33,15 @@
   </listitem>
  </itemizedlist>
 
+ <remark>
+  FIXME: Show this to varkoly. - sknorr, 19-02-2016
+ </remark>
+ <para>
+  The installation medium of &sles4sap; contains a preconfigure &ay; XML file
+  and a DUD file that you can use as the basis for custom installation setups.
+  Both files are contained in the directory <filename>sap-apl</filename>.
+ </para>
+
  <para>
   For more information on partitioning for SAP applications with &ay;, see
   <xref linkend="sec.s4s.partition"/>.
