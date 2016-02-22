@@ -349,6 +349,73 @@ vm.pagecache_limit_ignore_dirty = <replaceable>0</replaceable></screen>
   </itemizedlist>
  </sect1>
 
+ <sect1 xml:id="sec.s4s.configure.scrub-instance">
+  <title>Cleaning Up an Instance Before Using It as a Master Image</title>
+
+  <remark>
+   Should this be in components instead? Simplified management?
+   - sknorr, 2016-02-19
+  </remark>
+  <para>
+   Using a system like &kiwi;, it is possible to use an image of an
+   already-configured master instance on multiple systems. However, normally
+   such an image would contain certain configuration data that should
+   not be copied along with the rest of the system.
+  </para>
+  <para>
+   To avoid cleaning up manually, use the script
+   <filename>clone-master-clean-up</filename> (available from the package of the
+   same name). It removes the following data automatically:
+  </para>
+  <itemizedlist>
+   <listitem>
+    <para>
+     Swap device
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     SUSE registration information and repositories from SUSE
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     User and host SSH keys
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     Shell history, mails, cron jobs, temporary files, log files, random seeds
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     The generated <systemitem>HANA-Firewall</systemitem> script (but not the
+     configuration itself)
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     Network configuration
+    </para>
+   </listitem>
+  </itemizedlist>
+  <para>
+   Additionally, <systemitem>sudo</systemitem> settings are reset and you can
+   choose to set up a new &rootuser; password. <!-- This script also ensures
+   that, if the first-boot section of the installation workflow was used for the
+   original installation, it is run again on the next boot. -->
+   <!-- Last thing might not work right now... bsc#967442
+   - sknorr, 2016-02-19 -->
+  </para>
+  <para>
+   To use the script, do:
+  </para>
+<screen>&prompt.root;clone-master-clean-up</screen>
+  <para>
+   Then follow the instructions.
+  </para>
+ </sect1>
 
  <sect1 xml:id="sec.s4s.configure.log">
   <title>Important Log Files</title>
