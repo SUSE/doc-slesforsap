@@ -403,11 +403,9 @@ vm.pagecache_limit_ignore_dirty = <replaceable>0</replaceable></screen>
   </itemizedlist>
   <para>
    Additionally, <systemitem>sudo</systemitem> settings are reset and you can
-   choose to set up a new &rootuser; password. <!-- This script also ensures
+   choose to set up a new &rootuser; password. This script also ensures
    that, if the first-boot section of the installation workflow was used for the
    original installation, it is run again on the next boot.
-   <!-- Last thing might not work right now... bsc#967442
-   - sknorr, 2016-02-19 -->
   </para>
   <para>
    To use the script, do:
