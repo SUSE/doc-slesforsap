@@ -218,7 +218,7 @@ vm.pagecache_limit_ignore_dirty = <replaceable>0</replaceable></screen>
       where it cannot be used.
      </para>
      <para>
-      The script will ask a number of questions: Importantly, it will ask for
+      The script will ask several questions: Importantly, it will ask for
       TCP and UDP port ranges that need to be opened.
      </para>
     </important>
