@@ -193,35 +193,36 @@ vm.pagecache_limit_ignore_dirty = <replaceable>0</replaceable></screen>
    </listitem>
   </itemizedlist>
 
+  <important>
+   <title>Multi-Tenant Databases</title>
+   <para>
+    For multi-tenant &hana; databases, determining the port numbers that
+    need to be opened is not yet possible automatically.
+    If you are working with a multi-tenant &hana; database system, before you
+    use &yast;, run a script on the command line to create a new
+    service definition:
+   </para>
+<screen>&prompt.root;<command>cd /etc/hana-firewall.d</command>
+&prompt.root;<command>./create_new_service</command></screen>
+   <para>
+    You need to switch to the directory
+    <filename>/etc/hana-firewall.d</filename>,
+    otherwise the rule file for the new service will be created in a place
+    where it cannot be used.
+   </para>
+   <para>
+    The script will ask several questions: Importantly, it will ask for
+    TCP and UDP port ranges that need to be opened.
+   </para>
+  </important>
+
   <procedure>
    <title>Using <systemitem>HANA-Firewall</systemitem></title>
    <step>
     <para>
-     Make sure the &hana; database/databases that you want to configure a
+     Make sure the &hana; database/databases that you want to configure the
      firewall for are correctly installed.
     </para>
-    <important>
-     <title>Multi-Tenant Databases</title>
-     <para>
-      For multi-tenant &hana; databases, determining the port numbers that
-      need to be opened is not yet possible automatically.
-      If you are working with a multi-tenant &hana; database system, before you
-      use &yast;, run a script on the command line to create a new
-      service definition:
-     </para>
-<screen>&prompt.root;<command>cd /etc/hana-firewall.d</command>
-&prompt.root;<command>./create_new_service</command></screen>
-     <para>
-      You need to switch to the directory
-      <filename>/etc/hana-firewall.d</filename>,
-      otherwise the rule file for the new service will be created in a place
-      where it cannot be used.
-     </para>
-     <para>
-      The script will ask several questions: Importantly, it will ask for
-      TCP and UDP port ranges that need to be opened.
-     </para>
-    </important>
    </step>
    <step>
     <para>
@@ -404,7 +405,7 @@ vm.pagecache_limit_ignore_dirty = <replaceable>0</replaceable></screen>
    Additionally, <systemitem>sudo</systemitem> settings are reset and you can
    choose to set up a new &rootuser; password. <!-- This script also ensures
    that, if the first-boot section of the installation workflow was used for the
-   original installation, it is run again on the next boot. -->
+   original installation, it is run again on the next boot.
    <!-- Last thing might not work right now... bsc#967442
    - sknorr, 2016-02-19 -->
   </para>
