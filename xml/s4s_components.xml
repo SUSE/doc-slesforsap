@@ -347,7 +347,8 @@
    <para>
     Additionally, <systemitem>ClusterTools2</systemitem> provides scripts that
     automate the most common cluster tasks. For more information, see the
-    man page of the respective tool.
+    man page of the respective tool (find the man pages in the additional
+    package <systemitem>ClusterTools2-doc</systemitem>).
    </para>
   </sect3>
 
