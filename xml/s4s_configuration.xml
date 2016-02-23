@@ -48,34 +48,6 @@
       of the workload plus the configured page-cache limit do not exceed the
       amount of physical RAM in the system.
      </para>
-     <tip>
-      <title>
-       <systemitem>sapconf</systemitem> Configures These Parameters
-      </title>
-      <para>
-       The parameters reproduced below are also configured by
-       <systemitem>sapconf</systemitem>.
-       <!-- which, for &netweaver; and &hana;
-       sets the page-cache limit to 2 percent of the system's RAM. -->
-       <remark>Ask howard again if this is true for all modes... - sknorr,
-        2016-02-12</remark>
-      </para>
-      <para>
-       For more information, see <xref linkend="sec.s4s.configure.sapconf"/>.
-      </para>
-     </tip>
-     <important>
-      <title>The Following Are Example Values</title>
-      <para>
-       The values reproduced in the following are examples only.
-       Do not set the following parameters on a productive system without
-       first trying and calibrating them on a non-productive system.
-      </para>
-      <para>
-       If your system does not exhibit page-cache limit issues under the
-       workloads it is running, there is no need to adjust this parameter.
-      </para>
-     </important>
      <para>
       These kernel options are available for configuration:
      </para>
@@ -93,21 +65,112 @@
        </para>
       </listitem>
      </itemizedlist>
+     <tip>
+      <title>
+       Use <systemitem>tuned</systemitem> to Configure These Parameters
+      </title>
+      <para>
+       The parameters <literal>vm.pagecache_limit_imb</literal> and
+       <literal>vm.pagecache_limit_ignore_dirty</literal> are also configured by
+       the <systemitem>tuned</systemitem> profiles delivered with the
+       package <systemitem>sapconf</systemitem>.
+      </para>
+      <para>
+       For more information, see <xref linkend="sec.s4s.configure.sapconf"/>.
+      </para>
+     </tip>
+     <important>
+      <title>The Following Are Example Values</title>
+      <para>
+       The values reproduced in the following are examples only.
+       Do not set the following parameters on a productive system without
+       first trying and calibrating them on a non-productive system.
+      </para>
+      <para>
+       If your system does not exhibit page-cache limit issues under the
+       workloads it is running, there is no need to adjust these parameters.
+      </para>
+      <para>
+       For more information, see <citetitle>SAP Note 1557506: Linux Paging
+       Improvements</citetitle>
+       (<link xlink:href="https://service.sap.com/sap/support/notes/1557506"/>).
+     </para>
+     </important>
      <para>
-      For permanent use, set them in <filename>/etc/sysctl.conf</filename>,
-      for example:
+      For permanent use, you add both parameters to
+      <filename>/etc/sysctl.conf</filename>, for example:
      </para>
 <screen>vm.pagecache_limit_mb = <replaceable>1024</replaceable>
-vm.pagecache_limit_ignore_dirty = <replaceable>0</replaceable></screen>
-     <para>
-      For background information, see <citetitle>SAP Note 1557506: Linux Paging
-      Improvements</citetitle>
-      (<link xlink:href="https://service.sap.com/sap/support/notes/1557506"/>).
-     </para>
+vm.pagecache_limit_ignore_dirty = <replaceable>2</replaceable></screen>
     </listitem>
    </varlistentry>
   </variablelist>
  </sect1>
+
+ <sect1 xml:id="sec.s4s.configure.sapconf">
+  <title>
+   Tuning Systems for SAP Workloads with <systemitem>tuned-adm</systemitem>
+  </title>
+
+  <para>
+   Using <command>tuned-adm</command>, you can automatically tune a system
+   for &netweaver; and &hana;/&b1; applications. To do so,
+   <command>tuned-adm</command> relies on the
+   system tuning service <systemitem>tuned</systemitem>.
+  </para>
+  <para>
+   If you used the &sapwiz; to install an SAP application,
+   <systemitem>tuned</systemitem> is usually already active and configured with
+   the profile for the application you installed.
+   Otherwise, make sure that the packages <systemitem>tuned</systemitem> and
+   <systemitem>sapconf</systemitem> are installed on your system.
+  </para>
+  <itemizedlist>
+   <listitem>
+    <para>
+     You can tune the system for &netweaver; with:
+    </para>
+<screen>&prompt.root;<command>tuned-adm</command> profile sap-netweaver</screen>
+   </listitem>
+   <listitem>
+    <para>
+     To tune the system for &hana; or &b1; (both use the same tuning profile),
+     use:
+    </para>
+<screen>&prompt.root;<command>tuned-adm</command> profile sap-hana</screen>
+   </listitem>
+  </itemizedlist>
+  <note>
+   <title>Deprecated Utility <command>sapconf</command></title>
+   <para>
+    The package <systemitem>sapconf</systemitem> still ships with the deprecated
+    utility <command>sapconf</command> which can be used similarly to
+    <command>tuned-adm</command>. However, unlike <command>tuned-adm</command>,
+    it will only apply profiles when no other profile is set.
+   </para>
+  </note>
+  <para>
+   For more information, see the following man pages:
+  </para>
+  <itemizedlist>
+   <listitem>
+    <para>
+     <command>tuned-adm</command>
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     <command>tuned-profiles-sap-hana</command>
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     <command>tuned-profiles-sap-netweaver</command>
+    </para>
+   </listitem>
+  </itemizedlist>
+ </sect1>
+
 
  <sect1 xml:id="sec.s4s.configure.firewall">
   <title>Configuring &susefirewall;</title>
@@ -274,8 +337,18 @@ vm.pagecache_limit_ignore_dirty = <replaceable>0</replaceable></screen>
     </para>
     <para>
      The firewall rules from <systemitem>HANA-Firewall</systemitem> will now
-     be compiled and applied.
+     be compiled and applied. Finally, the service
+     <systemitem>hana-firewall</systemitem> will be restarted.
     </para>
+   </step>
+   <step>
+    <para>
+     Finally, check whether <systemitem>HANA-Firewall</systemitem> was enabled
+     correctly:
+    </para>
+<screen><command>hana-firewall status</command>
+HANA firewall is active. Everything is OK.
+</screen>
     <tip>
      <title>Checking Which Firewall Rules Are Enabled</title>
      <para>
@@ -285,70 +358,12 @@ vm.pagecache_limit_ignore_dirty = <replaceable>0</replaceable></screen>
 <screen>&prompt.root;<command>hana-firewall dry-run</command></screen>
     </tip>
    </step>
-   <step>
-    <para>
-     Restart the service <systemitem>hana-firewall</systemitem>, so the new
-     firewall rules come into effect:
-    </para>
-<screen>&prompt.root;<command>systemctl restart hana-firewall</command></screen>
-   </step>
   </procedure>
+  <para>
+   For more information, see the man page of <command>hana_firewall</command>.
+  </para>
  </sect1>
 
- <sect1 xml:id="sec.s4s.configure.sapconf">
-  <title><systemitem>sapconf</systemitem></title>
-
-  <para>
-   <systemitem>sapconf</systemitem> can automatically tune a system for
-   &netweaver; and &hana;/&b1; applications. To do so, it relies on the
-   system tuning service <systemitem>tuned</systemitem>. (Before using
-   <systemitem>sapconf</systemitem>, make sure that the package
-   <systemitem>tuned</systemitem> is installed.)
-  </para>
-  <para>
-   If you used the &sapwiz; to install an SAP application,
-   <systemitem>sapconf</systemitem> is usually already active and configured for
-   the application you installed.
-  </para>
-  <para>
-   If that is not the case, you can tune the system for &netweaver; with:
-  </para>
-<screen>&prompt.root;<command>sapconf</command> start</screen>
-  <para>
-   To tune the system for &hana; or &b1; (both use the same tuning profile),
-   use:
-  </para>
-<screen>&prompt.root;<command>sapconf</command> hana start</screen>
-  <para>
-   To apply a different tuning profile when <systemitem>sapconf</systemitem>
-   is already running, make sure to stop it first.
-  </para>
-  <para>
-   For more information, see the following man pages:
-  </para>
-  <itemizedlist>
-   <listitem>
-    <para>
-     <literal>sapconf(8)</literal>
-    </para>
-   </listitem>
-   <listitem>
-    <para>
-     <literal>tuned-adm(8)</literal>
-    </para>
-   </listitem>
-   <listitem>
-    <para>
-     <literal>tuned-profiles-sap-hana(7)</literal>
-    </para>
-   </listitem>
-   <listitem>
-    <para>
-     <literal>tuned-profiles-sap-netweaver(7)</literal>
-    </para>
-   </listitem>
-  </itemizedlist>
- </sect1>
 
  <sect1 xml:id="sec.s4s.configure.scrub-instance">
   <title>Cleaning Up an Instance Before Using It as a Master Image</title>
@@ -364,14 +379,14 @@ vm.pagecache_limit_ignore_dirty = <replaceable>0</replaceable></screen>
    not be copied along with the rest of the system.
   </para>
   <para>
-   To avoid cleaning up manually, use the script
+   To avoid needing to clean up manually, use the script
    <filename>clone-master-clean-up</filename> (available from the package of the
-   same name). It removes the following data automatically:
+   same name). It deletes the following data automatically:
   </para>
   <itemizedlist>
    <listitem>
     <para>
-     Swap device
+     Swap device (zero-wiped, then re-enabled)
     </para>
    </listitem>
    <listitem>

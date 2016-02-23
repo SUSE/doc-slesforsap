@@ -353,12 +353,13 @@
   </sect3>
 
   <sect3 xml:id="sec.s4s.component.sapconf">
-   <title><systemitem>sapconf</systemitem></title>
+   <title>System Tuning Profiles for <systemitem>tuned</systemitem></title>
    <para>
-    <systemitem>sapconf</systemitem> allows you to automatically and
+    The system tuning profiles contained in the package
+    <systemitem>sapconf</systemitem> allow you to automatically and
     comprehensively tune your system as recommended by SAP for use with
     &netweaver; or &hana;/&b1;.
-    To do this, <systemitem>sapconf</systemitem> sets
+    To do this, the <systemitem>tuned</systemitem> profiles set
     several kernel parameters, often depending on available
     hardware, such as RAM.
     For more information, see <xref linkend="sec.s4s.configure.sapconf"/>.
