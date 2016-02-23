@@ -117,16 +117,11 @@
       with both SAP and &suse;. This <quote>One Face to the Customer</quote>
       support model reduces complexity and lowers the total cost of ownership.
      </para>
-<!--
-         2015-04-22, ke: Link is hidden and not confirmed by marketing
-     -->
-<!--
      <para>
-      For background information, see <citetitle>SAP Note 1056161: SUSE
+      For more information, see <citetitle>SAP Note 1056161: SUSE
       Priority Support for SAP Applications</citetitle> (<link
       xlink:href="https://service.sap.com/sap/support/notes/1056161"/>).
      </para>
-     -->
     </listitem>
    </varlistentry>
   </variablelist>

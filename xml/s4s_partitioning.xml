@@ -60,14 +60,6 @@
   <para>
    Additionally, a <filename>boot</filename> or UEFI partition will be created
    as necessary.
-   <!--The partitions are created according to
-   <citetitle>SAP Note 1984787</citetitle>
-   (<link xlink:href="https://service.sap.com/sap/support/notes/1984787"/>). -->
-   <remark>SAP Note is for SLES 12! FIXME - sknorr, 2016-01-21</remark>
-   <remark>
-    pschinagl looked at it and seemed unconvinced that this note even
-    touched the topic of partitioning. Commented. FIXME - sknorr, 2016-01-21
-   </remark>
   </para>
 
  </sect2>
