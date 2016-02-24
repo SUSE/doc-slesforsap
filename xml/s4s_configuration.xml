@@ -364,14 +364,13 @@ HANA firewall is active. Everything is OK.
   </para>
  </sect1>
 
+ <!-- Fixme/12 SP2: It would be a good idea to put the following two sections
+      in an own chapter, à la "Creating Master Images for Your Org". It is a bit
+      too late to do that now. - sknorr, 2016-02-24 -->
 
  <sect1 xml:id="sec.s4s.configure.scrub-instance">
   <title>Cleaning Up an Instance Before Using It as a Master Image</title>
 
-  <remark>
-   Should this be in components instead? Simplified management?
-   - sknorr, 2016-02-19
-  </remark>
   <para>
    Using a system like &kiwi;, it is possible to use an image of an
    already-configured master instance on multiple systems. However, normally
@@ -428,6 +427,41 @@ HANA firewall is active. Everything is OK.
 <screen>&prompt.root;clone-master-clean-up</screen>
   <para>
    Then follow the instructions.
+  </para>
+ </sect1>
+
+ <sect1 xml:id="sec.s4s.configure.kiwi">
+  <title>Creating &sles4sap; Images with &kiwi;</title>
+
+  <para>
+   &sles4sap; now supports creating &kiwi; images using the template from the
+   package <systemitem>kiwi-template-sap</systemitem>. However, there are a few
+   restrictions to the current implementation:
+  </para>
+  <itemizedlist>
+   <listitem>
+    <para>
+     Only building VMX disk images is supported. Building ISO images or other
+     image types is not supported.
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     You must provide an ISO image of &sles4sap; at
+     <filename>/tmp/SLES4SAP.iso</filename>, as the &obs; does not
+     contain all necessary packages.
+    </para>
+   </listitem>
+  </itemizedlist>
+  <para>
+   To enable running graphical installations using &sapina;, the default
+   settings of the image always provide an IceWM desktop and start the service
+   <systemitem>sapvnc</systemitem> to allow you to connect.
+  </para>
+
+  <para>
+   For more information, see
+   <filename>/usr/share/kiwi/image/SLES4SAP/README</filename>.
   </para>
  </sect1>
 
