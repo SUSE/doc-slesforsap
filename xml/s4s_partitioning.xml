@@ -76,7 +76,7 @@
 
   <!--<note>
    <title>
-    <filename>autinst.xml</filename> Cannot Be Used Here
+    <filename>autoinst.xml</filename> Cannot Be Used Here
    </title>
    <para>
     <filename>autoinst.xml</filename> is only used for the installation
