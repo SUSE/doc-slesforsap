@@ -374,8 +374,8 @@
 
    <para>
     For more information, see the
-    man page of the respective tool (find the man pages in the additional
-    package <systemitem>ClusterTools2-doc</systemitem>).
+    man page of the respective tool. Find the man pages in the additional
+    package <systemitem>ClusterTools2-doc</systemitem>.
    </para>
   </sect3>
 
