@@ -351,23 +351,22 @@
    <itemizedlist>
     <listitem>
      <para>
-      Check scripts, for example, to find out whether a cluster is set up
-      correctly.
+      Scripts that perform checks. For example, to find out whether a system is
+      set up correctly for creating a <systemitem>pacemaker</systemitem>
+      cluster.
      </para>
     </listitem>
     <listitem>
      <para>
-      Scripts that simplify configuration.
+      Scripts that simplify configuration. For example, to create a Corosync
+      configuration.
      </para>
     </listitem>
     <listitem>
      <para>
-      Scripts that show or collect system information.
-     </para>
-    </listitem>
-    <listitem>
-     <para>
-      Scripts that enhance system logging.
+      Scripts that monitor the system and scripts that show or collect
+      system information. For example, to find known error patterns in
+      log files.
      </para>
     </listitem>
    </itemizedlist>
