@@ -346,7 +346,34 @@
    </para>
    <para>
     Additionally, <systemitem>ClusterTools2</systemitem> provides scripts that
-    automate the most common cluster tasks. For more information, see the
+    automate common cluster tasks:
+   </para>
+   <itemizedlist>
+    <listitem>
+     <para>
+      Check scripts, for example, to find out whether a cluster is set up
+      correctly.
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      Scripts that simplify configuration.
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      Scripts that show or collect system information.
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      Scripts that enhance system logging.
+     </para>
+    </listitem>
+   </itemizedlist>
+
+   <para>
+    For more information, see the
     man page of the respective tool (find the man pages in the additional
     package <systemitem>ClusterTools2-doc</systemitem>).
    </para>
