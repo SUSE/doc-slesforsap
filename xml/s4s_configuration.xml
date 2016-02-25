@@ -346,7 +346,7 @@ vm.pagecache_limit_ignore_dirty = <replaceable>2</replaceable></screen>
      Finally, check whether <systemitem>HANA-Firewall</systemitem> was enabled
      correctly:
     </para>
-<screen><command>hana-firewall status</command>
+<screen>&prompt.root;<command>hana-firewall status</command>
 HANA firewall is active. Everything is OK.
 </screen>
     <tip>
@@ -431,7 +431,7 @@ HANA firewall is active. Everything is OK.
  </sect1>
 
  <sect1 xml:id="sec.s4s.configure.kiwi">
-  <title>Creating &sles4sap; Images with &kiwi;</title>
+  <title>Creating Images with &kiwi;</title>
 
   <para>
    &sles4sap; now supports creating &kiwi; images using the template from the
@@ -441,8 +441,8 @@ HANA firewall is active. Everything is OK.
   <itemizedlist>
    <listitem>
     <para>
-     Only building VMX disk images is supported. Building ISO images or other
-     image types is not supported.
+     Only building VMX disk images is supported. Building other image types is
+     not supported.
     </para>
    </listitem>
    <listitem>
@@ -455,14 +455,47 @@ HANA firewall is active. Everything is OK.
   </itemizedlist>
   <para>
    To enable running graphical installations using &sapina;, the default
-   settings of the image always provide an IceWM desktop and start the service
-   <systemitem>sapvnc</systemitem> to allow you to connect.
+   settings of the image contain an IceWM desktop and start the service
+   <systemitem>sapvnc</systemitem> which allows you to connect to the machine
+   via VNC.
   </para>
 
   <para>
-   For more information, see
-   <filename>/usr/share/kiwi/image/SLES4SAP/README</filename>.
+   To build a basic image, use the following two commands:
   </para>
+<screen>&prompt.root;<command>kiwi -p SLES4SAP --root fsroot</command>
+Feb-15 18:53:02 &lt;1&gt; : Specified relative path for target directory; target is /root/kiwi/fsroot
+Feb-15 18:53:02 &lt;1&gt; : Description provides no MD5 hash, check
+Feb-15 18:53:02 &lt;1&gt; : Reading image description [Prepare]...
+Feb-15 18:53:02 &lt;1&gt; : Using profile(s):
+Feb-15 18:53:02 &lt;1&gt; : --&gt; vmxFlavour                                 done
+[...]
+
+&prompt.root;<command>kiwi --create fsroot --type vmx -d build</command>
+Feb-15 19:04:11 &lt;1&gt; : Description provides no MD5 hash, check
+Feb-15 19:04:11 &lt;1&gt; : Reading image description [Create]...
+Feb-15 19:04:11 &lt;1&gt; : Using profile(s):
+Feb-15 19:04:11 &lt;1&gt; : --&gt; vmxFlavour                                 done
+Feb-15 19:04:12 &lt;1&gt; : Destination: /root/kiwi/build doesn't exist
+[...]</screen>
+  <para>
+   For more information:
+  </para>
+  <itemizedlist>
+   <listitem>
+    <para>
+     On the &kiwi; configuration for &sles4sapa;, see
+     <filename>/usr/share/kiwi/image/SLES4SAP/README</filename>.
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     On &kiwi; in general, see the
+     <citetitle>openSUSE-KIWI Image System Cookbook</citetitle>
+     (<link xlink:href="https://doc.opensuse.org/projects/kiwi/doc/"/>).
+    </para>
+   </listitem>
+  </itemizedlist>
  </sect1>
 
  <sect1 xml:id="sec.s4s.configure.log">
