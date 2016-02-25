@@ -17,6 +17,11 @@
  <itemizedlist role="subtoc">
   <listitem>
    <para>
+    <xref linkend="app.s4s.docupdate.2016-02-29" xrefstyle="SectTitleOnPage"/>
+   </para>
+  </listitem>
+  <listitem>
+   <para>
     <xref linkend="app.s4s.docupdate.2016-02-15" xrefstyle="SectTitleOnPage"/>
    </para>
   </listitem>
@@ -37,6 +42,38 @@
   </listitem>
  </itemizedlist>
 
+
+ <sect1 xml:id="app.s4s.docupdate.2016-02-29">
+  <title>February 29, 2016</title>
+
+  <para>
+   Updates were made to the following sections. The changes are explained
+   below.
+  </para>
+
+  <variablelist>
+   <varlistentry>
+    <term>
+      <xref linkend="sec.s4s.configure.scrub-instance" xrefstyle="SectTitleOnPage"/>
+    </term>
+    <listitem>
+     <para>
+      Add new section.
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term>
+      <xref linkend="sec.s4s.configure.kiwi" xrefstyle="SectTitleOnPage"/>
+    </term>
+    <listitem>
+     <para>
+      Add new section.
+     </para>
+    </listitem>
+   </varlistentry>
+  </variablelist>
+ </sect1>
 
  <sect1 xml:id="app.s4s.docupdate.2016-02-15">
   <title>February 15, 2016</title>
