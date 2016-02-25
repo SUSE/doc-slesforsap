@@ -435,9 +435,9 @@ HANA firewall is active. Everything is OK.
   <title>Creating Images with &kiwi;</title>
 
   <para>
-   &sles4sap; now supports creating &kiwi; images using the template from the
-   package <systemitem>kiwi-template-sap</systemitem>. However, there are a few
-   restrictions to the current implementation:
+   &sles4sap; now supports creating images with &kiwi; using the template from
+   the package <systemitem>kiwi-template-sap</systemitem>. However, there are
+   certain restrictions in the current implementation:
   </para>
   <itemizedlist>
    <listitem>

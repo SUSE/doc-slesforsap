@@ -10,9 +10,10 @@
  <para>
   Using the &sapwiz;, it is possible to copy the SAP media sets from a
   remote server (for example, via NFS or SMB).
-  While the &sapwiz; itself provides the option to create an
-  installation server when installing an SAP product, it does not offer a way
-  to copy all SAP media used in your organization to a single server.
+  However, using the option provided there means that you need to install
+  the product at the same time.
+  Additionally, it does not allow for copying all SAP media used in your
+  organization to a single server.
  </para>
  <para>
   However, you can easily create such a server on your own.
