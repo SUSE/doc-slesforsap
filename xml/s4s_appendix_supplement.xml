@@ -203,7 +203,7 @@ check_name "$VAL"
  <sect1 xml:id="sec.s4s.supplement.directory">
   <title>Example Directory for &supmedia;</title>
   <para>
-   A minimal example for &supmedia; contains only a file called
+   A minimal example for &supmedia; directory contains only a file called
    <filename>product.xml</filename>.
   </para>
   <remark>
