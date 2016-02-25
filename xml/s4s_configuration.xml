@@ -97,7 +97,7 @@
      </para>
      </important>
      <para>
-      For permanent use, you add both parameters to
+      For permanent use, add both parameters to
       <filename>/etc/sysctl.conf</filename>, for example:
      </para>
 <screen>vm.pagecache_limit_mb = <replaceable>1024</replaceable>
