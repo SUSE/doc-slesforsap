@@ -470,11 +470,6 @@
       For details, see <xref linkend="sec.s4s.configure.firewall"/>.
      </para>
     </important>
-    <remark>
-     Is there a need to copy the descriptions of all the categories from
-     the Installation Quick Start here too? Or just a reference there? - sknorr,
-     2016-01-12
-    </remark>
 
     <!-- bsc#959535: When registering, High Availability pattern is selected -->
     <!-- Future FIXME: Check for SLES for SAP 12 SP2 -->
@@ -527,10 +522,6 @@
       Starting the installation process means that information on the disk you
       are installing on will fully or partly be deleted.
      </para>
-     <remark>
-      Is this really necessary? It is not in the original installation QS...
-      - sknorr, 2016-01-13
-     </remark>
     </warning>
     <para>
      In the installation confirmation box, click <guimenu>Install</guimenu>.

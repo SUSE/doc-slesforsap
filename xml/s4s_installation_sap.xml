@@ -102,15 +102,13 @@
        <para>
         Only create an &hana; file system.
        </para>
+       <!--
+        Next steps: click Next, click OK, click OK, click Finish.
+        - sknorr, 2016-02-25
+       -->
        <remark>
-        For whatever reason there is no way out after clicking Next. You click
-        OK twice and suddenly, there is a/no HANA fs. Reported as bsc#962755,
-        bsc#962757 - sknorr, 2016-01-14
-       </remark>
-       <remark>
-        Create a procedure for HANA fs creation? According to varkoly, it just
-        does stuff and you can't do much anyway. (Which matches up with what
-        happens on unsupported hardware too.) - sknorr, 2016-01-28
+        Create a procedure for HANA fs creation? It just does stuff and you
+        can't do much anyway. - sknorr, 2016-01-28
        </remark>
        <important>
         <title>Use Hardware Certified for &hana;</title>
@@ -121,9 +119,9 @@
          installation workflow ends at this point.
         </para>
        </important>
-       <remark>
-        Next steps: click Next, click OK, click Finish
-       </remark>
+       <!--
+        Next steps: click Next, click OK, click Finish. - sknorr, 2016-02-25
+       -->
       </listitem>
      </varlistentry>
      <varlistentry>
@@ -135,9 +133,9 @@
         Do not install an SAP application and continue to the login screen of
         &sles4sap;.
        </para>
-       <remark>
-        Next steps: click Next, click Finish
-       </remark>
+       <!--
+        Next steps: click Next, click Finish. - sknorr, 2016-02-25
+       -->
       </listitem>
      </varlistentry>
     </variablelist>
@@ -322,10 +320,10 @@
          <para>
           <filename><replaceable>//</replaceable></filename>
          </para>
-         <remark>
+         <!--
           This is correct: the relevant files are usually at the top
           level which is //. - sknorr, 2016-01-20
-         </remark>
+         -->
         </entry>
        </row>
        <row>
@@ -348,10 +346,10 @@
          <para>
           <filename><replaceable>server_name</replaceable><replaceable>/path/to/dir/on/device</replaceable></filename>
          </para>
-         <remark>
+         <!--
           This is correct: YaST does not need a colon after the server_name.
           - sknorr, 2016-02-12
-         </remark>
+         -->
         </entry>
        </row>
        <row>
@@ -491,10 +489,10 @@
        <para>
         Engines that add functionality to a standard product.
        </para>
-       <remark>
-        Why is "engines" in plural? This is certainly not a typo, it was the
-        same way before the redesign. - sknorr, 2016-01-15
-       </remark>
+       <!--
+        "Engines" in plural: A bit of an inconsistency. Still just one at a
+        time. - sknorr, 2016-01-15
+       -->
       </listitem>
      </varlistentry>
      <varlistentry>
@@ -503,10 +501,10 @@
        <para>
         An SAP application that is separated onto multiple servers.
        </para>
-       <remark>
-        UI inconsistency? Why is this not called "SAP Distributed System"?
-        - sknorr, 2016-01-15
-       </remark>
+       <!--
+        Inconsistent terminology: Why is this not called
+        "SAP Distributed System"? - sknorr, 2016-01-15
+       -->
       </listitem>
      </varlistentry>
      <varlistentry>
@@ -526,10 +524,11 @@
         when you want to install the same product in a very similar
         configuration on different systems.
        </para>
-       <remark>
-        Does this even make sense within the installer? Ask varkoly. Maybe this
-        point should be hidden during first-boot. - sknorr, 2016-01-20
-       </remark>
+       <!--
+        Normally, this option would not make sense within the first-boot
+        wizard. But on preconfigured systems, it can be useful.
+        - sknorr, 2016-01-20
+       -->
       </listitem>
      </varlistentry>
     </variablelist>
@@ -651,12 +650,12 @@
     </figure>
    </step>
    <step>
-    <remark>
+    <!--
      I am being asked whether I want to prepare more media which really just
-     means copying. Check if we really want "prepare" here.
-     (hguo says we probably do, to motivate the user...)
+     means copying. hguo says we want "prepare" here to motivate the user
+     for the stuff that we do with the copied items later.
      - sknorr, 2016-02-12
-    </remark>
+    -->
     <para>
      After copying the &instmedia;, you will be asked whether you want to copy
      (<quote>prepare</quote>) more &instmedia;.
@@ -769,9 +768,9 @@ SAP-NetWeaver-740-SR2-Installation-Export-CD-3-3</screen>
     </figure>
    </step>
    <step>
-    <remark>
+    <!--
      Dialog without a name... - sknorr, 2016-02-03
-    </remark>
+    -->
     <para>
      In the following dialog, choose the appropriate network settings for your
      system.
@@ -911,7 +910,7 @@ SAP-NetWeaver-740-SR2-Installation-Export-CD-3-3</screen>
 <screen>/data/SAP_INST/0/Instmaster
 /data/SAP_INST/1/Instmaster
 /data/SAP_INST/2/Instmaster
-...</screen>
+[...]</screen>
 
   <para>
    To continue the installation, follow these steps:

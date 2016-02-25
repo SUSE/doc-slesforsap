@@ -327,11 +327,12 @@ vm.pagecache_limit_ignore_dirty = <replaceable>2</replaceable></screen>
     </para>
    </step>
    <step>
-    <remark>FIXME: What should happen after Next? Probably can't test properly
-     without a HANA install... Faking only works for the command-line tools
-     unfortunately, because these don't seem to validate the config enough.
+    <!--
+     This step is called "Next" because actually this is a part of a wizard
+     of which just a single step is taken out, apparently. There is no later
+     button that needs to be clicked.
      - sknorr, 2016-02-18
-    </remark>
+    -->
     <para>
      When you are done, click <guimenu>Next</guimenu>.
     </para>
