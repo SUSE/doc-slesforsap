@@ -473,16 +473,30 @@ HANA firewall is active. Everything is OK.
   </procedure>
   <para>
    To enable running graphical installations using &sapina;, the default
-   settings of the image contain an IceWM desktop and start the service
-   <systemitem>sapvnc</systemitem> which allows you to connect to the machine
-   via VNC. To do so, on the local system, run:
+   settings of the image enable the following:
+  </para>
+  <itemizedlist>
+   <listitem>
+    <para>
+     Installation of an IceWM desktop
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     The service <systemitem>sapvnc</systemitem> is started automatically, so
+     you can connect to the machine via VNC.
+    </para>
+   </listitem>
+  </itemizedlist>
+  <para>
+   To start a VNC session, on the local system, run:
   </para>
   <procedure>
    <step>
     <para>
      First, prepare an SSH tunnel to the server:
     </para>
-<screen>&prompt.user;<command>ssh</command> -4 -L 59123:localhost:5900 -N -f root@<replaceable>SERVER_NAME_OR_IP</replaceable></screen>
+<screen>&prompt.user;<command>ssh</command> -4 -L 59123:localhost:5901 -N -f root@<replaceable>SERVER_NAME_OR_IP</replaceable></screen>
    </step>
    <step>
     <para>
