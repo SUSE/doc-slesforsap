@@ -72,6 +72,27 @@
      </para>
     </listitem>
    </varlistentry>
+   <varlistentry>
+    <term>
+      <xref linkend="sec.s4s.download" xrefstyle="SectTitleOnPage"/>
+    </term>
+    <listitem>
+     <para>
+      Clarified that only DVD 1 is necessary for installation
+      (doccomment#30069).
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term>
+      Other updates
+    </term>
+    <listitem>
+     <para>
+      Other corrections and small language updates.
+     </para>
+    </listitem>
+   </varlistentry>
   </variablelist>
  </sect1>
 
