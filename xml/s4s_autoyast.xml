@@ -35,7 +35,7 @@
 
  <para>
   The installation medium of &sles4sap; contains a preconfigured &ay; XML file
-  and a DUD file. The &ay; XML file is set up to work like the former
+  and a DUD file. This &ay; XML file is set up to work like the former
   <quote>Wizard-Based Workflow</quote> of &sles4sapa; 12 and can be used
   where compatibility with the old installer is necessary.
   Both files are contained in the directory <filename>sap-apl</filename>.

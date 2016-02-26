@@ -848,7 +848,7 @@ SAP-NetWeaver-740-SR2-Installation-Export-CD-3-3</screen>
       If the installation of the SAP application fails, take a look at the
       installation log files. They are located in
       <filename>/var/adm/autoinstall</filename>. Failed installations are
-      recorded in files named <filename>.err</filename>.
+      recorded in files with names ending in <filename>.err</filename>.
      </para>
      <para>
       For more information on log files, see
@@ -868,7 +868,7 @@ SAP-NetWeaver-740-SR2-Installation-Export-CD-3-3</screen>
     </para>
     <para>
      You can later change this configuration using
-     <systemitem>sapconf</systemitem>.
+     <systemitem>tuned-adm</systemitem>.
      For more information, see <xref linkend="sec.s4s.configure.sapconf"/>.
     </para>
    </step>
