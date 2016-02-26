@@ -33,13 +33,13 @@
   </listitem>
  </itemizedlist>
 
- <remark>
-  FIXME: Show this to varkoly. - sknorr, 19-02-2016
- </remark>
  <para>
   The installation medium of &sles4sap; contains a preconfigured &ay; XML file
-  and a DUD file that you can use as the basis for custom installation setups.
+  and a DUD file. The &ay; XML file is set up to work like the former
+  <quote>Wizard-Based Workflow</quote> of &sles4sapa; 12 and can be used
+  where compatibility with the old installer is necessary.
   Both files are contained in the directory <filename>sap-apl</filename>.
+  However, note that installing using these files is still unsupported.
  </para>
 
  <para>

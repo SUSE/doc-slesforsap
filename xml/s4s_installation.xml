@@ -556,7 +556,8 @@
 
   <para>
    This section provides a short description of how to install from an
-   installation medium served over the network.
+   installation medium served over the network. This allows, for example,
+   using a regular &slsa; medium to install &sles4sapa;.
   </para>
 
   <procedure>
@@ -569,7 +570,7 @@
    </step>
    <step>
     <para>
-     Boot from DVD.
+     Boot from a SUSE DVD.
     </para>
    </step>
    <step>
@@ -579,37 +580,23 @@
      Then add to the command line. To do so, specify the parameters listed
      below:
     </para>
-    <remark>
-     What to do about the instmode=cd parameters that needed to be removed?
-     Can I use another instmode? Parameter is not mentioned in %deploy;. fixme
-     - sknorr, 2016-01-29
-    </remark>
     <itemizedlist>
-     <!--<listitem>
-      <para>
-       Remove the parameter <literal>instmode=cd</literal> from the command
-       line.
-      </para>
-     </listitem>-->
      <listitem>
       <para>
-       To start the network, add <literal>netsetup=1</literal>
-      </para>
-      <remark>
-        Double-check if "netsetup" parameter is correct and not just legacy.
-        See other remark in s4s_autoyast. - sknorr, 2016-01-28
-      </remark>
-     </listitem>
-     <listitem>
-      <para>
-       Add the parameter
-       <literal>autoyast=http://example.com/sap_repo/</literal>.
+       To allow network usage, add <literal>ifcfg=*=dhcp</literal> (though this
+       should be the default).
       </para>
      </listitem>
      <listitem>
       <para>
        Add the parameter
-       <literal>install=http://example.com/sap_repo</literal>.
+       <literal>install=<replaceable>SERVER</replaceable>/<replaceable>DIRECTORY</replaceable></literal>.
+      </para>
+     </listitem>
+     <listitem>
+      <para>
+       Add the parameter
+       <literal>dud=http://<replaceable>SERVER</replaceable>/<replaceable>DIRECTORY</replaceable>/sap.dud</literal>.
       </para>
      </listitem>
     </itemizedlist>
@@ -618,9 +605,6 @@
     <para>
      Follow the instructions in <xref linkend="sec.s4s.install.workflow"/>.
     </para>
-    <remark>
-     True? - sknorr, 2016-01-11
-    </remark>
    </step>
   </procedure>
 
@@ -631,8 +615,8 @@
   </para>
 
   <para>
-   To avoid having to use a DVD to bootstrap the system, you can boot over the
-   network via PXE.
+   To avoid having to use a DVD to initialize the system, you can boot over
+   the network via PXE.
    For details, see <citetitle>&ay; Guide,
    Chapter 6.2.3 <quote>Booting via PXE over the Network</quote></citetitle>
    (&docaddress;).

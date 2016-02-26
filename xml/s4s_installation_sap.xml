@@ -892,12 +892,9 @@ SAP-NetWeaver-740-SR2-Installation-Export-CD-3-3</screen>
  <sect1 xml:id="sec.s4s.install.continue">
   <title>Continuing an Installation Using an Installation Profile</title>
 
-  <remark>
-   Any previous run or just the last one? - sknorr, 2016-01-27
-  </remark>
   <para>
    If you chose <guimenu>Collect installation profiles but do not execute
-   installation</guimenu> during a previous run of the &sapwiz;, this section
+   installation</guimenu> during the previous run of the &sapwiz;, this section
    will show you how to continue the installation of the selected
    SAP applications.
   </para>
@@ -913,6 +910,7 @@ SAP-NetWeaver-740-SR2-Installation-Export-CD-3-3</screen>
 [...]</screen>
 
   <para>
+   These files will now be re-used.
    To continue the installation, follow these steps:
   </para>
 
@@ -945,8 +943,9 @@ SAP-NetWeaver-740-SR2-Installation-Export-CD-3-3</screen>
     <remark>
      This question appears whether SAP_AUTO_INSTALL is yes or not. However,
      if not, all questions will be asked again. There seems to be partial state
-     at least, in that the installer remembers what is already copied. Could
-     be luck. - sknorr, 2016-02-03
+     at least, in that the installer remembers what is already copied. Bug or
+     working as intended?
+     - sknorr, 2016-02-03
     </remark>
     <para>
      You will be asked whether to continue the pending installation.
