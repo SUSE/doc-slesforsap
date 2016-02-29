@@ -35,7 +35,7 @@
 </sect1>
 
 <sect1 id="sec.s4s.component.hana-replicate">
-  <title>Resource Agents for SAP HANA System Replicarion</title>
+  <title>Resource Agents for SAP HANA System Replication</title>
 
   <para>
    &sles4sap; supports SAP HANA System Replication using components of
@@ -48,7 +48,7 @@
    <para>
     The features described below are supported starting with version 0.151 of
     the package <systemitem>SAPHanaSR</systemitem>. Make sure to update to this
-    version of the package.
+    version or a newer version of the package.
    </para>
   </important>
 
@@ -112,7 +112,7 @@
        However, the secondary system (B) is also used for non-productive
        purposes, such as for a development or QA database. The production
        database is only kept on permanent memory, such as a hard disk.
-       If a takeover needs to occur, the non-productive system will is stopped
+       If a takeover needs to occur, the non-productive system is stopped
        before the takeover is processed. The system resources for the
        productive database are then increased as quickly as possible via an
        SAP hook call-out script.
