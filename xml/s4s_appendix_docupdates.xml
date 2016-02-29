@@ -38,6 +38,15 @@
       </para>
      </listitem>
     </varlistentry>
+    <varlistentry>
+     <term><xref linkend="s4s.inst.planning" xrefstyle="SectTitleOnPage"/></term>
+     <listitem>
+      <para>
+       Clarify that only DVD 1 is necessary for installation
+       (doccomment#30069).
+      </para>
+     </listitem>
+    </varlistentry>
    </variablelist>
  </sect1>
 
