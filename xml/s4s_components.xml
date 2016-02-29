@@ -485,8 +485,8 @@ ClamSAP is a ‘C’ shared library to link between ClamAV and the virus
 scan interface of SAP (NW-VSI). A SAP application can use the ClamAV
 engine to scan for malicious uploads in HTTP uploads for example. If you
 want to use Virus Scan within SAP applications, you can use Virus Scan
-Interface in SAP (transaction VSCAN). There is an open source adapter
-for the ClamAV engine on <ulink
+Interface in SAP (<menuchoice><guimenu>Transaction</guimenu><guimenu>VSCAN</guimenu></menuchoice>).
+There is an open source adapter for the ClamAV engine on <ulink
 url="http://freshmeat.net/projects/clamsap/"/>. The library allows
 integration of ClamAV into SAP and works also on Unix, where most other
 anitvirus products do not run.</para>
