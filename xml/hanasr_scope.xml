@@ -31,7 +31,7 @@
   </mediaobject>
  </figure>
  <table xml:id="tab.hana-sr.parameter">
-  <title>Parameters used in this document</title>
+  <title>Parameters Used in this Document</title>
   <tgroup cols="3">
    <colspec colnum="1" colname="option" colwidth="20*"/>
    <colspec colnum="2" colname="desc" colwidth="20*"/>

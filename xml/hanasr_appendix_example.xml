@@ -10,7 +10,7 @@
    xml:id="app.hana-sr.example">
  <title>Examples</title>
  <sect1>
-  <title>Example of sleha-init configuration</title>
+  <title>Example <literal>sleha-init</literal> Configuration</title>
 
 <screen>suse01:~ # sleha-init
 ntp on
@@ -64,7 +64,7 @@ Done (log saved to /var/log/sleha-bootstrap.log)
 Change the hacluster password</screen>
  </sect1>
  <sect1>
-  <title>Example Cluster configuration in crmsh format</title>
+  <title>Example Cluster Configuration in <literal>crmsh</literal> Format</title>
 
   <para>
    The following complete crm configuration is for a two-node cluster
@@ -211,7 +211,7 @@ amf {
 }</screen>
  </sect1>
  <sect1>
-  <title>Example for the IPMI STONITH method</title>
+  <title>Example for the IPMI STONITH Method</title>
 
 <screen>primitive rsc_suse01_stonith stonith:external/ipmi \
 params hostname="suse01" ipaddr="192.168.1.100" userid="stonith"
