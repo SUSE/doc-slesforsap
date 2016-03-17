@@ -16,12 +16,12 @@
  <itemizedlist>
   <listitem>
    <para>
-    Two-node clusters
+    Two-node clusters.
    </para>
   </listitem>
   <listitem>
    <para>
-    The cluster must include a valid STONITH method
+    The cluster must include a valid STONITH method.
    </para>
    <itemizedlist>
     <listitem>
@@ -38,8 +38,8 @@
     </listitem>
     <listitem>
      <para>
-      If you use sbd as fencing mechanism you need one or more shared
-      drives. For productive environments we recommend more than one sbd
+      If you use sbd as the fencing mechanism, you need one or more shared
+      drives. For productive environments, we recommend more than one sbd
       device.
      </para>
     </listitem>
@@ -47,29 +47,29 @@
   </listitem>
   <listitem>
    <para>
-    Scale-Up (single-box to single-box) system replication
+    Scale-Up (single-box to single-box) system replication.
    </para>
   </listitem>
   <listitem>
    <para>
-    Both nodes are in the same network segment (layer 2)
+    Both nodes are in the same network segment (layer 2).
    </para>
   </listitem>
   <listitem>
    <para>
-    Technical users and groups such as sidadm are defined locally in the
-    Linux system
+    Technical users and groups, such as sidadm are defined locally in the
+    Linux system.
    </para>
   </listitem>
   <listitem>
    <para>
     Name resolution of the cluster nodes and the virtual IP address must be
-    done locally on all cluster nodes
+    done locally on all cluster nodes.
    </para>
   </listitem>
   <listitem>
    <para>
-    Time synchronization between the cluster nodes using NTP
+    Time synchronization between the cluster nodes using NTP.
    </para>
   </listitem>
   <listitem>
@@ -114,37 +114,37 @@
   </listitem>
   <listitem>
    <para>
-    Both SAP HANA instances have the same SAP Identifier (SID) and Instance-
-    Number
+    Both SAP HANA instances have the same SAP Identifier (SID) and
+    Instance Number.
    </para>
   </listitem>
   <listitem>
    <para>
     If the cluster nodes are installed in different data centers or data
     center areas, the environment must match the requirements of the SLE HAE
-    cluster product. This in special means the network latencies between the
-    nodes and the recommended maximum distance. Please review our product
+    cluster product. Of particular concern are the network latencies
+    and recommended maximum distance between the nodes. Please review our product
     documentation for SLE HAE about those recommendations.
    </para>
   </listitem>
   <listitem>
    <para>
-    Automated resistration of a failed primary after takeover
+    Automated registration of a failed primary after takeover.
    </para>
    <itemizedlist>
     <listitem>
      <para>
-      As a good starting configuration for PoCs and projects we recommend to
-      switch-off the automated registration of a failed primary. The setup
+      As a good starting configuration for PoCs and projects, we recommend to
+      switch off the automated registration of a failed primary. The setup
       <literal>AUTOMATED_REGISTER="false"</literal> is also the default
-      since version 0.139. In this case you need to register a failed
-      primary after a takeover manulally using SAP tools like hanastudio or
+      since version 0.139. In this case, you need to register a failed
+      primary after a takeover manually using SAP tools like hanastudio or
       hdbnsutil.
      </para>
     </listitem>
     <listitem>
      <para>
-      For optimal automation we recommend
+      For optimal automation, we recommend
       <literal>AUTOMATED_REGISTER="false"</literal>.
      </para>
     </listitem>
@@ -160,16 +160,16 @@
  <para>
   You need at least SAPHanaSR version 0.149.
  </para>
- <note>
+ <important>
   <title>Valid STONITH Method</title>
   <para>
-   Without a valid STONITH method the complete cluster is unsupported and
+   Without a valid STONITH method, the complete cluster is unsupported and
    will not work properly.
   </para>
- </note>
+ </important>
  <para>
-  If you need to implement a different scenario we strongly recommend to
-  define a PoC with SUSE. This PoC will focus in testing the existing
+  If you need to implement a different scenario, we strongly recommend to
+  define a PoC with SUSE. This PoC will focus on testing the existing
   solution in your scenario. The limitation of most of the above items is
   mostly due to testing limits.
  </para>
@@ -178,6 +178,6 @@
   SAP HANA version 1.0 SPS 7 patch level 70.
  </para>
  <para>
-  Beside SAP HANA you need SAP hostagent to be installed on your system.
+  Beside SAP HANA, you need SAP hostagent to be installed on your system.
  </para>
 </chapter>

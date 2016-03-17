@@ -13,7 +13,7 @@
   <title>Do and Don't</title>
 
   <para>
-   In your project you should...
+   In your project, you should:
   </para>
 
   <itemizedlist>
@@ -24,31 +24,32 @@
    </listitem>
    <listitem>
     <para>
-     Do intensive testing
+     Do intensive testing.
     </para>
    </listitem>
    <listitem>
     <para>
-     Tune the timeouts of the operations of SAPHana and SAPHanaTopology
+     Tune the timeouts of operations of SAPHana and SAPHanaTopology.
     </para>
    </listitem>
    <listitem>
     <para>
      Start with PREFER_SITE_TAKEOVER=”true”,
-     AUTOMATED_REGISTER=”false” and DUPLICATE_PRIMARY_TIMEOUT=”7200”
+     AUTOMATED_REGISTER=”false” and DUPLICATE_PRIMARY_TIMEOUT=”7200”.
     </para>
    </listitem>
   </itemizedlist>
 
   <para>
-   It's strong recommended to avoid...
+   In your project, avoid:
   </para>
 
   <itemizedlist>
    <listitem>
     <para>
-     Rapidly change / change back cluster configuration such as: Set node
-     standby and online again; stopping/starting the master/slave resource
+     Rapidly changing/changing back cluster configuration, such as: Setting
+     nodes to standby and online again or stopping/starting the
+     master/slave resource.
     </para>
    </listitem>
    <listitem>
@@ -84,7 +85,7 @@
     </mediaobject>
    </figure>
    <para>
-    If you setup the cluster using sleha-init and you had installed all
+    If you set up the cluster using sleha-init and you have installed all
     packages as described above, your system will provide a very useful web
     interface. You can use this graphical web interface to get an overview
     of the complete cluster status, doing administrative tasks or even
@@ -96,8 +97,8 @@
   <sect2>
    <title>SAP HANA Studio</title>
    <para>
-    Database specific administration and checks could be done with the SAP
-    HANA studio.
+    Database-specific administration and checks can be done with
+    SAP HANA studio.
    </para>
    <figure xml:id="fig.hana-sr.hana-studio-landscape">
     <title>SAP HANA Studio – Landscape</title>
@@ -115,9 +116,9 @@
   <sect2>
    <title>Cluster Command-Line Tools</title>
    <para>
-    A simple overview can be get by calling crm_mon. Using option “-r”
+    A simple overview can be obtained by calling crm_mon. Using option “-r”
     shows also stopped but already configured resources. Option “-1”
-    tells crm_mon to just output the status once instead of periodically.
+    tells crm_mon to output the status once instead of periodically.
    </para>
 <screen>suse01:~ # crm_mon -r1
 Last updated: Fri May 16 17:18:56 2014
@@ -144,14 +145,17 @@ Full list of resources:
    </para>
    <para>
     To show some of the SAPHana, SAPHanaTopology resource agent internal
-    values you can call the program show_SAPHanaSR_attributes. The internal
+    values, you can call the program show_SAPHanaSR_attributes. The internal
     values, storage place and their parameter names may change in the next
-    versions. The commands show_SAPHanaSR_attributes will always fetch the
-    values from the correct storage place. Do not use cluster commands like
+    versions. The command show_SAPHanaSR_attributes will always fetch the
+    values from the correct storage place.
+   </para>
+   <para>
+    Do not use cluster commands like
     crm_attribute to fetch the values directly from the cluster, because in
     such cases your methods will be broken, when we need to move an
     attribute to a different storage place or even out of the cluster. For
-    first show_SAPHanaSR_attributes is a test program only and should not
+    first show_SAPHanaSR_attributes is a test program only and should not be
     used for automated system monitoring.
    </para>
 <screen>suse01:~ # /usr/share/SAPHanaSR/tests/show_SAPHanaSR_attributes
@@ -164,9 +168,9 @@ suse02      DEMOTED     suse01     4:S:master1:... ROT      sync  SOK        ...
   <sect2>
    <title>SAP HANA LandscapeHostConfiguration</title>
    <para>
-    To check the status of a SAPHana database and to figure out, if the
-    cluster should react or not, you can use the landscapeHostConfiguration
-    python script to be called as Linux user sidadm.
+    To check the status of a SAPHana database and to figure out if the
+    cluster should react, you can use the script
+    landscapeHostConfiguration to be called as Linux user sidadm.
    </para>
 <screen>suse01:~> python /usr/sap/SLE/HDB00/exe/python_support/landscapeHostConfiguration.py
 | Host   | Host   | Host   | Failover | ... NameServer   | NameServer  | IndexServer | IndexServer |
@@ -176,7 +180,7 @@ suse02      DEMOTED     suse01     4:S:master1:... ROT      sync  SOK        ...
 
 overall host status: ok</screen>
    <para>
-    Following the SAP HA guideline the SAPHana resource agent interprets the
+    Following the SAP HA guideline, the SAPHana resource agent interprets the
     return codes in the following way:
    </para>
    <table xml:id="tab.hana-sr.return-code">
@@ -207,7 +211,7 @@ overall host status: ok</screen>
        </entry>
        <entry>
         <para>
-         SAP HANA database is up and ok. The cluster does interpret this as
+         SAP HANA database is up and OK. The cluster does interpret this as
          a correctly running database.
         </para>
        </entry>
@@ -246,8 +250,8 @@ overall host status: ok</screen>
        </entry>
        <entry>
         <para>
-         SAP HANA database is down. This could trigger also an takeover, if
-         the database should be up and is not down by intention.
+         SAP HANA database is down. If the database should be up and is
+         not down by intention, this could trigger a takeover.
         </para>
        </entry>
       </row>

@@ -10,9 +10,9 @@
   xml:id="cha.hana-sr.scope">
  <title>Scope of this Documentation</title>
  <para>
-  This document describes in a short way how to setup the cluster to control
+  This document describes how to setup the cluster to control
   SAP HANA in System Replication Scenarios. The document focuses only on the
-  steps which need to be done to integrate an already installed and working
+  steps to integrate an already installed and working
   SAP HANA with System Replication.
  </para>
  <para>

@@ -59,7 +59,7 @@
    </figure>
    <para>
     This will be followed by a second project phase involving an extension
-    for scale-out scena- rios (multibox replication). With this mode of
+    for scale-out scenarios (multibox replication). With this mode of
     operation, internal SAP HANA high-availability (HA) mechanisms and the
     resource agent must work together or be coordinated with each other.
    </para>

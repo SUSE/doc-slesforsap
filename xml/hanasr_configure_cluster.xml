@@ -19,9 +19,9 @@
   <title>Installation</title>
 
   <para>
-   If not already done before, install the software packages with YaST.
-   Alternatively, you can install them from the command line with zypper.
-   This has to be done on both nodes.
+   If have not already done this, install the pattern
+   <literal>High Availability</literal> on both nodes.
+   To do so, for example, use Zypper:
   </para>
 
 <screen>suse01:~> zypper in -t pattern ha_sles</screen>
@@ -31,23 +31,12 @@
    of SUSE Linux Enterprise High Availability Extension</citetitle>
   </para>
 
-  <figure xml:id="fig.hana-sr.pattern-sleha">
-   <title>The sleha Pattern in the YaST2 Installation Dialog</title>
-   <mediaobject>
-    <imageobject role="fo">
-     <imagedata fileref="sleha_pattern_in_yast.png" width="85%" format="PNG"/>
-    </imageobject>
-    <imageobject role="html">
-     <imagedata fileref="sleha_pattern_in_yast.png" width="85%" format="PNG"/>
-    </imageobject>
-   </mediaobject>
-  </figure>
  </sect1>
  <sect1>
   <title>Basic Cluster Configuration</title>
 
   <para>
-   The first step is to setup the base cluster framework. For convenience,
+   The first step is to set up the base cluster framework. For convenience,
    use YaST2 or the sleha-init script. It is strongly recommended to add a
    second ring, change to UCAST com- munication and adjust the timeout
    values to your environment.
@@ -58,7 +47,7 @@
 
   <para>
    For more information, see <citetitle>Section 3.4 Automatic Cluster Setup
-   of of SUSE Linux Enterprise High Availability Extension</citetitle>
+   of SUSE Linux Enterprise High Availability Extension</citetitle>.
   </para>
 
   <para>
@@ -69,7 +58,7 @@
 <screen>sleha-init</screen>
 
   <para>
-   So far we have configured the basic cluster framework including:
+   So far, we have configured the basic cluster framework including:
   </para>
 
   <itemizedlist>
@@ -115,15 +104,16 @@
 
   <para>
    Stop the already running cluster by using <command>rcopenais
-   stop</command>. After setup of the corosync config and sbd parameters we
+   stop</command>. After setup of the corosync config and sbd parameters,
    start the cluster again.
   </para>
 
   <sect2>
-   <title>Corosync conf</title>
+   <title>Corosync Configuration</title>
    <para>
-    Adjust the following blocks in the file /etc/corosync/corosync.conf, see
-    also example on the end of this document.
+    Adjust the following blocks in the file
+    <filename>/etc/corosync/corosync.conf</filename>, see
+    also the example at the end of this document.
    </para>
 <screen>
 totem {
@@ -159,12 +149,15 @@ totem {
    <title>Adapting sbd config</title>
    <para>
     You can skip this section, if you do not have any sbd devices, but be
-    sure to implement an other supported fencing mechanism.. If you use the
+    sure to implement an other supported fencing mechanism. If you use the
     newest updates of the pacemaker packages from the SUSE
-    maintenances-channels, you can also use the -P option (<guimenu>Check
+    maintenance channels, you can also use the -P option (<guimenu>Check
     Pacemaker quorum and node health</guimenu>) , which enables the cluster
     nodes not to self-fence if SBDs are lost, but pacemaker communication is
-    still available. The timeout parameter -t defines the reprobe of the SBD
+    still available.
+   </para>
+   <para>
+    The timeout parameter -t defines the reprobe of the SBD
     device. The timeout is defined in seconds. Also configure a watchdog for
     the sbd devices. It is highly recommended to use a watchdog. This
     protects against failures of the sbd process itself. Please refer to the
@@ -182,11 +175,11 @@ SBD_OPTS="-W -S 1 -P -t 300"</screen>
   <sect2>
    <title>Verify the sbd device</title>
    <para>
-    You can skip this section, if you do not have any sbd devices, but be
-    sure to implement an other supported fencing mechanism.
+    You can skip this section if you do not have any sbd devices, but make
+    sure to implement a supported fencing mechanism.
    </para>
    <para>
-    It's a good practice to check, if the sbd device could be accessed from
+    It's a good practice to check, if the sbd device can be accessed from
     both nodes and does contain valid records. Check this for all devices
     configured in /etc/sysconfig/sbd.
    </para>
@@ -211,7 +204,7 @@ Timeout (msgwait) : 40
     tuned to your environment.
    </para>
    <para>
-    To check the current sbd entries for the various cluster nodes you can
+    To check the current sbd entries for the various cluster nodes, you can
     use <command>sbd list</command>. If all entries are
     <literal>clear</literal>, no fencing task is marked in the sbd device.
    </para>
@@ -264,7 +257,7 @@ suse01:~ # rcopenais start
 suse02:~ # rcopenais start</screen>
 
   <para>
-   Check the cluster status with crm_mon. We use the option "-r" to see also
+   Check the cluster status with crm_mon. We use the option "-r" to also see
    resources, which are configured but stopped.
   </para>
 
@@ -293,14 +286,14 @@ stonith-sbd
   <title>Configure the Cluster using crmsh</title>
 
   <para>
-   This section describes how to configure Constraints, Resources, Bootstrap
+   This section describes how to configure constraints, resources, bootstrap
    and STONITH using the crm configure Shell command as described in section
    7.1.2 of SUSE Linux Enterprise High Availability Extension.
   </para>
 
   <para>
    Use the crmsh to add the objects to CRM. Copy the following examples to a
-   local file, edit the file and than load the configuration to the CRM.
+   local file, edit the file and than load the configuration to the CRM:
   </para>
 
 <screen>suse01:~ # vi crm-fileXX
@@ -311,7 +304,7 @@ suse01:~ # crm configure load update crm-fileXX</screen>
    <para>
     The first example defines the cluster bootstrap options, the resource
     and operation defaults. The stonith-timeout should be greater than 1.2
-    times the SBD msgwait tiemout.
+    times the SBD msgwait timeout.
    </para>
 <screen>vi crm-bs.txt
 # enter the following to crm-bs.txt
@@ -347,7 +340,7 @@ op start interval="0" time="15" start-delay="5"
 crm configure load update crm-bs.txt</screen>
    <para>
     For alternative IPMI/ILO setup see our cluster product documentation. An
-    example for a IPMI STONITH resource could be found in the appendix
+    example for a IPMI STONITH resource can be found in the appendix
     (section 7.5) of this document.
    </para>
   </sect2>
@@ -356,9 +349,9 @@ crm configure load update crm-bs.txt</screen>
    <title>SAPHanaTopology</title>
    <para>
     First we define the group of resources needed, before the HANA instances
-    can be started. Edit the changes in a txt file f.e. crm-saphanatop.txt
-    an load these with the command: crm configure load update
-    crm-saphanatop.txt
+    can be started. Edit the changes in a text file, for example,
+    crm-saphanatop.txt and load these with the command:
+    crm configure load update crm-saphanatop.txt
    </para>
 <screen>vi crm-saphanatop.txt
 # enter the following to crm-saphanatop.txt
@@ -377,7 +370,7 @@ leave="true"
 crm configure load update crm-saphanatop.txt</screen>
    <para>
     The most important parameters here are SID and InstanceNumber, which are
-    in the SAP market quite self explaining. Beside these parameters the
+    in the SAP market quite self explaining. Beside these parameters, the
     timeout values or the operations (start, monitor, stop) are typical
     tuneables.
    </para>
@@ -387,8 +380,9 @@ crm configure load update crm-saphanatop.txt</screen>
    <title>SAPHana</title>
    <para>
     First we define the group of resources needed, before the HANA instances
-    can be started edit the changes in a txt file f.e. crm-saphana.txt and
-    load these with the command: crm configure load update crm-saphana.txt
+    can be started. Edit the changes in a text file, for example
+    crm-saphana.txt and load these with the command:
+    crm configure load update crm-saphana.txt
    </para>
 <screen>vi crm-saphana.txt
 # enter the following to crm-saphana.txt
@@ -434,8 +428,8 @@ primitive rsc_ip_SLE_HDB00 ocf:heartbeat:IPaddr2 \
 # now we load the file to the cluster
 crm configure load update crm-vip.txt</screen>
    <para>
-    In most installations only the parameter ip needs to be set to the
-    virtual ip address to be presented to the client systems.
+    In most installations, only the parameter ip needs to be set to the
+    virtual IP address to be presented to the client systems.
    </para>
   </sect2>
 

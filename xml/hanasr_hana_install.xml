@@ -10,9 +10,9 @@
    xml:id="cha.s4s.hana-install">
  <title>Installing the &hana; Database</title>
  <para>
-  Even when the document focuses on the integration of the already installed
-  SAP HANA with already setup system replication into the SLE HAE cluster,
-  this chapter in short says what has been done in our test environment.
+  Even though this document focuses on the integration of an already installed
+  SAP HANA with already set up system replication into the SLE HAE cluster,
+  this chapter summarizes the test environment.
   Please always use the official documentation from SAP to install SAP HANA
   and to setup the system replication.
  </para>
@@ -26,13 +26,13 @@
   <itemizedlist>
    <listitem>
     <para>
-     Read the SAP Installation and Setup Manuals available at the SAP Market
-     Place
+     Read the SAP Installation and Setup Manuals available at the
+     SAP Marketplace.
     </para>
    </listitem>
    <listitem>
     <para>
-     Download the SAP HANA Software from SAP Market Place
+     Download the SAP HANA Software from SAP Market Place.
     </para>
    </listitem>
   </itemizedlist>
@@ -42,26 +42,26 @@
    <step>
     <para>
      Install the SAP HANA Database as described in the SAP HANA Server
-     Installation Guide
+     Installation Guide.
     </para>
    </step>
    <step>
     <para>
-     Check, if the SAPHOSTAGENT is installed on all cluster nodes. If this
+     Check if the SAPHOSTAGENT is installed on all cluster nodes. If this
      SAP service is not installed, please install it now.
     </para>
    </step>
    <step>
     <para>
-     Verify that both databases are up and all processes of these Databases
-     are running correctly
+     Verify that both databases are up and all processes of these databases
+     are running correctly.
     </para>
    </step>
   </procedure>
 
   <para>
-   As Linux user sidadm use the command line tool “HDB” to get the
-   overview about the running HANA processes. The output of “HDB info”
+   As Linux user sidadm, use the command line tool “HDB” to get an
+   overview of running HANA processes. The output of “HDB info”
    should show something like shown in the following screenshot:
   </para>
 
@@ -91,21 +91,21 @@ suse02:HDB:sleadm ~ 5&gt;</screen>
   <sect2>
    <title>Database user slehasync</title>
    <para>
-    Create a user key in the secure store as root linux user on all cluster
+    Create a user key in the secure store as root Linux user on all cluster
     nodes. For a demo it would be ok use database user “system” which is
-    of course a bit to powerful. For real- world scenarios it's important
+    of course a bit too powerful. For real-world scenarios it's important
     also to create a database user which will be referenced by the user key
     in the secure store. You can create such a database user in HANA studio.
    </para>
    <para>
     Create a new user (like slehasync) and assign the system privilege
     “DATA_ADMIN” to the new user. If system privilege “DATA_ADMIN”
-    is to powerful for your security policies, you need to check for more
+    is too powerful for your security policies, you need to check for more
     granular rights in the SAP documentation.
    </para>
    <para>
-    A good check if your database user has enough rights to get the
-    synchronization status is to first create a user store key and than send
+    A good check whether your database user has enough rights to get the
+    synchronization status is to first create a user store key and then send
     the query which is described at the end of this subsection.
    </para>
    <figure xml:id="fig.hana-sr.studio-user">
@@ -120,7 +120,7 @@ suse02:HDB:sleadm ~ 5&gt;</screen>
     </mediaobject>
    </figure>
    <para>
-    As an alternative the user could also be created using hsbsql using
+    As an alternative, the user could also be created using hsbsql on the
     command line.
    </para>
 <screen>suse01:~ # PATH="$PATH:/usr/sap/SLE/HDB00/exe"
@@ -129,28 +129,28 @@ suse01:~ # hdbsql -u system -i 00 'GRANT DATA ADMIN TO slehasync'
 suse01:~ # hdbsql -u system -i 00 'ALTER USER slehasync DISABLE PASSWORD LIFE-TIME'</screen>
    <para>
     While the database user needs to be created only on one side (the other
-    will get the user by the system replication), the user keys for password
-    free access needs to be created on both nodes as the user keys are
+    will get the user by the system replication), the user keys for
+    password-free access need to be created on both nodes as the user keys are
     stored in the file system and not in the database.
    </para>
    <para>
-    For user key environment be sure that you use “localhost” as
-    database host. This is needed, because the resource agent which needs
+    For the user key environment, make sure that you use “localhost” as the
+    database host. This is necessary, because the resource agent which needs
     the user key always should only access the local database instance.
    </para>
    <para>
-    The name of the user key “slehaloc” is a fix name used in the
-    resource agent. The port should be setup as 3<emphasis>nn</emphasis>15,
-    where nn is the SAP instance number like “00”.
+    The name of the user key “slehaloc” is a fixed name used in the
+    resource agent. The port should be set up as 3<emphasis>nn</emphasis>15,
+    where nn is an SAP instance number, for example, “00”.
    </para>
 <screen>suse01:~ # PATH="$PATH:/usr/sap/SLE/HDB00/exe"
 suse01:~ # hdbuserstore SET slehaloc localhost:30015 slehasync L1nuxlab</screen>
    <para>
-    Verify the created setup as Linux user root. The option “-U key”
+    Verify the setup as Linux user root. The option “-U key”
     tells hdbsql to use the credentials which are stored in the secure
     store. The table “dummy” is available for any database user, where
-    each user has it's own dummy table. So far the following test only
-    shows, that the user key has been defined correctly and we can login to
+    each user has their own dummy table. So far the following test only
+    shows that the user key has been defined correctly and we can log in to
     the database.
    </para>
 <screen>suse01:~ # hdbsql -U slehaloc "select * from dummy"
@@ -172,12 +172,12 @@ DUMMY
   <sect2>
    <title>Back Up the Primary Database</title>
    <para>
-    Backup the primary database as described in Section 4.2.11.2 Performing
+    Back up the primary database as described in Section 4.2.11.2 Performing
     a Data Backup (SQL Commands) of the SAP HANA Administration Guide.
    </para>
 <screen>suse01:~ # hdbsql -u system -i 00 "BACKUP DATA USING FILE ('backup')"</screen>
    <para>
-    If you have (for example) created a backup database user and a userkey
+    If you have (for example) created a backup database user and a user key
     “hanabackup”, you can create an initial backup using the following
     command:
    </para>
@@ -187,7 +187,7 @@ DUMMY
     instance/user/password combination for login.
    </para>
    <para>
-    Without a valid backup you could not bring SAP HANA into a system
+    Without a valid backup, you cannot bring SAP HANA into a system
     replication configuration.
    </para>
   </sect2>
@@ -232,19 +232,19 @@ Host Mappings:
 ~~~~~~~~~~~~~~
 done.</screen>
     <para>
-     The mode changed from “none” to “primary” and the site has now
-     a site name and a site id.
+     The mode changed from “none” to “primary” and the site now has
+     a site name and a site ID.
     </para>
    </sect3>
    <sect3>
     <title>Enable the Secondary Node</title>
     <para>
      The SAP HANA database instance on the secondary side must be stopped
-     before the instance could be registered for the system replication. You
-     could use your preferred method to stop the instance (like HDB or
-     sapcontrol). After the database instance is stopped successfully you
-     could register the instance using hdbnsutil. Again use Linux user
-     sidadm
+     before the instance can be registered for the system replication. You
+     can use your preferred method to stop the instance (like HDB or
+     sapcontrol). After the database instance is stopped successfully, you
+     can register the instance using hdbnsutil. Again, use Linux user
+     sidadm:
     </para>
 <screen>suse02:~> hdbnsutil -sr_register --remoteHost=suse01 --remoteInstance=00
 --mode=sync --name=ROT
@@ -256,13 +256,13 @@ updating local ini files ...
 done.</screen>
     <para>
      Now start the database instance again and verify the system replication
-     status. At secondary side the mode should be one of „sync“,
+     status. On the secondary node, the mode should be one of „sync“,
      „syncmem“ or „async“. The mode depends on what has been defined
-     during registration of the client.
+     during the registration of the client.
     </para>
     <para>
      The remoteHost is the primary node in our case, the remoteInstance is
-     the database instanace number (here 00).
+     the database instance number (here 00).
     </para>
    </sect3>
    <sect3>
@@ -275,7 +275,7 @@ done.</screen>
     <para>
      If you get a result like <literal>error</literal>,
      <literal>unknown</literal>, <literal>syncing</literal> or
-     <literal>active</literal> then the user is able to access the
+     <literal>active</literal>, the user is able to access the
      synchronization info.
     </para>
    </sect3>
