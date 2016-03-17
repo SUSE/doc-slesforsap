@@ -8,13 +8,6 @@
   xml:id="sec.s4s.autoyast">
  <title>Using an External &ay; Profile</title>
 
- <important>
-   <title>&ay; Is Not Supported</title>
-   <para>
-     Using &ay; to install &sles4sap; is not officially supported.
-   </para>
- </important>
-
  <para>
   For more information on installing with &ay;, see:
  </para>
@@ -34,16 +27,24 @@
  </itemizedlist>
 
  <para>
-  The installation medium of &sles4sap; contains a preconfigured &ay; XML file
-  and a DUD file. This &ay; XML file is set up to work like the former
-  <quote>Wizard-Based Workflow</quote> of &sles4sapa; 12 and can be used
-  where compatibility with the old installer is necessary.
-  Both files are contained in the directory <filename>sap-apl</filename>.
-  However, note that installing using these files is still unsupported.
- </para>
-
- <para>
   For more information on partitioning for SAP applications with &ay;, see
   <xref linkend="sec.s4s.partition"/>.
  </para>
+
+ <note>
+  <title>Former <quote>Wizard-Based Workflow</quote></title>
+  <para>
+   The installation medium of &sles4sap; contains a preconfigured &ay; XML file
+   and a DUD file, in the directory <filename>sap-apl</filename>.
+   This &ay; XML file is set up to work like the former
+   <quote>Wizard-Based Workflow</quote> of &sles4sapa; 12 and can be used
+   where compatibility with the old installer is necessary.
+  </para>
+  <para>
+   Note that installing using these files is not supported. The preferred way of
+   installing is to use the installation workflow, as described in
+   <xref linkend="sec.s4s.install.workflow"/>.
+  </para>
+ </note>
+
 </sect1>
