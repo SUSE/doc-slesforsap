@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapter
+[
+  <!ENTITY % entities SYSTEM "entity-decl.ent">
+    %entities;
+]>
+<chapter xmlns="http://docbook.org/ns/docbook" version="5.0"
+   xmlns:xi="http://www.w3.org/2001/XInclude"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xml:id="cha.hana-sr.administrate">
+ <title>Administration</title>
+ <sect1>
+  <title>Do and Don't</title>
+
+  <para>
+   In your project you should...
+  </para>
+
+  <itemizedlist>
+   <listitem>
+    <para>
+     Define STONITH before adding other resources to the cluster
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     Do intensive testing
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     Tune the timeouts of the operations of SAPHana and SAPHanaTopology
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     Start with PREFER_SITE_TAKEOVER=”true”,
+     AUTOMATED_REGISTER=”false” and DUPLICATE_PRIMARY_TIMEOUT=”7200”
+    </para>
+   </listitem>
+  </itemizedlist>
+
+  <para>
+   It's strong recommended to avoid...
+  </para>
+
+  <itemizedlist>
+   <listitem>
+    <para>
+     Rapidly change / change back cluster configuration such as: Set node
+     standby and online again; stopping/starting the master/slave resource
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     Creating a cluster without proper time synchronization or unstable name
+     resolutions for hosts, users and groups
+    </para>
+   </listitem>
+  </itemizedlist>
+ </sect1>
+ <sect1>
+  <title>Monitoring</title>
+
+  <para>
+   You can use the High Availability Web Console (HAWK), SAP HANA Studio and
+   different command line tools for cluster status requests.
+  </para>
+
+  <sect2>
+   <title>HAWK – Cluster Status and more</title>
+   <para>
+    You can use an internet browser to check the cluster status.
+   </para>
+   <figure xml:id="fig.hana-sr.hawk-status">
+    <title>Cluster Status in HAWK</title>
+    <mediaobject>
+     <imageobject role="fo">
+      <imagedata fileref="cluster_status_hawk_1.png" width="85%" format="PNG"/>
+     </imageobject>
+     <imageobject role="html">
+      <imagedata fileref="cluster_status_hawk_1.png" width="85%" format="PNG"/>
+     </imageobject>
+    </mediaobject>
+   </figure>
+   <para>
+    If you setup the cluster using sleha-init and you had installed all
+    packages as described above, your system will provide a very useful web
+    interface. You can use this graphical web interface to get an overview
+    of the complete cluster status, doing administrative tasks or even
+    configure resources and cluster bootstrap parameters. Read our product
+    manuals for a complete documentation of this powerful user interface.
+   </para>
+  </sect2>
+
+  <sect2>
+   <title>SAP HANA Studio</title>
+   <para>
+    Database specific administration and checks could be done with the SAP
+    HANA studio.
+   </para>
+   <figure xml:id="fig.hana-sr.hana-studio-landscape">
+    <title>SAP HANA Studio – Landscape</title>
+    <mediaobject>
+     <imageobject role="fo">
+      <imagedata fileref="hana_studio_landscape.png" width="85%" format="PNG"/>
+     </imageobject>
+     <imageobject role="html">
+      <imagedata fileref="hana_studio_landscape.png" width="85%" format="PNG"/>
+     </imageobject>
+    </mediaobject>
+   </figure>
+  </sect2>
+
+  <sect2>
+   <title>Cluster Command-Line Tools</title>
+   <para>
+    A simple overview can be get by calling crm_mon. Using option “-r”
+    shows also stopped but already configured resources. Option “-1”
+    tells crm_mon to just output the status once instead of periodically.
+   </para>
+<screen>suse01:~ # crm_mon -r1
+Last updated: Fri May 16 17:18:56 2014
+Last change: Fri May 16 17:17:45 2014 by root via crm_attribute on suse01
+Stack: classic openais (with plugin)
+Current DC: suse01 - partition with quorum
+Version: 1.1.10-f3eeaf4
+2 Nodes configured, 2 expected votes
+6 Resources configured
+
+
+Online: [ suse01 suse02 ]
+
+Full list of resources:
+
+ stonith-sbd    (stonith:external/sbd): Started suse01
+ Clone Set: cln_SAPHanaTopology_SLE_HDB00 [rsc_SAPHanaTopology_SLE_HDB00]
+     Started: [ suse01 suse02 ]
+ Master/Slave Set: msl_SAPHana_SLE_HDB00 [rsc_SAPHana_SLE_HDB00]
+     Masters: [ suse01 ]
+     Slaves: [ suse02 ]</screen>
+   <para>
+    See the manual page crm_mon(8) for details.
+   </para>
+   <para>
+    To show some of the SAPHana, SAPHanaTopology resource agent internal
+    values you can call the program show_SAPHanaSR_attributes. The internal
+    values, storage place and their parameter names may change in the next
+    versions. The commands show_SAPHanaSR_attributes will always fetch the
+    values from the correct storage place. Do not use cluster commands like
+    crm_attribute to fetch the values directly from the cluster, because in
+    such cases your methods will be broken, when we need to move an
+    attribute to a different storage place or even out of the cluster. For
+    first show_SAPHanaSR_attributes is a test program only and should not
+    used for automated system monitoring.
+   </para>
+<screen>suse01:~ # /usr/share/SAPHanaSR/tests/show_SAPHanaSR_attributes
+Host \ Attr clone_state remoteHost roles       ... site    srmode sync_state ...
+---------------------------------------------------------------------------------
+suse01      PROMOTED    suse02     4:P:master1:... WALLDORF sync  PRIM       ...
+suse02      DEMOTED     suse01     4:S:master1:... ROT      sync  SOK        ...</screen>
+  </sect2>
+
+  <sect2>
+   <title>SAP HANA LandscapeHostConfiguration</title>
+   <para>
+    To check the status of a SAPHana database and to figure out, if the
+    cluster should react or not, you can use the landscapeHostConfiguration
+    python script to be called as Linux user sidadm.
+   </para>
+<screen>suse01:~> python /usr/sap/SLE/HDB00/exe/python_support/landscapeHostConfiguration.py
+| Host   | Host   | Host   | Failover | ... NameServer   | NameServer  | IndexServer | IndexServer |
+|        | Active | Status | Status   | ... Config Role  | Actual Role | Config Role | Actual Role |
+| ------ | ------ | ------ | -------- | ... ------------ | ----------- | ----------- | ----------- |
+| suse01 | yes    | ok     |          | ... master 1     | master      | worker      | master      |
+
+overall host status: ok</screen>
+   <para>
+    Following the SAP HA guideline the SAPHana resource agent interprets the
+    return codes in the following way:
+   </para>
+   <table xml:id="tab.hana-sr.return-code">
+    <title>Interpretation of Return Codes</title>
+    <tgroup cols="3">
+     <colspec colnum="1" colname="option" colwidth="15*"/>
+     <colspec colnum="2" colname="desc" colwidth="85*"/>
+     <thead>
+      <row>
+       <entry>
+        <para>
+         Return Code
+        </para>
+       </entry>
+       <entry>
+        <para>
+         Interpretation
+        </para>
+       </entry>
+      </row>
+     </thead>
+     <tbody>
+      <row>
+       <entry>
+        <para>
+         4
+        </para>
+       </entry>
+       <entry>
+        <para>
+         SAP HANA database is up and ok. The cluster does interpret this as
+         a correctly running database.
+        </para>
+       </entry>
+      </row>
+      <row>
+       <entry>
+        <para>
+         3
+        </para>
+       </entry>
+       <entry>
+        <para>
+         SAP HANA database is up and in status info. The cluster does
+         interpret this as a correctly running database.
+        </para>
+       </entry>
+      </row>
+      <row>
+       <entry>
+        <para>
+         2
+        </para>
+       </entry>
+       <entry>
+        <para>
+         SAP HANA database is up and in status warning. The cluster does
+         interpret this as a correctly running database.
+        </para>
+       </entry>
+      </row>
+      <row>
+       <entry>
+        <para>
+         1
+        </para>
+       </entry>
+       <entry>
+        <para>
+         SAP HANA database is down. This could trigger also an takeover, if
+         the database should be up and is not down by intention.
+        </para>
+       </entry>
+      </row>
+      <row>
+       <entry>
+        <para>
+         0
+        </para>
+       </entry>
+       <entry>
+        <para>
+         Internal Script Error – to be ignored.
+        </para>
+       </entry>
+      </row>
+     </tbody>
+    </tgroup>
+   </table>
+  </sect2>
+ </sect1>
+</chapter>

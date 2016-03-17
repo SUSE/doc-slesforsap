@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE book
+[
+  <!ENTITY % entities SYSTEM "entity-decl.ent">
+    %entities;
+]>
+<?xml-stylesheet href="urn:x-suse:xslt:profiling:docbook50-profile.xsl"
+   type="text/xml"
+   title="Profiling step"?>
+<book xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:lang="en" xml:id="book.s4s">
+ <title>SAP HANA System Replication Setup Guide</title>
+ <info><productname>&productname;</productname><productname role="abbrev">&sles4sapa;</productname>
+  <productnumber>&productnumber;</productnumber>
+  <date><?dbtimestamp format="B d, Y"?></date>
+  <dm:docmanager xmlns:dm="urn:x-suse:ns:docmanager">
+   <dm:bugtracker>
+    <dm:url>https://bugzilla.suse.com/enter_bug.cgi</dm:url>
+    <dm:component>All</dm:component>
+    <dm:product>SUSE Linux Enterprise for SAP Applications 12 SP1</dm:product>
+    <dm:assignee>sknorr@suse.com</dm:assignee>
+   </dm:bugtracker>
+   <dm:translation>no</dm:translation>
+  </dm:docmanager>
+  <authorgroup>
+   <author><personname><firstname>Yuri</firstname><surname>Shinkarev</surname></personname>
+   </author>
+   <author><personname><firstname>Fabian</firstname><surname>Herschel</surname></personname>
+   </author>
+  </authorgroup>
+  <xi:include href="common_copyright_gfdl.xml" parse="xml"/>
+ </info>
+ <xi:include href="hanasr_overview.xml" parse="xml"/>
+ <xi:include href="hanasr_scenario.xml" parse="xml"/>
+ <xi:include href="hanasr_scope.xml" parse="xml"/>
+ <xi:include href="hanasr_hana_install.xml" parse="xml"/>
+ <xi:include href="hanasr_configure_cluster.xml" parse="xml"/>
+ <xi:include href="hanasr_administration.xml" parse="xml"/>
+ <xi:include href="hanasr_appendix_information.xml" parse="xml"/>
+ <xi:include href="hanasr_appendix_example.xml" parse="xml"/>
+ <xi:include href="hanasr_appendix_docupdates.xml" parse="xml"/>
+</book>
