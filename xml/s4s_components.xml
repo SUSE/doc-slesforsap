@@ -149,9 +149,9 @@
      <formalpara>
       <title>Performance-Optimized Scenario</title>
       <para>
-       Two systems (A and B) in the same &sleha; cluster, one primary (A)
-       and one secondary (B). The primary system (A) is
-       replicated synchronously to the secondary system (B).
+       Two servers (A and B) in the same &sleha; cluster, one primary (A)
+       and one secondary (B). The &hana; instance from the primary server (A) is
+       replicated synchronously to the secondary server (B).
       </para>
      </formalpara>
     </listitem>
@@ -161,10 +161,11 @@
       <para>
        The basic setup of A and B is the same as in the
        <emphasis>Performance-Optimized Scenario</emphasis>.
-       However, the secondary system (B) is also used for non-productive
-       purposes, such as for a development or QA database. The production
+       However, the secondary server (B) is also used for non-productive
+       purposes, such as for an additional &hana; database for development or
+       QA. The production
        database is only kept on permanent memory, such as a hard disk.
-       If a takeover needs to occur, the non-productive system will be stopped
+       If a takeover needs to occur, the non-productive server will be stopped
        before the takeover is processed. The system resources for the
        productive database are then increased as quickly as possible via an
        SAP hook call-out script.
@@ -175,16 +176,16 @@
      <formalpara>
       <title>Chain/Multi-Tier Scenario</title>
       <para>
-       Three systems (A, B, and C), of which two are located in the
-       same &sleha; cluster (A and B). The third system (C) is located
-       externally. The primary system (A) is replicated synchronously to the
-       secondary system (B). The secondary system (B) is
-       replicated asynchronously to the external system (C).
+       Three servers (A, B, and C), of which two are located in the
+       same &sleha; cluster (A and B). The third server (C) is located
+       externally. The &hana; system on the primary server (A) is replicated
+       synchronously to the secondary server (B). The secondary server (B) is
+       replicated asynchronously to the external server (C).
       </para>
      </formalpara>
      <para>
       If a takeover from A to B occurs, the connection between B and C remains
-      untouched. However, B is not allowed to be the source for two systems
+      untouched. However, B is not allowed to be the source for two servers
       (A and C), as this would be a <quote>star</quote> topology which
       is not supported with current &hana; versions (such as SPS11).
      </para>
@@ -200,7 +201,7 @@
       </listitem>
       <listitem>
        <para>
-        If replication to the external system site is more important than
+        If replication to the external site (C) is more important than
         local system replication, the connection between B and C can be kept.
        </para>
       </listitem>
