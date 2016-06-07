@@ -14,13 +14,13 @@
  <itemizedlist>
   <listitem>
    <para>
-    If are installing of an SAP application within the installation workflow,
+    If you are installing an SAP application within the installation workflow,
     continue with <xref linkend="sec.s4s.install.sap.welcome"/>.
    </para>
   </listitem>
   <listitem>
    <para>
-    If are installing of an SAP application within an installed system,
+    If you are installing an SAP application within an installed system,
     continue with <xref linkend="sec.s4s.install.sap.product"/>.
    </para>
   </listitem>
