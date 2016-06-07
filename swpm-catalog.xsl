@@ -18,6 +18,7 @@
 
   <xsl:template match="/">
     <xsl:text disable-output-escaping='yes'>&lt;!DOCTYPE itemizedlist&gt;</xsl:text>
+    <xsl:text>&#10;</xsl:text>
     <xsl:comment>This file was automatically generated from a SWPM products.catalog file.</xsl:comment>
     <xsl:if test="product-catalog/comment()[1]">
       <xsl:comment>
