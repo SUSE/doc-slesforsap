@@ -30,15 +30,14 @@
   <title>Products That Can Be Installed Using &sapwiz;</title>
 
   <para>
-   The following SAP products can be installed using the &sapwiz; along with
-   a database:
+   Using the &sapwiz;, you can install stand-alone &hana; database instances.
+   Additionally, the following SAP products (along with a database) can be
+   installed using the &sapwiz;:
   </para>
   <xi:include href="s4s_installation_product.xml" parse="xml"/>
-  <para>
-   You can additionally install simple stand-alone &hana; instances.
-  </para>
+
   <important>
-    <title>No Installation of Oracle Databases</title>
+    <title>No Installation of Oracle Databases Possible</title>
     <para>
      The &sapwiz; does not allow installing products together with
      Oracle databases.
