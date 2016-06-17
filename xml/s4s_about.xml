@@ -61,6 +61,111 @@
 
  <xi:include href="s4s_components.xml" parse="xml"/>
 
+ <sect1 xml:id="sec.s4s.repository">
+  <title>Software Repository Setup</title>
+
+  <para>
+   Software included with operating systems based on &sle; are delivered as
+   RPM packages, a form of installation package that can have dependencies on
+   other packages. On a server or an installation medium, these packages are
+   stored in software repositories (sometimes also called
+   <quote>channels</quote>).
+  </para>
+  <remark>
+   FIXME: "variant" is maybe not a good word... - sknorr, 2016-06-17
+  </remark>
+  <para>
+   By default, computers running &productname; are set up to receive
+   packages from multiple repositories. Of each of the standard repositories,
+   there is a <quote>Pool</quote> variant that represents the state of the
+   software when it was first shipped. There is also an <quote>Update</quote>
+   variant that includes the newest maintenance updates for the software
+   in the <quote>Pool</quote> variant.
+  </para>
+  <para>
+   If you registered your system during installation, your repository
+   setup should include the following:
+  </para>
+  <informaltable xml:id="tab.s4s.repository">
+    <tgroup cols="3">
+      <colspec colname="type"/>
+      <colspec colname="base"/>
+      <colspec colname="update"/>
+      <thead>
+        <row>
+          <entry>
+            <para>Content</para>
+          </entry>
+          <entry>
+            <para>Base repository (<quote>Pool</quote>)</para>
+          </entry>
+          <entry>
+            <para>Update repository</para>
+          </entry>
+        </row>
+      </thead>
+      <tbody>
+        <row>
+          <entry>
+            <para>
+              Base packages of &sls;
+            </para>
+          </entry>
+          <entry>
+            <para><literal>SLES12-SP2-Pool</literal></para>
+          </entry>
+          <entry>
+            <para><literal>SLES12-SP2-Updates</literal></para>
+          </entry>
+        </row>
+        <row>
+          <entry>
+            <para>
+              Packages specific to &sles4sap;
+            </para>
+          </entry>
+          <entry>
+            <para>
+              <literal>SLE12-SP2-SAP-Pool</literal>
+            </para>
+          </entry>
+          <entry>
+            <para><literal>SLE-12-SP2-SAP-Updates</literal></para>
+          </entry>
+        </row>
+        <row>
+          <entry>
+            <para>
+              Packages specific to &sleha;
+            </para>
+          </entry>
+          <entry>
+            <para><literal>SLE-HA12-SP2-Pool</literal></para>
+          </entry>
+          <entry>
+            <para><literal>SLE-HA12-SP2-Updates</literal></para>
+          </entry>
+        </row>
+      </tbody>
+    </tgroup>
+  </informaltable>
+  <para>
+   The above table does not show <quote>Debuginfo</quote> repositories which
+   are also set up but disabled by default and which contain packages that can
+   be used for debugging regular packages.
+  </para>
+  <para>
+   Depending on your installation method, you may also see
+   <literal>SLE-12-SP2-SAP-12.2-0</literal> which is the installation medium.
+   It contains packages from all of the base software repositories listed
+   above.
+  </para>
+  <para>
+   Having own repositories for &productname; allows shipping packages and
+   patches that are specific to &productname;.
+  </para>
+ </sect1>
+
  <sect1 xml:id="sec.s4s.service">
   <title>Included Services</title>
 
@@ -83,24 +188,6 @@
       Migrations can be scheduled more easily and testing before a migration
       can be performed under lesser time constraints.
      </para>
-    </listitem>
-   </varlistentry>
-   <varlistentry>
-    <term><emphasis>Additional Update Channel</emphasis>
-    </term>
-    <listitem>
-     <itemizedlist>
-      <listitem>
-       <para>
-        Allows SAP-specific patches
-       </para>
-      </listitem>
-      <listitem>
-       <para>
-        Updates for SAP-specific packages
-       </para>
-      </listitem>
-     </itemizedlist>
     </listitem>
    </varlistentry>
    <varlistentry>
