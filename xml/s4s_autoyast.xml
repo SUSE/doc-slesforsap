@@ -31,20 +31,4 @@
   <xref linkend="sec.s4s.partition"/>.
  </para>
 
- <note>
-  <title>Former <quote>Wizard-Based Workflow</quote></title>
-  <para>
-   The installation medium of &sles4sap; contains a preconfigured &ay; XML file
-   and a DUD file, in the directory <filename>sap-apl</filename>.
-   This &ay; XML file is set up to work like the former
-   <quote>Wizard-Based Workflow</quote> of &sles4sapa; 12 and can be used
-   where compatibility with the old installer is necessary.
-  </para>
-  <para>
-   Note that installing using these files is not supported. The preferred way of
-   installing is to use the installation workflow, as described in
-   <xref linkend="sec.s4s.install.workflow"/>.
-  </para>
- </note>
-
 </sect1>
