@@ -156,7 +156,8 @@
    </step>
    <step>
     <para>
-     Select a fitting keyboard layout <guimenu>Keyboard Layout</guimenu>.
+     Select the appropriate keyboard layout under
+     <guimenu>Keyboard Layout</guimenu>.
      To test whether the selected layout matches your physical keyboard,
      use the text box <guimenu>Keyboard Test</guimenu>.
     </para>
@@ -527,7 +528,7 @@
      In the installation confirmation box, click <guimenu>Install</guimenu>.
     </para>
     <para>
-     When the installation if the operating system is finished, the system
+     When the installation of the operating system is finished, the system
      will reboot automatically.
     </para>
     <itemizedlist>
