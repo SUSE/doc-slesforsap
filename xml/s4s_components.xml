@@ -90,7 +90,7 @@
   </itemizedlist>
 
   <para>
-   For more information on &sleha;, see the &haguide; (&ha-docaddress;)
+   For more information about &sleha;, see the &haguide; (&ha-docaddress;)
    and the White Papers and Best Practice Guides in the
    &sles4sap; Resource Library (&reslibrary;).
   </para>
@@ -258,7 +258,7 @@
   </para>
   <para>
    Additionally, the installation workflow can be extended by
-   third-party vendors or customers using &supmedia;. For more information on
+   third-party vendors or customers using &supmedia;. For more information about
    creating &supmedia;, see <xref linkend="app.s4s.component.supplement"/>.
   </para>
  </sect2>

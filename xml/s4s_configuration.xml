@@ -320,7 +320,7 @@ vm.pagecache_limit_ignore_dirty = <replaceable>2</replaceable></screen>
     </para>
 <screen><replaceable>SERVICE_NAME</replaceable>:<replaceable>CIDR_NOTATION</replaceable></screen>
     <para>
-     For more information on the CIDR notation, see
+     For more information about the CIDR notation, see
      <link xlink:href="https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing"/>.
      To find out which services are available on your system, use
      <command>getent services</command>.

@@ -88,7 +88,7 @@
    All other sections will be replaced.
   </para>
   <para>
-   For more information on customization options, see
+   For more information about customization options, see
    <citetitle>
     &ay; Guide,
     Chapter 4 <quote>Configuration and Installation Options</quote>,
@@ -100,7 +100,7 @@
  <sect1 xml:id="sec.s4s.component.supplement.ask">
   <title>Own &ay; Ask Dialogs</title>
   <para>
-   For more information on the <quote>Ask</quote> feature of &ay;, see
+   For more information about the <quote>Ask</quote> feature of &ay;, see
    <citetitle>
     &ay; Guide,
     Chapter 4 <quote>Configuration and Installation Options</quote>,

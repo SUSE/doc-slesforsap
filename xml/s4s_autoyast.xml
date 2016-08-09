@@ -9,7 +9,7 @@
  <title>Using an External &ay; Profile</title>
 
  <para>
-  For more information on installing with &ay;, see:
+  For more information about installing with &ay;, see:
  </para>
  <itemizedlist>
   <listitem>
@@ -27,7 +27,7 @@
  </itemizedlist>
 
  <para>
-  For more information on partitioning for SAP applications with &ay;, see
+  For more information about partitioning for SAP applications with &ay;, see
   <xref linkend="sec.s4s.partition"/>.
  </para>
 
