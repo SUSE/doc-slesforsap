@@ -205,7 +205,7 @@
     <guimenu>YaST</guimenu></menuchoice>, continue in the &yast; control center
     by choosing
     <menuchoice><guimenu>Miscellaneous</guimenu>
-    <guimenu>SAP Product Installer</guimenu></menuchoice>.
+    <guimenu>SAP Installation Wizard</guimenu></menuchoice>.
    </para>
   </tip>
   <tip>
@@ -213,8 +213,7 @@
    <remark>
     Terminology: "SAP Installer"/"SAPinst" and "SAP Installation Wizard" are
     pretty close. Maybe SUSE should change the wizard's name some time in the
-    future..? Also, the "SAP Product Installer" calls itself the
-    "SAP Installation Wizard".- sknorr, 2016-01-15
+    future..? - sknorr, 2016-01-15
    </remark>
    <para>
     The &sapwiz; configuration is specified and
@@ -967,7 +966,7 @@ SAP-NetWeaver-740-SR2-Installation-Export-CD-3-3</screen>
    <step>
     <para>
      Open the &yast; control center and start
-     <guimenu>SAP Product Installer</guimenu>.
+     <guimenu>SAP Installation Wizard</guimenu>.
     </para>
    </step>
    <step>
