@@ -8,9 +8,10 @@
  <title>Installing the Operating System</title>
 
  <para>
-  The following section provides instructions on how to install the
-  base operating system, &sls; either using the installation workflow,
-  over the network or using &ay;.
+  The following section provides instructions for installing the base operating
+  system. Using the installation workflow, you can install either using a local
+  installation medium or over the network. Alternatively, you can install using
+  &ay;.
  </para>
 
  <sect1 xml:id="sec.s4s.install.workflow">
@@ -23,6 +24,11 @@
    choose whether you want to install an SAP application. If so, you will be
    asked to provide SAP installation media when the &sls; installation is
    finished. You can also choose whether to install third-party extensions.
+  </para>
+  <para>
+   This section assumes that you are starting the installation from a local
+   medium. To learn how to start the installation from a remote medium, see
+   <xref linkend="sec.s4s.install.network"/>.
   </para>
   <para>
    For more information, see <xref linkend="sec.s4s.workflow-overview"/>.
@@ -217,7 +223,7 @@
      <title>Register at This Step</title>
      <para>
       Make sure to register your system at this step in the installation.
-      Otherwise, you will not receive vital package updates immediately.
+      Otherwise, you will not receive package updates immediately.
      </para>
      <para>
       Additionally, your system will also not be set up to receive packages
@@ -455,11 +461,14 @@
      On the screen <guimenu>Installation Settings</guimenu>, you can review
      and, if necessary, change several proposed installation settings.
      Each setting is shown alongside its current configuration.
-     To change parts of the configuration, click the headline or other
-     underlined items.
+     To change parts of the configuration, click the appropriate headline or
+     other underlined items.
     </para>
     <important>
      <title>Firewall Configuration</title>
+     <remark>
+      Still FIXME for SP2. - sknorr, 2016-08-09
+     </remark>
      <para>
       The software firewall of &sles4sapa; is enabled by default.
       However, often, the ports your SAP product requires to be open
