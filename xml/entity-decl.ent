@@ -166,9 +166,10 @@
 <!ENTITY hbvs          "Heartbeat 2">
 <!ENTITY hbgui         "Linux HA Management Client">
 <!ENTITY smtool        "Subscription Management Tool">
-<!ENTITY sles4sapa     "&slsa; for SAP">
-<!ENTITY sles4sap      "&sls; for SAP Applications">
-<!ENTITY sles4sapreg   "&slsreg; for SAP Applications">
+<!ENTITY sap           "SAP">
+<!ENTITY sles4sapa     "&slsa; for &sap;">
+<!ENTITY sles4sap      "&sls; for &sap; Applications">
+<!ENTITY sles4sapreg   "&slsreg; for &sap; Applications">
 <!ENTITY productname   '&sles4sap;'>
 <!ENTITY productnamereg '&sles4sapreg;'>
 <!ENTITY productnumber '12 SP2'>

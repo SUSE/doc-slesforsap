@@ -406,8 +406,8 @@
     <tip>
      <title>Remote Location Specification</title>
      <para>
-      To install from an NFS source, enter the name of
-      the server and the complete path to the media data. For more
+      To install from an NFS source, specify the name of
+      the server and the complete path to the media data. For
       information about setting up a remote installation server, see
       <xref linkend="cha.s4s.serve-mediaset"/>.
      </para>
@@ -447,20 +447,6 @@
      </varlistentry>
      <varlistentry>
       <term>
-       <guimenu>Link to the installation master without copying its content to
-       local location (SAP NetWeaver only)</guimenu>
-      </term>
-      <listitem>
-       <para>
-        Use this option to avoid copying an &instmaster; from one
-        local location to another.
-        This option is only active when the drop-down box above is set to
-        <guimenu>dir://</guimenu>.
-       </para>
-      </listitem>
-     </varlistentry>
-     <varlistentry>
-      <term>
        <guimenu>Serve all installation media (including master) to local
        network via NFS</guimenu>
       </term>
@@ -482,6 +468,9 @@
      Depending on the type of &instmaster; you selected, the installation
      will continue differently:
     </para>
+    <remark>
+     FIXME for SP2! - sknorr, 2016-08-09
+    </remark>
     <itemizedlist>
      <listitem>
       <para>
@@ -496,6 +485,85 @@
       </para>
      </listitem>
     </itemizedlist>
+   </step>
+   <step xml:id="st.s4s.copy-media">
+    <para>
+     On the screen <guimenu>SAP Installation Wizard</guimenu>, provide
+     the location of additional &instmedia; you want to install.
+     This can include, for example an SAP kernel, a database, and
+     database exports.
+    </para>
+    <variablelist>
+     <varlistentry>
+      <term><guimenu>Copy a medium</guimenu></term>
+      <listitem>
+       <para>
+        Specify a path to additional &instmedia;. For more information about
+        specifying the path, see <xref linkend="tab.sap.media.source"/>.
+       </para>
+      </listitem>
+     </varlistentry>
+     <varlistentry>
+      <term><guimenu>Skip copying of medium</guimenu></term>
+      <listitem>
+       <para>
+        Do not copy additional &instmedia;. Choose this option
+        if you do not need additional &instmedia; or if you want to install
+        additional &instmedia; directly from their source, for example
+        CDs/DVDs or flash disks.
+       </para>
+       <para>
+        When choosing this option despite your SAP product requiring additional
+        &instmedia;, you will later need to provide the &sapin; (&sapina;)
+        with the relevant paths.
+       </para>
+       <!-- We don't even get to this step when installing HANA...
+       - sknorr, 2016-02-12 -->
+       <!--<important>
+        <title>Do Not Choose When Installing &hana;</title>
+        <para>
+         This option does not work for &hana;. Choosing it will lead the
+         installation to fail.
+        </para>
+        <remark>
+         Reasoning was something about HANA media having to be rw,
+         not just r somehow according to hguo. Check again before putting this
+         here - sknorr, 2016-01-12
+        </remark>
+       </important>-->
+      </listitem>
+     </varlistentry>
+    </variablelist>
+    <para>
+     Proceed with <guimenu>Next</guimenu>.
+    </para>
+    <para>
+     If you chose to copy &instmedia;, the &sapwiz; will copy the relevant
+     files to your local hard disk.
+    </para>
+    <figure xml:id="fig.s4s.sap.wizard.sapmedia">
+     <title>&sapwiz;: Additional &instmedia;</title>
+     <mediaobject>
+      <imageobject role="fo">
+       <imagedata fileref="s4s_sap_wizard_location_sapmedia.png" width="73%" format="PNG"/>
+      </imageobject>
+      <imageobject role="html">
+       <imagedata fileref="s4s_sap_wizard_location_sapmedia.png" width="73%" format="PNG"/>
+      </imageobject>
+     </mediaobject>
+    </figure>
+   </step>
+   <step>
+    <para>
+     After copying the &instmedia;, you will be asked whether you want to
+     prepare more &instmedia;.
+     To do so, click <guimenu>Yes</guimenu>.
+     Then follow the instructions in
+     <xref linkend="st.s4s.copy-media" xrefstyle="select:label"/>.
+    </para>
+    <para>
+     Otherwise, click <guimenu>No</guimenu>.
+    </para>
    </step>
    <step>
     <para>
@@ -517,7 +585,8 @@
       <term><guimenu>SAP Standalone Engines</guimenu></term>
       <listitem>
        <para>
-        Engines that add functionality to a standard product.
+        Engines that add functionality to a standard product: &sap; TREX,
+        &sap; Gateway, and Web Dispatcher.
        </para>
        <!--
         "Engines" in plural: A bit of an inconsistency. Still just one at a
@@ -563,7 +632,7 @@
      </varlistentry>
     </variablelist>
     <figure xml:id="fig.s4s.sap.wizard.mode.db">
-     <title>&sapwiz;: Installation Mode and Database</title>
+     <title>&sapwiz;: Installation Type and Database</title>
      <mediaobject>
       <imageobject role="fo">
        <imagedata fileref="s4s_sap_wizard_mode_db.png" width="73%" format="PNG"/>
@@ -607,95 +676,6 @@
       </imageobject>
      </mediaobject>
     </figure>
-   </step>
-   <step xml:id="st.s4s.copy-media">
-    <para>
-     On the screen <guimenu>SAP Installation Wizard</guimenu>, you can provide
-     the location of additional &instmedia; you want to install.
-     This can include, for example an SAP kernel, a database, and
-     database exports.
-    </para>
-    <variablelist>
-     <varlistentry>
-      <term><guimenu>Copy a medium</guimenu></term>
-      <listitem>
-       <para>
-        Provide a path to additional &instmedia;. For more information on
-        how to enter the path, see <xref linkend="tab.sap.media.source"/>.
-       </para>
-       <para>
-        When providing a local path (<guimenu>dir://</guimenu>), you can
-        additionally choose to only link to the &instmedia;.
-       </para>
-      </listitem>
-     </varlistentry>
-     <varlistentry>
-      <term><guimenu>Skip copying of medium</guimenu></term>
-      <listitem>
-       <para>
-        Do not copy additional &instmedia;. Choose this option
-        if you do not need additional &instmedia; or if you want to install
-        additional &instmedia; directly from their source, for example
-        CDs/DVDs or flash disks.
-       </para>
-       <para>
-        When choosing this option despite your SAP product requiring additional
-        &instmedia;, you will later need to provide the &sapin; (&sapina;)
-        with the relevant paths.
-       </para>
-       <!-- We don't even get to this step when installing HANA...
-       - sknorr, 2016-02-12 -->
-       <!--<important>
-        <title>Do Not Choose When Installing &hana;</title>
-        <para>
-         This option does not work for &hana;. Choosing it will lead the
-         installation to fail.
-        </para>
-        <remark>
-         Reasoning was something about HANA media having to be rw,
-         not just r somehow according to hguo. Check again before putting this
-         here - sknorr, 2016-01-12
-        </remark>
-       </important>-->
-      </listitem>
-     </varlistentry>
-    </variablelist>
-    <para>
-     Proceed with <guimenu>Next</guimenu>.
-    </para>
-    <para>
-     If you chose to copy &instmedia;, the &sapwiz; will then copy the relevant
-     files to your local hard disk.
-    </para>
-    <figure xml:id="fig.s4s.sap.wizard.sapmedia">
-     <title>&sapwiz;: Additional &instmedia;</title>
-     <mediaobject>
-      <imageobject role="fo">
-       <imagedata fileref="s4s_sap_wizard_location_sapmedia.png" width="73%" format="PNG"/>
-      </imageobject>
-      <imageobject role="html">
-       <imagedata fileref="s4s_sap_wizard_location_sapmedia.png" width="73%" format="PNG"/>
-      </imageobject>
-     </mediaobject>
-    </figure>
-   </step>
-   <step>
-    <!--
-     I am being asked whether I want to prepare more media which really just
-     means copying. hguo says we want "prepare" here to motivate the user
-     for the stuff that we do with the copied items later.
-     - sknorr, 2016-02-12
-    -->
-    <para>
-     After copying the &instmedia;, you will be asked whether you want to copy
-     (<quote>prepare</quote>) more &instmedia;.
-     To do so, click <guimenu>Yes</guimenu>.
-     After doing so, follow the instructions in
-     <xref linkend="st.s4s.copy-media" xrefstyle="select:label"/>.
-    </para>
-    <para>
-     Otherwise, click <guimenu>No</guimenu>.
-    </para>
    </step>
    <step xml:id="st.s4s.supplement">
     <para>
@@ -745,7 +725,7 @@
      SAP installation</guimenu>, you can add further software repositories.
      This can be useful, for example, for installing add-ons that are packaged
      as RPM. To do so, click <guimenu>Add new software repositories</guimenu>.
-     For more information on adding repositories, see
+     For more information about adding repositories, see
      <citetitle>Deployment Guide,
      Chapter 8 <quote>Installing and Removing Software</quote>,
      Section 8.3.1 <quote>Adding Software Repositories</quote></citetitle>
@@ -757,7 +737,7 @@
     <note>
      <title>Location of Copied SAP Media</title>
      <para>
-      At this point, all data required for the SAP installation should have been
+      At this point, all data required for the SAP installation has been
       copied to <filename>/data/SAP_CDs</filename> (unless you chose to skip
       the process of copying).
       Each Installation Medium is copied to a separate directory. You might find
@@ -779,56 +759,35 @@ SAP-NetWeaver-740-SR2-Installation-Export-CD-3-3</screen>
    </step>
    <step xml:id="st.s4s.collect-parameter">
     <para>
-     In <guimenu>SAP System Parameters</guimenu>, select the appropriate
-     <guimenu>System T-Shirt Sizing</guimenu>.
+     Depending on the product you are installing, multiple dialogs will now
+     prompt you to supply values for several configuration parameters for the
+     SAP application you are installing.
     </para>
     <para>
-     Proceed with <guimenu>OK</guimenu>.
+     Supply the values as described in the documentation provided to you by
+     SAP. Certain information about the configuration parameters is also
+     available at the left side of the dialog.
     </para>
-    <figure xml:id="fig.s4s.sap.wizard.sysparams.size">
-     <title>SAP System Parameters: T-Shirt-Sizing</title>
+    <para>
+     In each case, fill out the form, then proceed with <guimenu>OK</guimenu>.
+    </para>
+    <figure xml:id="fig.s4s.product-parameter">
+     <title>Product Parameters</title>
      <mediaobject>
-      <imageobject role="fo">
-       <imagedata fileref="s4s_sap_wizard_sysparams_size.png" width="73%" format="PNG"/>
-      </imageobject>
       <imageobject role="html">
-       <imagedata fileref="s4s_sap_wizard_sysparams_size.png" width="73%" format="PNG"/>
+       <imagedata fileref="s4s_sap_wizard_product_param.png" format="PNG"/>
       </imageobject>
+      <imageobject role="fo">
+       <imagedata fileref="s4s_sap_wizard_product_param.png" width="73%" format="PNG"/>
+      </imageobject>
+      <textobject role="description">
+       <phrase>Dialog to configure product parameters</phrase>
+      </textobject>
      </mediaobject>
     </figure>
-   </step>
-   <step>
-    <!--
-     Dialog without a name... - sknorr, 2016-02-03
-    -->
     <para>
-     In the following dialog, choose the appropriate network settings for your
-     system.
+     When you are done, the &sapwiz; will download additional software packages.
     </para>
-    <important>
-     <title>Configure Networking as Recommended by SAP</title>
-     <para>
-      Make sure to configure the network connection as recommended in the
-      documentation provided to you by SAP.
-     </para>
-    </important>
-    <para>
-     Proceed with <guimenu>OK</guimenu>.
-    </para>
-    <para>
-     The &sapwiz; will now download some additional software packages.
-    </para>
-    <figure xml:id="fig.s4s.sap.wizard.virt.params">
-     <title>Virtual Network Settings</title>
-     <mediaobject>
-      <imageobject role="fo">
-       <imagedata fileref="s4s_sap_wizard_virt_params.png" width="73%" format="PNG"/>
-      </imageobject>
-      <imageobject role="html">
-       <imagedata fileref="s4s_sap_wizard_virt_params.png" width="73%" format="PNG"/>
-      </imageobject>
-     </mediaobject>
-    </figure>
    </step>
    <step xml:id="st.s4s.sapinst">
     <para>
@@ -838,26 +797,19 @@ SAP-NetWeaver-740-SR2-Installation-Export-CD-3-3</screen>
     <itemizedlist>
      <listitem>
       <para>
-       When installing an &hana; database, you will be asked for a
-       <guimenu>SID</guimenu>, an <guimenu>SAP HANA Instance Number</guimenu>,
-       and a <guimenu>SAP HANA Master Password</guimenu>.
-      </para>
-      <para>
-       Proceed with <guimenu>OK</guimenu>.
-      </para>
-      <para>
-       &hana; will then be installed without further questions.
+       When installing an &hana; database, &hana; will now be installed
+       without further question.
       </para>
      </listitem>
      <listitem>
       <para>
        When installing an &netweaver; application, the actual installation will
-       be performed using the &sapin; (&sapina;). Depending on your system,
-       it can take a while until &sapin; is ready.
+       be performed using the &sapin; (&sapina;).
       </para>
       <para>
-       Follow the steps of &sapin; as described in the documentation provided to
-       you by SAP.
+       Follow the steps of &sapin; as described in the documentation provided
+       to you by SAP. Many values for configuration parameters are already
+       pre-filled correctly.
       </para>
      </listitem>
     </itemizedlist>
@@ -875,32 +827,16 @@ SAP-NetWeaver-740-SR2-Installation-Export-CD-3-3</screen>
     <tip>
      <title>Installation Log Files</title>
      <para>
-      If the installation of the SAP application fails, take a look at the
+      If the installation of the &sap; application fails, refer to the
       installation log files. They are located in
       <filename>/var/adm/autoinstall</filename>. Failed installations are
       recorded in files with names ending in <filename>.err</filename>.
      </para>
      <para>
-      For more information on log files, see
+      For more information about log files, see
       <xref linkend="sec.s4s.configure.log"/>.
      </para>
     </tip>
-   </step>
-   <step>
-    <para>
-     On the screen <guimenu>Tune your system for optimal performance</guimenu>,
-     you can choose a tuning option for your system. Normally, the best
-     option is preselected and you do not need to change the
-     <guimenu>Profile name</guimenu>.
-    </para>
-    <para>
-     Proceed with <guimenu>Next</guimenu>, then click <guimenu>OK</guimenu>.
-    </para>
-    <para>
-     You can later change this configuration using
-     <systemitem>tuned-adm</systemitem>.
-     For more information, see <xref linkend="sec.s4s.configure.sapconf"/>.
-    </para>
    </step>
    <step>
     <para>
@@ -909,11 +845,10 @@ SAP-NetWeaver-740-SR2-Installation-Export-CD-3-3</screen>
     <para>
      To create an &ay; file for this installation, activate
      <guimenu>Clone This System for AutoYaST</guimenu>.
-     The &ay; file will be placed in <filename>/root/autoinst.xml</filename>
-     and will overwrite &ay; files created earlier in the same location.
+     The &ay; file will be placed in <filename>/root/autoinst.xml</filename>.
     </para>
     <para>
-     Proceed with <guimenu>Finish</guimenu>.
+     Click <guimenu>Finish</guimenu>.
     </para>
    </step>
   </procedure>
@@ -991,13 +926,13 @@ SAP-NetWeaver-740-SR2-Installation-Export-CD-3-3</screen>
     <itemizedlist>
      <listitem>
       <para>
-       In the case of an &netweaver; installation, all parameter of the &sapin;
+       In the case of an &netweaver; installation, all parameters of the &sapin;
        will be offered again for fine-tuning.
       </para>
      </listitem>
      <listitem>
       <para>
-       In the case of an &hana;/&b1; installation, the installation will not be
+       In the case of an &hana;/&b1; installation, the installer will not be
        offering to make any changes to parameters.
       </para>
      </listitem>
