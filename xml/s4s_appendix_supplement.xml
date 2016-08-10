@@ -8,15 +8,14 @@
  <title>&supmedia;</title>
 
  <para>
-  The idea behind &supmedia; is to enable
-  partners or customers to add their own tasks or workflows to the
-  Installation Wizard.
+  &supmedia; allow partners or customers to add their own tasks or workflows to
+  the Installation Wizard.
  </para>
 
  <para>
-  This is done by adding a small XML file, which will be part of an &ay;
-  XML file. This file must be called <filename>product.xml</filename>, then
-  it will be included in the workflow.
+  This is done by adding an XML file which will be part of an &ay; XML file. To
+  be included in the workflow, this file must be called
+  <filename>product.xml</filename>.
  </para>
 
  <para>

@@ -41,7 +41,7 @@
      <para>
       &sles4sap; includes a kernel tuning option that allows the system
       administrator to limit the amount of page cache that the kernel uses
-      when there is competition between application memory and page-cache.
+      when there is competition between application memory and page cache.
       This option tells the kernel that when the page cache is filled to the
       configured limit, application memory is more important and should thus
       not be paged out. No pages will be paged out if the memory footprint
@@ -82,9 +82,9 @@
      <important>
       <title>The Following Are Example Values</title>
       <para>
-       The values reproduced in the following are examples only.
-       Do not set the following parameters on a productive system without
-       first trying and calibrating them on a non-productive system.
+       The values reproduced in <xref linkend="ex.s4s.page-cache"/> are example
+       values only. Do not set the following parameters on a productive system
+       without first trying and calibrating them on a non-productive system.
       </para>
       <para>
        If your system does not exhibit page-cache limit issues under the
@@ -96,12 +96,15 @@
        (<link xlink:href="https://service.sap.com/sap/support/notes/1557506"/>).
      </para>
      </important>
-     <para>
-      For permanent use, add both parameters to
-      <filename>/etc/sysctl.conf</filename>, for example:
-     </para>
+     <example xml:id="ex.s4s.page-cache">
+      <title>Permanently Setting the Page-Cache Limit</title>
+      <para>
+       For permanent use, add both parameters to
+       <filename>/etc/sysctl.conf</filename>, for example:
+      </para>
 <screen>vm.pagecache_limit_mb = <replaceable>1024</replaceable>
 vm.pagecache_limit_ignore_dirty = <replaceable>2</replaceable></screen>
+     </example>
     </listitem>
    </varlistentry>
   </variablelist>
