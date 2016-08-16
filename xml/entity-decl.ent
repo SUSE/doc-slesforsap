@@ -169,6 +169,8 @@
 <!ENTITY sap           "SAP">
 <!ENTITY sles4sapa     "&slsa; for &sap;">
 <!ENTITY sles4sap      "&sls; for &sap; Applications">
+<!ENTITY s4sa          "&sles4sapa;">
+<!ENTITY s4s           "&sles4sap;">
 <!ENTITY sles4sapreg   "&slsreg; for &sap; Applications">
 <!ENTITY productname   '&sles4sap;'>
 <!ENTITY productnamereg '&sles4sapreg;'>

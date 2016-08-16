@@ -274,7 +274,7 @@
     <itemizedlist>
      <listitem>
       <formalpara>
-       <title>A &sls; installation</title>
+       <title>A &sls; Installation</title>
        <para>
         To install a &slsa; system without SAP-specific customizations,
         choose <guimenu>Proceed with standard SLES installation</guimenu>.
@@ -284,10 +284,31 @@
         </citetitle> (&docaddress;).
        </para>
       </formalpara>
+      <tip>
+       <title>Installing Oracle Databases</title>
+       <para>
+        If you want to install an Oracle database later, choose
+        <guimenu>Proceed with standard SLES installation</guimenu> and later
+        convert your installation to &s4sa;. The installer of Oracle databases
+        queries for the existence of certain non-essential files, not all of
+        which are included in a &s4sa; installation.
+       </para>
+       <!--<para>
+        For more information, see <xref linkend="??"/>.
+       </para>-->
+       <remark>
+        FIXME: according to varkoly, installing Oracle is only possible on
+        vanilla SLES. After installing the database, you can then convert your
+        SLES to SLES for SAP via the requisite channels. (Or so.) Maybe I
+        should put this here/elsewhere. Related: FATE#320568, which says there
+        are upgrade scripts -- are those official, and how do I use them?.
+        - sknorr, 2016-08-16
+       </remark>
+      </tip>
      </listitem>
      <listitem>
       <formalpara>
-       <title>A &sles4sap; installation</title>
+       <title>A &sles4sap; Installation</title>
        <para>
         To install a &slsa; system with SAP-specific customizations,
         choose

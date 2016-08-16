@@ -37,16 +37,16 @@
   <xi:include href="s4s_installation_product.xml" parse="xml"/>
 
   <important>
-    <title>No Installation of Oracle Databases Possible</title>
+    <title>Installation of Oracle Databases Not Possible</title>
     <para>
      The &sapwiz; does not allow installing products together with
      Oracle databases.
     </para>
+    <!--<para>
+     For more information, see <xref linkend="??"/>.
+    </para>-->
     <remark>
-     FIXME: according to varkoly, installing Oracle is only possible on vanilla
-     SLES. After installing the database, you can then convert your SLES to
-     SLES for SAP via the requisite channels. (Or so.) Maybe I should put this
-     here/elsewhere. - sknorr, 2016-06-07
+     FIXME: Upgrade information. - sknorr, 2016-08-16
     </remark>
   </important>
  </sect1>
