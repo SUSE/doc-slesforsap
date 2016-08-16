@@ -253,7 +253,7 @@
 <!ENTITY nw             "&nw;">
 <!ENTITY hana           "&sap; HANA">
 <!ENTITY b1             "&sap; BusinessOne">
-<!ENTITY s4h            "&sap; S4/HANA">
+<!ENTITY s4h            "&sap; S/4HANA">
 <!ENTITY instmaster     "Installation Master">
 <!-- Almost always using the plural here: one dir to copy from can contain
      multiple "CDs": -->
