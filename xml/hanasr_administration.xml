@@ -185,7 +185,7 @@ overall host status: ok</screen>
    </para>
    <table xml:id="tab.hana-sr.return-code">
     <title>Interpretation of Return Codes</title>
-    <tgroup cols="3">
+    <tgroup cols="2">
      <colspec colnum="1" colname="option" colwidth="15*"/>
      <colspec colnum="2" colname="desc" colwidth="85*"/>
      <thead>

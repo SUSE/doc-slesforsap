@@ -408,8 +408,8 @@ vm.pagecache_limit_ignore_dirty = <replaceable>2</replaceable></screen>
    <title>Using <systemitem>HANA-Firewall</systemitem></title>
    <step>
     <para>
-     Make sure the &hana; database/databases that you want to configure the
-     firewall for are correctly installed.
+     Make sure the &hana; databases for which you want to configure the
+     firewall are correctly installed.
     </para>
    </step>
    <step>
@@ -418,6 +418,12 @@ vm.pagecache_limit_ignore_dirty = <replaceable>2</replaceable></screen>
      <menuchoice><guimenu>Applications</guimenu><guimenu>YaST</guimenu>
      </menuchoice>, <menuchoice><guimenu>Security and Users</guimenu>
      <guimenu>SAP HANA Firewall</guimenu></menuchoice>.
+    </para>
+   </step>
+   <step>
+    <para>
+     When you open this &yast; module, it will create a configuration proposal
+     based on the number of installed &hana; instances.
     </para>
    </step>
    <step>
