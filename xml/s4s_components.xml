@@ -439,12 +439,12 @@
      Packages May Be Missing from Patterns
     </title>
     <para>
-     The selection of packages of the software patterns are defined as a
+     The selection of packages of the software patterns are defined while a
      specific release (Service Pack or major version) of &sles4sap; is
      developed. This package selection is stable over the lifetime of this
      particular release. When working with SAP applications that have been
      released more recently than your &sles4sap; version,
-     dependencies may be missing from the patterns.
+     dependencies can be missing from the patterns.
     </para>
     <para>
      For definitive information about the dependencies of your SAP application,
