@@ -183,7 +183,7 @@
    <step performance="optional">
     <para>
      If automatic network configuration via DHCP fails, the screen
-     <guimenu>Network Settings</guimenu> will open automatically.
+     <guimenu>Network Settings</guimenu> will open.
     </para>
     <para>
      If instead the screen <guimenu>Registration</guimenu> appears,
@@ -202,7 +202,7 @@
      </para>
     </important>
     <para>
-     For details regarding network configuration, see
+     For information about configuring networking, see
      <citetitle>
       &admin;, Chapter 19 <quote>Basic Networking</quote>,
       Section 19.4 <quote>Configuring a Network Connection with YaST</quote>
@@ -214,7 +214,7 @@
      On the screen <guimenu>Registration</guimenu>, enter your
      <guimenu>E-Mail Address</guimenu> and <guimenu>Registration Code</guimenu>.
      Successful registration is a prerequisite for receiving product updates and
-     being entitled to technical support.
+     the entitlement to technical support.
     </para>
     <para>
      Proceed with <guimenu>Next</guimenu>.
@@ -224,11 +224,6 @@
      <para>
       Make sure to register your system at this step in the installation.
       Otherwise, you will not receive package updates immediately.
-     </para>
-     <para>
-      Additionally, your system will also not be set up to receive packages
-      from the &sleha; repository.
-      This is important if you want to install a highly available SAP product.
      </para>
     </important>
     <figure xml:id="fig.s4s.install.reg-dialog">
@@ -242,13 +237,6 @@
       </imageobject>
      </mediaobject>
     </figure>
-    <note>
-     <title>Release Notes</title>
-     <para>
-      From this point on, the Release Notes can be viewed from any screen during
-      the installation process by selecting <guimenu>Release Notes</guimenu>.
-     </para>
-    </note>
    </step>
    <step>
     <para>
@@ -258,10 +246,15 @@
    </step>
    <step>
     <para>
-     On the screen, <guimenu>Extension and Module Selection</guimenu>, you
-     can optionally choose additional &slea; extensions and modules.
-     The list contains free modules, such as the &sle; SDK and extensions
-     requiring a registration key that is liable for costs.
+     <!-- The following is not exact: the SDK is a free extension (but it
+     needs to be registered separately). -->
+     After the system is successfully registered, &yast; lists additional
+     software that is available for &productname; from the &scc;. The list
+     contains modules, which are free, and extensions, which require a
+     registration key that is liable for costs. To enable a module or an
+     extension, activate its entry.
+    </para>
+    <para>
      Proceed with <guimenu>Next</guimenu>.
     </para>
    </step>
@@ -289,21 +282,15 @@
        <para>
         If you want to install an Oracle database later, choose
         <guimenu>Proceed with standard SLES installation</guimenu> and later
-        convert your installation to &s4sa;. The installer of Oracle databases
-        queries for the existence of certain non-essential files, not all of
-        which are included in a &s4sa; installation.
+        convert your installation to &s4sa;. This is necessary because the
+        installer of Oracle databases queries for the existence of certain
+        files, not all of which are included in a &s4sa; installation.
        </para>
+    <!-- FIXME: uncomment - sknorr, 2016-09-02 -->
        <!--<para>
-        For more information, see <xref linkend="??"/>.
+        For more information, see
+        <xref linkend="sec.s4s.configure.convert-sles"/>.
        </para>-->
-       <remark>
-        FIXME: according to varkoly, installing Oracle is only possible on
-        vanilla SLES. After installing the database, you can then convert your
-        SLES to SLES for SAP via the requisite channels. (Or so.) Maybe I
-        should put this here/elsewhere. Related: FATE#320568, which says there
-        are upgrade scripts -- are those official, and how do I use them?.
-        - sknorr, 2016-08-16
-       </remark>
       </tip>
      </listitem>
      <listitem>
@@ -429,6 +416,13 @@
       </imageobject>
      </mediaobject>
     </figure>
+    <note>
+     <title>Release Notes</title>
+     <para>
+      From this point on, the Release Notes can be viewed from any screen during
+      the installation process by selecting <guimenu>Release Notes</guimenu>.
+     </para>
+    </note>
    </step>
    <step>
     <para>
@@ -502,29 +496,6 @@
      </para>
     </important>
 
-    <!-- bsc#959535: When registering, High Availability pattern is selected -->
-    <!-- Future FIXME: Check for SLES for SAP 12 SP2 -->
-    <tip>
-     <title>
-      Pattern <quote>High Availability</quote> Is Necessary for High-Availability
-      Installations Only
-     </title>
-     <para>
-      If you are not planning to install a highly available SAP product, you can
-      deselect the pattern <quote>High Availability</quote> from the
-      installation.
-      This saves space on the hard disk and download bandwidth for updates.
-      Note that this pattern is distinct from the product &sleha; which you
-      should not try to remove.
-     </para>
-     <para>
-      To remove the pattern, click <guimenu>Software</guimenu> and then
-      deselect <menuchoice><guimenu>Primary Functions</guimenu>
-      <guimenu>High Availability</guimenu></menuchoice>.
-      Return to the overview with <guimenu>OK</guimenu>.
-     </para>
-    </tip>
-
     <figure xml:id="fig.s4s.install.overview">
      <title>Installation Settings</title>
      <mediaobject>
@@ -584,6 +555,11 @@
 
  <sect1 xml:id="sec.s4s.install.network">
   <title>Using &sles4sapa; Media from the Network</title>
+
+  <remark>
+   FIXME: This section is not up-to-date SP2 does not ship with a sap.dud
+   anymore. - sknorr, 2016-09-02
+  </remark>
 
   <para>
    This section provides a short description of how to install from an
