@@ -171,7 +171,7 @@
 
   <variablelist>
    <varlistentry>
-    <term><emphasis>Extended Service Pack Overlap Support</emphasis>
+    <term><emphasis>Extended Service Pack Overlap Support (ESPOS)</emphasis>
     </term>
     <listitem>
      <para>
@@ -188,6 +188,27 @@
       Migrations can be scheduled more easily and testing before a migration
       can be performed under lesser time constraints.
      </para>
+     <para>
+      At additional cost, &suse; also offers Long Term Service Pack Support
+      (LTSS). With LTSS, you receive support for a particular service pack
+      after ESPOS has run out. For more information about the life cycle of
+      &suse; products, see:
+     </para>
+     <itemizedlist>
+      <listitem>
+       <para>
+        General explanation:
+        <citetitle>Book <quote>Deployment Guide</quote>, Part
+        <quote>Updating and Upgrading &sle;</quote>, Chapter <quote>Life Cycle
+        and Support</quote></citetitle> (&docaddress;)
+       </para>
+      </listitem>
+      <listitem>
+       <para>
+        Concrete dates: <link xlink:href="https://www.suse.com/lifecycle/"/>
+       </para>
+      </listitem>
+     </itemizedlist>
     </listitem>
    </varlistentry>
    <varlistentry>
