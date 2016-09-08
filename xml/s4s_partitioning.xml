@@ -67,7 +67,7 @@
   <para>
    The partitioning for the SAP system is done by the &sapwiz;
    and can only take place after the operating system has been installed.
-   That means the partitions are created either during the installation workflow
+   That means the partitions are created either in the installation workflow
    after the reboot or in the running system.
   </para>
 
@@ -91,8 +91,36 @@
   <para>
    Partitioning for the SAP system is controlled by the files from the directory
    <filename>/usr/share/YaST2/include/sap-installation-wizard/</filename>.
-   Usually, <filename>base_partitioning.xml</filename> will be used.
-   When installing &hana; on certified hardware, other files will be chosen,
+   The following files can be used:
+  </para>
+  <itemizedlist>
+    <listitem>
+     <formalpara>
+      <title>&nw; or &s4ha; Installation</title>
+      <para>
+       <filename>base_partitioning.xml</filename>
+      </para>
+     </formalpara>
+    </listitem>
+    <listitem>
+     <formalpara>
+      <title>&hana; or &s4hd; Installation</title>
+      <para>
+       <filename>hana_partitioning.xml</filename>
+      </para>
+     </formalpara>
+    </listitem>
+    <listitem>
+     <formalpara>
+      <title>&hana; or &s4hd; Installation on &b1;-Certified Hardware</title>
+      <para>
+       hardware-specific partitioning file
+      </para>
+     </formalpara>
+    </listitem>
+  </itemizedlist>
+  <para>
+   The files will be chosen
    as defined in <filename>/etc/sap-installation-wizard.xml</filename>.
    Here, the content of the element <tag>partitioning</tag> is
    decisive.
@@ -100,7 +128,7 @@
   <para>
    If the installation is, for example, based on HA or a distributed database,
    no partitioning is needed. In this case,
-   <tag>partitioning</tag> is set to <literal>NO</literal>,
+   <tag>partitioning</tag> is set to <literal>NO</literal> and
    the file <filename>base_partitioning.xml</filename> is used.
   </para>
 
@@ -185,7 +213,7 @@
    <title>Do Not Edit <filename>base_partitioning.xml</filename></title>
    <para>
     Do not edit <filename>base_partitioning.xml</filename> directly. With
-    the next update, this file will be overridden.
+    the next update, this file will be overwritten.
    </para>
   </important>
 
@@ -193,6 +221,10 @@
    For more information about partitioning with &ay;, see
    <citetitle>&ay; Guide, Chapter 4.5 <quote>Partitioning</quote></citetitle>
    (&docaddress;).
+  </para>
+  <para>
+   You can also partition for &sap; applications independently of &ay; or the
+   &sapwiz;. For more information, see <xref linkend="sec.partition.command"/>.
   </para>
  </sect2>
 </sect1>
