@@ -7,7 +7,11 @@
 <chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="cha.s4s.configure">
  <title>Configuring &sles4sap;</title>
 
- <para></para>
+ <para>
+  This chapter contains information about configuring software that is specific
+  to &s4s;. For information about configuring software that is common between
+  &slsa; and &s4sa;, see the &slsa; documentation at &docaddress;.
+ </para>
 
  <!-- Package is not yet shipped in 12 SP2 RC2, but available from IBS's
  Devel:SAP:SLE-12:SP2. - sknorr, 2016-09-02 -->
