@@ -17,11 +17,12 @@
  </para>
  <para>
   However, you can easily create such a server on your own.
-  For example, if you want to put the &sap; media sets on an NFS
+  For example, to put the &sap; media sets on an NFS
   Server, proceed as follows:
  </para>
 
- <procedure>
+ <procedure xml:id="pro.s4s.nfs-server">
+  <title>Adding &sap; Product Installation Files to an NFS Server</title>
   <step>
    <para>
     On your installation server, create the directory
@@ -32,15 +33,22 @@
    <para>
     Open the file <filename>/etc/exports</filename> and add the following:
    </para>
-<screen>/srv/www/htdocs/sap_repo *(ro,root_squash,sync)</screen>
+<screen>/srv/www/htdocs/sap_repo *(ro,no_root_squash,sync,no_subtree_check,insecure)</screen>
+   <important>
+    <title>Executable Rights Must Be Visible</title>
+    <para>
+     Clients must be able to see which files are executable. Otherwise,
+     &suse;'s &sapwiz; will not be able to execute the &sapin;.
+    </para>
+   </important>
   </step>
   <step>
    <para>
     In <filename>/srv/www/htdocs/sap_repo</filename>, create a directory for
     every &sap; medium you have. Give these directories speaking names, so you
-    can identify them late. For example, you could use names like
+    can identify them later on. For example, you could use names like
     <filename>kernel</filename>, <filename>java</filename>, or
-    <filename>maxdb</filename>.
+    <filename>hana</filename>.
    </para>
   </step>
   <step>
@@ -65,6 +73,16 @@
   <filename><replaceable>server_name</replaceable>/srv/www/htdocs/sap_repo</filename>.
   For more information about specifying the path, see
   <xref linkend="tab.sap.media.source"/>.
+ </para>
+
+ <para>
+  For information about setting up an NFS server from scratch, see
+  <citetitle>
+   &admin;,
+   Part <quote>Services</quote>,
+   Chapter <quote>Sharing File Systems with NFS</quote>,
+   Section <quote>Installing NFS Server</quote>
+  </citetitle> (&docaddress;).
  </para>
 
  <para>
