@@ -442,8 +442,8 @@
   <sect3 xml:id="sec.s4s.component.clustertool">
    <title><systemitem>ClusterTools2</systemitem></title>
    <para>
-    <systemitem>ClusterTools2</systemitem> provides tools that help setting up
-    and managing a Corosync/<systemitem>pacemaker</systemitem> cluster. Among
+    <systemitem>ClusterTools2</systemitem> provides tools that help set up
+    and manage a Corosync/<systemitem>pacemaker</systemitem> cluster. Among
     them are <systemitem>wow</systemitem> which helps create
     highly available system resources, and
     <systemitem>ClusterService</systemitem> which allows managing a cluster.
@@ -474,11 +474,9 @@
      </para>
     </listitem>
    </itemizedlist>
-
    <para>
-    For more information, see the
-    man page of the respective tool. Find the man pages in the additional
-    package <systemitem>ClusterTools2-doc</systemitem>.
+    For more information, see the man page of the respective tool which are
+    included with the package <package>ClusterTools2</package>.
    </para>
   </sect3>
  </sect2>
