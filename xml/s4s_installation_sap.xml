@@ -88,8 +88,8 @@
     <para>
      For information about configuring networking, see
      <citetitle>
-      &admin;, Chapter 19 <quote>Basic Networking</quote>,
-      Section 19.4 <quote>Configuring a Network Connection with YaST</quote>
+      &admin;, Chapter <quote>Basic Networking</quote>,
+      Section <quote>Configuring a Network Connection with YaST</quote>
      </citetitle> (&docaddress;).
     </para>
      <para>
@@ -730,9 +730,9 @@
      This can be useful, for example, for installing add-ons that are packaged
      as RPM. To do so, click <guimenu>Add new software repositories</guimenu>.
      For more information about adding repositories, see
-     <citetitle>Deployment Guide,
-     Chapter 8 <quote>Installing and Removing Software</quote>,
-     Section 8.3.1 <quote>Adding Software Repositories</quote></citetitle>
+     <citetitle>&deploy;,
+     Chapter <quote>Installing and Removing Software</quote>,
+     Section <quote>Adding Software Repositories</quote></citetitle>
      (&docaddress;).
     </para>
     <para>

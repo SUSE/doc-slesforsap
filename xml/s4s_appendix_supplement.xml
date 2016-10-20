@@ -90,8 +90,8 @@
    For more information about customization options, see
    <citetitle>
     &ay; Guide,
-    Chapter 4 <quote>Configuration and Installation Options</quote>,
-    Section 4.30 <quote>Custom User Scripts</quote>
+    Chapter <quote>Configuration and Installation Options</quote>,
+    Section <quote>Custom User Scripts</quote>
    </citetitle> (&docaddress;).
   </para>
  </sect1>
@@ -185,8 +185,8 @@ check_name "$VAL"
    For more information, see
    <citetitle>
     &ay; Guide,
-    Chapter 4 <quote>Configuration and Installation Options</quote>,
-    Section 4.8.5 <quote>Installing Packages in Stage 2</quote>
+    Chapter <quote>Configuration and Installation Options</quote>,
+    Section <quote>Installing Packages in Stage 2</quote>
    </citetitle> (&docaddress;). An example looks as
    follows:
   </para>

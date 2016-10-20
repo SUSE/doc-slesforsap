@@ -97,7 +97,7 @@
      <listitem>
       <para>
        Upgrade the system. For more information, see
-       <citetitle>&deploy;, Chapter 17,
+       <citetitle>&deploy;, Chapter,
         <quote>Upgrading SUSE Linux Enterprise</quote>
        </citetitle>
        (&docaddress;).
@@ -113,7 +113,7 @@
       <para>
        Start a minimal Linux system without a graphical user interface.
        For more information, see
-       <citetitle>&admin;, Chapter 37,
+       <citetitle>&admin;, Chapter,
         <quote>Common Problems and Their Solutions</quote>
        </citetitle>
        (&docaddress;).
@@ -126,7 +126,7 @@
       <para>
        Check the data integrity of the installation media.
        For more information, see
-       <citetitle>&admin;, Chapter 37,
+       <citetitle>&admin;, Chapter,
         <quote>Common Problems and Their Solutions</quote>
        </citetitle>
        (&docaddress;).
@@ -204,8 +204,8 @@
     <para>
      For information about configuring networking, see
      <citetitle>
-      &admin;, Chapter 19 <quote>Basic Networking</quote>,
-      Section 19.4 <quote>Configuring a Network Connection with YaST</quote>
+      &admin;, Chapter <quote>Basic Networking</quote>,
+      Section <quote>Configuring a Network Connection with YaST</quote>
      </citetitle> (&docaddress;).
     </para>
    </step>
@@ -273,7 +273,7 @@
         choose <guimenu>Proceed with standard SLES installation</guimenu>.
         For details, see
         <citetitle>
-         &instquick;, Section 1.2 <quote>Installing &sls;</quote>
+         &instquick;, Section <quote>Installing &sls;</quote>
         </citetitle> (&docaddress;).
        </para>
       </formalpara>
@@ -386,8 +386,8 @@
        <para>
         Open the <guimenu>Expert Partitioner</guimenu> described in
         <citetitle>Deployment Guide,
-         Chapter 14 <quote>Advanced Disk Setup</quote>,
-         Section 14.1 <quote>Using the YaST Partitioner</quote></citetitle>
+         Chapter <quote>Advanced Disk Setup</quote>,
+         Section <quote>Using the YaST Partitioner</quote></citetitle>
          (&docaddress;).
        </para>
        <para>
@@ -431,8 +431,8 @@
      <guimenu>Other Settings</guimenu>.
      For detailed information, see
      <citetitle>Deployment Guide,
-     Chapter 6 <quote>Installation with YaST</quote>,
-     Section 6.10 <quote>Clock and Time Zone</quote></citetitle> (&docaddress;).
+     Chapter <quote>Installation with YaST</quote>,
+     Section <quote>Clock and Time Zone</quote></citetitle> (&docaddress;).
     </para>
     <para>
      Proceed with <guimenu>Next</guimenu>.
@@ -449,8 +449,8 @@
     <para>
      For more information, see
      <citetitle>Deployment Guide,
-     Chapter 6 <quote>Installation with YaST</quote>,
-     Section 6.12 <quote>Password for the System Administrator
+     Chapter <quote>Installation with YaST</quote>,
+     Section <quote>Password for the System Administrator
      <systemitem class="username">root</systemitem></quote></citetitle>
      (&docaddress;).
     </para>
@@ -617,7 +617,7 @@
 
   <para>
    For more information, see
-   <citetitle>&deploy;, Chapter 13 <quote>Remote Installation</quote></citetitle>
+   <citetitle>&deploy;, Chapter <quote>Remote Installation</quote></citetitle>
    (&docaddress;).
   </para>
 
@@ -625,7 +625,7 @@
    To avoid having to use a DVD to initialize the system, you can boot over
    the network via PXE.
    For details, see <citetitle>&ay; Guide,
-   Chapter 6.2.3 <quote>Booting via PXE over the Network</quote></citetitle>
+   Chapter <quote>Booting via PXE over the Network</quote></citetitle>
    (&docaddress;).
   </para>
  </sect1>

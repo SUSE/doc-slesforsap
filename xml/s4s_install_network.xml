@@ -69,8 +69,8 @@
 
  <para>
   For information about installing &sls; from an NFS server, see
-  <citetitle>&deploy;, Chapter 13 <quote>Remote Installation</quote>,
-  Section 13.2.2 <quote>Setting Up an NFS Repository Manually</quote>
+  <citetitle>&deploy;, Chapter <quote>Remote Installation</quote>,
+  Section <quote>Setting Up an NFS Repository Manually</quote>
   </citetitle> (&docaddress;).
  </para>
 </chapter>
