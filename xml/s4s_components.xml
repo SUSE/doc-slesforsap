@@ -380,20 +380,19 @@
   </sect3>
 
   <sect3 xml:id="sec.s4s.component.sapconf">
-   <title>System Tuning Profiles for <systemitem>tuned</systemitem></title>
+   <title>System Tuning with <systemitem>saptune</systemitem></title>
    <para>
-    The system tuning profiles contained in the package
-    <systemitem>sapconf</systemitem> allow you to automatically and
-    comprehensively tune your system as recommended by SAP for use with
-    &netweaver; or &hana;/&b1;.
-    To do this, the <systemitem>tuned</systemitem> profiles set
-    several kernel parameters, often depending on available
-    hardware, such as RAM.
+    The system tuning application <systemitem>saptune</systemitem> allows you
+    to automatically and comprehensively tune your system as recommended by
+    &sap; for use with &s4h;, &netweaver;, or &hana;/&b1;. To do this,
+    <systemitem>saptune</systemitem> can activate
+    <systemitem class="daemon">tuned</systemitem> profiles. These allow
+    tuning several kernel parameters, depending on the hardware components
+    you are using, such as the amount of available RAM.
+   </para>
+   <para>
     For more information, see <xref linkend="sec.s4s.configure.sapconf"/>.
    </para>
-   <remark>
-    sapconf actually comes from SLES directly. Move? - sknorr, 2016-02-11
-   </remark>
   </sect3>
 
   <!-- Apparently unsupported in 12 SP1, so commenting. - sknorr, 2016-02-11 -->
