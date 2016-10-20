@@ -352,6 +352,36 @@
    </para>
   </sect3>
 
+  <sect3 xml:id="sec.s4s.component.cryptctl">
+   <title>Encryption for Hosted Volumes with <command>cryptctl</command></title>
+   <para>
+    Today, databases and similar applications are often hosted on external
+    servers that are serviced by third-party staff. Certain data center
+    maintenance tasks require third-party staff to directly access affected
+    systems. In such cases, privacy requirements necessitate disk encryption.
+   </para>
+   <para>
+    <command>cryptctl</command> allows encrypting entire volumes using LUKS
+    and offers the following additional features:
+   </para>
+   <itemizedlist>
+    <listitem>
+     <para>
+      Encryption keys are located on a central server which can be located
+      customer premises.
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      Encrypted volumes are remounted after an unplanned reboot.
+     </para>
+    </listitem>
+   </itemizedlist>
+   <!--<para>
+    For more information, see <xref linkend="sec.s4s.configure.cryptctl"/>.
+   </para>-->
+  </sect3>
+
   <!-- Apparently unsupported in 12 SP1, so commenting. - sknorr, 2016-02-11 -->
   <!-- <sect3 xml:id="sec.s4s.component.clusterconnector">
    <title><systemitem>suse_sap_cluster_connector</systemitem></title>
