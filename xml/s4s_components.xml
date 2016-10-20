@@ -336,49 +336,6 @@
     management.
   </para>
 
-  <sect3 xml:id="sec.s4s.component.clustertool">
-   <title><systemitem>ClusterTools2</systemitem></title>
-   <para>
-    <systemitem>ClusterTools2</systemitem> provides tools that help setting up
-    and managing a Corosync/<systemitem>pacemaker</systemitem> cluster. Among
-    them are <systemitem>wow</systemitem> which helps create
-    highly available system resources, and
-    <systemitem>ClusterService</systemitem> which allows managing a cluster.
-   </para>
-   <para>
-    Additionally, <systemitem>ClusterTools2</systemitem> provides scripts that
-    automate common cluster tasks:
-   </para>
-   <itemizedlist>
-    <listitem>
-     <para>
-      Scripts that perform checks. For example, to find out whether a system is
-      set up correctly for creating a <systemitem>pacemaker</systemitem>
-      cluster.
-     </para>
-    </listitem>
-    <listitem>
-     <para>
-      Scripts that simplify configuration. For example, to create a Corosync
-      configuration.
-     </para>
-    </listitem>
-    <listitem>
-     <para>
-      Scripts that monitor the system and scripts that show or collect
-      system information. For example, to find known error patterns in
-      log files.
-     </para>
-    </listitem>
-   </itemizedlist>
-
-   <para>
-    For more information, see the
-    man page of the respective tool. Find the man pages in the additional
-    package <systemitem>ClusterTools2-doc</systemitem>.
-   </para>
-  </sect3>
-
   <sect3 xml:id="sec.s4s.component.sapconf">
    <title>System Tuning with <systemitem>saptune</systemitem></title>
    <para>
@@ -452,6 +409,48 @@
    </important>
   </sect3>
 
+  <sect3 xml:id="sec.s4s.component.clustertool">
+   <title><systemitem>ClusterTools2</systemitem></title>
+   <para>
+    <systemitem>ClusterTools2</systemitem> provides tools that help setting up
+    and managing a Corosync/<systemitem>pacemaker</systemitem> cluster. Among
+    them are <systemitem>wow</systemitem> which helps create
+    highly available system resources, and
+    <systemitem>ClusterService</systemitem> which allows managing a cluster.
+   </para>
+   <para>
+    Additionally, <systemitem>ClusterTools2</systemitem> provides scripts that
+    automate common cluster tasks:
+   </para>
+   <itemizedlist>
+    <listitem>
+     <para>
+      Scripts that perform checks. For example, to find out whether a system is
+      set up correctly for creating a <systemitem>pacemaker</systemitem>
+      cluster.
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      Scripts that simplify configuration. For example, to create a Corosync
+      configuration.
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      Scripts that monitor the system and scripts that show or collect
+      system information. For example, to find known error patterns in
+      log files.
+     </para>
+    </listitem>
+   </itemizedlist>
+
+   <para>
+    For more information, see the
+    man page of the respective tool. Find the man pages in the additional
+    package <systemitem>ClusterTools2-doc</systemitem>.
+   </para>
+  </sect3>
  </sect2>
 
 </sect1>
