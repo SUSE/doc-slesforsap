@@ -203,10 +203,6 @@ vm.pagecache_limit_ignore_dirty = <replaceable>2</replaceable></screen>
    sap#1557506)? - sknorr, 2016-08-11
   </remark>
   <remark>
-   Question@hguo: What do the guide names refer to? Our documentation?
-   - sknorr, 2016-08-11
-  </remark>
-  <remark>
    Question@hguo: Why can I successfully revert a profile that was not applied?
    (I.e. applied NETWEAVER, reverted HANA, but no warning message given.)
    - sknorr, 2016-08-11
@@ -217,7 +213,7 @@ vm.pagecache_limit_ignore_dirty = <replaceable>2</replaceable></screen>
   </remark>
 
   <para>
-   Using <command>saptune</command> and <command>tuned-adm</command>, you can
+   Using <command>saptune</command>, you can
    tune a system for &netweaver; and &hana;/&b1; applications. This method
    relies on the system tuning service <systemitem>tuned</systemitem>.
   </para>
@@ -324,10 +320,19 @@ vm.pagecache_limit_ignore_dirty = <replaceable>2</replaceable></screen>
    </step>
    <step>
     <para>
-     Finally, enable the <systemitem class="resource">tuned</systemitem> profile
-     <literal>saptune</literal>:
+     Finally, enable the <systemitem class="daemon">tuned</systemitem> profile
+     <literal>saptune</literal> and make sure the
+     <systemitem class="daemon">tuned</systemitem> daemon is active:
     </para>
-    <screen>&prompt.root;<command>tuned-adm profile saptune</command></screen>
+    <screen>&prompt.root;<command>saptune daemon start</command></screen>
+    <note>
+     <title>Using <command>tuned-adm</command> Directly</title>
+     <para>
+      Alternatively, you can also use <command>systemctl</command> to make
+      sure the <systemitem class="daemon">tuned</systemitem> daemon is active
+      and apply the profile with <command>tuned-adm profile saptune</command>.
+     </para>
+    </note>
    </step>
   </procedure>
   <tip>
