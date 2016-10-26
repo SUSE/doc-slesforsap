@@ -313,9 +313,13 @@
        </listitem>
        <listitem>
         <para>
-         To prepare the system for later installation of an SAP application,
-         leave <guimenu>Start the SAP Installation Wizard right after the OS
-         installation</guimenu> deactivated.
+         To enable RDP access (Remote Desktop Protocol) to this machine,
+         activate <guimenu>Enable RDP service and open port in
+         firewall</guimenu>.
+        </para>
+        <para>
+         For more information about connecting via RDP, see
+         <xref linkend="sec.s4s.configure.rdp"/>.
         </para>
        </listitem>
       </itemizedlist>

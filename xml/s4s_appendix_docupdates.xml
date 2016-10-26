@@ -17,6 +17,11 @@
  <itemizedlist role="subtoc">
   <listitem>
    <para>
+    <xref linkend="app.s4s.docupdate.2016-11-07" xrefstyle="SectTitleOnPage"/>
+   </para>
+  </listitem>
+  <listitem>
+   <para>
     <xref linkend="app.s4s.docupdate.2016-03-23" xrefstyle="SectTitleOnPage"/>
    </para>
   </listitem>
@@ -47,6 +52,28 @@
   </listitem>
  </itemizedlist>
 
+
+ <sect1 xml:id="app.s4s.docupdate.2016-11-07">
+  <title>October 07, 2016&mdash;&s4sa; 12 SP2 FCS</title>
+
+  <para>
+   Updates were made to the following sections. The changes are explained
+   below.
+  </para>
+
+  <variablelist>
+   <varlistentry>
+    <term>
+      <xref linkend="sec.s4s.configure.rdp" xrefstyle="SectTitleOnPage"/>
+    </term>
+    <listitem>
+     <para>
+      Added new section.
+     </para>
+    </listitem>
+   </varlistentry>
+  </variablelist>
+ </sect1>
 
  <sect1 xml:id="app.s4s.docupdate.2016-03-23">
   <title>March 23, 2016</title>

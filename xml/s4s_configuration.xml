@@ -702,30 +702,14 @@ HANA firewall is active. Everything is OK.
    </listitem>
    <listitem>
     <para>
-     The service <systemitem>sapvnc</systemitem> is started automatically, so
-     you can connect to the machine via VNC.
+     The service <systemitem>xrdp</systemitem> is started automatically, so
+     you can connect to the machine via RDP. For more information, see
+     <xref linkend="sec.s4s.configure.rdp"/>.
     </para>
    </listitem>
   </itemizedlist>
   <para>
-   To start a VNC session, on the local system, run:
-  </para>
-  <procedure>
-   <step>
-    <para>
-     First, prepare an SSH tunnel to the server:
-    </para>
-<screen>&prompt.user;<command>ssh</command> -4 -L 59123:localhost:5901 -N -f root@<replaceable>SERVER_NAME_OR_IP</replaceable></screen>
-   </step>
-   <step>
-    <para>
-     Then use a VNC viewer to connect:
-    </para>
-<screen>&prompt.user;<command>vncviewer</command> localhost:59123</screen>
-   </step>
-  </procedure>
-  <para>
-   For more information:
+   For more information about &kiwi; and &s4sa;:
   </para>
   <itemizedlist>
    <listitem>
@@ -733,6 +717,9 @@ HANA firewall is active. Everything is OK.
      On the &kiwi; configuration for &sles4sapa;, see
      <filename>/usr/share/kiwi/image/SLES4SAP/README</filename>.
     </para>
+    <remark>
+     remark@hguo: typo "desektop" in README file. - sknorr, 2016-10-26
+    </remark>
    </listitem>
    <listitem>
     <para>
@@ -740,6 +727,56 @@ HANA firewall is active. Everything is OK.
      <citetitle>openSUSE-KIWI Image System Cookbook</citetitle>
      (<link xlink:href="https://doc.opensuse.org/projects/kiwi/doc/"/>).
     </para>
+   </listitem>
+  </itemizedlist>
+ </sect1>
+
+ <sect1 xml:id="sec.s4s.configure.rdp">
+  <title>Connecting via RDP</title>
+  <para>
+   If you installed &s4sa; with the RDP option activated or if you installed
+   from a &kiwi; image, RDP is enabled on the machine via the service
+   <systemitem class="daemon">xrdp</systemitem>. This means, you can connect
+   using any software that supports RDP, such as:
+  </para>
+  <itemizedlist>
+   <listitem>
+    <formalpara>
+     <title>Linux:</title>
+     <para>
+      Vinagre (available in &sled;/&slea; &we; and &opensuse;) or
+      Remmina (available in &opensuse;)
+     </para>
+    </formalpara>
+   </listitem>
+   <listitem>
+    <formalpara>
+     <title>Windows:</title>
+     <para>
+      Remote Desktop Connection
+     </para>
+    </formalpara>
+   </listitem>
+  </itemizedlist>
+  <para>
+   Make sure to set up the connection with the following parameters:
+  </para>
+  <itemizedlist>
+   <listitem>
+    <formalpara>
+     <title>Port:</title>
+     <para>
+      3389
+     </para>
+    </formalpara>
+   </listitem>
+   <listitem>
+    <formalpara>
+     <title>Color Depth:</title>
+     <para>
+      16-bit or 24-bit only
+     </para>
+    </formalpara>
    </listitem>
   </itemizedlist>
  </sect1>
