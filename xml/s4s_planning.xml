@@ -69,21 +69,20 @@
  </sect1>
 
  <sect1 xml:id="sec.s4s.how-install">
-  <title>Choosing How to Install</title>
+  <title>Installation Methods</title>
   <para>
-   There are two ways of installing &sles4sap;:
+   There are multiple ways of installing &sles4sap;:
   </para>
   <itemizedlist>
    <listitem>
     <para>
      <xref linkend="sec.s4s.install.workflow" xrefstyle="select:title,nopage"/>
-     (supported standard way of installation)
+     (standard way of installation)
     </para>
    </listitem>
    <listitem>
     <para>
      <xref linkend="sec.s4s.autoyast" xrefstyle="select:title,nopage"/>
-     (unsupported, provided for convenience only)
     </para>
    </listitem>
   </itemizedlist>
