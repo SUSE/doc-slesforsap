@@ -377,9 +377,9 @@
      </para>
     </listitem>
    </itemizedlist>
-   <!--<para>
+   <para>
     For more information, see <xref linkend="sec.s4s.configure.cryptctl"/>.
-   </para>-->
+   </para>
   </sect3>
 
   <sect3 xml:id="sec.s4s.component.pattern">
