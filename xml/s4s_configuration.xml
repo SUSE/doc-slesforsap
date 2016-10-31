@@ -739,6 +739,14 @@ HANA firewall is active. Everything is OK.
    <systemitem class="daemon">xrdp</systemitem>. This means, you can connect
    using any software that supports RDP, such as:
   </para>
+  <remark>
+   FIXME: Enabling this after fact would be interesting too. The installer does
+   this:
+   Service.Enable("xrdp")
+   Service.Start("xrdp")
+   SuSEFirewall.SetServicesForZones(["service:xrdp"], ["INT", "EXT", "DMZ"], true)
+   - sknorr, 2016-10-31
+  </remark>
   <itemizedlist>
    <listitem>
     <formalpara>
