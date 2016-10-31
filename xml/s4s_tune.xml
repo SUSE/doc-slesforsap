@@ -73,7 +73,7 @@
        Use <systemitem>tuned</systemitem> to Configure These Parameters
       </title>
       <para>
-       The parameters <literal>vm.pagecache_limit_imb</literal> and
+       The parameters <literal>vm.pagecache_limit_mb</literal> and
        <literal>vm.pagecache_limit_ignore_dirty</literal> are also configured by
        the <systemitem>tuned</systemitem> profiles delivered with the
        package <systemitem>sapconf</systemitem>.
