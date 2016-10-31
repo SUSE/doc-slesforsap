@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE appendix
+[
+  <!ENTITY % entities SYSTEM "entity-decl.ent">
+    %entities;
+]>
+<appendix xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="app.s4s.autoyast-partition">
+ <title>Partitioning for the SAP System Using &ay;</title>
+
+ <para>
+  Partitioning for the SAP system is controlled by the files from the directory
+  <filename>/usr/share/YaST2/include/sap-installation-wizard/</filename>.
+  The following files can be used:
+ </para>
+ <itemizedlist>
+   <listitem>
+    <formalpara>
+     <title>&nw; or &s4ha; Installation</title>
+     <para>
+      <filename>base_partitioning.xml</filename>
+     </para>
+    </formalpara>
+   </listitem>
+   <listitem>
+    <formalpara>
+     <title>&hana; or &s4hd; Installation</title>
+     <para>
+      <filename>hana_partitioning.xml</filename>
+     </para>
+    </formalpara>
+   </listitem>
+   <listitem>
+    <formalpara>
+     <title>&hana; or &s4hd; Installation on &b1;-Certified Hardware</title>
+     <para>
+      hardware-specific partitioning file
+     </para>
+    </formalpara>
+   </listitem>
+ </itemizedlist>
+ <para>
+  The files will be chosen
+  as defined in <filename>/etc/sap-installation-wizard.xml</filename>.
+  Here, the content of the element <tag>partitioning</tag> is
+  decisive.
+ </para>
+ <para>
+  If the installation is, for example, based on HA or a distributed database,
+  no partitioning is needed. In this case,
+  <tag>partitioning</tag> is set to <literal>NO</literal> and
+  the file <filename>base_partitioning.xml</filename> is used.
+ </para>
+
+ <note>
+  <title>
+   <filename>autoinst.xml</filename> Cannot Be Used Here
+  </title>
+  <para>
+   <filename>autoinst.xml</filename> is only used for the installation
+   of the operating system.
+   It cannot control the partitioning for the SAP system.
+  </para>
+ </note>
+
+ <!--
+  Not happy with "based on HA"... Can sth. be based on HA? Would
+  "high-availability system" or so work? According to pschinagl, this refers
+  to the NetWeaver installation type that can be chosen Wizard
+  - sknorr, 2016-01-25
+ -->
+ <!--
+  The old guide claimed that base_partitioning.xml does nothing. True?
+  Does not really look like it, but I am no expert. Are base_part and NO really
+  the same thing? - sknorr, 2016-01-25
+ -->
+
+ <para>
+  The files that control partitioning are &ay; control
+  files that contain a <tag>partitioning</tag> section only.
+  However, these files allow using several extensions to the &ay; format:
+ </para>
+
+ <itemizedlist>
+  <listitem>
+   <para>
+    If the <tag>partitioning_defined</tag> tag is set to
+    <literal>true</literal>, the partitioning will be performed without any
+    user interaction.
+   </para>
+   <para>
+    By default, this is only used when creating &hana; file systems on systems
+    certified for &hana; (such as from Dell, Fujitsu, HP, IBM, or Lenovo).
+   </para>
+  </listitem>
+  <listitem>
+   <para>
+    For every partition, you can specify the
+    <tag>size_min</tag> tag. The size value can be given as
+    a string in the format of
+    <literal><replaceable>RAM</replaceable>*<replaceable>N</replaceable></literal>.
+    This way you can specify how large the partition should minimally be
+    (<replaceable>N</replaceable> times the size of the available
+    memory (<replaceable>RAM</replaceable>)).
+   </para>
+  </listitem>
+ </itemizedlist>
+
+ <procedure xml:id="pro.partition.custom">
+  <title>Creating a Custom SAP Partitioning Setup</title>
+  <para>
+   The steps below illustrates how to create a partitioning setup for TREX.
+   However, creating a partitioning setup for other applications works
+   analogously.
+  </para>
+  <step>
+   <para>
+    In
+    <filename>/usr/share/YaST2/include/sap-installation-wizard/</filename>,
+    create a new XML file. Name it <filename>TREX_partitioning.xml</filename>,
+    for example.
+   </para>
+  </step>
+  <step>
+   <para>
+    Copy the content of <filename>base_partitioning.xml</filename> to your new
+    file and adapt the new file to your needs.
+   </para>
+  </step>
+  <step>
+   <para>
+    Finally, adapt <filename>/etc/sap-installation-wizard.xml</filename> to
+    include your custom file.
+    In the <tag>listitem</tag> for <literal>TREX</literal>, insert the
+    following line:
+   </para>
+   <!-- Yes, "listitem" above is correct even though it sounds like DocBook!
+   - sknorr, 2016-02-17 -->
+<screen><![CDATA[<partitioning>TREX_partitioning</partitioning>]]></screen>
+  </step>
+ </procedure>
+
+ <important>
+  <title>Do Not Edit <filename>base_partitioning.xml</filename></title>
+  <para>
+   Do not edit <filename>base_partitioning.xml</filename> directly. With
+   the next update, this file will be overwritten.
+  </para>
+ </important>
+
+ <para>
+  For more information about partitioning with &ay;, see
+  <citetitle>&ay; Guide, Chapter <quote>Partitioning</quote></citetitle>
+  (&docaddress;).
+ </para>
+</appendix>

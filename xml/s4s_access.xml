@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sect1
+[
+  <!ENTITY % entities SYSTEM "entity-decl.ent">
+    %entities;
+]>
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="cha.s4s.access">
+ <title>Restricting and Enabling Access</title>
+
+ <para>
+  This chapter presents information about restricting access to the system
+  using firewalling and encryption and gives information about connecting to
+  the system remotely.
+ </para>
+
+ <sect1 xml:id="sec.s4s.configure.firewall">
+  <title>Configuring &susefirewall;</title>
+
+  <para>
+   By default, the installation workflow of &sles4sap; enables
+   &susefirewall;. The firewall needs to
+   be manually configured to allow network access for the following:
+  </para>
+
+  <itemizedlist>
+   <listitem>
+    <para>
+     SAP application
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     Database (see the documentation of your database vendor; for &hana;, see
+     <xref linkend="sec.s4s.configure.firewall-hana"/>)
+    </para>
+   </listitem>
+  </itemizedlist>
+  <para>
+   Additionally, open the ports <literal>1128</literal> (TCP) and
+   <literal>1129</literal> (UDP).
+  </para>
+
+  <para>
+   SAP applications require many open ports and port ranges in the firewall.
+   The exact numbers depend on the selected instance. For more information,
+   see the documentation provided to you by SAP.
+  </para>
+ </sect1>
+
+ <sect1 xml:id="sec.s4s.configure.firewall-hana">
+  <title>Configuring <systemitem>HANA-Firewall</systemitem></title>
+
+  <para>
+   To simplify setting up a firewall for &hana;, install the package
+   <systemitem>HANA-Firewall</systemitem>.
+   Whereas standard &susefirewall; allows only three zones (internal, DMZ, and
+   external), <systemitem>HANA-Firewall</systemitem> enables you to configure
+   more zones to accommodate all running &hana; instances.
+  </para>
+  <para>
+   <systemitem>HANA-Firewall</systemitem> works by adding rule sets to your
+   existing &susefirewall; configuration.
+  </para>
+  <para>
+   <systemitem>HANA-Firewall</systemitem> consists of the following parts:
+  </para>
+  <itemizedlist>
+   <listitem>
+    <formalpara>
+     <title>&yast; Module <guimenu>SAP HANA Firewall</guimenu></title>
+     <para>
+      Allows configuring, applying, and reverting firewall rules for &hana;
+      from a graphical user interface.
+     </para>
+    </formalpara>
+   </listitem>
+   <listitem>
+    <formalpara>
+     <title>Command-Line Utility <systemitem>hana-firewall</systemitem></title>
+     <para>
+      Allows applying and reverting the configured firewall rules for &hana;.
+     </para>
+    </formalpara>
+    <para>
+     If you prefer, you can configure the rule sets using the
+     configuration file at <filename>/etc/sysconfig/hana-firewall</filename>
+     instead of using &yast;.
+    </para>
+   </listitem>
+   <listitem>
+    <formalpara>
+     <title>Service <systemitem>hana-firewall</systemitem></title>
+     <para>
+      Ensures that configured firewall rules for &hana; are kept.
+     </para>
+    </formalpara>
+   </listitem>
+  </itemizedlist>
+
+  <important>
+   <title>Multi-Tenant Databases</title>
+   <para>
+    For multi-tenant &hana; databases, determining the port numbers that
+    need to be opened is not yet possible automatically.
+    If you are working with a multi-tenant &hana; database system, before you
+    use &yast;, run a script on the command line to create a new
+    service definition:
+   </para>
+<screen>&prompt.root;<command>cd /etc/hana-firewall.d</command>
+&prompt.root;<command>./create_new_service</command></screen>
+   <para>
+    You need to switch to the directory
+    <filename>/etc/hana-firewall.d</filename>,
+    otherwise the rule file for the new service will be created in a place
+    where it cannot be used.
+   </para>
+   <para>
+    The script will ask several questions: Importantly, it will ask for
+    TCP and UDP port ranges that need to be opened.
+   </para>
+  </important>
+
+  <procedure>
+   <title>Using <systemitem>HANA-Firewall</systemitem></title>
+   <step>
+    <para>
+     Make sure the &hana; databases for which you want to configure the
+     firewall are correctly installed.
+    </para>
+   </step>
+   <step>
+    <para>
+     To open the appropriate &yast; module, select
+     <menuchoice><guimenu>Applications</guimenu><guimenu>YaST</guimenu>
+     </menuchoice>, <menuchoice><guimenu>Security and Users</guimenu>
+     <guimenu>SAP HANA Firewall</guimenu></menuchoice>.
+    </para>
+   </step>
+   <step>
+    <para>
+     When you open this &yast; module, it will create a configuration proposal
+     based on the number of installed &hana; instances.
+    </para>
+   </step>
+   <step>
+    <para>
+     In the module, set the <guimenu>Number of network interfaces in this
+     HANA setup</guimenu>.
+    </para>
+   </step>
+   <step>
+    <para>
+     Choose an <guimenu>Interface number</guimenu> and its
+     corresponding network interface name (for example,
+     <guimenu>eth0</guimenu>).
+    </para>
+   </step>
+   <step>
+    <para>
+     Allow network services by selecting them in the list box on the left and
+     clicking <guimenu>Add</guimenu>. Remove services by selecting them in the
+     list box on the right and clicking <guimenu>Remove</guimenu>.
+    </para>
+    <para>
+     To add services other than the preconfigured ones, add them using the
+     following notation:
+    </para>
+<screen><replaceable>SERVICE_NAME</replaceable>:<replaceable>CIDR_NOTATION</replaceable></screen>
+    <para>
+     For more information about the CIDR notation, see
+     <link xlink:href="https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing"/>.
+     To find out which services are available on your system, use
+     <command>getent services</command>.
+    </para>
+   </step>
+   <step>
+    <!--
+     This step is called "Next" because actually this is a part of a wizard
+     of which just a single step is taken out, apparently. There is no later
+     button that needs to be clicked.
+     - sknorr, 2016-02-18
+    -->
+    <para>
+     When you are done, click <guimenu>Next</guimenu>.
+    </para>
+    <para>
+     The firewall rules from <systemitem>HANA-Firewall</systemitem> will now
+     be compiled and applied. Finally, the service
+     <systemitem>hana-firewall</systemitem> will be restarted.
+    </para>
+   </step>
+   <step>
+    <para>
+     Finally, check whether <systemitem>HANA-Firewall</systemitem> was enabled
+     correctly:
+    </para>
+<screen>&prompt.root;<command>hana-firewall status</command>
+HANA firewall is active. Everything is OK.
+</screen>
+    <tip>
+     <title>Checking Which Firewall Rules Are Enabled</title>
+     <para>
+      Gaining an overview of which firewall rules are enabled in the current
+      configuration of the script is possible using the command line:
+     </para>
+<screen>&prompt.root;<command>hana-firewall dry-run</command></screen>
+    </tip>
+   </step>
+  </procedure>
+  <para>
+   For more information, see the man page of <command>hana_firewall</command>.
+  </para>
+ </sect1>
+
+ <sect1 xml:id="sec.s4s.configure.rdp">
+  <title>Connecting via RDP</title>
+  <para>
+   If you installed &s4sa; with the RDP option activated or if you installed
+   from a &kiwi; image, RDP is enabled on the machine via the service
+   <systemitem class="daemon">xrdp</systemitem>. This means, you can connect
+   using any software that supports RDP, such as:
+  </para>
+  <remark>
+   FIXME: Enabling this after fact would be interesting too. The installer does
+   this:
+   Service.Enable("xrdp")
+   Service.Start("xrdp")
+   SuSEFirewall.SetServicesForZones(["service:xrdp"], ["INT", "EXT", "DMZ"], true)
+   - sknorr, 2016-10-31
+  </remark>
+  <itemizedlist>
+   <listitem>
+    <formalpara>
+     <title>Linux:</title>
+     <para>
+      Vinagre (available in &sled;/&slea; &we; and &opensuse;) or
+      Remmina (available in &opensuse;)
+     </para>
+    </formalpara>
+   </listitem>
+   <listitem>
+    <formalpara>
+     <title>Windows:</title>
+     <para>
+      Remote Desktop Connection
+     </para>
+    </formalpara>
+   </listitem>
+  </itemizedlist>
+  <para>
+   Make sure to set up the connection with the following parameters:
+  </para>
+  <itemizedlist>
+   <listitem>
+    <formalpara>
+     <title>Port:</title>
+     <para>
+      3389
+     </para>
+    </formalpara>
+   </listitem>
+   <listitem>
+    <formalpara>
+     <title>Color Depth:</title>
+     <para>
+      16-bit or 24-bit only
+     </para>
+    </formalpara>
+   </listitem>
+  </itemizedlist>
+ </sect1>
+
+</chapter>

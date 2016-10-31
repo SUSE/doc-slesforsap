@@ -178,7 +178,7 @@
       Improve organization of the guide by updating its structure.
       <xref linkend="cha.s4s.plan" xrefstyle="SectTitleOnPage"/>,
       <xref linkend="cha.s4s.install.sap" xrefstyle="SectTitleOnPage"/>,
-      <xref linkend="cha.s4s.configure" xrefstyle="SectTitleOnPage"/>, and
+      <citetitle>Configuring &s4s;</citetitle>, and
       <xref linkend="cha.s4s.serve-mediaset" xrefstyle="SectTitleOnPage"/> are now
       chapters instead of sections.
      </para>

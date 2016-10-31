@@ -838,7 +838,7 @@ SAP-NetWeaver-740-SR2-Installation-Export-CD-3-3</screen>
      </para>
      <para>
       For more information about log files, see
-      <xref linkend="sec.s4s.configure.log"/>.
+      <xref linkend="cha.s4s.log"/>.
      </para>
     </tip>
    </step>
@@ -944,4 +944,21 @@ SAP-NetWeaver-740-SR2-Installation-Export-CD-3-3</screen>
    </step>
   </procedure>
  </sect1>
+
+ <sect1 xml:id="sec.partition.command">
+  <title>Partitioning for an &sap; Application Without the &sapwiz;</title>
+  <para>
+   If you do not want to use the &sapwiz;, you can also create the partitioning
+   for &sap; applications directly from the command line. First, find the
+   correct partitioning file in the directory
+   <filename>/usr/share/YaST2/include/sap-installation-wizard/</filename> or
+   create an own partitioning file. For more information, see
+   <xref linkend="sec.s4s.partition.sap"/>.
+  </para>
+  <para>
+   When you have determined the correct partitioning XML file, run:
+  </para>
+  <screen>&prompt.root;<command>yast2 sap_create_storage <replaceable>ABSOLUTE_PATH_TO_PARTITIONING_FILE</replaceable></command></screen>
+ </sect1>
+
 </chapter>

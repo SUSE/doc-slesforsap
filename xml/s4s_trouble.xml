@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sect1
+[
+  <!ENTITY % entities SYSTEM "entity-decl.ent">
+    %entities;
+]>
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="cha.s4s.log">
+ <title>Important Log Files</title>
+
+ <para>
+  The most important files for this product are:
+ </para>
+
+ <itemizedlist>
+  <listitem>
+   <para>
+    The &sapwiz; is a &yast; module. You can find its log entries in
+    <filename>/var/log/YaST/y2log</filename>.
+   </para>
+  </listitem>
+  <listitem>
+   <para>
+    All SAP knowledge is bundled in a library. You can find its log entries in
+    <filename>/var/log/SAPmedia.log</filename>.
+   </para>
+  </listitem>
+  <listitem>
+   <para>
+    You can find log files related to auto-installation in
+    <filename>/var/adm/autoinstall/logs</filename>.
+   </para>
+  </listitem>
+ </itemizedlist>
+
+</chapter>

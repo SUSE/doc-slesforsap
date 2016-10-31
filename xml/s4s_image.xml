@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sect1
+[
+  <!ENTITY % entities SYSTEM "entity-decl.ent">
+    %entities;
+]>
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="cha.s4s.image">
+ <title>Creating &kiwi; Images</title>
+
+ <para>
+  &kiwi; is a tool to create operating system images that can be easily
+  copied to new physical or virtual machines. This chapter will present
+  information on creating &s4sa; images with &kiwi;.
+ </para>
+
+ <sect1 xml:id="sec.s4s.configure.scrub-instance">
+  <title>Cleaning Up an Instance Before Using It as a Master Image</title>
+
+  <para>
+   Using a system like &kiwi;, it is possible to use an image of an
+   already-configured master instance on multiple systems. However, normally
+   such an image would contain certain configuration data that should
+   not be copied along with the rest of the system.
+  </para>
+  <para>
+   To avoid needing to clean up manually, use the script
+   <filename>clone-master-clean-up</filename> (available from the package of the
+   same name). It deletes the following data automatically:
+  </para>
+  <itemizedlist>
+   <listitem>
+    <para>
+     Swap device (zero-wiped, then re-enabled)
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     SUSE registration information and repositories from SUSE
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     User and host SSH keys
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     Shell history, mails, cron jobs, temporary files, log files, random seeds
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     The generated <systemitem>HANA-Firewall</systemitem> script (but not the
+     configuration itself)
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     Network configuration
+    </para>
+   </listitem>
+  </itemizedlist>
+  <para>
+   Additionally, <systemitem>sudo</systemitem> settings are reset and you can
+   choose to set up a new &rootuser; password. This script also ensures
+   that, if the first-boot section of the installation workflow was used for the
+   original installation, it is run again on the next boot.
+  </para>
+  <para>
+   To use the script, do:
+  </para>
+<screen>&prompt.root;clone-master-clean-up</screen>
+  <para>
+   Then follow the instructions.
+  </para>
+ </sect1>
+
+ <sect1 xml:id="sec.s4s.configure.kiwi">
+  <title>Creating Images with &kiwi;</title>
+
+  <para>
+   &sles4sap; now supports creating images with &kiwi; using the template from
+   the package <systemitem>kiwi-template-sap</systemitem>. However, there are
+   certain restrictions in the current implementation:
+  </para>
+  <itemizedlist>
+   <listitem>
+    <para>
+     Only building VMX disk images is supported. Building other image types is
+     not supported.
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     You must provide an ISO image of &sles4sap; at
+     <filename>/tmp/SLES4SAP.iso</filename>, as the &obs; does not
+     contain all necessary packages.
+    </para>
+   </listitem>
+  </itemizedlist>
+  <para>
+   To build a basic image, use the following two commands:
+  </para>
+  <procedure>
+   <step>
+    <para>
+     Build the root file system:
+    </para>
+<screen>&prompt.root;<command>kiwi</command> -p SLES4SAP --root fsroot</screen>
+   </step>
+   <step>
+    <para>
+     Build the VMX image:
+    </para>
+<screen>&prompt.root;<command>kiwi</command> --create fsroot --type vmx -d build</screen>
+   </step>
+  </procedure>
+  <para>
+   To enable running graphical installations using &sapina;, the default
+   settings of the image enable the following:
+  </para>
+  <itemizedlist>
+   <listitem>
+    <para>
+     Installation of an IceWM desktop
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     The service <systemitem>xrdp</systemitem> is started automatically, so
+     you can connect to the machine via RDP. For more information, see
+     <xref linkend="sec.s4s.configure.rdp"/>.
+    </para>
+   </listitem>
+  </itemizedlist>
+  <para>
+   For more information about &kiwi; and &s4sa;:
+  </para>
+  <itemizedlist>
+   <listitem>
+    <para>
+     On the &kiwi; configuration for &sles4sapa;, see
+     <filename>/usr/share/kiwi/image/SLES4SAP/README</filename>.
+    </para>
+    <remark>
+     remark@hguo: typo "desektop" in README file. - sknorr, 2016-10-26
+    </remark>
+   </listitem>
+   <listitem>
+    <para>
+     On &kiwi; in general, see the
+     <citetitle>openSUSE-KIWI Image System Cookbook</citetitle>
+     (<link xlink:href="https://doc.opensuse.org/projects/kiwi/doc/"/>).
+    </para>
+   </listitem>
+  </itemizedlist>
+ </sect1>
+
+</chapter>

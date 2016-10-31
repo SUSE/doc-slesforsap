@@ -27,7 +27,7 @@
 <!ENTITY xvendor        "X.Org">
 <!ENTITY yast           "YaST">
 <!ENTITY yastcc         "&yast; Control Center">
-<!ENTITY ay             "AutoYaST">
+<!ENTITY ay             "<phrase xmlns='http://docbook.org/ns/docbook' role='productname'>AutoYaST</phrase>">
 <!ENTITY nm             "NetworkManager">
 <!ENTITY fspot          "f-spot">
 <!ENTITY digikam        "digiKam">

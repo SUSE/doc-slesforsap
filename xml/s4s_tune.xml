@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sect1
+[
+  <!ENTITY % entities SYSTEM "entity-decl.ent">
+    %entities;
+]>
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="cha.s4s.tune">
+ <title>Tuning</title>
+
+ <para>
+  This chapter presents information about tuning &s4sa; to work optimally with
+  &sap; applications.
+ </para>
+
+ <sect1 xml:id="sec.s4s.configure.page-cache">
+  <title>Kernel: Page-Cache Limit</title>
+  <remark>
+   The presentation of Problem/Solution is on one hand quite useful, on the
+   other it is very inconsistent with the rest of this chapter.
+   - sknorr, 2016-02-12
+  </remark>
+  <variablelist>
+   <varlistentry>
+    <term>Problem</term>
+    <listitem>
+     <para>
+      The kernel swaps out rarely accessed memory pages to use
+      freed memory pages as cache to speed up file system operations, for
+      example during backup operations.
+     </para>
+     <para>
+      &netweaver; and &hana; use large amounts of memory for accelerated access
+      to business data. Parts of this memory are rarely accessed. When a
+      user request needs to access paged-out memory, the response time
+      is poor. It is even worse when an SAP application running on Java incurs
+      a Java garbage collection: The system starts heavy page-in (disc I/O)
+      activity and has a poor response time for an extended period of time.
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term>Solution</term>
+    <listitem>
+     <para>
+      &sles4sap; includes a kernel tuning option that allows the system
+      administrator to limit the amount of page cache that the kernel uses
+      when there is competition between application memory and page cache.
+      This option tells the kernel that when the page cache is filled to the
+      configured limit, application memory is more important and should thus
+      not be paged out. No pages will be paged out if the memory footprint
+      of the workload plus the configured page-cache limit do not exceed the
+      amount of physical RAM in the system.
+     </para>
+     <para>
+      These kernel options are available for configuration:
+     </para>
+     <itemizedlist>
+      <listitem>
+       <para>
+        <literal>vm.pagecache_limit_mb</literal>
+        (<filename>/proc/sys/vm/pagecache_limit_mb</filename>)
+       </para>
+      </listitem>
+      <listitem>
+       <para>
+        <literal>vm.pagecache_limit_ignore_dirty</literal>
+        (<filename>/proc/sys/vm/pagecache_limit_ignore_dirty</filename>)
+       </para>
+      </listitem>
+     </itemizedlist>
+     <tip>
+      <title>
+       Use <systemitem>tuned</systemitem> to Configure These Parameters
+      </title>
+      <para>
+       The parameters <literal>vm.pagecache_limit_imb</literal> and
+       <literal>vm.pagecache_limit_ignore_dirty</literal> are also configured by
+       the <systemitem>tuned</systemitem> profiles delivered with the
+       package <systemitem>sapconf</systemitem>.
+      </para>
+      <para>
+       For more information, see <xref linkend="sec.s4s.configure.sapconf"/>.
+      </para>
+     </tip>
+     <important>
+      <title>The Following Are Example Values</title>
+      <para>
+       The values reproduced in <xref linkend="ex.s4s.page-cache"/> are example
+       values only. Do not set the following parameters on a productive system
+       without first trying and calibrating them on a non-productive system.
+      </para>
+      <para>
+       If your system does not exhibit page-cache limit issues under the
+       workloads it is running, there is no need to adjust these parameters.
+      </para>
+      <para>
+       For more information, see <citetitle>SAP Note 1557506: Linux Paging
+       Improvements</citetitle>
+       (<link xlink:href="&sapnoteaddress;1557506"/>).
+     </para>
+     </important>
+     <example xml:id="ex.s4s.page-cache">
+      <title>Permanently Setting the Page-Cache Limit</title>
+      <para>
+       For permanent use, add both parameters to
+       <filename>/etc/sysctl.conf</filename>, for example:
+      </para>
+<screen>vm.pagecache_limit_mb = <replaceable>1024</replaceable>
+vm.pagecache_limit_ignore_dirty = <replaceable>2</replaceable></screen>
+     </example>
+    </listitem>
+   </varlistentry>
+  </variablelist>
+ </sect1>
+
+ <sect1 xml:id="sec.s4s.configure.sapconf">
+  <title>Tuning Systems with <command>saptune</command></title>
+
+  <remark>
+   Question@hguo: Is "saptune solution NETWEAVER" the same as "tuned-adm
+   profile sap-netweaver" (sap#1275776, sap#1557506, sap#1984787)? Why is the
+   default tuning solution still "tuned-adm profile sap-netweaver" (sap#941735,
+   sap#1557506)? - sknorr, 2016-08-11
+  </remark>
+  <remark>
+   Question@hguo: Why can I successfully revert a profile that was not applied?
+   (I.e. applied NETWEAVER, reverted HANA, but no warning message given.)
+   - sknorr, 2016-08-11
+  </remark>
+  <remark>
+   Remark@hguo: saptune message typo: "_Plese_ note: the reverted note..."
+   - sknorr, 2016-08-11
+  </remark>
+
+  <para>
+   Using <command>saptune</command>, you can
+   tune a system for &netweaver; and &hana;/&b1; applications. This method
+   relies on the system tuning service <systemitem>tuned</systemitem>.
+  </para>
+  <para>
+   If you used the &sapwiz; to install an &sap; application,
+   <systemitem>tuned</systemitem> is usually already active and configured with
+   a profile for the application you installed. However, by default, the
+   <systemitem class="resource">tuned</systemitem> profile applied using the
+   &sapwiz; does not allow using <command>saptune</command>, instead it directly
+   uses an equivalent &netweaver; or &hana; profile.
+  </para>
+  <para>
+   If you did not use the &sapwiz; to install an &sap; application, make sure
+   that the packages <package>tuned</package>, <package>saptune</package> and
+   <systemitem>sapconf</systemitem> are installed on your system.
+  </para>
+
+  <procedure xml:id="pro.s4s.tune">
+   <title>Tuning for a &sap; Application</title>
+   <step>
+    <para>
+     To tune a system, first find a tuning profile using
+     <command>saptune</command>. To find the appropriate profile, use:
+    </para>
+    <screen>&prompt.user;<command>saptune solution list</command></screen>
+    <para>
+     <command>saptune</command> knows the following
+     <quote>solution</quote> profiles:
+    </para>
+    <itemizedlist>
+     <listitem>
+      <formalpara>
+       <title><literal>HANA</literal></title>
+       <para>
+        Profile for servers hosting only a &hana; database.
+       </para>
+      </formalpara>
+     </listitem>
+     <listitem>
+      <formalpara>
+       <title><literal>MAXDB</literal></title>
+       <para>
+        Profile for servers hosting only a MaxDB database.
+       </para>
+      </formalpara>
+     </listitem>
+     <listitem>
+      <formalpara>
+       <title><literal>NETWEAVER</literal></title>
+       <para>
+        Profile for servers hosting a &netweaver; application.
+       </para>
+      </formalpara>
+     </listitem>
+     <listitem>
+      <formalpara>
+       <title><literal>S4HANA-APPSERVER</literal></title>
+       <para>
+        Profile for servers hosting an &s4h; application.
+       </para>
+      </formalpara>
+     </listitem>
+     <listitem>
+      <formalpara>
+       <title><literal>S4HANA-DBSERVER</literal></title>
+       <para>
+        Profile for servers hosting the &hana; database of an &s4h;
+        installation.
+       </para>
+      </formalpara>
+     </listitem>
+    </itemizedlist>
+    <para>
+     Alternatively, you can tune the computer according to recommendations
+     from specific &sap; Notes. A list of notes that you can tune for is
+     available via:
+    </para>
+    <screen>&prompt.root;<command>saptune note list</command></screen>
+    <para>
+     The referenced &sap; Notes are available from the &sap; Web site.
+     The list entries starting with <literal>SUSE-GUIDE</literal> follow the
+     recommendations made in
+     <link xlink:href="https://www.suse.com/communities/blog/sles-1112-os-tuning-optimisation-guide-part-1/"/>
+     and
+     <link xlink:href="https://www.suse.com/communities/blog/sles-1112-network-cpu-tuning-optimization-part-2/"/>.
+    </para>
+   </step>
+   <step>
+    <itemizedlist>
+     <listitem>
+      <para>
+       To set up <command>saptune</command> with a preconfigured solution, use:
+      </para>
+      <screen>&prompt.root;<command>saptune solution apply <replaceable>SOLUTION</replaceable></command></screen>
+     </listitem>
+     <listitem>
+      <para>
+       To set up <command>saptune</command> for the recommendations of a specific
+       &sap; Note, use:
+      </para>
+      <screen>&prompt.root;<command>saptune note apply <replaceable>NOTE</replaceable></command></screen>
+     </listitem>
+    </itemizedlist>
+   </step>
+   <step>
+    <para>
+     Finally, enable the <systemitem class="daemon">tuned</systemitem> profile
+     <literal>saptune</literal> and make sure the
+     <systemitem class="daemon">tuned</systemitem> daemon is active:
+    </para>
+    <screen>&prompt.root;<command>saptune daemon start</command></screen>
+    <note>
+     <title>Using <command>tuned-adm</command> Directly</title>
+     <para>
+      Alternatively, you can also use <command>systemctl</command> to make
+      sure the <systemitem class="daemon">tuned</systemitem> daemon is active
+      and apply the profile with <command>tuned-adm profile saptune</command>.
+     </para>
+    </note>
+   </step>
+  </procedure>
+  <tip>
+   <title>
+    Combining <quote>note</quote> and <quote>solution</quote> Optimizations
+   </title>
+   <para>
+    <command>saptune</command> realizes <quote>solutions</quote> as a
+    combination of <quote>notes.</quote> While you can only enable one
+    <quote>solution</quote> profile at a time, you can combine a solution with
+    one or more <quote>notes.</quote>
+   </para>
+  </tip>
+
+  <para>
+   For more information, see the following man pages:
+  </para>
+  <itemizedlist>
+   <listitem>
+    <para>
+     <command>man 8 tuned-adm</command>
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     <command>man 8 saptune</command>
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     <command>man 7 tuned-profiles-sap-hana</command>
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     <command>man 7 tuned-profiles-sap-netweaver</command>
+    </para>
+   </listitem>
+  </itemizedlist>
+  <note>
+   <title>Deprecated Utility <command>sapconf</command></title>
+   <para>
+    The package <systemitem>sapconf</systemitem> contains the deprecated
+    utility <command>sapconf</command> which can be used similarly to the
+    solutions based on <command>tuned-adm</command> discussed before. However,
+    unlike <command>tuned-adm</command>, it will only apply profiles when no
+    other profile is set.
+   </para>
+  </note>
+ </sect1>
+
+</chapter>
