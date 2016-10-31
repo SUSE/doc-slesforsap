@@ -13,14 +13,14 @@
  <orderedlist>
   <listitem>
    <para>
-    <xref linkend="sec.s4s.partition.os"/> (during the installation of the
-    operating system)
+    <xref linkend="sec.s4s.partition.os" xrefstyle="select:title"/> (during
+    the installation of the operating system)
    </para>
   </listitem>
   <listitem>
    <para>
-    <xref linkend="sec.s4s.partition.sap"/> (during the installation of the
-    SAP product)
+    <xref linkend="sec.s4s.partition.sap" xrefstyle="select:title"/> (during
+    the installation of the SAP product)
    </para>
   </listitem>
  </orderedlist>
