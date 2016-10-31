@@ -176,7 +176,7 @@
       <para>
        For more information, see <citetitle>SAP Note 1557506: Linux Paging
        Improvements</citetitle>
-       (<link xlink:href="https://service.sap.com/sap/support/notes/1557506"/>).
+       (<link xlink:href="&sapnoteaddress;1557506"/>).
      </para>
      </important>
      <example xml:id="ex.s4s.page-cache">

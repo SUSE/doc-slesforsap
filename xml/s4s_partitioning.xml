@@ -50,7 +50,7 @@
      <filename>/dev/system/swap</filename>: by default 2 GB, avoid setting a
      smaller size.  See also <citetitle>SAP Note 1984787: SUSE Linux Enterprise
      Server 12: Installation notes</citetitle>
-     (<link xlink:href="https://service.sap.com/sap/support/notes/1984787"/>).
+     (<link xlink:href="&sapnoteaddress;1984787"/>).
     </para>
    </listitem>
   </itemizedlist>
