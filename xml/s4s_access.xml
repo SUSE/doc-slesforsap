@@ -5,7 +5,7 @@
     %entities;
 ]>
 <chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="cha.s4s.access">
- <title>Restricting and Enabling Access</title>
+ <title>Restricting and Granting Access to the Machine</title>
 
  <para>
   This chapter presents information about restricting access to the system
