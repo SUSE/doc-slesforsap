@@ -64,11 +64,69 @@
   <variablelist>
    <varlistentry>
     <term>
+      <xref linkend="sec.s4s.repository" xrefstyle="SectTitleOnPage"/>
+    </term>
+    <listitem>
+     <para>
+      Added section (bsc#320632).
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term>
+      <xref linkend="cha.s4s.install" xrefstyle="SectTitleOnPage"/>,
+      <xref linkend="cha.s4s.install.sap" xrefstyle="SectTitleOnPage"/>
+    </term>
+    <listitem>
+     <para>
+      Updated chapters to match new installation wizards.
+      Added list of supported &sap; products (FATE#320454).
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term>
+      <xref linkend="cha.s4s.tune" xrefstyle="SectTitleOnPage"/>,
+      <xref linkend="cha.s4s.access" xrefstyle="SectTitleOnPage"/>,
+      <xref linkend="cha.s4s.image" xrefstyle="SectTitleOnPage"/>,
+      <xref linkend="cha.s4s.trouble" xrefstyle="SectTitleOnPage"/>
+    </term>
+    <listitem>
+     <para>
+      Separated former chapter <citetitle>Configuration</citetitle> into
+      smaller chapters.
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term>
       <xref linkend="sec.s4s.configure.rdp" xrefstyle="SectTitleOnPage"/>
     </term>
     <listitem>
      <para>
-      Added new section.
+      Added section (FATE#320363).
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term>
+      <xref linkend="sec.s4s.configure.sapconf" xrefstyle="SectTitleOnPage"/>
+    </term>
+    <listitem>
+     <para>
+      Updated section to refer to
+      <systemitem class="daemon">saptune</systemitem>
+      (FATE#320361, FATE#320362, FATE#320633).
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term>
+      <xref linkend="sec.partition.command" xrefstyle="SectTitleOnPage"/>
+    </term>
+    <listitem>
+     <para>
+      Added section (bsc#929623).
      </para>
     </listitem>
    </varlistentry>

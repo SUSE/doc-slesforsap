@@ -838,7 +838,7 @@ SAP-NetWeaver-740-SR2-Installation-Export-CD-3-3</screen>
      </para>
      <para>
       For more information about log files, see
-      <xref linkend="cha.s4s.log"/>.
+      <xref linkend="cha.s4s.trouble"/>.
      </para>
     </tip>
    </step>
