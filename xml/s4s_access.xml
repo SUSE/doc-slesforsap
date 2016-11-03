@@ -217,17 +217,12 @@ HANA firewall is active. Everything is OK.
   <para>
    If you installed &s4sa; with the RDP option activated or if you installed
    from a &kiwi; image, RDP is enabled on the machine via the service
-   <systemitem class="daemon">xrdp</systemitem>. This means, you can connect
-   using any software that supports RDP, such as:
+   <systemitem class="daemon">xrdp</systemitem>. Alternatively, you can enable
+   RDP later as described at the end of this section.
   </para>
-  <remark>
-   FIXME: Enabling this after fact would be interesting too. The installer does
-   this:
-   Service.Enable("xrdp")
-   Service.Start("xrdp")
-   SuSEFirewall.SetServicesForZones(["service:xrdp"], ["INT", "EXT", "DMZ"], true)
-   - sknorr, 2016-10-31
-  </remark>
+  <para>
+   You can connect using any software that supports RDP, such as:
+  </para>
   <itemizedlist>
    <listitem>
     <formalpara>
@@ -247,27 +242,104 @@ HANA firewall is active. Everything is OK.
     </formalpara>
    </listitem>
   </itemizedlist>
-  <para>
-   Make sure to set up the connection with the following parameters:
-  </para>
-  <itemizedlist>
-   <listitem>
-    <formalpara>
-     <title>Port:</title>
-     <para>
-      3389
-     </para>
-    </formalpara>
-   </listitem>
-   <listitem>
-    <formalpara>
-     <title>Color Depth:</title>
-     <para>
-      16-bit or 24-bit only
-     </para>
-    </formalpara>
-   </listitem>
-  </itemizedlist>
+  <important>
+   <title>Connection Parameters</title>
+   <para>
+    Make sure to set up the connection with the following parameters:
+   </para>
+   <itemizedlist>
+    <listitem>
+     <formalpara>
+      <title>Port:</title>
+      <para>
+       3389
+      </para>
+     </formalpara>
+    </listitem>
+    <listitem>
+     <formalpara>
+      <title>Color Depth:</title>
+      <para>
+       16-bit or 24-bit only
+      </para>
+     </formalpara>
+    </listitem>
+   </itemizedlist>
+  </important>
+
+  <procedure xml:id="pro.s4s.enable-rdp">
+   <title>Setting Up RDP</title>
+   <para>
+    If you have not set up an RDP connection during the installation, you can
+    also do so later using the following instructions.
+   </para>
+   <step>
+    <para>
+     First, create an exception for the firewall. Start by creating a file that
+     sets up the port that needs to be opened for RDP.
+    </para>
+    <para>
+     As <systemitem class="username">root</systemitem>, create a new file
+     under <filename>/etc/sysconfig/SuSEfirewall2.d/services/</filename> with
+     the name <filename>xrdp</filename> and the following content:
+    </para>
+    <screen>
+## Name: Remote Desktop Protocol
+TCP="3389"
+    </screen>
+   </step>
+   <step>
+    <para>
+     Open the file <filename>/etc/sysconfig/SuSEfirewall2</filename> and
+     change the lines for the settings
+     <option>FW_CONFIGURATIONS_EXT</option>,
+     <option>FW_CONFIGURATIONS_DMZ</option>, and
+     <option>FW_CONFIGURATIONS_INT</option> to include
+     <literal>xrdp</literal>. If there are no other services enabled, the
+     respective lines should read:
+    </para>
+    <screen>
+FW_CONFIGURATIONS_EXT="xrdp"
+FW_CONFIGURATIONS_DMZ="xrdp"
+FW_CONFIGURATIONS_INT="xrdp"
+    </screen>
+    <para>
+     If there are other services, separate them within the quotes using a
+     space character.
+    </para>
+   </step>
+   <step>
+    <para>
+     Now set up <systemitem class="daemon">xrdp</systemitem> itself.
+    </para>
+    <para>
+     If the package <package>xrdp</package> is not installed, install it:
+    </para>
+    <screen>
+&prompt.root;<command>zypper install xrdp</command>
+    </screen>
+   </step>
+   <step>
+    <para>
+     Enable and start the service:
+    </para>
+    <screen>
+&prompt.root;<command>systemctl restart SuSEfirewall2</command>
+    </screen>
+   </step>
+   <step>
+    <para>
+     Enable and start the service:
+    </para>
+    <screen>
+&prompt.root;<command>systemctl enable xrdp</command>
+&prompt.root;<command>systemctl start xrdp</command>
+    </screen>
+    <para>
+     You can now connect to the machine.
+    </para>
+   </step>
+  </procedure>
  </sect1>
 
 </chapter>
