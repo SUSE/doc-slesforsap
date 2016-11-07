@@ -353,7 +353,7 @@
   </sect3>
 
   <sect3 xml:id="sec.s4s.component.cryptctl">
-   <title>Encryption for Hosted Volumes with <command>cryptctl</command></title>
+   <title>Storage Encryption for Hosted Applications with <command>cryptctl</command></title>
    <para>
     Today, databases and similar applications are often hosted on external
     servers that are serviced by third-party staff. Certain data center
@@ -361,8 +361,8 @@
     systems. In such cases, privacy requirements necessitate disk encryption.
    </para>
    <para>
-    <command>cryptctl</command> allows encrypting entire volumes using LUKS
-    and offers the following additional features:
+    <command>cryptctl</command> allows encrypting sensitive directories using
+    LUKS and offers the following additional features:
    </para>
    <itemizedlist>
     <listitem>
@@ -373,7 +373,8 @@
     </listitem>
     <listitem>
      <para>
-      Encrypted volumes are remounted after an unplanned reboot.
+      Encrypted partitions are automatically remounted after an unplanned
+      reboot.
      </para>
     </listitem>
    </itemizedlist>
