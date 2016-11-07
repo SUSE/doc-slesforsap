@@ -31,6 +31,7 @@
  <xi:include href="s4s_installation.xml" parse="xml"/>
  <xi:include href="s4s_installation_sap.xml" parse="xml"/>
  <xi:include href="s4s_install_network.xml" parse="xml"/>
+ <xi:include href="s4s_setup_cluster.xml" parse="xml"/>
  <xi:include href="s4s_tune.xml" parse="xml"/>
  <xi:include href="s4s_access.xml" parse="xml"/>
  <xi:include href="s4s_encrypt.xml" parse="xml"/>

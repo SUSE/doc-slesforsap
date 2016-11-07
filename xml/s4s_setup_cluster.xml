@@ -1,0 +1,685 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sect1
+[
+  <!ENTITY % entities SYSTEM "entity-decl.ent">
+    %entities;
+]>
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="cha.s4s.cluster">
+ <title>Setting Up an &hana; Cluster</title>
+ <remark>
+  The following procedure (and preceding headline) should include &s4hd;
+  everywhere - but that is not readable. - sknorr, 2016-11-11
+ </remark>
+ <para>
+  You can use a &yast; wizard to set up &hana; or &s4hd; clusters according
+  to best practices, including &hana; system replication. A summary of the
+  setup options is given in <xref linkend="sec.s4s.hana-replicate"/>.
+ </para>
+
+ <para>
+  The following <emphasis>Best Practices</emphasis> from the &sles4sap;
+  Resource Library (&reslibrary;) contain setup instructions:
+ </para>
+ <itemizedlist>
+  <listitem>
+   <formalpara>
+    <title>Performance-optimized scenario and multi-tier/chained scenario:</title>
+    <para>
+     <citetitle>Setting up a SAP HANA SR Performance Optimized
+     Infrastructure</citetitle>
+    </para>
+   </formalpara>
+   <para>
+   </para>
+  </listitem>
+  <listitem>
+   <formalpara>
+    <title>Cost-optimized scenario:</title>
+    <para>
+     <citetitle>Setting up a SAP HANA SR Cost Optimized
+     Infrastructure</citetitle>
+    </para>
+   </formalpara>
+  </listitem>
+ </itemizedlist>
+ <important>
+  <title>Wizard Can Only Be Used for Initial Configuration</title>
+  <para>
+   The &yast; wizard described in the following can only be used for the
+   initial cluster configuration.
+  </para>
+  <para>
+   To reconfigure a cluster, use the separate
+   &yast; module <guimenu>Cluster</guimenu> (available from package
+   <package>yast2-cluster</package>).
+   For more information about its usage, see <citetitle>&admin;, Part
+   <quote>Installation, Setup and Upgrade</quote>, Chapter <quote>Using the
+   &yast; Cluster Module</quote></citetitle> at &ha-docaddress;.
+  </para>
+ </important>
+ <sect1 xml:id="sec.s4s.hana-cluster.prerequisite">
+  <title>Prerequisites</title>
+  <para>
+   The following procedure has prerequisites:
+  </para>
+  <itemizedlist>
+   <listitem>
+    <para>
+     Two machines which both have an &hana; installation created by the &sapwiz;.
+    </para>
+    <para>
+     In the case of a multi-tier/chained scenario, both machines need to be
+     on the same L2 network (subnet) while there is a third machine elsewhere.
+    </para>
+    <remark>
+     Same L2 network for first two for all setups? - sknorr, 2016-11-16
+    </remark>
+   </listitem>
+   <listitem>
+    <para>
+     The machines are not yet set up as a high-availability cluster.
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     <phrase role="productname">openSSH</phrase> is running on both machines
+     and the nodes can reach each other via SSH.
+    </para>
+    <para>
+     For more information about SSH, see <citetitle>&secguide;, Part
+     <quote>Network Security</quote>, Chapter <quote>SSH: Secure Network
+     Operations</quote></citetitle> at &docaddress;.
+    </para>
+    <remark>
+     Not sure if that is already covered by the HANA Firewall instruction
+     below... - sknorr, 2016-11-25
+    </remark>
+   </listitem>
+   <listitem>
+    <para>
+     A disk device that is available to both nodes under the same path for
+     SBD. It must not use host-based RAID, cLVM2 or reside on a DRBD
+     instance. The device can have a small size, for example, 100&nbsp;MB.
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     You have created either of the following:
+    </para>
+    <itemizedlist>
+     <listitem>
+      <para>
+       A key in the &hana; Secure User Store on the primary node
+      </para>
+     </listitem>
+     <listitem>
+      <para>
+       An initial &hana; backup on the primary node
+      </para>
+     </listitem>
+    </itemizedlist>
+   </listitem>
+   <listitem>
+    <para>
+     The package <package>yast2-sap-ha</package> is installed on both
+     the promary and the secondary node.
+    </para>
+    <remark>
+     Really install on both nodes? - sknorr, 2016-11-16
+    </remark>
+   </listitem>
+   <listitem>
+    <para>
+     HANA-Firewall is set up on both computers with the rules
+     <option>HANA_HIGH_AVAILABILITY</option> and
+     <option>HANA_SYSTEM_REPLICATION</option> on all relevant network
+     interfaces.
+    </para>
+    <para>
+     For information about setting up HANA-Firewall, see
+     <xref linkend="sec.s4s.configure.firewall-hana"/>.
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     <emphasis>Cost-optimized scenario only:</emphasis> The secondary node has a second &hana;
+     installation which is not running.
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     <emphasis>Cost-optimized scenario only:</emphasis> For the
+     non-production &hana; instance, you have created a &hana; Secure User
+     Store key <literal>QASSAPDBCTRL</literal> for monitoring purposes. For
+     more information, see <citetitle>SAP HANA SR Cost Optimized Scenario,
+     Chapter <quote>Installing the SAP HANA Databases on both cluster
+     nodes</quote>, <quote>Postinstallation configuration</quote>, Section
+     <quote>Install the non-productive SAP HANA database
+     (QAS)</quote></citetitle> at &reslibrary;.
+    </para>
+   </listitem>
+  </itemizedlist>
+ </sect1>
+ <sect1 xml:id="sec.s4s.hana-cluster.wizard">
+  <title>Setup</title>
+  <procedure xml:id="pro.s4s.hana-cluster">
+   <para>
+    The following procedure needs to be executed on the primary node (also
+    called the <quote>master</quote>). Before proceeding, make sure the
+    prerequisites listed in
+    <xref linkend="sec.s4s.hana-cluster.prerequisite"/> are fulfilled.
+   </para>
+   <step>
+    <para>
+     Open the &yast; control center. In it, click <guimenu>HA Setup for SAP
+     Products</guimenu> in the category
+     <guimenu>High Availability</guimenu>.
+    </para>
+   </step>
+   <step>
+    <para>
+     <remark>Need to check NetWeaver behavior - sknorr, 2016-11-11</remark>
+     The wizard will now detect whether the system runs an &hana;
+     <!-- or &nw; --> instance.
+    </para>
+    <para>
+     If an &hana; instance has been detected, you can choose between the
+     scale-up scenarios <guimenu>Performance-optimized</guimenu>,
+     <guimenu>Cost-optimized</guimenu>, or
+     <guimenu>Chained (multi-tier)</guimenu>. For information about
+     these scale-up scenarios, see <xref linkend="sec.s4s.hana-replicate"/>.
+    </para>
+    <para>
+     Continue with <guimenu>Next</guimenu>.
+    </para>
+    <informalfigure>
+     <mediaobject>
+      <imageobject role="html">
+       <imagedata fileref="s4s-cluster-scenario.png" format="PNG"/>
+      </imageobject>
+      <imageobject role="fo">
+       <imagedata fileref="s4s-cluster-scenario.png" width="75%" format="PNG"/>
+      </imageobject>
+      <textobject role="description">
+       <phrase>Screenshot of replication scenario selection</phrase>
+      </textobject>
+     </mediaobject>
+    </informalfigure>
+   </step>
+   <step>
+    <para>
+     This step of the wizard presents a list of prerequisites for the chosen
+     scale-up scenario. These prerequisites are the same as those presented in
+     <xref linkend="sec.s4s.hana-cluster.prerequisite"/>.
+    </para>
+    <para>
+     Continue with <guimenu>Next</guimenu>.
+    </para>
+   </step>
+   <step>
+    <para>
+     The next step lets you configure the communication layer of your cluster.
+    </para>
+    <itemizedlist>
+     <listitem>
+      <para>
+       Provide a name for the cluster.
+      </para>
+     </listitem>
+     <listitem>
+      <para>
+       The default transport mode <guimenu>Unicast</guimenu> is usually
+       appropriate.
+      </para>
+     </listitem>
+     <listitem>
+      <para>
+       Under <guimenu>Number of rings</guimenu>, a single communication ring
+       usually suffices.
+      </para>
+      <para>
+       For redundancy, it is often better to use network interface bonding
+       instead of multiple communication rings. For more information, see
+       <citetitle>&admin;, Part <quote>Configuration and
+       Administration</quote>, Chapter <quote>Network Device
+       Bonding</quote></citetitle> at &ha-docaddress;.
+      </para>
+     </listitem>
+     <listitem>
+      <para>
+       From the list of communication rings, configure each enabled ring. To
+       do so, click <guimenu>Edit selected</guimenu>, then select a network
+       mask (<guimenu>IP address</guimenu>) and a port
+       (<guimenu>Port number</guimenu>) to communicate over.
+      </para>
+      <para>
+       Finish with <guimenu>OK</guimenu>.
+      </para>
+     </listitem>
+     <listitem>
+      <para>
+       Additionally, decide whether to enable the configuration
+       synchronization service Csync2 and Corosync secure authentication
+       using HMAC/SHA1.
+      </para>
+      <para>
+       For more information about Csync2, see
+       <citetitle>&admin; Part <quote>Installation, Setup and
+       Upgrade</quote>, Chapter <quote>Using the &yast; Cluster
+       Module</quote>, Section <quote>Transferring the Configuration to All
+       Nodes</quote></citetitle> at &ha-docaddress;.
+      </para>
+      <para>
+       For more information about
+       Corosync secure authentication, see
+       <citetitle>&admin; Part <quote>Installation, Setup and
+       Upgrade</quote>, Chapter <quote>Using the &yast; Cluster
+       Module</quote>, Section <quote>Defining Authentication
+       Settings</quote></citetitle> at &ha-docaddress;.
+      </para>
+     </listitem>
+    </itemizedlist>
+    <para>
+     Proceed with <guimenu>Next</guimenu>.
+    </para>
+    <informalfigure>
+     <mediaobject>
+      <imageobject role="html">
+       <imagedata fileref="s4s-cluster-communication.png" format="PNG"/>
+      </imageobject>
+      <imageobject role="fo">
+       <imagedata fileref="s4s-cluster-communication.png" width="75%" format="PNG"/>
+      </imageobject>
+      <textobject role="description">
+       <phrase>Screenshot of communication layer configuration</phrase>
+      </textobject>
+     </mediaobject>
+    </informalfigure>
+   </step>
+   <step>
+    <para>
+     The wizard will now check whether it can connect to the secondary
+     machine using SSH. If it can, it will ask for the
+     <systemitem class="username">root</systemitem> password to the machine.
+    </para>
+    <para>
+     Enter the <systemitem class="username">root</systemitem> password.
+    </para>
+    <para>
+     The next time, the primary machine needs to connect to the secondary
+     machine, it will connect using an SSH certificate instead of a password.
+    </para>
+   </step>
+   <step>
+    <para>
+     For both machines, set up the host names and IP address (for each ring).
+    </para>
+    <para>
+     Host names must match the host names given in &hana;.
+    </para>
+    <para>
+     Host names of all cluster servers must also be added to the file
+     <filename>/etc/hosts</filename>, for this purpose, activate
+     <guimenu>Append to /etc/hosts</guimenu>.
+    </para>
+    <para>
+     Proceed with <guimenu>Next</guimenu>.
+    </para>
+   </step>
+   <step>
+    <para>
+     If NTP is not yet set up, do so. This avoid the two machines from running
+     into issues because of time differences.
+    </para>
+    <substeps>
+     <step>
+      <para>
+        Click <guimenu>Reconfigure</guimenu>.
+      </para>
+     </step>
+     <step>
+      <para>
+       On the tab <guimenu>General Settings</guimenu>, activate <guimenu>Now and on Boot</guimenu>.
+      </para>
+     </step>
+     <step>
+      <para>
+       Add a time server by clicking <guimenu>Add</guimenu>. Click
+       <guimenu>Server</guimenu> and <guimenu>Next</guimenu>. Then specify the
+       IP address of a time server outside of the cluster. Test the connection to the
+       server by clicking <guimenu>Test</guimenu>.
+      </para>
+      <para>
+       To use a public time server, click
+       <menuchoice><guimenu>Select</guimenu>
+       <guimenu>Public server</guimenu></menuchoice> and select a time server.
+       Finish with <guimenu>OK</guimenu>.
+      </para>
+      <para>
+       Proceed with <guimenu>OK</guimenu>.
+      </para>
+     </step>
+     <step>
+      <para>
+       On the tab <guimenu>Security Settings</guimenu>, activate
+       <guimenu>Open Port in Firewall</guimenu>.
+      </para>
+     </step>
+     <step>
+      <para>
+       Proceed with <guimenu>Next</guimenu>.
+      </para>
+     </step>
+    </substeps>
+   </step>
+   <step>
+    <para>
+     In the next step, choose fencing options. The only supported fencing
+     mechanism is currently SBD (<emphasis>STONITH block
+     device</emphasis>). SBD uses a disk device to store cluster state to
+     avoid split-brain situations.
+    </para>
+    <para>
+     The chosen device must be available from all machines in the cluster
+     under the same path. It must not use host-based RAID, cLVM2 or reside on
+     a DRBD instance. The device can have a small size, for example,
+     100&nbsp;MB.
+    </para>
+    <warning>
+     <title>Data on Device Will Be Lost</title>
+     <para>
+      All data on the chosen SBD device or devices will be deleted.
+     </para>
+    </warning>
+    <para>
+     To define a device to use, click <guimenu>Add</guimenu>, then choose an
+     identification method such as <guimenu>by-uuid</guimenu> and select the
+     appropriate device. Click <guimenu>OK</guimenu>.
+    </para>
+    <para>
+     To define additional SBD command-line parameters, add them to
+     <guimenu>SBD options</guimenu>.
+    </para>
+    <para>
+     If your machines reboot particularly fast, activate <guimenu>Delay SBD
+     start</guimenu>.
+    </para>
+    <para>
+     For more information about fencing, see the
+     <citetitle>&admin;</citetitle> at &ha-docaddress;.
+    </para>
+    <para>
+     Proceed with <guimenu>Next</guimenu>.
+    </para>
+   </step>
+   <step>
+    <para>
+     The following page allows configuring watchdogs which protect against
+     the failure of the SBD daemon itself and force a reboot of the machine
+     in such a case.
+    </para>
+    <para>
+     It also lists watchdogs already configured using &yast; and watchdogs that
+     are currently loaded (as detected by <command>lsmod</command>).
+    </para>
+    <para>
+     To configure a watchdog, use <guimenu>Add</guimenu>. Then choose
+     the correct watchdog for your hardware and leave the dialog with
+     <guimenu>OK</guimenu>.
+    </para>
+    <para>
+     For testing, you can use the watchdog
+     <literal>softdog</literal>. However, <literal>softdog</literal> is not
+     supported in production environments. For more information about
+     selecting watchdogs, see <citetitle>&admin;, Part <quote>Storage and
+     Data Replication</quote>, Chapter
+     <quote>Storage Protection</quote>, Section
+     <quote>Conceptual Overview</quote>, Section <quote>Setting Up
+     Storage-based Protection</quote>, Section <quote>Setting up the
+     Watchdog</quote></citetitle> at &ha-docaddress;.
+    </para>
+    <para>
+     Proceed with <guimenu>Next</guimenu>.
+    </para>
+   </step>
+   <step>
+    <para>
+     Set up the parameters for your &hana; installation or installations. If
+     you have selected the cost-optimized scenario, additionally, fill out
+     details related to the non-production &hana; instance.
+    </para>
+    <variablelist>
+     <varlistentry>
+      <term>Production &hana; Instance</term>
+      <listitem>
+       <itemizedlist>
+        <listitem>
+         <para>
+          Make sure that the <guimenu>System ID</guimenu> and
+          <guimenu>Instance number</guimenu> match those of your &hana;
+          configuration.
+         </para>
+        </listitem>
+        <listitem>
+         <para>
+          <guimenu>Replication mode</guimenu> and
+          <guimenu>Operation mode</guimenu> usually do not need to be changed.
+         </para>
+         <para>
+          For more information about these parameters, see the
+          <citetitle>HANA Administration Guide</citetitle> provided to you by
+          &sap;.
+         </para>
+        </listitem>
+        <listitem>
+         <para>
+          Under <guimenu>Virtual IP address</guimenu>, specify a virtual IP
+          address for the primary &hana; instance. Under <guimenu>Virtual IP
+          Mask</guimenu>, set the length of the subnetwork mask to be applied to
+          the <guimenu>Virtual IP address</guimenu>.
+         </para>
+         <remark>
+          I guess this needs clarification... - sknorr, 2016-11-21
+         </remark>
+        </listitem>
+        <listitem>
+         <para>
+          <guimenu>Prefer site takeover</guimenu> defines whether the secondary
+          instance should takeover the job of the primary instance automatically
+          (<guimenu>true</guimenu>). Alternatively, the cluster can wait for
+          &hana; to restart on the primary machine.
+         </para>
+        </listitem>
+        <listitem>
+         <para>
+          <guimenu>Automatic registration</guimenu> determines whether primary
+          and secondary machine should switch roles after a takeover.
+         </para>
+        </listitem>
+        <listitem>
+         <para>
+          Specify the site names for the production &hana; instance on the
+          two nodes in <guimenu>Site name 1</guimenu> and <guimenu>Site name
+          2</guimenu>.
+         </para>
+        </listitem>
+        <listitem>
+         <para>
+          If you have not previously created a backup, activate
+          <guimenu>Create initial backup</guimenu>. Under
+          <guimenu>Backup settings</guimenu>, you can configure the
+          <guimenu>File name</guimenu> and the <guimenu>Secure store
+          key</guimenu> for the backup.
+         </para>
+         <para>
+          For more information, see the documentation provided to you by &sap;.
+         </para>
+         <remark>
+          Hmm..? What are the consequences? - sknorr, 2016-11-18
+         </remark>
+         <!-- <warning>
+          <title>Not Creating a Backup</title>
+          <para>
+           Data loss?
+          </para>
+         </warning> -->
+        </listitem>
+        <listitem>
+         <para>
+          <emphasis>Cost-optimized scenario only:</emphasis> Within
+          <guimenu>Production system constraints</guimenu>, configure how the
+          production instance of &hana; should behave while inactive on the
+          secondary node.
+         </para>
+         <para>
+          Setting the <guimenu>Global allocation limit</guimenu> allows
+          directly limiting memory usage. Activating <guimenu>Preload column
+          tables</guimenu> will also increase memory usage.
+         </para>
+         <remark>
+          Is there a recommended percentage of RAM for the allocation here? -
+          sknorr, 2016-11-29
+         </remark>
+        </listitem>
+       </itemizedlist>
+      </listitem>
+     </varlistentry>
+     <varlistentry>
+      <term>Non-production &hana; Instance (cost-optimized scenario only)</term>
+      <listitem>
+       <itemizedlist>
+        <listitem>
+         <para>
+          Make sure that the <guimenu>System ID</guimenu> and
+          <guimenu>Instance number</guimenu> match those of your &hana;
+          configuration.
+         </para>
+         <para>
+          These parameters are needed to allow montoring the status of the
+          non-production &hana; instance using the SAPInstance resource agent.
+         </para>
+        </listitem>
+        <listitem>
+         <para>
+          Generate a hook script for stopping the non-production instance and
+          starting the production instance and removing the constraints on
+          the production system. The script is written in Python 2 and can
+          be modified as necessary later.
+         </para>
+         <para>
+          Click <guimenu>Hook script</guimenu> and then set up the correct
+          user name and password for the database. Then click
+          <guimenu>OK</guimenu>.
+         </para>
+         <para>
+          You can now manually verify and change the details of the generated
+          hook script. When you are done, click <guimenu>OK</guimenu>.
+         </para>
+        </listitem>
+       </itemizedlist>
+      </listitem>
+     </varlistentry>
+    </variablelist>
+    <para>
+     Proceed with <guimenu>Next</guimenu>.
+    </para>
+    <figure>
+     <title>&hana; Options (Cost-Optimized Scenario)</title>
+     <mediaobject>
+      <imageobject role="html">
+       <imagedata fileref="s4s-cluster-hana-option.png" format="PNG"/>
+      </imageobject>
+      <imageobject role="fo">
+       <imagedata fileref="s4s-cluster-hana-option.png" width="75%" format="PNG"/>
+      </imageobject>
+      <textobject role="description">
+       <phrase>Screenshot of &hana; options (cost-optimized scenario)</phrase>
+      </textobject>
+     </mediaobject>
+    </figure>
+   </step>
+   <step>
+    <para>
+     On the page <guimenu>High-Availability Configuration
+     Overview</guimenu>, check that the setup is correct.
+    </para>
+    <para>
+     To change any of the configuration details, return to the appropriate
+     wizard page by clicking one of the underlined headlines.
+    </para>
+    <para>
+     Proceed with <guimenu>Install</guimenu>.
+    </para>
+   </step>
+   <step>
+    <para>
+     When asked whether to install additional software, confirm with
+     <guimenu>Install</guimenu>.
+    </para>
+   </step>
+   <step>
+    <para>
+     After the setup is done, there is a screen showing a log of the cluster
+     setup.
+    </para>
+    <para>
+     To close the dialog, click <guimenu>Finish</guimenu>.
+    </para>
+   </step>
+   <step>
+    <para>
+     <emphasis>Multi-tier/chain scenario only:</emphasis> Register the
+     out-of-cluster node for system replication:
+    </para>
+    <screen>
+&prompt.root;<command>hdbnsutil -sr_register --remoteHost=<replaceable>SECONDARY_HOST_NAME</replaceable> \
+--remoteInstance=<replaceable>INSTANCE_NUMBER</replaceable> --replicationMode=async \
+--name=<replaceable>SITE_NAME</replaceable></command>
+    </screen>
+   </step>
+  </procedure>
+ </sect1>
+ <sect1 xml:id="sec.s4s.hawk">
+  <title>Using &hawk;</title>
+  <para>
+   After you have set up the cluster using the wizard, you can open &hawk;.
+   directly from the last screen of the <guimenu>HA Setup for SAP
+   Products</guimenu> wizard.
+  </para>
+  <para>
+   To revisit &hawk;, open a browser and as the URL, enter the IP address
+   or host name of any cluster node running the &hawk; Web service.
+   Alternatively, enter the virtual IP address you configured in
+   <xref linkend="sec.s4s.hana-cluster.wizard"/>.
+  </para>
+  <screen>https://<replaceable>HAWKSERVER</replaceable>:7630/</screen>
+  <para>
+   On the &hawk; login screen, use the following login credentials:
+  </para>
+  <itemizedlist>
+   <listitem>
+    <para>
+     <guimenu>Username</guimenu>: <systemitem class="username">hacluster</systemitem>
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     <guimenu>Password</guimenu>: <literal>linux</literal>
+    </para>
+   </listitem>
+  </itemizedlist>
+  <important>
+   <title>Secure Password</title>
+   <para>
+    Replace the default password with a secure one as soon as possible:
+   </para>
+   <screen>&prompt.root;<command>passwd hacluster</command></screen>
+  </important>
+  <para>
+   For more information about &hawk;, see <citetitle>&admin;,
+   Part <quote>Configuration and Administration</quote>, Chapter
+   <quote>Configuring and Managing Cluster Resources with
+   &hawk;</quote></citetitle> (&ha-docaddress;).
+  </para>
+ </sect1>
+</chapter>

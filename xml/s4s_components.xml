@@ -234,9 +234,9 @@
     The wizard is part of the package <package>yast2-sap-ha</package> and can
     be started using &yast;, via <guimenu>HA Setup for SAP Products</guimenu>.
    </para>
-   <!--<para>
-    For more information, see <xref linkend="cha.s4s.configure.hana-cluster"/>.
-   </para>-->
+   <para>
+    For more information, see <xref linkend="cha.s4s.cluster"/>.
+   </para>
   </sect3>
   <sect3 xml:id="sec.s4s.hana-replicate.more">
    <title>For More Information</title>
@@ -251,7 +251,7 @@
     </listitem>
     <listitem>
      <para>
-      The <emphasis>Best Practice Guides</emphasis> in the Resource Library
+      The <emphasis>Best Practices</emphasis> in the Resource Library
       at &reslibrary;.
       In particular, see <citetitle>Setting up a SAP HANA SR performance
       optimized infrastructure</citetitle> and <citetitle>Setting up a SAP
