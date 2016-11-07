@@ -117,24 +117,24 @@ vm.pagecache_limit_ignore_dirty = <replaceable>2</replaceable></screen>
   <title>Tuning Systems with <command>saptune</command></title>
 
   <remark>
-   Question@hguo: Is "saptune solution NETWEAVER" the same as "tuned-adm
+   Is "saptune solution NETWEAVER" the same as "tuned-adm
    profile sap-netweaver" (sap#1275776, sap#1557506, sap#1984787)? Why is the
    default tuning solution still "tuned-adm profile sap-netweaver" (sap#941735,
    sap#1557506)? - sknorr, 2016-08-11
   </remark>
   <remark>
-   Question@hguo: Why can I successfully revert a profile that was not applied?
+   Why can I successfully revert a profile that was not applied?
    (I.e. applied NETWEAVER, reverted HANA, but no warning message given.)
    - sknorr, 2016-08-11
   </remark>
   <remark>
-   Remark@hguo: saptune message typo: "_Plese_ note: the reverted note..."
+   saptune message typo: "_Plese_ note: the reverted note..."
    - sknorr, 2016-08-11
   </remark>
 
   <para>
    Using <command>saptune</command>, you can
-   tune a system for &netweaver; and &hana;/&b1; applications. This method
+   tune a system for &netweaver;, &hana;/&b1;, and &s4h; applications. This method
    relies on the system tuning service <systemitem>tuned</systemitem>.
   </para>
   <para>
