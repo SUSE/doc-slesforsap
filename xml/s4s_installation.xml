@@ -455,7 +455,7 @@
      <citetitle>Deployment Guide,
      Chapter <quote>Installation with YaST</quote>,
      Section <quote>Password for the System Administrator
-     <systemitem class="username">root</systemitem></quote></citetitle>
+     <!--<systemitem class="username">root</systemitem>-->root</quote></citetitle>
      (&docaddress;).
     </para>
     <para>
