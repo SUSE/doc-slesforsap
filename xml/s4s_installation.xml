@@ -604,12 +604,12 @@
        <literal>install=<replaceable>SERVER</replaceable>/<replaceable>DIRECTORY</replaceable></literal>.
       </para>
      </listitem>
-     <listitem>
+     <!--<listitem>
       <para>
        Add the parameter
        <literal>dud=http://<replaceable>SERVER</replaceable>/<replaceable>DIRECTORY</replaceable>/sap.dud</literal>.
       </para>
-     </listitem>
+     </listitem>-->
     </itemizedlist>
    </step>
    <step>
