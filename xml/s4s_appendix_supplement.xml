@@ -31,8 +31,8 @@
    XML file, but with some restrictions.
   </para>
   <para>
-   The restrictions relate to the fact that only the parts for the second
-   stage of the installation can be run, because the first stage was
+   The restrictions exist because only the parts of the XML that are related
+   to the second stage of the installation are run, as the first stage was
    executed before.
   </para>
   <para>

@@ -269,7 +269,7 @@
       <formalpara>
        <title>A &sls; Installation</title>
        <para>
-        To install a &slsa; system without SAP-specific customizations,
+        To install a &slsa; system without SAP-specific customization,
         choose <guimenu>Proceed with standard SLES installation</guimenu>.
         For details, see
         <citetitle>
@@ -297,7 +297,7 @@
       <formalpara>
        <title>A &sles4sap; Installation</title>
        <para>
-        To install a &slsa; system with SAP-specific customizations,
+        To install a &slsa; system with SAP-specific customization's,
         choose
         <guimenu>Proceed with standard SLES for SAP Applications
         installation</guimenu>.
@@ -319,7 +319,7 @@
         </para>
         <para>
          For more information about connecting via RDP, see
-         <xref linkend="sec.s4s.configure.rdp"/>.
+         <xref linkend="cha.s4s.configure.rdp"/>.
         </para>
        </listitem>
       </itemizedlist>

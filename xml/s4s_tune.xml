@@ -152,7 +152,7 @@ vm.pagecache_limit_ignore_dirty = <replaceable>2</replaceable></screen>
   </para>
 
   <procedure xml:id="pro.s4s.tune">
-   <title>Tuning for a &sap; Application</title>
+   <title>Tuning for an &sap; Application</title>
    <step>
     <para>
      To tune a system, first find a tuning profile using
@@ -168,7 +168,7 @@ vm.pagecache_limit_ignore_dirty = <replaceable>2</replaceable></screen>
       <formalpara>
        <title><literal>HANA</literal></title>
        <para>
-        Profile for servers hosting only a &hana; database.
+        Profile for servers hosting only an &hana; database.
        </para>
       </formalpara>
      </listitem>
@@ -184,7 +184,7 @@ vm.pagecache_limit_ignore_dirty = <replaceable>2</replaceable></screen>
       <formalpara>
        <title><literal>NETWEAVER</literal></title>
        <para>
-        Profile for servers hosting a &netweaver; application.
+        Profile for servers hosting an &netweaver; application.
        </para>
       </formalpara>
      </listitem>

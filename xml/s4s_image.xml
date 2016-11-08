@@ -129,7 +129,7 @@
     <para>
      The service <systemitem>xrdp</systemitem> is started automatically, so
      you can connect to the machine via RDP. For more information, see
-     <xref linkend="sec.s4s.configure.rdp"/>.
+     <xref linkend="cha.s4s.configure.rdp"/>.
     </para>
    </listitem>
   </itemizedlist>

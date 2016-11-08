@@ -100,7 +100,17 @@
    </varlistentry>
    <varlistentry>
     <term>
-      <xref linkend="sec.s4s.configure.rdp" xrefstyle="SectTitleOnPage"/>
+      <xref linkend="cha.s4s.configure.cryptctl" xrefstyle="SectTitleOnPage"/>
+    </term>
+    <listitem>
+     <para>
+      Added section (FATE#320367).
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term>
+      <xref linkend="cha.s4s.configure.rdp" xrefstyle="SectTitleOnPage"/>
     </term>
     <listitem>
      <para>
