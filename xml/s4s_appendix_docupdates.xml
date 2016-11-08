@@ -64,6 +64,16 @@
   <variablelist>
    <varlistentry>
     <term>
+      <xref linkend="sec.s4s.component" xrefstyle="SectTitleOnPage"/>
+    </term>
+    <listitem>
+     <para>
+      Updated list of components.
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term>
       <xref linkend="sec.s4s.repository" xrefstyle="SectTitleOnPage"/>
     </term>
     <listitem>
@@ -81,6 +91,16 @@
      <para>
       Updated chapters to match new installation wizards.
       Added list of supported &sap; products (FATE#320454).
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term>
+      <xref linkend="sec.partition.command" xrefstyle="SectTitleOnPage"/>
+    </term>
+    <listitem>
+     <para>
+      Added section (bsc#929623).
      </para>
     </listitem>
    </varlistentry>
@@ -132,11 +152,12 @@
    </varlistentry>
    <varlistentry>
     <term>
-      <xref linkend="sec.partition.command" xrefstyle="SectTitleOnPage"/>
+      <xref linkend="app.s4s.autoyast-partition" xrefstyle="SectTitleOnPage"/>
     </term>
     <listitem>
      <para>
-      Added section (bsc#929623).
+      Moved parts of <xref linkend="sec.s4s.partition.sap"/> that related to
+      &ay; only to a new section.
      </para>
     </listitem>
    </varlistentry>
