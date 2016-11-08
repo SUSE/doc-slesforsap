@@ -97,11 +97,12 @@
  </sect2>
 
  <sect2 xml:id="sec.s4s.hana-replicate">
-  <title>HA Resource Agents for &hana; System Replication</title>
+  <title>Simplified &hana; System Replication Setup</title>
 
   <para>
    &sles4sap; supports &hana; System Replication using components of &sleha;
-   and two additional resource agents (RA).
+   and two additional resource agents (RA). Additionally, &s4s; ships with
+   a &yast; wizard that simplifies the initial setup.
   </para>
 
   <sect3 xml:id="sec.s4s.hana-ra">
@@ -225,6 +226,18 @@
     normal (stateless) clone.
    </para>
   </sect3>
+  <sect3 xml:id="sec.s4s.hana-replicate.wizard">
+   <title>&yast; Wizard to Set Up &hana; Clusters</title>
+   <para>
+    &s4s; now additionally ships a &yast; wizard that manages the
+    initial setup of such clusters according to best practices.
+    The wizard is part of the package <package>yast2-sap-ha</package> and can
+    be started using &yast;, via <guimenu>HA Setup for SAP Products</guimenu>.
+   </para>
+   <!--<para>
+    For more information, see <xref linkend="cha.s4s.configure.hana-cluster"/>.
+   </para>-->
+  </sect3>
   <sect3 xml:id="sec.s4s.hana-replicate.more">
    <title>For More Information</title>
    <para>
@@ -238,10 +251,11 @@
     </listitem>
     <listitem>
      <para>
-      The <emphasis>White Papers</emphasis> and <emphasis>Best Practice
-      Guides</emphasis> in the Resource Library at &reslibrary;.
-      In particular, see
-      <citetitle>Automate your SAP HANA System Replication Failover</citetitle>.
+      The <emphasis>Best Practice Guides</emphasis> in the Resource Library
+      at &reslibrary;.
+      In particular, see <citetitle>Setting up a SAP HANA SR performance
+      optimized infrastructure</citetitle> and <citetitle>Setting up a SAP
+      HANA SR cost optimized infrastructure</citetitle>.
      </para>
     </listitem>
    </itemizedlist>
@@ -384,7 +398,7 @@
   </sect3>
 
   <sect3 xml:id="sec.s4s.component.pattern">
-   <title>Patterns Providing Dependencies of Various SAP Applications</title>
+   <title>Patterns Providing Dependencies of SAP Applications</title>
    <para>
     To simplify working with software dependencies of SAP applications, &suse;
     has created patterns that combine relevant dependency RPM packages for
