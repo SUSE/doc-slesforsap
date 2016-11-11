@@ -20,7 +20,7 @@
   <listitem>
    <para>
     <xref linkend="sec.s4s.partition.sap" xrefstyle="select:title"/> (during
-    the installation of the SAP product)
+    the installation of the &sap; product)
    </para>
   </listitem>
  </orderedlist>
@@ -42,7 +42,7 @@
    <listitem>
     <para>
      <filename>/dev/system/root</filename>: by default 60 GB to account for
-     the operating system and SAP media
+     the operating system and &sap; media
     </para>
    </listitem>
    <listitem>
@@ -62,10 +62,10 @@
  </sect2>
 
  <sect2 xml:id="sec.s4s.partition.sap">
-  <title>Partitioning for the SAP System (stage 2)</title>
+  <title>Partitioning for the &sap; System (stage 2)</title>
 
   <para>
-   The partitioning for the SAP system can be created by:
+   The partitioning for the &sap; system can be created by:
   </para>
   <itemizedlist>
    <listitem>

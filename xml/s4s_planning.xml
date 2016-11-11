@@ -40,9 +40,9 @@
      <para>
       The &sls; operating system itself requires a minimum of 512 MB of total
       RAM and a minimum of 256 MB of RAM per CPU core.
-      However, any SAP application you install needs additional RAM resources.
+      However, any &sap; application you install needs additional RAM resources.
       For more information, see the
-      <citetitle>Sizing Guidelines</citetitle> from SAP for your application.
+      <citetitle>Sizing Guidelines</citetitle> from &sap; for your application.
      </para>
     </listitem>
    </varlistentry>
@@ -105,7 +105,7 @@
    </listitem>
    <listitem>
     <para>
-     &sapwiz;, part 1: Copying all required SAP media to the
+     &sapwiz;, part 1: Copying all required &sap; media to the
      local disk or selecting a shared storage medium to use.
      See <xref linkend="sec.s4s.install.sap.product"/>, in particular
      <xref linkend="st.s4s.copy-master" xrefstyle="select:title"/>.
@@ -121,7 +121,7 @@
    </listitem>
    <listitem>
     <para>
-     &sapwiz;, part 3: Running the SAP Installer.
+     &sapwiz;, part 3: Running the &sap; Installer.
      See <xref linkend="sec.s4s.install.sap.product"/>, in particular
      <xref linkend="st.s4s.sapinst" xrefstyle="select:title"/>.
     </para>
@@ -154,14 +154,14 @@
    </listitem>
    <listitem>
     <para>
-     Install the operating system (&sls;), copy SAP media, and collect
-     SAP installation parameters.
+     Install the operating system (&sls;), copy &sap; media, and collect
+     &sap; installation parameters.
     </para>
    </listitem>
   </itemizedlist>
 
   <para>
-   Then, create disk images, copy them to other systems, and adjust SAP
+   Then, create disk images, copy them to other systems, and adjust &sap;
    installation parameters. Finally, finish the installation on each machine
    individually.
   </para>
@@ -195,30 +195,30 @@
     </listitem>
    </varlistentry>
    <varlistentry>
-    <term>SAP Application</term>
+    <term>&sap; Application</term>
     <listitem>
      <para>
-      The installation of an SAP application generally requires:
+      The installation of an &sap; application generally requires:
      </para>
      <itemizedlist>
       <listitem>
        <para>
-        SAP SID
+        &sap; SID
        </para>
       </listitem>
       <listitem>
        <para>
-        SAP Instance Number
+        &sap; Instance Number
        </para>
       </listitem>
       <listitem>
        <para>
-        A password for the SAP application
+        A password for the &sap; application
        </para>
       </listitem>
      </itemizedlist>
      <para>
-      Depending on the SAP application you are installing, more parameters may be
+      Depending on the &sap; application you are installing, more parameters may be
       necessary, such as T-Shirt Sizing or parameters for virtual networking.
      </para>
     </listitem>

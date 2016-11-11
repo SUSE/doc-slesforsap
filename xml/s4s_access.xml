@@ -25,7 +25,7 @@
   <itemizedlist>
    <listitem>
     <para>
-     SAP application
+     &sap; application
     </para>
    </listitem>
    <listitem>
@@ -41,9 +41,9 @@
   </para>
 
   <para>
-   SAP applications require many open ports and port ranges in the firewall.
+   &sap; applications require many open ports and port ranges in the firewall.
    The exact numbers depend on the selected instance. For more information,
-   see the documentation provided to you by SAP.
+   see the documentation provided to you by &sap;.
   </para>
  </sect1>
 

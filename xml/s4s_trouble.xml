@@ -20,7 +20,7 @@
   </listitem>
   <listitem>
    <para>
-    All SAP knowledge is bundled in a library. You can find its log entries in
+    All &sap; knowledge is bundled in a library. You can find its log entries in
     <filename>/var/log/SAPmedia.log</filename>.
    </para>
   </listitem>

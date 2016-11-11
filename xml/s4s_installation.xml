@@ -20,9 +20,9 @@
   <para>
    The installation workflow is a guided installation of the operating system
    with optimized
-   settings for SAP applications. During the installation workflow, you can
-   choose whether you want to install an SAP application. If so, you will be
-   asked to provide SAP installation media when the &sls; installation is
+   settings for &sap; applications. During the installation workflow, you can
+   choose whether you want to install an &sap; application. If so, you will be
+   asked to provide &sap; installation media when the &sls; installation is
    finished. You can also choose whether to install third-party extensions.
   </para>
   <para>
@@ -87,8 +87,8 @@
      <listitem>
       <para>
        Start a &slsa; installation workflow which allows you to choose whether to
-       prepare for installing SAP applications later or installing an
-       SAP application directly after the OS installation.
+       prepare for installing &sap; applications later or installing an
+       &sap; application directly after the OS installation.
       </para>
      </listitem>
     </varlistentry>
@@ -195,10 +195,10 @@
      <guimenu>Next</guimenu>.
     </para>
     <important>
-     <title>Configure Networking as Recommended by SAP</title>
+     <title>Configure Networking as Recommended by &sap;</title>
      <para>
       Make sure to configure the network connection as recommended in the
-      documentation provided to you by SAP.
+      documentation provided to you by &sap;.
      </para>
     </important>
     <para>
@@ -269,7 +269,7 @@
       <formalpara>
        <title>A &sls; Installation</title>
        <para>
-        To install a &slsa; system without SAP-specific customization,
+        To install a &slsa; system without &sap;-specific customization,
         choose <guimenu>Proceed with standard SLES installation</guimenu>.
         For details, see
         <citetitle>
@@ -297,7 +297,7 @@
       <formalpara>
        <title>A &sles4sap; Installation</title>
        <para>
-        To install a &slsa; system with SAP-specific customization's,
+        To install a &slsa; system with &sap;-specific customization,
         choose
         <guimenu>Proceed with standard SLES for SAP Applications
         installation</guimenu>.
@@ -306,7 +306,7 @@
       <itemizedlist>
        <listitem>
         <para>
-         To install an SAP Application together with the system,
+         To install an &sap; Application together with the system,
          activate <guimenu>Start the SAP Installation Wizard right after the OS
          installation</guimenu>.
         </para>
@@ -490,7 +490,7 @@
      </remark>
      <para>
       The software firewall of &sles4sapa; is enabled by default.
-      However, often, the ports your SAP product requires to be open
+      However, often, the ports your &sap; product requires to be open
       are not opened automatically.
       This means that there may be network issues until you open the required
       ports manually.
@@ -545,7 +545,7 @@
      </listitem>
      <listitem>
       <para>
-       If you chose to install an SAP application immediately after the
+       If you chose to install an &sap; application immediately after the
        operating system, the installation will continue after the reboot.
       </para>
       <para>

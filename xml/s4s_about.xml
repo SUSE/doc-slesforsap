@@ -10,8 +10,8 @@
  <abstract>
   <para>
    &sles4sapreg; is a bundle of software and services that addresses the
-   specific needs of SAP users. It is the only operating system that is
-   optimized for all SAP software solutions.
+   specific needs of &sap; users. It is the only operating system that is
+   optimized for all &sap; software solutions.
   </para>
  </abstract>
 </info>
@@ -28,12 +28,12 @@
   </listitem>
   <listitem>
    <para>
-    SAP appliances
+    &sap; appliances
    </para>
   </listitem>
   <listitem>
    <para>
-    SAP cloud deployments
+    &sap; cloud deployments
    </para>
   </listitem>
  </itemizedlist>
@@ -112,10 +112,10 @@
             </para>
           </entry>
           <entry>
-            <para><literal>SLES12-SP2-Pool</literal></para>
+            <para><literal>SLES&product-ga;-SP&product-sp;-Pool</literal></para>
           </entry>
           <entry>
-            <para><literal>SLES12-SP2-Updates</literal></para>
+            <para><literal>SLES&product-ga;-SP&product-sp;-Updates</literal></para>
           </entry>
         </row>
         <row>
@@ -126,11 +126,11 @@
           </entry>
           <entry>
             <para>
-              <literal>SLE12-SP2-SAP-Pool</literal>
+              <literal>SLE&product-ga;-SP&product-sp;-SAP-Pool</literal>
             </para>
           </entry>
           <entry>
-            <para><literal>SLE-12-SP2-SAP-Updates</literal></para>
+            <para><literal>SLE-&product-ga;-SP&product-sp;-SAP-Updates</literal></para>
           </entry>
         </row>
         <row>
@@ -140,10 +140,10 @@
             </para>
           </entry>
           <entry>
-            <para><literal>SLE-HA12-SP2-Pool</literal></para>
+            <para><literal>SLE-HA&product-ga;-SP&product-sp;-Pool</literal></para>
           </entry>
           <entry>
-            <para><literal>SLE-HA12-SP2-Updates</literal></para>
+            <para><literal>SLE-HA&product-ga;-SP&product-sp;-Updates</literal></para>
           </entry>
         </row>
       </tbody>
@@ -156,7 +156,8 @@
   </para>
   <para>
    Depending on your installation method, you may also see
-   <literal>SLE-12-SP2-SAP-12.2-0</literal> which is the installation medium.
+   <literal>SLE-&product-ga;-SP&product-sp;-SAP-&product-ga;.&product-sp;-0</literal>
+   which is the installation medium.
    It contains packages from all of the base software repositories listed
    above.
   </para>
@@ -212,17 +213,16 @@
     </listitem>
    </varlistentry>
    <varlistentry>
-    <term><emphasis>SUSE Linux Enterprise Server Priority Support for
-    SAP Applications</emphasis>
+    <term><emphasis>&sls; Priority Support for &sap; Applications</emphasis>
     </term>
     <listitem>
      <para>
-      Subscriptions for &sles4sap; include SUSE Linux Enterprise Server
-      Priority Support for SAP Applications which offers technical support for
-      &sles4sap; directly from SAP. The joint support infrastructure,
-      used by support engineers from &suse; Technical Support and SAP, is
-      based upon SAP Solution Manager and offers a seamless communication
-      with both SAP and &suse;. This <quote>One Face to the Customer</quote>
+      Subscriptions for &sles4sap; include &sls;
+      Priority Support for &sap; Applications which offers technical support for
+      &sles4sap; directly from &sap;. The joint support infrastructure,
+      used by support engineers from &suse; Technical Support and &sap;, is
+      based upon &sap; Solution Manager and offers a seamless communication
+      with both &sap; and &suse;. This <quote>One Face to the Customer</quote>
       support model reduces complexity and lowers the total cost of ownership.
      </para>
      <para>

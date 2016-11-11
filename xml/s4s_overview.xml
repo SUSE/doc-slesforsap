@@ -8,8 +8,8 @@
  <title>About This Guide</title>
 
  <para>
-  &sles4sapreg; is the reference platform for the software development of SAP.
-  It is optimized in various ways for SAP applications. This guide provides
+  &sles4sapreg; is the reference platform for the software development of &sap;.
+  It is optimized in various ways for &sap; applications. This guide provides
   detailed information about installing and customizing &sles4sap;.
  </para>
  <para>
@@ -58,7 +58,7 @@
     </term>
     <listitem>
      <para>
-      Installing SAP applications on &sles4sap;, either directly after the
+      Installing &sap; applications on &sles4sap;, either directly after the
       installation of the operating system or in a running system.
      </para>
     </listitem>

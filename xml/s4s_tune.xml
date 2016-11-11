@@ -32,7 +32,7 @@
       &netweaver; and &hana; use large amounts of memory for accelerated access
       to business data. Parts of this memory are rarely accessed. When a
       user request needs to access paged-out memory, the response time
-      is poor. It is even worse when an SAP application running on Java incurs
+      is poor. It is even worse when an &sap; application running on Java incurs
       a Java garbage collection: The system starts heavy page-in (disc I/O)
       activity and has a poor response time for an extended period of time.
      </para>

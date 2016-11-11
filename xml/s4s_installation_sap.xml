@@ -5,22 +5,22 @@
     %entities;
 ]>
 <chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="cha.s4s.install.sap">
- <title>Installing SAP Applications</title>
+ <title>Installing &sap; Applications</title>
 
  <para>
-  This section will guide you through the installation of SAP media sets you
-  received from SAP.
+  This section will guide you through the installation of &sap; media sets you
+  received from &sap;.
  </para>
  <itemizedlist>
   <listitem>
    <para>
-    If you are installing an SAP application within the installation workflow,
+    If you are installing an &sap; application within the installation workflow,
     continue with <xref linkend="sec.s4s.install.sap.welcome"/>.
    </para>
   </listitem>
   <listitem>
    <para>
-    If you are installing an SAP application within an installed system,
+    If you are installing an &sap; application within an installed system,
     continue with <xref linkend="sec.s4s.install.sap.product"/>.
    </para>
   </listitem>
@@ -31,7 +31,7 @@
 
   <para>
    Using the &sapwiz;, you can install stand-alone &hana; database instances.
-   Additionally, the following SAP products (along with a database) can be
+   Additionally, the following &sap; products (along with a database) can be
    installed using the &sapwiz;:
   </para>
   <xi:include href="s4s_installation_product.xml" parse="xml"/>
@@ -79,10 +79,10 @@
      <guimenu>Next</guimenu>.
     </para>
     <important>
-     <title>Configure Networking as Recommended by SAP</title>
+     <title>Configure Networking as Recommended by &sap;</title>
      <para>
       Make sure to configure the network connection as recommended by the
-      documentation of your SAP application.
+      documentation of your &sap; application.
      </para>
     </important>
     <para>
@@ -113,8 +113,8 @@
       </term>
       <listitem>
        <para>
-        Allows installing an SAP application and setting up the system as a
-        server providing SAP installation routines to other systems.
+        Allows installing an &sap; application and setting up the system as a
+        server providing &sap; installation routines to other systems.
        </para>
        <para>
         Continue with <xref linkend="sec.s4s.install.sap.product"/>.
@@ -165,7 +165,7 @@
       </term>
       <listitem>
        <para>
-        Do not install an SAP application and continue to the login screen of
+        Do not install an &sap; application and continue to the login screen of
         &sles4sap;.
        </para>
        <!--
@@ -190,13 +190,13 @@
    users, default settings).
   </para>
   <para>
-   To install other SAP applications or to create a more sophisticated &hana;
-   setup, directly use one of the installation methods provided by SAP instead
+   To install other &sap; applications or to create a more sophisticated &hana;
+   setup, directly use one of the installation methods provided by &sap; instead
    of this wizard.
   </para>
 
   <tip>
-   <title>Installing an SAP Application in a Fully Installed System</title>
+   <title>Installing an &sap; Application in a Fully Installed System</title>
    <para>
     This process is documented as it appears during the installation workflow.
     However, there is a functionally equivalent &yast; dialog available within
@@ -236,7 +236,7 @@
      location can either be a local, removable, or remote installation source.
     </para>
     <figure xml:id="fig.s4s.sap.wizard.source">
-     <title>Location of SAP Installation Master</title>
+     <title>Location of &sap; Installation Master</title>
      <mediaobject>
       <imageobject role="fo">
        <imagedata fileref="s4s_sap_wizard_source.png" width="73%" format="PNG"/>
@@ -494,7 +494,7 @@
     <para>
      On the screen <guimenu>SAP Installation Wizard</guimenu>, provide
      the location of additional &instmedia; you want to install.
-     This can include, for example an SAP kernel, a database, and
+     This can include, for example an &sap; kernel, a database, and
      database exports.
     </para>
     <variablelist>
@@ -517,7 +517,7 @@
         CDs/DVDs or flash disks.
        </para>
        <para>
-        When choosing this option despite your SAP product requiring additional
+        When choosing this option despite your &sap; product requiring additional
         &instmedia;, you will later need to provide the &sapin; (&sapina;)
         with the relevant paths.
        </para>
@@ -581,7 +581,7 @@
       <term><guimenu>SAP Standard System</guimenu></term>
       <listitem>
        <para>
-        Install an SAP application including its database onto this system.
+        Install an &sap; application including its database onto this system.
        </para>
       </listitem>
      </varlistentry>
@@ -602,7 +602,7 @@
       <term><guimenu>Distributed System</guimenu></term>
       <listitem>
        <para>
-        An SAP application that is separated onto multiple servers.
+        An &sap; application that is separated onto multiple servers.
        </para>
        <!--
         Inconsistent terminology: Why is this not called
@@ -622,7 +622,7 @@
       <term><guimenu>System Rename</guimenu></term>
       <listitem>
        <para>
-        Allows changing the various system properties such as the SAP system ID,
+        Allows changing the various system properties such as the &sap; system ID,
         database ID, instance number or host name. This is useful, for example,
         when you want to install the same product in a very similar
         configuration on different systems.
@@ -663,7 +663,7 @@
     <para>
      You will now see the screen <guimenu>Choose a Product</guimenu>.
      The products shown depend on the &mediaset; and &instmaster; you received
-     from SAP.
+     from &sap;.
      From the list, choose the product you want to install.
     </para>
     <para>
@@ -698,7 +698,7 @@
      <para>
       Both types of additional media are used to add installers for software
       that is neither part of the &sles4sap; media nor part of your &mediaset;
-      from SAP. However, the delivery mechanism is different:
+      from &sap;. However, the delivery mechanism is different:
      </para>
      <itemizedlist>
       <listitem>
@@ -739,9 +739,9 @@
      Proceed with <guimenu>Next</guimenu>.
     </para>
     <note>
-     <title>Location of Copied SAP Media</title>
+     <title>Location of Copied &sap; Media</title>
      <para>
-      At this point, all data required for the SAP installation has been
+      At this point, all data required for the &sap; installation has been
       copied to <filename>/data/SAP_CDs</filename> (unless you chose to skip
       the process of copying).
       Each Installation Medium is copied to a separate directory. You might find
@@ -765,11 +765,11 @@ SAP-NetWeaver-740-SR2-Installation-Export-CD-3-3</screen>
     <para>
      Depending on the product you are installing, multiple dialogs will now
      prompt you to supply values for several configuration parameters for the
-     SAP application you are installing.
+     &sap; application you are installing.
     </para>
     <para>
      Supply the values as described in the documentation provided to you by
-     SAP. Certain information about the configuration parameters is also
+     &sap;. Certain information about the configuration parameters is also
      available at the left side of the dialog.
     </para>
     <para>
@@ -796,7 +796,7 @@ SAP-NetWeaver-740-SR2-Installation-Export-CD-3-3</screen>
    <step xml:id="st.s4s.sapinst">
     <para>
      The following steps differ somewhat depending on the type of
-     SAP application you are installing:
+     &sap; application you are installing:
     </para>
     <itemizedlist>
      <listitem>
@@ -812,7 +812,7 @@ SAP-NetWeaver-740-SR2-Installation-Export-CD-3-3</screen>
       </para>
       <para>
        Follow the steps of &sapin; as described in the documentation provided
-       to you by SAP. Many values for configuration parameters are already
+       to you by &sap;. Many values for configuration parameters are already
        pre-filled correctly.
       </para>
      </listitem>
@@ -865,7 +865,7 @@ SAP-NetWeaver-740-SR2-Installation-Export-CD-3-3</screen>
    If you chose <guimenu>Collect installation profiles but do not execute
    installation</guimenu> during the previous run of the &sapwiz;, this section
    will show you how to continue the installation of the selected
-   SAP applications.
+   &sap; applications.
   </para>
   <para>
    When collecting an installation profile, the &sapwiz; copies
@@ -925,7 +925,7 @@ SAP-NetWeaver-740-SR2-Installation-Export-CD-3-3</screen>
     <para>
      All further interactions happen within the &sapin;.
      Follow the steps of &sapin; as described in the documentation provided to
-     you by SAP.
+     you by &sap;.
     </para>
     <itemizedlist>
      <listitem>

@@ -60,7 +60,7 @@
    </listitem>
    <listitem>
     <para>
-     Resource agents, also for SAP
+     Resource agents, also for &sap;
     </para>
    </listitem>
    <listitem>
@@ -71,20 +71,20 @@
   </itemizedlist>
   <para>
    &sleha; provides two resource agents specifically for working with
-   SAP applications:
+   &sap; applications:
   </para>
   <itemizedlist>
    <listitem>
     <para>
      <systemitem>SAPInstance</systemitem> which allows starting
-     and stopping SAP instances.
+     and stopping instances of &sap; producs.
     </para>
    </listitem>
    <listitem>
     <para>
      <systemitem>SAPDatabase</systemitem> which allows starting
-     and stopping all databases supported by SAP applications (&hana;,
-     SAP MaxDB, SAP ASE, Oracle, Sybase, IBM DB2).
+     and stopping all databases supported by &sap; applications (&hana;,
+     &sap; MaxDB, &sap; ASE, Oracle, Sybase, IBM DB2).
     </para>
    </listitem>
   </itemizedlist>
@@ -130,7 +130,7 @@
    <para>
     This resource agent from SUSE supports scale-up scenarios by checking the
     &hana; database instances for whether a takeover needs to happen.
-    Unlike with the pure SAP solution, takeovers can be automated.
+    Unlike with the pure &sap; solution, takeovers can be automated.
    </para>
    <para>
     It is configured as a master/slave resource: The master assumes
@@ -169,7 +169,7 @@
        If a takeover needs to occur, the non-productive server will be stopped
        before the takeover is processed. The system resources for the
        productive database are then increased as quickly as possible via an
-       SAP hook call-out script.
+       &sap; hook call-out script.
       </para>
      </formalpara>
     </listitem>
@@ -209,11 +209,11 @@
      </itemizedlist>
     </listitem>
    </itemizedlist>
-    <para>
-     For all of the scenarios, &sles4sap; supports both single-tenant and
-     multi-tenant &hana; databases. That is, you can use &hana; databases that
-     serve multiple SAP applications.
-    </para>
+   <para>
+    For all of the scenarios, &sles4sap; supports both single-tenant and
+    multi-tenant &hana; databases. That is, you can use &hana; databases that
+    serve multiple &sap; applications.
+   </para>
   </sect3>
   <sect3 xml:id="sec.s4s.topology-ra">
    <title><systemitem>SAPHanaTopology</systemitem> Resource Agent</title>
@@ -266,7 +266,7 @@
  <title>Installation Workflow</title>
   <para>
    The installation workflow offers a guided installation path for both the
-   &sls; operating system and the SAP application.
+   &sls; operating system and the &sap; application.
    <!-- ke: jweber does not want plural ("applications") here.-->
    For more information, see <xref linkend="sec.s4s.workflow-overview"/>.
   </para>
@@ -291,9 +291,9 @@
   <title>Antivirus Protection with ClamSAP</title>
   <para>
    ClamSAP integrates the ClamAV antivirus toolkit into &netweaver; and
-   SAP Mobile Platform applications to enable
+   &sap; Mobile Platform applications to enable
    cross-platform threat detection.
-   For example, you can use ClamSAP to allow an SAP application to scan for
+   For example, you can use ClamSAP to allow an &sap; application to scan for
    malicious uploads in HTTP uploads.
    ClamSAP can be installed from the package <systemitem>clamsap</systemitem>.
    To use virus scanning within &netweaver;, you need to enable it there
@@ -302,13 +302,13 @@
   </para>
   <para>
    ClamSAP is a shared library that links between ClamAV and the
-   &netweaver; Virus Scan Interface (NW-VSI) by SAP. The version of ClamSAP
+   &netweaver; Virus Scan Interface (NW-VSI) by &sap;. The version of ClamSAP
    shipped with &productname; &productnumber; supports NW-VSI version 2.0.
   </para>
  </sect2>
 
  <sect2 xml:id="sec.s4s.component.hana-secure">
-  <title>SAP HANA Security</title>
+  <title>&hana; Security</title>
   <para>
    &sles4sap; contains additional features to help set up well-secured &hana;
    installations.
@@ -398,9 +398,9 @@
   </sect3>
 
   <sect3 xml:id="sec.s4s.component.pattern">
-   <title>Patterns Providing Dependencies of SAP Applications</title>
+   <title>Patterns Providing Dependencies of &sap; Applications</title>
    <para>
-    To simplify working with software dependencies of SAP applications, &suse;
+    To simplify working with software dependencies of &sap; applications, &suse;
     has created patterns that combine relevant dependency RPM packages for
     specific applications:
    </para>
@@ -429,13 +429,13 @@
      The selection of packages of the software patterns are defined while a
      specific release (Service Pack or major version) of &sles4sap; is
      developed. This package selection is stable over the lifetime of this
-     particular release. When working with SAP applications that have been
+     particular release. When working with &sap; applications that have been
      released more recently than your &sles4sap; version,
      dependencies can be missing from the patterns.
     </para>
     <para>
-     For definitive information about the dependencies of your SAP application,
-     consult the documentation provided to you by SAP.
+     For definitive information about the dependencies of your &sap; application,
+     see the documentation provided to you by &sap;.
     </para>
    </important>
   </sect3>
