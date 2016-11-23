@@ -27,7 +27,8 @@
   </itemizedlist>
   <para>
    To handle encryption, <command>cryptctl</command> uses LUKS with
-   aes-xts-256 encryption and 512-bit keys.
+   aes-xts-256 encryption and 512-bit keys. Encryption keys are transferred
+   using TLS with certificate verification.
   </para>
   <figure xml:id="fig.s4s.cryptctl-retrieve">
    <title>Key Retrieval with <command>cryptctl</command></title>
@@ -44,25 +45,11 @@
     </textobject>
    </mediaobject>
   </figure>
-  <warning>
-   <title>Encrypt Connection Between Client and Server</title>
-   <para>
-    <command>cryptctl</command> clients and servers exchange encryption keys.
-    <command>cryptctl</command> itself does not set up transport security,
-    however. To enable transport security between both machines,
-    use a VPN, for example.
-   </para>
-   <para>
-    For more information about setting up a VPN, see
-    <citetitle>&secguide;, Part <quote>Network Security</quote>, Chapter
-    <quote>Configuring a VPN Server</quote> </citetitle> (&docaddress;).
-   </para>
-  </warning>
   <note>
    <title>Install <command>cryptctl</command></title>
    <para>
     Before continuing, make sure the package <package>cryptctl</package> is
-    installed.
+    installed on all machines you intend to set up as servers or clients.
    </para>
   </note>
   <sect1 xml:id="sec.s4s.configure.cryptctl-server">
@@ -286,8 +273,12 @@
        </para>
        <para>
         If the time is set too long, the machine cannot decrypt
-        encrypted partitions automatically and must then have them decrypted
-        manually. If the timeout is set too short, machines with a copy of
+        encrypted partitions on the first try. <command>cryptctl</command> will
+        then continue to periodically check whether the encryption key has
+        become available. However, this will introduce a delay.
+       </para>
+       <para>
+        If the timeout is set too short, machines with a copy of
         the encrypted partition have an increased chance of unlocking the
         partition first.
        </para>
@@ -411,9 +402,10 @@ Used By      When                  UUID  Max.Users  Num.Users  Mount Point
      <formalpara>
       <title>Online Unlocking</title>
       <para>
+       Online unlocking allows circumventing timeout or user limitations.
        This method can be used when there is a network connection between
-       client and server but the client could not unlock the partition
-       automatically when booting. This method will unlock all encrypted
+       client and server but the client could not (yet) unlock the partition
+       automatically. This method will unlock all encrypted
        partitions on a machine.
       </para>
      </formalpara>
