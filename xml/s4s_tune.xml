@@ -140,10 +140,7 @@ vm.pagecache_limit_ignore_dirty = <replaceable>2</replaceable></screen>
   <para>
    If you used the &sapwiz; to install an &sap; application,
    <systemitem>tuned</systemitem> is usually already active and configured with
-   a profile for the application you installed. However, by default, the
-   <systemitem class="resource">tuned</systemitem> profile applied using the
-   &sapwiz; does not allow using <command>saptune</command>, instead it directly
-   uses an equivalent &netweaver; or &hana; profile.
+   a profile for the application you installed.
   </para>
   <para>
    If you did not use the &sapwiz; to install an &sap; application, make sure
@@ -168,7 +165,7 @@ vm.pagecache_limit_ignore_dirty = <replaceable>2</replaceable></screen>
       <formalpara>
        <title><literal>HANA</literal></title>
        <para>
-        Profile for servers hosting only an &hana; database.
+        Profile for servers hosting an &hana; database.
        </para>
       </formalpara>
      </listitem>
@@ -176,7 +173,7 @@ vm.pagecache_limit_ignore_dirty = <replaceable>2</replaceable></screen>
       <formalpara>
        <title><literal>MAXDB</literal></title>
        <para>
-        Profile for servers hosting only a MaxDB database.
+        Profile for servers hosting a MaxDB database.
        </para>
       </formalpara>
      </listitem>
@@ -237,6 +234,14 @@ vm.pagecache_limit_ignore_dirty = <replaceable>2</replaceable></screen>
       <screen>&prompt.root;<command>saptune note apply <replaceable>NOTE</replaceable></command></screen>
      </listitem>
     </itemizedlist>
+    <tip>
+     <title>Combining Optimizations</title>
+     <para>
+      You can freely combine <quote>solutions</quote> and
+      <quote>notes.</quote> Combining multiple optimizations will never create
+      conflicts.
+     </para>
+    </tip>
    </step>
    <step>
     <para>
@@ -245,27 +250,15 @@ vm.pagecache_limit_ignore_dirty = <replaceable>2</replaceable></screen>
      <systemitem class="daemon">tuned</systemitem> daemon is active:
     </para>
     <screen>&prompt.root;<command>saptune daemon start</command></screen>
-    <note>
-     <title>Using <command>tuned-adm</command> Directly</title>
-     <para>
-      Alternatively, you can also use <command>systemctl</command> to make
-      sure the <systemitem class="daemon">tuned</systemitem> daemon is active
-      and apply the profile with <command>tuned-adm profile saptune</command>.
-     </para>
-    </note>
    </step>
   </procedure>
-  <tip>
-   <title>
-    Combining <quote>note</quote> and <quote>solution</quote> Optimizations
-   </title>
-   <para>
-    <command>saptune</command> realizes <quote>solutions</quote> as a
-    combination of <quote>notes.</quote> While you can only enable one
-    <quote>solution</quote> profile at a time, you can combine a solution with
-    one or more <quote>notes.</quote>
-   </para>
-  </tip>
+  <para>
+   In the background, <command>saptune</command> applies a
+   <systemitem class="resource">tuned</systemitem> profile also named
+   <command>saptune</command> that is dynamically customized according to
+   selected <quote>solutions</quote> and <quote>notes</quote>.
+   Using <command>tuned-adm list</command>, you can also see this profile.
+  </para>
 
   <para>
    For more information, see the following man pages:
@@ -281,25 +274,33 @@ vm.pagecache_limit_ignore_dirty = <replaceable>2</replaceable></screen>
      <command>man 8 saptune</command>
     </para>
    </listitem>
-   <listitem>
-    <para>
-     <command>man 7 tuned-profiles-sap-hana</command>
-    </para>
-   </listitem>
-   <listitem>
-    <para>
-     <command>man 7 tuned-profiles-sap-netweaver</command>
-    </para>
-   </listitem>
   </itemizedlist>
+  <!-- Check whether we still need the following notes with 12 SP3... - sknorr,
+  2016-11-23 -->
+  <note>
+   <title>Legacy Profiles</title>
+   <para>
+    The <systemitem class="resource">tuned</systemitem> profiles
+    <literal>sap-hana</literal> and <literal>sap-netweaver</literal> from the
+    package <package>sapconf</package> exist for legacy reasons only. They
+    have nothing to do with the <command>saptune</command> configuration.
+   </para>
+  </note>
   <note>
    <title>Deprecated Utility <command>sapconf</command></title>
    <para>
     The package <systemitem>sapconf</systemitem> contains the deprecated
-    utility <command>sapconf</command> which can be used similarly to the
-    solutions based on <command>tuned-adm</command> discussed before. However,
-    unlike <command>tuned-adm</command>, it will only apply profiles when no
-    other profile is set.
+    utility <command>sapconf</command>. <command>sapconf</command> also
+    allows tuning for &sap; systems but is less comprehensive and offers less
+    granularity than <command>saptune</command>. It will also only apply
+    its profiles when no other <systemitem class="resource">tuned</systemitem>
+    profile is set.
+   </para>
+   <para>
+    If you previously used <command>sapconf</command>, the &sapwiz; will
+    offer to migrate your system to using
+    <command>saptune</command>. Additionally, enabling
+    <command>saptune</command> will disable <command>sapconf</command>.
    </para>
   </note>
  </sect1>

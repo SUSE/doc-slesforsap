@@ -102,7 +102,7 @@
   <para>
    &sles4sap; supports &hana; System Replication using components of &sleha;
    and two additional resource agents (RA). Additionally, &s4s; ships with
-   a &yast; wizard that simplifies the initial setup.
+   a &yast; wizard that simplifies the cluster setup.
   </para>
 
   <sect3 xml:id="sec.s4s.hana-ra">
