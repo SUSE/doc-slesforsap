@@ -27,10 +27,10 @@
     <term>Hard Disk</term>
     <listitem>
      <para>
-      At least 35 GB of
-      hard disk space for the system volume plus space for the swap
-      partition and 200 GB for the data partition are required. For more
-      information, see <xref linkend="sec.s4s.partition"/>.
+      &s4s; requires at least 35 GB of hard disk space for the system volume
+      plus space for the swap partition and 200 GB for the data partition for
+      installation of an &sap; application. For more information, see
+      <xref linkend="sec.s4s.partition"/>.
      </para>
     </listitem>
    </varlistentry>
@@ -38,7 +38,8 @@
     <term>RAM</term>
     <listitem>
      <para>
-      The &sls; operating system itself requires a minimum of 512 MB of RAM.
+      The &sls; operating system itself requires a minimum of 512 MB of total
+      RAM and a minimum of 256 MB of RAM per CPU core.
       However, any SAP application you install needs additional RAM resources.
       For more information, see the
       <citetitle>Sizing Guidelines</citetitle> from SAP for your application.
