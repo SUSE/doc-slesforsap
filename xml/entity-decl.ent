@@ -267,7 +267,8 @@
 <!ENTITY mediaset       "Media Set">
 <!ENTITY supmedia       "Supplementary Media">
 <!ENTITY sapin          "&sap; Installer">
-<!ENTITY sapina         "SAPinst">
+<!ENTITY sapina         "&sap;inst">
+<!ENTITY saprouter      "&sap;router">
 <!ENTITY thirdmedia     "Third-Party Media">
 
 <!ENTITY % network-entities SYSTEM "network-decl.ent">

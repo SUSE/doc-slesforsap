@@ -212,4 +212,67 @@ HANA firewall is active. Everything is OK.
   </para>
  </sect1>
 
+ <sect1 xml:id="sec.s4s.configure.saprouter">
+  <title>&saprouter; Integration</title>
+  <para>
+   &saprouter; allows proxying network traffic between different &sap;
+   systems or between an &sap; system and outside networks. &s4s; now
+   provides integration for &saprouter; into systemd. This means, &saprouter;
+   will be started and stopped properly with the operating system and can be
+   controlled using <command>systemctl</command>.
+  </para>
+  <para>
+   Before you can use this functionality, make sure the following are
+   installed:
+  </para>
+  <itemizedlist>
+   <listitem>
+    <para>
+     &saprouter;
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     The &saprouter; systemd integration, packaged as
+     <package>systemd-saprouter</package>
+    </para>
+   </listitem>
+  </itemizedlist>
+  <para>
+   To control &saprouter; with <command>systemctl</command>, use:
+  </para>
+  <itemizedlist>
+   <listitem>
+    <para>
+     Enabling the &saprouter; Service:
+     <command>systemctl enable saprouter</command>
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     Starting the &saprouter; Service:
+     <command>systemctl start saprouter</command>
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     Showing the Status of &saprouter; Service:
+     <command>systemctl status saprouter</command>
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     Stopping the &saprouter; Service:
+     <command>systemctl stop saprouter</command>
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     Disabling the &saprouter; Service:
+     <command>systemctl disable saprouter</command>
+    </para>
+   </listitem>
+  </itemizedlist>
+ </sect1>
+
 </chapter>
