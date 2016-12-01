@@ -6,15 +6,15 @@
 ]>
 <chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="cha.s4s.cluster">
  <title>Setting Up an &hana; Cluster</title>
- <remark>
-  The following procedure (and preceding headline) should include &s4hd;
-  everywhere - but that is not readable. - sknorr, 2016-11-11
- </remark>
  <para>
   You can use a &yast; wizard to set up &hana; or &s4hd; clusters according
   to best practices, including &hana; system replication. A summary of the
   setup options is given in <xref linkend="sec.s4s.hana-replicate"/>.
  </para>
+ <remark>
+  The following procedure (and preceding headline) should include &s4hd;
+  everywhere - but that is not readable. - sknorr, 2016-11-11
+ </remark>
 
  <para>
   The following <emphasis>Best Practices</emphasis> from the &sles4sap;
@@ -122,7 +122,7 @@
    <listitem>
     <para>
      The package <package>yast2-sap-ha</package> is installed on both
-     the promary and the secondary node.
+     the primary and the secondary node.
     </para>
     <remark>
      Really install on both nodes? - sknorr, 2016-11-16
@@ -149,7 +149,7 @@
    <listitem>
     <para>
      <emphasis>Cost-optimized scenario only:</emphasis> For the
-     non-production &hana; instance, you have created a &hana; Secure User
+     non-production &hana; instance, you have created an &hana; Secure User
      Store key <literal>QASSAPDBCTRL</literal> for monitoring purposes. For
      more information, see <citetitle>SAP HANA SR Cost Optimized Scenario,
      Chapter <quote>Installing the SAP HANA Databases on both cluster
@@ -555,7 +555,7 @@
           configuration.
          </para>
          <para>
-          These parameters are needed to allow montoring the status of the
+          These parameters are needed to allow monitoring the status of the
           non-production &hana; instance using the SAPInstance resource agent.
          </para>
         </listitem>
