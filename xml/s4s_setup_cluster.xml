@@ -515,7 +515,8 @@
           For more information, see the documentation provided to you by &sap;.
          </para>
          <remark>
-          Hmm..? What are the consequences? - sknorr, 2016-11-18
+          What are the consequences of not creating a backup? -
+          sknorr, 2016-11-18
          </remark>
          <!-- <warning>
           <title>Not Creating a Backup</title>
@@ -545,7 +546,7 @@
       </listitem>
      </varlistentry>
      <varlistentry>
-      <term>Non-production &hana; Instance (cost-optimized scenario only)</term>
+      <term><emphasis>Cost-optimized Scenario Only:</emphasis> Non-production &hana; Instance</term>
       <listitem>
        <itemizedlist>
         <listitem>
@@ -632,9 +633,9 @@
      out-of-cluster node for system replication:
     </para>
     <screen>
-&prompt.root;<command>hdbnsutil -sr_register --remoteHost=<replaceable>SECONDARY_HOST_NAME</replaceable> \
+&prompt.root;<command>hdbnsutil</command> -sr_register --remoteHost=<replaceable>SECONDARY_HOST_NAME</replaceable> \
 --remoteInstance=<replaceable>INSTANCE_NUMBER</replaceable> --replicationMode=async \
---name=<replaceable>SITE_NAME</replaceable></command>
+--name=<replaceable>SITE_NAME</replaceable>
     </screen>
    </step>
   </procedure>
