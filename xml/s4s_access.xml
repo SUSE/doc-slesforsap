@@ -215,20 +215,22 @@ HANA firewall is active. Everything is OK.
  <sect1 xml:id="sec.s4s.configure.saprouter">
   <title>&saprouter; Integration</title>
   <para>
-   &saprouter; allows proxying network traffic between different &sap;
+   The &saprouter; software from &sap; allows proxying network traffic
+   between different &sap;
    systems or between an &sap; system and outside networks. &s4s; now
-   provides integration for &saprouter; into systemd. This means, &saprouter;
+   provides integration for &saprouter; into
+   <systemitem class="daemon">systemd</systemitem>. This means, &saprouter;
    will be started and stopped properly with the operating system and can be
    controlled using <command>systemctl</command>.
   </para>
   <para>
-   Before you can use this functionality, make sure the following are
-   installed:
+   Before you can use this functionality, make sure the following has been
+   installed, in this order:
   </para>
   <itemizedlist>
    <listitem>
     <para>
-     &saprouter;
+     An &sap; application that includes &saprouter;
     </para>
    </listitem>
    <listitem>
@@ -238,6 +240,10 @@ HANA firewall is active. Everything is OK.
     </para>
    </listitem>
   </itemizedlist>
+  <para>
+   If you got the order of applications to install wrong initially, reinstall
+   <package>systemd-saprouter</package>.
+  </para>
   <para>
    To control &saprouter; with <command>systemctl</command>, use:
   </para>
