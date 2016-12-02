@@ -48,21 +48,20 @@
  </sect1>
 
  <sect1 xml:id="sec.s4s.configure.firewall-hana">
-  <title>Configuring <systemitem>HANA-Firewall</systemitem></title>
+  <title>Configuring &hana-fw;</title>
 
   <para>
    To simplify setting up a firewall for &hana;, install the package
-   <systemitem>HANA-Firewall</systemitem>.
-   Whereas standard &susefirewall; allows only three zones (internal, DMZ, and
-   external), <systemitem>HANA-Firewall</systemitem> enables you to configure
-   more zones to accommodate all running &hana; instances.
+   &hana-fw;. Whereas standard &susefirewall; allows only three zones
+   (internal, DMZ, and external), &hana-fw; enables you to configure more
+   zones to accommodate &hana; properly.
   </para>
   <para>
-   <systemitem>HANA-Firewall</systemitem> works by adding rule sets to your
+   &hana-fw; works by adding rule sets to your
    existing &susefirewall; configuration.
   </para>
   <para>
-   <systemitem>HANA-Firewall</systemitem> consists of the following parts:
+   &hana-fw; consists of the following parts:
   </para>
   <itemizedlist>
    <listitem>
@@ -120,8 +119,17 @@
    </para>
   </important>
 
+  <note>
+   <title>Install &hana-fw; Packages</title>
+   <para>
+    Before continuing, make sure that the packages
+    <package>HANA-Firewall</package> and
+    <package>yast2-hana-firewall</package> are installed.
+   </para>
+  </note>
+
   <procedure>
-   <title>Using <systemitem>HANA-Firewall</systemitem></title>
+   <title>Using &hana-fw;</title>
    <step>
     <para>
      Make sure the &hana; databases for which you want to configure the
@@ -141,25 +149,37 @@
      When you open this &yast; module, it will create a configuration proposal
      based on the number of installed &hana; instances.
     </para>
+    <para>
+     Choose whether you want to accept the proposal using
+     <guimenu>Yes</guimenu> or <guimenu>No</guimenu>.
+    </para>
+    <important>
+     <title>Narrow Down Settings from Proposal</title>
+     <para>
+      The proposed settings allow all detected &hana; instances on
+      all detected interfaces. Narrow down the proposal to secure the
+      system further.
+     </para>
+    </important>
    </step>
    <step>
     <para>
-     In the module, set the <guimenu>Number of network interfaces in this
-     HANA setup</guimenu>.
+     Under <guimenu>Global Options</guimenu>, activate
+     <guimenu>Enable Firewall</guimenu>. Additionally, decide whether to
+     <guimenu>Allow Remote Shell Access (SSH)</guimenu>.
     </para>
    </step>
-   <step>
+   <step xml:id="st.s4s.hana-firewall.network">
     <para>
-     Choose an <guimenu>Interface number</guimenu> and its
-     corresponding network interface name (for example,
-     <guimenu>eth0</guimenu>).
+     Choose a network interface under <guimenu>Allowed Services on Network
+     Interface</guimenu>.
     </para>
    </step>
    <step>
     <para>
      Allow network services by selecting them in the list box on the left and
-     clicking <guimenu>Add</guimenu>. Remove services by selecting them in the
-     list box on the right and clicking <guimenu>Remove</guimenu>.
+     clicking <guimenu>→</guimenu>. Remove services by selecting them in the
+     list box on the right and clicking <guimenu>←</guimenu>.
     </para>
     <para>
      To add services other than the preconfigured ones, add them using the
@@ -174,24 +194,24 @@
     </para>
    </step>
    <step>
-    <!--
-     This step is called "Next" because actually this is a part of a wizard
-     of which just a single step is taken out, apparently. There is no later
-     button that needs to be clicked.
-     - sknorr, 2016-02-18
-    -->
     <para>
-     When you are done, click <guimenu>Next</guimenu>.
+     Repeat from <xref linkend="st.s4s.hana-firewall.network"/> for all
+     network interfaces.
+    </para>
+   </step>
+   <step>
+    <para>
+     When you are done, click <guimenu>OK</guimenu>.
     </para>
     <para>
-     The firewall rules from <systemitem>HANA-Firewall</systemitem> will now
-     be compiled and applied. Finally, the service
+     The firewall rules from &hana-fw; will now
+     be compiled and applied. Then, the service
      <systemitem>hana-firewall</systemitem> will be restarted.
     </para>
    </step>
    <step>
     <para>
-     Finally, check whether <systemitem>HANA-Firewall</systemitem> was enabled
+     Finally, check whether &hana-fw; was enabled
      correctly:
     </para>
 <screen>&prompt.root;<command>hana-firewall status</command>
@@ -208,7 +228,7 @@ HANA firewall is active. Everything is OK.
    </step>
   </procedure>
   <para>
-   For more information, see the man page of <command>hana_firewall</command>.
+   For more information, see the man page of <command>hana-firewall</command>.
   </para>
  </sect1>
 

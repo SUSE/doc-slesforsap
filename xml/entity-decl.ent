@@ -273,6 +273,7 @@
 <!ENTITY saprouter      "&sap;router">
 <!ENTITY hana-alm       "&hana; Application Lifecycle Management">
 <!ENTITY thirdmedia     "Third-Party Media">
+<!ENTITY hana-fw        "HANA-Firewall">
 
 <!ENTITY % network-entities SYSTEM "network-decl.ent">
 %network-entities;
