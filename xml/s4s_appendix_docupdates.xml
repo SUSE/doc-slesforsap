@@ -69,11 +69,62 @@
   <variablelist>
    <varlistentry>
     <term>
+      <xref linkend="sec.s4s.hardware" xrefstyle="SectTitleOnPage"/>
+    </term>
+    <listitem>
+     <para>
+      Clarified RAM requirements.
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term>
       <xref linkend="cha.s4s.cluster" xrefstyle="SectTitleOnPage"/>
     </term>
     <listitem>
      <para>
-      Added new chapter.
+      Added new chapter (FATE#319068).
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term>
+      <xref linkend="sec.s4s.configure.firewall-hana" xrefstyle="SectTitleOnPage"/>
+    </term>
+    <listitem>
+     <para>
+      Updated UI description in (FATE#320376, FATE#320564).
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term>
+      <xref linkend="sec.s4s.configure.saprouter" xrefstyle="SectTitleOnPage"/>
+    </term>
+    <listitem>
+     <para>
+      Added new section (FATE#320566).
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term>
+      <xref linkend="app.s4s.additional-software" xrefstyle="SectTitleOnPage"/>
+    </term>
+    <listitem>
+     <para>
+      Added new appendix (FATE#320373).
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term>
+      <xref linkend="cha.s4s.tune" xrefstyle="SectTitleOnPage"/>,
+      <xref linkend="cha.s4s.configure.cryptctl" xrefstyle="SectTitleOnPage"/>,
+    </term>
+    <listitem>
+     <para>
+      Clarifications.
      </para>
     </listitem>
    </varlistentry>
@@ -147,6 +198,18 @@
    </varlistentry>
    <varlistentry>
     <term>
+      <xref linkend="sec.s4s.configure.sapconf" xrefstyle="SectTitleOnPage"/>
+    </term>
+    <listitem>
+     <para>
+      Updated section to refer to
+      <systemitem class="daemon">saptune</systemitem>
+      (FATE#320361, FATE#320362, FATE#320633).
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term>
       <xref linkend="cha.s4s.configure.cryptctl" xrefstyle="SectTitleOnPage"/>
     </term>
     <listitem>
@@ -162,18 +225,6 @@
     <listitem>
      <para>
       Added section (FATE#320363).
-     </para>
-    </listitem>
-   </varlistentry>
-   <varlistentry>
-    <term>
-      <xref linkend="sec.s4s.configure.sapconf" xrefstyle="SectTitleOnPage"/>
-    </term>
-    <listitem>
-     <para>
-      Updated section to refer to
-      <systemitem class="daemon">saptune</systemitem>
-      (FATE#320361, FATE#320362, FATE#320633).
      </para>
     </listitem>
    </varlistentry>
