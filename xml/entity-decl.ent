@@ -11,11 +11,6 @@
 <!ENTITY rootuser       '<systemitem xmlns="http://docbook.org/ns/docbook" class="username">root</systemitem>'>
 <!ENTITY grub           "GRUB">
 
-<!-- lilo will become obsolete with code 11 -->
-<!ENTITY lilo           "LILO">
-
-<!ENTITY sax            "SaX2">
-<!ENTITY atomic-update  "Atomic Update">
 <!ENTITY suse           "SUSE">
 <!ENTITY novell         "Novell">
 <!ENTITY suseconfig     "SuSEconfig">
@@ -29,14 +24,7 @@
 <!ENTITY yastcc         "&yast; Control Center">
 <!ENTITY ay             "<phrase xmlns='http://docbook.org/ns/docbook' role='productname'>AutoYaST</phrase>">
 <!ENTITY nm             "NetworkManager">
-<!ENTITY fspot          "f-spot">
-<!ENTITY digikam        "digiKam">
 <!ENTITY yelp           "Help">
-<!ENTITY khc            "KDE help center">
-<!ENTITY umtsmon        "UMTSmon">
-<!ENTITY ooo            "&libo;">
-<!ENTITY libo           "LibreOffice">
-<!ENTITY aide		        "AIDE">
 
 <!-- ============================================================= -->
 <!--                    Books                                      -->
@@ -154,12 +142,7 @@
 <!--                    Applications                               -->
 <!-- ============================================================= -->
 
-<!ENTITY musicplayer   "Banshee">
-<!ENTITY musicplayerreg   "Banshee&trade;">
-<!ENTITY zenup         "Software Updater">
-<!ENTITY updater       "openSUSE Updater">
 <!ENTITY gupdater      "Update Applet">    <!-- GNOME Updater-->
-<!ENTITY kupdater      "Software Updater"> <!-- KDE Updater -->
 <!ENTITY aa            "AppArmor">
 <!ENTITY aareg         "AppArmor&reg;">
 <!ENTITY naa           "&aa;">
@@ -199,9 +182,6 @@
 <!ENTITY usbback       "USB Pass-Through">
 <!ENTITY vgaback       "VGA Pass-Through">
 <!ENTITY lvs           "Linux Virtual Server">
-<!ENTITY krandr        "KRandRTray">
-<!ENTITY amarok        "Amarok">
-<!ENTITY digikam       "digiKam">
 <!ENTITY postgresql    "PostgreSQL">
 <!ENTITY mysql         "MySQL">
 <!ENTITY jeos          "JeOS"><!-- Just enough OS -->
