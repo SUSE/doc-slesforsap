@@ -212,7 +212,7 @@
       When using a self-signed certificate, the certificate
       (<filename>*.crt</filename> file) generated on the server is
       available locally on the client. Otherwise, the certificate authority
-      of the server certificate must be trusred by the client.
+      of the server certificate must be trusted by the client.
      </para>
     </listitem>
    </itemizedlist>
