@@ -142,9 +142,6 @@
      On the &kiwi; configuration for &sles4sapa;, see
      <filename>/usr/share/kiwi/image/SLES4SAP/README</filename>.
     </para>
-    <remark>
-     remark@hguo: typo "desektop" in README file. - sknorr, 2016-10-26
-    </remark>
    </listitem>
    <listitem>
     <para>

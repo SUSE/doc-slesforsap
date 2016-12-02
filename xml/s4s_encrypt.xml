@@ -20,11 +20,22 @@
    <listitem>
     <para>
      The server holds encryption keys that can be requested by clients to
-     unlock encrypted partitions. Since the server holds encryption keys, it
-     should be under your direct control and managed only by trusted personnel.
+     unlock encrypted partitions.
     </para>
    </listitem>
   </itemizedlist>
+  <warning>
+   <title><command>cryptctl</command> Server Maintenance</title>
+   <para>
+    Since the <command>cryptctl</command> server holds encryption keys, it
+    should be under your direct control and managed only by trusted
+    personnel.
+   </para>
+   <para>
+    Additionally, it should be backed up regularly. Losing the server's data
+    means losing access to encrypted partitions on the clients.
+   </para>
+  </warning>
   <para>
    To handle encryption, <command>cryptctl</command> uses LUKS with
    aes-xts-256 encryption and 512-bit keys. Encryption keys are transferred
@@ -99,14 +110,13 @@
         want to listen on for decryption requests from the clients, then set
         a port number.
        </para>
-       <remark>
-        Would IPv6 addresses work? - sknorr, 2016-11-07
-       </remark>
        <para>
         If you use <systemitem class="ipaddress">0.0.0.0</systemitem> as the
         IP address (the default), <command>cryptctl</command> will listen on
-        all network interfaces for client requests.
+        all network interfaces for client requests using IPv4.
        </para>
+       <!-- IPv6 should work too but not with 0.0.0.0, however: this is
+       untested. - sknorr, 2016-12-02 -->
       </step>
       <step>
        <para>
@@ -120,11 +130,14 @@
         encryption and decryption requests or leave the prompt empty to skip
         setting up e-mail notifications.
        </para>
-       <remark>
-        Can I set a password here? Or do I basically need an own little SMTP
-        server locally which forward notifications elsewhere? - sknorr,
-        2016-11-03
-       </remark>
+       <note>
+        <title>Password-Protected Servers</title>
+        <para>
+         <command>cryptctl</command> currently cannot send e-mail using
+         authentication-protected SMTP servers. If that is necessary, set up
+         a local SMTP proxy.
+        </para>
+       </note>
       </step>
       <step>
        <para>
@@ -163,7 +176,7 @@
       However, to avoid issues, do not change the settings
       <option>AUTH_PASSWORD_HASH</option> and
       <option>AUTH_PASSWORD_SALT</option> manually. The values of these
-      options needs to be calculated correctly.
+      options need to be calculated correctly.
      </para>
     </listitem>
    </itemizedlist>
@@ -193,26 +206,14 @@
       The client machine has an empty partition available that is large
       enough to fit the directory to encrypt.
      </para>
-     <remark>
-      Is it possible to use cryptctl with LVM? - sknorr, 2016-11-07
-     </remark>
-     <remark>
-      Is the partition always reformatted to Btrfs? (Btrfs has a 256 MiB
-      minimum size.) - sknorr, 2016-11-07
-     </remark>
     </listitem>
     <listitem>
      <para>
-      To enable encryption between the client and the server, the certificate
+      When using a self-signed certificate, the certificate
       (<filename>*.crt</filename> file) generated on the server is
-      available locally on the client.
+      available locally on the client. Otherwise, the certificate authority
+      of the server certificate must be trusred by the client.
      </para>
-     <!-- Actually, the wizard just stops because of a curl error. - sknorr,
-     2016-11-03 -->
-     <!-- <para>
-      Failing to provide the server certificate means that client and server
-      can only communicate over an insecure connection.
-     </para> -->
     </listitem>
    </itemizedlist>
    <procedure>
@@ -271,17 +272,20 @@
         should be set to a time slightly shorter than the reboot time of the
         client.
        </para>
-       <para>
-        If the time is set too long, the machine cannot decrypt
-        encrypted partitions on the first try. <command>cryptctl</command> will
-        then continue to periodically check whether the encryption key has
-        become available. However, this will introduce a delay.
-       </para>
-       <para>
-        If the timeout is set too short, machines with a copy of
-        the encrypted partition have an increased chance of unlocking the
-        partition first.
-       </para>
+       <important>
+        <title>Timeout Length</title>
+        <para>
+         If the time is set too long, the machine cannot decrypt
+         encrypted partitions on the first try. <command>cryptctl</command> will
+         then continue to periodically check whether the encryption key has
+         become available. However, this will introduce a delay.
+        </para>
+        <para>
+         If the timeout is set too short, machines with a copy of
+         the encrypted partition have an increased chance of unlocking the
+         partition first.
+        </para>
+       </important>
       </step>
      </substeps>
     </step>
@@ -289,13 +293,14 @@
      <para>
       <command>cryptctl</command> will now encrypt the specified directory to
       the previously empty partition and then mount the newly encrypted
-      partition.
+      partition. The file system type will be of the same type as the
+      original unencrypted file system.
      </para>
      <para>
       Before creating the encrypted partition,
       <command>cryptctl</command> moves the unencrypted content of the
       original directory to a location prefixed with
-      <literal>cryptctl-moved-</literal>. Note the directory name.
+      <literal>cryptctl-moved-</literal>.
      </para>
     </step>
     <step>
@@ -440,10 +445,6 @@ Used By      When                  UUID  Max.Users  Num.Users  Mount Point
     downtime, turn off the client and disable the
     <command>cryptctl</command> server. You can do so by either:
    </para>
-   <remark>
-    What happens when the client can't find a server? Will it try to
-    re-encrypt? Apparently not... (testing) - sknorr, 2016-11-07
-   </remark>
    <itemizedlist>
     <listitem>
      <para>
@@ -460,8 +461,5 @@ Used By      When                  UUID  Max.Users  Num.Users  Mount Point
      </para>
     </listitem>
    </itemizedlist>
-   <!-- What about: maintenance personnel makes copy of client, and then the
-   client is DoS'ed? In that case, you could boot a fake client without
-   issue, it seems..? - sknorr, 2016-11-07 -->
   </sect1>
  </chapter>

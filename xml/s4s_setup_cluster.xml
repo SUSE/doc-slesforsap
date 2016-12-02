@@ -11,10 +11,6 @@
   to best practices, including &hana; system replication. A summary of the
   setup options is given in <xref linkend="sec.s4s.hana-replicate"/>.
  </para>
- <remark>
-  The following procedure (and preceding headline) should include &s4hd;
-  everywhere - but that is not readable. - sknorr, 2016-11-11
- </remark>
 
  <para>
   The following <emphasis>Best Practices</emphasis> from the &sles4sap;

@@ -82,11 +82,13 @@
      Packages for the Haskell programming language
     </para>
    </listitem>
-   <listitem>
+   <!-- Not yet available on 12 SP2, also maybe not overly relevant. -
+   sknorr, 2016-12-02 -->
+   <!-- <listitem>
     <para>
      The KDE 5 desktop
     </para>
-   </listitem>
+   </listitem> -->
   </itemizedlist>
   <para>
    For more information, see the &suse; Package Hub Web site at
