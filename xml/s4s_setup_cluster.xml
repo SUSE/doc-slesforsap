@@ -65,15 +65,14 @@
   <itemizedlist>
    <listitem>
     <para>
-     Two machines which both have an &hana; installation created by the &sapwiz;.
+     Two machines which both have an &hana; installation created by the
+     &sapwiz; or &hana-alm;. Both machines need to be on the same L2 network
+     (subnet).
     </para>
     <para>
-     In the case of a multi-tier/chained scenario, both machines need to be
-     on the same L2 network (subnet) while there is a third machine elsewhere.
+     In the case of a multi-tier/chained scenario, there must also be a third
+     machine elsewhere.
     </para>
-    <remark>
-     Same L2 network for first two for all setups? - sknorr, 2016-11-16
-    </remark>
    </listitem>
    <listitem>
     <para>
@@ -83,17 +82,14 @@
    <listitem>
     <para>
      <phrase role="productname">openSSH</phrase> is running on both machines
-     and the nodes can reach each other via SSH.
+     and the nodes can reach each other via SSH. However, if that has not
+     already happened, the wizard will perform the SSH key exchange itself.
     </para>
     <para>
      For more information about SSH, see <citetitle>&secguide;, Part
      <quote>Network Security</quote>, Chapter <quote>SSH: Secure Network
      Operations</quote></citetitle> at &docaddress;.
     </para>
-    <remark>
-     Not sure if that is already covered by the HANA Firewall instruction
-     below... - sknorr, 2016-11-25
-    </remark>
    </listitem>
    <listitem>
     <para>
@@ -124,9 +120,6 @@
      The package <package>yast2-sap-ha</package> is installed on both
      the primary and the secondary node.
     </para>
-    <remark>
-     Really install on both nodes? - sknorr, 2016-11-16
-    </remark>
    </listitem>
    <listitem>
     <para>
@@ -142,8 +135,9 @@
    </listitem>
    <listitem>
     <para>
-     <emphasis>Cost-optimized scenario only:</emphasis> The secondary node has a second &hana;
-     installation which is not running.
+     <emphasis>Cost-optimized scenario only:</emphasis> The secondary node
+     has a second &hana; installation. The database may be running but must
+     will be stopped automatically by the wizard.
     </para>
    </listitem>
    <listitem>
@@ -177,11 +171,13 @@
     </para>
    </step>
    <step>
-    <para>
+    <!-- FIXME: Commented, as this is not reliably detected (yet) in 12 SP2.
+    Check back with later release. - sknorr, 2016-12-02 -->
+    <!-- <para>
      <remark>Need to check NetWeaver behavior - sknorr, 2016-11-11</remark>
      The wizard will now detect whether the system runs an &hana;
-     <!-- or &nw; --> instance.
-    </para>
+     <!-/- or &nw; -/-> instance.
+    </para> -->
     <para>
      If an &hana; instance has been detected, you can choose between the
      scale-up scenarios <guimenu>Performance-optimized</guimenu>,
@@ -315,12 +311,15 @@
      For both machines, set up the host names and IP address (for each ring).
     </para>
     <para>
-     Host names must match the host names given in &hana;.
+     To use virtual host addressing, host names must match the virtual host
+     names chosen in &hana;. For more information, see
+     <link xlink:href="https://help.sap.com/saphelp_hanaplatform/helpdata/en/9a/012d6438764459a581e6af55a87c46/content"/>.
     </para>
     <para>
-     Host names of all cluster servers must also be added to the file
-     <filename>/etc/hosts</filename>, for this purpose, activate
-     <guimenu>Append to /etc/hosts</guimenu>.
+     If this has not already been done before, such as during the initial
+     installation of &hana;, host names of all cluster servers must now be
+     added to the file <filename>/etc/hosts</filename>. For this purpose,
+     activate <guimenu>Append to /etc/hosts</guimenu>.
     </para>
     <para>
      Proceed with <guimenu>Next</guimenu>.
@@ -380,8 +379,12 @@
      avoid split-brain situations.
     </para>
     <para>
-     The chosen device must be available from all machines in the cluster
-     under the same path. It must not use host-based RAID, cLVM2 or reside on
+     The chosen disk must be available from all machines in the cluster under
+     the same path. Ideally, use either <guimenu>by-uuid</guimenu> or
+     <guimenu>by-path</guimenu> for identification.
+    </para>
+    <para>
+     The disk must not use host-based RAID, cLVM2 or reside on
      a DRBD instance. The device can have a small size, for example,
      100&nbsp;MB.
     </para>
@@ -475,19 +478,16 @@
          <para>
           Under <guimenu>Virtual IP address</guimenu>, specify a virtual IP
           address for the primary &hana; instance. Under <guimenu>Virtual IP
-          Mask</guimenu>, set the length of the subnetwork mask to be applied to
-          the <guimenu>Virtual IP address</guimenu>.
+          Mask</guimenu>, set the length of the subnetwork mask in CIDR
+          format to be applied to the <guimenu>Virtual IP address</guimenu>.
          </para>
-         <remark>
-          I guess this needs clarification... - sknorr, 2016-11-21
-         </remark>
         </listitem>
         <listitem>
          <para>
-          <guimenu>Prefer site takeover</guimenu> defines whether the secondary
-          instance should takeover the job of the primary instance automatically
-          (<guimenu>true</guimenu>). Alternatively, the cluster can wait for
-          &hana; to restart on the primary machine.
+          <guimenu>Prefer site takeover</guimenu> defines whether the
+          secondary instance should take over the job of the primary instance
+          automatically (<guimenu>true</guimenu>). Alternatively, the cluster
+          will restart &hana; on the primary machine.
          </para>
         </listitem>
         <listitem>
@@ -505,25 +505,21 @@
         </listitem>
         <listitem>
          <para>
+          Having a backup of the database is a precondition for setting up
+          &hana; replication.
+         </para>
+         <para>
           If you have not previously created a backup, activate
           <guimenu>Create initial backup</guimenu>. Under
-          <guimenu>Backup settings</guimenu>, you can configure the
+          <guimenu>Backup settings</guimenu>, configure the
           <guimenu>File name</guimenu> and the <guimenu>Secure store
-          key</guimenu> for the backup.
+          key</guimenu> for the backup. The key in the &hana; Secure User
+          Store on the primary node must have been created before starting
+          the wizard.
          </para>
          <para>
           For more information, see the documentation provided to you by &sap;.
          </para>
-         <remark>
-          What are the consequences of not creating a backup? -
-          sknorr, 2016-11-18
-         </remark>
-         <!-- <warning>
-          <title>Not Creating a Backup</title>
-          <para>
-           Data loss?
-          </para>
-         </warning> -->
         </listitem>
         <listitem>
          <para>
@@ -535,12 +531,14 @@
          <para>
           Setting the <guimenu>Global allocation limit</guimenu> allows
           directly limiting memory usage. Activating <guimenu>Preload column
-          tables</guimenu> will also increase memory usage.
+          tables</guimenu> will increase memory usage.
          </para>
-         <remark>
-          Is there a recommended percentage of RAM for the allocation here? -
-          sknorr, 2016-11-29
-         </remark>
+         <para>
+          For information about the necessary global allocation limit, see
+          documentation provided to you by &sap; such as <citetitle>How to
+          Perform System Replication for SAP HANA</citetitle> at
+          <link xlink:href="https://archive.sap.com/documents/docs/DOC-47702"/>.
+         </para>
         </listitem>
        </itemizedlist>
       </listitem>
@@ -552,8 +550,8 @@
         <listitem>
          <para>
           Make sure that the <guimenu>System ID</guimenu> and
-          <guimenu>Instance number</guimenu> match those of your &hana;
-          configuration.
+          <guimenu>Instance number</guimenu> match those of your
+          non-production &hana; instance.
          </para>
          <para>
           These parameters are needed to allow monitoring the status of the
@@ -574,8 +572,17 @@
          </para>
          <para>
           You can now manually verify and change the details of the generated
-          hook script. When you are done, click <guimenu>OK</guimenu>.
+          hook script. When you are done, click <guimenu>OK</guimenu> to save
+          the hook script at
+          <filename>/hana/shared/<replaceable>SID</replaceable>/srHook</filename>.
          </para>
+         <warning>
+          <title>Passwords Stored in Plain Text</title>
+          <para>
+           By default, the hook script stores all credentials in plain text.
+           To improve security, modify the script yourself.
+          </para>
+         </warning>
         </listitem>
        </itemizedlist>
       </listitem>
@@ -629,11 +636,12 @@
    </step>
    <step>
     <para>
-     <emphasis>Multi-tier/chain scenario only:</emphasis> Register the
-     out-of-cluster node for system replication:
+     <emphasis>Multi-tier/chain scenario only:</emphasis> Using the
+     administrative user account for the production &hana; instance, register
+     the out-of-cluster node for system replication:
     </para>
     <screen>
-&prompt.root;<command>hdbnsutil</command> -sr_register --remoteHost=<replaceable>SECONDARY_HOST_NAME</replaceable> \
+<prompt><replaceable>SID</replaceable>adm &gt; </prompt><command>hdbnsutil</command> -sr_register --remoteHost=<replaceable>SECONDARY_HOST_NAME</replaceable> \
 --remoteInstance=<replaceable>INSTANCE_NUMBER</replaceable> --replicationMode=async \
 --name=<replaceable>SITE_NAME</replaceable>
     </screen>

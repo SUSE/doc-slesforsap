@@ -271,6 +271,7 @@
 <!ENTITY sapin          "&sap; Installer">
 <!ENTITY sapina         "&sap;inst">
 <!ENTITY saprouter      "&sap;router">
+<!ENTITY hana-alm       "&hana; Application Lifecycle Management">
 <!ENTITY thirdmedia     "Third-Party Media">
 
 <!ENTITY % network-entities SYSTEM "network-decl.ent">
