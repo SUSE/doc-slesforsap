@@ -192,6 +192,19 @@
      To find out which services are available on your system, use
      <command>getent services</command>.
     </para>
+    <informalfigure>
+     <mediaobject>
+      <imageobject role="html">
+       <imagedata fileref="s4s-hana-firewall.png" format="PNG"/>
+      </imageobject>
+      <imageobject role="fo">
+       <imagedata fileref="s4s-hana-firewall.png" width="73%" format="PNG"/>
+      </imageobject>
+      <textobject role="description">
+       <phrase>&hana-fw; screenshot</phrase>
+      </textobject>
+     </mediaobject>
+    </informalfigure>
    </step>
    <step>
     <para>
