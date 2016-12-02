@@ -61,6 +61,8 @@
 
   <procedure xml:id="pro.s4s.enable-rdp">
    <title>Setting Up RDP</title>
+   <!-- I could use the package yast2-rdp but it does not have support (says
+   YaST), so avoid that. - sknorr, 2016-12-02 -->
    <para>
     If you have not set up an RDP connection during the installation, you can
     also do so later using the following instructions.
