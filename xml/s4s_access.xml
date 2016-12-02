@@ -156,8 +156,8 @@
     <important>
      <title>Narrow Down Settings from Proposal</title>
      <para>
-      The proposed settings allow all detected &hana; instances on
-      all detected interfaces. Narrow down the proposal to secure the
+      The proposed settings allow all detected &hana; instances on all
+      detected network interfaces. Narrow down the proposal to secure the
       system further.
      </para>
     </important>
