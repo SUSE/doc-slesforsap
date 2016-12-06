@@ -132,7 +132,7 @@
    <listitem>
     <para>
      <emphasis>Cost-optimized scenario only:</emphasis> The secondary node
-     has a second &hana; installation. The database may be running but must
+     has a second &hana; installation. The database may be running but
      will be stopped automatically by the wizard.
     </para>
    </listitem>
@@ -143,8 +143,8 @@
      Store key <literal>QASSAPDBCTRL</literal> for monitoring purposes. For
      more information, see <citetitle>SAP HANA SR Cost Optimized Scenario,
      Chapter <quote>Installing the SAP HANA Databases on both cluster
-     nodes</quote>, <quote>Postinstallation configuration</quote>, Section
-     <quote>Install the non-productive SAP HANA database
+     nodes</quote>, Section <quote>Postinstallation configuration</quote>,
+     Section <quote>Install the non-productive SAP HANA database
      (QAS)</quote></citetitle> at &reslibrary;.
     </para>
    </listitem>
@@ -323,7 +323,7 @@
    </step>
    <step>
     <para>
-     If NTP is not yet set up, do so. This avoid the two machines from running
+     If NTP is not yet set up, do so. This avoids the two machines from running
      into issues because of time differences.
     </para>
     <substeps>
@@ -371,8 +371,8 @@
     <para>
      In the next step, choose fencing options. The only supported fencing
      mechanism is currently SBD (<emphasis>STONITH block
-     device</emphasis>). SBD uses a disk device to store cluster state to
-     avoid split-brain situations.
+     device</emphasis>). To avoid split-brain situations, SBD uses a disk
+     device which stores cluster state.
     </para>
     <para>
      The chosen disk must be available from all machines in the cluster under
