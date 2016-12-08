@@ -153,7 +153,7 @@
    Wizard</guimenu> (see <xref linkend="s4s.inst.wizard"/>)</term>
    <listitem>
     <para>
-     This is a guided installation of the operating system and a SAP
+     This is a guided installation of the operating system and an SAP
      application.  After the installation of the operating system the
      SAP Installation Wizard will start for installation of a validated
      SAP solution.
@@ -308,7 +308,7 @@
        <row>
         <entry>
          <para>
-          IP for nameserver
+          IP for name server
          </para>
         </entry>
         <entry>
@@ -453,7 +453,7 @@
     From the DVD boot menu (see <xref linkend="fig.s4s.dvd.bootmenu"/>),
     select <guimenu>SLES for SAP Applications &mdash; Installation with
     Wizard</guimenu>.  The installation process loads and configures a
-    Linux system with all requirements for a SAP installation.  To
+    Linux system with all requirements for an SAP installation.  To
     view the boot messages and copyright notices during this process,
     press <keycap>Esc</keycap>. On completion of this process, the
     &yast; installation program starts and displays the graphical
