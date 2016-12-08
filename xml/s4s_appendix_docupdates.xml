@@ -14,6 +14,9 @@
  <para>This document was updated on the following dates:</para>
  <itemizedlist role="subtoc">
   <listitem>
+   <para><xref linkend="ap.s4s.docupdate.2016-12-08" xrefstyle="SectTitleOnPage"/></para>
+  </listitem>
+  <listitem>
    <para><xref linkend="ap.s4s.docupdate.2016-02-29" xrefstyle="SectTitleOnPage"/></para>
   </listitem>
   <listitem>
@@ -23,6 +26,24 @@
    <para><xref linkend="ap.s4s.docupdate.2013-10-28" xrefstyle="SectTitleOnPage"/></para>
   </listitem>
  </itemizedlist>
+ 
+ <sect1 id="ap.s4s.docupdate.2016-12-08">
+  <title>December 08, 2016</title>
+  <para>Updates were made to the following sections. The changes are
+  explained below.</para>
+
+   <variablelist>
+    <varlistentry>
+     <term><xref linkend="sec.s4s.inst.wizard.sap-product-install" xrefstyle="SectTitleOnPage"/></term>
+     <listitem>
+      <para>
+       Add note that Business One-certified hardware is required to be able
+       to create a Business One file system.
+      </para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+ </sect1>
 
  <sect1 id="ap.s4s.docupdate.2016-02-29">
   <title>February 29, 2016</title>
