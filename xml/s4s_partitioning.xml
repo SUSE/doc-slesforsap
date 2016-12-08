@@ -31,7 +31,7 @@
 
    The size of <literal>swap_lv</literal> will be calculated according
    to the SAP Note 1597355 (<ulink
-   url="https://service.sap.com/sap/support/notes/1597355"/>).  For
+   url="https://launchpad.support.sap.com/#/notes/1597355"/>).  For
    <literal>root_lv</literal>, 35 GB will be assumed at first, and the
    sum of <literal>root_lv</literal> and <literal>swap_lv</literal> will
    be displayed as <guimenu>Set the system volume size in GB</guimenu>.

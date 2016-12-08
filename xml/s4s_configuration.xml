@@ -76,7 +76,7 @@ vm.pagecache_limit_ignore_dirty = 0</screen>
      <para>
       For background information, see SAP Note 1557506: Linux paging
       improvements <ulink
-      url="https://service.sap.com/sap/support/notes/1557506"/>.
+      url="https://launchpad.support.sap.com/#/notes/1557506"/>.
      </para>
     </listitem>
    </varlistentry>

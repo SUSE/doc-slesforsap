@@ -44,6 +44,22 @@
     and proceed to OS login</guimenu> and resume it after a system
     restart.
    </para>
+   <important>
+    <title>Creating SAP Business One File Systems Only Works On Hardware Certified for Business One</title>
+    <para>
+     To use the functionality <guimenu>Only create SAP Business One file
+     systems, do not install SAP products now</guimenu>, your hardware needs
+     to be certified for Business One. Additionally, follow the hardware setup
+     instructions in <citetitle>SAP Note 1944415: Hardware Configuration
+     Guide and Software Installation Guide for SUSE Linux Enterprise Server
+     with SAP HANA and SAP Business One</citetitle>
+     (<ulink url="https://launchpad.support.sap.com/#/notes/1944415"/>).
+    </para>
+    <para>
+     Otherwise, this option will not create a new file system and the
+     installation workflow ends at this point.
+    </para>
+   </important>
 
     <figure id="fig.s4s.inst.yast-start-sap-install">
     <title>SAP Product Installation</title>
