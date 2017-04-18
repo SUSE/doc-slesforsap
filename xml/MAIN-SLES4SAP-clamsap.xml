@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE book
+[
+  <!ENTITY % entities SYSTEM "entity-decl.ent">
+    %entities;
+]>
+<?xml-stylesheet href="urn:x-suse:xslt:profiling:docbook50-profile.xsl"
+   type="text/xml"
+   title="Profiling step"?>
+<article xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:lang="en" xml:id="art.clamsap">
+ <!-- Adding SLES as a product name here since the article stylesheets are
+ currently broken in that they don't use the productname. -->
+ <title>Setting Up &clamsap; on &sls;</title>
+ <info><productname>&productname;</productname><productname role="abbrev">&sles4sapa;</productname>
+  <productnumber>&productnumber;</productnumber>
+  <date><?dbtimestamp format="B d, Y"?></date>
+  <dm:docmanager xmlns:dm="urn:x-suse:ns:docmanager">
+   <dm:bugtracker>
+    <dm:url>https://bugzilla.suse.com/enter_bug.cgi</dm:url>
+    <dm:component>All</dm:component>
+    <dm:product>SUSE Linux Enterprise for SAP Applications 12 SP3</dm:product>
+    <dm:assignee>sknorr@suse.com</dm:assignee>
+   </dm:bugtracker>
+   <dm:translation>no</dm:translation>
+  </dm:docmanager>
+  <!-- Since this is supposed to go into the package too, not sure we want
+  the authors name there... -->
+  <!--<authorgroup>
+   <author><personname><firstname>Zsolt</firstname><surname>Kalmar</surname></personname>
+   </author>
+  </authorgroup>-->
+  <xi:include href="common_copyright_gfdl.xml" parse="xml"/>
+ </info>
+ <sect1 xml:id="sec.clamsap.install">
+  <title>Installing &clamsap;</title>
+  <procedure>
+   <step>
+    <para>
+     On the application host, install the packages for &clamav; and
+     &clamsap;. To do so, use the command:
+    </para>
+    <screen>
+&prompt.user;sudo zypper install clamav clamsap
+    </screen>
+   </step>
+   <step>
+    <para>
+     Verify the installation with <literal>zypper search</literal>:
+    </para>
+    <screen>
+&prompt.user;zypper search clam
+S | Name     | Summary                              | Type
+--+----------+--------------------------------------+-----------
+i | clamav   | Antivirus Toolkit                    | package
+  | clamav   | Antivirus Toolkit                    | srcpackage
+i | clamsap  | Virus Scan Adapter (VSA) for ClamAV  | package
+  | clamsap  | Virus Scan Adapter (VSA) for ClamAV  | srcpackage
+    </screen>
+    <para>
+     You can also check whether the necessary libraries are in place:
+    </para>
+    <screen>
+&prompt.user;ll /usr/lib64/libclamsap*
+lrwxrwxrwx 1 root root    19 […] /usr/lib64/libclamsap.so -> libclamsap.so.0.9.8
+lrwxrwxrwx 1 root root    19 […] /usr/lib64/libclamsap.so.0 -> libclamsap.so.0.9.8
+-rwxr-xr-x 1 root root 68536 […] /usr/lib64/libclamsap.so.0.9.8
+    </screen>
+   </step>
+   <step>
+    <para>
+     Start the service <systemitem class="daemon">clamd</systemitem>:
+    </para>
+    <screen>&prompt.user;sudo systemctl start clamd</screen>
+   </step>
+   <step>
+    <para>
+     Check the status of the service
+     <systemitem class="daemon">clamd</systemitem> with:
+    </para>
+    <screen>
+&prompt.user;systemctl status clamd
+● clamd.service - ClamAV Antivirus Daemon
+Loaded: loaded (/usr/lib/systemd/system/clamd.service; enabled; vendor preset: disabled)
+Active: active (running) since Tue 2017-04-11 10:33:03 UTC; 24h ago
+[...]
+    </screen>
+   </step>
+  </procedure>
+ </sect1>
+ <sect1 xml:id="sec.clamsap.scannergroup">
+  <title>Creating a Virus Scanner Group in &nw;</title>
+  <procedure>
+   <step>
+    <para>
+     Log in to the &nw; installation through the GUI. Do not log in as
+     a <systemitem class="username">DDIC</systemitem> or
+     <systemitem class="username">SAP*</systemitem> user, because the virus
+     scanner needs to be configured cross-client.
+    </para>
+   </step>
+   <step>
+    <para>
+     Create a Virus Scanner Group using the transaction
+     <guimenu>VSCANGROUP</guimenu>.
+    </para>
+    <informalfigure>
+     <mediaobject>
+      <imageobject role="html">
+       <imagedata fileref="sap-nw-scanner-group-display.jpg" format="JPG"/>
+      </imageobject>
+      <imageobject role="fo">
+       <imagedata fileref="sap-nw-scanner-group-display.jpg" width="85%" format="JPG"/>
+      </imageobject>
+      <textobject role="description">
+       <phrase>Edit View Scanner Group with editable table</phrase>
+      </textobject>
+     </mediaobject>
+    </informalfigure>
+   </step>
+   <step>
+    <para>
+     To switch from view mode to change mode, click the button <guimenu>Change View</guimenu>
+     (<inlinemediaobject>
+      <imageobject role="html">
+       <imagedata fileref="sap-nw-viewmode-icon.png" width="1em" format="PNG"/>
+      </imageobject>
+      <imageobject role="fo">
+       <imagedata fileref="sap-nw-viewmode-icon.png" width="0.8em" format="PNG"/>
+      </imageobject>
+      <textobject role="description">
+       <phrase>Change View</phrase>
+      </textobject>
+     </inlinemediaobject>).
+    </para>
+    <para>
+      Confirm the message <guimenu>This table is cross-client</guimenu> by
+      clicking the check mark. The table is now editable.
+    </para>
+   </step>
+   <step>
+    <para>
+     Select the first empty row. In the text box
+     <guimenu>Scanner Group</guimenu>, specify
+     <literal>CLAMSAPVSI</literal>. Under
+     <guimenu>Group Text</guimenu>, specify <literal>CLAMSAP</literal>.
+    </para>
+    <para>
+     Make sure that <guimenu>Business Add-in</guimenu> is not checked.
+    </para>
+    <informalfigure>
+     <mediaobject>
+      <imageobject role="html">
+       <imagedata fileref="sap-nw-scanner-group-change.jpg" format="JPG"/>
+      </imageobject>
+      <imageobject role="fo">
+       <imagedata fileref="sap-nw-scanner-group-change.jpg" width="85%" format="JPG"/>
+      </imageobject>
+      <textobject role="description">
+       <phrase>Edit View Scanner Group with editable table</phrase>
+      </textobject>
+     </mediaobject>
+    </informalfigure>
+   </step>
+   <step>
+    <para>
+     To save the form, click the button <guimenu>Save</guimenu>
+     (<inlinemediaobject>
+      <imageobject role="html">
+       <imagedata fileref="sap-nw-save-icon.png" width="1em" format="PNG"/>
+      </imageobject>
+      <imageobject role="fo">
+       <imagedata fileref="sap-nw-save-icon.png" width="0.8em" format="PNG"/>
+      </imageobject>
+      <textobject role="description">
+       <phrase>Save</phrase>
+      </textobject>
+     </inlinemediaobject>).
+    </para>
+   </step>
+  </procedure>
+ </sect1>
+ <sect1 xml:id="sec.clamsap.library">
+  <title>Setting Up the &clamsap; Library in &nw;</title>
+  <procedure>
+   <step>
+    <para>
+     In the &nw; GUI, call the transaction <guimenu>VSCAN</guimenu>.
+     <!-- wording: "call"? Maybe "open"? - sknorr, 2017-04-13 -->
+    </para>
+   </step>
+   <step>
+    <para>
+     To switch from view mode to change mode, click the button
+     <guimenu>Change View</guimenu>
+     (<inlinemediaobject>
+      <imageobject role="html">
+       <imagedata fileref="sap-nw-viewmode-icon.png" width="1em" format="PNG"/>
+      </imageobject>
+      <imageobject role="fo">
+       <imagedata fileref="sap-nw-viewmode-icon.png" width="0.8em" format="PNG"/>
+      </imageobject>
+      <textobject role="description">
+       <phrase>Change View</phrase>
+      </textobject>
+     </inlinemediaobject>).
+    </para>
+    <para>
+      Confirm the message <guimenu>This table is cross-client</guimenu> by
+      clicking the check mark. The table is now editable.
+    </para>
+   </step>
+   <step>
+    <para>
+     Click <guimenu>New entries</guimenu>.
+    </para>
+   </step>
+   <step>
+    <para>
+     Fill in the form accordingly:
+    </para>
+    <itemizedlist>
+     <listitem>
+      <para>
+       <guimenu>Provider Type</guimenu>: <literal>Adapter (Virus Scan Adapter)</literal>
+      </para>
+     </listitem>
+     <listitem>
+      <para>
+       <guimenu>Provider Name</guimenu>: <literal>VSA_<replaceable>HOSTNAME</replaceable></literal>
+       (for example: <literal>VSA_SAPSERVER</literal>)
+      </para>
+     </listitem>
+     <listitem>
+      <para>
+       <literal>Scanner Group</literal>: The name of the scanner group that
+       you set up in <xref linkend="sec.clamsap.scannergroup"/> (for example:
+       <literal>CLAMSAPVSI</literal>)
+      </para>
+     </listitem>
+     <listitem>
+      <para>
+       <guimenu>Server</guimenu>:
+       <literal><replaceable>HOSTNAME</replaceable>_<replaceable>SID</replaceable>_<replaceable>INSTANCE_NUMBER</replaceable></literal>
+       (for example: <literal>SAPSERVER_P04_00</literal>)
+      </para>
+     </listitem>
+     <listitem>
+      <para>
+       <guimenu>Adapter Path</guimenu>: <filename>libclamsap.so</filename>
+      </para>
+     </listitem>
+    </itemizedlist>
+    <informalfigure>
+     <mediaobject>
+      <imageobject role="html">
+       <imagedata fileref="sap-nw-scanner-definition-add.jpg" format="JPG"/>
+      </imageobject>
+      <imageobject role="fo">
+       <imagedata fileref="sap-nw-scanner-definition-add.jpg" width="85%" format="JPG"/>
+      </imageobject>
+      <textobject role="description">
+       <phrase>Form New Entries: Details of Added Entries</phrase>
+      </textobject>
+     </mediaobject>
+    </informalfigure>
+   </step>
+   <step>
+    <para>
+     To save the form, click the button
+     <inlinemediaobject>
+      <imageobject role="html">
+       <imagedata fileref="sap-nw-save-icon.png" width="1em" format="PNG"/>
+      </imageobject>
+      <imageobject role="fo">
+       <imagedata fileref="sap-nw-save-icon.png" width="0.8em" format="PNG"/>
+      </imageobject>
+      <textobject role="description">
+       <phrase>Save</phrase>
+      </textobject>
+     </inlinemediaobject>.
+    </para>
+   </step>
+  </procedure>
+ </sect1>
+ <sect1 xml:id="sec.clamsap.engage">
+  <title>Engaging &clamsap;</title>
+  <para>
+   To run &clamsap;, go to the transaction <guimenu>VSCAN</guimenu>. Then
+   click <emphasis>Start</emphasis>.
+  </para>
+  <figure xml:id="fig.clamsap.scanner-change">
+   <title>Change View <quote>Virus Scan Provider Definition</quote></title>
+   <mediaobject>
+    <imageobject role="html">
+     <imagedata fileref="sap-nw-scanner-definition-change.jpg" format="JPG"/>
+    </imageobject>
+    <imageobject role="fo">
+     <imagedata fileref="sap-nw-scanner-definition-change.jpg" width="85%" format="JPG"/>
+    </imageobject>
+   </mediaobject>
+  </figure>
+  <para>
+   Afterward, a summary will be displayed, including details of the &clamsap;
+   and &clamav; (shown in <xref linkend="fig.clamsap.summary"/>).
+  </para>
+  <figure xml:id="fig.clamsap.summary">
+   <title>Summary of &clamsap; Data</title>
+   <mediaobject>
+    <imageobject role="html">
+     <imagedata fileref="sap-nw-scanner-summary.jpg" format="JPG"/>
+    </imageobject>
+    <imageobject role="fo">
+     <imagedata fileref="sap-nw-scanner-summary.jpg" width="85%" format="JPG"/>
+    </imageobject>
+   </mediaobject>
+  </figure>
+ </sect1>
+</article>
