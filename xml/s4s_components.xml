@@ -282,28 +282,23 @@
   <para>
    You can limit the kernel file system cache size to influence swapping
    behavior. With this feature, you can often gain better performance by
-   allocating memory to an application. For more information, see
-   <xref linkend="sec.s4s.configure.page-cache"/>.
+   allocating memory to an application.
+  </para>
+  <para>
+   For more information, see <xref linkend="sec.s4s.configure.page-cache"/>.
   </para>
  </sect2>
 
  <sect2 xml:id="sec.s4s.component.clamsap">
-  <title>Antivirus Protection with ClamSAP</title>
+  <title>Malware Protection with &clamsap;</title>
   <para>
-   ClamSAP integrates the ClamAV antivirus toolkit into &netweaver; and
-   &sap; Mobile Platform applications to enable
-   cross-platform threat detection.
-   For example, you can use ClamSAP to allow an &sap; application to scan for
-   malicious uploads in HTTP uploads.
-   ClamSAP can be installed from the package <systemitem>clamsap</systemitem>.
-   To use virus scanning within &netweaver;, you need to enable it there
-   (<menuchoice><guimenu>Transaction</guimenu>
-   <guimenu>VSCAN</guimenu></menuchoice>).
+   &clamsap; integrates the &clamav; anti-malware toolkit into &netweaver; and
+   &sap; Mobile Platform applications to enable cross-platform threat
+   detection. For example, you can use &clamsap; to allow an &sap;
+   application to scan for malicious uploads in HTTP uploads.
   </para>
   <para>
-   ClamSAP is a shared library that links between ClamAV and the
-   &netweaver; Virus Scan Interface (NW-VSI) by &sap;. The version of ClamSAP
-   shipped with &productname; &productnumber; supports NW-VSI version 2.0.
+   For more information, see <xref linkend="cha.clamsap"/>.
   </para>
  </sect2>
 
