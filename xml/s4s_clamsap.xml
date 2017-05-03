@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE book
+<!DOCTYPE chapter
 [
   <!ENTITY % entities SYSTEM "entity-decl.ent">
     %entities;
@@ -7,30 +7,15 @@
 <?xml-stylesheet href="urn:x-suse:xslt:profiling:docbook50-profile.xsl"
    type="text/xml"
    title="Profiling step"?>
-<article xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:lang="en" xml:id="art.clamsap">
- <!-- Adding SLES as a product name here since the article stylesheets are
- currently broken in that they don't use the productname. -->
- <title>Setting Up &clamsap; on &sls;</title>
- <info><productname>&productname;</productname><productname role="abbrev">&sles4sapa;</productname>
-  <productnumber>&productnumber;</productnumber>
-  <date><?dbtimestamp format="B d, Y"?></date>
-  <dm:docmanager xmlns:dm="urn:x-suse:ns:docmanager">
-   <dm:bugtracker>
-    <dm:url>https://bugzilla.suse.com/enter_bug.cgi</dm:url>
-    <dm:component>All</dm:component>
-    <dm:product>SUSE Linux Enterprise for SAP Applications 12 SP3</dm:product>
-    <dm:assignee>sknorr@suse.com</dm:assignee>
-   </dm:bugtracker>
-   <dm:translation>no</dm:translation>
-  </dm:docmanager>
-  <!-- Since this is supposed to go into the package too, not sure we want
-  the authors name there... -->
-  <!--<authorgroup>
-   <author><personname><firstname>Zsolt</firstname><surname>Kalmar</surname></personname>
-   </author>
-  </authorgroup>-->
-  <xi:include href="common_copyright_gfdl.xml" parse="xml"/>
- </info>
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:lang="en" xml:id="cha.clamsap">
+ <title>Protecting Against Malware With &clamsap;</title>
+  <para>
+   &clamsap; integrates the &clamav; anti-malware toolkit into &netweaver; and
+   &sap; Mobile Platform applications. &clamsap; is a shared library that
+   links between &clamav; and the &netweaver; Virus Scan Interface (NW-VSI).
+   The version of &clamsap; shipped with &productname;
+   &productnumber; supports NW-VSI version 2.0.
+  </para>
  <sect1 xml:id="sec.clamsap.install">
   <title>Installing &clamsap;</title>
   <procedure>
@@ -41,29 +26,6 @@
     </para>
     <screen>
 &prompt.user;sudo zypper install clamav clamsap
-    </screen>
-   </step>
-   <step>
-    <para>
-     Verify the installation with <literal>zypper search</literal>:
-    </para>
-    <screen>
-&prompt.user;zypper search clam
-S | Name     | Summary                              | Type
---+----------+--------------------------------------+-----------
-i | clamav   | Antivirus Toolkit                    | package
-  | clamav   | Antivirus Toolkit                    | srcpackage
-i | clamsap  | Virus Scan Adapter (VSA) for ClamAV  | package
-  | clamsap  | Virus Scan Adapter (VSA) for ClamAV  | srcpackage
-    </screen>
-    <para>
-     You can also check whether the necessary libraries are in place:
-    </para>
-    <screen>
-&prompt.user;ll /usr/lib64/libclamsap*
-lrwxrwxrwx 1 root root    19 […] /usr/lib64/libclamsap.so -> libclamsap.so.0.9.8
-lrwxrwxrwx 1 root root    19 […] /usr/lib64/libclamsap.so.0 -> libclamsap.so.0.9.8
--rwxr-xr-x 1 root root 68536 […] /usr/lib64/libclamsap.so.0.9.8
     </screen>
    </step>
    <step>
@@ -315,4 +277,4 @@ Active: active (running) since Tue 2017-04-11 10:33:03 UTC; 24h ago
    </mediaobject>
   </figure>
  </sect1>
-</article>
+</chapter>
