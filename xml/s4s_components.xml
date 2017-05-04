@@ -214,6 +214,10 @@
     multi-tenant &hana; databases. That is, you can use &hana; databases that
     serve multiple &sap; applications.
    </para>
+   <para>
+    For more information, also see the project homepage
+    <link xlink:href="https://github.com/fmherschel/SAPHanaSR/"/>.
+   </para>
   </sect3>
   <sect3 xml:id="sec.s4s.topology-ra">
    <title><systemitem>SAPHanaTopology</systemitem> Resource Agent</title>
@@ -471,8 +475,10 @@
     </listitem>
    </itemizedlist>
    <para>
-    For more information, see the man page of the respective tool which are
-    included with the package <package>ClusterTools2</package>.
+    For more information, see the man page of the respective tool,
+    included with the package <package>ClusterTools2</package>. Also see the
+    project homepage at
+    <link xlink:href="https://github.com/fmherschel/ClusterTools2"/>.
    </para>
   </sect3>
  </sect2>

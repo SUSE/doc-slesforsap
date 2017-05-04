@@ -258,6 +258,10 @@ vm.pagecache_limit_ignore_dirty = <replaceable>2</replaceable></screen>
     </para>
    </listitem>
   </itemizedlist>
+  <para>
+   For more information, also see the project homepage
+   <link xlink:href="https://github.com/HouzuoGuo/saptune/"/>.
+  </para>
   <!-- Check whether we still need the following notes with 12 SP3... - sknorr,
   2016-11-23 -->
   <note>
