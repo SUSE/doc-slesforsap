@@ -131,8 +131,9 @@ vm.pagecache_limit_ignore_dirty = <replaceable>2</replaceable></screen>
    <systemitem>sapconf</systemitem> are installed on your system.
   </para>
 
+  <sect2 xml:id="sec.s4s.saptune.enable">
+  <title>Enabling <command>saptune</command> to Tune for an &sap; Application</title>
   <procedure xml:id="pro.s4s.tune">
-   <title>Tuning for an &sap; Application</title>
    <step>
     <para>
      To tune a system, first find a tuning profile using
@@ -242,29 +243,52 @@ vm.pagecache_limit_ignore_dirty = <replaceable>2</replaceable></screen>
    selected <quote>solutions</quote> and <quote>notes</quote>.
    Using <command>tuned-adm list</command>, you can also see this profile.
   </para>
+  </sect2>
+  <sect2>
+   <title>Disabling <command>saptune</command></title>
+   <para>
+    To disable <command>saptune</command>, use one of the following ways:
+   </para>
+   <itemizedlist>
+    <listitem>
+     <para>
+      Completely disable the daemon
+      <systemitem class="daemon">tuned</systemitem>:
+     </para>
+     <screen>&prompt.root;<command>systemctl disable tuned</command></screen>
+    </listitem>
+    <listitem>
+     <para>
+      Switch to a different
+      <systemitem class="daemon">tuned</systemitem> profile:
+     </para>
+     <screen>&prompt.root;<command>tuned-adm profile <replaceable>PROFILE_NAME</replaceable></command></screen>
+    </listitem>
+   </itemizedlist>
+  </sect2>
+  <sect2>
+   <title>Tuning Kernel Parameters Manually Using <command>sysctl</command></title>
+   <para>
+    In addition to or instead of tuning kernel parameters using
+    <command>saptune</command>, you can also use <command>sysctl</command> to
+    make manual adjustments to kernel parameters. However, such changes using
+    <command>sysctl</command> do not persist across reboots by default. To
+    make them persist across reboots, add them to the file
+    <filename>/etc/sysctl.conf</filename> (or another configuration file read
+    by <command>sysctl</command>).
+   </para>
+   <para>
+    <!-- FIXME: -> SLES docs: we don't seem to have any good section to
+    reference here. Thisll do for the moment. - sknorr, 2017-05-04 -->
+    For more information about <command>sysctl</command>, see the man pages
+    <literal>sysctl(8)</literal>, <literal>sysctl.conf(5)</literal>, and
+    <literal>sysctl.d(5)</literal>.
+   </para>
+  </sect2>
 
-  <para>
-   For more information, see the following man pages:
-  </para>
-  <itemizedlist>
-   <listitem>
-    <para>
-     <command>man 8 tuned-adm</command>
-    </para>
-   </listitem>
-   <listitem>
-    <para>
-     <command>man 8 saptune</command>
-    </para>
-   </listitem>
-  </itemizedlist>
-  <para>
-   For more information, also see the project homepage
-   <link xlink:href="https://github.com/HouzuoGuo/saptune/"/>.
-  </para>
   <!-- Check whether we still need the following notes with 12 SP3... - sknorr,
   2016-11-23 -->
-  <note>
+  <sect2 xml:id="sec.saptune.legacyprofile">
    <title>Legacy Profiles</title>
    <para>
     The <systemitem class="resource">tuned</systemitem> profiles
@@ -272,9 +296,9 @@ vm.pagecache_limit_ignore_dirty = <replaceable>2</replaceable></screen>
     package <package>sapconf</package> exist for legacy reasons only. They
     have nothing to do with the <command>saptune</command> configuration.
    </para>
-  </note>
-  <note>
-   <title>Deprecated Utility <command>sapconf</command></title>
+  </sect2>
+  <sect2 xml:id="sec.saptune.legacysapconf">
+   <title>Legacy Utility <command>sapconf</command></title>
    <para>
     The package <systemitem>sapconf</systemitem> contains the deprecated
     utility <command>sapconf</command>. <command>sapconf</command> also
@@ -289,7 +313,35 @@ vm.pagecache_limit_ignore_dirty = <replaceable>2</replaceable></screen>
     <command>saptune</command>. Additionally, enabling
     <command>saptune</command> will disable <command>sapconf</command>.
    </para>
-  </note>
+   <para>
+    To disable <command>sapconf</command> along with the underlying daemon
+    <systemitem class="daemon">tuned</systemitem>, use:
+   </para>
+   <screen>&prompt.root;<command>systemctl disable sapconf tuned</command></screen>
+  </sect2>
+
+  <sect2 xml:id="sec.saptune.more">
+   <title>For more information</title>
+  <para>
+   See the following man pages:
+  </para>
+  <itemizedlist>
+   <listitem>
+    <para>
+     <command>man 8 tuned-adm</command>
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     <command>man 8 saptune</command>
+    </para>
+   </listitem>
+  </itemizedlist>
+  <para>
+   Also see the project homepage
+   <link xlink:href="https://github.com/HouzuoGuo/saptune/"/>.
+  </para>
+  </sect2>
  </sect1>
 
 </chapter>
