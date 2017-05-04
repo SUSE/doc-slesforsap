@@ -462,4 +462,11 @@ Used By      When                  UUID  Max.Users  Num.Users  Mount Point
     </listitem>
    </itemizedlist>
   </sect1>
+ <sect1 xml:id="sec.s4s.configure.cryptctl.more">
+  <title>For More Information</title>
+  <para>
+   For more information, also see the project homepage
+   <link xlink:href="https://github.com/HouzuoGuo/cryptctl/"/>.
+  </para>
+ </sect1>
  </chapter>

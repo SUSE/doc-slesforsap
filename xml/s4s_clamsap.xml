@@ -277,4 +277,11 @@ Active: active (running) since Tue 2017-04-11 10:33:03 UTC; 24h ago
    </mediaobject>
   </figure>
  </sect1>
+ <sect1 xml:id="sec.clamsap.more">
+  <title>For More Information</title>
+  <para>
+   For more information, also see the project homepage
+   <link xlink:href="https://sourceforge.net/projects/clamsap/"/>.
+  </para>
+ </sect1>
 </chapter>
