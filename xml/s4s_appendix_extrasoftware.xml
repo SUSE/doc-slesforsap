@@ -59,9 +59,9 @@
   </note>
  </sect1>
  <sect1 xml:id="sec.s4s.packagehub">
-  <title>&suse; Package Hub</title>
+  <title>&ph;</title>
   <para>
-   &suse; Package Hub provides many packages for &slea; that were previously
+   &ph; provides many packages for &slea; that were previously
    only available on &opensuse;.
    Packages from &suse; Package Hub are created by the community and come
    without support. The selection includes, for example:
@@ -84,11 +84,11 @@
    </listitem>
   </itemizedlist>
   <para>
-   To enable &suse; Package Hub, add the repository as described at
+   To enable &ph;, add the repository as described at
    <link xlink:href="https://packagehub.suse.com/how-to-use/"/>.
   </para>
   <para>
-   For more information, see the &suse; Package Hub Web site at
+   For more information, see the &ph; Web site at
    <link xlink:href="https://packagehub.suse.com"/>.
   </para>
  </sect1>

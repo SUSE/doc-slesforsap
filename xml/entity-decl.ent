@@ -135,6 +135,7 @@
 <!ENTITY slmsreg       "SUSE&reg; Lifecycle Management Server">
 <!ENTITY obs           "Open Build Service">
 <!ENTITY obsa          "OBS">
+<!ENTITY ph            "&suse; Package Hub">
 <!ENTITY oes           "Open Enterprise Server">
 <!ENTITY rhel          "RedHat Enterprise Linux">
 
