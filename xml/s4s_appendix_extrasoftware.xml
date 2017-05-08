@@ -61,35 +61,32 @@
  <sect1 xml:id="sec.s4s.packagehub">
   <title>&suse; Package Hub</title>
   <para>
-   To enable &suse; Package Hub, add the repository at
-   <!-- Long URL... -->
-   <link xlink:href="http://download.opensuse.org/repositories/openSUSE:/Backports:/SLE-12-SP2/standard/openSUSE:Backports:SLE-12-SP2.repo"/>
-   using either Zypper or the &yast; module
-   <guimenu>Software Repositories</guimenu>.
-  </para>
-  <para>
+   &suse; Package Hub provides many packages for &slea; that were previously
+   only available on &opensuse;.
    Packages from &suse; Package Hub are created by the community and come
    without support. The selection includes, for example:
   </para>
   <itemizedlist>
    <listitem>
     <para>
-     Packages for the R programming language
+     The R programming language
     </para>
    </listitem>
    <listitem>
     <para>
-     Packages for the Haskell programming language
+     The Haskell programming language
     </para>
    </listitem>
-   <!-- Not yet available on 12 SP2, also maybe not overly relevant. -
-   sknorr, 2016-12-02 -->
-   <!-- <listitem>
+   <listitem>
     <para>
      The KDE 5 desktop
     </para>
-   </listitem> -->
+   </listitem>
   </itemizedlist>
+  <para>
+   To enable &suse; Package Hub, add the repository as described at
+   <link xlink:href="https://packagehub.suse.com/how-to-use/"/>.
+  </para>
   <para>
    For more information, see the &suse; Package Hub Web site at
    <link xlink:href="https://packagehub.suse.com"/>.
