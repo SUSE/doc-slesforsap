@@ -17,6 +17,11 @@
  <itemizedlist role="subtoc">
   <listitem>
    <para>
+    <xref linkend="app.s4s.docupdate.2017-05-10" xrefstyle="SectTitleOnPage"/>
+   </para>
+  </listitem>
+  <listitem>
+   <para>
     <xref linkend="app.s4s.docupdate.2016-12-07" xrefstyle="SectTitleOnPage"/>
    </para>
   </listitem>
@@ -57,6 +62,84 @@
   </listitem>
  </itemizedlist>
 
+
+ <sect1 xml:id="app.s4s.docupdate.2017-05-10">
+  <title>May 10, 2017&mdash;&s4sa; 12 SP2 Documentation Update</title>
+
+  <para>
+   Updates were made to the following sections. The changes are explained
+   below.
+  </para>
+
+  <variablelist>
+   <varlistentry>
+    <term>
+     <xref linkend="sec.s4s.component" xrefstyle="SectTitleOnPage"/>
+    </term>
+    <listitem>
+     <para>
+      Added links to project Web sites (FATE#323178).
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term>
+     <xref linkend="sec.s4s.repository" xrefstyle="SectTitleOnPage"/>
+    </term>
+    <term>
+     <xref linkend="sec.s4s.service" xrefstyle="SectTitleOnPage"/>
+    </term>
+    <listitem>
+     <para>
+      Added information about repositories and support for extensions and
+      modules (bsc#1022275).
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term>
+     <xref linkend="sec.s4s.hana-cluster.wizard" xrefstyle="SectTitleOnPage"/>
+    </term>
+    <listitem>
+     <para>
+      <systemitem>softdog</systemitem> is supported but not recommended
+      (bsc#1022511).
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term>
+     <xref linkend="sec.s4s.configure.sapconf" xrefstyle="SectTitleOnPage"/>
+    </term>
+    <listitem>
+     <para>
+      Documented disabling
+      <command>saptune</command>/<command>sapconf</command> (FATE#322069).
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term>
+     <xref linkend="cha.clamsap" xrefstyle="SectTitleOnPage"/>
+    </term>
+    <listitem>
+     <para>
+      Added new chapter (FATE#322612).
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term>
+     <xref linkend="sec.s4s.packagehub" xrefstyle="SectTitleOnPage"/>
+    </term>
+    <listitem>
+     <para>
+      Added link to official usage instructions on the Web.
+     </para>
+    </listitem>
+   </varlistentry>
+  </variablelist>
+ </sect1>
 
  <sect1 xml:id="app.s4s.docupdate.2016-12-07">
   <title>December 07, 2016&mdash;&s4sa; 12 SP2 Documentation Update</title>
@@ -119,8 +202,10 @@
    </varlistentry>
    <varlistentry>
     <term>
-      <xref linkend="cha.s4s.tune" xrefstyle="SectTitleOnPage"/>,
-      <xref linkend="cha.s4s.configure.cryptctl" xrefstyle="SectTitleOnPage"/>,
+      <xref linkend="cha.s4s.tune" xrefstyle="SectTitleOnPage"/>
+    </term>
+    <term>
+      <xref linkend="cha.s4s.configure.cryptctl" xrefstyle="SectTitleOnPage"/>
     </term>
     <listitem>
      <para>
