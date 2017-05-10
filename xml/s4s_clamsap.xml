@@ -83,15 +83,15 @@ Active: active (running) since Tue 2017-04-11 10:33:03 UTC; 24h ago
     <para>
      To switch from view mode to change mode, click the button <guimenu>Change View</guimenu>
      (<inlinemediaobject>
+      <textobject role="description">
+       <phrase>Change View</phrase>
+      </textobject>
       <imageobject role="html">
        <imagedata fileref="sap-nw-viewmode-icon.png" width="1em" format="PNG"/>
       </imageobject>
       <imageobject role="fo">
        <imagedata fileref="sap-nw-viewmode-icon.png" width="0.8em" format="PNG"/>
       </imageobject>
-      <textobject role="description">
-       <phrase>Change View</phrase>
-      </textobject>
      </inlinemediaobject>).
     </para>
     <para>
@@ -111,15 +111,15 @@ Active: active (running) since Tue 2017-04-11 10:33:03 UTC; 24h ago
     </para>
     <informalfigure>
      <mediaobject>
+      <textobject role="description">
+       <phrase>Edit View Scanner Group with editable table</phrase>
+      </textobject>
       <imageobject role="html">
        <imagedata fileref="sap-nw-scanner-group-change.jpg" format="JPG"/>
       </imageobject>
       <imageobject role="fo">
        <imagedata fileref="sap-nw-scanner-group-change.jpg" width="85%" format="JPG"/>
       </imageobject>
-      <textobject role="description">
-       <phrase>Edit View Scanner Group with editable table</phrase>
-      </textobject>
      </mediaobject>
     </informalfigure>
    </step>
@@ -127,15 +127,15 @@ Active: active (running) since Tue 2017-04-11 10:33:03 UTC; 24h ago
     <para>
      To save the form, click the button <guimenu>Save</guimenu>
      (<inlinemediaobject>
+      <textobject role="description">
+       <phrase>Save</phrase>
+      </textobject>
       <imageobject role="html">
        <imagedata fileref="sap-nw-save-icon.png" width="1em" format="PNG"/>
       </imageobject>
       <imageobject role="fo">
        <imagedata fileref="sap-nw-save-icon.png" width="0.8em" format="PNG"/>
       </imageobject>
-      <textobject role="description">
-       <phrase>Save</phrase>
-      </textobject>
      </inlinemediaobject>).
     </para>
    </step>
@@ -155,15 +155,15 @@ Active: active (running) since Tue 2017-04-11 10:33:03 UTC; 24h ago
      To switch from view mode to change mode, click the button
      <guimenu>Change View</guimenu>
      (<inlinemediaobject>
+      <textobject role="description">
+       <phrase>Change View</phrase>
+      </textobject>
       <imageobject role="html">
        <imagedata fileref="sap-nw-viewmode-icon.png" width="1em" format="PNG"/>
       </imageobject>
       <imageobject role="fo">
        <imagedata fileref="sap-nw-viewmode-icon.png" width="0.8em" format="PNG"/>
       </imageobject>
-      <textobject role="description">
-       <phrase>Change View</phrase>
-      </textobject>
      </inlinemediaobject>).
     </para>
     <para>
@@ -214,15 +214,15 @@ Active: active (running) since Tue 2017-04-11 10:33:03 UTC; 24h ago
     </itemizedlist>
     <informalfigure>
      <mediaobject>
+      <textobject role="description">
+       <phrase>Form New Entries: Details of Added Entries</phrase>
+      </textobject>
       <imageobject role="html">
        <imagedata fileref="sap-nw-scanner-definition-add.jpg" format="JPG"/>
       </imageobject>
       <imageobject role="fo">
        <imagedata fileref="sap-nw-scanner-definition-add.jpg" width="85%" format="JPG"/>
       </imageobject>
-      <textobject role="description">
-       <phrase>Form New Entries: Details of Added Entries</phrase>
-      </textobject>
      </mediaobject>
     </informalfigure>
    </step>
@@ -230,15 +230,15 @@ Active: active (running) since Tue 2017-04-11 10:33:03 UTC; 24h ago
     <para>
      To save the form, click the button
      <inlinemediaobject>
+      <textobject role="description">
+       <phrase>Save</phrase>
+      </textobject>
       <imageobject role="html">
        <imagedata fileref="sap-nw-save-icon.png" width="1em" format="PNG"/>
       </imageobject>
       <imageobject role="fo">
        <imagedata fileref="sap-nw-save-icon.png" width="0.8em" format="PNG"/>
       </imageobject>
-      <textobject role="description">
-       <phrase>Save</phrase>
-      </textobject>
      </inlinemediaobject>.
     </para>
    </step>
