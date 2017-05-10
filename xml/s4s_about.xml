@@ -438,7 +438,7 @@
   <important>
    <title>Life Cycle and Support for Modules and Extensions</title>
    <para>
-    Modules and extensions have different a life cycle than &s4sa; and &suse;
+    Modules and extensions have a different life cycle than &s4sa; and &suse;
     provides different support offerings for them:
    </para>
    <itemizedlist>
@@ -485,7 +485,7 @@
         <title>Support</title>
         <para>
          Support is available but not included with your subscription for
-         &productname;. To enable support, you need an additional
+         &productname;. You need an additional
          registration key.
         </para>
        </formalpara>
