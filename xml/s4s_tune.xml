@@ -321,7 +321,7 @@ vm.pagecache_limit_ignore_dirty = <replaceable>2</replaceable></screen>
   </sect2>
 
   <sect2 xml:id="sec.saptune.more">
-   <title>For more information</title>
+   <title>For More Information</title>
   <para>
    See the following man pages:
   </para>
