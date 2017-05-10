@@ -428,8 +428,9 @@
     </para>
     <para>
      For testing, you can use the watchdog
-     <literal>softdog</literal>. However, <literal>softdog</literal> is not
-     supported in production environments. For more information about
+     <literal>softdog</literal>. However, we highly recommend using a
+     hardware watchdog in production environments instead of
+     <literal>softdog</literal>. For more information about
      selecting watchdogs, see <citetitle>&admin;, Part <quote>Storage and
      Data Replication</quote>, Chapter
      <quote>Storage Protection</quote>, Section
