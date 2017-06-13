@@ -1,7 +1,7 @@
 = SUSE Linux Enterprise Server for SAP Applications Documentation
 
 This is the source for the official SUSE Linux Enterprise Server for
-SAP Applications documentation.
+SAP Applications documentation. 
 
 This repository hosts the documentation sources including translations (if
 available).
