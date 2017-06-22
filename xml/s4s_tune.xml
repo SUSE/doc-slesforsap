@@ -244,7 +244,7 @@ vm.pagecache_limit_ignore_dirty = <replaceable>2</replaceable></screen>
    Using <command>tuned-adm list</command>, you can also see this profile.
   </para>
   </sect2>
-  <sect2>
+  <sect2 xml:id="sec.s4s.saptune.disable">
    <title>Disabling <command>saptune</command></title>
    <para>
     To disable <command>saptune</command>, use one of the following ways:
@@ -266,7 +266,7 @@ vm.pagecache_limit_ignore_dirty = <replaceable>2</replaceable></screen>
     </listitem>
    </itemizedlist>
   </sect2>
-  <sect2>
+  <sect2 xml:id="sec.s4s.saptune.manual">
    <title>Tuning Kernel Parameters Manually Using <command>sysctl</command></title>
    <para>
     In addition to or instead of tuning kernel parameters using
