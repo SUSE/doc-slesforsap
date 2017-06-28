@@ -79,11 +79,12 @@
   <variablelist>
    <varlistentry>
     <term>
-     <xref linkend="cha.s4s.image" xrefstyle="SectTitleOnPage"/>
+     <xref linkend="sec.s4s.configure.scrub-instance" xrefstyle="SectTitleOnPage"/>
     </term>
     <listitem>
      <para>
-      Clarified usage of <command>clone-master-clean-up</command> (Doc Comment #32698).
+      Clarified usage of &cmcu; (DocComment#32698). Added information about
+      new configuration options (FATE#322066).
      </para>
     </listitem>
    </varlistentry>

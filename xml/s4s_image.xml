@@ -100,9 +100,10 @@
   <title>Cleaning Up an Instance Before Using It as a Master Image</title>
 
   <para>
-   In some cases, you may using an image of an already-configured master
-   instance on multiple systems instead of generating a &kiwi; image from
-   scratch.
+   In some cases, it makes sense to use an image of an already-configured
+   master instance on multiple systems instead of generating a &kiwi; image
+   from scratch. For example, when your image needs to contain additional
+   software or configuration that cannot be installed using &kiwi;.
   </para>
   <para>
    However, normally
@@ -110,9 +111,11 @@
    not be copied along with the rest of the system.
   </para>
   <para>
-   To avoid needing to clean up manually, use the script
-   <filename>clone-master-clean-up</filename> (available from the package of the
-   same name). It deletes the following data automatically:
+   To avoid needing to clean up manually, use the script &cmcu; (available
+   from the package of the same name).
+  </para>
+  <para>
+   It deletes the following data automatically:
   </para>
   <itemizedlist>
    <listitem>
@@ -122,17 +125,13 @@
    </listitem>
    <listitem>
     <para>
-     SUSE registration information and repositories from SUSE
+     SUSE registration information and repositories from SUSE, and the
+     Zypper ID
     </para>
    </listitem>
    <listitem>
     <para>
-     User and host SSH keys
-    </para>
-   </listitem>
-   <listitem>
-    <para>
-     Shell history, mails, cron jobs, temporary files, log files, random seeds
+     User and host SSH keys and domain and host names
     </para>
    </listitem>
    <listitem>
@@ -143,23 +142,109 @@
    </listitem>
    <listitem>
     <para>
-     Network configuration
+     Shell history, mails, cron jobs, temporary files
+     (<filename>/tmp</filename>, <filename>/var/tmp</filename>), log files
+     (<filename>/var/log</filename>), random seeds, &systemd; Journal,
+     <systemitem class="daemon">collectd</systemitem> statistics,
+     <command>postfix</command> configuration, parts of
+     <filename>/root</filename>
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     <filename>/var/cache</filename>, <filename>/var/crash</filename>,
+     <filename>/var/lib/systemd/coredump</filename>
     </para>
    </listitem>
   </itemizedlist>
   <para>
-   Additionally, <systemitem>sudo</systemitem> settings are reset and you can
-   choose to set up a new &rootuser; password. This script also ensures
-   that, if the first-boot section of the installation workflow was used for the
-   original installation, it is run again on the next boot.
+   Additionally, the following configuration is restored to defaults:
   </para>
+  <itemizedlist>
+   <listitem>
+    <para>
+     Network interfaces that do not use DHCP and network configuration
+     (<filename>/etc/hostname</filename>, <filename>/etc/hosts</filename>, and
+      <filename>/etc/resolv.conf</filename>)
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     <systemitem>sudo</systemitem> settings
+    </para>
+   </listitem>
+  </itemizedlist>
   <para>
-   To use the script, do:
+   Additionally, you can choose to set up a new &rootuser; password.
+   UUID-based entries in <filename>/etc/fstab</filename> are replaced by
+   device strings. This script also ensures that, if the first-boot section
+   of the installation workflow was used for the original installation, it is
+   run again on the next boot.
   </para>
+  <sect2 xml:id="sec.s4s.configure.scrub-instance.configure">
+   <title>Configuring &cmcu;</title>
+   <para>
+    Before running &cmcu;, the script can be configured in the following ways:
+   </para>
+   <itemizedlist>
+    <listitem>
+     <para>
+      To configure the script to not clean up certain data, use the
+      configuration file
+      <filename>/etc/sysconfig/clone-master-clean-up</filename>.
+     </para>
+     <para>
+      This file also gives short explanations of the available options.
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      To configure the script to clean up additional directories or files,
+      create a list with the absolute paths of such directories and files:
+     </para>
+     <screen>
+/additional/file/to/delete.now
+/additional/directory/to/remove
+     </screen>
+     <para>
+      Save this list as
+      <filename>/var/adm/clone-master-clean-up/custom_remove</filename>.
+     </para>
+    </listitem>
+   </itemizedlist>
+  </sect2>
+  <sect2 xml:id="sec.s4s.configure.scrub-instance.use">
+   <title>Using &cmcu;</title>
+   <para>
+    To use the script, do:
+   </para>
 <screen>&prompt.root;clone-master-clean-up</screen>
-  <para>
-   Then follow the instructions.
-  </para>
+   <para>
+    Then follow the instructions.
+   </para>
+  </sect2>
+  <sect2 xml:id="sec.s4s.configure.scrub-instance.more">
+   <title>For More Information</title>
+   <para>
+    The following sources provide additional information about &cmcu;:
+   </para>
+   <itemizedlist>
+    <listitem>
+     <para>
+      For general information, see the man page &cmcu;.
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      For information on which files and directories might additionally be
+      useful to delete, see
+      <filename>/var/adm/clone-master-clean-up/custom_remove.template</filename>.
+     </para>
+    </listitem>
+    <!-- FIXME: https://github.com/HouzuoGuo/clone-master-clean-up if it
+    turns out to be official... - sknorr, 2017-06-28 -->
+   </itemizedlist>
+  </sect2>
  </sect1>
 
 </chapter>

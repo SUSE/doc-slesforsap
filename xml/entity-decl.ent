@@ -257,6 +257,8 @@
 <!ENTITY hana-fw        "HANA-Firewall">
 <!ENTITY clamsap        "ClamSAP">
 <!ENTITY clamav         "ClamAV">
+<!ENTITY cmcu           "<command xmlns='http://docbook.org/ns/docbook'>clone-master-clean-up</command>">
+<!ENTITY systemd        "<systemitem xmlns='http://docbook.org/ns/docbook' class='daemon'>systemd</systemitem>">
 
 <!ENTITY % network-entities SYSTEM "network-decl.ent">
 %network-entities;
