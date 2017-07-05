@@ -361,7 +361,7 @@
     you are using, such as the amount of available RAM.
    </para>
    <para>
-    For more information, see <xref linkend="sec.s4s.configure.sapconf"/>.
+    For more information, see <xref linkend="sec.saptune"/>.
    </para>
   </sect3>
 

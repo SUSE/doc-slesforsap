@@ -79,6 +79,17 @@
   <variablelist>
    <varlistentry>
     <term>
+     <xref linkend="sec.s4s.configure.tune" xrefstyle="SectTitleOnPage"/>
+    </term>
+    <listitem>
+     <para>
+      Updated list of profiles integrated into &saptune; and &sapconf;
+      (FATE#320359). Created own section for &sapconf;.
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term>
      <xref linkend="sec.s4s.configure.scrub-instance" xrefstyle="SectTitleOnPage"/>
     </term>
     <listitem>
@@ -137,7 +148,7 @@
    </varlistentry>
    <varlistentry>
     <term>
-     <xref linkend="sec.s4s.configure.sapconf" xrefstyle="SectTitleOnPage"/>
+     <xref linkend="sec.saptune" xrefstyle="SectTitleOnPage"/>
     </term>
     <listitem>
      <para>
@@ -311,7 +322,7 @@
    </varlistentry>
    <varlistentry>
     <term>
-      <xref linkend="sec.s4s.configure.sapconf" xrefstyle="SectTitleOnPage"/>
+      <xref linkend="sec.saptune" xrefstyle="SectTitleOnPage"/>
     </term>
     <listitem>
      <para>
@@ -583,7 +594,7 @@
    </varlistentry>
    <varlistentry>
     <term>
-      <xref linkend="sec.s4s.configure.sapconf" xrefstyle="SectTitleOnPage"/>
+      <xref linkend="sec.saptune" xrefstyle="SectTitleOnPage"/>
     </term>
     <listitem>
      <para>

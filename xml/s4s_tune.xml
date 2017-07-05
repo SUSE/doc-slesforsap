@@ -70,16 +70,15 @@
      </itemizedlist>
      <tip>
       <title>
-       Use <systemitem>tuned</systemitem> to Configure These Parameters
+       Use &saptune; to Configure Parameters
       </title>
       <para>
        The parameters <literal>vm.pagecache_limit_mb</literal> and
        <literal>vm.pagecache_limit_ignore_dirty</literal> are also configured by
-       the <systemitem>tuned</systemitem> profiles delivered with the
-       package <systemitem>sapconf</systemitem>.
+       the &tuned; profiles delivered with &saptune;.
       </para>
       <para>
-       For more information, see <xref linkend="sec.s4s.configure.sapconf"/>.
+       For more information, see <xref linkend="sec.saptune"/>.
       </para>
      </tip>
      <important>
@@ -113,38 +112,46 @@ vm.pagecache_limit_ignore_dirty = <replaceable>2</replaceable></screen>
   </variablelist>
  </sect1>
 
- <sect1 xml:id="sec.s4s.configure.sapconf">
-  <title>Tuning Systems with <command>saptune</command></title>
+ <sect1 xml:id="sec.saptune">
+  <title>Tuning Systems with &saptune;</title>
   <para>
-   Using <command>saptune</command>, you can
+   Using &saptune;, you can
    tune a system for &netweaver;, &hana;/&b1;, and &s4h; applications. This method
-   relies on the system tuning service <systemitem>tuned</systemitem>.
+   relies on the system tuning service &tuned;.
   </para>
   <para>
    If you used the &sapwiz; to install an &sap; application,
-   <systemitem>tuned</systemitem> is usually already active and configured with
+   &tuned; is usually already active and configured with
    a profile for the application you installed.
   </para>
   <para>
    If you did not use the &sapwiz; to install an &sap; application, make sure
-   that the packages <package>tuned</package>, <package>saptune</package> and
-   <systemitem>sapconf</systemitem> are installed on your system.
+   that the packages <package>tuned</package> and
+   <package>saptune</package> are installed on your system.
   </para>
 
   <sect2 xml:id="sec.s4s.saptune.enable">
-  <title>Enabling <command>saptune</command> to Tune for an &sap; Application</title>
+  <title>Enabling &saptune; to Tune for an &sap; Application</title>
   <procedure xml:id="pro.s4s.tune">
    <step>
     <para>
-     To tune a system, first find a tuning profile using
-     <command>saptune</command>. To find the appropriate profile, use:
+     To tune a system, first find a tuning profile.
+     To find the appropriate profile, use:
     </para>
     <screen>&prompt.user;<command>saptune solution list</command></screen>
     <para>
-     <command>saptune</command> knows the following
+     &saptune; knows the following
      <quote>solution</quote> profiles:
     </para>
     <itemizedlist>
+     <listitem>
+      <formalpara>
+       <title><literal>BOBJ</literal></title>
+       <para>
+        Profile for servers hosting &bo;.
+       </para>
+      </formalpara>
+     </listitem>
      <listitem>
       <formalpara>
        <title><literal>HANA</literal></title>
@@ -186,6 +193,17 @@ vm.pagecache_limit_ignore_dirty = <replaceable>2</replaceable></screen>
        </para>
       </formalpara>
      </listitem>
+     <listitem>
+      <formalpara>
+       <title><literal>SAP-ASE</literal></title>
+       <para>
+        Profile for servers hosting a &ase; database (formerly Sybase
+        Adaptive Server Enterprise).
+        <!-- SAP bought Sybase in 2010, really keep "Sybase" in here? -
+        sknorr, 2017-07-04 -->
+       </para>
+      </formalpara>
+     </listitem>
     </itemizedlist>
     <para>
      Alternatively, you can tune the computer according to recommendations
@@ -206,13 +224,13 @@ vm.pagecache_limit_ignore_dirty = <replaceable>2</replaceable></screen>
     <itemizedlist>
      <listitem>
       <para>
-       To set up <command>saptune</command> with a preconfigured solution, use:
+       To set up &saptune; with a preconfigured solution, use:
       </para>
       <screen>&prompt.root;<command>saptune solution apply <replaceable>SOLUTION</replaceable></command></screen>
      </listitem>
      <listitem>
       <para>
-       To set up <command>saptune</command> for the recommendations of a specific
+       To set up &saptune; for the recommendations of a specific
        &sap; Note, use:
       </para>
       <screen>&prompt.root;<command>saptune note apply <replaceable>NOTE</replaceable></command></screen>
@@ -229,38 +247,38 @@ vm.pagecache_limit_ignore_dirty = <replaceable>2</replaceable></screen>
    </step>
    <step>
     <para>
-     Finally, enable the <systemitem class="daemon">tuned</systemitem> profile
-     <literal>saptune</literal> and make sure the
-     <systemitem class="daemon">tuned</systemitem> daemon is active:
+     Finally, enable the &tuned; profile
+     &saptune; and make sure the
+     &tuned; daemon is active:
     </para>
     <screen>&prompt.root;<command>saptune daemon start</command></screen>
    </step>
   </procedure>
   <para>
-   In the background, <command>saptune</command> applies a
-   <systemitem class="resource">tuned</systemitem> profile also named
-   <command>saptune</command> that is dynamically customized according to
+   In the background, &saptune; applies a
+   &tuned; profile also named
+   &saptune; that is dynamically customized according to
    selected <quote>solutions</quote> and <quote>notes</quote>.
    Using <command>tuned-adm list</command>, you can also see this profile.
   </para>
   </sect2>
   <sect2 xml:id="sec.s4s.saptune.disable">
-   <title>Disabling <command>saptune</command></title>
+   <title>Disabling &saptune;</title>
    <para>
-    To disable <command>saptune</command>, use one of the following ways:
+    To disable &saptune;, use one of the following ways:
    </para>
    <itemizedlist>
     <listitem>
      <para>
       Completely disable the daemon
-      <systemitem class="daemon">tuned</systemitem>:
+      &tuned;:
      </para>
      <screen>&prompt.root;<command>systemctl disable tuned</command></screen>
     </listitem>
     <listitem>
      <para>
       Switch to a different
-      <systemitem class="daemon">tuned</systemitem> profile:
+      &tuned; profile:
      </para>
      <screen>&prompt.root;<command>tuned-adm profile <replaceable>PROFILE_NAME</replaceable></command></screen>
     </listitem>
@@ -270,7 +288,7 @@ vm.pagecache_limit_ignore_dirty = <replaceable>2</replaceable></screen>
    <title>Tuning Kernel Parameters Manually Using <command>sysctl</command></title>
    <para>
     In addition to or instead of tuning kernel parameters using
-    <command>saptune</command>, you can also use <command>sysctl</command> to
+    &saptune;, you can also use <command>sysctl</command> to
     make manual adjustments to kernel parameters. However, such changes using
     <command>sysctl</command> do not persist across reboots by default. To
     make them persist across reboots, add them to the file
@@ -286,39 +304,6 @@ vm.pagecache_limit_ignore_dirty = <replaceable>2</replaceable></screen>
    </para>
   </sect2>
 
-  <!-- Check whether we still need the following notes with 12 SP3... - sknorr,
-  2016-11-23 -->
-  <sect2 xml:id="sec.saptune.legacyprofile">
-   <title>Legacy Profiles</title>
-   <para>
-    The <systemitem class="resource">tuned</systemitem> profiles
-    <literal>sap-hana</literal> and <literal>sap-netweaver</literal> from the
-    package <package>sapconf</package> exist for legacy reasons only. They
-    have nothing to do with the <command>saptune</command> configuration.
-   </para>
-  </sect2>
-  <sect2 xml:id="sec.saptune.legacysapconf">
-   <title>Legacy Utility <command>sapconf</command></title>
-   <para>
-    The package <systemitem>sapconf</systemitem> contains the deprecated
-    utility <command>sapconf</command>. <command>sapconf</command> also
-    allows tuning for &sap; systems but is less comprehensive and offers less
-    granularity than <command>saptune</command>. It will also only apply
-    its profiles when no other <systemitem class="resource">tuned</systemitem>
-    profile is set.
-   </para>
-   <para>
-    If you previously used <command>sapconf</command>, the &sapwiz; will
-    offer to migrate your system to using
-    <command>saptune</command>. Additionally, enabling
-    <command>saptune</command> will disable <command>sapconf</command>.
-   </para>
-   <para>
-    To disable <command>sapconf</command> along with the underlying daemon
-    <systemitem class="daemon">tuned</systemitem>, use:
-   </para>
-   <screen>&prompt.root;<command>systemctl disable sapconf tuned</command></screen>
-  </sect2>
 
   <sect2 xml:id="sec.saptune.more">
    <title>For More Information</title>
@@ -341,6 +326,97 @@ vm.pagecache_limit_ignore_dirty = <replaceable>2</replaceable></screen>
    Also see the project homepage
    <link xlink:href="https://github.com/HouzuoGuo/saptune/"/>.
   </para>
+  </sect2>
+ </sect1>
+
+ <sect1 xml:id="sec.sapconf">
+  <title>Tuning Systems with the Basic Utility &sapconf;</title>
+  <para>
+   In addition to &saptune;, the package
+   <systemitem>sapconf</systemitem> contains the basic utility &sapconf;.
+   &sapconf; also allows tuning for &sap; systems but is less comprehensive
+   and offers less granularity than &saptune;. However, unlike &saptune;,
+   &sapconf; is available directly in &sls; and thus not dependent on using
+   &s4sa;.
+  </para>
+  <para>
+   &sapconf; and &saptune; both rely on the daemon &tuned; to set tuning
+   configuration but they use different (though at times very similar) tuning
+   profiles. Therefore, only one of &sapconf; or &saptune; can be enabled at
+   a time.
+  </para>
+  <!-- FIXME: Need to check again. - sknorr, 2017-07-05 -->
+  <!-- <para>
+   If you previously used &sapconf;, the &sapwiz; will offer to migrate your
+   system to using &saptune;.
+  </para> -->
+  <sect2 xml:id="sec.sapconf.enable">
+   <title>Enabling and Disabling &sapconf;</title>
+   <para>
+    To enable &sapconf; when &tuned; is not yet running, use:
+   </para>
+   <screen>&prompt.root;<command>sapconf start</command></screen>
+   <para>
+    By default, this will enable <literal>sap-netweaver</literal> profile. To
+    apply a different profile, use:
+   </para>
+   <screen>&prompt.root;<command>tuned-adm <replaceable>PROFILE_NAME</replaceable></command></screen>
+   <!-- Purposely not documenting sapconf [PROFILE_NAME] because not only
+   does that not allow reconfiguring the NW profile after switching to
+   something else (even though the NW profile is otherwise the default), it
+   also prints out deprecation warnings. - sknorr, 2017-07-05 -->
+   <para>
+    Replace <replaceable>PROFILE_NAME</replaceable> with one of the profiles
+    listed in <xref linkend="sec.sapconf.legacyprofile"/>.
+   </para>
+   <para>
+    To see the status of &sapconf;, use:
+   </para>
+   <screen>&prompt.root;<command>sapconf status</command></screen>
+   <para>
+    To disable &sapconf; along with the underlying daemon
+    &tuned;, use:
+   </para>
+   <screen>&prompt.root;<command>systemctl disable sapconf tuned</command></screen>
+  </sect2>
+  <sect2 xml:id="sec.sapconf.legacyprofile">
+   <title>&tuned; Profiles</title>
+   <para>
+    The package <package>sapconf</package> includes the following &tuned;
+    profiles which &sapconf; enables in the background:
+   </para>
+   <itemizedlist>
+    <listitem>
+     <para>
+      <literal>sap-ase</literal>
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      <literal>sap-bobj</literal>
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      <literal>sap-hana</literal>
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      <literal>sap-netweaver</literal>
+     </para>
+    </listitem>
+   </itemizedlist>
+   <para>
+    In general, these profiles map to the solution profiles listed in
+    <xref linkend="pro.s4s.tune"/>.
+   </para>
+  </sect2>
+  <sect2 xml:id="sec.sapconf.more">
+   <title>For More Information</title>
+   <para>
+    See the man page of &sapconf; (<command>man 8 sapconf</command>).
+   </para>
   </sect2>
  </sect1>
 

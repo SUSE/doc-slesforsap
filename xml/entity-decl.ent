@@ -240,6 +240,8 @@
 <!ENTITY nw             "&netweaver;">
 <!ENTITY hana           "&sap; HANA">
 <!ENTITY b1             "&sap; BusinessOne">
+<!ENTITY bo             "&sap; BusinessObjects">
+<!ENTITY ase            "&sap; Adaptive Server Enterprise">
 <!ENTITY s4h            "&sap; S/4HANA">
 <!ENTITY s4ha           "&sap; S/4HANA Application Server">
 <!ENTITY s4hd           "&sap; S/4HANA Database Server">
@@ -259,6 +261,9 @@
 <!ENTITY clamav         "ClamAV">
 <!ENTITY cmcu           "<command xmlns='http://docbook.org/ns/docbook'>clone-master-clean-up</command>">
 <!ENTITY systemd        "<systemitem xmlns='http://docbook.org/ns/docbook' class='daemon'>systemd</systemitem>">
+<!ENTITY saptune        "<command xmlns='http://docbook.org/ns/docbook'>saptune</command>">
+<!ENTITY sapconf        "<command xmlns='http://docbook.org/ns/docbook'>sapconf</command>">
+<!ENTITY tuned          "<systemitem xmlns='http://docbook.org/ns/docbook' class='daemon'>tuned</systemitem>">
 
 <!ENTITY % network-entities SYSTEM "network-decl.ent">
 %network-entities;
