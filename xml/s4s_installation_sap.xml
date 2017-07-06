@@ -808,7 +808,8 @@ SAP-NetWeaver-740-SR2-Installation-Export-CD-3-3</screen>
      <listitem>
       <para>
        When installing an &netweaver; application, the actual installation will
-       be performed using the &sapin; (&sapina;).
+       be performed using the &sapin; (&sapina;). After a few seconds, &sapin;
+       will open automatically.
       </para>
       <para>
        Follow the steps of &sapin; as described in the documentation provided
