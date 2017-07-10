@@ -983,7 +983,7 @@ SAP-NetWeaver-740-SR2-Installation-Export-CD-3-3</screen>
              <type>supplement</type>
            </medium>
          </media>
-         <sapMasterPW>secret</sapMasterPW>
+         <sapMasterPW>PASSWORD</sapMasterPW>
          <sid>HA1</sid>
          <sapInstNr>00</sapInstNr>
          <sapMDC>no</sapMDC>
