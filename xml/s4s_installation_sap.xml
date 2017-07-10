@@ -968,7 +968,7 @@ SAP-NetWeaver-740-SR2-Installation-Export-CD-3-3</screen>
 
   <para>The following &ay; snippet shows how a &hana; or &trex;  installation can be automated:</para>
 
-  <screen><![CDATA[
+  <screen language="xml"><![CDATA[
    <sap-inst>
      <products config:type="list">
        <product>
@@ -1006,7 +1006,7 @@ SAP-NetWeaver-740-SR2-Installation-Export-CD-3-3</screen>
   </para>
 
   <para>For &netweaver;, the following snippet shows how the installation can be automated:</para>
-  <screen><![CDATA[
+  <screen language="xml"><![CDATA[
    <sap-inst>
      <products config:type="list">
        <product>
