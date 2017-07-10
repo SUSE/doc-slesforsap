@@ -966,7 +966,7 @@ SAP-NetWeaver-740-SR2-Installation-Export-CD-3-3</screen>
 
   <para>The &sapwiz; can be used from &ay; in order to automate the installation of &sap; Applications.</para>
 
-  <para>The following &ay; snippet shows how &hana; installation can be automated:</para>
+  <para>The following &ay; snippet shows how a &hana; or &trex;  installation can be automated:</para>
 
   <screen><![CDATA[
    <sap-inst>
@@ -990,6 +990,17 @@ SAP-NetWeaver-740-SR2-Installation-Export-CD-3-3</screen>
      </products>
    </sap-inst>]]></screen>
 
+  <important>
+   <itemizedlist>
+    <listitem>
+     <para>The <tag>sapMDC</tag> element is only applicable to &hana;</para>
+    </listitem>
+    <listitem>
+      <para>The <tag>sapVirtHostname</tag> element must be specified for distributed or highly available installations.</para>
+    </listitem>
+   </itemizedlist>
+  </important>
+  
   <para>
     For a full &hana; example, including partitioning, see <filename>/usr/share/doc/packages/sap-installation-wizard/hana-autoyast.xml</filename>.
   </para>

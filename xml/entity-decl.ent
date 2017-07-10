@@ -245,6 +245,8 @@
 <!ENTITY s4h            "&sap; S/4HANA">
 <!ENTITY s4ha           "&sap; S/4HANA Application Server">
 <!ENTITY s4hd           "&sap; S/4HANA Database Server">
+<!ENTITY trex           "&sap; TREX">
+
 <!ENTITY instmaster     "Installation Master">
 <!-- Almost always using the plural here: one dir to copy from can contain
      multiple "CDs": -->
