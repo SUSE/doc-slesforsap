@@ -79,6 +79,17 @@
   <variablelist>
    <varlistentry>
     <term>
+     <xref linkend="sec.s4s.convert-sles" xrefstyle="SectTitleOnPage"/>
+    </term>
+    <listitem>
+     <para>
+      Add section about converting from &slsa; to &s4sa; (FATE#320636,
+      FATE#320568).
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term>
      <xref linkend="cha.s4s.tune" xrefstyle="SectTitleOnPage"/>
     </term>
     <listitem>
