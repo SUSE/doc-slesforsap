@@ -323,7 +323,7 @@ vm.pagecache_limit_ignore_dirty = <replaceable>2</replaceable></screen>
    </listitem>
   </itemizedlist>
   <para>
-   Also see the project homepage
+   Also see the project home page
    <link xlink:href="https://github.com/HouzuoGuo/saptune/"/>.
   </para>
   </sect2>

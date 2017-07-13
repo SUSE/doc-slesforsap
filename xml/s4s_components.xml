@@ -215,7 +215,7 @@
     serve multiple &sap; applications.
    </para>
    <para>
-    For more information, also see the project homepage
+    For more information, also see the project home page
     <link xlink:href="https://github.com/fmherschel/SAPHanaSR/"/>.
    </para>
   </sect3>
@@ -477,7 +477,7 @@
    <para>
     For more information, see the man page of the respective tool,
     included with the package <package>ClusterTools2</package>. Also see the
-    project homepage at
+    project home page at
     <link xlink:href="https://github.com/fmherschel/ClusterTools2"/>.
    </para>
   </sect3>
