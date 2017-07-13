@@ -15,6 +15,7 @@
 <!ENTITY novell         "Novell">
 <!ENTITY suseconfig     "SuSEconfig">
 <!ENTITY suselinux      "&suse; Linux">
+<!ENTITY susemanager    "&suse; Manager">
 <!ENTITY suseonsite     "&suse; Studio Onsite">
 <!ENTITY suseonsitereg  "&suseonsite;&reg;">
 <!-- suse studio service as different from the Onsite product -->
@@ -34,6 +35,7 @@
 <!ENTITY docaddress     "<link xmlns='http://docbook.org/ns/docbook' xmlns:xlink='http://www.w3.org/1999/xlink' xlink:href='https://www.suse.com/documentation/sles-12/'/>">
 <!ENTITY ha-docaddress  "<link xmlns='http://docbook.org/ns/docbook' xmlns:xlink='http://www.w3.org/1999/xlink' xlink:href='https://www.suse.com/documentation/sle-ha-12/'/>">
 <!ENTITY sapnoteaddress "https://launchpad.support.sap.com/#/notes/">
+<!ENTITY suma-docaddress "<link xmlns='http://docbook.org/ns/docbook' xmlns:xlink='http://www.w3.org/1999/xlink' xlink:href='https://www.suse.com/documentation/suse-manager-3/'/>">
 <!ENTITY reslibrary     "<link xmlns='http://docbook.org/ns/docbook' xmlns:xlink='http://www.w3.org/1999/xlink' xlink:href='https://www.suse.com/products/sles-for-sap/resource-library/'/>">
 
 <!ENTITY deploy         "<emphasis xmlns='http://docbook.org/ns/docbook'>Deployment Guide</emphasis>">
@@ -245,6 +247,8 @@
 <!ENTITY s4h            "&sap; S/4HANA">
 <!ENTITY s4ha           "&sap; S/4HANA Application Server">
 <!ENTITY s4hd           "&sap; S/4HANA Database Server">
+<!ENTITY trex           "&sap; TREX">
+
 <!ENTITY instmaster     "Installation Master">
 <!-- Almost always using the plural here: one dir to copy from can contain
      multiple "CDs": -->
