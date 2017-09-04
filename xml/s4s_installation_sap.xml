@@ -138,24 +138,14 @@
         can't do much anyway. - sknorr, 2016-01-28
        </remark>
        <important>
-        <title>Only Use Hardware Certified for &b1;</title>
+        <title>Hardware Requirements</title>
         <para>
-         To use &hana; file system creation functionality, your hardware needs
-         to be certified for &b1;. Additionally, follow the hardware setup
-         instructions in
-         <citetitle>SAP Note 1944415: Hardware Configuration Guide and Software
-         Installation Guide for SUSE Linux Enterprise Server with SAP HANA and
-         SAP Business One</citetitle>
-         (<link xlink:href="&sapnoteaddress;1944415"/>).
-        </para>
-        <para>
+         Make sure your machine fulfils the hardware requirements for &hana;
+         detailed in <xref linkend="sec.s4s.hardware"/>.
          Otherwise, this option will not create a new file system and the
          installation workflow ends at this point.
         </para>
        </important>
-       <!--
-        Next steps: click Next, click OK, click Finish. - sknorr, 2016-02-25
-       -->
       </listitem>
      </varlistentry>
      <varlistentry>
@@ -432,16 +422,15 @@
     <variablelist>
      <varlistentry>
       <term>
-       <guimenu>Collect installation profiles but do not execute
+       <guimenu>Collect installation profiles for SAP products but do not execute
         installation</guimenu>
       </term>
       <listitem>
        <para>
-        Use this option if you only want to set the installation parameters,
-        but not perform the actual installation. If you choose this option,
-        the installation will continue as it would without this option but the
-        &sapin; (&sapina;) will stop earlier. However, the following steps
-        fully apply.
+        Use this option to set the installation parameters,
+        but not perform the actual installation. With this option, the
+        &sapin; (&sapina;) will stop without performing the actual &sap;
+        product installation. However, the following steps fully apply.
        </para>
        <para>
         For more information, see <xref linkend="sec.s4s.install.continue"/>.
@@ -467,13 +456,10 @@
      Proceed with <guimenu>Next</guimenu>.
     </para>
     <para>
-     The &sapwiz; will now copy the &instmaster; to your local hard disk.
+     The &sapwiz; will now copy the &instmaster; to your local disk.
      Depending on the type of &instmaster; you selected, the installation
      will continue differently:
     </para>
-    <remark>
-     FIXME for SP2! - sknorr, 2016-08-09
-    </remark>
     <itemizedlist>
      <listitem>
       <para>
@@ -520,20 +506,6 @@
         &instmedia;, you will later need to provide the &sapin; (&sapina;)
         with the relevant paths.
        </para>
-       <!-- We don't even get to this step when installing HANA...
-       - sknorr, 2016-02-12 -->
-       <!--<important>
-        <title>Do Not Choose When Installing &hana;</title>
-        <para>
-         This option does not work for &hana;. Choosing it will lead the
-         installation to fail.
-        </para>
-        <remark>
-         Reasoning was something about HANA media having to be rw,
-         not just r somehow according to hguo. Check again before putting this
-         here - sknorr, 2016-01-12
-        </remark>
-       </important>-->
       </listitem>
      </varlistentry>
     </variablelist>
@@ -682,41 +654,37 @@
    </step>
    <step xml:id="st.s4s.supplement">
     <para>
-     You will be asked whether you want to copy &supmedia; or
+     You will be asked whether to copy &supmedia; or
      &thirdmedia;.
-     To do so, click <guimenu>Yes</guimenu>.
-     After doing so, follow the instructions in
+     To do so, click <guimenu>Yes</guimenu> and then follow the instructions in
      <xref linkend="st.s4s.copy-media" xrefstyle="select:label"/>.
     </para>
     <para>
      Otherwise, click <guimenu>No</guimenu>.
     </para>
-    <tip>
-     <!-- FIXME: 12/SP2? See discussion in FATE#319061 - sknorr, 2016-02-19 -->
-     <title>Difference Between &supmedia; and &thirdmedia;</title>
+    <note>
+     <title>Difference Between &supmedia;/&thirdmedia; and Additional Software Repositories</title>
      <para>
-      Both types of additional media are used to add installers for software
+      Both types of delivery mechanisms allow installing software
       that is neither part of the &sles4sap; media nor part of your &mediaset;
       from &sap;. However, the delivery mechanism is different:
      </para>
      <itemizedlist>
       <listitem>
        <para>
-        &supmedia; is installed using an &ay; file which allows creating
-        an installation wizard, if necessary. How the actual installation is
-        performed is left to the author of the &supmedia;: It can, for example,
-        be done using Bash scripts that copy files.
+        &supmedia;/&thirdmedia; is installed using an &ay; file which allows
+        creating an installation wizard and custom installation scripts.
        </para>
       </listitem>
       <listitem>
        <para>
-        &thirdmedia; is installed from RPM package repositories that you will
+        Additional software repositories are RPM package repositories that you will
         remain subscribed to. This means, you receive updates for &thirdmedia;
         along with your regular system updates.
        </para>
       </listitem>
      </itemizedlist>
-    </tip>
+    </note>
     <para>
      For information on creating &supmedia;, see
      <xref linkend="app.s4s.component.supplement"/>.
@@ -726,7 +694,7 @@
     <para>
      On the screen <guimenu>Additional software repositories for your
      SAP installation</guimenu>, you can add further software repositories.
-     This can be useful, for example, for installing add-ons that are packaged
+     For example, for add-ons that are packaged
      as RPM. To do so, click <guimenu>Add new software repositories</guimenu>.
      For more information about adding repositories, see
      <citetitle>&deploy;,
@@ -762,17 +730,19 @@ SAP-NetWeaver-740-SR2-Installation-Export-CD-3-3</screen>
    </step>
    <step xml:id="st.s4s.collect-parameter">
     <para>
-     Depending on the product you are installing, multiple dialogs will now
+     Depending on the product you are installing, one or more dialogs will now
      prompt you to supply values for several configuration parameters for the
      &sap; application you are installing.
     </para>
     <para>
      Supply the values as described in the documentation provided to you by
-     &sap;. Certain information about the configuration parameters is also
-     available at the left side of the dialog.
+     &sap;. Help for the configuration parameters is also
+     available at the left side of the dialog. For more information, see
+     <xref linkend="sec.s4s.data"/>.
     </para>
+
     <para>
-     In each case, fill out the form, then proceed with <guimenu>OK</guimenu>.
+     Fill out the form (or forms), then proceed with <guimenu>OK</guimenu>.
     </para>
     <figure xml:id="fig.s4s.product-parameter">
      <title>Product Parameters</title>
@@ -790,6 +760,27 @@ SAP-NetWeaver-740-SR2-Installation-Export-CD-3-3</screen>
     </figure>
     <para>
      When you are done, the &sapwiz; will download additional software packages.
+    </para>
+   </step>
+   <step>
+    <!-- FIXME: This step hana-only? - sknorr, 2017-09-01 -->
+    <para>
+     You will be asked whether to continue the installation or prepare another
+     &sap; product for installation. If you choose to prepare another &sap;
+     product, start from the beginning of this procedure.
+    </para>
+   </step>
+   <step role="optional">
+    <para>
+     When installing &hana; on a system that is not certified for &hana; and
+     does not meet the minimum hardware requirements for &hana; TDI
+     (Tailored Datacenter Integration), you will be
+     asked whether to continue. If you receive this message unexpectedly,
+     check <xref linkend="sec.s4s.hardware"/> and the sizing guidelines from
+     &sap; at <link xlink:href="https://service.sap.com/sizing"/>.
+    </para>
+    <para>
+     Otherwise, continue with <guimenu>Yes</guimenu>.
     </para>
    </step>
    <step xml:id="st.s4s.sapinst">
@@ -879,7 +870,7 @@ SAP-NetWeaver-740-SR2-Installation-Export-CD-3-3</screen>
 [...]</screen>
 
   <para>
-   These files will now be re-used.
+   These files are re-used in the following.
    To continue the installation, follow these steps:
   </para>
 

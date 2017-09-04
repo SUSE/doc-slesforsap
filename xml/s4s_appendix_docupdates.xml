@@ -79,11 +79,23 @@
   <variablelist>
    <varlistentry>
     <term>
+     <xref linkend="cha.s4s.plan" xrefstyle="SectTitleOnPage"/>,
+     <xref linkend="cha.s4s.install.sap" xrefstyle="SectTitleOnPage"/>
+    </term>
+    <listitem>
+     <para>
+      Updated chapters with information about support for &hana; MCD and
+      &hana; TDI (FATE#322281, FATE#320408).
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term>
      <xref linkend="sec.s4s.convert-sles" xrefstyle="SectTitleOnPage"/>
     </term>
     <listitem>
      <para>
-      Add section about converting from &slsa; to &s4sa; (FATE#320636,
+      Added section about converting from &slsa; to &s4sa; (FATE#320636,
       FATE#320568).
      </para>
     </listitem>

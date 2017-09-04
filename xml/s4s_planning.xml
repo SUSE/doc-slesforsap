@@ -14,6 +14,13 @@
 
  <sect1 xml:id="sec.s4s.hardware">
   <title>Hardware Requirements</title>
+  <para>
+   This section lists minimum hardware requirements for the installation of
+   &s4s; and gives basic guidance on the expected hardware requirements of
+   certain &sap; software. For the most up-to-date information about the
+   hardware requirements of &sap; software, see the official sizing
+   guidelines at <link xlink:href="https://service.sap.com/sizing"/>.
+  </para>
   <variablelist>
    <varlistentry>
     <term>CPU</term>
@@ -28,10 +35,48 @@
     <listitem>
      <para>
       &s4s; requires at least 35 GB of hard disk space for the system volume
-      plus space for the swap partition and 200 GB for the data partition for
-      installation of an &sap; application. For more information, see
-      <xref linkend="sec.s4s.partition"/>.
+      plus space for the swap partition. Additionally, for the
+      <filename>/data</filename> partition of an &sap; application such as
+      &nw;, at least 200 GB of free space are needed.
      </para>
+     <para>
+      To install &hana;, you need either of:
+     </para>
+     <itemizedlist>
+      <listitem>
+       <para>
+        A &b1;-certified machine
+       </para>
+      </listitem>
+      <listitem>
+       <para>
+        A machine compatible with the requirements for &hana; TDI (Tailored
+        Datacenter Integration):
+       </para>
+       <itemizedlist>
+        <listitem>
+         <para>
+          35 GB of free disk space for the base operating system
+         </para>
+        </listitem>
+        <listitem>
+         <para>
+          52 GB of free disk space for the partition
+          <filename>/usr/sap</filename>
+         </para>
+        </listitem>
+        <listitem>
+         <para>
+          Space for three partitions three partitions for &hana; data:
+          <filename>/hana/data</filename> (same size as RAM),
+          <filename>/hana/log</filename> (same size as RAM up to maximum of
+          512 GB), and <filename>/hana/shared</filename> (same size as RAM up
+          to maximum of 1 TB).
+         </para>
+        </listitem>
+       </itemizedlist>
+      </listitem>
+     </itemizedlist>
     </listitem>
    </varlistentry>
    <varlistentry>
@@ -40,13 +85,27 @@
      <para>
       The &sls; operating system itself requires a minimum of 512 MB of total
       RAM and a minimum of 256 MB of RAM per CPU core.
-      However, any &sap; application you install needs additional RAM resources.
-      For more information, see the
-      <citetitle>Sizing Guidelines</citetitle> from &sap; for your application.
+     </para>
+     <para>
+      Any &sap; software you install will need additional RAM.
+     </para>
+     <para>
+      To install &hana;, your machine needs a minimum of 24 GB of RAM.
      </para>
     </listitem>
    </varlistentry>
   </variablelist>
+  <para>
+   For more information about configuring hardware for &hana;, see
+   <citetitle>SAP Note 1944415: Hardware Configuration Guide and Software
+   Installation Guide for SUSE Linux Enterprise Server with SAP HANA and
+   SAP Business One</citetitle>
+   (<link xlink:href="&sapnoteaddress;1944415"/>).
+  </para>
+  <para>
+   For more information about partitioning, see
+   <xref linkend="sec.s4s.partition"/>.
+  </para>
  </sect1>
 
  <sect1 xml:id="sec.s4s.download">
@@ -198,7 +257,7 @@
     <term>&sap; Application</term>
     <listitem>
      <para>
-      The installation of an &sap; application generally requires:
+      The installation of an &sap; application generally requires specifying:
      </para>
      <itemizedlist>
       <listitem>
@@ -221,6 +280,53 @@
       Depending on the &sap; application you are installing, more parameters may be
       necessary, such as T-Shirt Sizing or parameters for virtual networking.
      </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term>&hana; Database</term>
+    <listitem>
+     <para>
+      The installation of &hana; requires specifying:
+     </para>
+     <itemizedlist>
+      <listitem>
+       <para>
+        &sap; SID
+       </para>
+      </listitem>
+      <listitem>
+       <para>
+        &sap; Instance Number
+       </para>
+      </listitem>
+      <listitem>
+       <para>
+        Whether to enable Multitenant Database Containers (MDC).
+        The multi-tenant support of &hana; allows having multiple
+        databases that run as one &hana; installation.
+        (To use &hana; MDC, you need &hana; Life Cycle Manager.)
+       </para>
+       <para>
+        For a single-tenant installation, choose <guimenu>No</guimenu>.
+       </para>
+       <para>
+        For a multi-tenant instance administrated by one
+        <systemitem class="username"><replaceable>SID</replaceable>adm</systemitem>
+        user, choose <guimenu>Yes with low isolation</guimenu>.
+       </para>
+       <para>
+        For a multi-tenant instance administrated in which each database
+        has an own
+        <systemitem class="username"><replaceable>SID</replaceable>adm</systemitem>
+        user, choose <guimenu>Yes with high isolation</guimenu>.
+       </para>
+      </listitem>
+      <listitem>
+       <para>
+        A password for the &hana; database
+       </para>
+      </listitem>
+     </itemizedlist>
     </listitem>
    </varlistentry>
   </variablelist>
