@@ -51,10 +51,8 @@
 
 <!ENTITY x86           "x86">
 <!ENTITY amd64         "AMD64">
-<!ENTITY s390          "S/390">
-<!ENTITY zseries       "System z">
-<!ENTITY ipseries      "POWER">
-<!ENTITY ppc           "POWER">
+<!ENTITY zseries       "z Systems">
+<!ENTITY power         "POWER">
 <!ENTITY intel64       "Intel 64">
 <!ENTITY x86-64        "&intel64;/&amd64;">
 

@@ -26,7 +26,7 @@
     <term>CPU</term>
     <listitem>
      <para>
-      &x86-64;
+      &x86-64; or &power;
      </para>
     </listitem>
    </varlistentry>
@@ -45,7 +45,7 @@
      <itemizedlist>
       <listitem>
        <para>
-        A &b1;-certified machine
+        An &b1;-certified machine
        </para>
       </listitem>
       <listitem>
@@ -67,7 +67,7 @@
         </listitem>
         <listitem>
          <para>
-          Space for three partitions three partitions for &hana; data:
+          Space for three partitions for &hana; data:
           <filename>/hana/data</filename> (same size as RAM),
           <filename>/hana/log</filename> (same size as RAM up to maximum of
           512 GB), and <filename>/hana/shared</filename> (same size as RAM up

@@ -33,7 +33,7 @@
       to business data. Parts of this memory are rarely accessed. When a
       user request needs to access paged-out memory, the response time
       is poor. It is even worse when an &sap; application running on Java incurs
-      a Java garbage collection: The system starts heavy page-in (disc I/O)
+      a Java garbage collection: The system starts heavy page-in (disk I/O)
       activity and has a poor response time for an extended period of time.
      </para>
     </listitem>
@@ -197,7 +197,7 @@ vm.pagecache_limit_ignore_dirty = <replaceable>2</replaceable></screen>
       <formalpara>
        <title><literal>SAP-ASE</literal></title>
        <para>
-        Profile for servers hosting a &ase; database (formerly Sybase
+        Profile for servers hosting an &ase; database (formerly Sybase
         Adaptive Server Enterprise).
         <!-- SAP bought Sybase in 2010, really keep "Sybase" in here? -
         sknorr, 2017-07-04 -->

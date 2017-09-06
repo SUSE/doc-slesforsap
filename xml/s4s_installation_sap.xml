@@ -140,7 +140,7 @@
        <important>
         <title>Hardware Requirements</title>
         <para>
-         Make sure your machine fulfils the hardware requirements for &hana;
+         Make sure your machine fulfills the hardware requirements for &hana;
          detailed in <xref linkend="sec.s4s.hardware"/>.
          Otherwise, this option will not create a new file system and the
          installation workflow ends at this point.

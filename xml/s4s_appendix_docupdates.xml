@@ -95,7 +95,7 @@
     </term>
     <listitem>
      <para>
-      Updated chapters with information about support for &hana; MCD and
+      Updated chapters with information about support for &hana; MDC and
       &hana; TDI (FATE#322281, FATE#320408).
      </para>
     </listitem>
