@@ -12,14 +12,9 @@
 <!ENTITY grub           "GRUB">
 
 <!ENTITY suse           "SUSE">
-<!ENTITY novell         "Novell">
 <!ENTITY suseconfig     "SuSEconfig">
 <!ENTITY suselinux      "&suse; Linux">
 <!ENTITY susemanager    "&suse; Manager">
-<!ENTITY suseonsite     "&suse; Studio Onsite">
-<!ENTITY suseonsitereg  "&suseonsite;&reg;">
-<!-- suse studio service as different from the Onsite product -->
-<!ENTITY susestudio     "&suse; Studio">
 <!ENTITY xvendor        "X.Org">
 <!ENTITY yast           "YaST">
 <!ENTITY yastcc         "&yast; Control Center">
@@ -39,35 +34,15 @@
 <!ENTITY reslibrary     "<link xmlns='http://docbook.org/ns/docbook' xmlns:xlink='http://www.w3.org/1999/xlink' xlink:href='https://www.suse.com/products/sles-for-sap/resource-library/'/>">
 
 <!ENTITY deploy         "<emphasis xmlns='http://docbook.org/ns/docbook'>Deployment Guide</emphasis>">
-<!ENTITY kdeuser        "<emphasis xmlns='http://docbook.org/ns/docbook'>KDE User Guide</emphasis>">
 <!ENTITY gnomeuser      "<emphasis xmlns='http://docbook.org/ns/docbook'>GNOME User Guide</emphasis>">
-<!ENTITY moblinuser     "<emphasis xmlns='http://docbook.org/ns/docbook'>Moblin User Guide</emphasis>">
 <!ENTITY instquick      "<emphasis xmlns='http://docbook.org/ns/docbook'>Installation Quick Start</emphasis>">
-<!ENTITY gnomequick     "<emphasis xmlns='http://docbook.org/ns/docbook'>GNOME Quick Start</emphasis>">
-<!ENTITY kdequick       "<emphasis xmlns='http://docbook.org/ns/docbook'>KDE Quick Start</emphasis>">
-<!ENTITY moblinquick    "<emphasis xmlns='http://docbook.org/ns/docbook'>Moblin Quick Start</emphasis>">
-<!ENTITY oofficequick   "<emphasis xmlns='http://docbook.org/ns/docbook'>LibreOffice.org Quick Start</emphasis>">
-<!ENTITY apps           "<emphasis xmlns='http://docbook.org/ns/docbook'>Application Guide</emphasis>">
 <!ENTITY admin          "<emphasis xmlns='http://docbook.org/ns/docbook'>Administration Guide</emphasis>">
-<!ENTITY reference      "<emphasis xmlns='http://docbook.org/ns/docbook'>Reference</emphasis>">
-<!ENTITY startup       	"<emphasis xmlns='http://docbook.org/ns/docbook'>Start-Up</emphasis>">
-<!ENTITY aaadmin        "<emphasis xmlns='http://docbook.org/ns/docbook'>&aa; Administration Guide</emphasis>">
-<!ENTITY aaquick        "<emphasis xmlns='http://docbook.org/ns/docbook'>&aa; Quick Start</emphasis>">
-<!ENTITY lfl            "<emphasis xmlns='http://docbook.org/ns/docbook'>Lessons For Lizards</emphasis>">
 <!ENTITY storage        "<emphasis xmlns='http://docbook.org/ns/docbook'>Storage Administration Guide</emphasis>">
 <!ENTITY haguide        "<emphasis xmlns='http://docbook.org/ns/docbook'>High Availability Guide</emphasis>">
 <!ENTITY virtual        "<emphasis xmlns='http://docbook.org/ns/docbook'>Virtualization Guide</emphasis>">
-<!ENTITY xenguide       "<emphasis xmlns='http://docbook.org/ns/docbook'>Virtualization with &xen;</emphasis>">
-<!ENTITY kvmguide       "<emphasis xmlns='http://docbook.org/ns/docbook'>Virtualization with &kvm;</emphasis>">
-<!ENTITY auditguide     "<emphasis xmlns='http://docbook.org/ns/docbook'>The Linux Audit Framework</emphasis>">
-<!ENTITY auditquick     "<emphasis xmlns='http://docbook.org/ns/docbook'>Linux Audit Quick Start</emphasis>">
 <!ENTITY tuning         "<emphasis xmlns='http://docbook.org/ns/docbook'>System Analysis and Tuning Guide</emphasis>">
-<!ENTITY tuningsub      "<emphasis xmlns='http://docbook.org/ns/docbook'>Problem Detection, Resolution, and Optimization</emphasis>">
 <!ENTITY secguide       "<emphasis xmlns='http://docbook.org/ns/docbook'>Security Guide</emphasis>">
 <!ENTITY smtguide       "<emphasis xmlns='http://docbook.org/ns/docbook'>Subscription Management Tool Guide</emphasis>">
-<!ENTITY webyastconfguide       "<emphasis xmlns='http://docbook.org/ns/docbook'>WebYaST Configuration Guide</emphasis>">
-<!ENTITY studioadmin    "<emphasis xmlns='http://docbook.org/ns/docbook'>Administration Guide</emphasis>">
-<!ENTITY studioinstall  "<emphasis xmlns='http://docbook.org/ns/docbook'>Installation &amp; Deployment Guide</emphasis>">
 
 
 <!-- ============================================================= -->
@@ -78,12 +53,10 @@
 <!ENTITY amd64         "AMD64">
 <!ENTITY s390          "S/390">
 <!ENTITY zseries       "System z">
-<!ENTITY ipf           "Itanium">
 <!ENTITY ipseries      "POWER">
 <!ENTITY ppc           "POWER">
-<!ENTITY em64t         "Intel EM64T">
 <!ENTITY intel64       "Intel 64">
-<!ENTITY x86-64        "&amd64;/&intel64;">
+<!ENTITY x86-64        "&intel64;/&amd64;">
 
 
 <!-- ============================================================= -->
@@ -117,29 +90,29 @@
 <!ENTITY hasi          "High Availability Extension">
 <!ENTITY we            "Workstation Extension">
 <!ENTITY sleha         "&sle; &hasi;">
-<!ENTITY sletcreg      "&slereg; Thin Client">
-<!ENTITY sletc         "&sle; Thin Client">
-<!ENTITY sletca        "SLETC">
-<!ENTITY tc            "Thin Client">
-<!ENTITY nu            "NU">
 <!ENTITY scc           "&suse; Customer Center">
-<!ENTITY yup           "yup">
-<!ENTITY imgcreat      "Image Creator">
-<!ENTITY admserv       "Administration Server">
-<!ENTITY branchserv    "Branch Server">
-<!ENTITY imgserv       "Image Building Server">
-<!ENTITY posbranchserv "POSBranch Server">
-<!ENTITY pos           "Point of Service">
-<!ENTITY wy            "WebYaST">
-<!ENTITY wyclient      "&yast;2 Webclient">
-<!ENTITY wyservice     "&yast;2 Webservice">
-<!ENTITY slms          "SUSE Lifecycle Management Server">
-<!ENTITY slmsreg       "SUSE&reg; Lifecycle Management Server">
 <!ENTITY obs           "Open Build Service">
 <!ENTITY obsa          "OBS">
 <!ENTITY ph            "&suse; Package Hub">
 <!ENTITY oes           "Open Enterprise Server">
-<!ENTITY rhel          "RedHat Enterprise Linux">
+<!ENTITY rhel          "Red Hat Enterprise Linux">
+<!ENTITY jeos          "JeOS">
+
+
+<!-- ============================================================= -->
+<!--                         $ME                                   -->
+<!-- ============================================================= -->
+
+<!ENTITY sles4sapa     "&slsa; for &sap;">
+<!ENTITY sles4sap      "&sls; for &sap; Applications">
+<!ENTITY s4sa          "&sles4sapa;">
+<!ENTITY s4s           "&sles4sap;">
+<!ENTITY sles4sapreg   "&slsreg; for &sap; Applications">
+<!ENTITY productname   '&sles4sap;'>
+<!ENTITY productnamereg '&sles4sapreg;'>
+<!ENTITY product-ga    '12'>
+<!ENTITY product-sp    '3'>
+<!ENTITY productnumber '&product-ga; SP&product-sp;'>
 
 <!-- ============================================================= -->
 <!--                    Applications                               -->
@@ -155,16 +128,6 @@
 <!ENTITY hbgui         "Linux HA Management Client">
 <!ENTITY smtool        "Subscription Management Tool">
 <!ENTITY sap           "SAP">
-<!ENTITY sles4sapa     "&slsa; for &sap;">
-<!ENTITY sles4sap      "&sls; for &sap; Applications">
-<!ENTITY s4sa          "&sles4sapa;">
-<!ENTITY s4s           "&sles4sap;">
-<!ENTITY sles4sapreg   "&slsreg; for &sap; Applications">
-<!ENTITY productname   '&sles4sap;'>
-<!ENTITY productnamereg '&sles4sapreg;'>
-<!ENTITY product-ga    '12'>
-<!ENTITY product-sp    '3'>
-<!ENTITY productnumber '&product-ga; SP&product-sp;'>
 <!ENTITY smt           "SMT">
 <!ENTITY lxc           "LXC">
 <!ENTITY xen           "Xen">
@@ -176,7 +139,7 @@
 <!ENTITY libvirt       '<systemitem xmlns="http://docbook.org/ns/docbook" class="library">libvirt</systemitem>'>
 <!ENTITY libvirtd      '<systemitem xmlns="http://docbook.org/ns/docbook" class="daemon">libvirtd</systemitem>'>
 <!ENTITY vmm           "Virtual Machine Manager">
-<!ENTITY pk            "PolicyKit">
+<!ENTITY pk            "PolKit">
 <!ENTITY ha            "High Availability">
 <!ENTITY ais           "OpenAIS">
 <!ENTITY stonith       "STONITH">
@@ -187,7 +150,6 @@
 <!ENTITY lvs           "Linux Virtual Server">
 <!ENTITY postgresql    "PostgreSQL">
 <!ENTITY mysql         "MySQL">
-<!ENTITY jeos          "JeOS"><!-- Just enough OS -->
 <!ENTITY stap          "SystemTap">
 <!ENTITY oprof         "OProfile">
 <!ENTITY cpufreq       "CPUfreq">
