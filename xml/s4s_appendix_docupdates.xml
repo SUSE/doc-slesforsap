@@ -80,6 +80,17 @@
    <varlistentry>
     <term>
      <xref linkend="cha.s4s.plan" xrefstyle="SectTitleOnPage"/>,
+    </term>
+    <listitem>
+     <para>
+      Added link to &sap; help and support portals (documentation comment
+      #33499).
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term>
+     <xref linkend="cha.s4s.plan" xrefstyle="SectTitleOnPage"/>,
      <xref linkend="cha.s4s.install.sap" xrefstyle="SectTitleOnPage"/>
     </term>
     <listitem>
