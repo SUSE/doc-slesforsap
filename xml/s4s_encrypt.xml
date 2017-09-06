@@ -13,8 +13,8 @@
    <listitem>
     <para>
      A client is a machine that has one or more encrypted partitions but does
-     not have the necessary key to decrypt those partitions. Clients can be,
-     for example, cloud or otherwise hosted machines.
+     not permanently store the necessary key to decrypt those partitions.
+     For example, clients can be cloud or otherwise hosted machines.
     </para>
    </listitem>
    <listitem>
@@ -22,12 +22,22 @@
      The server holds encryption keys that can be requested by clients to
      unlock encrypted partitions.
     </para>
+    <para>
+     You can also set up the <command>cryptctl</command> server to store
+     encryption keys on a KMIP 1.3-compatible (Key Management
+     Interoperability Protocol) server. In that case, the
+     <command>cryptctl</command> server will not store the encryption keys of
+     clients and is dependent upon the KMIP-compatible server to provide
+     these.
+    </para>
    </listitem>
   </itemizedlist>
   <warning>
    <title><command>cryptctl</command> Server Maintenance</title>
    <para>
-    Since the <command>cryptctl</command> server holds encryption keys, it
+    Since the <command>cryptctl</command> server manages timeouts for the
+    encrypted disks and, depending on the configuration, can also hold
+    encryption keys, it
     should be under your direct control and managed only by trusted
     personnel.
    </para>
@@ -48,7 +58,7 @@
      <imagedata fileref="cryptctl-keyretrieval.png" format="PNG"/>
     </imageobject>
     <imageobject role="fo">
-     <imagedata fileref="cryptctl-keyretrieval.svg" width="80%" format="SVG"/>
+     <imagedata fileref="cryptctl-keyretrieval.svg" width="70%" format="SVG"/>
     </imageobject>
     <textobject role="description">
      <phrase>The client asks the server for the disk decryption key, the server
@@ -68,6 +78,18 @@
    <para>
     Before you can define machine as a <command>cryptctl</command> client,
     you need to set up a machine as a <command>cryptctl</command> server.
+   </para>
+   <para>
+    Before beginning, choose whether to use a self-signed certificate to
+    secure communication between the server and clients. If not, generate a
+    TLS certificate for the server and have it signed by a certificate
+    authority.
+   </para>
+   <para>
+    Additionally, you can have clients authenticate to the server using
+    certificates signed by a certificate authority. To use this extra
+    security measure, make sure to have a CA certificate at hand before
+    starting this procedure.
    </para>
    <procedure>
     <step>
@@ -108,11 +130,12 @@
        <para>
         Specify the IP address that belongs to the network interface that you
         want to listen on for decryption requests from the clients, then set
-        a port number.
+        a port number (the default is port 3737).
        </para>
        <para>
-        If you use <systemitem class="ipaddress">0.0.0.0</systemitem> as the
-        IP address (the default), <command>cryptctl</command> will listen on
+        The default IP address setting,
+        <systemitem class="ipaddress">0.0.0.0</systemitem> means that
+        <command>cryptctl</command> will listen on
         all network interfaces for client requests using IPv4.
        </para>
        <!-- IPv6 should work too but not with 0.0.0.0, however: this is
@@ -120,9 +143,41 @@
       </step>
       <step>
        <para>
-        Set a directory for the keys needed to decrypt partitions on the
-        clients.
+        Specify a directory on the server that will hold the decryption keys
+        for clients.
        </para>
+      </step>
+      <step>
+       <para>
+        Specify whether clients need to authenticate to the server using a
+        TLS certificate. If you choose <guimenu>No</guimenu>, this means that
+        clients authenticate using disk UUIDs only. (However, communication
+        will be encrypted using the server certificate in any case.)
+       </para>
+       <para>
+        If you choose <guimenu>Yes</guimenu>, pick a PEM-encoded certificate
+        authority to use for signing client certificates.
+       </para>
+      </step>
+      <step>
+       <para>
+        Specify whether to use KMIP 1.3-compatible servers to store
+        encryption keys of clients. If you choose this option, provide the
+        hostnames and ports for one or multiple KMIP-compatible servers.
+       </para>
+       <para>
+        Additionally, provide a user name, password, a CA certificate for the
+        KMIP server, and a client identity certificate for the
+        <command>cryptctl</command> server.
+       </para>
+       <important>
+        <title>No Easy Reconfiguration of KMIP Option</title>
+        <para>
+         The setting to use a KMIP server cannot easily be changed later. To
+         change this setting, both the <command>cryptctl</command> server and
+         its clients have to be freshly configured.
+        </para>
+       </important>
       </step>
       <step>
        <para>
@@ -215,6 +270,19 @@
       of the server certificate must be trusted by the client.
      </para>
     </listitem>
+    <listitem>
+     <para>
+      If you set up the server to require clients to authenticate using
+      client certificate, prepare a TLS certificate for the client which is
+      signed by the CA certificate you chose for the server.
+     </para>
+     <remark>
+      FIXME: needs openssl command-line-fu, or maybe xref to
+      doc-sle/sec.apache2.ssl.certificate - though some parts there are
+      somewhat Apache-specific, i.e. confusing here.
+      - sknorr, 2017-09-06
+     </remark>
+    </listitem>
    </itemizedlist>
    <procedure>
     <step>
@@ -238,9 +306,16 @@
       </step>
       <step>
        <para>
-        Specify the path to the server certificate (the
-        <filename>*.crt</filename> file). Specify an absolute
-        path.
+        If you configured the server to have clients authenticate to it using a
+        TLS certificate, specify a certificate and a key file for the client.
+        The client certificate must be signed by the same certificate
+        authority chosen when setting up the server.
+       </para>
+      </step>
+      <step>
+       <para>
+        Specify the absolute path to the server certificate (the
+        <filename>*.crt</filename> file).
        </para>
       </step>
       <step>
@@ -291,6 +366,9 @@
     </step>
     <step>
      <para>
+      To start encryption, enter <literal>yes</literal>.
+     </para>
+     <para>
       <command>cryptctl</command> will now encrypt the specified directory to
       the previously empty partition and then mount the newly encrypted
       partition. The file system type will be of the same type as the
@@ -332,13 +410,14 @@ Used By      When                  UUID  Max.Users  Num.Users  Mount Point
 <replaceable>IP_ADDRESS</replaceable>   2016-10-10 10:00:00   <replaceable>UUID</replaceable>  1          1          /secret-partition
      </screen>
      <para>
-      The UUID shown is that of the partition. This means you can
+      Verify that the UUID shown is that of the previously encrypted partition.
      </para>
     </step>
     <step>
      <para>
       After verifying that the encrypted partition works, delete the
-      unencrypted content, for example, using <command>rm</command>. For more
+      unencrypted content from the client. For example, use <command>rm</command>.
+      For more
       safety, overwrite the content of the files before deleting them, for
       example, using <command>shred -u</command>.
      </para>
@@ -368,7 +447,7 @@ Used By      When                  UUID  Max.Users  Num.Users  Mount Point
    <para>
     When a <command>cryptctl</command> client is active, it will send a
     <quote>heartbeat</quote> to the <command>cryptctl</command> server every
-    ten seconds. If the server does not receive a heartbeat from the client
+    10 seconds. If the server does not receive a heartbeat from the client
     for the length of the timeout configured during the client setup, the
     server will assume that the client is offline and allow another client to
     connect (or allow the same client to reconnect after a reboot).

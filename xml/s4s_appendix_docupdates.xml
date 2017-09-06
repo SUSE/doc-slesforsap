@@ -91,6 +91,17 @@
    </varlistentry>
    <varlistentry>
     <term>
+     <xref linkend="cha.s4s.configure.cryptctl" xrefstyle="SectTitleOnPage"/>
+    </term>
+    <listitem>
+     <para>
+      Updated chapter with information about support client certificates and
+      KMIP (FATE#322293, FATE#322979).
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term>
      <xref linkend="sec.s4s.convert-sles" xrefstyle="SectTitleOnPage"/>
     </term>
     <listitem>
