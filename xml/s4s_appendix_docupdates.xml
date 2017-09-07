@@ -102,6 +102,17 @@
    </varlistentry>
    <varlistentry>
     <term>
+     <xref linkend="sec.s4s.install.workflow" xrefstyle="SectTitleOnPage"/>
+    </term>
+    <listitem>
+     <para>
+      Updated section with reference to description of installation on
+      &power; in &slsa; documentation (FATE#320639).
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term>
      <xref linkend="cha.s4s.configure.cryptctl" xrefstyle="SectTitleOnPage"/>
     </term>
     <listitem>

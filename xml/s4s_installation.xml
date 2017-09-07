@@ -42,14 +42,27 @@
   <procedure xml:id="pro.s4s.workflow.start">
    <title>Starting the OS Installation</title>
    <step>
-    <para>
-     Boot from the DVD.
-     From the DVD boot menu, select <guimenu>Installation</guimenu>.
-     <!-- Too basic? -->
-     <!-- To navigate to the entry, use the keys <keycap function="up"/> and
-     <keycap function="down"/>.
-     To choose the entry, press <keycap function="enter"/>. -->
-    </para>
+    <itemizedlist>
+     <listitem>
+      <para>
+       On &x86-64;, boot from the DVD.
+       From the DVD boot menu, select <guimenu>Installation</guimenu>.
+       <!-- Too basic? -->
+       <!-- To navigate to the entry, use the keys <keycap function="up"/> and
+       <keycap function="down"/>.
+       To choose the entry, press <keycap function="enter"/>. -->
+      </para>
+     </listitem>
+     <listitem>
+      <para>
+       On &power;, follow the instructions in the &sls; documentation, see
+       <citetitle>Book <quote>&deploy;</quote>,
+       Part <quote>Installation Preparation</quote>,
+       Chapter <quote>Installation on IBM &power;</quote></citetitle>
+       (&docaddress;).
+      </para>
+     </listitem>
+    </itemizedlist>
 
     <figure xml:id="fig.s4s.dvd.bootmenu">
      <title>DVD Boot Menu</title>

@@ -26,8 +26,15 @@
     <term>CPU</term>
     <listitem>
      <para>
-      &x86-64; or &power;
+      &x86-64;
      </para>
+     <para>
+      IBM &power; servers with PowerKVM compatibility
+     </para>
+     <remark>
+      FIXME: POWER 8 and 9? Presumably also needs fixing in SLES Deploy.
+      - sknorr, 2017-09-07
+     </remark>
     </listitem>
    </varlistentry>
    <varlistentry>
