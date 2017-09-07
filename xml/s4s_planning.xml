@@ -42,9 +42,12 @@
     <listitem>
      <para>
       &s4s; requires at least 35 GB of hard disk space for the system volume
-      plus space for the swap partition. Additionally, for the
-      <filename>/data</filename> partition of an &sap; application such as
-      &nw;, at least 200 GB of free space are needed.
+      plus space for the swap partition.
+     </para>
+     <para>
+      To install an &sap; application such &nw;, you need at least 200 GB of
+      free disk space in addition to the required space for the operating
+      system for the application's <filename>/data</filename> partition.
      </para>
      <para>
       To install &hana;, you need either of:
@@ -58,14 +61,11 @@
       <listitem>
        <para>
         A machine compatible with the requirements for &hana; TDI (Tailored
-        Datacenter Integration):
+        Datacenter Integration). That is, you need the following amounts of
+        free disk space in addition to the required space for the operating
+        system:
        </para>
        <itemizedlist>
-        <listitem>
-         <para>
-          35 GB of free disk space for the base operating system
-         </para>
-        </listitem>
         <listitem>
          <para>
           52 GB of free disk space for the partition
@@ -84,6 +84,14 @@
        </itemizedlist>
       </listitem>
      </itemizedlist>
+     <para>
+      For more information about &hana; TDI storage requirements, see:
+     </para>
+     <!-- FIXME! Long link is line-wrapped in terrible ways, so added new
+     para despite this being semantic nonsense. -->
+     <para>
+      <link xlink:href="https://www.sap.com/docs/download/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.pdf"/>
+     </para>
     </listitem>
    </varlistentry>
    <varlistentry>
@@ -201,7 +209,7 @@
     only the first step of the installation workflow is executed.
    </para>
    <para>
-    This can be necessary when you want to install an Oracle database on an
+    This can be necessary when you want to install an Oracle database on a
     &s4s; machine. To do so, install the base product &sls; first, then
     install the Oracle database and later convert your
     installation to &s4sa;. This is necessary because the installer of Oracle
