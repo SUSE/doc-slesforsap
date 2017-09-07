@@ -56,7 +56,7 @@
      <listitem>
       <para>
        On &power;, follow the instructions in the &sls; documentation, see
-       <citetitle>Book <quote>&deploy;</quote>,
+       <citetitle>&deploy;,
        Part <quote>Installation Preparation</quote>,
        Chapter <quote>Installation on IBM &power;</quote></citetitle>
        (&docaddress;).
@@ -449,7 +449,7 @@
      the time or to configure an NTP server for time synchronization, choose
      <guimenu>Other Settings</guimenu>.
      For detailed information, see
-     <citetitle>Deployment Guide,
+     <citetitle>&deploy;,
      Chapter <quote>Installation with YaST</quote>,
      Section <quote>Clock and Time Zone</quote></citetitle> (&docaddress;).
     </para>
@@ -467,7 +467,7 @@
     </para>
     <para>
      For more information, see
-     <citetitle>Deployment Guide,
+     <citetitle>&deploy;,
      Chapter <quote>Installation with YaST</quote>,
      Section <quote>Password for the System Administrator
      <!--<systemitem class="username">root</systemitem>-->root</quote></citetitle>

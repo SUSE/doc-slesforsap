@@ -264,7 +264,7 @@
       <para>
        For more information about
        Corosync secure authentication, see
-       <citetitle>&admin; Part <quote>Installation, Setup and
+       <citetitle>&admin;, Part <quote>Installation, Setup and
        Upgrade</quote>, Chapter <quote>Using the &yast; Cluster
        Module</quote>, Section <quote>Defining Authentication
        Settings</quote></citetitle> at &ha-docaddress;.
