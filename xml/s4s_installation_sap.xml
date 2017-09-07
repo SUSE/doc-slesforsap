@@ -770,7 +770,7 @@ SAP-NetWeaver-740-SR2-Installation-Export-CD-3-3</screen>
      product, start from the beginning of this procedure.
     </para>
    </step>
-   <step role="optional">
+   <step performance="optional">
     <para>
      When installing &hana; on a system that is not certified for &hana; and
      does not meet the minimum hardware requirements for &hana; TDI
