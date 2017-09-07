@@ -211,7 +211,7 @@
    </itemizedlist>
    <para>
     For all of the scenarios, &sles4sap; supports both single-tenant and
-    multi-tenant &hana; databases. That is, you can use &hana; databases that
+    multi-tenant (MDC) &hana; databases. That is, you can use &hana; databases that
     serve multiple &sap; applications.
    </para>
    <para>

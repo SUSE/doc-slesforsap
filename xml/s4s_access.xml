@@ -97,9 +97,9 @@
   </itemizedlist>
 
   <important>
-   <title>Multi-Tenant Databases</title>
+   <title>&hana; MDC Databases</title>
    <para>
-    For multi-tenant &hana; databases, determining the port numbers that
+    For multi-tenant &hana; (MDC) databases, determining the port numbers that
     need to be opened is not yet possible automatically.
     If you are working with a multi-tenant &hana; database system, before you
     use &yast;, run a script on the command line to create a new
