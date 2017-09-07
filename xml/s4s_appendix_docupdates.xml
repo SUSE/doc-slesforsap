@@ -17,7 +17,7 @@
  <itemizedlist role="subtoc">
   <listitem>
    <para>
-    <xref linkend="app.s4s.docupdate.2017-09-01" xrefstyle="SectTitleOnPage"/>
+    <xref linkend="app.s4s.docupdate.2017-09-07" xrefstyle="SectTitleOnPage"/>
    </para>
   </listitem>
   <listitem>
@@ -68,8 +68,8 @@
  </itemizedlist>
 
 
- <sect1 xml:id="app.s4s.docupdate.2017-09-01">
-  <title>September 1, 2017&mdash;&s4sa; 12 SP3 FCS</title>
+ <sect1 xml:id="app.s4s.docupdate.2017-09-07">
+  <title>September 7, 2017&mdash;&s4sa; 12 SP3 FCS</title>
 
   <para>
    Updates were made to the following sections. The changes are explained
