@@ -17,6 +17,11 @@
  <itemizedlist role="subtoc">
   <listitem>
    <para>
+    <xref linkend="app.s4s.docupdate.2017-11-01" xrefstyle="SectTitleOnPage"/>
+   </para>
+  </listitem>
+  <listitem>
+   <para>
     <xref linkend="app.s4s.docupdate.2017-09-07" xrefstyle="SectTitleOnPage"/>
    </para>
   </listitem>
@@ -68,6 +73,29 @@
  </itemizedlist>
 
 
+ <sect1 xml:id="app.s4s.docupdate.2017-11-01">
+  <title>November 1, 2017&mdash;&s4sa; 12 SP3 Documentation Update</title>
+
+  <para>
+   Updates were made to the following sections. The changes are explained
+   below.
+  </para>
+
+  <variablelist>
+   <varlistentry>
+    <term>
+     <xref linkend="sec.s4s.repository" xrefstyle="SectTitleOnPage"/>
+    </term>
+    <listitem>
+     <para>
+      Added note about ESPOS updates via regular update repositories
+      (bsc#1062335).
+     </para>
+    </listitem>
+   </varlistentry>
+  </variablelist>
+ </sect1>
+
  <sect1 xml:id="app.s4s.docupdate.2017-09-07">
   <title>September 7, 2017&mdash;&s4sa; 12 SP3 FCS</title>
 
@@ -79,7 +107,7 @@
   <variablelist>
    <varlistentry>
     <term>
-     <xref linkend="cha.s4s.plan" xrefstyle="SectTitleOnPage"/>,
+     <xref linkend="cha.s4s.plan" xrefstyle="SectTitleOnPage"/>
     </term>
     <listitem>
      <para>

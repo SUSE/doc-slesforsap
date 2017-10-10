@@ -169,6 +169,15 @@
    Because there are own repositories for &productname;, &suse; can ship
    packages and patches that are specific to &productname;.
   </para>
+  <note>
+   <title>ESPOS Updates Shipped Directly in Update Repositories</title>
+   <para>
+    Unlike in &productname; 11, updates related to Extended Service Pack
+    Overlay Support (ESPOS) are shipped directly from the
+    <literal>Update</literal> repositories. This means, there is no separate
+    ESPOS repository to set up.
+   </para>
+  </note>
 
   <para>
    In addition to the standard repositories, you can enable the following
