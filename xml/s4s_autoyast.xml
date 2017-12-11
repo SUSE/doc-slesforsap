@@ -32,8 +32,8 @@
  </para>
 
  <para>
-   If you plan to deploy &sles4sap; from a &susemanager; server, refer to
-   <citetitle>&susemanager; <quote>Reference Manual</quote>, <quote>Systems</quote>, <quote>Autoinstallation</quote></citetitle> and <citetitle>&susemanager; <quote>Advanced Topics</quote>, Chapter <quote>Minimalist &ay; Profile for Automated Installations and Useful Enhancements</quote></citetitle> (&suma-docaddress;).
+   If you plan to deploy &sles4sap; from a &suma; server, refer to
+   <citetitle>&suma; <quote>Reference Manual</quote>, <quote>Systems</quote>, <quote>Autoinstallation</quote></citetitle> and <citetitle>&suma; <quote>Advanced Topics</quote>, Chapter <quote>Minimalist &ay; Profile for Automated Installations and Useful Enhancements</quote></citetitle> (&suma-docaddress;).
  </para>
  
 </sect1>

@@ -1,9 +1,3 @@
-
-<!-- ...................................................................... -->
-<!-- General Entities                                                       -->
-<!-- ...................................................................... -->
-
-
 <!ENTITY exampleuser    "tux">
 <!ENTITY exampleuserII  "wilber">
 <!ENTITY examplegroup   "users">
@@ -12,20 +6,14 @@
 <!ENTITY grub           "GRUB">
 
 <!ENTITY suse           "SUSE">
-<!ENTITY suseconfig     "SuSEconfig">
-<!ENTITY suselinux      "&suse; Linux">
-<!ENTITY susemanager    "&suse; Manager">
+<!ENTITY suma           "&suse; Manager">
 <!ENTITY xvendor        "X.Org">
 <!ENTITY yast           "YaST">
 <!ENTITY yastcc         "&yast; Control Center">
 <!ENTITY ay             "<phrase xmlns='http://docbook.org/ns/docbook' role='productname'>AutoYaST</phrase>">
-<!ENTITY nm             "NetworkManager">
 <!ENTITY yelp           "Help">
 
-<!-- ============================================================= -->
-<!--                    Books                                      -->
-<!-- ============================================================= -->
-
+<!--                    SLE Books                                  -->
 
 <!ENTITY docaddress     "<link xmlns='http://docbook.org/ns/docbook' xmlns:xlink='http://www.w3.org/1999/xlink' xlink:href='https://www.suse.com/documentation/sles-12/'/>">
 <!ENTITY ha-docaddress  "<link xmlns='http://docbook.org/ns/docbook' xmlns:xlink='http://www.w3.org/1999/xlink' xlink:href='https://www.suse.com/documentation/sle-ha-12/'/>">
@@ -45,11 +33,8 @@
 <!ENTITY smtguide       "<emphasis xmlns='http://docbook.org/ns/docbook'>Subscription Management Tool Guide</emphasis>">
 
 
-<!-- ============================================================= -->
 <!--                    Platforms                                  -->
-<!-- ============================================================= -->
 
-<!ENTITY x86           "x86">
 <!ENTITY amd64         "AMD64">
 <!ENTITY zseries       "z Systems">
 <!ENTITY power         "POWER">
@@ -57,22 +42,15 @@
 <!ENTITY x86-64        "&intel64;/&amd64;">
 
 
-<!-- ============================================================= -->
 <!--                    Products                                   -->
-<!-- ============================================================= -->
-
-<!-- please change product to anything that makes sense in your current release -->
 
 <!ENTITY opensuse      "openSUSE">
 <!ENTITY opensusereg   "openSUSE&reg;">
 <!ENTITY sle           "SUSE Linux Enterprise">
 <!ENTITY slea          "SLE">
-<!ENTITY sas           "&sle; Advanced Server">
 <!ENTITY slereg        "SUSE&reg; Linux Enterprise">
 <!ENTITY slert         "&sle; Real Time">
-<!ENTITY slerte        "&slert; Extension">
 <!ENTITY slertreg      "&slereg; Real Time">
-<!ENTITY slertereg     "&slereg; Real Time Extension">
 <!ENTITY sls           "SUSE Linux Enterprise Server">
 <!ENTITY slsa          "SLES">
 <!ENTITY slsreg        "SUSE&reg; Linux Enterprise Server">
@@ -83,8 +61,6 @@
 <!ENTITY slreg         "SUSE&reg; Linux">
 <!ENTITY slepos        "SUSE Linux Enterprise Point of Service">
 <!ENTITY sleposreg     "SUSE&reg; Linux Enterprise Point of Service">
-<!ENTITY slert         "&sle; Real Time">
-<!ENTITY slertreg      "&slereg; Real Time">
 <!ENTITY hasi          "High Availability Extension">
 <!ENTITY we            "Workstation Extension">
 <!ENTITY sleha         "&sle; &hasi;">
@@ -92,14 +68,11 @@
 <!ENTITY obs           "Open Build Service">
 <!ENTITY obsa          "OBS">
 <!ENTITY ph            "&suse; Package Hub">
-<!ENTITY oes           "Open Enterprise Server">
 <!ENTITY rhel          "Red Hat Enterprise Linux">
 <!ENTITY jeos          "JeOS">
 
 
-<!-- ============================================================= -->
 <!--                         $ME                                   -->
-<!-- ============================================================= -->
 
 <!ENTITY sles4sapa     "&slsa; for &sap;">
 <!ENTITY sles4sap      "&sls; for &sap; Applications">
@@ -112,88 +85,33 @@
 <!ENTITY product-sp    '3'>
 <!ENTITY productnumber '&product-ga; SP&product-sp;'>
 
-<!-- ============================================================= -->
 <!--                    Applications                               -->
-<!-- ============================================================= -->
 
-<!ENTITY gupdater      "Update Applet">    <!-- GNOME Updater-->
 <!ENTITY aa            "AppArmor">
-<!ENTITY aareg         "AppArmor&reg;">
-<!ENTITY naa           "&aa;">
-<!ENTITY naareg        "&aareg;">
-<!ENTITY hb            "Heartbeat">
-<!ENTITY hbvs          "Heartbeat 2">
-<!ENTITY hbgui         "Linux HA Management Client">
-<!ENTITY smtool        "Subscription Management Tool">
 <!ENTITY sap           "SAP">
-<!ENTITY smt           "SMT">
-<!ENTITY lxc           "LXC">
 <!ENTITY xen           "Xen">
-<!ENTITY xenreg        "Xen&reg;">
 <!ENTITY kvm           "KVM">
-<!ENTITY vmhost        "VM Host Server">
-<!ENTITY vmguest       "VM Guest">
 <!ENTITY dom0          "Domain0">
 <!ENTITY libvirt       '<systemitem xmlns="http://docbook.org/ns/docbook" class="library">libvirt</systemitem>'>
 <!ENTITY libvirtd      '<systemitem xmlns="http://docbook.org/ns/docbook" class="daemon">libvirtd</systemitem>'>
 <!ENTITY vmm           "Virtual Machine Manager">
-<!ENTITY pk            "PolKit">
-<!ENTITY ha            "High Availability">
-<!ENTITY ais           "OpenAIS">
 <!ENTITY stonith       "STONITH">
 <!ENTITY susefirewall  "SuSEFirewall2">
-<!ENTITY pciback       "PCI Pass-Through">
-<!ENTITY usbback       "USB Pass-Through">
-<!ENTITY vgaback       "VGA Pass-Through">
-<!ENTITY lvs           "Linux Virtual Server">
-<!ENTITY postgresql    "PostgreSQL">
-<!ENTITY mysql         "MySQL">
-<!ENTITY stap          "SystemTap">
-<!ENTITY oprof         "OProfile">
-<!ENTITY cpufreq       "CPUfreq">
-<!ENTITY powertop      "powerTOP">
-<!-- oddities -->
-<!ENTITY thrdmrk       "*">
+<!ENTITY kiwi            "KIWI">
 <!ENTITY kexec         "Kexec">
 <!ENTITY kdump         "Kdump">
 <!ENTITY hawk          "Hawk">
-<!-- ============================================================= -->
-<!--                    yast desktop entities                      -->
-<!-- ============================================================= -->
 
-<!ENTITY ycc_runlevel  "System Services (Runlevel)">
+<!-- oddities -->
+<!ENTITY thrdmrk       "*">
+<!ENTITY euro            "&#x20AC;">
 
-<!-- ============================================================= -->
 <!--                          Prompts                              -->
-<!-- ============================================================= -->
 
 <!ENTITY prompt.root     "<prompt role='root' xmlns='http://docbook.org/ns/docbook'>root # </prompt>">
 <!ENTITY prompt.user     "<prompt xmlns='http://docbook.org/ns/docbook'>&exampleuser; &gt; </prompt>">
 <!ENTITY prompt.user2    "<prompt xmlns='http://docbook.org/ns/docbook'>&exampleuserII; &gt; </prompt>">
 
-
-<!-- ============================================================= -->
-<!--                    Miscellaneous                              -->
-<!-- ============================================================= -->
-<!ENTITY kiwi            "KIWI">
-<!ENTITY cdcreator       "CD Creator">
-<!ENTITY addoncreator    "Add-on Creator">
-<!ENTITY imgcreator      "Image Creator">
-<!ENTITY productcreator  "Product Creator">
-<!ENTITY nomad           "Nomad">
-<!ENTITY cpufreq         "CPUfreq">
-<!ENTITY qemu            "QEMU">
-<!ENTITY altf2           '<keycombo xmlns="http://docbook.org/ns/docbook"><keycap function="alt"/><keycap>F2</keycap></keycombo>'>
-
-
-<!ENTITY wypublic          "/srv/www/yast/public/">
-<!ENTITY mac               "<replaceable xmlns='http://docbook.org/ns/docbook'>MAC</replaceable>">
-<!ENTITY hwmac             "hwtype.<replaceable xmlns='http://docbook.org/ns/docbook'>MAC</replaceable>">
-<!ENTITY confmac           "config.<replaceable xmlns='http://docbook.org/ns/docbook'>MAC</replaceable>">
-
-
-<!-- Additional Entities                                           -->
-<!ENTITY euro            "&#x20AC;">
 
 <!-- SAP-Specific Entities -->
 
