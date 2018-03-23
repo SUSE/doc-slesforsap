@@ -369,8 +369,8 @@
    </step>
    <step>
     <para>
-     In the next step, choose fencing options. The only supported fencing
-     mechanism is currently SBD (<emphasis>STONITH block
+     In the next step, choose fencing options. The &yast; wizard only
+     supports the fencing mechanism SBD (<emphasis>STONITH block
      device</emphasis>). To avoid split-brain situations, SBD uses a disk
      device which stores cluster state.
     </para>
