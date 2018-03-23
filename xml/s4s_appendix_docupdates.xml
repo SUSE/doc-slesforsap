@@ -17,6 +17,11 @@
  <itemizedlist role="subtoc">
   <listitem>
    <para>
+    <xref linkend="app.s4s.docupdate.2018-04-01" xrefstyle="SectTitleOnPage"/>
+   </para>
+  </listitem>
+  <listitem>
+   <para>
     <xref linkend="app.s4s.docupdate.2017-11-01" xrefstyle="SectTitleOnPage"/>
    </para>
   </listitem>
@@ -71,6 +76,30 @@
    </para>
   </listitem>
  </itemizedlist>
+
+
+ <sect1 xml:id="app.s4s.docupdate.2018-04-01">
+  <title>April 1, 2018&mdash;&s4sa; 12 SP3 Documentation Update</title>
+
+  <para>
+   Updates were made to the following sections. The changes are explained
+   below.
+  </para>
+
+  <variablelist>
+   <varlistentry>
+    <term>
+     <xref linkend="sec.s4s.hana-cluster.wizard" xrefstyle="SectTitleOnPage"/>
+    </term>
+    <listitem>
+     <para>
+      Fixed misleading content: Other fencing types supported but not in YaST
+      (bsc#1086628).
+     </para>
+    </listitem>
+   </varlistentry>
+  </variablelist>
+ </sect1>
 
 
  <sect1 xml:id="app.s4s.docupdate.2017-11-01">
