@@ -17,7 +17,7 @@
  <itemizedlist role="subtoc">
   <listitem>
    <para>
-    <xref linkend="app.s4s.docupdate.2018-04-01" xrefstyle="SectTitleOnPage"/>
+    <xref linkend="app.s4s.docupdate.2018-04-25" xrefstyle="SectTitleOnPage"/>
    </para>
   </listitem>
   <listitem>
@@ -78,8 +78,8 @@
  </itemizedlist>
 
 
- <sect1 xml:id="app.s4s.docupdate.2018-04-01">
-  <title>April 1, 2018&mdash;&s4sa; 12 SP3 Documentation Update</title>
+ <sect1 xml:id="app.s4s.docupdate.2018-04-25">
+  <title>April 25, 2018&mdash;&s4sa; 12 SP3 Documentation Update</title>
 
   <para>
    Updates were made to the following sections. The changes are explained
@@ -87,6 +87,16 @@
   </para>
 
   <variablelist>
+   <varlistentry>
+    <term>
+     <xref linkend="sec.s4s.service" xrefstyle="SectTitleOnPage"/>
+    </term>
+    <listitem>
+     <para>
+      Fixed typo (bsc#1088879).
+     </para>
+    </listitem>
+   </varlistentry>
    <varlistentry>
     <term>
      <xref linkend="sec.s4s.hana-cluster.wizard" xrefstyle="SectTitleOnPage"/>
