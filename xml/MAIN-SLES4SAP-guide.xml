@@ -17,8 +17,8 @@
   <dm:docmanager xmlns:dm="urn:x-suse:ns:docmanager">
     <dm:bugtracker>
       <dm:url>https://bugzilla.suse.com/enter_bug.cgi</dm:url>
-      <dm:component>All</dm:component>
-      <dm:product>SUSE Linux Enterprise for SAP Applications 12 SP3</dm:product>
+      <dm:component>Documentation</dm:component>
+      <dm:product>SUSE Linux Enterprise for SAP Applications 15</dm:product>
       <dm:assignee>sknorr@suse.com</dm:assignee>
     </dm:bugtracker>
     <dm:translation>no</dm:translation>
