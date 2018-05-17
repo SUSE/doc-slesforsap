@@ -1,0 +1,13 @@
+<!-- This file originates from the project https://github.com/sknorr/doc-kit -->
+<!-- This file can be edited downstream. -->
+
+<!-- PRODUCT NAME AND VERSIONS -->
+<!ENTITY productname   "PRODUCT">
+<!ENTITY productnumber "X.Y">
+
+<!-- PROJECT REPOSITORY URL -->
+<!ENTITY repourl "https://github.com/SUSE/doc-...">
+
+<!-- START YEAR OF COPYRIGHT -->
+<!ENTITY copyrightstart "20XX">
+<!ENTITY copyrightholder "SUSE LLC">

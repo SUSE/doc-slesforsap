@@ -685,7 +685,7 @@
       </listitem>
      </itemizedlist>
     </note>
-    <para>
+    <para condition="noquick">
      For information on creating &supmedia;, see
      <xref linkend="app.s4s.component.supplement"/>.
     </para>
@@ -827,7 +827,7 @@ SAP-NetWeaver-740-SR2-Installation-Export-CD-3-3</screen>
       <filename>/var/adm/autoinstall</filename>. Failed installations are
       recorded in files with names ending in <filename>.err</filename>.
      </para>
-     <para>
+     <para condition="noquick">
       For more information about log files, see
       <xref linkend="cha.s4s.trouble"/>.
      </para>

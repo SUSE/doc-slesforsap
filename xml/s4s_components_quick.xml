@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapter
+[
+  <!ENTITY % entities SYSTEM "entity-decl.ent">
+    %entities;
+]>
+<sect1 xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="sec.s4s.component">
+ <title>Software Components</title>
+
+ <para>
+  As depicted in <xref linkend="fig.s4s.offering"/>,
+  &sles4sap; is based on &sls; but contains several additional
+  software components such as &sleha;, and the installation
+  workflow. These software components are briefly explained in the
+  following:
+ </para>
+
+ <variablelist>
+  <varlistentry>
+   <term>&sls;</term>
+   <listitem>
+    <para>
+     The current release is based on &sls; &productnumber;. &sls; is the most
+     interoperable platform for mission-critical computing, both physical and
+     virtual.
+    </para>
+   </listitem>
+  </varlistentry>
+  <varlistentry>
+   <term>&sleha;</term>
+   <listitem>
+    <para>
+     &sleha; provides tools for flexible, policy-driven clustering and includes
+     resource agents for managing &sap; instances and &sap; database backends
+    </para>
+   </listitem>
+  </varlistentry>
+  <varlistentry>
+   <term>Simplified &hana; System Replication Setup</term>
+   <listitem>
+    <para>
+     &sles4sap; supports &hana; System Replication using components of
+     &sleha; and additional resource agents for &hana; Scale-Up, Scale-Out
+     and for managing topology . Additionally, &s4s; ships with a &yast;
+     wizard that simplifies the cluster setup.
+    </para>
+   </listitem>
+  </varlistentry>
+  <varlistentry>
+   <term>Installation Workflow</term>
+   <listitem>
+    <para>
+     The installation workflow offers a guided installation path for both the
+     &sls; operating system and the &sap; application. This workflow is
+     extensible by third party vendors using &supmedia;. For more
+     information, see <xref linkend="sec.s4s.workflow-overview"/>.
+    </para>
+   </listitem>
+  </varlistentry>
+  <varlistentry>
+   <term>Malware Protection with &clamsap;</term>
+   <listitem>
+    <para>
+     &clamsap; integrates the &clamav; anti-malware toolkit into &netweaver;
+     and &sap; Mobile Platform applications to enable cross-platform threat
+     detection.
+    </para>
+   </listitem>
+  </varlistentry>
+  <varlistentry>
+   <term>&hana; Firewall and &hana; Hardening Guide</term>
+   <listitem>
+    <para>
+     &sles4sap; additionally provides the package
+     <systemitem>HANA-Firewall</systemitem> which integrates with &firewall;
+     that provide preconfigured zone setups and rules to make securing &hana;
+     as simple as possible.
+    </para>
+    <para>
+     For information on hardening the underlying operating system, see the
+     &sles4sap; resource library: &reslibrary;. There, find the document
+     <citetitle>OS Security Hardening for &hana;</citetitle>.
+    </para>
+   </listitem>
+  </varlistentry>
+  <varlistentry>
+   <term>Simplified Operations Management</term>
+   <listitem>
+    <para>
+     The system tuning profile provided by <command>sapconf</command> allows
+     you to automatically and comprehensively tune your system as recommended
+     by &sap;.
+    </para>
+    <para>
+     <command>cryptctl</command> allows encrypting sensitive directories using
+     LUKS. Encryption keys are located on a central server which can be
+     located customer premises. Encrypted partitions are automatically
+     remounted after an unplanned reboot.
+    </para>
+    <para>
+     To simplify working with software dependencies of &sap; applications,
+     &suse; has created patterns that combine relevant dependency RPM
+     packages for specific applications.
+    </para>
+    <para>
+     <systemitem>ClusterTools2</systemitem> provides tools that help set up
+     and manage a Corosync/<systemitem>pacemaker</systemitem> cluster.
+    </para>
+   </listitem>
+  </varlistentry>
+ </variablelist>
+
+</sect1>

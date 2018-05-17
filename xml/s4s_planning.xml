@@ -128,7 +128,7 @@
   <procedure>
    <step>
     <para>
-     Download the ISO image of &sles4sapreg; &productnumber; DVD 1
+     Download the ISO image of &slea; &productnumber; DVD 1
      (electronic media kit) from
      <link xlink:href="https://www.suse.com/products/sles-for-sap/"/>.
     </para>
@@ -156,8 +156,12 @@
     </para>
    </listitem>
    <listitem>
-    <para>
+    <para condition="noquick">
      <xref linkend="sec.s4s.autoyast" xrefstyle="select:title,nopage"/>
+    </para>
+    <para condition="quick">
+     <citetitle>Using an External &ay; Profile</citetitle> (see the section
+     of the same name in <citetitle>&s4s; Guide</citetitle>)
     </para>
    </listitem>
   </itemizedlist>

@@ -24,7 +24,7 @@
     </text>
   </g>
   <text x="109.31641" y="189.19531" fill="#fff" style="text-align:center;line-height:110.00000238%" font-size="40" letter-spacing="0" word-spacing="0" text-anchor="middle" font-family="Sans">
-    <tspan x="109.31641" y="189.19531" style="text-align:center;line-height:110.00000238%;-inkscape-font-specification:Open Sans Semi-Bold" font-size="20" font-weight="600" font-family="Open Sans">Page Cache</tspan><tspan x="109.31641" y="211.19531" style="text-align:center;line-height:110.00000238%;-inkscape-font-specification:Open Sans Semi-Bold" font-size="20" font-weight="600" font-family="Open Sans">Management</tspan>
+    <tspan x="109.31641" y="189.19531" style="text-align:center;line-height:110.00000238%;-inkscape-font-specification:Open Sans Semi-Bold" font-size="20" font-weight="600" font-family="Open Sans">HA Cluster</tspan><tspan x="109.31641" y="211.19531" style="text-align:center;line-height:110.00000238%;-inkscape-font-specification:Open Sans Semi-Bold" font-size="20" font-weight="600" font-family="Open Sans">Connector</tspan>
   </text>
   <text x="429.51172" y="188.83887" fill="#fff" style="text-align:center;line-height:110.00000238%" font-size="40" letter-spacing="0" word-spacing="0" text-anchor="middle" font-family="Sans">
     <tspan x="429.51172" y="188.83887" style="text-align:center;line-height:110.00000238%;-inkscape-font-specification:Open Sans Semi-Bold" font-size="20" font-weight="600" font-family="Open Sans">SAP HANA</tspan><tspan x="429.51172" y="210.83887" style="text-align:center;line-height:110.00000238%;-inkscape-font-specification:Open Sans Semi-Bold" font-size="20" font-weight="600" font-family="Open Sans">Security</tspan>

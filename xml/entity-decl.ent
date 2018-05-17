@@ -96,7 +96,8 @@
 <!ENTITY libvirtd      '<systemitem xmlns="http://docbook.org/ns/docbook" class="daemon">libvirtd</systemitem>'>
 <!ENTITY vmm           "Virtual Machine Manager">
 <!ENTITY stonith       "STONITH">
-<!ENTITY susefirewall  "SuSEFirewall2">
+<!ENTITY firewall      "firewalld">
+<!ENTITY susefirewall  "&firewall;">
 <!ENTITY kiwi            "KIWI">
 <!ENTITY kexec         "Kexec">
 <!ENTITY kdump         "Kdump">

@@ -332,7 +332,7 @@
          activate <guimenu>Enable RDP service and open port in
          firewall</guimenu>.
         </para>
-        <para>
+        <para condition="noquick">
          For more information about connecting via RDP, see
          <xref linkend="cha.s4s.configure.rdp"/>.
         </para>
@@ -510,7 +510,7 @@
       This means that there may be network issues until you open the required
       ports manually.
      </para>
-     <para>
+     <para condition="noquick">
       For details, see <xref linkend="sec.s4s.configure.firewall"/>.
      </para>
     </important>

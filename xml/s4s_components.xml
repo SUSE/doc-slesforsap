@@ -10,8 +10,7 @@
  <para>
   As depicted in <xref linkend="fig.s4s.offering"/>,
   &sles4sap; is based on &sls; but contains several additional
-  software components such as &sleha;,
-  the kernel page-cache limit feature, and the installation
+  software components such as &sleha;, and the installation
   workflow. These software components are briefly explained in the
   following sections.
  </para>
@@ -25,7 +24,7 @@
   </para>
  </sect2>
 
- <sect2  xml:id="sec.s4s.component.sleha">
+ <sect2 xml:id="sec.s4s.component.sleha">
   <title>&sleha;</title>
   <para>
    This component consists of:
@@ -278,18 +277,6 @@
    Additionally, the installation workflow can be extended by
    third-party vendors or customers using &supmedia;. For more information about
    creating &supmedia;, see <xref linkend="app.s4s.component.supplement"/>.
-  </para>
- </sect2>
-
- <sect2 xml:id="sec.s4s.component.page-cache">
-  <title>Page-Cache Limit</title>
-  <para>
-   You can limit the kernel file system cache size to influence swapping
-   behavior. With this feature, you can often gain better performance by
-   allocating memory to an application.
-  </para>
-  <para>
-   For more information, see <xref linkend="sec.s4s.configure.page-cache"/>.
   </para>
  </sect2>
 

@@ -7,8 +7,8 @@
 <?xml-stylesheet href="urn:x-suse:xslt:profiling:docbook50-profile.xsl"
    type="text/xml"
    title="Profiling step"?>
-<book xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:lang="en" xml:id="book.s4s">
- <title>Guide</title>
+<book xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:lang="en" xml:id="book.s4s.quick">
+ <title>Quickstart</title>
  <info>
   <productname>&productname;</productname>
   <productname role="abbrev">&sles4sapa;</productname>
@@ -31,17 +31,5 @@
  <xi:include href="s4s_installation.xml" parse="xml"/>
  <xi:include href="s4s_installation_sap.xml" parse="xml"/>
  <xi:include href="s4s_install_network.xml" parse="xml"/>
- <xi:include href="s4s_setup_cluster.xml" parse="xml"/>
- <xi:include href="s4s_tune.xml" parse="xml"/>
- <xi:include href="s4s_access.xml" parse="xml"/>
- <xi:include href="s4s_encrypt.xml" parse="xml"/>
- <xi:include href="s4s_clamsap.xml" parse="xml"/>
- <xi:include href="s4s_remoteaccess.xml" parse="xml"/>
- <xi:include href="s4s_image.xml" parse="xml"/>
- <xi:include href="s4s_trouble.xml" parse="xml"/>
- <xi:include href="s4s_appendix_extrasoftware.xml" parse="xml"/>
- <xi:include href="s4s_appendix_partition.xml" parse="xml"/>
- <xi:include href="s4s_appendix_supplement.xml" parse="xml"/>
- <xi:include href="s4s_appendix_docupdates.xml" parse="xml"/>
  <xi:include href="common_legal.xml" parse="xml"/>
 </book>

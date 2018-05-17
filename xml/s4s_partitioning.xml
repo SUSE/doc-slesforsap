@@ -89,7 +89,7 @@
    Depending on the product you are installing and your particular use case,
    the amount of hard disk space necessary can vary.
   </para>
-  <para>
+  <para condition="noquick">
    For information on partitioning for the &sap; system using &ay;, see
    <xref linkend="app.s4s.autoyast-partition"/>.
   </para>

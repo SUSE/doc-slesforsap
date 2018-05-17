@@ -16,7 +16,7 @@
   &sleha; is also part of &sles4sap;.
  </para>
 
- <sect1>
+ <sect1 condition="noquick">
   <title>Overview</title>
 
   <para>
@@ -93,9 +93,17 @@
   </para>
 
   <itemizedlist>
-   <listitem>
+   <listitem condition="noquick">
     <para>
      For the latest updates to this guide, see
+     <link xlink:href="https://www.suse.com/documentation/sles_for_sap/"/>.
+    </para>
+   </listitem>
+   <listitem condition="quick">
+    <para>
+     This is shortened version of the <citetitle>&sles4sap; Guide</citetitle>.
+     For the latest version of the full <citetitle>&sles4sap; Guide</citetitle>,
+     see
      <link xlink:href="https://www.suse.com/documentation/sles_for_sap/"/>.
     </para>
    </listitem>
@@ -118,6 +126,6 @@
   </itemizedlist>
  </sect1>
 
- <xi:include href="common_intro_feedback_i.xml" parse="xml"/>
- <xi:include href="common_intro_typografie_i.xml" parse="xml"/>
+ <xi:include href="common_intro_feedback.xml" parse="xml"/>
+ <xi:include href="common_intro_convention.xml" parse="xml"/>
 </preface>
