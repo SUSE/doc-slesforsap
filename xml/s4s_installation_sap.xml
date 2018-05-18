@@ -11,7 +11,7 @@
   This section will guide you through the installation of &sap; media sets you
   received from &sap;.
  </para>
- <itemizedlist>
+ <itemizedlist condition="noquick">
   <listitem>
    <para>
     If you are installing an &sap; application within the installation workflow,
@@ -26,7 +26,7 @@
   </listitem>
  </itemizedlist>
 
- <sect1 xml:id="sec.s4s.install.sap.list">
+ <sect1 condition="noquick" xml:id="sec.s4s.install.sap.list">
   <title>Products That Can Be Installed Using &sapwiz;</title>
 
   <para>
@@ -46,7 +46,7 @@
      databases queries for the existence of certain files, not all of which are
      included in a &s4sa; installation.
     </para>
-    <para>
+    <para condition="noquick">
      For more information about converting, see
      <xref linkend="sec.s4s.convert-sles"/>.
     </para>
@@ -174,9 +174,8 @@
   <title>Using the &sapwiz;</title>
 
   <para>
-   Use the &sapwiz; to install an &netweaver; system (including database) or a
-   simple &hana; system (single tenant, same password for all initial
-   users, default settings).
+   Use the &sapwiz; to install an &netweaver; system (including database) or an
+   &hana; system.
   </para>
   <para>
    To install other &sap; applications or to create a more sophisticated &hana;
@@ -396,7 +395,7 @@
      </tgroup>
     </table>
 
-    <tip>
+    <tip condition="noquick">
      <title>Remote Location Specification</title>
      <para>
       To install from an NFS source, specify the name of
@@ -432,7 +431,7 @@
         &sapin; (&sapina;) will stop without performing the actual &sap;
         product installation. However, the following steps fully apply.
        </para>
-       <para>
+       <para condition="noquick">
         For more information, see <xref linkend="sec.s4s.install.continue"/>.
        </para>
       </listitem>
@@ -849,7 +848,7 @@ SAP-NetWeaver-740-SR2-Installation-Export-CD-3-3</screen>
   </procedure>
  </sect1>
 
- <sect1 xml:id="sec.s4s.install.continue">
+ <sect1 condition="noquick" xml:id="sec.s4s.install.continue">
   <title>Continuing an Installation Using an Installation Profile</title>
 
   <para>
@@ -936,7 +935,7 @@ SAP-NetWeaver-740-SR2-Installation-Export-CD-3-3</screen>
   </procedure>
  </sect1>
 
- <sect1 xml:id="sec.partition.command">
+ <sect1 condition="noquick" xml:id="sec.partition.command">
   <title>Partitioning for an &sap; Application Without the &sapwiz;</title>
   <para>
    If you do not want to use the &sapwiz;, you can also create the partitioning
@@ -952,7 +951,7 @@ SAP-NetWeaver-740-SR2-Installation-Export-CD-3-3</screen>
   <screen>&prompt.root;<command>yast2 sap_create_storage <replaceable>ABSOLUTE_PATH_TO_PARTITIONING_FILE</replaceable></command></screen>
  </sect1>
 
- <sect1 xml:id="sec.s4s.install.sap.autoyast">
+ <sect1 condition="noquick" xml:id="sec.s4s.install.sap.autoyast">
   <title>Automated Installation of &sap; Applications with &ay;</title>
 
   <para>

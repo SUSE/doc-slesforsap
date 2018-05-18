@@ -128,14 +128,21 @@
   <procedure>
    <step>
     <para>
-     Download the ISO image of &slea; &productnumber; DVD 1
-     (electronic media kit) from
-     <link xlink:href="https://www.suse.com/products/sles-for-sap/"/>.
+     Unlike previous &slea; products, the entire &slea; &productnumber;
+     product line can be installed using the same ISO image:
+     The &slea; &productnumber; Installer DVD 1.
+     If you want to install without network access, additionally download the
+     ISO image of &slea; &productnumber; Packages DVD 1.
+    </para>
+    <para>
+     Both ISO images are available from
+     <link xlink:href="https://download.suse.com/"/>.
     </para>
    </step>
    <step>
     <para>
-     Burn the image onto a physical DVD and ensure that it is bootable.
+     Burn the image/images onto a physical DVD and ensure that it is/they are
+     bootable.
      Alternatively, use a virtual DVD-ROM device for installation
      in a virtual machine.
     </para>
@@ -143,7 +150,7 @@
   </procedure>
  </sect1>
 
- <sect1 xml:id="sec.s4s.how-install">
+ <sect1 condition="noquick" xml:id="sec.s4s.how-install">
   <title>Installation Methods</title>
   <para>
    There are multiple ways of installing &sles4sap;:
@@ -156,12 +163,8 @@
     </para>
    </listitem>
    <listitem>
-    <para condition="noquick">
+    <para>
      <xref linkend="sec.s4s.autoyast" xrefstyle="select:title,nopage"/>
-    </para>
-    <para condition="quick">
-     <citetitle>Using an External &ay; Profile</citetitle> (see the section
-     of the same name in <citetitle>&s4s; Guide</citetitle>)
     </para>
    </listitem>
   </itemizedlist>
@@ -220,7 +223,7 @@
     databases queries for the existence of certain files, not all of which are
     included in a &s4sa; installation.
    </para>
-   <para>
+   <para condition="noquick">
     For more information about converting, see
     <xref linkend="sec.s4s.convert-sles"/>.
    </para>

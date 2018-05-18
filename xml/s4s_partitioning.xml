@@ -64,10 +64,10 @@
  <sect2 xml:id="sec.s4s.partition.sap">
   <title>Partitioning for the &sap; System (stage 2)</title>
 
-  <para>
+  <para condition="noquick">
    The partitioning for the &sap; system can be created by:
   </para>
-  <itemizedlist>
+  <itemizedlist condition="noquick">
    <listitem>
     <para>
      The &sapwiz; (see <xref linkend="sec.s4s.install.sap.product"/>).

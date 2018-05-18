@@ -9,8 +9,14 @@
 
  <para>
   &sles4sapreg; is the reference platform for the software development of &sap;.
-  It is optimized in various ways for &sap; applications. This guide provides
-  detailed information about installing and customizing &sles4sap;.
+  It is optimized for &sap; applications.
+  <phrase condition="noquick">
+  This document provides detailed information about installing and
+  customizing &sles4sap;.
+  </phrase>
+  <phrase condition="quick">
+  This document guides you through the installing &sles4sap;.
+  </phrase>
  </para>
  <para>
   &sleha; is also part of &sles4sap;.
@@ -101,7 +107,7 @@
    </listitem>
    <listitem condition="quick">
     <para>
-     This is shortened version of the <citetitle>&sles4sap; Guide</citetitle>.
+     This is an abridged version of the <citetitle>&sles4sap; Guide</citetitle>.
      For the latest version of the full <citetitle>&sles4sap; Guide</citetitle>,
      see
      <link xlink:href="https://www.suse.com/documentation/sles_for_sap/"/>.
@@ -126,6 +132,6 @@
   </itemizedlist>
  </sect1>
 
- <xi:include href="common_intro_feedback.xml" parse="xml"/>
- <xi:include href="common_intro_convention.xml" parse="xml"/>
+ <xi:include condition="noquick" href="common_intro_feedback.xml" parse="xml"/>
+ <xi:include condition="noquick" href="common_intro_convention.xml" parse="xml"/>
 </preface>

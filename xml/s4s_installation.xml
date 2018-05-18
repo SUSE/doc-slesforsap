@@ -27,8 +27,11 @@
   </para>
   <para>
    This section assumes that you are starting the installation from a local
-   medium. To learn how to start the installation from a remote medium, see
+   medium.
+   <phrase condition="noquick">
+   To learn how to start the installation from a remote medium, see
    <xref linkend="sec.s4s.install.network"/>.
+   </phrase>
   </para>
   <para>
    For more information, see <xref linkend="sec.s4s.workflow-overview"/>.
@@ -80,7 +83,9 @@
      While the initial operating system is starting, you can view boot messages
      by pressing <keycap function="escape"/>.
      When this process has completed, the graphical installation workflow
-     will start.
+     will start. As the first step, the installation workflow will check for
+     updates for itself. After that, it will be ready to start the
+     installation.
     </para>
    </step>
 
@@ -162,13 +167,13 @@
      Select the default system language under <guimenu>Language</guimenu>.
     </para>
     <figure xml:id="fig.s4s.install.license">
-     <title>Language, Keyboard and License Agreement</title>
+     <title>Language, Keyboard and Product Selection</title>
      <mediaobject>
       <imageobject role="fo">
-       <imagedata fileref="s4s-install-license.png" width="73%" format="PNG"/>
+       <imagedata fileref="s4s-install-product.png" width="73%" format="PNG"/>
       </imageobject>
       <imageobject role="html">
-       <imagedata fileref="s4s-install-license.png" width="73%" format="PNG"/>
+       <imagedata fileref="s4s-install-product.png" width="73%" format="PNG"/>
       </imageobject>
      </mediaobject>
     </figure>
@@ -179,6 +184,17 @@
      <guimenu>Keyboard Layout</guimenu>.
      To test whether the selected layout matches your physical keyboard,
      use the text box <guimenu>Keyboard Test</guimenu>.
+    </para>
+   </step>
+   <step>
+    <para>
+     &slea; &productnumber; provides a single installation ISO for the entire
+     product line. Therefore, you need to select the product to install
+     on this page.
+    </para>
+    <para>
+     Under <guimenu>Product to install</guimenu>, choose
+     <guimenu>&s4s; &productnumber;</guimenu>.
     </para>
    </step>
    <step>
@@ -236,7 +252,16 @@
      <title>Register at This Step</title>
      <para>
       Make sure to register your system at this step in the installation.
-      Otherwise, you will not receive package updates immediately.
+      Otherwise, you can only install a minimal &slea; system and will not
+      receive updates.
+     </para>
+     <para>
+      To install a full (but not updated) &s4sa; system without network
+      access during the installation, use the &slea; &productnumber; Packages
+      ISO image from <link xlink:href="https://download.suse.com"/>. You can
+      then choose <guimenu>Skip registration</guimenu> on this page and add
+      select the &slea; &productnumber; Packages ISO image as an add-on
+      product on the next page.
      </para>
     </important>
     <figure xml:id="fig.s4s.install.reg-dialog">
@@ -259,42 +284,48 @@
    </step>
    <step>
     <para>
-     <!-- The following is not exact: the SDK is a free extension (but it
-     needs to be registered separately). -->
-     After the system is successfully registered, &yast; lists additional
-     software that is available for &productname; from the &scc;. The list
-     contains modules, which are free, and extensions, which require a
-     registration key that is liable for costs. To enable a module or an
-     extension, activate its entry.
+     After the system is successfully registered, &yast; lists available
+     modules for &productname; from the &scc;. The default selection is
+     optimized for the most common cases. To enable an additional module,
+     activate its entry.
     </para>
     <para>
      Proceed with <guimenu>Next</guimenu>.
     </para>
+    <note>
+     <title>Release Notes</title>
+     <para>
+      From this point on, the Release Notes can be viewed from any screen during
+      the installation process by selecting <guimenu>Release Notes</guimenu>.
+     </para>
+    </note>
    </step>
    <step>
     <para>
      The following screen allows you to choose the
-     <guimenu>Product Installation Mode</guimenu>.
-     You can now choose between:
+     <guimenu>System Role</guimenu>.
+     You can choose between:
     </para>
     <itemizedlist>
      <listitem>
-      <formalpara>
-       <title>A &sls; Installation</title>
-       <para>
-        To install a &slsa; system without &sap;-specific customization,
-        choose <guimenu>Proceed with standard SLES installation</guimenu>.
-        For details, see
-        <citetitle>
-         &instquick;, Section <quote>Installing &sls;</quote>
-        </citetitle> (&docaddress;).
-       </para>
-      </formalpara>
+      <para>
+       <guimenu>&s4sa;</guimenu>: Recommended for most situations.
+      </para>
+     </listitem>
+     <listitem>
+      <para>
+       <guimenu>&slsa; with GNOME</guimenu>: Can be necessary in specific
+       cases. This installation path is not covered in this document.
+       For more information about this installation path, see
+       <citetitle>
+        &instquick;, Section <quote>Installing &sls;</quote>
+       </citetitle> (&docaddress;).
+      </para>
       <important>
        <title>Installing Oracle Databases</title>
        <para>
         To be able to install an Oracle database later, choose
-        <guimenu>Proceed with standard SLES installation</guimenu> and later
+        <guimenu>&slsa;</guimenu> and later
         convert your installation to &s4sa;.
        </para>
        <para>
@@ -302,49 +333,18 @@
         installer for Oracle databases queries for the existence of certain
         files, not all of which are included in a &s4sa; installation.
        </para>
-       <para>
+       <para condition="noquick">
         For more information about converting, see
         <xref linkend="sec.s4s.convert-sles"/>.
        </para>
       </important>
      </listitem>
-     <listitem>
-      <formalpara>
-       <title>A &sles4sap; Installation</title>
-       <para>
-        To install a &slsa; system with &sap;-specific customization,
-        choose
-        <guimenu>Proceed with standard SLES for SAP Applications
-        installation</guimenu>.
-       </para>
-      </formalpara>
-      <itemizedlist>
-       <listitem>
-        <para>
-         To install an &sap; Application together with the system,
-         activate <guimenu>Launch the SAP Installation Wizard right after the
-         operating system is installed</guimenu>.
-        </para>
-       </listitem>
-       <listitem>
-        <para>
-         To enable RDP access (Remote Desktop Protocol) to this machine,
-         activate <guimenu>Enable RDP service and open port in
-         firewall</guimenu>.
-        </para>
-        <para condition="noquick">
-         For more information about connecting via RDP, see
-         <xref linkend="cha.s4s.configure.rdp"/>.
-        </para>
-       </listitem>
-      </itemizedlist>
-      <para>
-       Proceed with <guimenu>Next</guimenu>.
-      </para>
-     </listitem>
     </itemizedlist>
+    <para>
+     Proceed with <guimenu>Next</guimenu>.
+    </para>
     <figure xml:id="fig.s4s.install.type">
-     <title>Installation Type</title>
+     <title>System Role</title>
      <mediaobject>
       <imageobject role="fo">
        <imagedata fileref="s4s-install-installationtype.png" width="73%" format="PNG"/>
@@ -365,9 +365,28 @@
    <title>Finishing the OS Installation</title>
    <step>
     <para>
-     You can now choose whether to install an <guimenu>Add On Product</guimenu>.
-     Proceed with <guimenu>Next</guimenu>.
+     Choose whether to enable the following options:
     </para>
+    <itemizedlist>
+     <listitem>
+      <para>
+       To install an &sap; Application together with the system,
+       activate <guimenu>Launch the SAP Installation Wizard right after the
+       operating system is installed</guimenu>.
+      </para>
+     </listitem>
+     <listitem>
+      <para>
+       To enable RDP access (Remote Desktop Protocol) to this machine,
+       activate <guimenu>Enable RDP service and open port in
+       firewall</guimenu>.
+      </para>
+      <para condition="noquick">
+       For more information about connecting via RDP, see
+       <xref linkend="cha.s4s.configure.rdp"/>.
+      </para>
+     </listitem>
+    </itemizedlist>
    </step>
    <step>
     <para>
@@ -376,26 +395,17 @@
      The volume <literal>/dev/system/data</literal> will be created later,
      as described in <xref linkend="sec.s4s.partition"/>.
     </para>
-    <para>
+    <para condition="noquick">
      Suitable values are preselected. However, if necessary, change the
      partition layout.
      You have the following options:
     </para>
-    <variablelist>
+    <variablelist condition="noquick">
      <varlistentry>
-      <term><guimenu>Edit Proposal Settings</guimenu></term>
+      <term><guimenu>Guided Setup</guimenu></term>
       <listitem>
        <para>
-        Allows you to change the options for the proposed settings, but not the
-        suggested partition layout itself.
-       </para>
-      </listitem>
-     </varlistentry>
-     <varlistentry>
-      <term><guimenu>Create Partition Setup</guimenu></term>
-      <listitem>
-       <para>
-        Select a disk to which to apply the proposal.
+        Create a new partitioning suggestion based on your input.
        </para>
       </listitem>
      </varlistentry>
@@ -420,10 +430,6 @@
      To accept the proposed setup without changes, proceed with
      <guimenu>Next</guimenu>.
     </para>
-    <remark>
-      Figure is maybe not ideal - it shows a hard drive with only 100GB of
-      space... Fixme? - sknorr, 2016-01-20
-    </remark>
     <figure xml:id="fig.s4s.install.partition">
      <title>Suggested Partitioning</title>
      <mediaobject>
@@ -435,13 +441,6 @@
       </imageobject>
      </mediaobject>
     </figure>
-    <note>
-     <title>Release Notes</title>
-     <para>
-      From this point on, the Release Notes can be viewed from any screen during
-      the installation process by selecting <guimenu>Release Notes</guimenu>.
-     </para>
-    </note>
    </step>
    <step>
     <para>
@@ -498,7 +497,7 @@
      To change parts of the configuration, click the appropriate headline or
      other underlined items.
     </para>
-    <important>
+    <important condition="noquick">
      <title>Firewall Configuration</title>
      <remark>
       Still FIXME for SP2. - sknorr, 2016-08-09
@@ -510,7 +509,7 @@
       This means that there may be network issues until you open the required
       ports manually.
      </para>
-     <para condition="noquick">
+     <para>
       For details, see <xref linkend="sec.s4s.configure.firewall"/>.
      </para>
     </important>
@@ -572,7 +571,7 @@
   </procedure>
  </sect1>
 
- <sect1 xml:id="sec.s4s.install.network">
+ <sect1 condition="noquick" xml:id="sec.s4s.install.network">
   <title>Using &sles4sapa; Media from the Network</title>
 
   <remark>
@@ -649,10 +648,10 @@
   </para>
  </sect1>
 
- <xi:include href="s4s_autoyast.xml" parse="xml"/>
+ <xi:include condition="noquick" href="s4s_autoyast.xml" parse="xml"/>
 
 
- <sect1 xml:id="sec.s4s.convert-sles">
+ <sect1 condition="noquick" xml:id="sec.s4s.convert-sles">
   <title>Converting a &slsa; Installation to a &s4sa; Installation</title>
   <para>
    To convert an installation of &sls; &productnumber; or &jeos;

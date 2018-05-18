@@ -2,12 +2,12 @@
 <!-- This file can be edited downstream. -->
 
 <!-- PRODUCT NAME AND VERSIONS -->
-<!ENTITY productname   "PRODUCT">
-<!ENTITY productnumber "X.Y">
+<!ENTITY productname   "SUSE Linux Enterpreise Server for SAP Applications">
+<!ENTITY productnumber "15">
 
 <!-- PROJECT REPOSITORY URL -->
-<!ENTITY repourl "https://github.com/SUSE/doc-...">
+<!ENTITY repourl "https://github.com/SUSE/doc-slesforsap">
 
 <!-- START YEAR OF COPYRIGHT -->
-<!ENTITY copyrightstart "20XX">
+<!ENTITY copyrightstart "2010">
 <!ENTITY copyrightholder "SUSE LLC">

@@ -31,7 +31,7 @@
    <listitem>
     <para>
      &sleha; provides tools for flexible, policy-driven clustering and includes
-     resource agents for managing &sap; instances and &sap; database backends
+     resource agents for managing &sap; instances and &sap; database back-ends
     </para>
    </listitem>
   </varlistentry>
