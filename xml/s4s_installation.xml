@@ -521,7 +521,7 @@
        <imagedata fileref="s4s-install-overview.png" width="73%" format="PNG"/>
       </imageobject>
       <imageobject role="html">
-       <imagedata fileref="s4s-install-overview.png" width="73%" format="PNG"/>
+       <imagedata fileref="s4s-install-overview.png" format="PNG"/>
       </imageobject>
      </mediaobject>
     </figure>
@@ -531,7 +531,7 @@
      When you are satisfied with the system configuration, click
      <guimenu>Install</guimenu>.
     </para>
-    <para>
+    <para condition="noquick">
      Depending on your software selection, you may need to agree to further
      license agreements before you are asked to confirm that you want to start
      the installation process.
@@ -559,11 +559,9 @@
      </listitem>
      <listitem>
       <para>
-       If you chose to install an &sap; application immediately after the
-       operating system, the installation will continue after the reboot.
-      </para>
-      <para>
-       In this case, continue with <xref linkend="cha.s4s.install.sap"/>.
+       If you chose to install an &sap; application now, the installation
+       will continue after a reboot. Continue with
+       <xref linkend="cha.s4s.install.sap"/>.
       </para>
      </listitem>
     </itemizedlist>
