@@ -41,7 +41,7 @@
     <para>
      &sles4sap; supports &hana; System Replication using components of
      &sleha; and additional resource agents for &hana; Scale-Up, Scale-Out
-     and for managing topology . Additionally, &s4s; ships with a &yast;
+     and for managing topology. Additionally, &s4s; ships with a &yast;
      wizard that simplifies the cluster setup.
     </para>
    </listitem>
@@ -51,8 +51,8 @@
    <listitem>
     <para>
      The installation workflow offers a guided installation path for both the
-     &sls; operating system and the &sap; application. This workflow is
-     extensible by third party vendors using &supmedia;. For more
+     &sls; operating system and the &sap; application. This workflow can be
+     extended by third-party vendors using &supmedia;. For more
      information, see <xref linkend="sec.s4s.workflow-overview"/>.
     </para>
    </listitem>
@@ -94,7 +94,7 @@
     <para>
      <command>cryptctl</command> allows encrypting sensitive directories using
      LUKS. Encryption keys are located on a central server which can be
-     located customer premises. Encrypted partitions are automatically
+     located on customer premises. Encrypted partitions are automatically
      remounted after an unplanned reboot.
     </para>
     <para>
