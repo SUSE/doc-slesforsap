@@ -50,7 +50,7 @@
       system for the application's <filename>/data</filename> partition.
      </para>
      <para>
-      To install &hana;, you need either of:
+      To install &hana;, you need either:
      </para>
      <itemizedlist>
       <listitem>
@@ -167,7 +167,7 @@
   <title>Overview of the Installation Workflow</title>
 
   <para>
-   The installation workflow of &sles4sap; can be separated into steps:
+   The installation workflow of &sles4sap; consists of the following steps:
   </para>
 
   <orderedlist>

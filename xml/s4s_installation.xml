@@ -35,7 +35,7 @@
   </para>
 
   <para>
-   This section will guide you through the installation of the &sles4sap;
+   This section guides you through the installation of the &sles4sap;
    operating system.
   </para>
 
@@ -445,7 +445,7 @@
    </step>
    <step>
     <para>
-     Select the clock and time zone to use in your system. To manually adjust
+     Select the clock and time zone to use on your system. To manually adjust
      the time or to configure an NTP server for time synchronization, choose
      <guimenu>Other Settings</guimenu>.
      For detailed information, see
@@ -483,10 +483,7 @@
       permission to carry out all administrative tasks. Without this password,
       you cannot log in to the system as
       <systemitem class="username">root</systemitem>.
-     </para>
-     <para>
-      After you have entered the <systemitem class="username">root</systemitem>
-      password here, it cannot be retrieved again.
+      The password entered here cannot be retrieved later.
      </para>
     </important>
    </step>
@@ -540,8 +537,8 @@
     <warning>
      <title>Deletion of Data</title>
      <para>
-      Starting the installation process means that information on the disk you
-      are installing on will fully or partly be deleted.
+      The installation process fully or partially overwrites existing
+      data on the disk.
      </para>
     </warning>
     <para>
@@ -549,7 +546,7 @@
     </para>
     <para>
      When the installation of the operating system is finished, the system
-     will reboot automatically.
+     will reboot automatically:
     </para>
     <itemizedlist>
      <listitem>
