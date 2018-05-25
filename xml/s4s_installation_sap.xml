@@ -8,7 +8,7 @@
  <title>Installing &sap; Applications</title>
 
  <para>
-  This section will guide you through the installation of &sap; media sets you
+  This section guides you through the installation of &sap; media sets you
   received from &sap;.
  </para>
  <itemizedlist condition="noquick">
@@ -63,7 +63,7 @@
   <procedure>
    <step>
     <para>
-     When the system has booted, you will be presented with the screen
+     When the system is booted, it displays the screen
      <guimenu>Welcome</guimenu>.
      Proceed with <guimenu>Next</guimenu>.
     </para>
@@ -71,7 +71,7 @@
    <step>
     <para>
      The screen <guimenu>Network Settings</guimenu> will now open.
-     This gives you another chance to change the network settings.
+     This gives you an opportunity to change the network settings.
     </para>
     <para>
      When you are finished configuring networking, proceed with
@@ -80,7 +80,7 @@
     <important>
      <title>Configure Networking as Recommended by &sap;</title>
      <para>
-      Make sure to configure the network connection as recommended by the
+      Make sure to configure the network connection according to the
       documentation of your &sap; application.
      </para>
     </important>
@@ -102,7 +102,7 @@
    </step>
    <step>
     <para>
-     You can now choose how to continue:
+     Choose one of the following options:
     </para>
     <variablelist>
      <varlistentry>
@@ -178,7 +178,7 @@
    &hana; system.
   </para>
   <para>
-   To install other &sap; applications or to create a more sophisticated &hana;
+   To install other &sap; applications or to create a more advanced &hana;
    setup, directly use one of the installation methods provided by &sap; instead
    of this wizard.
   </para>
@@ -187,9 +187,8 @@
    <title>Installing an &sap; Application in a Fully Installed System</title>
    <para>
     This process is documented as it appears during the installation workflow.
-    However, there is a functionally equivalent &yast; dialog available within
-    the installed system.
-    It has a different color scheme and lacks the left pane.
+    However, it also applies to the &yast; module <guimenu>&sapwiz;</guimenu>
+    which is available in the installed system.
    </para>
    <para>
     To start the &sapin;, from the desktop, choose
@@ -235,7 +234,7 @@
      </mediaobject>
     </figure>
     <para>
-     Select the corresponding option from the drop-down box.
+     Select the appropriate option from the drop-down box.
      In the text box, specify the path to your source according to the format
      given in the following table.
     </para>
@@ -406,7 +405,8 @@
     </tip>
 
     <para>
-     If you have installed from an installation server before or set up your
+     If you have installed an &sap; application from an installation server
+     before or set up your
      system to be an installation server, you can also directly choose
      that server as the provider of the &instmaster;.
      To do so, use the drop-down box below <guimenu>Choose an installation
@@ -415,7 +415,7 @@
    </step>
    <step>
     <para>
-     Under <guimenu>Advanced Options</guimenu>, choose from among the following
+     Under <guimenu>Advanced Options</guimenu>, choose from the following
      options:
     </para>
     <variablelist>
@@ -429,7 +429,7 @@
         Use this option to set the installation parameters,
         but not perform the actual installation. With this option, the
         &sapin; (&sapina;) will stop without performing the actual &sap;
-        product installation. However, the following steps fully apply.
+        product installation. However, the steps that follow fully apply.
        </para>
        <para condition="noquick">
         For more information, see <xref linkend="sec.s4s.install.continue"/>.
@@ -478,7 +478,7 @@
     <para>
      On the screen <guimenu>SAP Installation Wizard</guimenu>, provide
      the location of additional &instmedia; you want to install.
-     This can include, for example an &sap; kernel, a database, and
+     This can include an &sap; kernel, a database, and
      database exports.
     </para>
     <variablelist>
@@ -530,7 +530,7 @@
    <step>
     <para>
      After copying the &instmedia;, you will be asked whether you want to
-     prepare more &instmedia;.
+     prepare additional &instmedia;.
      To do so, click <guimenu>Yes</guimenu>.
      Then follow the instructions in
      <xref linkend="st.s4s.copy-media" xrefstyle="select:label"/>.
@@ -541,9 +541,8 @@
    </step>
    <step>
     <para>
-     You will now see the screen
-     <guimenu>What Would You Like to Install</guimenu>.
-     Under <guimenu>The SAP product is</guimenu>, choose how you want to
+     In the screen <guimenu>What Would You Like to Install</guimenu>,
+     under <guimenu>The SAP product is</guimenu>, choose how you want to
      install the product:
     </para>
     <variablelist>
@@ -551,7 +550,7 @@
       <term><guimenu>SAP Standard System</guimenu></term>
       <listitem>
        <para>
-        Install an &sap; application including its database onto this system.
+        Install an &sap; application including its database.
        </para>
       </listitem>
      </varlistentry>
@@ -593,7 +592,7 @@
       <listitem>
        <para>
         Allows changing the various system properties such as the &sap; system ID,
-        database ID, instance number or host name. This is useful, for example,
+        database ID, instance number or host name. This can be used
         to install the same product in a very similar
         configuration on different systems.
        </para>
@@ -634,7 +633,7 @@
      You will now see the screen <guimenu>Choose a Product</guimenu>.
      The products shown depend on the &mediaset; and &instmaster; you received
      from &sap;.
-     From the list, choose the product you want to install.
+     From the list, select the product you want to install.
     </para>
     <para>
      Proceed with <guimenu>Next</guimenu>.
@@ -729,7 +728,7 @@ SAP-NetWeaver-740-SR2-Installation-Export-CD-3-3</screen>
    </step>
    <step xml:id="st.s4s.collect-parameter">
     <para>
-     Depending on the product you are installing, one or more dialogs will now
+     Depending on the product you are installing, one or more dialogs will
      prompt you to supply values for several configuration parameters for the
      &sap; application you are installing.
     </para>
@@ -784,7 +783,7 @@ SAP-NetWeaver-740-SR2-Installation-Export-CD-3-3</screen>
    </step>
    <step xml:id="st.s4s.sapinst">
     <para>
-     The following steps differ somewhat depending on the type of
+     The following steps differ depending on the type of
      &sap; application you are installing:
     </para>
     <itemizedlist>
@@ -801,9 +800,8 @@ SAP-NetWeaver-740-SR2-Installation-Export-CD-3-3</screen>
        will open automatically.
       </para>
       <para>
-       Follow the steps of &sapin; as described in the documentation provided
-       to you by &sap;. Many values for configuration parameters are already
-       pre-filled correctly.
+       Follow the &sapin; as described in the documentation provided
+       by &sap;. Most configuration parameters are correctly filled already.
       </para>
      </listitem>
     </itemizedlist>
