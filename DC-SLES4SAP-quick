@@ -1,4 +1,4 @@
-MAIN="MAIN-SLES4SAP-quick.xml"
+MAIN="MAIN-SLES4SAP-guide.xml"
 ROOTID=""
 
 PROFOS="sles"
