@@ -21,6 +21,7 @@
       <dm:product>SUSE Linux Enterprise for SAP Applications 15</dm:product>
       <dm:assignee>sknorr@suse.com</dm:assignee>
     </dm:bugtracker>
+    <dm:editurl>https://github.com/SUSE/doc-slesforsap/blob/develop/xml/</dm:editurl>
     <dm:translation>no</dm:translation>
   </dm:docmanager>
   <xi:include href="common_copyright_gfdl.xml" parse="xml"/>
