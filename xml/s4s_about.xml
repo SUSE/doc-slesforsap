@@ -175,7 +175,7 @@
    <para>
     Unlike in &productname; 11, updates related to Extended Service Pack
     Overlay Support (ESPOS) are shipped directly from the
-    <literal>Update</literal> repositories. This means, there is no separate
+    <literal>Update</literal> repositories. This means there is no separate
     ESPOS repository to set up.
    </para>
   </note>
@@ -391,7 +391,7 @@
     <listitem>
      <para>
       Subscriptions for &sles4sap; include Extended Service Pack Overlap
-      Support which extends the overlap between the support periods of two
+      Support, which extends the overlap between the support periods of two
       consecutive service packs by one year.
       Within this period, you remain under full support and
       receive all relevant maintenance updates.
@@ -401,7 +401,7 @@
       Extended Service Pack Overlap Support allows you to perform
       service pack migrations within 18 months instead of only 6 months.
       Migrations can be scheduled more easily and testing before a migration
-      can be performed under lesser time constraints.
+      can be performed under less restrictive time constraints.
      </para>
      <para>
       At additional cost, &suse; also offers Long Term Service Pack Support
@@ -431,13 +431,13 @@
     </term>
     <listitem>
      <para>
-      Subscriptions for &sles4sap; include &sls;
-      Priority Support for &sap; Applications which offers technical support for
-      &sles4sap; directly from &sap;. The joint support infrastructure,
-      used by support engineers from &suse; Technical Support and &sap;, is
-      based upon &sap; Solution Manager and offers a seamless communication
-      with both &sap; and &suse;. This <quote>One Face to the Customer</quote>
-      support model reduces complexity and lowers the total cost of ownership.
+      Subscriptions for &sles4sap; include &sls; Priority Support for &sap;
+      Applications, which offers technical support for &sles4sap; directly from
+      &sap;. The joint support infrastructure, provided by support engineers
+      from &suse; Technical Support and &sap;, is based upon &sap; Solution
+      Manager and offers seamless communication with both &sap; and
+      &suse;. This <quote>One Face to the Customer</quote> support model
+      reduces complexity and lowers the total cost of ownership.
      </para>
      <para>
       For more information, see <citetitle>SAP Note 1056161: SUSE

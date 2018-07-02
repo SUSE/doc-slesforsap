@@ -11,8 +11,7 @@
   As depicted in <xref linkend="fig.s4s.offering"/>,
   &sles4sap; is based on &sls; but contains several additional
   software components such as &sleha;, and the installation
-  workflow. These software components are briefly explained in the
-  following:
+  workflow. These software components are briefly explained below:
  </para>
 
  <variablelist>
@@ -31,7 +30,7 @@
    <listitem>
     <para>
      &sleha; provides tools for flexible, policy-driven clustering and includes
-     resource agents for managing &sap; instances and &sap; database back-ends
+     resource agents for managing &sap; instances and &sap; database back-ends.
     </para>
    </listitem>
   </varlistentry>
@@ -40,7 +39,7 @@
    <listitem>
     <para>
      &sles4sap; supports &hana; System Replication using components of
-     &sleha; and additional resource agents for &hana; Scale-Up, Scale-Out
+     &sleha; and additional resource agents for &hana; Scale-Up, Scale-Out,
      and for managing topology. Additionally, &s4s; ships with a &yast;
      wizard that simplifies the cluster setup.
     </para>
@@ -73,7 +72,7 @@
     <para>
      &sles4sap; additionally provides the package
      <systemitem>HANA-Firewall</systemitem> which integrates with &firewall;
-     that provide preconfigured zone setups and rules to make securing &hana;
+     to provide preconfigured zone setups and rules to make securing &hana;
      as simple as possible.
     </para>
     <para>

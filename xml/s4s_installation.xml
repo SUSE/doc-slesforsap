@@ -241,7 +241,7 @@
    <step>
     <para>
      On the screen <guimenu>Registration</guimenu>, enter your
-     <guimenu>E-Mail Address</guimenu> and <guimenu>Registration Code</guimenu>.
+     <guimenu>E-mail Address</guimenu> and <guimenu>Registration Code</guimenu>.
      Successful registration is a prerequisite for receiving product updates and
      the entitlement to technical support.
     </para>
@@ -259,7 +259,7 @@
       To install a full (but not updated) &s4sa; system without network
       access during the installation, use the &slea; &productnumber; Packages
       ISO image from <link xlink:href="https://download.suse.com"/>. You can
-      then choose <guimenu>Skip registration</guimenu> on this page and add
+      then choose <guimenu>Skip registration</guimenu> on this page and
       select the &slea; &productnumber; Packages ISO image as an add-on
       product on the next page.
      </para>
