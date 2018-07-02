@@ -593,8 +593,8 @@
       <term><guimenu>System Rename</guimenu></term>
       <listitem>
        <para>
-        Allows changing the various system properties such as the &sap; system ID,
-        database ID, instance number or host name. This is useful, for example,
+        Allows changing system properties such as the &sap; system ID,
+        database ID, instance number or host name. This can be used to
         to install the same product in a very similar
         configuration on different systems.
        </para>
@@ -679,7 +679,7 @@
       <listitem>
        <para>
         Additional software repositories are RPM package repositories that you will
-        remain subscribed to. This means, you receive updates for &thirdmedia;
+        remain subscribed to. This means you receive updates for &thirdmedia;
         along with your regular system updates.
        </para>
       </listitem>
@@ -737,7 +737,7 @@ SAP-NetWeaver-740-SR2-Installation-Export-CD-3-3</screen>
     <para>
      Supply the values as described in the documentation provided to you by
      &sap;. Help for the configuration parameters is also
-     available at the left side of the dialog. For more information, see
+     available on the left side of the dialog. For more information, see
      <xref linkend="sec.s4s.data"/>.
     </para>
 

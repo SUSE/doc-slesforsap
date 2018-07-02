@@ -45,7 +45,7 @@
       plus space for the swap partition.
      </para>
      <para>
-      To install an &sap; application such &nw;, you need at least 200 GB of
+      To install an &sap; application such as &nw;, you need at least 200 GB of
       free disk space in addition to the required space for the operating
       system for the application's <filename>/data</filename> partition.
      </para>
@@ -60,10 +60,10 @@
       </listitem>
       <listitem>
        <para>
-        A machine compatible with the requirements for &hana; TDI (Tailored
-        Datacenter Integration). That is, you need the following amounts of
-        free disk space in addition to the required space for the operating
-        system:
+        A compatible machine that meets the requirements for &hana; TDI
+        (Tailored Datacenter Integration). That is, you need the following
+        amounts of free disk space in addition to the required space for the
+        operating system:
        </para>
        <itemizedlist>
         <listitem>
@@ -76,9 +76,9 @@
          <para>
           Space for three partitions for &hana; data:
           <filename>/hana/data</filename> (same size as RAM),
-          <filename>/hana/log</filename> (same size as RAM up to maximum of
+          <filename>/hana/log</filename> (same size as RAM up to a maximum of
           512 GB), and <filename>/hana/shared</filename> (same size as RAM up
-          to maximum of 1 TB).
+          to a maximum of 1 TB).
          </para>
         </listitem>
        </itemizedlist>
@@ -223,7 +223,7 @@
   </important>
 
   <para>
-   Most of these steps do not need to be run immediately after each other which
+   Most of these steps do not need to be run immediately after each other, which
    allows for flexibility in how you install systems.
    This means that you can prepare a single installation
    as a first step and then continue from there. For example:
@@ -343,7 +343,7 @@
        </para>
        <para>
         For a multi-tenant instance administrated in which each database
-        has an own
+        has its own
         <systemitem class="username"><replaceable>SID</replaceable>adm</systemitem>
         user, choose <guimenu>Yes with high isolation</guimenu>.
        </para>
