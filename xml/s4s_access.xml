@@ -52,12 +52,7 @@
 
   <para>
    To simplify setting up a firewall for &hana;, install the package
-   &hana-fw;. Whereas standard &susefirewall; allows only three zones
-   (internal, DMZ, and external), &hana-fw; enables you to configure more
-   zones to accommodate &hana; properly.
-  </para>
-  <para>
-   &hana-fw; works by adding rule sets to your
+   <package>HANA-Firewall</package>. &hana-fw; adds rule sets to your
    existing &susefirewall; configuration.
   </para>
   <para>
