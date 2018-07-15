@@ -303,11 +303,10 @@
   <sect3 xml:id="sec.s4s.component.firewall-hana">
    <title>Firewall for &hana;</title>
    <para>
-    &hana; often requires more firewall zones than the standard installation of
-    &susefirewall; provides. For this reason, &sles4sap; additionally
-    provides the package <systemitem>HANA-Firewall</systemitem> which
-    integrates with &susefirewall;. It contains preconfigured zone setups and
-    rules to make securing &hana; as simple as possible.
+    Securing &hana; can require many additional firewall rules. To simplify
+    firewall setups for &hana;, &sles4sap;
+    contains the package <package>HANA-Firewall</package> which
+    provides preconfigured rules and integrates with &susefirewall;.
    </para>
    <para>
     For more information, see <xref linkend="sec.s4s.configure.firewall-hana"/>.
