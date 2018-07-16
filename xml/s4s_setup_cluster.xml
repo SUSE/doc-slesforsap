@@ -53,6 +53,14 @@
    &yast; Cluster Module</quote></citetitle> at &ha-docaddress;.
   </para>
  </important>
+ <important>
+  <title>Not Suitable for Cloud Deployments</title>
+  <para>
+   The instructions in the following sections are suitable for deployments
+   on physical machines. They are not intended for cloud-based
+   deployments.
+  </para>
+ </important>
  <sect1 xml:id="sec.s4s.hana-cluster.prerequisite">
   <title>Prerequisites</title>
   <para>
