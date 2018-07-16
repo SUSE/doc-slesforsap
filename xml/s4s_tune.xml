@@ -12,23 +12,118 @@
   &sap; applications.
  </para>
 
+ <sect1 xml:id="sec.sapconf">
+  <title>Tuning Systems with the &sapconf; Profile</title>
+  <para>
+   The package <systemitem>sapconf</systemitem> contains the
+   <systemitem>tuned</systemitem> profile <literal>sapconf</literal>.
+   This single tuning profile sets recommended parameters for the following
+   types of &sap; applications: &netweaver;, &hana; and &hana;-based
+   applications, &ase;, and &bo;.
+  </para>
+  <para>
+   Note that if you previously made changes to the system tuning, those
+   changes may be overwritten by the &sapconf; profile.
+  </para>
+  <para>
+   To use &sapconf;, make sure
+   that the packages <package>tuned</package> and
+   <package>sapconf</package> are installed on your system.
+  </para>
+  <note>
+   <title><command>sapconf</command> Utility Is Not Included in &productname; &productnumber;</title>
+   <para>
+    The command-line utility <command>sapconf</command> that was included
+    &productname; 11 and 12 is not available anymore in
+    &productname; &productnumber;.
+   </para>
+  </note>
+  <sect2 xml:id="sec.sapconf.enable">
+   <title>Enabling and Disabling &sapconf;</title>
+   <para>
+    In a default &productname; installation, &tuned; is already enabled and
+    the &sapconf; profile is active. To see the status of &tuned;, use:
+   </para>
+   <screen>&prompt.root;<command>systemctl status tuned</command></screen>
+   <para>
+    If &tuned; is not shown as <literal>active (enabled)</literal>, enable and
+    start &tuned;:
+   </para>
+   <screen>&prompt.root;<command>systemctl enable --now tuned</command></screen>
+   <para>
+    To see which &tuned; profile is currently in use, run:
+   </para>
+<screen>&prompt.root;<command>tuned-adm active</command></screen>
+   <para>
+    If this command does not return the name of the currently active profile
+    as <literal>sapconf</literal>, enable that profile:
+   </para>
+   <screen>&prompt.root;<command>tuned-adm profile sapconf</command></screen>
+   <para>
+    To disable daemon &tuned;, run:
+   </para>
+   <screen>&prompt.root;<command>systemctl disable tuned</command></screen>
+  </sect2>
+  <sect2 xml:id="sec.sapconf.configure">
+   <title>Configuring &sapconf;</title>
+   <para>
+    You can configure &sapconf; to better fit your needs using the
+    configuration file <filename>/etc/sysconfig/sapconf</filename>. This file
+    contains options for the tuning parameters that are set by &sapconf;, along
+    with descriptions of what the parameters do and further references.
+   </para>
+  </sect2>
+  <sect2 xml:id="sec.sapconf.more">
+   <title>For More Information</title>
+   <para>
+    The following man pages provide additional information about &sapconf;:
+   </para>
+   <itemizedlist>
+    <listitem>
+     <para>
+      High-level overview of tuning parameters used by &sapconf;:
+      <command>man 7 tuned-profiles-sapconf</command>
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      Detailed description of all tuning parameters set by &sapconf;:
+      <command>man 5 sapconf</command>
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      Information about configuring and customizing the &sapconf; profile:
+      <command>man 7 sapconf</command>
+     </para>
+    </listitem>
+   </itemizedlist>
+  </sect2>
+ </sect1>
+
  <sect1 xml:id="sec.saptune">
   <title>Tuning Systems with &saptune;</title>
   <para>
    Using &saptune;, you can
-   tune a system for &netweaver;, &hana;/&b1;, and &s4h; applications. This method
-   relies on the system tuning service &tuned;.
+   tune a system for &netweaver;, &hana;/&b1;, &bo;, &ase;,
+   and &s4h; applications. However, note that the generally recommended
+   tuning solution for &productname; is &sapconf;, as described in
+   <xref linkend="sec.sapconf"/>.
   </para>
   <para>
-   If you used the &sapwiz; to install an &sap; application,
-   &tuned; is usually already active and configured with
-   a profile for the application you installed.
-  </para>
-  <para>
-   If you did not use the &sapwiz; to install an &sap; application, make sure
+   To use &saptune;, make sure
    that the packages <package>tuned</package> and
    <package>saptune</package> are installed on your system.
   </para>
+  <note>
+   <title>&tuned; Daemon</title>
+   <para>
+    &sapconf; and &saptune; both rely on the daemon &tuned; to set tuning
+    configuration but they use different (though very similar) tuning
+    profiles. Therefore, only one of &sapconf; or &saptune; can be enabled at
+    a time.
+   </para>
+  </note>
 
   <sect2 xml:id="sec.s4s.saptune.enable">
   <title>Enabling &saptune; to Tune for an &sap; Application</title>
@@ -184,26 +279,6 @@
     </listitem>
    </itemizedlist>
   </sect2>
-  <sect2 xml:id="sec.s4s.saptune.manual">
-   <title>Tuning Kernel Parameters Manually Using <command>sysctl</command></title>
-   <para>
-    In addition to or instead of tuning kernel parameters using
-    &saptune;, you can also use <command>sysctl</command> to
-    make manual adjustments to kernel parameters. However, such changes using
-    <command>sysctl</command> do not persist across reboots by default. To
-    make them persist across reboots, add them to the file
-    <filename>/etc/sysctl.conf</filename> (or another configuration file read
-    by <command>sysctl</command>).
-   </para>
-   <para>
-    <!-- FIXME: -> SLES docs: we don't seem to have any good section to
-    reference here. Thisll do for the moment. - sknorr, 2017-05-04 -->
-    For more information about <command>sysctl</command>, see the man pages
-    <literal>sysctl(8)</literal>, <literal>sysctl.conf(5)</literal>, and
-    <literal>sysctl.d(5)</literal>.
-   </para>
-  </sect2>
-
 
   <sect2 xml:id="sec.saptune.more">
    <title>For More Information</title>
@@ -229,95 +304,24 @@
   </sect2>
  </sect1>
 
- <sect1 xml:id="sec.sapconf">
-  <title>Tuning Systems with the Basic Utility &sapconf;</title>
+ <sect1 xml:id="sec.s4s.sysctl">
+  <title>Tuning Kernel Parameters Manually Using <command>sysctl</command></title>
   <para>
-   In addition to &saptune;, the package
-   <systemitem>sapconf</systemitem> contains the basic utility &sapconf;.
-   &sapconf; also allows tuning for &sap; systems but is less comprehensive
-   and offers less granularity than &saptune;. However, unlike &saptune;,
-   &sapconf; is available directly in &sls; and thus not dependent on using
-   &s4sa;.
+   In addition to or instead of tuning kernel parameters using
+   &sapconf;/&saptune;, you can also use <command>sysctl</command> to
+   make manual adjustments to kernel parameters. However, such changes using
+   <command>sysctl</command> do not persist across reboots by default. To
+   make them persist across reboots, add them to the file
+   <filename>/etc/sysctl.conf</filename> (or another configuration file read
+   by <command>sysctl</command>).
   </para>
   <para>
-   &sapconf; and &saptune; both rely on the daemon &tuned; to set tuning
-   configuration but they use different (though at times very similar) tuning
-   profiles. Therefore, only one of &sapconf; or &saptune; can be enabled at
-   a time.
+   <!-- FIXME: -> SLES docs: we don't seem to have any good section to
+   reference here. Thisll do for the moment. - sknorr, 2017-05-04 -->
+   For more information about <command>sysctl</command>, see the man pages
+   <literal>sysctl(8)</literal>, <literal>sysctl.conf(5)</literal>, and
+   <literal>sysctl.d(5)</literal>.
   </para>
-  <!-- FIXME: Need to check again. - sknorr, 2017-07-05 -->
-  <!-- <para>
-   If you previously used &sapconf;, the &sapwiz; will offer to migrate your
-   system to using &saptune;.
-  </para> -->
-  <sect2 xml:id="sec.sapconf.enable">
-   <title>Enabling and Disabling &sapconf;</title>
-   <para>
-    To enable &sapconf; when &tuned; is not yet running, use:
-   </para>
-   <screen>&prompt.root;<command>sapconf start</command></screen>
-   <para>
-    By default, this will enable <literal>sap-netweaver</literal> profile. To
-    apply a different profile, use:
-   </para>
-   <screen>&prompt.root;<command>tuned-adm <replaceable>PROFILE_NAME</replaceable></command></screen>
-   <!-- Purposely not documenting sapconf [PROFILE_NAME] because not only
-   does that not allow reconfiguring the NW profile after switching to
-   something else (even though the NW profile is otherwise the default), it
-   also prints out deprecation warnings. - sknorr, 2017-07-05 -->
-   <para>
-    Replace <replaceable>PROFILE_NAME</replaceable> with one of the profiles
-    listed in <xref linkend="sec.sapconf.legacyprofile"/>.
-   </para>
-   <para>
-    To see the status of &sapconf;, use:
-   </para>
-   <screen>&prompt.root;<command>sapconf status</command></screen>
-   <para>
-    To disable &sapconf; along with the underlying daemon
-    &tuned;, use:
-   </para>
-   <screen>&prompt.root;<command>systemctl disable sapconf tuned</command></screen>
-  </sect2>
-  <sect2 xml:id="sec.sapconf.legacyprofile">
-   <title>&tuned; Profiles</title>
-   <para>
-    The package <package>sapconf</package> includes the following &tuned;
-    profiles which &sapconf; enables in the background:
-   </para>
-   <itemizedlist>
-    <listitem>
-     <para>
-      <literal>sap-ase</literal>
-     </para>
-    </listitem>
-    <listitem>
-     <para>
-      <literal>sap-bobj</literal>
-     </para>
-    </listitem>
-    <listitem>
-     <para>
-      <literal>sap-hana</literal>
-     </para>
-    </listitem>
-    <listitem>
-     <para>
-      <literal>sap-netweaver</literal>
-     </para>
-    </listitem>
-   </itemizedlist>
-   <para>
-    In general, these profiles map to the solution profiles listed in
-    <xref linkend="pro.s4s.tune"/>.
-   </para>
-  </sect2>
-  <sect2 xml:id="sec.sapconf.more">
-   <title>For More Information</title>
-   <para>
-    See the man page of &sapconf; (<command>man 8 sapconf</command>).
-   </para>
-  </sect2>
  </sect1>
 
 </chapter>
