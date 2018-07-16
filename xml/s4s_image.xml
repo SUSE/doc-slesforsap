@@ -12,6 +12,10 @@
   &s4s;. The preferred way is generally to use &kiwi; which ingests an XML
   configuration file and then runs fully automatically.
  </para>
+ <para>
+  Alternatively, you can also create an image from an existing installation
+  that is cleaned up before re-use.
+ </para>
 
  <sect1 xml:id="sec.s4s.configure.kiwi">
   <title>Creating Images with &kiwi;</title>
