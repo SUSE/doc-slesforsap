@@ -307,9 +307,12 @@
      For both machines, set up the host names and IP address (for each ring).
     </para>
     <para>
-     To use virtual host addressing, host names must match the virtual host
-     names chosen in &hana;. For more information, see
-     <link xlink:href="https://help.sap.com/saphelp_hanaplatform/helpdata/en/9a/012d6438764459a581e6af55a87c46/content"/>.
+     Host names chosen here are independent from the virtual host names
+     chosen in &hana;. However, to avoid issues with &hana;, host names must
+     not include hyphen characters (<literal>-</literal>).
+     <!-- FIXME: broken link, is there a new one? - sknorr, 2018-07-16 -->
+     <!-- For more information, see
+     <link xlink:href="https://help.sap.com/saphelp_hanaplatform/helpdata/en/9a/012d6438764459a581e6af55a87c46/content"/>. -->
     </para>
     <para>
      If this has not already been done before, such as during the initial
