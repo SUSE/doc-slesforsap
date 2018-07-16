@@ -24,15 +24,21 @@
      On the application host, install the packages for &clamav; and
      &clamsap;. To do so, use the command:
     </para>
-    <screen>
-&prompt.user;sudo zypper install clamav clamsap
-    </screen>
+    <screen>&prompt.user;<command>sudo zypper install clamav clamsap</command></screen>
+   </step>
+   <step>
+    <para>
+     Before you can enable the daemon
+     <systemitem class="daemon">clamd</systemitem>, initialize the malware
+     database:
+    </para>
+    <screen>&prompt.user;<command>sudo freshclam</command></screen>
    </step>
    <step>
     <para>
      Start the service <systemitem class="daemon">clamd</systemitem>:
     </para>
-    <screen>&prompt.user;sudo systemctl start clamd</screen>
+    <screen>&prompt.user;<command>sudo systemctl start clamd</command></screen>
    </step>
    <step>
     <para>
@@ -40,7 +46,7 @@
      <systemitem class="daemon">clamd</systemitem> with:
     </para>
     <screen>
-&prompt.user;systemctl status clamd
+&prompt.user;<command>systemctl status clamd</command>
 ● clamd.service - ClamAV Antivirus Daemon
 Loaded: loaded (/usr/lib/systemd/system/clamd.service; enabled; vendor preset: disabled)
 Active: active (running) since Tue 2017-04-11 10:33:03 UTC; 24h ago
