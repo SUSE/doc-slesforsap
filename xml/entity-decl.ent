@@ -82,7 +82,7 @@
 <!ENTITY productname   '&sles4sap;'>
 <!ENTITY productnamereg '&sles4sapreg;'>
 <!ENTITY product-ga    '12'>
-<!ENTITY product-sp    '3'>
+<!ENTITY product-sp    '4'>
 <!ENTITY productnumber '&product-ga; SP&product-sp;'>
 
 <!--                    Applications                               -->
@@ -144,7 +144,7 @@
 <!ENTITY cmcu           "<command xmlns='http://docbook.org/ns/docbook'>clone-master-clean-up</command>">
 <!ENTITY systemd        "<systemitem xmlns='http://docbook.org/ns/docbook' class='daemon'>systemd</systemitem>">
 <!ENTITY saptune        "<command xmlns='http://docbook.org/ns/docbook'>saptune</command>">
-<!ENTITY sapconf        "<command xmlns='http://docbook.org/ns/docbook'>sapconf</command>">
+<!ENTITY sapconf        "<systemitem class='daemon' xmlns='http://docbook.org/ns/docbook'>sapconf</systemitem>">
 <!ENTITY tuned          "<systemitem xmlns='http://docbook.org/ns/docbook' class='daemon'>tuned</systemitem>">
 
 <!ENTITY % network-entities SYSTEM "network-decl.ent">
