@@ -41,8 +41,9 @@
     <term>Hard Disk</term>
     <listitem>
      <para>
-      &s4s; requires at least 35 GB of hard disk space for the system volume
-      plus space for the swap partition.
+      &s4s; requires at least 35 GB of hard disk space for the system volume.
+      In addition to that, reserve an appropriate amount of hard disk space
+      for the swap partition.
      </para>
      <para>
       To install an &sap; application such as &nw;, you need at least 200 GB of
@@ -98,11 +99,12 @@
     <term>RAM</term>
     <listitem>
      <para>
-      The &sls; operating system itself requires a minimum of 512 MB of total
-      RAM and a minimum of 256 MB of RAM per CPU core.
+      The &sls; operating system itself requires a minimum of 1024 MB of total
+      RAM or a minimum of 512 MB of RAM per CPU core (choose whichever is
+      higher).
      </para>
      <para>
-      Any &sap; software you install will need additional RAM.
+      Any &sap; software you install will require additional RAM.
      </para>
      <para>
       To install &hana;, your machine needs a minimum of 24 GB of RAM.
