@@ -17,6 +17,11 @@
  <itemizedlist role="subtoc">
   <listitem>
    <para>
+    <xref linkend="app.s4s.docupdate.2018-12-12" xrefstyle="SectTitleOnPage"/>
+   </para>
+  </listitem>
+  <listitem>
+   <para>
     <xref linkend="app.s4s.docupdate.2018-10-25" xrefstyle="SectTitleOnPage"/>
    </para>
   </listitem>
@@ -83,6 +88,49 @@
  </itemizedlist>
 
 
+ <sect1 xml:id="app.s4s.docupdate.2018-12-12">
+  <title>October 25, 2018&mdash;&s4sa; 12 SP4 FCS Documentation Release</title>
+
+  <para>
+   Updates were made to the following sections. The changes are explained
+   below.
+  </para>
+
+  <variablelist>
+   <varlistentry>
+    <term>
+     <xref linkend="sec.s4s.hardware" xrefstyle="SectTitleOnPage"/>
+    </term>
+    <listitem>
+     <para>
+      Corrected hard disk and RAM requirements (bsc#1116907).
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term>
+     <xref linkend="sec.s4s.hana-cluster.unattended" xrefstyle="SectTitleOnPage"/>
+    </term>
+    <listitem>
+     <para>
+      Added section about unattended installation of HANA-SR cluster
+      (FATE#325957).
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term>
+     <xref linkend="sec.sapconf" xrefstyle="SectTitleOnPage"/>
+    </term>
+    <listitem>
+     <para>
+      Further added to &sapconf; section (FATE#325785).
+     </para>
+    </listitem>
+   </varlistentry>
+  </variablelist>
+ </sect1>
+
  <sect1 xml:id="app.s4s.docupdate.2018-10-25">
   <title>October 25, 2018&mdash;&s4sa; 12 SP4 Initial Documentation Release</title>
 
@@ -104,7 +152,7 @@
    </varlistentry>
    <varlistentry>
     <term>
-     <xref linkend="sec.saptune" xrefstyle="SectTitleOnPage"/>
+     <xref linkend="sec.sapconf" xrefstyle="SectTitleOnPage"/>
     </term>
     <listitem>
      <para>
