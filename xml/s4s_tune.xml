@@ -70,15 +70,15 @@
      </itemizedlist>
      <tip>
       <title>
-       Use &saptune; to Configure Parameters
+       Use &sapconf; to Configure Parameters
       </title>
       <para>
        The parameters <literal>vm.pagecache_limit_mb</literal> and
        <literal>vm.pagecache_limit_ignore_dirty</literal> are also configured by
-       the &tuned; profiles delivered with &saptune;.
+       the &tuned; profiles delivered with &sapconf;.
       </para>
       <para>
-       For more information, see <xref linkend="sec.saptune"/>.
+       For more information, see <xref linkend="sec.sapconf"/>.
       </para>
      </tip>
      <important>
@@ -113,29 +113,53 @@ vm.pagecache_limit_ignore_dirty = <replaceable>2</replaceable></screen>
  </sect1>
 
  <sect1 xml:id="sec.sapconf">
-  <title>Tuning Systems with the &sapconf; Profile</title>
+  <title>Tuning Systems with &sapconf;</title>
   <para>
    The package <systemitem>sapconf</systemitem> contains the
    <systemitem>tuned</systemitem> profile <literal>sapconf-netweaver</literal>.
-   This single tuning profile sets recommended parameters for the following
-   types of &sap; applications: &netweaver;, &hana; and &hana;-based
-   applications, &ase;, and &bo;.
+   This single tuning profile sets recommended parameters for &sap;
+   applications, in particular &netweaver;, &hana;, and &hana;-based
+   applications. <!-- FIXME: &ase; and &bo;? -->
   </para>
   <para>
-   Note that if you previously made changes to the system tuning, those
-   changes may be overwritten by the <literal>sapconf-netweaver</literal>
-   profile.
+   &sapconf; consists of two primary parts:
   </para>
+  <itemizedlist>
+   <listitem>
+    <para>
+     A &systemd; service that ensures &tuned; and related services are
+     running and the <literal>sapconf</literal> profile is applied.
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     The &tuned; profile <literal>sap-netweaver</literal> that applies
+     configured &sapconf; tuning parameters using a script and configuration
+     files.
+    </para>
+    <para>
+     (The profile <literal>sap-hana</literal> is currently identical
+     to <literal>sap-netweaver</literal>.
+     &sapconf; additionally includes the profiles <literal>sap-ase</literal>
+     and <literal>sap-bobj</literal> which are currently not recommended
+     for use.)
+    </para>
+   </listitem>
+  </itemizedlist>
   <para>
-   To use &sapconf;, make sure
-   that the package <package>sapconf</package> is installed on your system.
+   To use &sapconf;, install the package <package>sapconf</package>
+   on your system.
   </para>
   <note>
-   <title><command>sapconf</command> Utility Is Not Included in &productname; &productnumber;</title>
+   <title><command>sapconf</command> Utility</title>
    <para>
-    The command-line utility <command>sapconf</command> that was included
-    &productname; 11 and 12 is not available anymore in
-    &productname; &productnumber;.
+    The command-line utility <command>sapconf</command> is still available in
+    &productname; &productnumber;. However, it is no longer the preferred
+    utility to control &sapconf;.
+   </para>
+   <para>
+    Starting with &productname; 15, the utility <command>sapconf</command> is
+    not included in the package <package>sapconf</package> anymore.
    </para>
   </note>
   <note>
@@ -144,62 +168,120 @@ vm.pagecache_limit_ignore_dirty = <replaceable>2</replaceable></screen>
     In &productname; 15 and up, only a single &tuned; profile,
     <literal>sapconf</literal>, is shipped. It is equivalent to the profiles
     <literal>sap-hana</literal>/<literal>sap-netweaver</literal> (both
-    profiles are identical) that are shipped with &sapconf; 4.1.11 (and
-    later) in &productname; &productnumber;.
+    profiles are identical) that are shipped with &sapconf; in
+    &productname; &productnumber;.
    </para>
   </note>
   <sect2 xml:id="sec.sapconf.enable">
-   <title>Enabling and Disabling &sapconf;</title>
+   <title>Enabling and Disabling &sapconf; and Viewing Its Status</title>
    <para>
-    After the installation of &sapconf;, &tuned; is already enabled and
-    the &sapconf; profile is active unless a different &tuned; profile is in
-    use already. In a sense, installing &sapconf; is interpreted as intent to
-    use it.
+    After the installation of &sapconf;, &tuned; is enabled and the
+    <literal>sap-netweaver</literal> profile is activated. However, if
+    another &tuned; profile is already enabled, &sapconf; will not enable its
+    own &tuned; profile. If you previously made other changes to system
+    tuning, these may be overridden by the profile of &sapconf;.
    </para>
    <para>
-    However, for &sapconf; to apply all tuning parameters, make sure to
+    To make sure &sapconf; applies all tuning parameters,
     reboot the machine after installation.
    </para>
    <para>
-    To see the status of &tuned;, use:
+    You can inspect or change the status of &sapconf; as described in the
+    following:
    </para>
-   <screen>&prompt.root;<command>systemctl status tuned</command></screen>
+   <itemizedlist>
+    <listitem>
+     <para>
+      To see the status of the service
+      <systemitem class="daemon">sapconf</systemitem>:
+     </para>
+     <screen>&prompt.root;<command>systemctl status sapconf</command></screen>
+     <para>
+      The service should be displayed as <emphasis>active (exited)</emphasis>,
+      as it is only responsible for starting &tuned; and will exit afterward.
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      To start the service
+      <systemitem class="daemon">sapconf</systemitem> and with it the service
+      &tuned;:
+     </para>
+     <screen>&prompt.root;<command>systemctl start sapconf</command></screen>
+    </listitem>
+    <listitem>
+     <para>
+      Should <systemitem class="daemon">sapconf</systemitem> be disabled,
+      enable and start it with:
+     </para>
+     <screen>&prompt.root;<command>systemctl enable --now sapconf</command></screen>
+    </listitem>
+    <listitem>
+     <para>
+      To stop the service
+      <systemitem class="daemon">sapconf</systemitem> and with it the service
+      &tuned;:
+     </para>
+     <screen>&prompt.root;<command>systemctl stop sapconf</command></screen>
+     <para>
+      As &tuned; is also terminated at that point, the vast majority of
+      optimizations which do not require a system reboot to disable are
+      disabled immediately.
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      To disable <systemitem class="daemon">sapconf</systemitem>, use:
+     </para>
+     <screen>&prompt.root;<command>systemctl disable sapconf</command></screen>
+     <para>
+      If you have not specifically enabled any of the services that &sapconf;
+      depends on yourself, this will also disable most tuning parameters and
+      all services used by &sapconf;.
+     </para>
+    </listitem>
+   </itemizedlist>
    <para>
-    If &tuned; is not shown as <literal>active (enabled)</literal>, enable and
-    start &tuned;:
+    Similarly, you can inspect and change the status of the underlying service
+    &tuned;:
    </para>
-   <screen>&prompt.root;<command>systemctl enable --now tuned</command></screen>
-   <para>
-    To see which &tuned; profile is currently in use, run:
-   </para>
-<screen>&prompt.root;<command>tuned-adm active</command></screen>
-   <para>
-    If this command does not return the name of the currently active profile
-    as <literal>sapconf</literal>, enable that profile:
-   </para>
-   <screen>&prompt.root;<command>tuned-adm profile sapconf</command></screen>
-   <para>
-    To disable daemon &tuned;, run:
-   </para>
-   <screen>&prompt.root;<command>systemctl disable tuned</command></screen>
+   <itemizedlist>
+    <listitem>
+     <para>
+      To see the status of the service &tuned;:
+     </para>
+     <screen>&prompt.root;<command>systemctl status tuned</command></screen>
+    </listitem>
+    <listitem>
+     <para>
+      To see which &tuned; profile is currently in use:
+     </para>
+     <screen>&prompt.root;<command>tuned-adm active</command></screen>
+     <para>
+      If this command does not return the name of the currently active profile
+      as <literal>sapconf</literal>, enable that profile:
+     </para>
+     <screen>&prompt.root;<command>tuned-adm profile sapconf</command></screen>
+    </listitem>
+   </itemizedlist>
    <tip>
     <title>Additional Services that &sapconf; Relies On</title>
     <para>
-     In addition to &sapconf; service itself and the &tuned; service, &sapconf;
-     also relies on the following two services:
+     In addition to the &sapconf; service itself and the &tuned; service,
+     &sapconf; also relies on the following two services:
     </para>
     <itemizedlist>
      <listitem>
       <para>
-       <systemitem class="daemon">sysstat</systemitem> to collect data on
-       system activity
+       <systemitem class="daemon">sysstat</systemitem> collects data on
+       system activity.
       </para>
      </listitem>
      <listitem>
       <para>
        <systemitem class="daemon">uuidd</systemitem> which generates time-based
        UUIDs that are guaranteed to be unique even in settings where many
-       processor cores are involved.
+       processor cores are involved. This is necessary for &sap; applications.
       </para>
      </listitem>
     </itemizedlist>
@@ -208,30 +290,152 @@ vm.pagecache_limit_ignore_dirty = <replaceable>2</replaceable></screen>
   <sect2 xml:id="sec.sapconf.configure">
    <title>Configuring &sapconf;</title>
    <para>
-    You can configure &sapconf; to better fit your needs using the
-    configuration file <filename>/etc/sysconfig/sapconf</filename> and
-    associated <filename>/etc/sysconfig/sapnote-*</filename> files. These file
-    contain options for the tuning parameters that are set by &sapconf;, along
-    with descriptions of what the parameters do and further references.
+    In general, the default configuration of &sapconf; already uses the
+    parameter values recommended by &sap;. However, if you have special
+    needs, you can configure the tool to better suit those.
    </para>
    <para>
-    To apply the new configuration, restart &sapconf;:
+    The configuration of &sapconf; is split in two parts that can be configured
+    in different ways:
+   </para>
+   <variablelist>
+    <varlistentry>
+     <term><filename>/usr/lib/tuned/sap-netweaver/tuned.conf</filename></term>
+     <listitem>
+      <para>
+       This file contains basic parameters. It also calls the
+       <filename>script.sh</filename> from the same directory.
+      </para>
+      <para>
+       To configure parameters from this file, copy it to the custom profile
+       directory of &tuned; under <filename>/etc/tuned</filename> first and
+       then change values in it. If you change the file in place instead, you
+       will lose the changes you make on the next update of the
+       <package>sapconf</package> package.
+      </para>
+      <para>
+       Configure the file as described in the following:
+      </para>
+      <procedure>
+       <title></title>
+       <step>
+        <para>
+         Create a new custom &tuned; profile directory and copy the file
+         <filename>tuned.conf</filename>:
+        </para>
+<screen>&prompt.root;mkdir /etc/tuned/sap-netweaver
+&prompt.root;cp /usr/lib/tuned/sap-netweaver/tuned.conf /etc/tuned/sap-netweaver/</screen>
+       </step>
+       <step>
+        <para>
+         Within the newly copied <filename>tuned.conf</filename>, fix the
+         reference to <filename>script.sh</filename> to use an absolute path
+         that points to the script from the original profile:
+        </para>
+        <screen>script = /usr/lib/tuned/sap-netweaver/script.sh</screen>
+        <para>
+         Do not instead copy <filename>script.sh</filename>, as that
+         provokes update compatibility issues for &sapconf;.
+        </para>
+       </step>
+       <step>
+        <para>
+         Edit the parameters in
+         <filename>/etc/tuned/sap-netweaver/tuned.conf</filename>.
+        </para>
+       </step>
+      </procedure>
+      <para>
+       After each update to &sapconf;, make sure to compare the contents of
+       the original and the custom <filename>tuned.conf</filename>.
+      </para>
+      <para>
+       Log messages related to this file are written to
+       <filename>/var/log/tuned/tuned.log</filename>.
+      </para>
+     </listitem>
+    </varlistentry>
+    <varlistentry>
+     <term><filename>/etc/sysconfig/sapconf</filename></term>
+     <listitem>
+      <para>
+       This file contains most parameters of &sapconf;. The parameters from
+       this file are applied using the aforementioned script
+       <filename>/usr/lib/tuned/sap-netweaver/script.sh</filename>.
+      </para>
+      <para>
+       This file can be edited directly. All parameters in this file are
+       explained by means of comments and references to &sap; Notes which can
+       be viewed at <link xlink:href="https://launchpad.support.sap.com/"/>.
+      </para>
+      <para>
+       When &sapconf; is updated, all customized parameters from this file will
+       be preserved as much as possible. However, sometimes parameters cannot
+       be transferred cleanly to the new configuration file. Therefore, after
+       updating it is advisable to check the difference between the previous
+       custom configuration which during the update is moved to
+       <filename>/etc/sysconfig/sapconf.rpmsave</filename>
+       and the new version at <filename>/etc/sysconfig/sapconf</filename>.
+      </para>
+      <para>
+       Log messages related to this file are written to
+       <filename>/var/log/sapconf.log</filename>.
+      </para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+   <para>
+    When editing either of these files, you will find that some values are
+    commented by means of a <literal>#</literal> character at the beginning of
+    the line. This means that while the parameter is relevant for tuning, there
+    is no suitable default for it.
+   </para>
+   <para>
+    Conversely, you can add <literal>#</literal> characters to the beginning of
+    the line to comment specific parameters. However, you should avoid this
+    praxis, as it can lead to &sapconf; not properly applying the profile.
+   </para>
+   <para>
+    To apply edited configuration, restart &sapconf;:
    </para>
    <screen>&prompt.root;<command>systemctl restart sapconf</command></screen>
    <para>
-    To confirm the settings &sapconf; is applying, see the log files
-    <filename>/var/log/sapconf.log</filename> and
-    <filename>/var/log/tuned/tuned.log</filename>.
+    Confirming that a certain parameter value was applied correctly works
+    differently for different parameters. Hence, the following serves as an
+    example only:
    </para>
-   <para>
-    To confirm the values currently in use for parameters configured under
-    <filename>/proc/sys</filename>, use, for example:
-   </para>
-   <screen>&prompt.root;<command>sysctl net.ipv4.tcp_slow_start_after_idle</command></screen>
-   <para>
-    Values written to other parts of the file system need to be confirmed in
-    other ways.
-   </para>
+   <example xml:id="ex.sapconf.change-parameter">
+    <title>Checking Parameters</title>
+    <para>
+     To confirm that the setting for <literal>TCP_SLOW_START</literal> was
+     applied, do the following:
+    </para>
+    <itemizedlist>
+     <listitem>
+      <para>
+       View the log file of &sapconf; to see whether it applied the value.
+       Within <filename>/var/log/sapconf.log</filename>, check for a line
+       containing this text:
+      </para>
+      <screen>Change net.ipv4.tcp_slow_start_after_idle from 1 to 0</screen>
+      <para>
+       Alternatively, the parameter may have already been set correctly
+       before &sapconf; was started. In this case, &sapconf; will not change
+       its value:
+      </para>
+      <screen>Leaving net.ipv4.tcp_slow_start_after_idle unchanged at 1</screen>
+     </listitem>
+     <listitem>
+      <para>
+       The underlying option behind <literal>TCP_SLOW_START</literal> can be
+       manually configured at
+       <filename>/proc/sys/net.ipv4.tcp_slow_start_after_idle</filename>.
+       To check its actual current value, use:
+      </para>
+      <screen>&prompt.root;<command>sysctl net.ipv4.tcp_slow_start_after_idle</command></screen>
+     </listitem>
+    </itemizedlist>
+   </example>
   </sect2>
   <sect2 xml:id="sec.sapconf.remove">
    <title>Removing &sapconf;</title>
@@ -241,9 +445,15 @@ vm.pagecache_limit_ignore_dirty = <replaceable>2</replaceable></screen>
    <screen>&prompt.root;<command>zypper rm sapconf</command></screen>
    <para>
     Note that when doing this, dependencies of &sapconf; will remain installed.
-    However, the service <systemitem class="daemon">sysstat</systemitem> will
-    go into a disabled state. If it is still relevant to you, make sure to
+    However, the services <systemitem class="daemon">sysstat</systemitem> and
+    <systemitem class="daemon">tuned</systemitem> will
+    go into a disabled state. If either is still relevant to you, make sure to
     enable it again.
+   </para>
+   <para>
+    Certain parameters and files are not removed when &sapconf; is uninstalled.
+    For more information, see the man page <command>man 7
+    sapconf</command>, section <citetitle>PACKAGE REQUIREMENTS</citetitle>.
    </para>
   </sect2>
   <sect2 xml:id="sec.sapconf.more">
