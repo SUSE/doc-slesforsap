@@ -639,6 +639,12 @@
      setup.
     </para>
     <para>
+     To be able to reuse the configuration file for an unattended
+     installation, click <guimenu>Save configuration</guimenu>. (For more
+     details about unattended cluster installations, see
+     <xref linkend="sec.s4s.hana-cluster.unattended"/>.)
+    </para>
+    <para>
      To close the dialog, click <guimenu>Finish</guimenu>.
     </para>
    </step>
@@ -653,6 +659,37 @@
 --remoteInstance=<replaceable>INSTANCE_NUMBER</replaceable> --replicationMode=async \
 --name=<replaceable>SITE_NAME</replaceable>
     </screen>
+   </step>
+  </procedure>
+ </sect1>
+ <sect1 xml:id="sec.s4s.hana-cluster.unattended">
+  <title>Unattended Installation of Cluster Servers</title>
+  <para>
+   On bare-metal servers, you can run the &yast; module <guimenu>HA Setup for
+   SAP Products</guimenu> in an unattended mode to speed up the time it takes
+   to configure additional servers with the same configuration.
+  </para>
+  <para>
+   As a prerequisite, you need a configuration file from a previous run of
+   the &yast; wizard <guimenu>HA Setup for SAP Products</guimenu>.
+  </para>
+  <procedure>
+   <step>
+    <para>
+     Copy the configuration file to the target machine.
+    </para>
+   </step>
+   <step>
+    <para>
+     Validate the configuration file:
+    </para>
+    <screen>&prompt.root;yast2 sap_ha readconfig <replaceable>CONFIGURATION_FILE_PATH</replaceable></screen>
+   </step>
+   <step>
+    <para>
+     Import, validate, and install the cluster unattendedly:
+    </para>
+    <screen>&prompt.root;yast2 sap_ha readconfig <replaceable>CONFIGURATION_FILE_PATH</replaceable> unattended</screen>
    </step>
   </procedure>
  </sect1>
