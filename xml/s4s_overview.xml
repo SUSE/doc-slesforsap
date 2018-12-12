@@ -73,11 +73,68 @@
     </listitem>
    </varlistentry>
    <varlistentry>
-    <term><xref linkend="sec.s4s.component" xrefstyle="select:title,nopage"/>
-    </term>
+    <term><xref linkend="cha.s4s.cluster" xrefstyle="select:title,nopage"/></term>
     <listitem>
      <para>
-      Description of tools to configure &sles4sap;.
+      Setting up an &hana; cluster with system replication using the &yast;
+      wizard.
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term><xref linkend="cha.s4s.tune" xrefstyle="select:title,nopage"/></term>
+    <listitem>
+     <para>
+      Tuning the system to enable the best performance for &sap; applications.
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term><xref linkend="cha.s4s.access" xrefstyle="select:title,nopage"/></term>
+    <listitem>
+     <para>
+      Keeping the system and applications safe using firewalls.
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term><xref linkend="cha.s4s.configure.cryptctl" xrefstyle="select:title,nopage"/></term>
+    <listitem>
+     <para>
+      Keeping server data encrypted at rest.
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term><xref linkend="cha.clamsap" xrefstyle="select:title,nopage"/></term>
+    <listitem>
+     <para>
+      Keeping your users safe from malware.
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term><xref linkend="cha.s4s.configure.rdp" xrefstyle="select:title,nopage"/></term>
+    <listitem>
+     <para>
+      Using remote access to administrate machines.
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term><xref linkend="cha.s4s.image" xrefstyle="select:title,nopage"/></term>
+    <listitem>
+     <para>
+      Creating &kiwi; images and scrubbing private data off fully configured
+      images.
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term><xref linkend="cha.s4s.trouble" xrefstyle="select:title,nopage"/></term>
+    <listitem>
+     <para>
+      Gives a short overview of important log files.
      </para>
     </listitem>
    </varlistentry>
