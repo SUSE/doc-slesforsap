@@ -388,22 +388,24 @@
      <para>
       Subscriptions for &sles4sap; include Extended Service Pack Overlap
       Support, which extends the overlap between the support periods of two
-      consecutive service packs by one year.
-      Within this period, you remain under full support and
-      receive all relevant maintenance updates.
-      As a standard offering, this is unique.
-    </para>
-    <para>
-      Extended Service Pack Overlap Support allows you to perform
-      service pack migrations within 18 months instead of only 6 months.
-      Migrations can be scheduled more easily and testing before a migration
-      can be performed under less restrictive time constraints.
+      consecutive service packs by three years. During this period, you
+      receive support and all relevant maintenance updates under the terms of
+      Long Term Service Pack Support (LTSS). This feature is only available
+      with &sles4sap;.
      </para>
      <para>
-      At additional cost, &suse; also offers Long Term Service Pack Support
+      Extended Service Pack Overlap Support allows you to perform service pack
+      migrations within three and a half (3½) years instead of only six
+      months. This enables you to schedule migrations more easily and perform
+      testing before a migration under less restrictive time constraints.
+     </para>
+     <para>
+      At an additional cost, &suse; also offers Long Term Service Pack Support
       (LTSS). With LTSS, you receive support for a particular service pack
-      after ESPOS has run out. For more information about the life cycle of
-      &suse; products, see:
+      after the ESPOS period ends. Since &sles4sap; includes ond and a half
+      (1½) years of general support and three years of ESPOS for each service
+      pack, LTSS may only be offered for the last service pack. For more
+      information about the life cycle of &suse; products, see:
      </para>
      <itemizedlist>
       <listitem>
