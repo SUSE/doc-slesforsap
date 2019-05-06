@@ -116,7 +116,7 @@ vm.pagecache_limit_ignore_dirty = <replaceable>2</replaceable></screen>
   <title>Tuning Systems with &sapconf;</title>
   <para>
    The package <systemitem>sapconf</systemitem> contains the
-   <systemitem>tuned</systemitem> profile <literal>sapconf-netweaver</literal>.
+   <systemitem>tuned</systemitem> profile <literal>sap-netweaver</literal>.
    This single tuning profile sets recommended parameters for &sap;
    applications, in particular &netweaver;, &hana;, and &hana;-based
    applications. <!-- FIXME: &ase; and &bo;? -->
@@ -128,7 +128,7 @@ vm.pagecache_limit_ignore_dirty = <replaceable>2</replaceable></screen>
    <listitem>
     <para>
      A &systemd; service that ensures &tuned; and related services are
-     running and the <literal>sapconf</literal> profile is applied.
+     running and the <literal>sap-netweaver</literal> profile is applied.
     </para>
    </listitem>
    <listitem>
