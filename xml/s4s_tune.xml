@@ -259,9 +259,9 @@ vm.pagecache_limit_ignore_dirty = <replaceable>2</replaceable></screen>
      <screen>&prompt.root;<command>tuned-adm active</command></screen>
      <para>
       If this command does not return the name of the currently active profile
-      as <literal>sapconf</literal>, enable that profile:
+      as <literal>sap-netweaver</literal>, enable that profile:
      </para>
-     <screen>&prompt.root;<command>tuned-adm profile sapconf</command></screen>
+     <screen>&prompt.root;<command>tuned-adm profile sap-netweaver</command></screen>
     </listitem>
    </itemizedlist>
    <tip>
