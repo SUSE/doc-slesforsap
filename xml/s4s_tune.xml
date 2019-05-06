@@ -494,8 +494,6 @@ vm.pagecache_limit_ignore_dirty = <replaceable>2</replaceable></screen>
    Using &saptune;, you can
    tune a system for &netweaver;, &hana;/&b1;, and &s4h; applications. This method
    relies on the system tuning service &tuned;.
-   However, the preferred method to tune systems for &sap; workloads is
-   using &sapconf; (see <xref linkend="sec.sapconf"/>).
   </para>
   <para>
    If you used the &sapwiz; to install an &sap; application,
