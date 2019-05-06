@@ -17,6 +17,11 @@
  <itemizedlist role="subtoc">
   <listitem>
    <para>
+    <xref linkend="app.s4s.docupdate.2019-05-06" xrefstyle="SectTitleOnPage"/>
+   </para>
+  </listitem>
+  <listitem>
+   <para>
     <xref linkend="app.s4s.docupdate.2018-12-12" xrefstyle="SectTitleOnPage"/>
    </para>
   </listitem>
@@ -87,6 +92,49 @@
   </listitem>
  </itemizedlist>
 
+
+ <sect1 xml:id="app.s4s.docupdate.2019-05-06">
+  <title>May 06, 2019&mdash;&s4sa; 12 SP4 FCS Documentation Release</title>
+
+  <para>
+   Updates were made to the following sections. The changes are explained
+   below.
+  </para>
+
+  <variablelist>
+   <varlistentry>
+    <term>
+     <xref linkend="sec.s4s.service" xrefstyle="SectTitleOnPage"/>
+    </term>
+    <listitem>
+     <para>
+      Updated information about ESPOS.
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term>
+     <xref linkend="sec.saptune" xrefstyle="SectTitleOnPage"/>
+    </term>
+    <listitem>
+     <para>
+      Removed sentence discouraging use of &saptune;.
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term>
+     <xref linkend="sec.sapconf" xrefstyle="SectTitleOnPage"/>
+    </term>
+    <listitem>
+     <para>
+      Fixed erroneous uses of the profile name <literal>sapconf</literal> that
+      should have read <literal>sap-netweaver</literal>.
+     </para>
+    </listitem>
+   </varlistentry>
+  </variablelist>
+ </sect1>
 
  <sect1 xml:id="app.s4s.docupdate.2018-12-12">
   <title>October 25, 2018&mdash;&s4sa; 12 SP4 FCS Documentation Release</title>
