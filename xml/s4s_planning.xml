@@ -27,10 +27,11 @@
     <term>Hard Disk</term>
     <listitem>
      <para>
-      &s4s; requires at least 35 GB of hard disk space for the system volume
-      plus space for the swap partition and 200 GB for the data partition for
-      installation of an &sap; application. For more information, see
-      <xref linkend="sec.s4s.partition"/>.
+      &s4s; requires at least 45 GB (without swap) of hard disk space for the
+      system volume.
+      In addition to that, reserve an appropriate amount of hard disk space
+      for the swap partition.
+      For more information, see <xref linkend="sec.s4s.partition"/>.
      </para>
     </listitem>
    </varlistentry>
