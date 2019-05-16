@@ -41,7 +41,8 @@
     <term>Hard Disk</term>
     <listitem>
      <para>
-      &s4s; requires at least 35 GB of hard disk space for the system volume.
+      &s4s; requires at least 41 GB (without swap) of hard disk space for the
+      system volume.
       In addition to that, reserve an appropriate amount of hard disk space
       for the swap partition.
      </para>
