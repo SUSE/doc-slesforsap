@@ -3,7 +3,7 @@
 
 <!-- PRODUCT NAME AND VERSIONS -->
 <!ENTITY productname   "SUSE Linux Enterpreise Server for SAP Applications">
-<!ENTITY productnumber "15">
+<!ENTITY productnumber "15 SP1">
 
 <!-- PROJECT REPOSITORY URL -->
 <!ENTITY repourl "https://github.com/SUSE/doc-slesforsap">
