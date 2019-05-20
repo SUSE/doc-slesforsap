@@ -659,13 +659,47 @@
    repositories.
   </para>
   <para>
-   This script is not available from the default repositories of &sls; but
-   only via the &suse; support page
-   <link xlink:href="https://www.suse.com/support/kb/doc/?id=7018744"/>.
-   To use it, follow the instructions on the linked page. Make sure to use
-   the version of this script that is appropriate for your operating system
-   version.
+   Make sure that you have an e-mail address for registration and a
+   registration code for &s4sa;.
   </para>
+  <procedure xml:id="pro.s4s.convert-sles">
+   <step>
+    <para>
+     Install the package <package>migrate-sles-to-sles4sap</package>.
+    </para>
+   </step>
+   <step>
+    <para>
+     Execute the following command:
+    </para>
+    <screen>&prompt.root;<command>Migrate_SLES_to_SLES-for-SAP-12.sh</command></screen>
+   </step>
+   <step>
+    <para>
+     When asked to confirm to continue the migration, press
+     <keycap>Y</keycap>, then <keycap function="enter"/>.
+    </para>
+   </step>
+   <step>
+    <para>
+     When asked, type the e-mail address to use for registration, then press
+     <keycap function="enter"/>.
+    </para>
+   </step>
+   <step>
+    <para>
+     When asked, type the registration key, then press
+     <keycap function="enter"/>.
+    </para>
+    <para>
+     Wait until the script is finished. Afterward, you are subscribed to the
+     &s4s; software repositories and the package
+     <package>SLES-release</package> is removed in favor of
+     <package>SLES_SAP-release</package>.
+    </para>
+   </step>
+  </procedure>
+
   <important>
    <title>Script Does Not Install Default &s4sa; Packages</title>
    <para>
