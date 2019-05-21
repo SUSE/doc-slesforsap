@@ -669,7 +669,7 @@
     <para>
      Execute the following command:
     </para>
-    <screen>&prompt.root;<command>Migrate_SLES_to_SLES-for-SAP-12.sh</command></screen>
+    <screen>&prompt.root;<command>Migrate_SLES_to_SLES-for-SAP.sh</command></screen>
    </step>
    <step>
     <para>
