@@ -72,7 +72,7 @@
     <formalpara>
      <title>Command-Line Utility <systemitem>hana-firewall</systemitem></title>
      <para>
-      Allows applying and reverting the configured firewall rules for &hana;.
+      Creates XML files containing firewall rules for &hana;.
      </para>
     </formalpara>
     <para>
@@ -80,14 +80,6 @@
      configuration file at <filename>/etc/sysconfig/hana-firewall</filename>
      instead of using &yast;.
     </para>
-   </listitem>
-   <listitem>
-    <formalpara>
-     <title>Service <systemitem>hana-firewall</systemitem></title>
-     <para>
-      Ensures that configured firewall rules for &hana; are kept.
-     </para>
-    </formalpara>
    </listitem>
   </itemizedlist>
 
@@ -101,7 +93,7 @@
     service definition:
    </para>
 <screen>&prompt.root;<command>cd /etc/hana-firewall.d</command>
-&prompt.root;<command>./create_new_service</command></screen>
+&prompt.root;<command>hana-firewall define-new-hana-service</command></screen>
    <para>
     You need to switch to the directory
     <filename>/etc/hana-firewall.d</filename>,
@@ -125,6 +117,17 @@
 
   <procedure>
    <title>Using &hana-fw;</title>
+   <remark>toms 2019-05-28: This needs to be reworked. According
+   to Sören:
+   * There is no proposal step anymore [...]
+   * Allowing Remote Shell Access (SSH) is not part of HANA Firewall anymore.
+   * It is not possible to choose network interfaces anymore.
+     Also it is not called "Allowed Services".
+   * Adding services have to be done via command line (hana-firewall
+     define-new-hana-service).
+   * There is no integration in YaST.
+   * The screenshot is wrong.
+   </remark>
    <step>
     <para>
      Make sure the &hana; databases for which you want to configure the
