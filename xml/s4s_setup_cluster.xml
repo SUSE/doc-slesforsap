@@ -656,6 +656,58 @@
    </step>
   </procedure>
  </sect1>
+ <sect1 xml:id="sec.s4s.hana-cluster.wizard.semiautomatic">
+  <title>Unattended Setup Using &hana;-SR Wizard</title>
+  <para>
+   Setting up a reproducible &hana; System Replication infrastructure
+   on several machines can be a lot of administrative work. The &hana;-SR
+   wizard is a manual tool that reduces the workload. However, it still
+   requires some manual steps by administrators to set it up.
+  </para>
+  <para>
+   &suse; is extending the &hana;-SR Wizard capabilities for the Azure Cloud.
+   Administrators can now use the &hana;-SR Wizard to configure the &hana;
+   cluster on Azure and only have to define a configuration inside the
+   wizard once and can then re-apply the saved configuration without
+   user interaction.
+  </para>
+  <para>
+   To deploy a preconfigured &hana;-SR environments, &suse; offers an
+   unattended installation mode for the &hana;-SR wizard.
+   To use it, proceed as follows:
+  </para>
+  <procedure>
+   <step>
+    <para>
+     Create a configuration file by running the <literal>sap_ha</literal>
+     &yast; module.
+    </para>
+   </step>
+   <step>
+    <para>
+     Save the configuration on its last screen.
+    </para>
+   </step>
+   <step>
+    <para>
+     Upload and validate the configuration automatically:
+    </para>
+    <screen>&prompt.root;<command>yast2 sap_ha readconfig <replaceable>CONFIGURATION_FILE_PATH</replaceable></command></screen>
+   </step>
+   <step>
+    <para>
+     Import, validate, and install the cluster unattendedly,
+     based on the provided configuration file:
+    </para>
+    <screen>&prompt.root;<command>yast2 sap_ha readconfig <replaceable>CONFIGURATION_FILE_PATH</replaceable> unattended</command></screen>
+   </step>
+  </procedure>
+  <para>
+   For information on Near Zero Downtime for &hana; System Replication,
+   see also <link xlink:href="https://help.sap.com/viewer/2c1988d620e04368aa4103bf26f17727/2.0.03/en-US/ee3fd9a0c2e74733a74e4ad140fde60b.html"
+    >Use &hana; System Replication for Near Zero Downtime Upgrades</link>.
+  </para>
+ </sect1>
  <sect1 xml:id="sec.s4s.hawk">
   <title>Using &hawk;</title>
   <para>
