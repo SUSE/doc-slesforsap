@@ -11,6 +11,12 @@
   to best practices, including &hana; system replication. A summary of the
   setup options is given in <xref linkend="sec.s4s.hana-replicate"/>.
  </para>
+ <para>
+  Administrators can now use the &hana;-SR Wizard to configure the &hana;
+  cluster on Azure and only have to define a configuration inside the
+  wizard once and can then re-apply the saved configuration without
+  user interaction.
+ </para>
 
  <para>
   The following <emphasis>Best Practices</emphasis> from the &sles4sap;
@@ -53,14 +59,7 @@
    &yast; Cluster Module</quote></citetitle> at &ha-docaddress;.
   </para>
  </important>
- <important>
-  <title>Not Suitable for Cloud Deployments</title>
-  <para>
-   The instructions in the following sections are suitable for deployments
-   on physical machines. They are not intended for cloud-based
-   deployments.
-  </para>
- </important>
+
  <sect1 xml:id="sec.s4s.hana-cluster.prerequisite">
   <title>Prerequisites</title>
   <para>
@@ -658,19 +657,7 @@
  </sect1>
  <sect1 xml:id="sec.s4s.hana-cluster.wizard.semiautomatic">
   <title>Unattended Setup Using &hana;-SR Wizard</title>
-  <para>
-   Setting up a reproducible &hana; System Replication infrastructure
-   on several machines can be a lot of administrative work. The &hana;-SR
-   wizard is a manual tool that reduces the workload. However, it still
-   requires some manual steps by administrators to set it up.
-  </para>
-  <para>
-   &suse; is extending the &hana;-SR Wizard capabilities for the Azure Cloud.
-   Administrators can now use the &hana;-SR Wizard to configure the &hana;
-   cluster on Azure and only have to define a configuration inside the
-   wizard once and can then re-apply the saved configuration without
-   user interaction.
-  </para>
+  
   <para>
    To deploy a preconfigured &hana;-SR environments, &suse; offers an
    unattended installation mode for the &hana;-SR wizard.
@@ -681,6 +668,7 @@
     <para>
      Create a configuration file by running the <literal>sap_ha</literal>
      &yast; module.
+     <remark>toms 2019-05-29: add xref to manuel setup section.</remark>
     </para>
    </step>
    <step>
@@ -690,7 +678,7 @@
    </step>
    <step>
     <para>
-     Upload and validate the configuration automatically:
+     Upload and validate the configuration:
     </para>
     <screen>&prompt.root;<command>yast2 sap_ha readconfig <replaceable>CONFIGURATION_FILE_PATH</replaceable></command></screen>
    </step>
