@@ -401,15 +401,21 @@ sdc
      </para>
      <para>
       On the server, you can check whether the directory was decrypted using
-      <command>cryptctl</command>:
+      <command>cryptctl</command>. A successful entry looks like this:
      </para>
      <screen>
 &prompt.root;<command>cryptctl list-keys</command>
-2016/10/10 10:00:00 ReloadDB: successfully loaded database of 1 records
+2019/06/06 15:50:00 ReloadDB: successfully loaded database of 1 records
 Total: 1 records (date and time are in zone EDT)
 Used By      When                  UUID  Max.Users  Num.Users  Mount Point
-<replaceable>IP_ADDRESS</replaceable>   2016-10-10 10:00:00   <replaceable>UUID</replaceable>  1          1          /secret-partition
-     </screen>
+<replaceable>IP_ADDRESS</replaceable>   2019-06-06 15:00:50   <replaceable>UUID</replaceable>  1          1          /secret-partition</screen>
+     <para>If the <command>cryptctl</command> command was unsuccessful, the
+     entries looks like this:</para>
+     <screen>2019/06/06 15:50:00 ReloadDB: successfully loaded database of 1 records
+Total: 1 records (date and time are in zone EDT)
+Used By      When                  UUID              Max.Users  Num.Users  Mount Point
+             2019-06-06 15:00:50   <replaceable>PARTITION_UUID</replaceable>  1          1          /secret-partition</screen>
+     <para>See the difference in the empty <literal>Used by</literal> column.</para>
      <para>
       Verify that the UUID shown is that of the previously encrypted partition.
      </para>
