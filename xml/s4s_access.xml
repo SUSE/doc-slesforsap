@@ -228,14 +228,6 @@
 <screen>&prompt.root;<command>hana-firewall status</command>
 HANA firewall is active. Everything is OK.
 </screen>
-    <tip>
-     <title>Checking Which Firewall Rules Are Enabled</title>
-     <para>
-      Gaining an overview of which firewall rules are enabled in the current
-      configuration of the script is possible using the command line:
-     </para>
-<screen>&prompt.root;<command>hana-firewall dry-run</command></screen>
-    </tip>
    </step>
   </procedure>
   <para>
