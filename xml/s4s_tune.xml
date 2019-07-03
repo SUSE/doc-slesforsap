@@ -508,14 +508,17 @@
       <screen>&prompt.root;<command>saptune note apply <replaceable>NOTE</replaceable></command></screen>
      </listitem>
     </itemizedlist>
-    <tip>
+    <note>
      <title>Combining Optimizations</title>
      <para>
-      You can freely combine <quote>solutions</quote> and
-      <quote>notes.</quote> Combining multiple optimizations will never create
-      conflicts.
+      You can combine solutions and notes. However, you can only have
+      one solution.
+      In rare cases, notes can have conflicting options or parameters.
+      To avoid conflicts, order your notes, keeping in mind that the
+      last note always overrides the conflicting options or parameters
+      in previous notes.
      </para>
-    </tip>
+    </note>
    </step>
    <step>
     <para>
