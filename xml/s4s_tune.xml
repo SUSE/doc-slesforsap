@@ -407,20 +407,19 @@
   <procedure xml:id="pro.s4s.tune">
    <step>
     <para>
-     To tune a system, first find a tuning profile.
-     To find the appropriate profile, use:
+     To tune a system, first find a tuning solution.
+     To find the appropriate solution, use:
     </para>
     <screen>&prompt.user;<command>saptune solution list</command></screen>
     <para>
-     &saptune; knows the following
-     <quote>solution</quote> profiles:
+     &saptune; knows the following tuning solution (group of &sap; notes):
     </para>
     <itemizedlist>
      <listitem>
       <formalpara>
        <title><literal>BOBJ</literal></title>
        <para>
-        Profile for servers hosting &bo;.
+        Solution for running &bo;.
        </para>
       </formalpara>
      </listitem>
@@ -428,7 +427,7 @@
       <formalpara>
        <title><literal>HANA</literal></title>
        <para>
-        Profile for servers hosting an &hana; database.
+        Solution for running a &hana; database.
        </para>
       </formalpara>
      </listitem>
@@ -436,7 +435,7 @@
       <formalpara>
        <title><literal>MAXDB</literal></title>
        <para>
-        Profile for servers hosting a MaxDB database.
+        Solution for running a &sap; MaxDB database.
        </para>
       </formalpara>
      </listitem>
@@ -444,24 +443,30 @@
       <formalpara>
        <title><literal>NETWEAVER</literal></title>
        <para>
-        Profile for servers hosting an &netweaver; application.
+        Solution for running &netweaver; application servers.
        </para>
       </formalpara>
      </listitem>
      <listitem>
       <formalpara>
        <title><literal>S4HANA-APPSERVER</literal></title>
-       <para>
-        Profile for servers hosting an &s4h; application.
-       </para>
+       <para> Solution for running &s4h; application servers
+         (identical to &netweaver; solution). </para>
+      </formalpara>
+     </listitem>
+     <listitem>
+      <formalpara>
+       <title><literal>S4HANA-APP+DB</literal></title>
+       <para>Solution for running both &s4h; application servers and &hana;
+        on the same host (identical to &netweaver; + &hana; solution). </para>
       </formalpara>
      </listitem>
      <listitem>
       <formalpara>
        <title><literal>S4HANA-DBSERVER</literal></title>
        <para>
-        Profile for servers hosting the &hana; database of an &s4h;
-        installation.
+        Solution for running the &hana; database of an &s4h;
+        installation (identical to &hana; solution)
        </para>
       </formalpara>
      </listitem>
@@ -469,10 +474,7 @@
       <formalpara>
        <title><literal>SAP-ASE</literal></title>
        <para>
-        Profile for servers hosting an &ase; database (formerly Sybase
-        Adaptive Server Enterprise).
-        <!-- SAP bought Sybase in 2010, really keep "Sybase" in here? -
-        sknorr, 2017-07-04 -->
+        Solution for running an &ase; database.
        </para>
       </formalpara>
      </listitem>
@@ -483,14 +485,6 @@
      available via:
     </para>
     <screen>&prompt.root;<command>saptune note list</command></screen>
-    <para>
-     The referenced &sap; Notes are available from the &sap; Web site.
-     The list entries starting with <literal>SUSE-GUIDE</literal> follow the
-     recommendations made in
-     <link xlink:href="https://www.suse.com/communities/blog/sles-1112-os-tuning-optimisation-guide-part-1/"/>
-     and
-     <link xlink:href="https://www.suse.com/communities/blog/sles-1112-network-cpu-tuning-optimization-part-2/"/>.
-    </para>
    </step>
    <step>
     <itemizedlist>
@@ -522,9 +516,8 @@
    </step>
    <step>
     <para>
-     Finally, enable the &tuned; profile
-     &saptune; and make sure the
-     &tuned; daemon is active:
+     To start &saptune; and enable it at boot, make sure to run
+     the following command:
     </para>
     <screen>&prompt.root;<command>saptune daemon start</command></screen>
    </step>
@@ -538,27 +531,64 @@
   </para>
   </sect2>
 
+  <sect2 xml:id="sec.s4s.saptune.customize">
+   <title>Customizing a &sap; Note</title>
+   <para>
+    Every &sap; note can be configured freely with:
+    <remark>toms 2019-07-08: Is it customise or customize?</remark>
+   </para>
+   <screen>&prompt.root;<command>saptune note customise</command></screen>
+   <para>
+    The command includes changing a value or disabling a parameter.
+   </para>
+  </sect2>
+
+  <sect2 xml:id="sec.s4s.saptune.create">
+   <title>Creating a new &sap; Note</title>
+   <para>
+     It is possible to create a new &sap; note with:
+   </para>
+   <screen>&prompt.root;<command>saptune note create</command></screen>
+   <para>All features of &saptune; are available.</para>
+  </sect2>
+
+  <sect2 xml:id="sec.s4s.saptune.show">
+   <title>Showing the Configuration of a &sap; Note</title>
+   <para>
+    The shipped configuration of a note can be listed with:
+   </para>
+   <screen>&prompt.root;<command>saptune note show</command></screen>
+  </sect2>
+
+  <sect2 xml:id="sec.s4s.saptune.verify">
+   <title>Verifying a &sap; Note or a &sap; Solution</title>
+   <para>
+    The command <command>saptune note|solution verify [note]</command>
+    lists for each active or requested note: the parameter name,
+    the exected value (default), a configured override (done by a
+    <command>saptune customise</command>) the current system value and
+    if the current state is compliant to the &sap; recommendation or not.
+   </para>
+  </sect2>
+
+  <sect2 xml:id="sec.s4s.saptune.simulate">
+   <title>Simulating the Apply of a &sap; Note or a &sap; Solution</title>
+   <para>
+    To show each parameter, use:
+   </para>
+   <screen>&prompt.root;<command>saptune note|solution simulate</command></screen>
+   <para>
+    It lists the current system value and the expected values (default and
+    override is listed too).
+   </para>
+  </sect2>
+
   <sect2 xml:id="sec.s4s.saptune.disable">
    <title>Disabling &saptune;</title>
    <para>
-    To disable &saptune;, use one of the following ways:
+    To disable &saptune; and to stop and disable &tuned; run:
    </para>
-   <itemizedlist>
-    <listitem>
-     <para>
-      Completely disable the daemon
-      &tuned;:
-     </para>
-     <screen>&prompt.root;<command>systemctl disable tuned</command></screen>
-    </listitem>
-    <listitem>
-     <para>
-      Switch to a different
-      &tuned; profile:
-     </para>
-     <screen>&prompt.root;<command>tuned-adm profile <replaceable>PROFILE_NAME</replaceable></command></screen>
-    </listitem>
-   </itemizedlist>
+   <screen>&prompt.root;<command>saptune daemon stop</command></screen>
   </sect2>
 
   <sect2 xml:id="sec.saptune.more">
@@ -569,18 +599,33 @@
   <itemizedlist>
    <listitem>
     <para>
-     <command>man 8 tuned-adm</command>
+     <command>man 8 saptune</command>
     </para>
    </listitem>
    <listitem>
     <para>
-     <command>man 8 saptune</command>
+     <command>man 8 saptune_v1</command>
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     <command>man 8 saptune_v2</command>
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     <command>man 8 saptune-migrate</command>
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     <command>man 8 saptune-note</command>
     </para>
    </listitem>
   </itemizedlist>
   <para>
    Also see the project home page
-   <link xlink:href="https://github.com/HouzuoGuo/saptune/"/>.
+   <link xlink:href="https://github.com/SUSE/saptune/"/>.
   </para>
   </sect2>
  </sect1>
