@@ -153,6 +153,14 @@
   </procedure>
  </sect1>
 
+ <sect1 xml:id="sec.s4s.migration">
+  <title>Offline Migration</title>
+  <para>As the migration paths for &sls; are identical as those for &sles4sap;,
+  find detailed information in the &upgrade_guide; at <link
+    xlink:href="https://www.suse.com/documentation/sles-15/book_sle_upgrade/data/cha_upgrade-paths.html"/>.
+  </para>
+ </sect1>
+
  <sect1 condition="noquick" xml:id="sec.s4s.how-install">
   <title>Installation Methods</title>
   <para>
