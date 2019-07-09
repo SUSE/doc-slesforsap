@@ -31,7 +31,7 @@
 <!ENTITY tuning         "<emphasis xmlns='http://docbook.org/ns/docbook'>System Analysis and Tuning Guide</emphasis>">
 <!ENTITY secguide       "<emphasis xmlns='http://docbook.org/ns/docbook'>Security Guide</emphasis>">
 <!ENTITY smtguide       "<emphasis xmlns='http://docbook.org/ns/docbook'>Subscription Management Tool Guide</emphasis>">
-
+<!ENTITY upgrade_guide  "<emphasis xmlns='http://docbook.org/ns/docbook'>Upgrade Guide</emphasis>">
 
 <!--                    Platforms                                  -->
 
