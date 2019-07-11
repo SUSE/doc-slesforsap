@@ -384,7 +384,7 @@
   <title>Tuning Systems with &saptune;</title>
   <para>
    Using &saptune;, you can
-   tune a system for &netweaver;, &hana;/&b1;, and &s4h; applications. This method
+   tune a system for &netweaver;, &hana;/&bo;, and &s4h; applications. This method
    relies on the system tuning service &tuned;.
   </para>
   <para>
@@ -550,6 +550,13 @@
    </para>
    <screen>&prompt.root;<command>saptune note create</command></screen>
    <para>All features of &saptune; are available.</para>
+   <note>
+    <!-- <title></title> -->
+    <para>
+     If you would like to have a central instance to manage system changes,
+     prefer <command>saptune</command> instead of <command>sapconf</command>.
+    </para>
+   </note>
   </sect2>
 
   <sect2 xml:id="sec.s4s.saptune.show">
@@ -637,17 +644,15 @@
    &sapconf;/&saptune;, you can also use <command>sysctl</command> to
    make manual adjustments to kernel parameters. However, such changes using
    <command>sysctl</command> do not persist across reboots by default. To
-   make them persist across reboots, add them to the file
-   <filename>/etc/sysctl.conf</filename> (or another configuration file read
-   by <command>sysctl</command>).
+   make them persist across reboots, add them to one of the configuration
+   files read by <command>sysctl</command>).
   </para>
   <para>
    <!-- FIXME: -> SLES docs: we don't seem to have any good section to
-   reference here. Thisll do for the moment. - sknorr, 2017-05-04 -->
+   reference here. This will do for the moment. - sknorr, 2017-05-04 -->
    For more information about <command>sysctl</command>, see the man pages
-   <literal>sysctl(8)</literal>, <literal>sysctl.conf(5)</literal>, and
-   <literal>sysctl.d(5)</literal>.
-  </para>
+    <literal>sysctl(8)</literal>, <literal>sysctl.conf(5)</literal>, and
+    <literal>sysctl.d(5)</literal>. </para>
  </sect1>
 
 </chapter>
