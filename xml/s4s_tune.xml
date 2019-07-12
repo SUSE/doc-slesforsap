@@ -553,8 +553,12 @@
    <note>
     <!-- <title></title> -->
     <para>
-     If you would like to have a central instance to manage system changes,
-     prefer <command>saptune</command> instead of <command>sapconf</command>.
+     If you plan to configure sysctl parameters for your SAP system,
+     consider to use <command>saptune</command> as a central instance for
+     managing your system configuration.
+     On &s4s; you have the choice between <command>sapconf</command> and
+     <command>saptune</command>. However, <command>saptune</command> is
+     the more elaborate tool that offers more features.
     </para>
    </note>
   </sect2>
