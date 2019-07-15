@@ -82,8 +82,8 @@
 <!ENTITY productname   '&sles4sap;'>
 <!ENTITY productnamereg '&sles4sapreg;'>
 <!ENTITY product-ga    '15'>
-<!ENTITY product-sp    '1'>
-<!ENTITY productnumber '&product-ga;SP&product-sp;'>
+<!ENTITY product-sp    ''>
+<!ENTITY productnumber '&product-ga;&product-sp;'>
 
 <!--                    Applications                               -->
 
