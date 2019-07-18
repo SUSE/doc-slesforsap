@@ -12,6 +12,16 @@
   &sap; applications.
  </para>
 
+ <note>
+  <title>Choosing between <command>sapconf</command> and
+   <command>saptune</command></title>
+  <para>
+   On &s4s; you have the choice between <command>sapconf</command> and
+   <command>saptune</command>. However, <command>saptune</command> is
+   the more elaborate tool that offers more features.
+  </para>
+ </note>
+
  <sect1 xml:id="sec.sapconf">
   <title>Tuning Systems with the &sapconf; Profile</title>
   <para>
@@ -412,7 +422,7 @@
     </para>
     <screen>&prompt.user;<command>saptune solution list</command></screen>
     <para>
-     &saptune; knows the following tuning solution (group of &sap; notes):
+     &saptune; knows the following tuning solutions (group of &sap; notes):
     </para>
     <itemizedlist>
      <listitem>
@@ -550,17 +560,6 @@
    </para>
    <screen>&prompt.root;<command>saptune note create</command></screen>
    <para>All features of &saptune; are available.</para>
-   <note>
-    <!-- <title></title> -->
-    <para>
-     If you plan to configure sysctl parameters for your SAP system,
-     consider to use <command>saptune</command> as a central instance for
-     managing your system configuration.
-     On &s4s; you have the choice between <command>sapconf</command> and
-     <command>saptune</command>. However, <command>saptune</command> is
-     the more elaborate tool that offers more features.
-    </para>
-   </note>
   </sect2>
 
   <sect2 xml:id="sec.s4s.saptune.show">
@@ -651,6 +650,11 @@
    make them persist across reboots, add them to one of the configuration
    files read by <command>sysctl</command>).
   </para>
+  <tip>
+   <para>If you plan to configure sysctl parameters for your SAP system,
+    consider to use <command>saptune</command> as a central instance for
+    managing your system configuration.</para>
+  </tip>
   <para>
    <!-- FIXME: -> SLES docs: we don't seem to have any good section to
    reference here. This will do for the moment. - sknorr, 2017-05-04 -->
