@@ -422,7 +422,7 @@
     </para>
     <screen>&prompt.user;<command>saptune solution list</command></screen>
     <para>
-     &saptune; knows the following tuning solutions (group of &sap; notes):
+     &saptune; knows the following tuning solutions (groups of &sap; notes):
     </para>
     <itemizedlist>
      <listitem>
@@ -515,12 +515,12 @@
     <note>
      <title>Combining Optimizations</title>
      <para>
-      You can combine solutions and notes. However, you can only have
-      one solution.
+      You can combine solutions and notes. However, only one solution can be
+      active at a time.
       In rare cases, notes can have conflicting options or parameters.
       To avoid conflicts, order your notes, keeping in mind that the
-      last note always overrides the conflicting options or parameters
-      in previous notes.
+      last note always overrides conflicting options or parameters
+      of previous notes.
      </para>
     </note>
    </step>
@@ -545,7 +545,7 @@
    <title>Customizing a &sap; Note</title>
    <para>
     Every &sap; note can be configured freely with:
-    <remark>toms 2019-07-08: Is it customise or customize?</remark>
+    <remark>"customise" is (sadly) correct. - sknorr, 2019-07-19</remark>
    </para>
    <screen>&prompt.root;<command>saptune note customise</command></screen>
    <para>
@@ -573,23 +573,53 @@
   <sect2 xml:id="sec.s4s.saptune.verify">
    <title>Verifying a &sap; Note or a &sap; Solution</title>
    <para>
-    The command <command>saptune note|solution verify [note]</command>
-    lists for each active or requested note: the parameter name,
-    the exected value (default), a configured override (done by a
-    <command>saptune customise</command>) the current system value and
-    if the current state is compliant to the &sap; recommendation or not.
+    The commands <command>saptune note verify <replaceable>NOTE</replaceable></command>
+    and
+    <command>saptune solution verify <replaceable>SOLUTION</replaceable></command>
+    list the following data for each active or requested note:
    </para>
+   <itemizedlist>
+    <listitem>
+     <para>
+      The parameter name
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      The expected value (default)
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      A configured override (created using <command>saptune customise</command>)
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      The current system value
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      Whether the current state is in accordance with the &sap; recommendation
+     </para>
+    </listitem>
+   </itemizedlist>
   </sect2>
 
   <sect2 xml:id="sec.s4s.saptune.simulate">
-   <title>Simulating the Apply of a &sap; Note or a &sap; Solution</title>
+   <title>Simulating the Application of a &sap; Note or a &sap; Solution</title>
    <para>
-    To show each parameter, use:
+    To show each parameter of a <literal>note</literal>, use:
    </para>
-   <screen>&prompt.root;<command>saptune note|solution simulate</command></screen>
+   <screen>&prompt.root;<command>saptune note simulate</command></screen>
+   <para>
+    To show each parameter of a <literal>solution</literal>, use:
+   </para>
+   <screen>&prompt.root;<command>saptune solution simulate</command></screen>
    <para>
     It lists the current system value and the expected values (default and
-    override is listed too).
+    override).
    </para>
   </sect2>
 
@@ -651,9 +681,13 @@
    files read by <command>sysctl</command>).
   </para>
   <tip>
-   <para>If you plan to configure sysctl parameters for your SAP system,
-    consider to use <command>saptune</command> as a central instance for
-    managing your system configuration.</para>
+   <title><command>sysctl</command> and &saptune;</title>
+   <para>
+    If you plan to configure <command>sysctl</command> parameters for your
+    &sap; system,
+    consider using &saptune; as the central tool to
+    managing such configurations.
+   </para>
   </tip>
   <para>
    <!-- FIXME: -> SLES docs: we don't seem to have any good section to
