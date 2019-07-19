@@ -3,11 +3,57 @@
 
 <!-- PRODUCT NAME AND VERSIONS -->
 <!ENTITY productname   "SUSE Linux Enterpreise Server for SAP Applications">
-<!ENTITY productnumber "15 SP1">
+<!ENTITY product-ga    '15'>
+<!ENTITY product-sp    '1'>
+<!ENTITY productnumber '&product-ga; SP&product-sp;'>
+
 
 <!-- PROJECT REPOSITORY URL -->
 <!ENTITY repourl "https://github.com/SUSE/doc-slesforsap">
 
+
 <!-- START YEAR OF COPYRIGHT -->
 <!ENTITY copyrightstart "2010">
 <!ENTITY copyrightholder "SUSE LLC">
+
+
+<!-- DOCUMENTATION URLS -->
+<!ENTITY docaddress     "<link xmlns='http://docbook.org/ns/docbook' xmlns:xlink='http://www.w3.org/1999/xlink' xlink:href='https://www.suse.com/documentation/sles-15/'/>">
+<!ENTITY ha-docaddress  "<link xmlns='http://docbook.org/ns/docbook' xmlns:xlink='http://www.w3.org/1999/xlink' xlink:href='https://www.suse.com/documentation/sle-ha-15/'/>">
+<!ENTITY sapnoteaddress "https://launchpad.support.sap.com/#/notes/">
+<!ENTITY suma-docaddress "<link xmlns='http://docbook.org/ns/docbook' xmlns:xlink='http://www.w3.org/1999/xlink' xlink:href='https://www.suse.com/documentation/suse-manager-3/'/>">
+<!ENTITY reslibrary     "<link xmlns='http://docbook.org/ns/docbook' xmlns:xlink='http://www.w3.org/1999/xlink' xlink:href='https://www.suse.com/products/sles-for-sap/resource-library/'/>">
+
+<!-- SAP-SPECIFIC ENTITIES -->
+
+<!ENTITY sapwiz         "&sap; Installation Wizard">
+<!ENTITY netweaver      "&sap; NetWeaver">
+<!ENTITY nw             "&netweaver;">
+<!ENTITY hana           "&sap; HANA">
+<!ENTITY b1             "&sap; BusinessOne">
+<!ENTITY bo             "&sap; BusinessObjects">
+<!ENTITY ase            "&sap; Adaptive Server Enterprise">
+<!ENTITY s4h            "&sap; S/4HANA">
+<!ENTITY s4ha           "&sap; S/4HANA Application Server">
+<!ENTITY s4hd           "&sap; S/4HANA Database Server">
+<!ENTITY trex           "&sap; TREX">
+
+<!ENTITY instmaster     "Installation Master">
+<!-- Almost always using the plural here: one dir to copy from can contain
+     multiple "CDs": -->
+<!ENTITY instmedia      "Installation Media">
+<!ENTITY mediaset       "Media Set">
+<!ENTITY supmedia       "Supplementary Media">
+<!ENTITY sapin          "&sap; Installer">
+<!ENTITY sapina         "&sap;inst">
+<!ENTITY saprouter      "&sap;router">
+<!ENTITY hana-alm       "&hana; Application Lifecycle Management">
+<!ENTITY thirdmedia     "Third-Party Media">
+<!ENTITY hana-fw        "HANA-Firewall">
+<!ENTITY clamsap        "ClamSAP">
+<!ENTITY clamav         "ClamAV">
+<!ENTITY cmcu           "<command xmlns='http://docbook.org/ns/docbook'>clone-master-clean-up</command>">
+<!ENTITY systemd        "<systemitem xmlns='http://docbook.org/ns/docbook' class='daemon'>systemd</systemitem>">
+<!ENTITY saptune        "<command xmlns='http://docbook.org/ns/docbook'>saptune</command>">
+<!ENTITY sapconf        "<literal xmlns='http://docbook.org/ns/docbook'>sapconf</literal>">
+<!ENTITY tuned          "<systemitem xmlns='http://docbook.org/ns/docbook' class='daemon'>tuned</systemitem>">
