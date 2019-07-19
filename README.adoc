@@ -10,28 +10,65 @@ Released versions of the documentation are published at
 https://www.suse.com/documentation/.
 
 
-== Branches
+Branches
+--------
+
+***On Jul 19, 2019, we changed to a new branching model. This entailed having to force push the
+master branch. ***
+
+* *Use the master branch* as the basis of your commits/of new feature branches.
+
+* The *develop branch has been deleted* on the server. Do not to push to the `develop` branch.
+  Your changes may go lost in the medium term and never make it to the proper branch.
+  
+* If you *created* a local clone or GitHub fork of this repo *before June 21, 2019, do the following*:
++
+[arabic]
+. Make sure that your `master` and `develop` branches do not contain any important changes.
+  If there are on either branch, export them using `git format-patch` or put them on a
+  different branch.
+. Update the repo: `git fetch`
+  (To also delete references to branches that do not exist anymore on the server, you can use
+  `git fetch -p`.)
+. Go to the master branch: `git checkout master`
+. Hard-reset the state of the master branch to the state on GitHub: `git reset --hard origin/master`
+. Delete your local develop branch: `git branch -D develop`
+
 
 .Overview of important branches
 [options="header"]
-|================================================
-| Name            | Purpose
-| `develop` | SLE 12 SP1 doc development
-| `release/SLES11` |  SLE 11 doc maintenance
-| `release/SLES12` |  SLE 12 doc maintenance
-|================================================
+|==========================================================================
+| Name                             | Purpose
+| `master`                         | Current working branch
+| `maintenance/15_SP1`             | Maintenance branch for SLES-SAP 15 SP1
+| `maintenance/15_GA`              | Maintenance branch for SLES-SAP 15 GA
+| `maintenance/12_SP4`             | Maintenance branch for SLES-SAP 12 SP4
+| `maintenance/12_SP3`             | Maintenance branch for SLES-SAP 12 SP3
+| `maintenance/12_SP2`             | Maintenance branch for SLES-SAP 12 SP2
+| `maintenance/12_SP1`             | Maintenance branch for SLES-SAP 12 SP1
+| `maintenance/12_GA`              | Maintenance branch for SLES-SAP 12 GA
+| `maintenance/11_SP4`             | Maintenance branch for SLES-SAP 11 SP4
+|===========================================================================
 
 
 == Contributing
 
-If you would like to contribute, please fork this repository and send
-pull requests. Always use the `develop` branch for your edits! +
-Contributors with direct access to the repository are encouraged to use the
-git-flow-avh workflow (package `git-flow-avh`). However, this is not a must.
+Thank you for contributing to this repo. Please adhere to the following guidelines when creating a pull request:
 
-.*No commits to master*
-NOTE: Please do not make any commits to the `master` branch. `master` is
-reserved for releases only. Always commit to `develop`.
+. Make your pull request against the _master_ branch (not `develop`) if you are contributing to the most recent release
+(currently SLES-SAP 15 SP1). This branch is is protected.
+
+. If you are contributing to a previous release, please see _maintenance/_<RELEASENUMBER>_. These branches are also protected.
+
+. Make sure all validation (Travis CI) checks are passed, and tag relevant SMEs from the development team (if applicable)
+  and members of the SLES-SAP doc team: Thomas Schraitle (@tomschr), Stefan Knorr (@sknorr).
+  
+  **NOTE:** If your pull request has multiple files and reorganisation changes, please build locally using DAPS or daps2docker
+  (see instructions below) to verify and build the files. Travis CI only validates, and does not ensure the XML builds
+  are correct.
+
+. Implement any required changes, or fix any merge conflicts if relevant. If you have any questions, ping a documentation team
+  member in #susedoc on RocketChat.
 
 == Editing DocBook
 
@@ -42,7 +79,26 @@ To contribute to the documentation, you need to write DocBook.
   SUSE XSL Stylesheets (package `suse-xsl-stylesheets`). Ideally, you should
   get these from the repository `Documentation:Tools`. However, slightly
   older versions are also available from the SLE and openSUSE repositories.
-* Basic daps usage:
+
+== Building Documentation
+
+If you are interested in building DAPS documentation (defaulting to HTML and PDF), you can utilize
+either DAPS directly or use daps2docker. Both tools only work on Linux.
+
+* Use daps2docker if you use any Linux distribution that includes Docker and Systemd and only want to
+  build HTML, PDF, or EPUB and want to be set up as quickly as possible.
+* Use DAPS directly if you are using a recent version of openSUSE, and want to use any of the advanced
+  features of DAPS, such as building Mobipocket or spell-checking documents.
+
+=== Using daps2docker
+
+1. Install Docker
+2. Clone the daps2docker repository from https://github.com/openSUSE/daps2docker.
+3. Within the cloned repository, run  `./daps2docker.sh /PATH/TO/DOC-DIR`
+   This builds HTML and PDF documents.
+
+=== Using DAPS Directly
+
 ** `$ daps -d DC-<YOUR_BOOK> validate`: Make sure what you have written is
     well-formed XML and valid DocBook 5
 ** `$ daps -d DC-<YOUR_BOOK> pdf`: Build a PDF document
