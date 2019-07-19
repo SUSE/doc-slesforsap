@@ -396,7 +396,7 @@ sdc
       </screen>
      <para>
       <command>cryptctl</command> identifies the encrypted partition by its
-      UUID. In the previous example, that is the UUID displayed next to
+      UUID. For the previous example, that is the UUID displayed next to
       <literal>sdc1</literal>.
      </para>
      <para>
