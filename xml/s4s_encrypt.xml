@@ -396,25 +396,29 @@ sdc
       </screen>
      <para>
       <command>cryptctl</command> identifies the encrypted partition by its
-      UUID. In the previous example, that is the UUID displayed next to
+      UUID. For the previous example, that is the UUID displayed next to
       <literal>sdc1</literal>.
      </para>
      <para>
       On the server, you can check whether the directory was decrypted using
-      <command>cryptctl</command>. A successful entry looks like this:
+      <command>cryptctl</command>.
+     </para>
+     <screen>&prompt.root;<command>cryptctl list-keys</command></screen>
+     <para>
+      For a successfully decrypted partition, you will see output like:
      </para>
      <screen>
-&prompt.root;<command>cryptctl list-keys</command>
 2019/06/06 15:50:00 ReloadDB: successfully loaded database of 1 records
 Total: 1 records (date and time are in zone EDT)
-Used By      When                  UUID  Max.Users  Num.Users  Mount Point
-<replaceable>IP_ADDRESS</replaceable>   2019-06-06 15:00:50   <replaceable>UUID</replaceable>  1          1          /secret-partition</screen>
-     <para>If the <command>cryptctl</command> command was unsuccessful, the
-     entries looks like this:</para>
+Used By     When                 UUID  Max.Users  Num.Users  Mount Point
+<replaceable>IP_ADDRESS</replaceable>  2019-06-06 15:00:50  <replaceable>UUID</replaceable>  1          1          /secret-partition</screen>
+     <para>
+      For a partition not decrypted successfully, you will see output like:
+     </para>
      <screen>2019/06/06 15:50:00 ReloadDB: successfully loaded database of 1 records
 Total: 1 records (date and time are in zone EDT)
-Used By      When                  UUID              Max.Users  Num.Users  Mount Point
-             2019-06-06 15:00:50   <replaceable>PARTITION_UUID</replaceable>  1          1          /secret-partition</screen>
+Used By      When                 UUID  Max.Users  Num.Users  Mount Point
+             2019-06-06 15:00:50  <replaceable>UUID</replaceable>  1          1          /secret-partition</screen>
      <para>See the difference in the empty <literal>Used by</literal> column.</para>
      <para>
       Verify that the UUID shown is that of the previously encrypted partition.
