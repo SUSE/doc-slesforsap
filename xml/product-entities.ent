@@ -2,7 +2,7 @@
 <!-- This file can be edited downstream. -->
 
 <!-- PRODUCT NAME AND VERSIONS -->
-<!ENTITY productname   "SUSE Linux Enterpreise Server for SAP Applications">
+<!ENTITY productname   "SUSE Linux Enterprise Server for SAP Applications">
 <!ENTITY product-ga    '15'>
 <!ENTITY product-sp    '0'>
 <!ENTITY productnumber '&product-ga;'>
