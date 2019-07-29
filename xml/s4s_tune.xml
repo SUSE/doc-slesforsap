@@ -295,7 +295,7 @@
    <para>
     Conversely, you can add <literal>#</literal> characters to the beginning of
     the line to comment specific parameters. However, you should avoid this
-    praxis, as it can lead to &sapconf; not properly applying the profile.
+    practice, as it can lead to &sapconf; not properly applying the profile.
    </para>
    <para>
     To apply edited configuration, restart &sapconf;:
