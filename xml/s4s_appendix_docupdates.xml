@@ -5,7 +5,7 @@
 <!ENTITY % entities SYSTEM "entity-decl.ent">
 %entities;
 ]>
-<appendix id="ap.s4s.docupdate">
+<appendix id="ap-s4s-docupdate">
  <title>Documentation Updates</title>
  <para>This section contains information about documentation content
  changes made to the <citetitle>&productname; Guide</citetitle>.
@@ -14,27 +14,27 @@
  <para>This document was updated on the following dates:</para>
  <itemizedlist role="subtoc">
   <listitem>
-   <para><xref linkend="ap.s4s.docupdate.2016-12-08" xrefstyle="SectTitleOnPage"/></para>
+   <para><xref linkend="ap-s4s-docupdate-2016-12-08" xrefstyle="SectTitleOnPage"/></para>
   </listitem>
   <listitem>
-   <para><xref linkend="ap.s4s.docupdate.2016-02-29" xrefstyle="SectTitleOnPage"/></para>
+   <para><xref linkend="ap-s4s-docupdate-2016-02-29" xrefstyle="SectTitleOnPage"/></para>
   </listitem>
   <listitem>
-   <para><xref linkend="ap.s4s.docupdate.2015-07-31" xrefstyle="SectTitleOnPage"/></para>
+   <para><xref linkend="ap-s4s-docupdate-2015-07-31" xrefstyle="SectTitleOnPage"/></para>
   </listitem>
   <listitem>
-   <para><xref linkend="ap.s4s.docupdate.2013-10-28" xrefstyle="SectTitleOnPage"/></para>
+   <para><xref linkend="ap-s4s-docupdate-2013-10-28" xrefstyle="SectTitleOnPage"/></para>
   </listitem>
  </itemizedlist>
  
- <sect1 id="ap.s4s.docupdate.2016-12-08">
+ <sect1 id="ap-s4s-docupdate-2016-12-08">
   <title>December 08, 2016</title>
   <para>Updates were made to the following sections. The changes are
   explained below.</para>
 
    <variablelist>
     <varlistentry>
-     <term><xref linkend="sec.s4s.inst.wizard.sap-product-install" xrefstyle="SectTitleOnPage"/></term>
+     <term><xref linkend="sec-s4s-inst-wizard-sap-product-install" xrefstyle="SectTitleOnPage"/></term>
      <listitem>
       <para>
        Add note that Business One-certified hardware is required to be able
@@ -45,14 +45,14 @@
    </variablelist>
  </sect1>
 
- <sect1 id="ap.s4s.docupdate.2016-02-29">
+ <sect1 id="ap-s4s-docupdate-2016-02-29">
   <title>February 29, 2016</title>
   <para>Updates were made to the following sections. The changes are
   explained below.</para>
 
    <variablelist>
     <varlistentry>
-     <term><xref linkend="sec.s4s.component.hana-replicate" xrefstyle="SectTitleOnPage"/></term>
+     <term><xref linkend="sec-s4s-component-hana-replicate" xrefstyle="SectTitleOnPage"/></term>
      <listitem>
       <para>
        Add section.
@@ -60,7 +60,7 @@
      </listitem>
     </varlistentry>
     <varlistentry>
-     <term><xref linkend="s4s.inst.planning" xrefstyle="SectTitleOnPage"/></term>
+     <term><xref linkend="s4s-inst-planning" xrefstyle="SectTitleOnPage"/></term>
      <listitem>
       <para>
        Clarify that only DVD 1 is necessary for installation
@@ -71,7 +71,7 @@
    </variablelist>
  </sect1>
 
- <sect1 id="ap.s4s.docupdate.2015-07-31">
+ <sect1 id="ap-s4s-docupdate-2015-07-31">
   <!-- FIXME: enter date -->
   <title>July 31, 2015</title>
   <para>Updates were made to the following sections. The changes are
@@ -79,7 +79,7 @@
 
    <variablelist>
     <varlistentry>
-     <term><xref linkend="s4s.inst.booting"
+     <term><xref linkend="s4s-inst-booting"
      xrefstyle="SectTitleOnPage"/></term>
      <listitem>
       <para>
@@ -88,7 +88,7 @@
      </listitem>
     </varlistentry>
     <varlistentry>
-     <term><xref linkend="sec.s4s.inst.wizard.sap-product-install"
+     <term><xref linkend="sec-s4s-inst-wizard-sap-product-install"
      xrefstyle="SectTitleOnPage"/></term>
      <listitem>
       <para>
@@ -99,14 +99,14 @@
    </variablelist>
  </sect1>
 
- <sect1 id="ap.s4s.docupdate.2013-10-28">
+ <sect1 id="ap-s4s-docupdate-2013-10-28">
   <title>October 28, 2013</title>
   <para>Updates were made to the following sections. The changes are
   explained below.</para>
 
    <variablelist>
     <varlistentry>
-     <term><xref linkend="s4s.installation"
+     <term><xref linkend="s4s-installation"
      xrefstyle="SectTitleOnPage"/></term>
      <listitem>
       <para>
@@ -116,7 +116,7 @@
      </listitem>
     </varlistentry>
     <varlistentry>
-     <term><xref linkend="s4s.part"
+     <term><xref linkend="s4s-part"
      xrefstyle="SectTitleOnPage"/></term>
      <listitem>
       <para>
@@ -125,7 +125,7 @@
      </listitem>
     </varlistentry>
     <varlistentry>
-     <term><xref linkend="ap.s4s.docupdate"
+     <term><xref linkend="ap-s4s-docupdate"
      xrefstyle="SectTitleOnPage"/></term>
      <listitem>
       <para>

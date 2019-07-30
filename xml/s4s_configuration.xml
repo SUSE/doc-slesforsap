@@ -4,13 +4,13 @@
 <!ENTITY % entities SYSTEM "entity-decl.ent">
 %entities;
 ]>
-<sect1 id="s4s.configuration">
+<sect1 id="s4s-configuration">
 
  <title>Configuring &sles4sap;</title>
  <para>
  </para>
 
- <sect2 id="s4s.config.page-cache">
+ <sect2 id="s4s-config-page-cache">
 
   <title>Kernel: Page-Cache Limit</title>
 
@@ -83,7 +83,7 @@ vm.pagecache_limit_ignore_dirty = 0</screen>
   </variablelist>
  </sect2>
  <!-- ==================================================================== -->
- <sect2 id="s4s.config.ports">
+ <sect2 id="s4s-config-ports">
 
   <title>Ports Configuration</title>
 
@@ -125,7 +125,7 @@ vm.pagecache_limit_ignore_dirty = 0</screen>
 
  </sect2>
 
- <sect2 id="s4s.config.logs">
+ <sect2 id="s4s-config-logs">
   <title>Important Log Files</title>
 
   <para>

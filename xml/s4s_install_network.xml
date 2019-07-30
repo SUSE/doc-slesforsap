@@ -4,7 +4,7 @@
 <!ENTITY % entities SYSTEM "entity-decl.ent">
 %entities;
 ]>
-<chapter id="s4s.inst.remote">
+<chapter id="s4s-inst-remote">
  <title>Remote Installation from a Network Server</title>
 
  <para>

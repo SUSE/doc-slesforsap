@@ -4,7 +4,7 @@
 <!ENTITY % entities SYSTEM "entity-decl.ent">
 %entities;
 ]>
-<chapter id="s4s.installation">
+<chapter id="s4s-installation">
  <title>Default Installation Scenarios</title>
 
   <para>After planning the installation with downloading the software
@@ -15,22 +15,22 @@
   <itemizedlist>
    <listitem>
     <para>
-     <xref linkend="s4s.inst.inst" xrefstyle="select:title,nopage"/>
+     <xref linkend="s4s-inst-inst" xrefstyle="select:title,nopage"/>
     </para>
    </listitem>
    <listitem>
     <para>
-     <xref linkend="s4s.inst.wizard" xrefstyle="select:title,nopage"/>
+     <xref linkend="s4s-inst-wizard" xrefstyle="select:title,nopage"/>
     </para>
    </listitem>
    <listitem>
     <para>
-     <xref linkend="s4s.inst.profile" xrefstyle="select:title,nopage"/>
+     <xref linkend="s4s-inst-profile" xrefstyle="select:title,nopage"/>
     </para>
    </listitem>
   </itemizedlist>
 
- <sect1 id="s4s.inst.planning">
+ <sect1 id="s4s-inst-planning">
   <title>Planning the Installation</title>
 
   <para>
@@ -92,7 +92,7 @@
 </sect1>
 
 
- <sect1 id="s4s.inst.booting">
+ <sect1 id="s4s-inst-booting">
  <title>Booting the Installation Medium</title>
  <para>
   Different scenarios are available to install &sles4sap; 11.  Select
@@ -113,7 +113,7 @@
   </para>
  </note>
 
- <figure id="fig.s4s.dvd.bootmenu">
+ <figure id="fig-s4s-dvd-bootmenu">
   <title>DVD Boot Menu</title>
   <mediaobject>
    <imageobject role="fo">
@@ -134,7 +134,7 @@
   </varlistentry>
   <varlistentry>
    <term><guimenu>SLES for SAP Applications &mdash;
-   Installation</guimenu> (see <xref linkend="s4s.inst.inst"/>)</term>
+   Installation</guimenu> (see <xref linkend="s4s-inst-inst"/>)</term>
    <listitem>
     <para>
      A standard SLES installation prepared for installing SAP
@@ -150,7 +150,7 @@
   </varlistentry>
   <varlistentry>
    <term><guimenu>SLES for SAP Applications &mdash; Installation with
-   Wizard</guimenu> (see <xref linkend="s4s.inst.wizard"/>)</term>
+   Wizard</guimenu> (see <xref linkend="s4s-inst-wizard"/>)</term>
    <listitem>
     <para>
      This is a guided installation of the operating system and an SAP
@@ -163,7 +163,7 @@
   <varlistentry>
    <term><guimenu>SLES for SAP Applications &mdash; Installation with
    External Profile</guimenu> (see <xref
-   linkend="s4s.inst.profile"/>)</term>
+   linkend="s4s-inst-profile"/>)</term>
    <listitem>
     <para>This installation is driven by a user-provided &ay;
     profile.  There are no &suse;-provided SAP optimizations.</para>
@@ -196,7 +196,7 @@
  </variablelist>
  </sect1>
 
- <sect1 id="s4s.inst.inst">
+ <sect1 id="s4s-inst-inst">
   <title><guimenu>SLES for SAP Applications &mdash;
   Installation</guimenu></title>
   <para>
@@ -225,7 +225,7 @@
 
  </sect1>
 
- <sect1 id="s4s.inst.wizard">
+ <sect1 id="s4s-inst-wizard">
   <title><guimenu>SLES for SAP Applications &mdash; Installation with
   Wizard</guimenu></title>
   <para>
@@ -446,11 +446,11 @@
  </sect2>
 
 
-  <sect2 id="s4s.inst.wizard.boot">
+  <sect2 id="s4s-inst-wizard-boot">
    <title>Selecting <guimenu>SLES for SAP Applications &mdash;
    Installation with Wizard</guimenu> from the DVD Boot Menu</title>
    <para>
-    From the DVD boot menu (see <xref linkend="fig.s4s.dvd.bootmenu"/>),
+    From the DVD boot menu (see <xref linkend="fig-s4s-dvd-bootmenu"/>),
     select <guimenu>SLES for SAP Applications &mdash; Installation with
     Wizard</guimenu>.  The installation process loads and configures a
     Linux system with all requirements for an SAP installation.  To
@@ -461,7 +461,7 @@
    </para>
   </sect2>
 
-  <sect2 id="sec.s4s.inst.wizard.prepauto">
+  <sect2 id="sec-s4s-inst-wizard-prepauto">
    <title>Preparing System for Automated Installation</title>
    <para>
     After analyzing your computer, the next &yast; pop-up dialog will let
@@ -470,7 +470,7 @@
     you select the SAP Application.
    </para>
 
-   <figure id="fig.s4s.inst.yast-storage-system">
+   <figure id="fig-s4s-inst-yast-storage-system">
     <title>System Volume Configuration</title>
     <mediaobject>
      <imageobject role="fo">
@@ -486,7 +486,7 @@
     If there is just one hard disk, keep it as the system volume device
     and set the size of the system volume (and the swap space) in GB in
     the lower field and confirm it; see <xref
-    linkend="fig.s4s.inst.yast-storage-system"/>.
+    linkend="fig-s4s-inst-yast-storage-system"/>.
    </para>
 
    <tip>
@@ -503,7 +503,7 @@
     If there is more than one hard disk, select the right one as the
     system volume device and set the size of the system volume (and the
     swap space) in GB in the lower fields and confirm it.  For more
-    information about partitioning, see <xref linkend="s4s.part"/>.
+    information about partitioning, see <xref linkend="s4s-part"/>.
    </para>
 
    <warning>
@@ -521,7 +521,7 @@
    </para>
   </sect2>
 
-  <sect2 id="sec.s4s.inst.wizard.yast2.user.root">
+  <sect2 id="sec-s4s-inst-wizard-yast2-user-root">
    <title>Password for the System Administrator &rootuser;</title><indexterm>
    <primary>&yast;</primary>
    <secondary>root password</secondary></indexterm><indexterm>
@@ -531,10 +531,10 @@
     When all packages are installed, the basic installation is finished,
     and the system is rebooted for initial configuration, you will be
     prompted to enter a Password for the System Administrator
-    &rootuser;; see <xref linkend="fig.s4s.inst.yast-root-password"/>.
+    &rootuser;; see <xref linkend="fig-s4s-inst-yast-root-password"/>.
    </para>
 
-   <figure id="fig.s4s.inst.yast-root-password">
+   <figure id="fig-s4s-inst-yast-root-password">
     <title>Password for root User</title>
     <mediaobject>
      <imageobject role="fo">
@@ -578,7 +578,7 @@
    </warning>
   </sect2>
 
-  <sect2 id="sec.s4s.inst.wizard.yast2.conf.manual.hostname">
+  <sect2 id="sec-s4s-inst-wizard-yast2-conf-manual-hostname">
    <title>Hostname, Domain Name, and IP Address</title><indexterm>
    <primary>&yast;</primary>
     <secondary>hostname</secondary></indexterm><indexterm>
@@ -592,10 +592,10 @@
 
    <para>
     The next dialog starts with the network configuration; see <xref
-    linkend="fig.s4s.inst.yast-network-config"/>.
+    linkend="fig-s4s-inst-yast-network-config"/>.
    </para>
 
-   <figure id="fig.s4s.inst.yast-network-config">
+   <figure id="fig-s4s-inst-yast-network-config">
     <title>Hostname, Domain Name, and IP Address</title>
     <mediaobject>
      <imageobject role="fo">
@@ -624,15 +624,15 @@
    </para>
   </sect2>
 
-  <sect2 id="sec.s4s.inst.wizard.yast2.conf.manual.dns-ntp">
+  <sect2 id="sec-s4s-inst-wizard-yast2-conf-manual-dns-ntp">
    <title>Domain Name Service (DNS) and Time Server (NTP)</title>
 
    <para>
     The next dialog continues with the network configuration; see <xref
-    linkend="fig.s4s.inst.yast-network-config2"/>.
+    linkend="fig-s4s-inst-yast-network-config2"/>.
    </para>
 
-   <figure id="fig.s4s.inst.yast-network-config2">
+   <figure id="fig-s4s-inst-yast-network-config2">
     <title>Domain Name Service (DNS) and Time Server (NTP)</title>
     <mediaobject>
      <imageobject role="fo">
@@ -657,18 +657,18 @@
 
    </sect2>
 
-   <sect2 id="sec.s4s.inst.wizard.yast2.conf.manual.reg">
+   <sect2 id="sec-s4s-inst-wizard-yast2-conf-manual-reg">
     <title>Registration</title>
     <!-- 215-yast-registration.png -->
 
     <para>
      To get technical support and product updates, you need to register
      and activate your product with the &ncc;; see <xref
-     linkend="fig.s4s.inst.yast-reg"/>.  This dialog provides assistance
+     linkend="fig-s4s-inst-yast-reg"/>.  This dialog provides assistance
      for doing so. Find detailed information about &ncc; at <ulink
      url="http://www.novell.com/documentation/ncc/"/>.
     </para>
-   <figure id="fig.s4s.inst.yast-reg">
+   <figure id="fig-s4s-inst-yast-reg">
     <title>Registration</title>
     <mediaobject>
      <imageobject role="fo">
@@ -709,7 +709,7 @@
       If needed, you can activate the firewall after the installation.
       If you activate the firewall after the installation, you must open
       all required ports manually.  For more information about required
-      ports, see <xref linkend="s4s.config.ports"/>.
+      ports, see <xref linkend="s4s-config-ports"/>.
      </para>
     </warning>
 
@@ -720,7 +720,7 @@
 
    </sect1>
 
-   <sect1 id="s4s.inst.profile">
+   <sect1 id="s4s-inst-profile">
     <title><guimenu>SLES for SAP Applications &mdash;
     Installation with External Profile</guimenu></title>
 
@@ -794,7 +794,7 @@
 
      <para>
       For background information on partitioning, see <xref
-      linkend="s4s.part"/>.
+      linkend="s4s-part"/>.
      </para>
     </sect2>
 

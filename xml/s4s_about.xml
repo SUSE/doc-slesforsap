@@ -4,7 +4,7 @@
 <!ENTITY % entities SYSTEM "entity-decl.ent">
 %entities;
 ]>
-<chapter id="s4s.about">
+<chapter id="s4s-about">
  <title>What is &sles4sap;?</title>
  <abstract>
  <para>
@@ -14,7 +14,7 @@
  </para>
  </abstract>
 
-  <figure id="fig.s4s-picture">
+  <figure id="fig-s4s-picture">
   <title>What is &sles4sap;?</title>
   <mediaobject>
    <imageobject role="fo">
@@ -27,7 +27,7 @@
  </figure>
 
 <!-- -=-=-=-=-=-=-=-=-=-=-=-=-=- cut here -=-=-=-=-=-=-=-=-=-=-=-=-=- -->
- <sect1 id="s4s.about.overview">
+ <sect1 id="s4s-about-overview">
   <title>Overview</title>
 
   <para>
@@ -53,8 +53,8 @@
 
   <para>
    &sles4sap; consists of software components (see <xref
-   linkend="s4s.about.sw"/>) and service offerings (see <xref
-   linkend="s4s.about.services"/>).
+   linkend="s4s-about-sw"/>) and service offerings (see <xref
+   linkend="s4s-about-services"/>).
   </para>
 
   <!--
@@ -78,7 +78,7 @@ SUSE Linux Enterprise Server Priority Support for SAP Applications (optional)
   -->
  </sect1>
 
- <sect1 id="s4s.about.sw">
+ <sect1 id="s4s-about-sw">
   <title>Software Components</title>
 
   <variablelist>
@@ -102,7 +102,7 @@ SUSE Linux Enterprise Server Priority Support for SAP Applications (optional)
 
    <para>Additionally, the workflow can be extended by 3rd party vendors
    or customers with the help of the <quote>Supplement Media</quote>
-   (see <xref linkend="s4s.comp.wizard.suppl"/>).</para>
+   (see <xref linkend="s4s-comp-wizard-suppl"/>).</para>
     </listitem>
    </varlistentry>
 
@@ -145,7 +145,7 @@ Resource agents, also for SAP
     Limit the kernel file system cache size to influence swapping
     behavior.  With this feature you can gain better performance by
     allocating memory to an application.  For more
-    information, see <xref linkend="s4s.config.page-cache"/>.
+    information, see <xref linkend="s4s-config-page-cache"/>.
    </para>
     </listitem>
    </varlistentry>
@@ -154,14 +154,14 @@ Resource agents, also for SAP
     <term><emphasis>ClamSAP</emphasis></term>
     <listitem>
    <para>ClamSAP is a new antivirus toolkit integration.  For more
-   information, see <xref linkend="s4s.comp.clamsap"/>.</para>
+   information, see <xref linkend="s4s-comp-clamsap"/>.</para>
     </listitem>
    </varlistentry>
   </variablelist>
 
  </sect1>
 
- <sect1 id="s4s.about.services">
+ <sect1 id="s4s-about-services">
   <title>Services for &sles4sap;</title>
 
   <variablelist>

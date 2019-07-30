@@ -4,7 +4,7 @@
 <!ENTITY % entities SYSTEM "entity-decl.ent">
 %entities;
 ]>
-<sect2 id="sec.s4s.inst.wizard.sap-product-install">
+<sect2 id="sec-s4s-inst-wizard-sap-product-install">
 <!-- 220-yast-start-sap-install.png -->
     <title>SAP Product Installation</title>
 
@@ -33,7 +33,7 @@
    <para>
     Select <guimenu>Create SAP file systems and start SAP product
     installation</guimenu> and confirm the pop-up (see <xref
-    linkend="fig.s4s.inst.yast-start-sap-install"/>) if you want to
+    linkend="fig-s4s-inst-yast-start-sap-install"/>) if you want to
     continue with the installation right away.
    </para>
    <para>
@@ -61,7 +61,7 @@
     </para>
    </important>
 
-    <figure id="fig.s4s.inst.yast-start-sap-install">
+    <figure id="fig-s4s-inst-yast-start-sap-install">
     <title>SAP Product Installation</title>
     <mediaobject>
      <imageobject role="fo">
@@ -82,7 +82,7 @@
      (<guimenu>Computer</guimenu>, then in the YaST Control Center click
      <menuchoice><guimenu>Miscellaneous</guimenu><guimenu>SAP Product
      Installer</guimenu></menuchoice>; see <xref
-     linkend="fig.s4s.ycc.sap-product-installer"/>).  The functionality
+     linkend="fig-s4s-ycc-sap-product-installer"/>).  The functionality
      is the same, but the layout of the dialogs is different; the left
      progress pane is only displayed when continuing with the
      installation without a restart.
@@ -95,7 +95,7 @@
    </tip>
 
 
-   <figure id="fig.s4s.ycc.sap-product-installer">
+   <figure id="fig-s4s-ycc-sap-product-installer">
     <title>&yast; Control Center: SAP Product Installer</title>
     <mediaobject>
      <imageobject role="fo">
@@ -112,7 +112,7 @@
    <para>
     In the next dialog provide the <guimenu>Location of the SAP
     Installation Master</guimenu>; see <xref
-    linkend="fig.s4s.sap.wizard.source"/>.  The location can either be a
+    linkend="fig-s4s-sap-wizard-source"/>.  The location can either be a
     local source or a remotely provided installation source.
    </para>
 
@@ -173,11 +173,11 @@
      If you want to install from an NFS source, you must enter the name
      of the server and the complete path to the media data.
      For more information about setting up a remote installation server,
-     see <xref linkend="s4s.inst.remote"/>.
+     see <xref linkend="s4s-inst-remote"/>.
     </para>
    </tip>
 
-   <figure id="fig.s4s.sap.wizard.source">
+   <figure id="fig-s4s-sap-wizard-source">
     <title>SAP Installation Wizard: SAP Installation Master Location</title>
     <mediaobject>
      <imageobject role="fo">
@@ -194,7 +194,7 @@
 
      <step>
       <!--
-    <figure id="fig.s4s.sap.wizard.source.nfs">
+    <figure id="fig-s4s-sap-wizard-source-nfs">
     <title>SAP Installation Source: NFS</title>
     <mediaobject>
      <imageobject role="fo">
@@ -214,10 +214,10 @@
        as <guimenu>IBM DB2</guimenu>, <guimenu>MaxDB</guimenu>, etc. you
        want to deploy. In the case of a B1 or HANA installation, such a
        selection does not exist.  See <xref
-       linkend="fig.s4s.sap.wizard.mode.db"/>.  Click
+       linkend="fig-s4s-sap-wizard-mode-db"/>.  Click
        <guimenu>Help</guimenu> for information.
       </para>
-   <figure id="fig.s4s.sap.wizard.mode.db">
+   <figure id="fig-s4s-sap-wizard-mode-db">
     <title>SAP Installation Wizard: Installation Mode and Database</title>
     <mediaobject>
      <imageobject role="fo">
@@ -260,10 +260,10 @@
     In case of a NetWeaver installation you now select a <guimenu>SAP
     Product</guimenu>.  The offerings of available products depend on
     the media set and installation master you received from SAP; for
-    example, see <xref linkend="fig.s4s.sap.wizard.avail.products"/>.
+    example, see <xref linkend="fig-s4s-sap-wizard-avail-products"/>.
    </para>
 
-    <figure id="fig.s4s.sap.wizard.avail.products">
+    <figure id="fig-s4s-sap-wizard-avail-products">
      <title>SAP Installation Wizard: SAP Products</title>
      <mediaobject>
       <imageobject role="fo">
@@ -277,7 +277,7 @@
 
      </step>
      <!-- ============================================================ -->
-     <step id="pro.sap.wizard.products">
+     <step id="pro-sap-wizard-products">
       <para>
        For example, select <guimenu>SAP NetWeaver 7.4</guimenu> and
        click <guimenu>Next</guimenu>.  Now the relevant part of the SAP
@@ -293,16 +293,16 @@
        You are asked to provide the <guimenu>Location of the SAP
        Medium</guimenu> and if additional media are needed, you can also
        add them afterwards; see <xref
-       linkend="fig.s4s.sap.wizard.sapmedia "/> (here you see the list
+       linkend="fig-s4s-sap-wizard-sapmedia "/> (here you see the list
        of already copied or linked SAP media).  Click
        <guimenu>Help</guimenu> for information.
        <!--
        In this case, it would be NWKERNEL; see <xref
-       linkend="fig.s4s.sap.wizard.nwkernel"/>.
+       linkend="fig-s4s-sap-wizard-nwkernel"/>.
        -->
       </para>
       <!--
-      <figure id="fig.s4s.sap.wizard.nwkernel">
+      <figure id="fig-s4s-sap-wizard-nwkernel">
      <title>SAP Installation Wizard: Location of the SAP Medium</title>
      <mediaobject>
       <imageobject role="fo">
@@ -314,7 +314,7 @@
      </mediaobject>
      </figure>
      -->
-      <figure id="fig.s4s.sap.wizard.sapmedia">
+      <figure id="fig-s4s-sap-wizard-sapmedia">
      <title>SAP Installation Wizard: Additional SAP Media</title>
      <mediaobject>
       <imageobject role="fo">
@@ -332,12 +332,12 @@
       <para>
     After copying the Installation Master Media, as step 2 enter the
     location of the database medium (e.g., the SAP MaxDB RDBMS); see
-    <xref linkend="fig.s4s.sap.wizard.location.db.medium"/> for an NFS
+    <xref linkend="fig-s4s-sap-wizard-location-db-medium"/> for an NFS
     installation example.
    </para>
 
 
-    <figure id="fig.s4s.sap.wizard.location.db.medium">
+    <figure id="fig-s4s-sap-wizard-location-db-medium">
     <title>SAP Installation: Location of the Database Medium</title>
     <mediaobject>
      <imageobject role="fo">
@@ -355,11 +355,11 @@
     framework.  As step 3 you are asked for the <guimenu>Path to a
     Kernel or Java Medium</guimenu>.  For example, if you want to install
     an ABAP-based system, provide the SAP Kernel for NW70 EHP1 Linux; see <xref
-    linkend="fig.s4s.sap.wizard.path.sap.kernel"/> for an NFS
+    linkend="fig-s4s-sap-wizard-path-sap-kernel"/> for an NFS
     installation example.
    </para>
 
-    <figure id="fig.s4s.sap.wizard.path.sap.kernel">
+    <figure id="fig-s4s-sap-wizard-path-sap-kernel">
     <title>SAP Installation: Path to a Kernel or Java Medium</title>
     <mediaobject>
      <imageobject role="fo">
@@ -376,10 +376,10 @@
    <para>
     As step 4 for the <guimenu>Type of Installation</guimenu>, select
     <guimenu>Central Installation</guimenu>; see <xref
-    linkend="fig.s4s.sap.wizard.installation.type"/>.
+    linkend="fig-s4s-sap-wizard-installation-type"/>.
    </para>
 
-    <figure id="fig.s4s.sap.wizard.installation.type">
+    <figure id="fig-s4s-sap-wizard-installation-type">
     <title>SAP Installation: Type of Installation</title>
     <mediaobject>
      <imageobject role="fo">
@@ -396,11 +396,11 @@
     As step 5 enter the location of the
     <guimenu>Export Media</guimenu> (e.g., the SAP CRM Installation
     Export DVD); see <xref
-    linkend="fig.s4s.sap.wizard.location.export.medium"/> for an NFS
+    linkend="fig-s4s-sap-wizard-location-export-medium"/> for an NFS
     installation example.
    </para>
 
-    <figure id="fig.s4s.sap.wizard.location.export.medium">
+    <figure id="fig-s4s-sap-wizard-location-export-medium">
     <title>SAP Installation: Location of the Export Media</title>
     <mediaobject>
      <imageobject role="fo">
@@ -422,7 +422,7 @@
    <para>
     Then you can optionally copy a <guimenu>Supplement</guimenu> or
     <guimenu>3rd-Party Medium</guimenu>.  For more information about a
-    Supplement Media, see <xref linkend="s4s.comp.wizard.suppl"/>.
+    Supplement Media, see <xref linkend="s4s-comp-wizard-suppl"/>.
    </para>
      </step>
 
@@ -486,7 +486,7 @@ drwxr-xr-x  4 root root 4096 Sep 27 14:07 RDBMS-ADA/
       <para>
        First, specify the <guimenu>System T-Shirt-Sizing</guimenu>.
       </para>
-    <figure id="fig.s4s.sap.wizard.sysparams.size">
+    <figure id="fig-s4s-sap-wizard-sysparams-size">
     <title>SAP System Parameters: T-Shirt-Sizing</title>
     <mediaobject>
      <imageobject role="fo">
@@ -498,7 +498,7 @@ drwxr-xr-x  4 root root 4096 Sep 27 14:07 RDBMS-ADA/
     </mediaobject>
    </figure>
 <!--
-    <figure id="fig.s4s.sap.wizard.sys.params">
+    <figure id="fig-s4s-sap-wizard-sys-params">
     <title>SAP System Parameters</title>
     <mediaobject>
      <imageobject role="fo">
@@ -512,7 +512,7 @@ drwxr-xr-x  4 root root 4096 Sep 27 14:07 RDBMS-ADA/
 -->
 <!--
    <para>
-    In <xref linkend="fig.s4s.sap.wizard.sys.params"/>, as <guimenu>SID
+    In <xref linkend="fig-s4s-sap-wizard-sys-params"/>, as <guimenu>SID
     (SAP System ID)</guimenu> enter the three letter SAP System ID such
     as <literal>ERP</literal>.  Enter the <guimenu>SAP Instance
     Number</guimenu>.  Enter and repeat the <guimenu>SAP Master
@@ -526,11 +526,11 @@ drwxr-xr-x  4 root root 4096 Sep 27 14:07 RDBMS-ADA/
      </step>
      <step>
    <para>
-    In <xref linkend="fig.s4s.sap.wizard.virt.params"/>, then enable and
+    In <xref linkend="fig-s4s-sap-wizard-virt-params"/>, then enable and
     enter the virtual network settings, if needed.  For details, see the
     online help on the left.
    </para>
-    <figure id="fig.s4s.sap.wizard.virt.params">
+    <figure id="fig-s4s-sap-wizard-virt-params">
     <title>SAP Virtual Network Settings</title>
     <mediaobject>
      <imageobject role="fo">
@@ -547,13 +547,13 @@ drwxr-xr-x  4 root root 4096 Sep 27 14:07 RDBMS-ADA/
      <!--
      <step>
    <para>
-    In <xref linkend="fig.s4s.sap.wizard.db.logmode"/>, select the the
+    In <xref linkend="fig-s4s-sap-wizard-db-logmode"/>, select the the
     database log mode, and&mdash;if needed&mdash;install the SAP
     Cryptographic Library.  Provide the location of the Crypto Add-On
     medium, if the wizard asks for it.
    </para>
 
-    <figure id="fig.s4s.sap.wizard.db.logmode">
+    <figure id="fig-s4s-sap-wizard-db-logmode">
     <title>SAP Database Log Mode</title>
     <mediaobject>
      <imageobject role="fo">
@@ -573,12 +573,12 @@ drwxr-xr-x  4 root root 4096 Sep 27 14:07 RDBMS-ADA/
     <para>
      &sles4sap; &productnumber; is delivered with the Linux Kernel 3.0. If
      the SAP Kernel does not support Linux Kernel 3.0 yet, a pop-up
-     dialog (<xref linkend="fig.s4s.sap.wizard.compat"/>) will inform
+     dialog (<xref linkend="fig-s4s-sap-wizard-compat"/>) will inform
      you about the activation of a compatibility mode, which will make
      sure that you can still install your SAP product.
     </para>
 
-    <figure id="fig.s4s.sap.wizard.compat">
+    <figure id="fig-s4s-sap-wizard-compat">
     <title>SAP Installation: Compatibility Mode</title>
     <mediaobject>
      <imageobject role="fo">
@@ -603,7 +603,7 @@ drwxr-xr-x  4 root root 4096 Sep 27 14:07 RDBMS-ADA/
         ID, password for all users, database ID,
     -->
    </para>
-    <figure id="fig.s4s.sapinst.param">
+    <figure id="fig-s4s-sapinst-param">
     <title>SAP Installer (SAPinst): Defining Parameters</title>
     <mediaobject>
      <imageobject role="fo">
@@ -617,9 +617,9 @@ drwxr-xr-x  4 root root 4096 Sep 27 14:07 RDBMS-ADA/
 
    <para>The SAP installer displays a
     visualization of the installation steps it performs; see <xref
-    linkend="fig.s4s.sapinst"/>.
+    linkend="fig-s4s-sapinst"/>.
    </para>
-    <figure id="fig.s4s.sapinst">
+    <figure id="fig-s4s-sapinst">
     <title>SAP Installer (SAPinst)</title>
     <mediaobject>
      <imageobject role="fo">

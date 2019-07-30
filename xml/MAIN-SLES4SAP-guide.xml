@@ -9,7 +9,7 @@
   <!ENTITY % entities SYSTEM "entity-decl.ent">
   %entities;
 ]>
-<book lang="en" id="book.s4s">
+<book lang="en" id="book-s4s">
 <?dbhtml filename="index.html"?>
  <bookinfo>
   <title>The Guide</title>

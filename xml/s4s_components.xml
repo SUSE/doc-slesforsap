@@ -4,7 +4,7 @@
 <!ENTITY % entities SYSTEM "entity-decl.ent">
 %entities;
 ]>
-<chapter id="s4s.components">
+<chapter id="s4s-components">
  <title>&sles4sap; Components</title>
 
  <para>&sles4sapreg; consists of several components such as &sle; &hasi;,
@@ -12,7 +12,7 @@
  are briefly explained in the following sections.
  </para>
 
- <sect1 id="s4s.comp.hasi">
+ <sect1 id="s4s-comp-hasi">
   <title>&sle; &hasi;</title>
 
   <para>The &sle; &hasi; add-on is part of &sles4sap;.</para>
@@ -34,7 +34,7 @@
   </itemizedlist>
 </sect1>
 
-<sect1 id="sec.s4s.component.hana-replicate">
+<sect1 id="sec-s4s-component-hana-replicate">
   <title>Resource Agents for SAP HANA System Replication</title>
 
   <para>
@@ -52,7 +52,7 @@
    </para>
   </important>
 
-  <sect2 id="sec.s4s.hana-ra">
+  <sect2 id="sec-s4s-hana-ra">
    <title><systemitem>SAPHana</systemitem> Resource Agent</title>
    <!--
     Terms:
@@ -161,7 +161,7 @@
      serve multiple SAP applications.
     </para>
   </sect2>
-  <sect2 id="sec.s4s.topology-ra">
+  <sect2 id="sec-s4s-topology-ra">
    <title><systemitem>SAPHanaTopology</systemitem> Resource Agent</title>
    <para>
     To make configuring the cluster as simple as possible, SUSE has
@@ -172,7 +172,7 @@
     normal (stateless) clone.
    </para>
   </sect2>
-  <sect2 id="sec.s4s.hana-replicate.more">
+  <sect2 id="sec-s4s-hana-replicate-more">
    <title>For More Information</title>
    <para>
     For more information, see:
@@ -199,7 +199,7 @@
  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="s4s_configuration.xml"/>
 
 
- <sect1 id="s4s.comp.wizard">
+ <sect1 id="s4s-comp-wizard">
   <title>The Installation Wizard</title>
 
   <para>
@@ -284,7 +284,7 @@ Hier der Hinweis auf die SAP-Note mit SWAP
 
   -->
 
-  <sect2 id="s4s.comp.wizard.suppl">
+  <sect2 id="s4s-comp-wizard-suppl">
    <title>Supplement Media</title>
    <para>
     The basic idea of the <quote>Supplement Media</quote> is to enable
@@ -300,7 +300,7 @@ RPMs, running your own scripts, setting up a cluster file system or
 creating your own dialogs and scripts.
    </para>
 
-   <sect3 id="s4s.comp.wizard.suppl.productxml">
+   <sect3 id="s4s-comp-wizard-suppl-productxml">
     <title><filename>product.xml</filename></title>
 
     <para>
@@ -321,39 +321,39 @@ additional workflow.
      The following areas or sections will be merged:
     </para>
 <screen>&lt;general>
-  &lt;ask-list>         <co id="co.s4s.ay.general"/>
+  &lt;ask-list>         <co id="co-s4s-ay-general"/>
   ...
-&lt;software>           <co id="co.s4s.ay.software"/>
+&lt;software>           <co id="co-s4s-ay-software"/>
   &lt;post-packages>
   ...
 &lt;scripts>
-  &lt;chroot-scripts>   <co id="co.s4s.ay.chroot"/>
-  &lt;post-scripts>     <co id="co.s4s.ay.post"/>
-  &lt;init-scripts>     <co id="co.s4s.ay.init"/>
+  &lt;chroot-scripts>   <co id="co-s4s-ay-chroot"/>
+  &lt;post-scripts>     <co id="co-s4s-ay-post"/>
+  &lt;init-scripts>     <co id="co-s4s-ay-init"/>
   ...</screen>
 <calloutlist>
- <callout arearefs="co.s4s.ay.general">
+ <callout arearefs="co-s4s-ay-general">
   <para>
-   see <xref linkend="s4s.comp.wizard.suppl.ask"/>
+   see <xref linkend="s4s-comp-wizard-suppl-ask"/>
   </para>
  </callout>
- <callout arearefs="co.s4s.ay.software">
+ <callout arearefs="co-s4s-ay-software">
   <para>
-   see <xref linkend="s4s.comp.wizard.suppl.addpacks"/>
+   see <xref linkend="s4s-comp-wizard-suppl-addpacks"/>
   </para>
  </callout>
- <callout arearefs="co.s4s.ay.chroot">
+ <callout arearefs="co-s4s-ay-chroot">
   <para>
    after the package installation, before the first boot
   </para>
  </callout>
- <callout  arearefs="co.s4s.ay.post">
+ <callout  arearefs="co-s4s-ay-post">
   <para>
 during the first boot of the installed system, no
                       services running
   </para>
  </callout>
- <callout  arearefs="co.s4s.ay.init">
+ <callout  arearefs="co-s4s-ay-init">
   <para>
 during the first boot of the installed system, all
                       services up and running
@@ -370,7 +370,7 @@ All other sections will be replaced.
 </para>
    </sect3>
 
-   <sect3 id="s4s.comp.wizard.suppl.ask">
+   <sect3 id="s4s-comp-wizard-suppl-ask">
     <title>Own &ay; Ask Dialogs</title>
     <para>
      For a general overview and details of the Ask feature of &ay;, see
@@ -445,7 +445,7 @@ check_name "$VAL"
 </general>
 </profile>]]></screen>
    </sect3>
-   <sect3 id="s4s.comp.wizard.suppl.addpacks">
+   <sect3 id="s4s-comp-wizard-suppl-addpacks">
     <title>Install Additional Packages</title>
     <para>
 You can also install RPM packages within the
@@ -474,7 +474,7 @@ You can also install RPM packages within the
    </sect3>
   </sect2>
 
-  <sect2  id="s4s.comp.clamsap">
+  <sect2  id="s4s-comp-clamsap">
    <title>ClamSAP</title>
    <para>
 ClamSAP is a new antivirus toolkit integration with the SAP Virus Scan

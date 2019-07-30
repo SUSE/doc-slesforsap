@@ -5,7 +5,7 @@
 <!ENTITY % entities SYSTEM "entity-decl.ent">
 %entities;
 ]>
-<appendix id="s4s.appendix.cryptoaddon">
+<appendix id="s4s-appendix-cryptoaddon">
  <title>Downloading CryptoAddOn (SAPCryptoLib)</title>
  <para>
 Starting with SAP NetWeaver 7.03/7.3 the cryptographic functionality is

@@ -4,7 +4,7 @@
 <!ENTITY % entities SYSTEM "entity-decl.ent">
 %entities;
 ]>
-<chapter id="s4s.qinstallation">
+<chapter id="s4s-qinstallation">
  <title>Quick Installation of &sles4sap;</title>
  <para>
   &slsreg; optimized for SAP applications is available as a downloadable
@@ -15,7 +15,7 @@
   The current release of the product is based on &sls; &productnumber;.
  </para>
  <!-- ================================================================== -->
- <sect1 id="s4s.qi.down-and-inst">
+ <sect1 id="s4s-qi-down-and-inst">
   <title>Download and Installation Preparations</title>
 
   <procedure>
@@ -63,7 +63,7 @@
  </sect1>
 
  <!-- ================================================================== -->
- <sect1 id="s4s.qi.inst">
+ <sect1 id="s4s-qi-inst">
   <title>Installation</title>
 
   <procedure>
@@ -133,7 +133,7 @@
      Select <guimenu>SLES for SAP Applications &mdash; Installation with
      Wizard</guimenu> and press enter to start the semi-automated
      installation procedure.  For details and caveats, see <xref
-     linkend="s4s.inst.wizard"/>.
+     linkend="s4s-inst-wizard"/>.
     </para>
    </step>
 
@@ -161,7 +161,7 @@
   </procedure>
 
  <!-- ================================================================== -->
- <sect2 id="s4s.qi.inst.s4s-basic">
+ <sect2 id="s4s-qi-inst-s4s-basic">
   <title>Installation of &sles4sap;</title>
 
    <para>
@@ -179,7 +179,7 @@ should be used to install a validated SAP solution, it can be started manually
 from within &yast;.</para>
  </sect2>
  <!-- ================================================================== -->
- <sect2 id="s4s.qi.inst.s4s">
+ <sect2 id="s4s-qi-inst-s4s">
   <title>Installation of &sles4sap; with Wizard</title>
    
    <para>The normal &ay; driven SLES for SAP Applications installation
@@ -196,7 +196,7 @@ installation media; then follow the instructions.
 </para>
   </sect2>
  <!-- ================================================================== -->
- <sect2 id="s4s.qi.inst.s4s-manual">
+ <sect2 id="s4s-qi-inst-s4s-manual">
   <title>Installation of &sles4sap; with External Profile</title>
 
    <para>
