@@ -4,7 +4,7 @@
   <!ENTITY % entities SYSTEM "entity-decl.ent">
     %entities;
 ]>
-<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="cha.s4s.install">
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="cha-s4s-install">
  <title>Installing the Operating System</title>
 
  <para>
@@ -14,7 +14,7 @@
   &ay;.
  </para>
 
- <sect1 xml:id="sec.s4s.install.workflow">
+ <sect1 xml:id="sec-s4s-install-workflow">
   <title>Using the Installation Workflow</title>
 
   <para>
@@ -28,10 +28,10 @@
   <para>
    This section assumes that you are starting the installation from a local
    medium. To learn how to start the installation from a remote medium, see
-   <xref linkend="sec.s4s.install.network"/>.
+   <xref linkend="sec-s4s-install-network"/>.
   </para>
   <para>
-   For more information, see <xref linkend="sec.s4s.workflow-overview"/>.
+   For more information, see <xref linkend="sec-s4s-workflow-overview"/>.
   </para>
 
   <para>
@@ -39,7 +39,7 @@
    operating system.
   </para>
 
-  <procedure xml:id="pro.s4s.workflow.start">
+  <procedure xml:id="pro-s4s-workflow-start">
    <title>Starting the OS Installation</title>
    <step>
     <itemizedlist>
@@ -64,7 +64,7 @@
      </listitem>
     </itemizedlist>
 
-    <figure xml:id="fig.s4s.dvd.bootmenu">
+    <figure xml:id="fig-s4s-dvd-bootmenu">
      <title>DVD Boot Menu</title>
      <mediaobject>
       <imageobject role="fo">
@@ -96,7 +96,7 @@
      </listitem>
     </varlistentry>
     <varlistentry>
-     <term><guimenu>Installation</guimenu> (see <xref linkend="s4s.inst.inst"/>)</term>
+     <term><guimenu>Installation</guimenu> (see <xref linkend="s4s-inst-inst"/>)</term>
      <listitem>
       <para>
        Start a &slsa; installation workflow which allows you to choose whether to
@@ -161,7 +161,7 @@
     <para>
      Select the default system language under <guimenu>Language</guimenu>.
     </para>
-    <figure xml:id="fig.s4s.install.license">
+    <figure xml:id="fig-s4s-install-license">
      <title>Language, Keyboard and License Agreement</title>
      <mediaobject>
       <imageobject role="fo">
@@ -239,7 +239,7 @@
       Otherwise, you will not receive package updates immediately.
      </para>
     </important>
-    <figure xml:id="fig.s4s.install.reg-dialog">
+    <figure xml:id="fig-s4s-install-reg-dialog">
      <title>Registration</title>
      <mediaobject>
       <imageobject role="fo">
@@ -304,7 +304,7 @@
        </para>
        <para>
         For more information about converting, see
-        <xref linkend="sec.s4s.convert-sles"/>.
+        <xref linkend="sec-s4s-convert-sles"/>.
        </para>
       </important>
      </listitem>
@@ -334,7 +334,7 @@
         </para>
         <para>
          For more information about connecting via RDP, see
-         <xref linkend="cha.s4s.configure.rdp"/>.
+         <xref linkend="cha-s4s-configure-rdp"/>.
         </para>
        </listitem>
       </itemizedlist>
@@ -343,7 +343,7 @@
       </para>
      </listitem>
     </itemizedlist>
-    <figure xml:id="fig.s4s.install.type">
+    <figure xml:id="fig-s4s-install-type">
      <title>Installation Type</title>
      <mediaobject>
       <imageobject role="fo">
@@ -361,7 +361,7 @@
        through the SLES workflow, you have to stop here and read the SLES
        Installation Quick Start. Probably not ideal. - sknorr, 2016-02-11. -->
 
-  <procedure xml:id="pro.s4s.workflow.finish">
+  <procedure xml:id="pro-s4s-workflow-finish">
    <title>Finishing the OS Installation</title>
    <step>
     <para>
@@ -374,7 +374,7 @@
      Review the proposed partition setup for the volumes
      <literal>/dev/system/root</literal> and <literal>/dev/system/swap</literal>.
      The volume <literal>/dev/system/data</literal> will be created later,
-     as described in <xref linkend="sec.s4s.partition"/>.
+     as described in <xref linkend="sec-s4s-partition"/>.
     </para>
     <para>
      Suitable values are preselected. However, if necessary, change the
@@ -411,7 +411,7 @@
        </para>
        <para>
         For partitioning advice specific to &sles4sap;, see
-        <xref linkend="sec.s4s.partition"/>.
+        <xref linkend="sec-s4s-partition"/>.
        </para>
       </listitem>
      </varlistentry>
@@ -424,7 +424,7 @@
       Figure is maybe not ideal - it shows a hard drive with only 100GB of
       space... Fixme? - sknorr, 2016-01-20
     </remark>
-    <figure xml:id="fig.s4s.install.partition">
+    <figure xml:id="fig-s4s-install-partition">
      <title>Suggested Partitioning</title>
      <mediaobject>
       <imageobject role="fo">
@@ -508,11 +508,11 @@
       ports manually.
      </para>
      <para>
-      For details, see <xref linkend="sec.s4s.configure.firewall"/>.
+      For details, see <xref linkend="sec-s4s-configure-firewall"/>.
      </para>
     </important>
 
-    <figure xml:id="fig.s4s.install.overview">
+    <figure xml:id="fig-s4s-install-overview">
      <title>Installation Settings</title>
      <mediaobject>
       <imageobject role="fo">
@@ -561,7 +561,7 @@
        operating system, the installation will continue after the reboot.
       </para>
       <para>
-       In this case, continue with <xref linkend="cha.s4s.install.sap"/>.
+       In this case, continue with <xref linkend="cha-s4s-install-sap"/>.
       </para>
      </listitem>
     </itemizedlist>
@@ -569,7 +569,7 @@
   </procedure>
  </sect1>
 
- <sect1 xml:id="sec.s4s.install.network">
+ <sect1 xml:id="sec-s4s-install-network">
   <title>Using &sles4sapa; Media from the Network</title>
 
   <remark>
@@ -626,7 +626,7 @@
    </step>
    <step>
     <para>
-     Follow the instructions in <xref linkend="sec.s4s.install.workflow"/>.
+     Follow the instructions in <xref linkend="sec-s4s-install-workflow"/>.
     </para>
    </step>
   </procedure>
@@ -649,7 +649,7 @@
  <xi:include href="s4s_autoyast.xml" parse="xml"/>
 
 
- <sect1 xml:id="sec.s4s.convert-sles">
+ <sect1 xml:id="sec-s4s-convert-sles">
   <title>Converting a &slsa; Installation to a &s4sa; Installation</title>
   <para>
    To convert an installation of &sls; &productnumber; or &jeos;
@@ -662,7 +662,7 @@
    Make sure that you have an e-mail address for registration and a
    registration code for &s4sa;.
   </para>
-  <procedure xml:id="pro.s4s.convert-sles">
+  <procedure xml:id="pro-s4s-convert-sles">
    <step>
     <para>
      Install the package <package>migrate-sles-to-sles4sap</package>.

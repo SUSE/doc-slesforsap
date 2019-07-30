@@ -7,7 +7,7 @@
 <?xml-stylesheet href="urn:x-suse:xslt:profiling:docbook50-profile.xsl"
    type="text/xml"
    title="Profiling step"?>
-<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:lang="en" xml:id="cha.clamsap">
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:lang="en" xml:id="cha-clamsap">
  <title>Protecting Against Malware With &clamsap;</title>
   <para>
    &clamsap; integrates the &clamav; anti-malware toolkit into &netweaver; and
@@ -16,7 +16,7 @@
    The version of &clamsap; shipped with &productname;
    &productnumber; supports NW-VSI version 2.0.
   </para>
- <sect1 xml:id="sec.clamsap.install">
+ <sect1 xml:id="sec-clamsap-install">
   <title>Installing &clamsap;</title>
   <procedure>
    <step>
@@ -55,7 +55,7 @@ Active: active (running) since Tue 2017-04-11 10:33:03 UTC; 24h ago
    </step>
   </procedure>
  </sect1>
- <sect1 xml:id="sec.clamsap.scannergroup">
+ <sect1 xml:id="sec-clamsap-scannergroup">
   <title>Creating a Virus Scanner Group in &nw;</title>
   <procedure>
    <step>
@@ -147,7 +147,7 @@ Active: active (running) since Tue 2017-04-11 10:33:03 UTC; 24h ago
    </step>
   </procedure>
  </sect1>
- <sect1 xml:id="sec.clamsap.library">
+ <sect1 xml:id="sec-clamsap-library">
   <title>Setting Up the &clamsap; Library in &nw;</title>
   <procedure>
    <step>
@@ -201,7 +201,7 @@ Active: active (running) since Tue 2017-04-11 10:33:03 UTC; 24h ago
      <listitem>
       <para>
        <literal>Scanner Group</literal>: The name of the scanner group that
-       you set up in <xref linkend="sec.clamsap.scannergroup"/> (for example:
+       you set up in <xref linkend="sec-clamsap-scannergroup"/> (for example:
        <literal>CLAMSAPVSI</literal>)
       </para>
      </listitem>
@@ -250,13 +250,13 @@ Active: active (running) since Tue 2017-04-11 10:33:03 UTC; 24h ago
    </step>
   </procedure>
  </sect1>
- <sect1 xml:id="sec.clamsap.engage">
+ <sect1 xml:id="sec-clamsap-engage">
   <title>Engaging &clamsap;</title>
   <para>
    To run &clamsap;, go to the transaction <guimenu>VSCAN</guimenu>. Then
    click <emphasis>Start</emphasis>.
   </para>
-  <figure xml:id="fig.clamsap.scanner-change">
+  <figure xml:id="fig-clamsap-scanner-change">
    <title>Change View <quote>Virus Scan Provider Definition</quote></title>
    <mediaobject>
     <imageobject role="html">
@@ -269,9 +269,9 @@ Active: active (running) since Tue 2017-04-11 10:33:03 UTC; 24h ago
   </figure>
   <para>
    Afterward, a summary will be displayed, including details of the &clamsap;
-   and &clamav; (shown in <xref linkend="fig.clamsap.summary"/>).
+   and &clamav; (shown in <xref linkend="fig-clamsap-summary"/>).
   </para>
-  <figure xml:id="fig.clamsap.summary">
+  <figure xml:id="fig-clamsap-summary">
    <title>Summary of &clamsap; Data</title>
    <mediaobject>
     <imageobject role="html">
@@ -283,7 +283,7 @@ Active: active (running) since Tue 2017-04-11 10:33:03 UTC; 24h ago
    </mediaobject>
   </figure>
  </sect1>
- <sect1 xml:id="sec.clamsap.more">
+ <sect1 xml:id="sec-clamsap-more">
   <title>For More Information</title>
   <para>
    For more information, also see the project home page

@@ -4,11 +4,11 @@
   <!ENTITY % entities SYSTEM "entity-decl.ent">
     %entities;
 ]>
-<sect1 xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="sec.s4s.component">
+<sect1 xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="sec-s4s-component">
  <title>Software Components</title>
 
  <para>
-  As depicted in <xref linkend="fig.s4s.offering"/>,
+  As depicted in <xref linkend="fig-s4s-offering"/>,
   &sles4sap; is based on &sls; but contains several additional
   software components such as &sleha;,
   the kernel page-cache limit feature, and the installation
@@ -16,7 +16,7 @@
   following sections.
  </para>
 
- <sect2 xml:id="sec.s4s.component.sles">
+ <sect2 xml:id="sec-s4s-component-sles">
   <title>&sls;</title>
   <para>
    The current release is based on &sls; &productnumber;. &sls;
@@ -25,7 +25,7 @@
   </para>
  </sect2>
 
- <sect2  xml:id="sec.s4s.component.sleha">
+ <sect2  xml:id="sec-s4s-component-sleha">
   <title>&sleha;</title>
   <para>
    This component consists of:
@@ -96,7 +96,7 @@
   </para>
  </sect2>
 
- <sect2 xml:id="sec.s4s.hana-replicate">
+ <sect2 xml:id="sec-s4s-hana-replicate">
   <title>Simplified &hana; System Replication Setup</title>
 
   <para>
@@ -105,7 +105,7 @@
    a &yast; wizard that simplifies the cluster setup.
   </para>
 
-  <sect3 xml:id="sec.s4s.hana-ra">
+  <sect3 xml:id="sec-s4s-hana-ra">
    <title><systemitem>SAPHana</systemitem> Resource Agent</title>
    <!--
     Terms:
@@ -220,7 +220,7 @@
     <link xlink:href="https://github.com/fmherschel/SAPHanaSR/"/>.
    </para>-->
   </sect3>
-  <sect3 xml:id="sec.s4s.topology-ra">
+  <sect3 xml:id="sec-s4s-topology-ra">
    <title><systemitem>SAPHanaTopology</systemitem> Resource Agent</title>
    <para>
     To make configuring the cluster as simple as possible, SUSE has
@@ -231,7 +231,7 @@
     normal (stateless) clone.
    </para>
   </sect3>
-  <sect3 xml:id="sec.s4s.hana-replicate.wizard">
+  <sect3 xml:id="sec-s4s-hana-replicate-wizard">
    <title>&yast; Wizard to Set Up &hana; Clusters</title>
    <para>
     &s4s; now additionally ships a &yast; wizard that manages the
@@ -240,10 +240,10 @@
     be started using &yast;, via <guimenu>HA Setup for SAP Products</guimenu>.
    </para>
    <para>
-    For more information, see <xref linkend="cha.s4s.cluster"/>.
+    For more information, see <xref linkend="cha-s4s-cluster"/>.
    </para>
   </sect3>
-  <sect3 xml:id="sec.s4s.hana-replicate.more">
+  <sect3 xml:id="sec-s4s-hana-replicate-more">
    <title>For More Information</title>
    <para>
     For more information, see:
@@ -267,22 +267,22 @@
   </sect3>
  </sect2>
 
- <sect2 xml:id="sec.s4s.component.install">
+ <sect2 xml:id="sec-s4s-component-install">
  <title>Installation Workflow</title>
   <para>
    The installation workflow offers a guided installation path for both the
    &sls; operating system and the &sap; application.
    <!-- ke: jweber does not want plural ("applications") here.-->
-   For more information, see <xref linkend="sec.s4s.workflow-overview"/>.
+   For more information, see <xref linkend="sec-s4s-workflow-overview"/>.
   </para>
   <para>
    Additionally, the installation workflow can be extended by
    third-party vendors or customers using &supmedia;. For more information about
-   creating &supmedia;, see <xref linkend="app.s4s.component.supplement"/>.
+   creating &supmedia;, see <xref linkend="app-s4s-component-supplement"/>.
   </para>
  </sect2>
 
- <sect2 xml:id="sec.s4s.component.page-cache">
+ <sect2 xml:id="sec-s4s-component-page-cache">
   <title>Page-Cache Limit</title>
   <para>
    You can limit the kernel file system cache size to influence swapping
@@ -290,11 +290,11 @@
    allocating memory to an application.
   </para>
   <para>
-   For more information, see <xref linkend="sec.s4s.configure.page-cache"/>.
+   For more information, see <xref linkend="sec-s4s-configure-page-cache"/>.
   </para>
  </sect2>
 
- <sect2 xml:id="sec.s4s.component.clamsap">
+ <sect2 xml:id="sec-s4s-component-clamsap">
   <title>Malware Protection with &clamsap;</title>
   <para>
    &clamsap; integrates the &clamav; anti-malware toolkit into &netweaver; and
@@ -303,18 +303,18 @@
    application to scan for malicious uploads in HTTP uploads.
   </para>
   <para>
-   For more information, see <xref linkend="cha.clamsap"/>.
+   For more information, see <xref linkend="cha-clamsap"/>.
   </para>
  </sect2>
 
- <sect2 xml:id="sec.s4s.component.hana-secure">
+ <sect2 xml:id="sec-s4s-component-hana-secure">
   <title>&hana; Security</title>
   <para>
    &sles4sap; contains additional features to help set up well-secured &hana;
    installations.
   </para>
 
-  <sect3 xml:id="sec.s4s.component.firewall-hana">
+  <sect3 xml:id="sec-s4s-component-firewall-hana">
    <title>Firewall for &hana;</title>
    <para>
     Securing &hana; can require many additional firewall rules. To simplify
@@ -323,11 +323,11 @@
     provides preconfigured rules and integrates with &susefirewall;.
    </para>
    <para>
-    For more information, see <xref linkend="sec.s4s.configure.firewall-hana"/>.
+    For more information, see <xref linkend="sec-s4s-configure-firewall-hana"/>.
    </para>
   </sect3>
 
-  <sect3 xml:id="sec.s4s.component.harden">
+  <sect3 xml:id="sec-s4s-component-harden">
    <title>Hardening Guide for &hana;</title>
    <para>
     For information on hardening the underlying operating system, see the
@@ -342,14 +342,14 @@
   </sect3>
  </sect2>
 
- <sect2 xml:id="sec.s4s.component.manage-operation">
+ <sect2 xml:id="sec-s4s-component-manage-operation">
   <title>Simplified Operations Management</title>
   <para>
     &sles4sap; combines several features that enable simplified operations
     management.
   </para>
 
-  <sect3 xml:id="sec.s4s.component.sapconf">
+  <sect3 xml:id="sec-s4s-component-sapconf">
    <title>System Tuning with &sapconf;</title>
    <para>
     The system tuning application &sapconf; allows you to
@@ -361,11 +361,11 @@
     you are using, such as the amount of available RAM.
    </para>
    <para>
-    For more information, see <xref linkend="sec.sapconf"/>.
+    For more information, see <xref linkend="sec-sapconf"/>.
    </para>
   </sect3>
 
-  <sect3 xml:id="sec.s4s.component.cryptctl">
+  <sect3 xml:id="sec-s4s-component-cryptctl">
    <title>Storage Encryption for Hosted Applications with <command>cryptctl</command></title>
    <para>
     Today, databases and similar applications are often hosted on external
@@ -392,11 +392,11 @@
     </listitem>
    </itemizedlist>
    <para>
-    For more information, see <xref linkend="cha.s4s.configure.cryptctl"/>.
+    For more information, see <xref linkend="cha-s4s-configure-cryptctl"/>.
    </para>
   </sect3>
 
-  <sect3 xml:id="sec.s4s.component.pattern">
+  <sect3 xml:id="sec-s4s-component-pattern">
    <title>Patterns Providing Dependencies of &sap; Applications</title>
    <para>
     To simplify working with software dependencies of &sap; applications, &suse;
@@ -439,7 +439,7 @@
    </important>
   </sect3>
 
-  <sect3 xml:id="sec.s4s.component.clustertool">
+  <sect3 xml:id="sec-s4s-component-clustertool">
    <title><systemitem>ClusterTools2</systemitem></title>
    <para>
     <systemitem>ClusterTools2</systemitem> provides tools that help set up
