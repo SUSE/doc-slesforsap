@@ -4,7 +4,7 @@
   <!ENTITY % entities SYSTEM "generic-entities.ent">
     %entities;
 ]>
-<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="cha.s4s.configure.rdp">
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="cha-s4s-configure-rdp">
   <title>Connecting via RDP</title>
   <para>
    If you installed &s4sa; with the RDP option activated or if you installed
@@ -59,7 +59,7 @@
    </itemizedlist>
   </important>
 
-  <procedure xml:id="pro.s4s.enable-rdp">
+  <procedure xml:id="pro-s4s-enable-rdp">
    <title>Setting Up RDP</title>
    <!-- I could use the package yast2-rdp but it does not have support (says
    YaST), so avoid that. - sknorr, 2016-12-02 -->

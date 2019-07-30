@@ -38,7 +38,7 @@
 
  <variablelist>
   <varlistentry>
-   <term><xref linkend="book.example"/></term>
+   <term><xref linkend="book-example"/></term>
    <listitem>
     <para>
      Abstract of Example Guide.
@@ -46,7 +46,7 @@
    </listitem>
   </varlistentry>
   <varlistentry>
-   <term><xref linkend="book.example"/></term>
+   <term><xref linkend="book-example"/></term>
    <listitem>
     <para>
      Abstract of Example Guide 2.

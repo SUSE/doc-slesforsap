@@ -4,11 +4,11 @@
   <!ENTITY % entities SYSTEM "generic-entities.ent">
     %entities;
 ]>
-<sect1 xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="sec.s4s.component">
+<sect1 xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="sec-s4s-component">
  <title>Software Components</title>
 
  <para>
-  As depicted in <xref linkend="fig.s4s.offering"/>,
+  As depicted in <xref linkend="fig-s4s-offering"/>,
   &sles4sap; is based on &sls; but contains several additional
   software components such as &sleha;, and the installation
   workflow. These software components are briefly explained below:
@@ -52,7 +52,7 @@
      The installation workflow offers a guided installation path for both the
      &sls; operating system and the &sap; application. This workflow can be
      extended by third-party vendors using &supmedia;. For more
-     information, see <xref linkend="sec.s4s.workflow-overview"/>.
+     information, see <xref linkend="sec-s4s-workflow-overview"/>.
     </para>
    </listitem>
   </varlistentry>

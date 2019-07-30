@@ -4,7 +4,7 @@
   <!ENTITY % entities SYSTEM "generic-entities.ent">
     %entities;
 ]>
-<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="cha.s4s.configure.cryptctl">
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="cha-s4s-configure-cryptctl">
   <title>Encrypting Directories Using <command>cryptctl</command></title>
   <para>
    <command>cryptctl</command> consists of two components:
@@ -51,7 +51,7 @@
    aes-xts-256 encryption and 512-bit keys. Encryption keys are transferred
    using TLS with certificate verification.
   </para>
-  <figure xml:id="fig.s4s.cryptctl-retrieve">
+  <figure xml:id="fig-s4s-cryptctl-retrieve">
    <title>Key Retrieval with <command>cryptctl</command> (Model Without Connection to KMIP Server)</title>
    <mediaobject>
     <imageobject role="html">
@@ -73,7 +73,7 @@
     installed on all machines you intend to set up as servers or clients.
    </para>
   </note>
-  <sect1 xml:id="sec.s4s.configure.cryptctl-server">
+  <sect1 xml:id="sec-s4s-configure-cryptctl-server">
    <title>Setting Up a <command>cryptctl</command> Server</title>
    <para>
     Before you can define machine as a <command>cryptctl</command> client,
@@ -237,7 +237,7 @@
     </listitem>
    </itemizedlist>
   </sect1>
-  <sect1 xml:id="sec.s4s.configure.cryptctl-client">
+  <sect1 xml:id="sec-s4s-configure-cryptctl-client">
    <title>Setting Up a <command>cryptctl</command> Client</title>
    <para>
     The following interactive setup of <command>cryptctl</command> is
@@ -453,7 +453,7 @@ Used By      When                 UUID  Max.Users  Num.Users  Mount Point
     <filename>/var/lib/cryptctl/keydb/<replaceable>PARTITION_UUID</replaceable></filename>.
    </para>
   </sect1>
-  <sect1 xml:id="sec.s4s.configure.cryptctl-status">
+  <sect1 xml:id="sec-s4s-configure-cryptctl-status">
    <title>Checking Partition Unlock Status Using Server-side Commands</title>
    <para>
     When a <command>cryptctl</command> client is active, it will send a
@@ -486,7 +486,7 @@ Used By      When                 UUID  Max.Users  Num.Users  Mount Point
     when keys were retrieved.
    </para>
   </sect1>
-  <sect1 xml:id="sec.s4s.configure.cryptctl-unlock">
+  <sect1 xml:id="sec-s4s-configure-cryptctl-unlock">
    <title>Unlocking Encrypted Partitions Manually</title>
    <para>
     There are two ways of unlocking a partition manually, both of which are run
@@ -528,7 +528,7 @@ Used By      When                 UUID  Max.Users  Num.Users  Mount Point
     </listitem>
    </itemizedlist>
   </sect1>
-  <sect1 xml:id="sec.s4s.configure.cryptctl-lock">
+  <sect1 xml:id="sec-s4s-configure-cryptctl-lock">
    <title>Maintenance Downtime Procedure</title>
    <para>
     To ensure that partitions cannot be decrypted during a maintenance
@@ -552,7 +552,7 @@ Used By      When                 UUID  Max.Users  Num.Users  Mount Point
     </listitem>
    </itemizedlist>
   </sect1>
- <sect1 xml:id="sec.s4s.configure.cryptctl.more">
+ <sect1 xml:id="sec-s4s-configure-cryptctl-more">
   <title>For More Information</title>
   <para>
    For more information, also see the project home page
