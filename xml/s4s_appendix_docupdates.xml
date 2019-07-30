@@ -4,7 +4,7 @@
   <!ENTITY % entities SYSTEM "entity-decl.ent">
     %entities;
 ]>
-<appendix xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="app.s4s.docupdate">
+<appendix xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="app-s4s-docupdate">
  <title>Documentation Updates</title>
 
  <para>
@@ -17,68 +17,68 @@
  <itemizedlist role="subtoc">
   <listitem>
    <para>
-    <xref linkend="app.s4s.docupdate.2018-04-25" xrefstyle="SectTitleOnPage"/>
+    <xref linkend="app-s4s-docupdate-2018-04-25" xrefstyle="SectTitleOnPage"/>
    </para>
   </listitem>
   <listitem>
    <para>
-    <xref linkend="app.s4s.docupdate.2017-11-01" xrefstyle="SectTitleOnPage"/>
+    <xref linkend="app-s4s-docupdate-2017-11-01" xrefstyle="SectTitleOnPage"/>
    </para>
   </listitem>
   <listitem>
    <para>
-    <xref linkend="app.s4s.docupdate.2017-09-07" xrefstyle="SectTitleOnPage"/>
+    <xref linkend="app-s4s-docupdate-2017-09-07" xrefstyle="SectTitleOnPage"/>
    </para>
   </listitem>
   <listitem>
    <para>
-    <xref linkend="app.s4s.docupdate.2017-05-10" xrefstyle="SectTitleOnPage"/>
+    <xref linkend="app-s4s-docupdate-2017-05-10" xrefstyle="SectTitleOnPage"/>
    </para>
   </listitem>
   <listitem>
    <para>
-    <xref linkend="app.s4s.docupdate.2016-12-07" xrefstyle="SectTitleOnPage"/>
+    <xref linkend="app-s4s-docupdate-2016-12-07" xrefstyle="SectTitleOnPage"/>
    </para>
   </listitem>
   <listitem>
    <para>
-    <xref linkend="app.s4s.docupdate.2016-11-07" xrefstyle="SectTitleOnPage"/>
+    <xref linkend="app-s4s-docupdate-2016-11-07" xrefstyle="SectTitleOnPage"/>
    </para>
   </listitem>
   <listitem>
    <para>
-    <xref linkend="app.s4s.docupdate.2016-03-23" xrefstyle="SectTitleOnPage"/>
+    <xref linkend="app-s4s-docupdate-2016-03-23" xrefstyle="SectTitleOnPage"/>
    </para>
   </listitem>
   <listitem>
    <para>
-    <xref linkend="app.s4s.docupdate.2016-02-29" xrefstyle="SectTitleOnPage"/>
+    <xref linkend="app-s4s-docupdate-2016-02-29" xrefstyle="SectTitleOnPage"/>
    </para>
   </listitem>
   <listitem>
    <para>
-    <xref linkend="app.s4s.docupdate.2016-02-15" xrefstyle="SectTitleOnPage"/>
+    <xref linkend="app-s4s-docupdate-2016-02-15" xrefstyle="SectTitleOnPage"/>
    </para>
   </listitem>
   <listitem>
    <para>
-    <xref linkend="app.s4s.docupdate.2015-05-29" xrefstyle="SectTitleOnPage"/>
+    <xref linkend="app-s4s-docupdate-2015-05-29" xrefstyle="SectTitleOnPage"/>
    </para>
   </listitem>
   <listitem>
    <para>
-    <xref linkend="app.s4s.docupdate.2015-04-29" xrefstyle="SectTitleOnPage"/>
+    <xref linkend="app-s4s-docupdate-2015-04-29" xrefstyle="SectTitleOnPage"/>
    </para>
   </listitem>
   <listitem>
    <para>
-    <xref linkend="app.s4s.docupdate.2013-10-28" xrefstyle="SectTitleOnPage"/>
+    <xref linkend="app-s4s-docupdate-2013-10-28" xrefstyle="SectTitleOnPage"/>
    </para>
   </listitem>
  </itemizedlist>
 
 
- <sect1 xml:id="app.s4s.docupdate.2018-04-25">
+ <sect1 xml:id="app-s4s-docupdate-2018-04-25">
   <title>April 25, 2018&mdash;&s4sa; 12 SP3 Documentation Update</title>
 
   <para>
@@ -89,7 +89,7 @@
   <variablelist>
    <varlistentry>
     <term>
-     <xref linkend="sec.s4s.service" xrefstyle="SectTitleOnPage"/>
+     <xref linkend="sec-s4s-service" xrefstyle="SectTitleOnPage"/>
     </term>
     <listitem>
      <para>
@@ -99,7 +99,7 @@
    </varlistentry>
    <varlistentry>
     <term>
-     <xref linkend="sec.s4s.hana-cluster.wizard" xrefstyle="SectTitleOnPage"/>
+     <xref linkend="sec-s4s-hana-cluster-wizard" xrefstyle="SectTitleOnPage"/>
     </term>
     <listitem>
      <para>
@@ -112,7 +112,7 @@
  </sect1>
 
 
- <sect1 xml:id="app.s4s.docupdate.2017-11-01">
+ <sect1 xml:id="app-s4s-docupdate-2017-11-01">
   <title>November 1, 2017&mdash;&s4sa; 12 SP3 Documentation Update</title>
 
   <para>
@@ -123,7 +123,7 @@
   <variablelist>
    <varlistentry>
     <term>
-     <xref linkend="sec.s4s.repository" xrefstyle="SectTitleOnPage"/>
+     <xref linkend="sec-s4s-repository" xrefstyle="SectTitleOnPage"/>
     </term>
     <listitem>
      <para>
@@ -135,7 +135,7 @@
   </variablelist>
  </sect1>
 
- <sect1 xml:id="app.s4s.docupdate.2017-09-07">
+ <sect1 xml:id="app-s4s-docupdate-2017-09-07">
   <title>September 7, 2017&mdash;&s4sa; 12 SP3 FCS</title>
 
   <para>
@@ -146,7 +146,7 @@
   <variablelist>
    <varlistentry>
     <term>
-     <xref linkend="cha.s4s.plan" xrefstyle="SectTitleOnPage"/>
+     <xref linkend="cha-s4s-plan" xrefstyle="SectTitleOnPage"/>
     </term>
     <listitem>
      <para>
@@ -157,8 +157,8 @@
    </varlistentry>
    <varlistentry>
     <term>
-     <xref linkend="cha.s4s.plan" xrefstyle="SectTitleOnPage"/>,
-     <xref linkend="cha.s4s.install.sap" xrefstyle="SectTitleOnPage"/>
+     <xref linkend="cha-s4s-plan" xrefstyle="SectTitleOnPage"/>,
+     <xref linkend="cha-s4s-install-sap" xrefstyle="SectTitleOnPage"/>
     </term>
     <listitem>
      <para>
@@ -169,7 +169,7 @@
    </varlistentry>
    <varlistentry>
     <term>
-     <xref linkend="sec.s4s.install.workflow" xrefstyle="SectTitleOnPage"/>
+     <xref linkend="sec-s4s-install-workflow" xrefstyle="SectTitleOnPage"/>
     </term>
     <listitem>
      <para>
@@ -180,7 +180,7 @@
    </varlistentry>
    <varlistentry>
     <term>
-     <xref linkend="cha.s4s.configure.cryptctl" xrefstyle="SectTitleOnPage"/>
+     <xref linkend="cha-s4s-configure-cryptctl" xrefstyle="SectTitleOnPage"/>
     </term>
     <listitem>
      <para>
@@ -191,7 +191,7 @@
    </varlistentry>
    <varlistentry>
     <term>
-     <xref linkend="sec.s4s.convert-sles" xrefstyle="SectTitleOnPage"/>
+     <xref linkend="sec-s4s-convert-sles" xrefstyle="SectTitleOnPage"/>
     </term>
     <listitem>
      <para>
@@ -202,7 +202,7 @@
    </varlistentry>
    <varlistentry>
     <term>
-     <xref linkend="cha.s4s.tune" xrefstyle="SectTitleOnPage"/>
+     <xref linkend="cha-s4s-tune" xrefstyle="SectTitleOnPage"/>
     </term>
     <listitem>
      <para>
@@ -213,7 +213,7 @@
    </varlistentry>
    <varlistentry>
     <term>
-     <xref linkend="sec.s4s.configure.scrub-instance" xrefstyle="SectTitleOnPage"/>
+     <xref linkend="sec-s4s-configure-scrub-instance" xrefstyle="SectTitleOnPage"/>
     </term>
     <listitem>
      <para>
@@ -225,7 +225,7 @@
   </variablelist>
  </sect1>
 
- <sect1 xml:id="app.s4s.docupdate.2017-05-10">
+ <sect1 xml:id="app-s4s-docupdate-2017-05-10">
   <title>May 10, 2017&mdash;&s4sa; 12 SP2 Documentation Update</title>
 
   <para>
@@ -236,7 +236,7 @@
   <variablelist>
    <varlistentry>
     <term>
-     <xref linkend="sec.s4s.component" xrefstyle="SectTitleOnPage"/>
+     <xref linkend="sec-s4s-component" xrefstyle="SectTitleOnPage"/>
     </term>
     <listitem>
      <para>
@@ -246,10 +246,10 @@
    </varlistentry>
    <varlistentry>
     <term>
-     <xref linkend="sec.s4s.repository" xrefstyle="SectTitleOnPage"/>
+     <xref linkend="sec-s4s-repository" xrefstyle="SectTitleOnPage"/>
     </term>
     <term>
-     <xref linkend="sec.s4s.service" xrefstyle="SectTitleOnPage"/>
+     <xref linkend="sec-s4s-service" xrefstyle="SectTitleOnPage"/>
     </term>
     <listitem>
      <para>
@@ -260,7 +260,7 @@
    </varlistentry>
    <varlistentry>
     <term>
-     <xref linkend="sec.s4s.hana-cluster.wizard" xrefstyle="SectTitleOnPage"/>
+     <xref linkend="sec-s4s-hana-cluster-wizard" xrefstyle="SectTitleOnPage"/>
     </term>
     <listitem>
      <para>
@@ -271,7 +271,7 @@
    </varlistentry>
    <varlistentry>
     <term>
-     <xref linkend="sec.saptune" xrefstyle="SectTitleOnPage"/>
+     <xref linkend="sec-saptune" xrefstyle="SectTitleOnPage"/>
     </term>
     <listitem>
      <para>
@@ -282,7 +282,7 @@
    </varlistentry>
    <varlistentry>
     <term>
-     <xref linkend="cha.clamsap" xrefstyle="SectTitleOnPage"/>
+     <xref linkend="cha-clamsap" xrefstyle="SectTitleOnPage"/>
     </term>
     <listitem>
      <para>
@@ -292,7 +292,7 @@
    </varlistentry>
    <varlistentry>
     <term>
-     <xref linkend="sec.s4s.packagehub" xrefstyle="SectTitleOnPage"/>
+     <xref linkend="sec-s4s-packagehub" xrefstyle="SectTitleOnPage"/>
     </term>
     <listitem>
      <para>
@@ -303,7 +303,7 @@
   </variablelist>
  </sect1>
 
- <sect1 xml:id="app.s4s.docupdate.2016-12-07">
+ <sect1 xml:id="app-s4s-docupdate-2016-12-07">
   <title>December 07, 2016&mdash;&s4sa; 12 SP2 Documentation Update</title>
 
   <para>
@@ -314,7 +314,7 @@
   <variablelist>
    <varlistentry>
     <term>
-      <xref linkend="sec.s4s.hardware" xrefstyle="SectTitleOnPage"/>
+      <xref linkend="sec-s4s-hardware" xrefstyle="SectTitleOnPage"/>
     </term>
     <listitem>
      <para>
@@ -324,7 +324,7 @@
    </varlistentry>
    <varlistentry>
     <term>
-      <xref linkend="cha.s4s.cluster" xrefstyle="SectTitleOnPage"/>
+      <xref linkend="cha-s4s-cluster" xrefstyle="SectTitleOnPage"/>
     </term>
     <listitem>
      <para>
@@ -334,7 +334,7 @@
    </varlistentry>
    <varlistentry>
     <term>
-      <xref linkend="sec.s4s.configure.firewall-hana" xrefstyle="SectTitleOnPage"/>
+      <xref linkend="sec-s4s-configure-firewall-hana" xrefstyle="SectTitleOnPage"/>
     </term>
     <listitem>
      <para>
@@ -344,7 +344,7 @@
    </varlistentry>
    <varlistentry>
     <term>
-      <xref linkend="sec.s4s.configure.saprouter" xrefstyle="SectTitleOnPage"/>
+      <xref linkend="sec-s4s-configure-saprouter" xrefstyle="SectTitleOnPage"/>
     </term>
     <listitem>
      <para>
@@ -354,7 +354,7 @@
    </varlistentry>
    <varlistentry>
     <term>
-      <xref linkend="app.s4s.additional-software" xrefstyle="SectTitleOnPage"/>
+      <xref linkend="app-s4s-additional-software" xrefstyle="SectTitleOnPage"/>
     </term>
     <listitem>
      <para>
@@ -364,10 +364,10 @@
    </varlistentry>
    <varlistentry>
     <term>
-      <xref linkend="cha.s4s.tune" xrefstyle="SectTitleOnPage"/>
+      <xref linkend="cha-s4s-tune" xrefstyle="SectTitleOnPage"/>
     </term>
     <term>
-      <xref linkend="cha.s4s.configure.cryptctl" xrefstyle="SectTitleOnPage"/>
+      <xref linkend="cha-s4s-configure-cryptctl" xrefstyle="SectTitleOnPage"/>
     </term>
     <listitem>
      <para>
@@ -378,7 +378,7 @@
   </variablelist>
  </sect1>
 
- <sect1 xml:id="app.s4s.docupdate.2016-11-07">
+ <sect1 xml:id="app-s4s-docupdate-2016-11-07">
   <title>November 07, 2016&mdash;&s4sa; 12 SP2 FCS</title>
 
   <para>
@@ -389,7 +389,7 @@
   <variablelist>
    <varlistentry>
     <term>
-      <xref linkend="sec.s4s.component" xrefstyle="SectTitleOnPage"/>
+      <xref linkend="sec-s4s-component" xrefstyle="SectTitleOnPage"/>
     </term>
     <listitem>
      <para>
@@ -399,7 +399,7 @@
    </varlistentry>
    <varlistentry>
     <term>
-      <xref linkend="sec.s4s.repository" xrefstyle="SectTitleOnPage"/>
+      <xref linkend="sec-s4s-repository" xrefstyle="SectTitleOnPage"/>
     </term>
     <listitem>
      <para>
@@ -409,8 +409,8 @@
    </varlistentry>
    <varlistentry>
     <term>
-      <xref linkend="cha.s4s.install" xrefstyle="SectTitleOnPage"/>,
-      <xref linkend="cha.s4s.install.sap" xrefstyle="SectTitleOnPage"/>
+      <xref linkend="cha-s4s-install" xrefstyle="SectTitleOnPage"/>,
+      <xref linkend="cha-s4s-install-sap" xrefstyle="SectTitleOnPage"/>
     </term>
     <listitem>
      <para>
@@ -421,7 +421,7 @@
    </varlistentry>
    <varlistentry>
     <term>
-      <xref linkend="sec.partition.command" xrefstyle="SectTitleOnPage"/>
+      <xref linkend="sec-partition-command" xrefstyle="SectTitleOnPage"/>
     </term>
     <listitem>
      <para>
@@ -431,10 +431,10 @@
    </varlistentry>
    <varlistentry>
     <term>
-      <xref linkend="cha.s4s.tune" xrefstyle="SectTitleOnPage"/>,
-      <xref linkend="cha.s4s.access" xrefstyle="SectTitleOnPage"/>,
-      <xref linkend="cha.s4s.image" xrefstyle="SectTitleOnPage"/>,
-      <xref linkend="cha.s4s.trouble" xrefstyle="SectTitleOnPage"/>
+      <xref linkend="cha-s4s-tune" xrefstyle="SectTitleOnPage"/>,
+      <xref linkend="cha-s4s-access" xrefstyle="SectTitleOnPage"/>,
+      <xref linkend="cha-s4s-image" xrefstyle="SectTitleOnPage"/>,
+      <xref linkend="cha-s4s-trouble" xrefstyle="SectTitleOnPage"/>
     </term>
     <listitem>
      <para>
@@ -445,7 +445,7 @@
    </varlistentry>
    <varlistentry>
     <term>
-      <xref linkend="sec.saptune" xrefstyle="SectTitleOnPage"/>
+      <xref linkend="sec-saptune" xrefstyle="SectTitleOnPage"/>
     </term>
     <listitem>
      <para>
@@ -457,7 +457,7 @@
    </varlistentry>
    <varlistentry>
     <term>
-      <xref linkend="cha.s4s.configure.cryptctl" xrefstyle="SectTitleOnPage"/>
+      <xref linkend="cha-s4s-configure-cryptctl" xrefstyle="SectTitleOnPage"/>
     </term>
     <listitem>
      <para>
@@ -467,7 +467,7 @@
    </varlistentry>
    <varlistentry>
     <term>
-      <xref linkend="cha.s4s.configure.rdp" xrefstyle="SectTitleOnPage"/>
+      <xref linkend="cha-s4s-configure-rdp" xrefstyle="SectTitleOnPage"/>
     </term>
     <listitem>
      <para>
@@ -477,11 +477,11 @@
    </varlistentry>
    <varlistentry>
     <term>
-      <xref linkend="app.s4s.autoyast-partition" xrefstyle="SectTitleOnPage"/>
+      <xref linkend="app-s4s-autoyast-partition" xrefstyle="SectTitleOnPage"/>
     </term>
     <listitem>
      <para>
-      Moved parts of <xref linkend="sec.s4s.partition.sap"/> that related to
+      Moved parts of <xref linkend="sec-s4s-partition-sap"/> that related to
       &ay; only to a new section.
      </para>
     </listitem>
@@ -489,7 +489,7 @@
   </variablelist>
  </sect1>
 
- <sect1 xml:id="app.s4s.docupdate.2016-03-23">
+ <sect1 xml:id="app-s4s-docupdate-2016-03-23">
   <title>March 23, 2016</title>
 
   <para>
@@ -500,7 +500,7 @@
   <variablelist>
    <varlistentry>
     <term>
-      <xref linkend="sec.s4s.hana-ra" xrefstyle="SectTitleOnPage"/>
+      <xref linkend="sec-s4s-hana-ra" xrefstyle="SectTitleOnPage"/>
     </term>
     <listitem>
      <para>
@@ -510,7 +510,7 @@
    </varlistentry>
    <varlistentry>
     <term>
-      <xref linkend="sec.s4s.autoyast" xrefstyle="SectTitleOnPage"/>
+      <xref linkend="sec-s4s-autoyast" xrefstyle="SectTitleOnPage"/>
     </term>
     <listitem>
      <para>
@@ -522,7 +522,7 @@
   </variablelist>
  </sect1>
 
- <sect1 xml:id="app.s4s.docupdate.2016-02-29">
+ <sect1 xml:id="app-s4s-docupdate-2016-02-29">
   <title>February 29, 2016</title>
 
   <para>
@@ -533,7 +533,7 @@
   <variablelist>
    <varlistentry>
     <term>
-      <xref linkend="sec.s4s.configure.scrub-instance" xrefstyle="SectTitleOnPage"/>
+      <xref linkend="sec-s4s-configure-scrub-instance" xrefstyle="SectTitleOnPage"/>
     </term>
     <listitem>
      <para>
@@ -543,7 +543,7 @@
    </varlistentry>
    <varlistentry>
     <term>
-      <xref linkend="sec.s4s.configure.kiwi" xrefstyle="SectTitleOnPage"/>
+      <xref linkend="sec-s4s-configure-kiwi" xrefstyle="SectTitleOnPage"/>
     </term>
     <listitem>
      <para>
@@ -553,7 +553,7 @@
    </varlistentry>
    <varlistentry>
     <term>
-      <xref linkend="sec.s4s.download" xrefstyle="SectTitleOnPage"/>
+      <xref linkend="sec-s4s-download" xrefstyle="SectTitleOnPage"/>
     </term>
     <listitem>
      <para>
@@ -575,7 +575,7 @@
   </variablelist>
  </sect1>
 
- <sect1 xml:id="app.s4s.docupdate.2016-02-15">
+ <sect1 xml:id="app-s4s-docupdate-2016-02-15">
   <title>February 15, 2016</title>
 
   <para>
@@ -590,46 +590,46 @@
     <listitem>
      <para>
       Improve organization of the guide by updating its structure.
-      <xref linkend="cha.s4s.plan" xrefstyle="SectTitleOnPage"/>,
-      <xref linkend="cha.s4s.install.sap" xrefstyle="SectTitleOnPage"/>,
+      <xref linkend="cha-s4s-plan" xrefstyle="SectTitleOnPage"/>,
+      <xref linkend="cha-s4s-install-sap" xrefstyle="SectTitleOnPage"/>,
       <citetitle>Configuring &s4s;</citetitle>, and
-      <xref linkend="cha.s4s.serve-mediaset" xrefstyle="SectTitleOnPage"/> are now
+      <xref linkend="cha-s4s-serve-mediaset" xrefstyle="SectTitleOnPage"/> are now
       chapters instead of sections.
      </para>
      <para>
-      <xref linkend="app.s4s.component.supplement" xrefstyle="SectTitleOnPage"/>
+      <xref linkend="app-s4s-component-supplement" xrefstyle="SectTitleOnPage"/>
       is now an appendix instead of section.
      </para>
      <para>
-      <xref linkend="sec.s4s.partition" xrefstyle="SectTitleOnPage"/>
+      <xref linkend="sec-s4s-partition" xrefstyle="SectTitleOnPage"/>
       is now a section within
-      <xref linkend="cha.s4s.plan" xrefstyle="SectTitleOnPage"/>
+      <xref linkend="cha-s4s-plan" xrefstyle="SectTitleOnPage"/>
       instead of a chapter.
      </para>
      <para>
-      Merge <xref linkend="sec.s4s.component" xrefstyle="SectTitleOnPage"/>
+      Merge <xref linkend="sec-s4s-component" xrefstyle="SectTitleOnPage"/>
       and <citetitle>Chapter 5, <quote>&sles4sap; Components</quote></citetitle>.
      </para>
      <para>
-      Move <xref linkend="sec.s4s.install.network" xrefstyle="SectTitleOnPage"/>
+      Move <xref linkend="sec-s4s-install-network" xrefstyle="SectTitleOnPage"/>
       from <citetitle>Chapter 3,
       <quote>Remote Installation from a Network Server</quote></citetitle>
-      to <xref linkend="cha.s4s.install" xrefstyle="SectTitleOnPage"/>.
+      to <xref linkend="cha-s4s-install" xrefstyle="SectTitleOnPage"/>.
      </para>
      <para>
-      Move <xref linkend="sec.s4s.data" xrefstyle="SectTitleOnPage"/>
-      from <xref linkend="cha.s4s.install" xrefstyle="SectTitleOnPage"/> to
-      <xref linkend="cha.s4s.plan" xrefstyle="SectTitleOnPage"/>.
+      Move <xref linkend="sec-s4s-data" xrefstyle="SectTitleOnPage"/>
+      from <xref linkend="cha-s4s-install" xrefstyle="SectTitleOnPage"/> to
+      <xref linkend="cha-s4s-plan" xrefstyle="SectTitleOnPage"/>.
      </para>
      <para>
       Move certain information from
-      <xref linkend="sec.s4s.component.install" xrefstyle="SectTitleOnPage"/> to
-      <xref linkend="sec.s4s.workflow-overview" xrefstyle="SectTitleOnPage"/>.
+      <xref linkend="sec-s4s-component-install" xrefstyle="SectTitleOnPage"/> to
+      <xref linkend="sec-s4s-workflow-overview" xrefstyle="SectTitleOnPage"/>.
      </para>
     </listitem>
    </varlistentry>
    <varlistentry>
-    <term><xref linkend="cha.s4s.about" xrefstyle="SectTitleOnPage"/></term>
+    <term><xref linkend="cha-s4s-about" xrefstyle="SectTitleOnPage"/></term>
     <listitem>
      <para>
       Add figure.
@@ -637,7 +637,7 @@
     </listitem>
    </varlistentry>
    <varlistentry>
-    <term><xref linkend="sec.s4s.hana-replicate" xrefstyle="SectTitleOnPage"/>
+    <term><xref linkend="sec-s4s-hana-replicate" xrefstyle="SectTitleOnPage"/>
     </term>
     <listitem>
      <para>
@@ -647,7 +647,7 @@
    </varlistentry>
    <varlistentry>
     <term>
-      <xref linkend="sec.s4s.component.clamsap" xrefstyle="SectTitleOnPage"/>
+      <xref linkend="sec-s4s-component-clamsap" xrefstyle="SectTitleOnPage"/>
     </term>
     <listitem>
      <para>
@@ -657,7 +657,7 @@
    </varlistentry>
    <varlistentry>
     <term>
-      <xref linkend="sec.s4s.component.hana-secure" xrefstyle="SectTitleOnPage"/>
+      <xref linkend="sec-s4s-component-hana-secure" xrefstyle="SectTitleOnPage"/>
     </term>
     <listitem>
      <para>
@@ -667,7 +667,7 @@
    </varlistentry>
    <varlistentry>
     <term>
-      <xref linkend="sec.s4s.component.manage-operation" xrefstyle="SectTitleOnPage"/>
+      <xref linkend="sec-s4s-component-manage-operation" xrefstyle="SectTitleOnPage"/>
     </term>
     <listitem>
      <para>
@@ -677,7 +677,7 @@
    </varlistentry>
    <varlistentry>
     <term>
-      <xref linkend="sec.s4s.install.workflow" xrefstyle="SectTitleOnPage"/>
+      <xref linkend="sec-s4s-install-workflow" xrefstyle="SectTitleOnPage"/>
     </term>
     <listitem>
      <para>
@@ -687,7 +687,7 @@
    </varlistentry>
    <varlistentry>
     <term>
-      <xref linkend="sec.s4s.autoyast" xrefstyle="SectTitleOnPage"/>
+      <xref linkend="sec-s4s-autoyast" xrefstyle="SectTitleOnPage"/>
     </term>
     <listitem>
      <para>
@@ -697,7 +697,7 @@
    </varlistentry>
    <varlistentry>
     <term>
-      <xref linkend="cha.s4s.install.sap" xrefstyle="SectTitleOnPage"/>
+      <xref linkend="cha-s4s-install-sap" xrefstyle="SectTitleOnPage"/>
     </term>
     <listitem>
      <para>
@@ -707,7 +707,7 @@
    </varlistentry>
    <varlistentry>
     <term>
-      <xref linkend="sec.s4s.configure.firewall-hana" xrefstyle="SectTitleOnPage"/>
+      <xref linkend="sec-s4s-configure-firewall-hana" xrefstyle="SectTitleOnPage"/>
     </term>
     <listitem>
      <para>
@@ -717,7 +717,7 @@
    </varlistentry>
    <varlistentry>
     <term>
-      <xref linkend="sec.saptune" xrefstyle="SectTitleOnPage"/>
+      <xref linkend="sec-saptune" xrefstyle="SectTitleOnPage"/>
     </term>
     <listitem>
      <para>
@@ -728,7 +728,7 @@
   </variablelist>
  </sect1>
 
- <sect1 xml:id="app.s4s.docupdate.2015-05-29">
+ <sect1 xml:id="app-s4s-docupdate-2015-05-29">
   <title>May 29, 2015</title>
 
   <para>
@@ -738,7 +738,7 @@
 
   <variablelist>
    <varlistentry>
-    <term><xref linkend="sec.s4s.component" xrefstyle="SectTitleOnPage"/>
+    <term><xref linkend="sec-s4s-component" xrefstyle="SectTitleOnPage"/>
     </term>
     <listitem>
      <para>
@@ -751,7 +751,7 @@
     </listitem>
    </varlistentry>
    <varlistentry>
-    <term><xref linkend="cha.s4s.plan" xrefstyle="SectTitleOnPage"/>
+    <term><xref linkend="cha-s4s-plan" xrefstyle="SectTitleOnPage"/>
     </term>
     <listitem>
      <para>
@@ -794,7 +794,7 @@
     </listitem>
    </varlistentry>
    <varlistentry>
-    <term><xref linkend="cha.s4s.install.sap" xrefstyle="SectTitleOnPage"/>
+    <term><xref linkend="cha-s4s-install-sap" xrefstyle="SectTitleOnPage"/>
     </term>
     <listitem>
      <para>
@@ -803,7 +803,7 @@
     </listitem>
    </varlistentry>
    <varlistentry>
-    <term><xref linkend="sec.s4s.partition" xrefstyle="SectTitleOnPage"/>
+    <term><xref linkend="sec-s4s-partition" xrefstyle="SectTitleOnPage"/>
     </term>
     <listitem>
      <para>
@@ -812,7 +812,7 @@
     </listitem>
    </varlistentry>
    <varlistentry>
-    <term><xref linkend="sec.s4s.hana-replicate" xrefstyle="SectTitleOnPage"/>
+    <term><xref linkend="sec-s4s-hana-replicate" xrefstyle="SectTitleOnPage"/>
     </term>
     <listitem>
      <para>
@@ -822,7 +822,7 @@
     </listitem>
    </varlistentry>
    <varlistentry>
-    <term><xref linkend="sec.s4s.component.harden" xrefstyle="SectTitleOnPage"/>
+    <term><xref linkend="sec-s4s-component-harden" xrefstyle="SectTitleOnPage"/>
     </term>
     <listitem>
      <para>
@@ -834,7 +834,7 @@
   </variablelist>
  </sect1>
 <!-- ============================================================ -->
- <sect1 xml:id="app.s4s.docupdate.2015-04-29">
+ <sect1 xml:id="app-s4s-docupdate-2015-04-29">
   <title>April 29, 2015</title>
 
   <para>
@@ -853,7 +853,7 @@
     </listitem>
    </varlistentry>
    <varlistentry>
-    <term><xref linkend="pre.s4s" xrefstyle="SectTitleOnPage"/>
+    <term><xref linkend="pre-s4s" xrefstyle="SectTitleOnPage"/>
     </term>
     <listitem>
      <para>
@@ -862,7 +862,7 @@
     </listitem>
    </varlistentry>
    <varlistentry>
-    <term><xref linkend="sec.s4s.autoyast" xrefstyle="SectTitleOnPage"/>
+    <term><xref linkend="sec-s4s-autoyast" xrefstyle="SectTitleOnPage"/>
     </term>
     <listitem>
      <para>
@@ -873,7 +873,7 @@
    </varlistentry>
   </variablelist>
  </sect1>
- <sect1 xml:id="app.s4s.docupdate.2013-10-28">
+ <sect1 xml:id="app-s4s-docupdate-2013-10-28">
   <title>October 28, 2013</title>
 
   <para>
@@ -883,7 +883,7 @@
 
   <variablelist>
    <varlistentry>
-    <term><xref linkend="cha.s4s.install" xrefstyle="SectTitleOnPage"/>
+    <term><xref linkend="cha-s4s-install" xrefstyle="SectTitleOnPage"/>
     </term>
     <listitem>
      <para>
@@ -893,7 +893,7 @@
     </listitem>
    </varlistentry>
    <varlistentry>
-    <term><xref linkend="sec.s4s.partition" xrefstyle="SectTitleOnPage"/>
+    <term><xref linkend="sec-s4s-partition" xrefstyle="SectTitleOnPage"/>
     </term>
     <listitem>
      <para>
@@ -902,7 +902,7 @@
     </listitem>
    </varlistentry>
    <varlistentry>
-    <term><xref linkend="app.s4s.docupdate" xrefstyle="SectTitleOnPage"/>
+    <term><xref linkend="app-s4s-docupdate" xrefstyle="SectTitleOnPage"/>
     </term>
     <listitem>
      <para>
