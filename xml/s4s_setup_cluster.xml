@@ -4,12 +4,12 @@
   <!ENTITY % entities SYSTEM "generic-entities.ent">
     %entities;
 ]>
-<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="cha.s4s.cluster">
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="cha-s4s-cluster">
  <title>Setting Up an &hana; Cluster</title>
  <para>
   You can use a &yast; wizard to set up &hana; or &s4hd; clusters according
   to best practices, including &hana; system replication. A summary of the
-  setup options is given in <xref linkend="sec.s4s.hana-replicate"/>.
+  setup options is given in <xref linkend="sec-s4s-hana-replicate"/>.
  </para>
  <para>
   Administrators can now use the &hana;-SR Wizard to configure the &hana;
@@ -60,7 +60,7 @@
   </para>
  </important>
 
- <sect1 xml:id="sec.s4s.hana-cluster.prerequisite">
+ <sect1 xml:id="sec-s4s-hana-cluster-prerequisite">
   <title>Prerequisites</title>
   <para>
    The following procedure has prerequisites:
@@ -133,7 +133,7 @@
     </para>
     <para>
      For information about setting up HANA-Firewall, see
-     <xref linkend="sec.s4s.configure.firewall-hana"/>.
+     <xref linkend="sec-s4s-configure-firewall-hana"/>.
     </para>
    </listitem>
    <listitem>
@@ -157,14 +157,14 @@
    </listitem>
   </itemizedlist>
  </sect1>
- <sect1 xml:id="sec.s4s.hana-cluster.wizard">
+ <sect1 xml:id="sec-s4s-hana-cluster-wizard">
   <title>Setup</title>
-  <procedure xml:id="pro.s4s.hana-cluster">
+  <procedure xml:id="pro-s4s-hana-cluster">
    <para>
     The following procedure needs to be executed on the primary node (also
     called the <quote>master</quote>). Before proceeding, make sure the
     prerequisites listed in
-    <xref linkend="sec.s4s.hana-cluster.prerequisite"/> are fulfilled.
+    <xref linkend="sec-s4s-hana-cluster-prerequisite"/> are fulfilled.
    </para>
    <step>
     <para>
@@ -186,7 +186,7 @@
      scale-up scenarios <guimenu>Performance-optimized</guimenu>,
      <guimenu>Cost-optimized</guimenu>, or
      <guimenu>Chained (multi-tier)</guimenu>. For information about
-     these scale-up scenarios, see <xref linkend="sec.s4s.hana-replicate"/>.
+     these scale-up scenarios, see <xref linkend="sec-s4s-hana-replicate"/>.
     </para>
     <para>
      Continue with <guimenu>Next</guimenu>.
@@ -209,7 +209,7 @@
     <para>
      This step of the wizard presents a list of prerequisites for the chosen
      scale-up scenario. These prerequisites are the same as those presented in
-     <xref linkend="sec.s4s.hana-cluster.prerequisite"/>.
+     <xref linkend="sec-s4s-hana-cluster-prerequisite"/>.
     </para>
     <para>
      Continue with <guimenu>Next</guimenu>.
@@ -655,7 +655,7 @@
    </step>
   </procedure>
  </sect1>
- <sect1 xml:id="sec.s4s.hana-cluster.wizard.semiautomatic">
+ <sect1 xml:id="sec-s4s-hana-cluster-wizard-semiautomatic">
   <title>Unattended Setup Using &hana;-SR Wizard</title>
   
   <para>
@@ -696,7 +696,7 @@
     >Use &hana; System Replication for Near Zero Downtime Upgrades</link>.
   </para>
  </sect1>
- <sect1 xml:id="sec.s4s.hawk">
+ <sect1 xml:id="sec-s4s-hawk">
   <title>Using &hawk;</title>
   <para>
    After you have set up the cluster using the wizard, you can open &hawk;.
@@ -707,7 +707,7 @@
    To revisit &hawk;, open a browser and as the URL, enter the IP address
    or host name of any cluster node running the &hawk; Web service.
    Alternatively, enter the virtual IP address you configured in
-   <xref linkend="sec.s4s.hana-cluster.wizard"/>.
+   <xref linkend="sec-s4s-hana-cluster-wizard"/>.
   </para>
   <screen>https://<replaceable>HAWKSERVER</replaceable>:7630/</screen>
   <para>

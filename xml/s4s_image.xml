@@ -4,7 +4,7 @@
   <!ENTITY % entities SYSTEM "generic-entities.ent">
     %entities;
 ]>
-<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="cha.s4s.image">
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="cha-s4s-image">
  <title>Creating Operating System Images</title>
 
  <para>
@@ -17,7 +17,7 @@
   that is cleaned up before re-use.
  </para>
 
- <sect1 xml:id="sec.s4s.configure.kiwi">
+ <sect1 xml:id="sec-s4s-configure-kiwi">
   <title>Creating Images with &kiwi;</title>
 
   <para>
@@ -76,7 +76,7 @@
     <para>
      The service <systemitem>xrdp</systemitem> is started automatically, so
      you can connect to the machine via RDP. For more information, see
-     <xref linkend="cha.s4s.configure.rdp"/>.
+     <xref linkend="cha-s4s-configure-rdp"/>.
     </para>
    </listitem>
   </itemizedlist>
@@ -100,7 +100,7 @@
   </itemizedlist>
  </sect1>
 
- <sect1 xml:id="sec.s4s.configure.scrub-instance">
+ <sect1 xml:id="sec-s4s-configure-scrub-instance">
   <title>Cleaning Up an Instance Before Using It as a Master Image</title>
 
   <para>
@@ -185,7 +185,7 @@
    of the installation workflow was used for the original installation, it is
    run again on the next boot.
   </para>
-  <sect2 xml:id="sec.s4s.configure.scrub-instance.configure">
+  <sect2 xml:id="sec-s4s-configure-scrub-instance-configure">
    <title>Configuring &cmcu;</title>
    <para>
     Before running &cmcu;, the script can be configured in the following ways:
@@ -217,7 +217,7 @@
     </listitem>
    </itemizedlist>
   </sect2>
-  <sect2 xml:id="sec.s4s.configure.scrub-instance.use">
+  <sect2 xml:id="sec-s4s-configure-scrub-instance-use">
    <title>Using &cmcu;</title>
    <para>
     To use the script, do:
@@ -227,7 +227,7 @@
     Then follow the instructions.
    </para>
   </sect2>
-  <sect2 xml:id="sec.s4s.configure.scrub-instance.more">
+  <sect2 xml:id="sec-s4s-configure-scrub-instance-more">
    <title>For More Information</title>
    <para>
     The following sources provide additional information about &cmcu;:

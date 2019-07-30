@@ -4,7 +4,7 @@
   <!ENTITY % entities SYSTEM "generic-entities.ent">
     %entities;
 ]>
-<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="cha.s4s.plan">
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="cha-s4s-plan">
  <title>Planning the Installation</title>
 
  <para>
@@ -12,7 +12,7 @@
   requirements and helps you collect data about your system.
  </para>
 
- <sect1 xml:id="sec.s4s.hardware">
+ <sect1 xml:id="sec-s4s-hardware">
   <title>Hardware Requirements</title>
   <para>
    This section lists minimum hardware requirements for the installation of
@@ -122,11 +122,11 @@
   </para>
   <para>
    For more information about partitioning, see
-   <xref linkend="sec.s4s.partition"/>.
+   <xref linkend="sec-s4s-partition"/>.
   </para>
  </sect1>
 
- <sect1 xml:id="sec.s4s.download">
+ <sect1 xml:id="sec-s4s-download">
   <title>Installation Image</title>
   <procedure>
    <step>
@@ -153,7 +153,7 @@
   </procedure>
  </sect1>
 
- <sect1 xml:id="sec.s4s.migration">
+ <sect1 xml:id="sec-s4s-migration">
   <title>Offline Migration</title>
   <para>As the migration paths for &sls; are identical as those for &sles4sap;,
   find detailed information in the &upgrade_guide; at <link
@@ -161,7 +161,7 @@
   </para>
  </sect1>
 
- <sect1 condition="noquick" xml:id="sec.s4s.how-install">
+ <sect1 condition="noquick" xml:id="sec-s4s-how-install">
   <title>Installation Methods</title>
   <para>
    There are multiple ways of installing &sles4sap;:
@@ -169,19 +169,19 @@
   <itemizedlist>
    <listitem>
     <para>
-     <xref linkend="sec.s4s.install.workflow" xrefstyle="select:title,nopage"/>
+     <xref linkend="sec-s4s-install-workflow" xrefstyle="select:title,nopage"/>
      (standard way of installation)
     </para>
    </listitem>
    <listitem>
     <para>
-     <xref linkend="sec.s4s.autoyast" xrefstyle="select:title,nopage"/>
+     <xref linkend="sec-s4s-autoyast" xrefstyle="select:title,nopage"/>
     </para>
    </listitem>
   </itemizedlist>
  </sect1>
 
- <sect1 xml:id="sec.s4s.workflow-overview">
+ <sect1 xml:id="sec-s4s-workflow-overview">
   <title>Overview of the Installation Workflow</title>
 
   <para>
@@ -192,30 +192,30 @@
    <listitem>
     <para>
      Installation of the operating system (&sls;). See
-     <xref linkend="sec.s4s.install.workflow"/>.
+     <xref linkend="sec-s4s-install-workflow"/>.
     </para>
    </listitem>
    <listitem>
     <para>
      &sapwiz;, part 1: Copying all required &sap; media to the
      local disk or selecting a shared storage medium to use.
-     See <xref linkend="sec.s4s.install.sap.product"/>, in particular
-     <xref linkend="st.s4s.copy-master" xrefstyle="select:title"/>.
+     See <xref linkend="sec-s4s-install-sap-product"/>, in particular
+     <xref linkend="st-s4s-copy-master" xrefstyle="select:title"/>.
     </para>
    </listitem>
    <listitem>
     <para>
      &sapwiz;, part 2: Collecting all parameters for the
      actual installation by querying the user interactively.
-     See <xref linkend="sec.s4s.install.sap.product"/>, in particular
-     <xref linkend="st.s4s.collect-parameter" xrefstyle="select:title"/>.
+     See <xref linkend="sec-s4s-install-sap-product"/>, in particular
+     <xref linkend="st-s4s-collect-parameter" xrefstyle="select:title"/>.
     </para>
    </listitem>
    <listitem>
     <para>
      &sapwiz;, part 3: Running the &sap; Installer.
-     See <xref linkend="sec.s4s.install.sap.product"/>, in particular
-     <xref linkend="st.s4s.sapinst" xrefstyle="select:title"/>.
+     See <xref linkend="sec-s4s-install-sap-product"/>, in particular
+     <xref linkend="st-s4s-sapinst" xrefstyle="select:title"/>.
     </para>
    </listitem>
   </orderedlist>
@@ -236,7 +236,7 @@
    </para>
    <para condition="noquick">
     For more information about converting, see
-    <xref linkend="sec.s4s.convert-sles"/>.
+    <xref linkend="sec-s4s-convert-sles"/>.
    </para>
   </important>
 
@@ -271,7 +271,7 @@
   </para>
  </sect1>
 
- <sect1 xml:id="sec.s4s.data">
+ <sect1 xml:id="sec-s4s-data">
   <title>Required Data for Installing</title>
 
   <variablelist>
