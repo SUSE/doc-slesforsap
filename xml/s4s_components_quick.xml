@@ -71,8 +71,8 @@
    <listitem>
     <para>
      &sles4sap; additionally provides the package
-     <systemitem>HANA-Firewall</systemitem> which integrates with &firewall;
-     to provide preconfigured zone setups and rules to make securing &hana;
+     <systemitem>HANA-Firewall</systemitem> which integrates with &firewalld;
+     to provide a preconfigured setup and rules to make securing &hana;
      as simple as possible.
     </para>
     <para>
