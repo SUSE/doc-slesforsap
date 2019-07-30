@@ -4,7 +4,7 @@
   <!ENTITY % entities SYSTEM "generic-entities.ent">
     %entities;
 ]>
-<appendix xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="app.s4s.docupdate">
+<appendix xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="app-s4s-docupdate">
  <title>Documentation Updates</title>
 
  <para>
@@ -17,12 +17,12 @@
  <itemizedlist role="subtoc">
   <listitem>
    <para>
-    <xref linkend="app.s4s.docupdate.2018-04-25" xrefstyle="SectTitleOnPage"/>
+    <xref linkend="app-s4s-docupdate-2018-04-25" xrefstyle="SectTitleOnPage"/>
    </para>
   </listitem>
  </itemizedlist>
 
- <!-- <sect1 xml:id="app.s4s.docupdate.2018-04-25">
+ <!-- <sect1 xml:id="app-s4s-docupdate-2018-04-25">
   <title>April 25, 2018&mdash;&s4sa; 12 SP3 Documentation Update</title>
 
   <para>
@@ -33,7 +33,7 @@
   <variablelist>
    <varlistentry>
     <term>
-     <xref linkend="sec.s4s.service" xrefstyle="SectTitleOnPage"/>
+     <xref linkend="sec-s4s-service" xrefstyle="SectTitleOnPage"/>
     </term>
     <listitem>
      <para>
@@ -43,7 +43,7 @@
    </varlistentry>
    <varlistentry>
     <term>
-     <xref linkend="sec.s4s.hana-cluster.wizard" xrefstyle="SectTitleOnPage"/>
+     <xref linkend="sec-s4s-hana-cluster-wizard" xrefstyle="SectTitleOnPage"/>
     </term>
     <listitem>
      <para>

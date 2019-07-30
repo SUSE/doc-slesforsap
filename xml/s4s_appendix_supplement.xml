@@ -4,7 +4,7 @@
   <!ENTITY % entities SYSTEM "generic-entities.ent">
     %entities;
 ]>
-<appendix xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="app.s4s.component.supplement">
+<appendix xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="app-s4s-component-supplement">
  <title>&supmedia;</title>
 
  <para>
@@ -24,7 +24,7 @@
   creating your own dialogs and scripts.
  </para>
 
- <sect1 xml:id="sec.s4s.component.supplement.productxml">
+ <sect1 xml:id="sec-s4s-component-supplement-productxml">
   <title><filename>product.xml</filename></title>
   <para>
    The <filename>product.xml</filename> file looks like a normal &ay;
@@ -45,38 +45,38 @@
    The following areas or sections will be merged:
   </para>
 <screen>&lt;general&gt;
-  &lt;ask-list&gt;         <co xml:id="co.s4s.ay.general"/>
+  &lt;ask-list&gt;         <co xml:id="co-s4s-ay-general"/>
   ...
-&lt;software&gt;           <co xml:id="co.s4s.ay.software"/>
+&lt;software&gt;           <co xml:id="co-s4s-ay-software"/>
   &lt;post-packages&gt;
   ...
 &lt;scripts&gt;
-  &lt;chroot-scripts&gt;   <co xml:id="co.s4s.ay.chroot"/>
-  &lt;post-scripts&gt;     <co xml:id="co.s4s.ay.post"/>
-  &lt;init-scripts&gt;     <co xml:id="co.s4s.ay.init"/>
+  &lt;chroot-scripts&gt;   <co xml:id="co-s4s-ay-chroot"/>
+  &lt;post-scripts&gt;     <co xml:id="co-s4s-ay-post"/>
+  &lt;init-scripts&gt;     <co xml:id="co-s4s-ay-init"/>
   ...</screen>
   <calloutlist>
-   <callout arearefs="co.s4s.ay.general">
+   <callout arearefs="co-s4s-ay-general">
     <para>
-     see <xref linkend="sec.s4s.component.supplement.ask"/>
+     see <xref linkend="sec-s4s-component-supplement-ask"/>
     </para>
    </callout>
-   <callout arearefs="co.s4s.ay.software">
+   <callout arearefs="co-s4s-ay-software">
     <para>
-     see <xref linkend="sec.s4s.component.supplement.rpm"/>
+     see <xref linkend="sec-s4s-component-supplement-rpm"/>
     </para>
    </callout>
-   <callout arearefs="co.s4s.ay.chroot">
+   <callout arearefs="co-s4s-ay-chroot">
     <para>
      after the package installation, before the first boot
     </para>
    </callout>
-   <callout arearefs="co.s4s.ay.post">
+   <callout arearefs="co-s4s-ay-post">
     <para>
      during the first boot of the installed system, no services running
     </para>
    </callout>
-   <callout arearefs="co.s4s.ay.init">
+   <callout arearefs="co-s4s-ay-init">
     <para>
      during the first boot of the installed system, all services up and
      running
@@ -96,7 +96,7 @@
   </para>
  </sect1>
 
- <sect1 xml:id="sec.s4s.component.supplement.ask">
+ <sect1 xml:id="sec-s4s-component-supplement-ask">
   <title>Own &ay; Ask Dialogs</title>
   <para>
    For more information about the <quote>Ask</quote> feature of &ay;, see
@@ -173,7 +173,7 @@ check_name "$VAL"
 </profile>]]></screen>
  </sect1>
 
- <sect1 xml:id="sec.s4s.component.supplement.rpm">
+ <sect1 xml:id="sec-s4s-component-supplement-rpm">
   <title>Installing Additional Packages</title>
   <para>
    You can also install RPM packages within the
@@ -199,7 +199,7 @@ check_name "$VAL"
 ...]]></screen>
  </sect1>
 
- <sect1 xml:id="sec.s4s.supplement.directory">
+ <sect1 xml:id="sec-s4s-supplement-directory">
   <title>Example Directory for &supmedia;</title>
   <para>
    A minimal example for &supmedia; directory contains only a file called

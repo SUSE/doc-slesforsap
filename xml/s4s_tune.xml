@@ -4,7 +4,7 @@
   <!ENTITY % entities SYSTEM "generic-entities.ent">
     %entities;
 ]>
-<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="cha.s4s.tune">
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="cha-s4s-tune">
  <title>Tuning</title>
 
  <para>
@@ -12,7 +12,7 @@
   &sap; applications.
  </para>
 
- <sect1 xml:id="sec.sapconf">
+ <sect1 xml:id="sec-sapconf">
   <title>Tuning Systems with the &sapconf; Profile</title>
   <para>
    The package <systemitem>sapconf</systemitem> contains the
@@ -65,7 +65,7 @@
     earlier versions of &productname;.
    </para>
   </note>
-  <sect2 xml:id="sec.sapconf.enable">
+  <sect2 xml:id="sec-sapconf-enable">
    <title>Enabling and Disabling &sapconf; and Viewing Its Status</title>
    <para>
     After the installation of &sapconf;, &tuned; is enabled and the
@@ -179,7 +179,7 @@
     </itemizedlist>
    </tip>
   </sect2>
-  <sect2 xml:id="sec.sapconf.configure">
+  <sect2 xml:id="sec-sapconf-configure">
    <title>Configuring &sapconf;</title>
    <para>
     In general, the default configuration of &sapconf; already uses the
@@ -296,7 +296,7 @@
     differently for different parameters. Hence, the following serves as an
     example only:
    </para>
-   <example xml:id="ex.sapconf.change-parameter">
+   <example xml:id="ex-sapconf-change-parameter">
     <title>Checking Parameters</title>
     <para>
      To confirm that the setting for <literal>TCP_SLOW_START</literal> was
@@ -329,7 +329,7 @@
     </itemizedlist>
    </example>
   </sect2>
-  <sect2 xml:id="sec.sapconf.remove">
+  <sect2 xml:id="sec-sapconf-remove">
    <title>Removing &sapconf;</title>
    <para>
     To remove &sapconf; from a system, uninstall its package with:
@@ -348,7 +348,7 @@
     sapconf</command>, section <citetitle>PACKAGE REQUIREMENTS</citetitle>.
    </para>
   </sect2>
-  <sect2 xml:id="sec.sapconf.more">
+  <sect2 xml:id="sec-sapconf-more">
    <title>For More Information</title>
    <para>
     The following man pages provide additional information about &sapconf;:
@@ -380,7 +380,7 @@
   </sect2>
  </sect1>
 
- <sect1 xml:id="sec.saptune">
+ <sect1 xml:id="sec-saptune">
   <title>Tuning Systems with &saptune;</title>
   <para>
    Using &saptune;, you can
@@ -402,9 +402,9 @@
    </para>
   </note>
 
-  <sect2 xml:id="sec.s4s.saptune.enable">
+  <sect2 xml:id="sec-s4s-saptune-enable">
   <title>Enabling &saptune; to Tune for an &sap; Application</title>
-  <procedure xml:id="pro.s4s.tune">
+  <procedure xml:id="pro-s4s-tune">
    <step>
     <para>
      To tune a system, first find a tuning profile.
@@ -535,7 +535,7 @@
   </para>
   </sect2>
 
-  <sect2 xml:id="sec.s4s.saptune.disable">
+  <sect2 xml:id="sec-s4s-saptune-disable">
    <title>Disabling &saptune;</title>
    <para>
     To disable &saptune;, use one of the following ways:
@@ -558,7 +558,7 @@
    </itemizedlist>
   </sect2>
 
-  <sect2 xml:id="sec.saptune.more">
+  <sect2 xml:id="sec-saptune-more">
    <title>For More Information</title>
   <para>
    See the following man pages:
@@ -582,7 +582,7 @@
   </sect2>
  </sect1>
 
- <sect1 xml:id="sec.s4s.sysctl">
+ <sect1 xml:id="sec-s4s-sysctl">
   <title>Tuning Kernel Parameters Manually Using <command>sysctl</command></title>
   <para>
    In addition to or instead of tuning kernel parameters using
