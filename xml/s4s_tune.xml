@@ -12,6 +12,16 @@
   &sap; applications.
  </para>
 
+ <note>
+  <title>Choosing between <command>sapconf</command> and
+   <command>saptune</command></title>
+  <para>
+   On &s4s; you have the choice between <command>sapconf</command> and
+   <command>saptune</command>. However, <command>saptune</command> is
+   the more elaborate tool that offers more features.
+  </para>
+ </note>
+
  <sect1 xml:id="sec.s4s.configure.page-cache">
   <title>Kernel: Page-Cache Limit</title>
   <remark>
@@ -136,12 +146,12 @@ vm.pagecache_limit_ignore_dirty = <replaceable>2</replaceable></screen>
   <procedure xml:id="pro.s4s.tune">
    <step>
     <para>
-     To tune a system, first find a tuning solution.
+     To tune a system, first find a tuning solutions.
      To find the appropriate solution, use:
     </para>
     <screen>&prompt.user;<command>saptune solution list</command></screen>
     <para>
-     &saptune; knows the following tuning solution (group of &sap; notes):
+     &saptune; knows the following tuning solutions (group of &sap; notes):
     </para>
     <itemizedlist>
      <listitem>
@@ -231,14 +241,17 @@ vm.pagecache_limit_ignore_dirty = <replaceable>2</replaceable></screen>
       <screen>&prompt.root;<command>saptune note apply <replaceable>NOTE</replaceable></command></screen>
      </listitem>
     </itemizedlist>
-    <tip>
+    <note>
      <title>Combining Optimizations</title>
      <para>
-      You can freely combine <quote>solutions</quote> and
-      <quote>notes.</quote> Combining multiple optimizations will never create
-      conflicts.
+      You can combine solutions and notes. However, you can only have
+      one solution.
+      In rare cases, notes can have conflicting options or parameters.
+      To avoid conflicts, order your notes, keeping in mind that the
+      last note always overrides the conflicting options or parameters
+      in previous notes.
      </para>
-    </tip>
+    </note>
    </step>
    <step>
     <para>
@@ -275,17 +288,6 @@ vm.pagecache_limit_ignore_dirty = <replaceable>2</replaceable></screen>
    </para>
    <screen>&prompt.root;<command>saptune note create</command></screen>
    <para>All features of &saptune; are available.</para>
-   <note>
-    <!-- <title></title> -->
-    <para>
-     If you plan to configure sysctl parameters for your SAP system,
-     consider to use <command>saptune</command> as a central instance for
-     managing your system configuration.
-     On &s4s; you have the choice between <command>sapconf</command> and
-     <command>saptune</command>. However, <command>saptune</command> is
-     the more elaborate tool that offers more features.
-    </para>
-   </note>
   </sect2>
 
   <sect2 xml:id="sec.s4s.saptune.show">
@@ -337,6 +339,11 @@ vm.pagecache_limit_ignore_dirty = <replaceable>2</replaceable></screen>
     <filename>/etc/sysctl.conf</filename> (or another configuration file read
     by <command>sysctl</command>).
    </para>
+   <tip>
+    <para>If you plan to configure sysctl parameters for your SAP system,
+     consider to use <command>saptune</command> as a central instance for
+     managing your system configuration.</para>
+   </tip>
    <para>
     <!-- FIXME: -> SLES docs: we don't seem to have any good section to
     reference here. Thisll do for the moment. - sknorr, 2017-05-04 -->
