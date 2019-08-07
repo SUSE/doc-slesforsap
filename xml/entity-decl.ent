@@ -224,6 +224,12 @@
 <!ENTITY altf2           '<keycombo xmlns="http://docbook.org/ns/docbook"><keycap function="alt"/><keycap>F2</keycap></keycombo>'>
 
 
+<!ENTITY ase            "&sap; Adaptive Server Enterprise">
+<!ENTITY bo             "&sap; BusinessObjects">
+<!ENTITY sapconf        "<literal xmlns='http://docbook.org/ns/docbook'>sapconf</literal>">
+<!ENTITY saptune        "<command xmlns='http://docbook.org/ns/docbook'>saptune</command>">
+<!ENTITY tuned          "<systemitem xmlns='http://docbook.org/ns/docbook' class='daemon'>tuned</systemitem>">
+
 <!ENTITY wypublic          "/srv/www/yast/public/">
 <!ENTITY mac               "<replaceable xmlns='http://docbook.org/ns/docbook'>MAC</replaceable>">
 <!ENTITY hwmac             "hwtype.<replaceable xmlns='http://docbook.org/ns/docbook'>MAC</replaceable>">
