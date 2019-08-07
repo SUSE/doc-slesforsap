@@ -116,7 +116,7 @@ vm.pagecache_limit_ignore_dirty = <replaceable>2</replaceable></screen>
   <title>Tuning Systems with &saptune;</title>
   <para>
    Using &saptune;, you can
-   tune a system for &netweaver;, &hana;/&b1;, and &s4h; applications. This method
+   tune a system for &netweaver;, &hana;/&bo;, and &s4h; applications. This method
    relies on the system tuning service &tuned;.
   </para>
   <para>
@@ -135,20 +135,19 @@ vm.pagecache_limit_ignore_dirty = <replaceable>2</replaceable></screen>
   <procedure xml:id="pro-s4s-tune">
    <step>
     <para>
-     To tune a system, first find a tuning profile.
-     To find the appropriate profile, use:
+     To tune a system, first find a tuning solution.
+     To find the appropriate solution, use:
     </para>
     <screen>&prompt.user;<command>saptune solution list</command></screen>
     <para>
-     &saptune; knows the following
-     <quote>solution</quote> profiles:
+     &saptune; knows the following tuning solution (group of &sap; notes):
     </para>
     <itemizedlist>
      <listitem>
       <formalpara>
        <title><literal>BOBJ</literal></title>
        <para>
-        Profile for servers hosting &bo;.
+        Solution for running &bo;.
        </para>
       </formalpara>
      </listitem>
@@ -156,7 +155,7 @@ vm.pagecache_limit_ignore_dirty = <replaceable>2</replaceable></screen>
       <formalpara>
        <title><literal>HANA</literal></title>
        <para>
-        Profile for servers hosting an &hana; database.
+        Solution for running a &hana; database.
        </para>
       </formalpara>
      </listitem>
@@ -164,7 +163,7 @@ vm.pagecache_limit_ignore_dirty = <replaceable>2</replaceable></screen>
       <formalpara>
        <title><literal>MAXDB</literal></title>
        <para>
-        Profile for servers hosting a MaxDB database.
+        Solution for running a &sap; MaxDB database.
        </para>
       </formalpara>
      </listitem>
@@ -172,24 +171,38 @@ vm.pagecache_limit_ignore_dirty = <replaceable>2</replaceable></screen>
       <formalpara>
        <title><literal>NETWEAVER</literal></title>
        <para>
-        Profile for servers hosting an &netweaver; application.
+        Solution for running &netweaver; application servers.
        </para>
       </formalpara>
      </listitem>
      <listitem>
       <formalpara>
        <title><literal>S4HANA-APPSERVER</literal></title>
-       <para>
-        Profile for servers hosting an &s4h; application.
-       </para>
+       <para> Solution for running &s4h; application servers
+         (identical to &netweaver; solution). </para>
+      </formalpara>
+     </listitem>
+     <listitem>
+      <formalpara>
+       <title><literal>S4HANA-APP+DB</literal></title>
+       <para>Solution for running both &s4h; application servers and &hana;
+        on the same host (identical to &netweaver; + &hana; solution). </para>
       </formalpara>
      </listitem>
      <listitem>
       <formalpara>
        <title><literal>S4HANA-DBSERVER</literal></title>
        <para>
-        Profile for servers hosting the &hana; database of an &s4h;
-        installation.
+        Solution for running the &hana; database of an &s4h;
+        installation (identical to &hana; solution)
+       </para>
+      </formalpara>
+     </listitem>
+     <listitem>
+      <formalpara>
+       <title><literal>SAP-ASE</literal></title>
+       <para>
+        Solution for running an &ase; database.
        </para>
       </formalpara>
      </listitem>
@@ -211,14 +224,6 @@ vm.pagecache_limit_ignore_dirty = <replaceable>2</replaceable></screen>
      available via:
     </para>
     <screen>&prompt.root;<command>saptune note list</command></screen>
-    <para>
-     The referenced &sap; Notes are available from the &sap; Web site.
-     The list entries starting with <literal>SUSE-GUIDE</literal> follow the
-     recommendations made in
-     <link xlink:href="https://www.suse.com/communities/blog/sles-1112-os-tuning-optimisation-guide-part-1/"/>
-     and
-     <link xlink:href="https://www.suse.com/communities/blog/sles-1112-network-cpu-tuning-optimization-part-2/"/>.
-    </para>
    </step>
    <step>
     <itemizedlist>
@@ -247,9 +252,8 @@ vm.pagecache_limit_ignore_dirty = <replaceable>2</replaceable></screen>
    </step>
    <step>
     <para>
-     Finally, enable the &tuned; profile
-     &saptune; and make sure the
-     &tuned; daemon is active:
+     To start &saptune; and enable it at boot, make sure to run
+     the following command:
     </para>
     <screen>&prompt.root;<command>saptune daemon start</command></screen>
    </step>
@@ -262,27 +266,75 @@ vm.pagecache_limit_ignore_dirty = <replaceable>2</replaceable></screen>
    Using <command>tuned-adm list</command>, you can also see this profile.
   </para>
   </sect2>
-  <sect2 xml:id="sec-s4s-saptune-disable">
+  <sect2 xml:id="sec.s4s.saptune.customize">
+   <title>Customizing a &sap; Note</title>
+   <para>
+    Every &sap; note can be configured freely with:
+    <remark>toms 2019-07-08: Is it customise or customize?</remark>
+   </para>
+   <screen>&prompt.root;<command>saptune note customise</command></screen>
+   <para>
+    The command includes changing a value or disabling a parameter.
+   </para>
+  </sect2>
+
+  <sect2 xml:id="sec.s4s.saptune.create">
+   <title>Creating a new &sap; Note</title>
+   <para>
+     It is possible to create a new &sap; note with:
+   </para>
+   <screen>&prompt.root;<command>saptune note create</command></screen>
+   <para>All features of &saptune; are available.</para>
+   <note>
+    <!-- <title></title> -->
+    <para>
+     If you plan to configure sysctl parameters for your SAP system,
+     consider to use <command>saptune</command> as a central instance for
+     managing your system configuration.
+     On &s4s; you have the choice between <command>sapconf</command> and
+     <command>saptune</command>. However, <command>saptune</command> is
+     the more elaborate tool that offers more features.
+    </para>
+   </note>
+  </sect2>
+
+  <sect2 xml:id="sec.s4s.saptune.show">
+   <title>Showing the Configuration of a &sap; Note</title>
+   <para>
+    The shipped configuration of a note can be listed with:
+   </para>
+   <screen>&prompt.root;<command>saptune note show</command></screen>
+  </sect2>
+
+  <sect2 xml:id="sec.s4s.saptune.verify">
+   <title>Verifying a &sap; Note or a &sap; Solution</title>
+   <para>
+    The command <command>saptune note|solution verify [note]</command>
+    lists for each active or requested note: the parameter name,
+    the exected value (default), a configured override (done by a
+    <command>saptune customise</command>) the current system value and
+    if the current state is compliant to the &sap; recommendation or not.
+   </para>
+  </sect2>
+
+  <sect2 xml:id="sec.s4s.saptune.simulate">
+   <title>Simulating the Apply of a &sap; Note or a &sap; Solution</title>
+   <para>
+    To show each parameter, use:
+   </para>
+   <screen>&prompt.root;<command>saptune note|solution simulate</command></screen>
+   <para>
+    It lists the current system value and the expected values (default and
+    override is listed too).
+   </para>
+  </sect2>
+
+  <sect2 xml:id="sec.s4s.saptune.disable">
    <title>Disabling &saptune;</title>
    <para>
-    To disable &saptune;, use one of the following ways:
+    To disable &saptune; and to stop and disable &tuned; run:
    </para>
-   <itemizedlist>
-    <listitem>
-     <para>
-      Completely disable the daemon
-      &tuned;:
-     </para>
-     <screen>&prompt.root;<command>systemctl disable tuned</command></screen>
-    </listitem>
-    <listitem>
-     <para>
-      Switch to a different
-      &tuned; profile:
-     </para>
-     <screen>&prompt.root;<command>tuned-adm profile <replaceable>PROFILE_NAME</replaceable></command></screen>
-    </listitem>
-   </itemizedlist>
+   <screen>&prompt.root;<command>saptune daemon stop</command></screen>
   </sect2>
   <sect2 xml:id="sec-s4s-saptune-manual">
    <title>Tuning Kernel Parameters Manually Using <command>sysctl</command></title>
@@ -313,111 +365,52 @@ vm.pagecache_limit_ignore_dirty = <replaceable>2</replaceable></screen>
   <itemizedlist>
    <listitem>
     <para>
-     <command>man 8 tuned-adm</command>
+     <command>man 8 saptune</command>
     </para>
    </listitem>
    <listitem>
     <para>
-     <command>man 8 saptune</command>
+     <command>man 8 saptune_v1</command>
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     <command>man 8 saptune_v2</command>
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     <command>man 8 saptune-migrate</command>
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     <command>man 8 saptune-note</command>
     </para>
    </listitem>
   </itemizedlist>
   <para>
    Also see the project home page
-   <link xlink:href="https://github.com/HouzuoGuo/saptune/"/>.
+   <link xlink:href="https://github.com/SUSE/saptune/"/>.
   </para>
   </sect2>
  </sect1>
 
- <sect1 xml:id="sec-sapconf">
-  <title>Tuning Systems with the Basic Utility &sapconf;</title>
+ <sect1 xml:id="sec.s4s.sysctl">
+  <title>Tuning Kernel Parameters Manually Using <command>sysctl</command></title>
   <para>
-   In addition to &saptune;, the package
-   <systemitem>sapconf</systemitem> contains the basic utility &sapconf;.
-   &sapconf; also allows tuning for &sap; systems but is less comprehensive
-   and offers less granularity than &saptune;. However, unlike &saptune;,
-   &sapconf; is available directly in &sls; and thus not dependent on using
-   &s4sa;.
+   In addition to or instead of tuning kernel parameters using
+   &sapconf;/&saptune;, you can also use <command>sysctl</command> to
+   make manual adjustments to kernel parameters. However, such changes using
+   <command>sysctl</command> do not persist across reboots by default. To
+   make them persist across reboots, add them to one of the configuration
+   files read by <command>sysctl</command>).
   </para>
   <para>
-   &sapconf; and &saptune; both rely on the daemon &tuned; to set tuning
-   configuration but they use different (though at times very similar) tuning
-   profiles. Therefore, only one of &sapconf; or &saptune; can be enabled at
-   a time.
-  </para>
-  <!-- FIXME: Need to check again. - sknorr, 2017-07-05 -->
-  <!-- <para>
-   If you previously used &sapconf;, the &sapwiz; will offer to migrate your
-   system to using &saptune;.
-  </para> -->
-  <sect2 xml:id="sec-sapconf-enable">
-   <title>Enabling and Disabling &sapconf;</title>
-   <para>
-    To enable &sapconf; when &tuned; is not yet running, use:
-   </para>
-   <screen>&prompt.root;<command>sapconf start</command></screen>
-   <para>
-    By default, this will enable <literal>sap-netweaver</literal> profile. To
-    apply a different profile, use:
-   </para>
-   <screen>&prompt.root;<command>tuned-adm <replaceable>PROFILE_NAME</replaceable></command></screen>
-   <!-- Purposely not documenting sapconf [PROFILE_NAME] because not only
-   does that not allow reconfiguring the NW profile after switching to
-   something else (even though the NW profile is otherwise the default), it
-   also prints out deprecation warnings. - sknorr, 2017-07-05 -->
-   <para>
-    Replace <replaceable>PROFILE_NAME</replaceable> with one of the profiles
-    listed in <xref linkend="sec-sapconf-legacyprofile"/>.
-   </para>
-   <para>
-    To see the status of &sapconf;, use:
-   </para>
-   <screen>&prompt.root;<command>sapconf status</command></screen>
-   <para>
-    To disable &sapconf; along with the underlying daemon
-    &tuned;, use:
-   </para>
-   <screen>&prompt.root;<command>systemctl disable sapconf tuned</command></screen>
-  </sect2>
-  <sect2 xml:id="sec-sapconf-legacyprofile">
-   <title>&tuned; Profiles</title>
-   <para>
-    The package <package>sapconf</package> includes the following &tuned;
-    profiles which &sapconf; enables in the background:
-   </para>
-   <itemizedlist>
-    <listitem>
-     <para>
-      <literal>sap-ase</literal>
-     </para>
-    </listitem>
-    <listitem>
-     <para>
-      <literal>sap-bobj</literal>
-     </para>
-    </listitem>
-    <listitem>
-     <para>
-      <literal>sap-hana</literal>
-     </para>
-    </listitem>
-    <listitem>
-     <para>
-      <literal>sap-netweaver</literal>
-     </para>
-    </listitem>
-   </itemizedlist>
-   <para>
-    In general, these profiles map to the solution profiles listed in
-    <xref linkend="pro-s4s-tune"/>.
-   </para>
-  </sect2>
-  <sect2 xml:id="sec-sapconf-more">
-   <title>For More Information</title>
-   <para>
-    See the man page of &sapconf; (<command>man 8 sapconf</command>).
-   </para>
-  </sect2>
+   <!-- FIXME: -> SLES docs: we don't seem to have any good section to
+   reference here. This will do for the moment. - sknorr, 2017-05-04 -->
+   For more information about <command>sysctl</command>, see the man pages
+    <literal>sysctl(8)</literal>, <literal>sysctl.conf(5)</literal>, and
+    <literal>sysctl.d(5)</literal>. </para>
  </sect1>
-
 </chapter>
