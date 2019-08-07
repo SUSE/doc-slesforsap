@@ -266,7 +266,7 @@ vm.pagecache_limit_ignore_dirty = <replaceable>2</replaceable></screen>
    Using <command>tuned-adm list</command>, you can also see this profile.
   </para>
   </sect2>
-  <sect2 xml:id="sec.s4s.saptune.customize">
+  <sect2 xml:id="sec-s4s-saptune-customize">
    <title>Customizing a &sap; Note</title>
    <para>
     Every &sap; note can be configured freely with:
@@ -278,7 +278,7 @@ vm.pagecache_limit_ignore_dirty = <replaceable>2</replaceable></screen>
    </para>
   </sect2>
 
-  <sect2 xml:id="sec.s4s.saptune.create">
+  <sect2 xml:id="sec-s4s-saptune-create">
    <title>Creating a new &sap; Note</title>
    <para>
      It is possible to create a new &sap; note with:
@@ -298,7 +298,7 @@ vm.pagecache_limit_ignore_dirty = <replaceable>2</replaceable></screen>
    </note>
   </sect2>
 
-  <sect2 xml:id="sec.s4s.saptune.show">
+  <sect2 xml:id="sec-s4s-saptune-show">
    <title>Showing the Configuration of a &sap; Note</title>
    <para>
     The shipped configuration of a note can be listed with:
@@ -306,7 +306,7 @@ vm.pagecache_limit_ignore_dirty = <replaceable>2</replaceable></screen>
    <screen>&prompt.root;<command>saptune note show</command></screen>
   </sect2>
 
-  <sect2 xml:id="sec.s4s.saptune.verify">
+  <sect2 xml:id="sec-s4s-saptune-verify">
    <title>Verifying a &sap; Note or a &sap; Solution</title>
    <para>
     The command <command>saptune note|solution verify [note]</command>
@@ -317,7 +317,7 @@ vm.pagecache_limit_ignore_dirty = <replaceable>2</replaceable></screen>
    </para>
   </sect2>
 
-  <sect2 xml:id="sec.s4s.saptune.simulate">
+  <sect2 xml:id="sec-s4s-saptune-simulate">
    <title>Simulating the Apply of a &sap; Note or a &sap; Solution</title>
    <para>
     To show each parameter, use:
@@ -329,7 +329,7 @@ vm.pagecache_limit_ignore_dirty = <replaceable>2</replaceable></screen>
    </para>
   </sect2>
 
-  <sect2 xml:id="sec.s4s.saptune.disable">
+  <sect2 xml:id="sec-s4s-saptune-disable">
    <title>Disabling &saptune;</title>
    <para>
     To disable &saptune; and to stop and disable &tuned; run:
@@ -396,7 +396,7 @@ vm.pagecache_limit_ignore_dirty = <replaceable>2</replaceable></screen>
   </sect2>
  </sect1>
 
- <sect1 xml:id="sec.s4s.sysctl">
+ <sect1 xml:id="sec-s4s-sysctl">
   <title>Tuning Kernel Parameters Manually Using <command>sysctl</command></title>
   <para>
    In addition to or instead of tuning kernel parameters using
