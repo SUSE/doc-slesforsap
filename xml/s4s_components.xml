@@ -214,10 +214,11 @@
     multi-tenant &hana; databases. That is, you can use &hana; databases that
     serve multiple &sap; applications.
    </para>
-   <para>
-    For more information, also see the project homepage
+   <!--toms 2019-08-11: commenting because not publicly available
+    <para>
+    For more information, also see the project home page
     <link xlink:href="https://github.com/fmherschel/SAPHanaSR/"/>.
-   </para>
+   </para>-->
   </sect3>
   <sect3 xml:id="sec.s4s.topology-ra">
    <title><systemitem>SAPHanaTopology</systemitem> Resource Agent</title>
