@@ -776,7 +776,8 @@ SAP-NetWeaver-740-SR2-Installation-Export-CD-3-3</screen>
      (Tailored Datacenter Integration), you will be
      asked whether to continue. If you receive this message unexpectedly,
      check <xref linkend="sec-s4s-hardware"/> and the sizing guidelines from
-     &sap; at <link xlink:href="https://service.sap.com/sizing"/>.
+     &sap; at <link xlink:href="https://service.sap.com/sizing"/>
+     (you need your SAP ID to access the information).
     </para>
     <para>
      Otherwise, continue with <guimenu>Yes</guimenu>.
