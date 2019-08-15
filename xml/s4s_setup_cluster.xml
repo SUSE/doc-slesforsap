@@ -306,7 +306,7 @@
      Enter the <systemitem class="username">root</systemitem> password.
     </para>
     <para>
-     The next time, the primary machine needs to connect to the secondary
+     The next time the primary machine needs to connect to the secondary
      machine, it will connect using an SSH certificate instead of a password.
     </para>
    </step>
@@ -456,7 +456,7 @@
    <step>
     <para>
      Set up the parameters for your &hana; installation or installations. If
-     you have selected the cost-optimized scenario, additionally, fill out
+     you have selected the cost-optimized scenario, additionally fill out
      details related to the non-production &hana; instance.
     </para>
     <variablelist>
@@ -659,7 +659,7 @@
  <sect1 xml:id="sec-s4s-hawk">
   <title>Using &hawk;</title>
   <para>
-   After you have set up the cluster using the wizard, you can open &hawk;.
+   After you have set up the cluster using the wizard, you can open &hawk;
    directly from the last screen of the <guimenu>HA Setup for SAP
    Products</guimenu> wizard.
   </para>

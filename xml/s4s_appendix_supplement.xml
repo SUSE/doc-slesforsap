@@ -36,7 +36,7 @@
    executed before.
   </para>
   <para>
-   Both XML files (<filename>autoyast.xml</filename> and
+   The two XML files (<filename>autoyast.xml</filename> and
    <filename>product.xml</filename>) will be merged after the media is read
    and a <quote>new</quote> &ay; XML file is generated on the fly for
    the additional workflow.
@@ -202,7 +202,7 @@ check_name "$VAL"
  <sect1 xml:id="sec-s4s-supplement-directory">
   <title>Example Directory for &supmedia;</title>
   <para>
-   A minimal example for &supmedia; directory contains only a file called
+   A minimal example for the &supmedia; directory contains only a file called
    <filename>product.xml</filename>.
   </para>
   <remark>
