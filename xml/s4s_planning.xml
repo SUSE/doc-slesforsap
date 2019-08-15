@@ -155,7 +155,7 @@
 
  <sect1 xml:id="sec-s4s-migration">
   <title>Offline Migration</title>
-  <para>As the migration paths for &sls; are identical as those for &sles4sap;,
+  <para>As the migration paths for &sls; are identical to those for &sles4sap;,
   find detailed information in the &upgrade_guide; at <link
     xlink:href="https://www.suse.com/documentation/sles-15/book_sle_upgrade/data/cha_upgrade-paths.html"/>.
   </para>
@@ -230,9 +230,9 @@
     This can be necessary when you want to install an Oracle database on a
     &s4s; machine. To do so, install the base product &sls; first, then
     install the Oracle database and later convert your
-    installation to &s4sa;. This is necessary because the installer of Oracle
-    databases queries for the existence of certain files, not all of which are
-    included in a &s4sa; installation.
+    installation to &s4sa;. This is necessary because the Oracle databases
+    installer queries for the existence of certain files, not all of which are
+    included in an &s4sa; installation.
    </para>
    <para condition="noquick">
     For more information about converting, see

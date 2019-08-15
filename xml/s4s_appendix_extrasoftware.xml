@@ -31,7 +31,7 @@
   </listitem>
   <listitem>
    <para>
-    &suse; Package Hub allows installation of packages created by &sle;
+    &suse; Package Hub allows installation of packages created by the &sle;
     community without support. See <xref linkend="sec-s4s-packagehub"/>.
    </para>
   </listitem>

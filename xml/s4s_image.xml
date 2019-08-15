@@ -9,7 +9,7 @@
 
  <para>
   There are multiple ways to create custom operating system images from
-  &s4s;. The preferred way is generally to use &kiwi; which ingests an XML
+  &s4s;. The preferred way is generally to use &kiwi;, which ingests an XML
   configuration file and then runs fully automatically.
  </para>
  <para>
@@ -148,7 +148,7 @@
     <para>
      Shell history, mails, cron jobs, temporary files
      (<filename>/tmp</filename>, <filename>/var/tmp</filename>), log files
-     (<filename>/var/log</filename>), random seeds, &systemd; Journal,
+     (<filename>/var/log</filename>), random seeds, &systemd; journal,
      <systemitem class="daemon">collectd</systemitem> statistics,
      <command>postfix</command> configuration, parts of
      <filename>/root</filename>
@@ -181,7 +181,7 @@
   <para>
    Additionally, you can choose to set up a new &rootuser; password.
    UUID-based entries in <filename>/etc/fstab</filename> are replaced by
-   device strings. This script also ensures that, if the first-boot section
+   device strings. This script also ensures that if the first-boot section
    of the installation workflow was used for the original installation, it is
    run again on the next boot.
   </para>

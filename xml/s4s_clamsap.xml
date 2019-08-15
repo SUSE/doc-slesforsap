@@ -8,7 +8,7 @@
    type="text/xml"
    title="Profiling step"?>
 <chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:lang="en" xml:id="cha-clamsap">
- <title>Protecting Against Malware With &clamsap;</title>
+ <title>Protecting Against Malware with &clamsap;</title>
   <para>
    &clamsap; integrates the &clamav; anti-malware toolkit into &netweaver; and
    &sap; Mobile Platform applications. &clamsap; is a shared library that

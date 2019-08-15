@@ -163,7 +163,7 @@
      list box on the right and clicking <guimenu>←</guimenu>.
     </para>
     <para>
-     To add services other than the preconfigured ones, add them using the
+     To add services other than the preconfigured ones, use the
      following notation:
     </para>
 <screen><replaceable>SERVICE_NAME</replaceable>:<replaceable>CIDR_NOTATION</replaceable></screen>
@@ -225,7 +225,7 @@ HANA firewall is active. Everything is OK.
    between different &sap;
    systems or between an &sap; system and outside networks. &s4s; now
    provides integration for &saprouter; into
-   <systemitem class="daemon">systemd</systemitem>. This means, &saprouter;
+   <systemitem class="daemon">systemd</systemitem>. This means that &saprouter;
    will be started and stopped properly with the operating system and can be
    controlled using <command>systemctl</command>.
   </para>
@@ -256,31 +256,31 @@ HANA firewall is active. Everything is OK.
   <itemizedlist>
    <listitem>
     <para>
-     Enabling the &saprouter; Service:
+     Enabling the &saprouter; service:
      <command>systemctl enable saprouter</command>
     </para>
    </listitem>
    <listitem>
     <para>
-     Starting the &saprouter; Service:
+     Starting the &saprouter; service:
      <command>systemctl start saprouter</command>
     </para>
    </listitem>
    <listitem>
     <para>
-     Showing the Status of &saprouter; Service:
+     Showing the Status of &saprouter; service:
      <command>systemctl status saprouter</command>
     </para>
    </listitem>
    <listitem>
     <para>
-     Stopping the &saprouter; Service:
+     Stopping the &saprouter; service:
      <command>systemctl stop saprouter</command>
     </para>
    </listitem>
    <listitem>
     <para>
-     Disabling the &saprouter; Service:
+     Disabling the &saprouter; service:
      <command>systemctl disable saprouter</command>
     </para>
    </listitem>

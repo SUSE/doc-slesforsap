@@ -115,7 +115,7 @@ FW_CONFIGURATIONS_INT="xrdp"
    </step>
    <step>
     <para>
-     Enable and start the service:
+     Restart the firewall:
     </para>
     <screen>
 &prompt.root;<command>systemctl restart SuSEfirewall2</command>
