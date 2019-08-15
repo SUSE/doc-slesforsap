@@ -647,7 +647,7 @@
 
 
  <sect1 condition="noquick" xml:id="sec-s4s-convert-sles">
-  <title>Converting a &slsa; Installation to a &s4sa; Installation</title>
+  <title>Converting an &slsa; Installation to an &s4sa; Installation</title>
   <para>
    To convert an installation of &sls; &productnumber; or &jeos;
    &productnumber; to an installation of &s4sa;, use the script

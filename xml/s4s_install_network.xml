@@ -59,7 +59,7 @@
    <important>
     <title>Avoid Using Windows&ast; Operating Systems for Copying</title>
     <para>
-     Using Windows operating system for copying or copying from/to Windows
+     Using a Windows operating system for copying from/to Windows
      file systems like NTFS can break permission settings and capitalization
      of files and directories.
     </para>

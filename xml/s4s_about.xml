@@ -154,7 +154,7 @@
   </table>
   <para>
    The tables in this section do not show <emphasis>Debuginfo</emphasis> and
-   <emphasis>Source</emphasis> repositories which are also set up but
+   <emphasis>Source</emphasis> repositories, which are also set up but
    disabled by default. The <emphasis>Debuginfo</emphasis> repositories
    contain packages that can be used for debugging regular packages. The
    <emphasis>Source</emphasis> repositories contain source code for packages.
@@ -270,7 +270,7 @@
         <row>
           <entry>
             <para>
-              Legacy Module: Sendmail, old IMAP stack, old Java, …
+              Legacy Module: Sendmail, old IMAP stack, old Java, etc.
             </para>
           </entry>
           <entry>

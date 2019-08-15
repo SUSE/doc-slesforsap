@@ -141,7 +141,7 @@
    </para>
 
    <para>
-    This resource agent supports system replication for the following in
+    This resource agent supports system replication for the following
     scale-up scenarios:
    </para>
    <itemizedlist>
@@ -186,7 +186,7 @@
      <para>
       If a takeover from A to B occurs, the connection between B and C remains
       untouched. However, B is not allowed to be the source for two servers
-      (A and C), as this would be a <quote>star</quote> topology which
+      (A and C), as this would be a <quote>star</quote> topology, which
       is not supported with current &hana; versions (such as SPS11).
      </para>
      <para>
@@ -367,7 +367,7 @@
    <itemizedlist>
     <listitem>
      <para>
-      Encryption keys are located on a central server which can be located on
+      Encryption keys are located on a central server, which can be located on
       customer premises.
      </para>
     </listitem>
@@ -412,7 +412,7 @@
      Packages May Be Missing from Patterns
     </title>
     <para>
-     The selection of packages of the software patterns are defined while a
+     The selection of packages of the software patterns is defined while a
      specific release (Service Pack or major version) of &sles4sap; is
      developed. This package selection is stable over the lifetime of this
      particular release. When working with &sap; applications that have been

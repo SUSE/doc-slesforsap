@@ -108,7 +108,7 @@
  <procedure xml:id="pro-partition-custom">
   <title>Creating a Custom &sap; Partitioning Setup</title>
   <para>
-   The steps below illustrates how to create a partitioning setup for TREX.
+   The steps below illustrate how to create a partitioning setup for TREX.
    However, creating a partitioning setup for other applications works
    analogously.
   </para>

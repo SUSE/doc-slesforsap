@@ -42,8 +42,8 @@
      The &sapwiz; does not allow installing products together with Oracle
      databases. To install an Oracle database, install the base product &sls;
      first, then install the Oracle database and later convert your
-     installation to &s4sa;. This is necessary because the installer of Oracle
-     databases queries for the existence of certain files, not all of which are
+     installation to &s4sa;. This is necessary because the Oracle databases
+     installer queries for the existence of certain files, not all of which are
      included in a &s4sa; installation.
     </para>
     <para condition="noquick">
@@ -622,7 +622,7 @@
      <guimenu>Distributed System</guimenu>, or
      <guimenu>SAP High-Availability System</guimenu>,
      additionally choose a back-end database under
-     <guimenu>The back-end database system is</guimenu>.
+     <guimenu>Back-end Databases</guimenu>.
     </para>
     <para>
      Proceed with <guimenu>Next</guimenu>.
@@ -926,7 +926,7 @@ SAP-NetWeaver-740-SR2-Installation-Export-CD-3-3</screen>
      <listitem>
       <para>
        In the case of an &hana;/&b1; installation, the installer will not be
-       offering to make any changes to parameters.
+       offer to make any changes to parameters.
       </para>
      </listitem>
     </itemizedlist>
@@ -935,13 +935,13 @@ SAP-NetWeaver-740-SR2-Installation-Export-CD-3-3</screen>
  </sect1>
 
  <sect1 condition="noquick" xml:id="sec-partition-command">
-  <title>Partitioning for an &sap; Application Without the &sapwiz;</title>
+  <title>Partitioning for an &sap; Application without the &sapwiz;</title>
   <para>
    If you do not want to use the &sapwiz;, you can also create the partitioning
    for &sap; applications directly from the command line. First, find the
    correct partitioning file in the directory
    <filename>/usr/share/YaST2/include/sap-installation-wizard/</filename> or
-   create an own partitioning file. For more information, see
+   create your own partitioning file. For more information, see
    <xref linkend="sec-s4s-partition-sap"/>.
   </para>
   <para>
