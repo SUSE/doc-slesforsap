@@ -37,8 +37,8 @@
   </para>
   <para>
    Both XML files (<filename>autoyast.xml</filename> and
-   <filename>product.xml</filename>) will be merged after the media is read
-   and a <quote>new</quote> &ay; XML file is generated on the fly for
+   <filename>product.xml</filename>) will be merged after the media is read.
+   A <quote>new</quote> &ay; XML file is generated on the fly for
    the additional workflow.
   </para>
   <para>
@@ -120,14 +120,14 @@
    As a best practice, your dialog should have a dialog number and an
    element number, best with steps of 10. This helps to include later
    additions and could be used as targets for jumping over a dialog or
-   element dependent on decisions. We also use this in our base dialogs and
-   if you provide the right dialog number and element number, you can place
+   element dependent on decisions. We also use this in our base dialogs.
+   If you provide the right dialog number and element number, you can place
    your dialog between our base dialogs.
   </para>
   <para>
    You can store the answer to a question in a file, to use it in one of
    your scripts later. Be aware that you <emphasis>must</emphasis> use the
-   prefix <literal>/tmp/ay</literal> for this, because the Installation
+   prefix <literal>/tmp/ay</literal> for this: The Installation
    Wizard will copy such files from the <filename>/tmp</filename> directory
    to the directory where your media data also will be copied. This is done
    because the next &supmedia; could have the same dialogs or same

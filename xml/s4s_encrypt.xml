@@ -35,9 +35,9 @@
   <warning>
    <title><command>cryptctl</command> Server Maintenance</title>
    <para>
-    Since the <command>cryptctl</command> server manages timeouts for the
-    encrypted disks and, depending on the configuration, can also hold
-    encryption keys, it
+    The <command>cryptctl</command> server manages timeouts for the
+    encrypted disks. Depending on the configuration, it can also hold
+    encryption keys. Therefore it
     should be under your direct control and managed only by trusted
     personnel.
    </para>
@@ -274,7 +274,7 @@
     <listitem>
      <para>
       If you set up the server to require clients to authenticate using a
-      client certificate, prepare a TLS certificate for the client which is
+      client certificate, prepare a TLS certificate for the client. It must be
       signed by the CA certificate you chose for the server.
      </para>
      <remark>

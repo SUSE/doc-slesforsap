@@ -262,7 +262,7 @@
      <!-- The following is not exact: the SDK is a free extension (but it
      needs to be registered separately). -->
      After the system is successfully registered, &yast; lists additional
-     software that is available for &productname; from the &scc;. The list
+     software that is available for your product from the &scc;. The list
      contains modules, which are free, and extensions, which require a
      registration key that is liable for costs. To enable a module or an
      extension, activate its entry.

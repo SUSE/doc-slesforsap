@@ -40,7 +40,7 @@
    <listitem>
     <para>
      You must provide an ISO image of &sles4sap; at
-     <filename>/tmp/SLES4SAP.iso</filename>, as the &obs; does not
+     <filename>/tmp/SLES4SAP.iso</filename>. The &obs; does not
      contain all necessary packages.
     </para>
    </listitem>

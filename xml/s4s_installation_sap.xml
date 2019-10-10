@@ -180,8 +180,8 @@
   </para>
   <para>
    To install other &sap; applications or to create a more advanced &hana;
-   setup, directly use one of the installation methods provided by &sap; instead
-   of this wizard.
+   setup, do not use this wizard. Instead, directly use one of the installation
+   methods provided by &sap;.
   </para>
 
   <tip>
@@ -407,10 +407,10 @@
 
     <para>
      If you have installed an &sap; application from an installation server
-     before or set up your
-     system to be an installation server, you can also directly choose
+     before (or set up your
+     system to be an installation server), you can also directly choose
      that server as the provider of the &instmaster;.
-     To do so, use the drop-down box below <guimenu>Choose an installation
+     To do so, use the drop-down box below <guimenu>e an installation
      master</guimenu>.
     </para>
    </step>
@@ -496,14 +496,14 @@
       <term><guimenu>Skip copying of medium</guimenu></term>
       <listitem>
        <para>
-        Do not copy additional &instmedia;. Choose this option
-        if you do not need additional &instmedia; or to install
+        Do not copy additional &instmedia;. Choose this option in the following
+        cases: If you do not need additional &instmedia; or if you want to install
         additional &instmedia; directly from their source, for example
         CDs/DVDs or flash disks.
        </para>
        <para>
         When choosing this option despite your &sap; product requiring additional
-        &instmedia;, you will later need to provide the &sapin; (&sapina;)
+        &instmedia;, you later need to provide the &sapin; (&sapina;)
         with the relevant paths.
        </para>
       </listitem>
@@ -594,7 +594,7 @@
        <para>
         Allows changing system properties such as the &sap; system ID,
         database ID, instance number or host name. This can be used to
-        to install the same product in a very similar
+        install the same product in a very similar
         configuration on different systems.
        </para>
        <!--
@@ -730,7 +730,7 @@ SAP-NetWeaver-740-SR2-Installation-Export-CD-3-3</screen>
    <step xml:id="st-s4s-collect-parameter">
     <para>
      Depending on the product you are installing, one or more dialogs will
-     prompt you to supply values for several configuration parameters for the
+     prompt you to supply values for configuration parameters for the
      &sap; application you are installing.
     </para>
     <para>
@@ -853,7 +853,7 @@ SAP-NetWeaver-740-SR2-Installation-Export-CD-3-3</screen>
   <para>
    If you chose <guimenu>Collect installation profiles but do not execute
    installation</guimenu> during the previous run of the &sapwiz;, this section
-   will show you how to continue the installation of the selected
+   shows you how to continue the installation of the selected
    &sap; applications.
   </para>
   <para>
@@ -1015,8 +1015,8 @@ SAP-NetWeaver-740-SR2-Installation-Export-CD-3-3</screen>
     Instance of an &nw; 7.5 ABAP Server distributed system with MaxDB
     (product ID <literal>NW_ABAP_ASCS:NW750.ADA.ABAP</literal>). When
     installing other products based on &nw;, not all of the following
-    variables may be necessary or these variables might need to be replaced
-    by others:
+    variables may be necessary (or these variables might need to be replaced
+    by others):
    </para>
    <itemizedlist>
     <listitem>

@@ -9,7 +9,7 @@
 
  <para>
   As depicted in <xref linkend="fig-s4s-offering"/>,
-  &sles4sap; is based on &sls; but contains several additional
+  &sles4sap; is based on &sls;. Additionally, it contains
   software components such as &sleha;,
   the kernel page-cache limit feature, and the installation
   workflow. These software components are briefly explained in the
@@ -90,8 +90,8 @@
   </itemizedlist>
 
   <para>
-   For more information about &sleha;, see the &haguide; (&ha-docaddress;)
-   and the White Papers and Best Practice Guides in the
+   For more information about &sleha;, see the &haguide;, available from &ha-docaddress;.
+   Additional White Papers and Best Practice Guides are available in the
    &sles4sap; Resource Library (&reslibrary;).
   </para>
  </sect2>
@@ -100,7 +100,7 @@
   <title>Simplified &hana; System Replication Setup</title>
 
   <para>
-   &sles4sap; supports &hana; System Replication using components of &sleha;
+   &sles4sap; supports &hana; System Replication by using components of &sleha;
    and two additional resource agents (RA). Additionally, &s4s; ships with
    a &yast; wizard that simplifies the cluster setup.
   </para>
@@ -134,8 +134,8 @@
    </para>
    <para>
     It is configured as a master/slave resource: The master assumes
-    responsibility for the &hana; databases running in primary mode,
-    whereas the slave is responsible for instances
+    responsibility for the &hana; databases running in primary mode. The slave
+    is responsible for instances
     that are operated in synchronous (secondary) status. In case of a takeover,
     the secondary (slave resource instance) can automatically be promoted to
     become the new primary (master resource instance).
@@ -187,7 +187,7 @@
      <para>
       If a takeover from A to B occurs, the connection between B and C remains
       untouched. However, B is not allowed to be the source for two servers
-      (A and C), as this would be a <quote>star</quote> topology which
+      (A and C). This would be a <quote>star</quote> topology which
       is not supported with current &hana; versions (such as SPS11).
      </para>
      <para>
@@ -226,7 +226,7 @@
     To make configuring the cluster as simple as possible, SUSE has
     developed the <systemitem>SAPHanaTopology</systemitem> resource agent.
     This agent runs on all
-    nodes of a &sleha; cluster and gathers information about the status and
+    nodes of a &sleha; cluster. It gathers information about the status and
     configurations of &hana; system replications. It is designed as a
     normal (stateless) clone.
    </para>
@@ -319,7 +319,7 @@
    <para>
     Securing &hana; can require many additional firewall rules. To simplify
     firewall setups for &hana;, &sles4sap;
-    contains the package <package>HANA-Firewall</package> which
+    contains the package <package>HANA-Firewall</package>. It
     provides preconfigured rules and integrates with &susefirewall;.
    </para>
    <para>
@@ -354,7 +354,7 @@
    <para>
     The system tuning application &sapconf; allows you to
     automatically and comprehensively tune your system as recommended by
-    &sap; for use with &s4h;, &netweaver;, or &hana;/&b1;. To do this,
+    &sap; (for use with &s4h;, &netweaver;, or &hana;/&b1;). To do this,
     &sapconf; activates
     <systemitem class="daemon">tuned</systemitem> profiles. These allow
     tuning several kernel parameters, depending on the hardware components

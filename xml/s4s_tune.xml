@@ -52,7 +52,7 @@
     <term>Solution</term>
     <listitem>
      <para>
-      &sles4sap; includes a kernel tuning option that allows the system
+      &sles4sap; includes a kernel tuning option. It allows the system
       administrator to limit the amount of page cache that the kernel uses
       when there is competition between application memory and page cache.
       This option tells the kernel that when the page cache is filled to the
@@ -163,7 +163,7 @@ vm.pagecache_limit_ignore_dirty = <replaceable>2</replaceable></screen>
   <note>
    <title><command>sapconf</command> Utility</title>
    <para>
-    The command-line utility <command>sapconf</command> is still available in
+    The command line utility <command>sapconf</command> is still available in
     &productname; &productnumber;. However, it is no longer the preferred
     utility to control &sapconf;.
    </para>
@@ -245,8 +245,8 @@ vm.pagecache_limit_ignore_dirty = <replaceable>2</replaceable></screen>
      </para>
      <screen>&prompt.root;<command>systemctl disable sapconf</command></screen>
      <para>
-      If you have not specifically enabled any of the services that &sapconf;
-      depends on yourself, this will also disable most tuning parameters and
+      If you yourself have not specifically enabled any of the services that &sapconf;
+      depends on, this will also disable most tuning parameters and
       all services used by &sapconf;.
      </para>
     </listitem>
@@ -381,11 +381,12 @@ vm.pagecache_limit_ignore_dirty = <replaceable>2</replaceable></screen>
       <para>
        When &sapconf; is updated, all customized parameters from this file will
        be preserved as much as possible. However, sometimes parameters cannot
-       be transferred cleanly to the new configuration file. Therefore, after
-       updating it is advisable to check the difference between the previous
-       custom configuration which during the update is moved to
-       <filename>/etc/sysconfig/sapconf.rpmsave</filename>
-       and the new version at <filename>/etc/sysconfig/sapconf</filename>.
+       be transferred cleanly to the new configuration file. The previous
+       custom configuration is moved to
+       <filename>/etc/sysconfig/sapconf.rpmsave</filename> during the update.
+       After updating check the difference between the previous
+       custom configuration and the new version at
+       <filename>/etc/sysconfig/sapconf</filename>.
       </para>
       <para>
        Log messages related to this file are written to
@@ -396,7 +397,7 @@ vm.pagecache_limit_ignore_dirty = <replaceable>2</replaceable></screen>
    </variablelist>
    <para>
     When editing either of these files, you will find that some values are
-    commented by means of a <literal>#</literal> character at the beginning of
+    commented with a <literal>#</literal> character at the beginning of
     the line. This means that while the parameter is relevant for tuning, there
     is no suitable default for it.
    </para>
@@ -507,7 +508,7 @@ vm.pagecache_limit_ignore_dirty = <replaceable>2</replaceable></screen>
   </para>
   <para>
    If you used the &sapwiz; to install an &sap; application,
-   &tuned; is usually already active and configured with
+   &tuned; is usually already active. It is configured with
    a profile for the application you installed.
   </para>
   <para>
@@ -549,7 +550,7 @@ vm.pagecache_limit_ignore_dirty = <replaceable>2</replaceable></screen>
       <formalpara>
        <title><literal>MAXDB</literal></title>
        <para>
-        Solution for running a &sap; MaxDB database.
+        Solution for running an &sap; MaxDB database.
        </para>
       </formalpara>
      </listitem>
@@ -646,7 +647,7 @@ vm.pagecache_limit_ignore_dirty = <replaceable>2</replaceable></screen>
   </sect2>
 
   <sect2 xml:id="sec-s4s-saptune-customize">
-   <title>Customizing a &sap; Note</title>
+   <title>Customizing an &sap; Note</title>
    <para>
     Every &sap; note can be configured freely with:
     <remark>"customise" is (sadly) correct. - sknorr, 2019-07-19</remark>
@@ -667,7 +668,7 @@ vm.pagecache_limit_ignore_dirty = <replaceable>2</replaceable></screen>
   </sect2>
 
   <sect2 xml:id="sec-s4s-saptune-show">
-   <title>Showing the Configuration of a &sap; Note</title>
+   <title>Showing the Configuration of an &sap; Note</title>
    <para>
     The shipped configuration of a note can be listed with:
    </para>
@@ -675,7 +676,7 @@ vm.pagecache_limit_ignore_dirty = <replaceable>2</replaceable></screen>
   </sect2>
 
   <sect2 xml:id="sec-s4s-saptune-verify">
-   <title>Verifying a &sap; Note or a &sap; Solution</title>
+   <title>Verifying an &sap; Note or an &sap; Solution</title>
    <para>
     The commands <command>saptune note verify <replaceable>NOTE</replaceable></command>
     and
@@ -712,7 +713,7 @@ vm.pagecache_limit_ignore_dirty = <replaceable>2</replaceable></screen>
   </sect2>
 
   <sect2 xml:id="sec-s4s-saptune-simulate">
-   <title>Simulating the Application of a &sap; Note or a &sap; Solution</title>
+   <title>Simulating the Application of an &sap; Note or an &sap; Solution</title>
    <para>
     To show each parameter of a <literal>note</literal>, use:
    </para>

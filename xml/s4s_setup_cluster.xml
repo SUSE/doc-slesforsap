@@ -323,8 +323,7 @@
      <link xlink:href="https://help.sap.com/saphelp_hanaplatform/helpdata/en/9a/012d6438764459a581e6af55a87c46/content"/>. -->
     </para>
     <para>
-     If this has not already been done before, such as during the initial
-     installation of &hana;, host names of all cluster servers must now be
+     If this has not already been done before, host names of all cluster servers must now be
      added to the file <filename>/etc/hosts</filename>. For this purpose,
      activate <guimenu>Append to /etc/hosts</guimenu>.
     </para>
@@ -407,7 +406,7 @@
      appropriate device. Click <guimenu>OK</guimenu>.
     </para>
     <para>
-     To define additional SBD command-line parameters, add them to
+     To define additional SBD command line parameters, add them to
      <guimenu>SBD options</guimenu>.
     </para>
     <para>
@@ -424,7 +423,7 @@
    </step>
    <step>
     <para>
-     The following page allows configuring watchdogs which protect against
+     The following page allows configuring watchdogs. They protect against
      the failure of the SBD daemon itself and force a reboot of the machine
      in such a case.
     </para>
@@ -666,7 +665,7 @@
   <title>Unattended Installation of Cluster Servers</title>
   <para>
    On bare-metal servers, you can run the &yast; module <guimenu>HA Setup for
-   SAP Products</guimenu> in an unattended mode to speed up the time it takes
+   SAP Products</guimenu> in an unattended mode. This speeds up the time it takes
    to configure additional servers with the same configuration.
   </para>
   <para>
@@ -701,7 +700,7 @@
    Products</guimenu> wizard.
   </para>
   <para>
-   To revisit &hawk;, open a browser and as the URL, enter the IP address
+   To revisit &hawk;, open a browser. As the URL, enter the IP address
    or host name of any cluster node running the &hawk; Web service.
    Alternatively, enter the virtual IP address you configured in
    <xref linkend="sec-s4s-hana-cluster-wizard"/>.

@@ -16,7 +16,7 @@
   <title>Hardware Requirements</title>
   <para>
    This section lists minimum hardware requirements for the installation of
-   &s4s; and gives basic guidance on the expected hardware requirements of
+   &s4s;. It gives basic guidance on the expected hardware requirements of
    certain &sap; software. For the most up-to-date information about the
    hardware requirements of &sap; software, see the official sizing
    guidelines at <link xlink:href="https://service.sap.com/sizing"/>.
@@ -47,8 +47,8 @@
      </para>
      <para>
       To install an &sap; application such as &nw;, you need at least 200 GB of
-      free disk space in addition to the required space for the operating
-      system for the application's <filename>/data</filename> partition.
+      free disk space (in addition to the required space for the operating
+      system for the application's <filename>/data</filename> partition).
      </para>
      <para>
       To install &hana;, you need either:

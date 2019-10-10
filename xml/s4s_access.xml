@@ -70,7 +70,7 @@
    </listitem>
    <listitem>
     <formalpara>
-     <title>Command-Line Utility <systemitem>hana-firewall</systemitem></title>
+     <title>Command Line Utility <systemitem>hana-firewall</systemitem></title>
      <para>
       Allows applying and reverting the configured firewall rules for &hana;.
      </para>
@@ -96,7 +96,7 @@
    <para>
     For multi-tenant &hana; (MDC) databases, determining the port numbers that
     need to be opened is not yet possible automatically.
-    If you are working with a multi-tenant &hana; database system, before you
+    If you are working with a multi-tenant &hana; database system: Before you
     use &yast;, run a script on the command line to create a new
     service definition:
    </para>
