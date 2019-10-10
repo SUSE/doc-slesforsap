@@ -42,5 +42,5 @@
  <xi:include href="s4s_appendix_extrasoftware.xml" parse="xml"/>
  <xi:include href="s4s_appendix_partition.xml" parse="xml"/>
  <xi:include href="s4s_appendix_supplement.xml" parse="xml"/>
- <xi:include href="s4s_appendix_docupdates.xml" parse="xml"/>
+ <!--<xi:include href="s4s_appendix_docupdates.xml" parse="xml"/>-->
 </book>
