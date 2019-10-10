@@ -82,7 +82,7 @@
 <!ENTITY productname   '&sles4sap;'>
 <!ENTITY productnamereg '&sles4sapreg;'>
 <!ENTITY product-ga    '12'>
-<!ENTITY product-sp    '4'>
+<!ENTITY product-sp    '5'>
 <!ENTITY productnumber '&product-ga; SP&product-sp;'>
 
 <!--                    Applications                               -->
