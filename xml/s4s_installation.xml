@@ -289,9 +289,6 @@
      covers the most common cases. To enable an additional module,
      activate its entry.
     </para>
-    <para>
-     Proceed with <guimenu>Next</guimenu>.
-    </para>
     <note>
      <title>Release Notes</title>
      <para>
@@ -299,6 +296,17 @@
       the installation process by selecting <guimenu>Release Notes</guimenu>.
      </para>
     </note>
+    <para>
+     Proceed with <guimenu>Next</guimenu>.
+    </para>
+   </step>
+   <step>
+    <para>Optionally, the <guimenu>Add On Product</guimenu> dialog allows you
+     to add additional software sources (so-called
+     <quote>repositories</quote>) to &productname;, that are not provided
+     by the &scc;. Such add-on products may include third-party products and
+     drivers or additional software for your system.
+    </para>
    </step>
    <step>
     <para>
