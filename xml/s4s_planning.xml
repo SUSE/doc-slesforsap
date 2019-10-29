@@ -23,18 +23,17 @@
   </para>
   <variablelist>
    <varlistentry>
-    <term>CPU</term>
+    <term>Supported CPU</term>
     <listitem>
      <para>
       &x86-64;
      </para>
      <para>
-      IBM &power; servers with PowerKVM compatibility
+      IBM &power;&nbsp;8 (with PowerVM)
      </para>
-     <remark>
-      FIXME: POWER 8 and 9? Presumably also needs fixing in SLES Deploy.
-      - sknorr, 2017-09-07
-     </remark>
+     <para>
+      IBM &power;&nbsp;9 (with PowerVM)
+     </para>
     </listitem>
    </varlistentry>
    <varlistentry>
