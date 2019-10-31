@@ -992,6 +992,8 @@ SAP-NetWeaver-740-SR2-Installation-Export-CD-3-3</screen>
     <listitem>
      <para>
       The <tag>sapMDC</tag> element is only applicable to &hana;.
+      Possible values are <literal>no</literal>, <literal>low</literal>, and
+      <literal>high</literal>.
      </para>
     </listitem>
     <listitem>
