@@ -31,6 +31,7 @@
  <xi:include href="s4s_planning.xml" parse="xml"/>
  <xi:include href="s4s_installation.xml" parse="xml"/>
  <xi:include href="s4s_installation_sap.xml" parse="xml"/>
+ <xi:include href="s4s_upgrade_sap_hana_cluster.xml"/>
  <xi:include condition="noquick" href="s4s_install_network.xml" parse="xml"/>
  <xi:include condition="noquick" href="s4s_setup_cluster.xml" parse="xml"/>
  <xi:include condition="noquick" href="s4s_tune.xml" parse="xml"/>
