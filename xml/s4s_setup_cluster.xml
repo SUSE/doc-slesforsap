@@ -682,10 +682,24 @@
     </para>
    </step>
    <step>
-    <para>
-     On the primary &hana; machine, upload and validate the configuration:
-    </para>
-    <screen>&prompt.root;<command>yast2 sap_ha readconfig <replaceable>CONFIGURATION_FILE_PATH</replaceable></command></screen>
+    <para>Decide what you want to do:</para>
+    <stepalternatives>
+     <step>
+      <para>
+       To review the configuration, upload and validate the configuration
+       on the primary &hana; machine and run:
+      </para>
+      <screen>&prompt.root;<command>yast2 sap_ha readconfig <replaceable>CONFIGURATION_FILE_PATH</replaceable></command></screen>
+      <para>It is possible to start the installation on the review screen.</para>
+     </step>
+     <step>
+      <para>
+       To start the installation based on the provided configuration file
+       unattendedly, run:
+      </para>
+      <screen>&prompt.root;<command>yast2 sap_ha readconfig <replaceable>CONFIGURATION_FILE_PATH</replaceable> unattended</command></screen>
+     </step>
+    </stepalternatives>
    </step>
    <step>
     <para>
