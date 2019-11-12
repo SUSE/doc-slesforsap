@@ -12,10 +12,11 @@
   setup options is given in <xref linkend="sec-s4s-hana-replicate"/>.
  </para>
  <para>
-  Administrators can now use the &hana;-SR Wizard to configure the &hana;
-  cluster on Azure and only have to define a configuration inside the
-  wizard once and can then re-apply the saved configuration without
-  user interaction.
+  Administrators can now use the &hana;-SR Wizard to run the modul unattended,
+  usually for on-premises deployments.
+  Additionally, it is possible to configure the &hana; cluster on Azure now.
+  The &yast; module identifies automatically when running on Azure and
+  configures an extra resource needed on Pacemaker.
  </para>
 
  <para>
@@ -657,44 +658,43 @@
  </sect1>
  <sect1 xml:id="sec-s4s-hana-cluster-wizard-semiautomatic">
   <title>Unattended Setup Using &hana;-SR Wizard</title>
-  
   <para>
-   To deploy a preconfigured &hana;-SR environments &suse; offers an
-   unattended installation mode for the &hana;-SR wizard.
-   To use it, proceed as follows:
+   An unattended setup requires a manual installation of HANA first.
+   The result is saved into a file, containing all configuration options that
+   were chosen.
+   If the administrator needs to reproduce the installation, with this file
+   the installation can be run automatically and unattended.
+  </para>
+  <para>
+   To use it, perform the following steps on both nodes:
   </para>
   <procedure>
    <step>
     <para>
-     Create a configuration file by running the <literal>sap_ha</literal>
-     &yast; module.
+     On the production machines with &hana; installed, create a configuration
+     file by running the <literal>sap_ha</literal> &yast; module.
      <remark>toms 2019-05-29: add xref to manuel setup section.</remark>
     </para>
    </step>
    <step>
     <para>
-     Save the configuration on its last screen.
+     On the last screen, click the <guimenu>Save configuration</guimenu> button.
     </para>
    </step>
    <step>
     <para>
-     Upload and validate the configuration:
+     On the primary &hana; machine, upload and validate the configuration:
     </para>
     <screen>&prompt.root;<command>yast2 sap_ha readconfig <replaceable>CONFIGURATION_FILE_PATH</replaceable></command></screen>
    </step>
    <step>
     <para>
-     Import, validate, and install the cluster unattended,
+     Import, validate, and install the cluster unattendedly,
      based on the provided configuration file:
     </para>
     <screen>&prompt.root;<command>yast2 sap_ha readconfig <replaceable>CONFIGURATION_FILE_PATH</replaceable> unattended</command></screen>
    </step>
   </procedure>
-  <para>
-   For information on Near Zero Downtime for &hana; System Replication,
-   see also <link xlink:href="https://help.sap.com/viewer/2c1988d620e04368aa4103bf26f17727/2.0.03/en-US/ee3fd9a0c2e74733a74e4ad140fde60b.html"
-    >Use &hana; System Replication for Near Zero Downtime Upgrades</link>.
-  </para>
  </sect1>
  <sect1 xml:id="sec-s4s-hawk">
   <title>Using &hawk;</title>
@@ -732,11 +732,30 @@
    </para>
    <screen>&prompt.root;<command>passwd hacluster</command></screen>
   </important>
-  <para>
-   For more information about &hawk;, see <citetitle>&admin;,
-   Part <quote>Configuration and Administration</quote>, Chapter
-   <quote>Configuring and Managing Cluster Resources with
-   &hawk;</quote></citetitle> (&ha-docaddress;).
-  </para>
+ </sect1>
+ <sect1 xml:id="sec-s4s-moreinfo">
+  <title>For More Information</title>
+  <itemizedlist>
+   <listitem>
+    <formalpara>
+     <title>&hawk;</title>
+     <para>
+      <citetitle>&admin;</citetitle>,
+      Part <citetitle>Configuration and Administration</citetitle>,
+      Chapter <citetitle>Configuring and Managing Cluster Resources with
+   &hawk;</citetitle> (&ha-docaddress;).
+     </para>
+    </formalpara>
+   </listitem>
+   <listitem>
+    <formalpara>
+     <title>Near Zero Downtime for &hana; System Replication</title>
+     <para><link
+      xlink:href="https://help.sap.com/viewer/2c1988d620e04368aa4103bf26f17727/2.0.03/en-US/ee3fd9a0c2e74733a74e4ad140fde60b.html"
+      >Use &hana; System Replication for Near Zero Downtime Upgrades</link>.
+     </para>
+    </formalpara>
+   </listitem>
+  </itemizedlist>
  </sect1>
 </chapter>
