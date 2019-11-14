@@ -7,7 +7,7 @@ This repository hosts the documentation sources including translations (if
 available).
 
 Released versions of the documentation are published at
-https://www.suse.com/documentation/.
+https://documentation.suse.com/sles-sap/.
 
 
 == Branches
