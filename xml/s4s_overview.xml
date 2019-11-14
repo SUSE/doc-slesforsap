@@ -90,48 +90,7 @@
   </variablelist>
  </sect1>
 
- <sect1>
-  <title>Additional Documentation and Resources</title>
-
-  <para>
-   Chapters in this manual contain links to additional documentation
-   resources that are either available on the system or on the Internet.
-  </para>
-
-  <itemizedlist>
-   <listitem condition="noquick">
-    <para>
-     For the latest updates to this guide, see
-     <link xlink:href="https://www.suse.com/documentation/sles_for_sap/"/>.
-    </para>
-   </listitem>
-   <listitem condition="quick">
-    <para>
-     This is an abridged version of the <citetitle>&sles4sap; Guide</citetitle>.
-     For the latest version of the full <citetitle>&sles4sap; Guide</citetitle>,
-     see
-     <link xlink:href="https://www.suse.com/documentation/sles_for_sap/"/>.
-    </para>
-   </listitem>
-   <listitem>
-    <para>
-     You can find numerous whitepapers, a best-practices guide, and other
-     resources at the &sles4sap; resource library: &reslibrary;.
-    </para>
-   </listitem>
-   <listitem>
-    <para>
-     For documentation on &sls;, see &docaddress;.
-    </para>
-   </listitem>
-   <listitem>
-    <para>
-     For documentation on &sleha;, see &ha-docaddress;.
-    </para>
-   </listitem>
-  </itemizedlist>
- </sect1>
-
+ <xi:include condition="noquick" href="common_intro_available_doc.xml" parse="xml"/>
  <xi:include condition="noquick" href="common_intro_feedback.xml" parse="xml"/>
  <xi:include condition="noquick" href="common_intro_convention.xml" parse="xml"/>
 </preface>
