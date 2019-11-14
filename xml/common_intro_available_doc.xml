@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This file originates from the project https://github.com/sknorr/doc-kit -->
+<!-- This file can be edited downstream. -->
+
+<?xml-stylesheet href="urn:x-suse:xslt:profiling:docbook51-profile.xsl"
+ type="text/xml"
+ title="Profiling step"?>
+<!DOCTYPE sect1
+[
+  <!ENTITY % entities SYSTEM "generic-entities.ent">
+    %entities;
+]>
+
+<sect1 xml:lang="en"
+ xmlns="http://docbook.org/ns/docbook" version="5.1"
+ xmlns:xi="http://www.w3.org/2001/XInclude"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+ <title>Available Documentation and Resources</title>
+
+ <para>
+  Chapters in this manual contain links to additional documentation
+  resources that are either available on the system or on the Internet.
+ </para>
+
+ <itemizedlist>
+  <listitem condition="noquick">
+   <para>
+    For the latest updates to this guide, see
+    <link xlink:href="&dsc-sap;"/>.
+   </para>
+  </listitem>
+  <listitem condition="quick">
+   <para>
+    This is an abridged version of the <citetitle>&sles4sap; Guide</citetitle>.
+    For the latest version of the full <citetitle>&sles4sap; Guide</citetitle>,
+    see
+    <link xlink:href="&dsc-sap;"/>.
+   </para>
+  </listitem>
+  <listitem>
+   <para>
+    You can find numerous whitepapers, a best-practices guide, and other
+    resources at the &sles4sap; resource library: &reslibrary;.
+   </para>
+  </listitem>
+  <listitem>
+   <para>
+    For documentation on &sls;, see &docaddress;.
+   </para>
+  </listitem>
+  <listitem>
+   <para>
+    For documentation on &sleha;, see &ha-docaddress;.
+   </para>
+  </listitem>
+ </itemizedlist>
+</sect1>
