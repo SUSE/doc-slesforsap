@@ -154,9 +154,10 @@
 
  <sect1 xml:id="sec-s4s-migration">
   <title>Offline Migration</title>
-  <para>As the migration paths for &sls; are identical to those for &sles4sap;,
-  find detailed information in the &upgrade_guide; at <link
-    xlink:href="https://www.suse.com/documentation/sles-15/book_sle_upgrade/data/cha_upgrade-paths.html"/>.
+  <para>
+   The migration paths for &sls; are identical to those for &sles4sap;.
+   Find detailed information in the &upgrade_guide; at <link
+   xlink:href="&dsc-sles;/html/SLES-all/cha-upgrade-paths.html"/>.
   </para>
  </sect1>
 
