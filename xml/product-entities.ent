@@ -2,7 +2,7 @@
 <!-- This file can be edited downstream. -->
 
 <!-- PRODUCT NAME AND VERSIONS -->
-<!ENTITY productname   "SUSE Linux Enterprise Server for SAP Applications">
+<!ENTITY productname   "&s4s;">
 <!ENTITY product-ga    '15'>
 <!ENTITY product-sp    '0'>
 <!ENTITY productnumber '&product-ga;'>
@@ -17,10 +17,10 @@
 
 
 <!-- DOCUMENTATION URLS -->
-<!ENTITY docaddress     "<link xmlns='http://docbook.org/ns/docbook' xmlns:xlink='http://www.w3.org/1999/xlink' xlink:href='https://www.suse.com/documentation/sles-15/'/>">
-<!ENTITY ha-docaddress  "<link xmlns='http://docbook.org/ns/docbook' xmlns:xlink='http://www.w3.org/1999/xlink' xlink:href='https://www.suse.com/documentation/sle-ha-15/'/>">
+<!ENTITY docaddress     "<link xmlns='http://docbook.org/ns/docbook' xmlns:xlink='http://www.w3.org/1999/xlink' xlink:href='&dsc-sles;-15'/>">
+<!ENTITY ha-docaddress  "<link xmlns='http://docbook.org/ns/docbook' xmlns:xlink='http://www.w3.org/1999/xlink' xlink:href='&dsc-ha;-15'/>">
 <!ENTITY sapnoteaddress "https://launchpad.support.sap.com/#/notes/">
-<!ENTITY suma-docaddress "<link xmlns='http://docbook.org/ns/docbook' xmlns:xlink='http://www.w3.org/1999/xlink' xlink:href='https://www.suse.com/documentation/suse-manager-3/'/>">
+<!ENTITY suma-docaddress "<link xmlns='http://docbook.org/ns/docbook' xmlns:xlink='http://www.w3.org/1999/xlink' xlink:href='&dsc-suma;'/>">
 <!ENTITY reslibrary     "<link xmlns='http://docbook.org/ns/docbook' xmlns:xlink='http://www.w3.org/1999/xlink' xlink:href='https://www.suse.com/products/sles-for-sap/resource-library/'/>">
 
 <!-- SAP-SPECIFIC ENTITIES -->
