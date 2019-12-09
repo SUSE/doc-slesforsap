@@ -37,6 +37,103 @@
   </listitem>
  </itemizedlist>
 
+ <sect1 xml:base="sec-s4s-identifying-sap">
+  <title>Identifying a Base Product for &sles4sap;</title>
+  <para>
+   To identify and distinguish &suse; products, use one of the following
+   files:
+  </para>
+  <variablelist>
+   <varlistentry>
+    <term><filename>/etc/os-release</filename></term>
+    <listitem>
+     <para>
+      A text file with key-value pairs, similar to shell-compatible
+      variable assignments. Each key is on a separate line.
+     </para>
+     <para>
+      You can search for the <varname>CPE_NAME</varname> key; however,
+      between different releases and service packs, the value have been
+      changed. If you need further details, refer to the article at
+      <link xlink:href="https://www.suse.com/support/kb/doc/?id=7023490"/>.
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term><filename>/etc/product.d/baseproduct</filename></term>
+    <listitem>
+     <para>
+      A link to an XML file. The <filename class="directory"
+       >/etc/product.d/</filename> directory contains different <filename
+        class="extension">.prod</filename> files.
+     </para>
+     <para>
+      Depending on which products you have purchased and how you installed
+      your system, the link <filename>/etc/product.d/baseproduct</filename>
+      can point to a different <filename
+        class="extension">.prod</filename> file, for example,
+      <filename>sle-module-sap-applications.prod</filename>.
+      The same information as <varname>CPE_NAME</varname> is stored in
+      the tag <tag class="starttag">cpeid</tag>.
+     </para>
+    </listitem>
+   </varlistentry>
+  </variablelist>
+
+  <para>
+   Among other information, both files contain the operating system and
+   base product. The base product (key <varname>CPE_NAME</varname> and tag
+   <tag class="starttag">cpeid</tag>) follow the <link
+    xlink:href="http://scap.nist.gov/specifications/cpe/"
+    >Common Platform Enumeration Specification</link>.
+  </para>
+
+  <para>
+   Basically, you can extract any information from the file <filename
+    >/etc/product.d/baseproduct</filename>
+   either with the commands <command>grep</command> or <command>xmlstarlet</command>
+   (both are available for your products).
+   As XML is also text, use <command>grep</command> for <quote>simple searches</quote>
+   when the format of the output does not matter much. However, if your search
+   is more advanced, you need the output in another script, or your would
+   like to avoid the XML tags in the output, use the
+   <command>xmlstarlet</command> command instead.
+  </para>
+  <para>
+   For example, to get your base product, use <command>grep</command> like this:
+  </para>
+  <screen>&prompt.user;<command>grep</command> cpeid /etc/products.d/baseproduct
+&lt;cpeid>cpe:/o:suse:sle-module-sap-applications:<replaceable
+ >RELEASE</replaceable>:sp<replaceable
+  >SP_NUMBER</replaceable>&lt;/cpeid></screen>
+
+  <para>
+   The <replaceable>RELEASE</replaceable> and <replaceable>SP_NUMBER</replaceable>
+   are placeholders and describe your product release number and service pack.
+  </para>
+  <para>
+   The same can be achieved with <command>xmlstarlet</command>. You need
+   an XPath (the steps that lead you to your information). With the appropriate
+   options you can avoid the <tag class="starttag">cpeid</tag>/<tag
+    class="endtag">cpeid</tag> tags:
+  </para>
+  <screen>&prompt.user;<command>xmlstarlet</command> sel -T -t -v<!--
+  --> "/product/cpeid" /etc/products.d/baseproduct
+cpe:/o:suse:sle-module-sap-applications:<replaceable
+ >RELEASE</replaceable>:sp<replaceable>SP_NUMBER</replaceable></screen>
+  <para>
+   A more advanced search (which would be difficult for <command>grep</command>)
+   would be to list all required dependencies to other products.
+   Assuming, <filename>basename</filename> points to
+   <filename>sle-module-sap-applications.prod</filename>, the following
+   command will output all product dependencies which are required for &sles4sap;:
+  </para>
+  <screen>>&prompt.user;<command>xmlstarlet</command> sel -T -t -v<!--
+  --> "/product/productdependency[@relationship='requires']/@name" /etc/products.d/baseproduct
+SUSE_SLE
+sle-ha</screen>
+ </sect1>
+
  <sect1 xml:id="sec-s4s-suseconnectprogram">
   <title>SUSE Connect Program</title>
   <para>
