@@ -15,9 +15,7 @@
  <sect1 xml:id="sec-sapconf">
   <title>Tuning Systems with the &sapconf; Profile</title>
   <para>
-   The package <systemitem>sapconf</systemitem> is available for the &x86-64;
-   and &ppc64le; architecture.
-   This package contains the
+   The package <systemitem>sapconf</systemitem> contains the
    <systemitem>tuned</systemitem> profile <literal>sapconf</literal>.
    This single tuning profile sets recommended parameters for the following
    types of &sap; applications: &netweaver;, &hana; and &hana;-based
