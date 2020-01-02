@@ -15,10 +15,10 @@
 
 <!--                    SLE Books                                  -->
 
-<!ENTITY docaddress     "<link xmlns='http://docbook.org/ns/docbook' xmlns:xlink='http://www.w3.org/1999/xlink' xlink:href='https://www.suse.com/documentation/sles-12/'/>">
-<!ENTITY ha-docaddress  "<link xmlns='http://docbook.org/ns/docbook' xmlns:xlink='http://www.w3.org/1999/xlink' xlink:href='https://www.suse.com/documentation/sle-ha-12/'/>">
+<!ENTITY docaddress     "<link xmlns='http://docbook.org/ns/docbook' xmlns:xlink='http://www.w3.org/1999/xlink' xlink:href='https://documentation.suse.com/sles-12'/>">
+<!ENTITY ha-docaddress  "<link xmlns='http://docbook.org/ns/docbook' xmlns:xlink='http://www.w3.org/1999/xlink' xlink:href='https://documentation.suse.com/sle-ha-12'/>">
 <!ENTITY sapnoteaddress "https://launchpad.support.sap.com/#/notes/">
-<!ENTITY suma-docaddress "<link xmlns='http://docbook.org/ns/docbook' xmlns:xlink='http://www.w3.org/1999/xlink' xlink:href='https://www.suse.com/documentation/suse-manager-3/'/>">
+<!ENTITY suma-docaddress "<link xmlns='http://docbook.org/ns/docbook' xmlns:xlink='http://www.w3.org/1999/xlink' xlink:href='https://documentation.suse.com/suma/3.2/'/>">
 <!ENTITY reslibrary     "<link xmlns='http://docbook.org/ns/docbook' xmlns:xlink='http://www.w3.org/1999/xlink' xlink:href='https://www.suse.com/products/sles-for-sap/resource-library/'/>">
 
 <!ENTITY deploy         "<emphasis xmlns='http://docbook.org/ns/docbook'>Deployment Guide</emphasis>">
