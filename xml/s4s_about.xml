@@ -1,20 +1,26 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE chapter PUBLIC "-//Novell//DTD NovDoc XML V1.0//EN" "novdocx.dtd" [
-<!ENTITY % NOVDOC.DEACTIVATE.IDREF "INCLUDE">
-<!ENTITY % entities SYSTEM "entity-decl.ent">
-%entities;
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet href="urn:x-suse:xslt:profiling:docbook51-profile.xsl"
+    type="text/xml"
+    title="Profiling step"
+?>
+<!DOCTYPE chapter
+[
+   <!ENTITY % entities SYSTEM "entity-decl.ent">
+   %entities;
 ]>
-<chapter id="s4s-about">
- <title>What is &sles4sap;?</title>
- <abstract>
+
+
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.1" xml:id="s4s-about"><title>What is &sles4sap;?</title><info><abstract>
  <para>
   &sles4sapreg; is a bundle of software and services that addresses
   the specific needs of SAP users.  It is the only operating system that is
   optimized for all SAP software solutions.
  </para>
- </abstract>
+ </abstract></info>
+ 
+ 
 
-  <figure id="fig-s4s-picture">
+  <figure xml:id="fig-s4s-picture">
   <title>What is &sles4sap;?</title>
   <mediaobject>
    <imageobject role="fo">
@@ -27,13 +33,13 @@
  </figure>
 
 <!-- -=-=-=-=-=-=-=-=-=-=-=-=-=- cut here -=-=-=-=-=-=-=-=-=-=-=-=-=- -->
- <sect1 id="s4s-about-overview">
+ <section xml:id="s4s-about-overview">
   <title>Overview</title>
 
   <para>
   Target use cases include:
   </para>
-  <itemizedlist>
+  <itemizedlist mark="bullet" spacing="normal">
   <listitem>
    <para>
     Unix to Linux Migrations and Replatforming
@@ -52,9 +58,7 @@
   </itemizedlist>
 
   <para>
-   &sles4sap; consists of software components (see <xref
-   linkend="s4s-about-sw"/>) and service offerings (see <xref
-   linkend="s4s-about-services"/>).
+   &sles4sap; consists of software components (see <xref linkend="s4s-about-sw"/>) and service offerings (see <xref linkend="s4s-about-services"/>).
   </para>
 
   <!--
@@ -76,9 +80,9 @@ SUSE Linux Enterprise Server Priority Support for SAP Applications (optional)
    </listitem>
   </itemizedlist>
   -->
- </sect1>
+ </section>
 
- <sect1 id="s4s-about-sw">
+ <section xml:id="s4s-about-sw">
   <title>Software Components</title>
 
   <variablelist>
@@ -112,7 +116,7 @@ SUSE Linux Enterprise Server Priority Support for SAP Applications (optional)
      <para>
       This component consists of:
      </para>
-   <itemizedlist>
+   <itemizedlist mark="bullet" spacing="normal">
     <listitem>
      <para>
 Cluster manager
@@ -130,11 +134,9 @@ Resource agents, also for SAP
 </listitem>
    </itemizedlist>
 
-   <para>For more information about &sle; &hasi;, see the &haguide; (<ulink
-   url="http://www.suse.com/documentation/sle_ha/"/>)
+   <para>For more information about &sle; &hasi;, see the &haguide; (<link xlink:href="http://www.suse.com/documentation/sle_ha/"/>)
    and
-   the <emphasis>Best Practice Guides</emphasis> (<ulink
-   url="http://www.suse.com/products/sles-for-sap/resource-library/sap-best-practices.html"/>).</para>
+   the <emphasis>Best Practice Guides</emphasis> (<link xlink:href="http://www.suse.com/products/sles-for-sap/resource-library/sap-best-practices.html"/>).</para>
     </listitem>
    </varlistentry>
 
@@ -159,9 +161,9 @@ Resource agents, also for SAP
    </varlistentry>
   </variablelist>
 
- </sect1>
+ </section>
 
- <sect1 id="s4s-about-services">
+ <section xml:id="s4s-about-services">
   <title>Services for &sles4sap;</title>
 
   <variablelist>
@@ -185,7 +187,7 @@ Resource agents, also for SAP
    <varlistentry>
     <term><emphasis>Additional Update Channel</emphasis></term>
     <listitem>
-    <itemizedlist>
+    <itemizedlist mark="bullet" spacing="normal">
      <listitem>
       <para>
        Allows SAP-specific patches
@@ -217,11 +219,10 @@ of ownership.
      </para>
      <para>
       For background information, see SAP Note 1056161: SUSE Priority
-      Support for SAP Applications <ulink
-      url="https://launchpad.support.sap.com/#/notes/1056161"/>.
+      Support for SAP Applications <link xlink:href="https://launchpad.support.sap.com/#/notes/1056161"/>.
      </para>
     </listitem>
    </varlistentry>
   </variablelist>
- </sect1>
+ </section>
 </chapter>

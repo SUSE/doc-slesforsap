@@ -1,16 +1,22 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE chapter PUBLIC "-//Novell//DTD NovDoc XML V1.0//EN" "novdocx.dtd" [
-<!ENTITY % NOVDOC.DEACTIVATE.IDREF "INCLUDE">
-<!ENTITY % entities SYSTEM "entity-decl.ent">
-%entities;
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet href="urn:x-suse:xslt:profiling:docbook51-profile.xsl"
+    type="text/xml"
+    title="Profiling step"
+?>
+<!DOCTYPE sect1
+[
+   <!ENTITY % entities SYSTEM "entity-decl.ent">
+   %entities;
 ]>
-<sect1 id="s4s-configuration">
+
+
+<section xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.1" xml:id="s4s-configuration">
 
  <title>Configuring &sles4sap;</title>
  <para>
  </para>
 
- <sect2 id="s4s-config-page-cache">
+ <section xml:id="s4s-config-page-cache">
 
   <title>Kernel: Page-Cache Limit</title>
 
@@ -55,7 +61,7 @@
      <para>
       Two new kernel options are available for configuration:
      </para>
-     <itemizedlist>
+     <itemizedlist mark="bullet" spacing="normal">
       <listitem>
        <para>
         vm.pagecache_limit_mb (/proc/sys/vm/pagecache_limit_mb)
@@ -75,15 +81,14 @@ vm.pagecache_limit_ignore_dirty = 0</screen>
 
      <para>
       For background information, see SAP Note 1557506: Linux paging
-      improvements <ulink
-      url="https://launchpad.support.sap.com/#/notes/1557506"/>.
+      improvements <link xlink:href="https://launchpad.support.sap.com/#/notes/1557506"/>.
      </para>
     </listitem>
    </varlistentry>
   </variablelist>
- </sect2>
+ </section>
  <!-- ==================================================================== -->
- <sect2 id="s4s-config-ports">
+ <section xml:id="s4s-config-ports">
 
   <title>Ports Configuration</title>
 
@@ -92,7 +97,7 @@ vm.pagecache_limit_ignore_dirty = 0</screen>
    firewall.  The exact numbers depend on the selected instances, for
    example:
   </para>
-  <itemizedlist>
+  <itemizedlist mark="bullet" spacing="normal">
    <listitem>
     <para>3200-3399,</para>
    </listitem>
@@ -123,16 +128,16 @@ vm.pagecache_limit_ignore_dirty = 0</screen>
    </para>
   </warning>
 
- </sect2>
+ </section>
 
- <sect2 id="s4s-config-logs">
+ <section xml:id="s4s-config-logs">
   <title>Important Log Files</title>
 
   <para>
    The most important files for this product are:
   </para>
 
-  <itemizedlist>
+  <itemizedlist mark="bullet" spacing="normal">
    <listitem>
     <para>
      Auto-installation related log files are in
@@ -152,7 +157,7 @@ vm.pagecache_limit_ignore_dirty = 0</screen>
    </listitem>
   </itemizedlist>
 
- </sect2>
+ </section>
 
 <!--
  <sect2>
@@ -161,4 +166,4 @@ vm.pagecache_limit_ignore_dirty = 0</screen>
   <para>For more information about tuning &sls; see the SLES &tuning;.</para>
  </sect2>
 -->
-</sect1>
+</section>

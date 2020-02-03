@@ -1,18 +1,24 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE chapter PUBLIC "-//Novell//DTD NovDoc XML V1.0//EN" "novdocx.dtd" [
-<!ENTITY % NOVDOC.DEACTIVATE.IDREF "INCLUDE">
-<!ENTITY % entities SYSTEM "entity-decl.ent">
-%entities;
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet href="urn:x-suse:xslt:profiling:docbook51-profile.xsl"
+    type="text/xml"
+    title="Profiling step"
+?>
+<!DOCTYPE chapter
+[
+   <!ENTITY % entities SYSTEM "entity-decl.ent">
+   %entities;
 ]>
-<chapter id="s4s-installation">
- <title>Default Installation Scenarios</title>
+
+
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.1" xml:id="s4s-installation"><title>Default Installation Scenarios</title><info/>
+ 
 
   <para>After planning the installation with downloading the software
   and checking the minimal hardware requirements, there are three
   default installation scenarios:
   </para>
 
-  <itemizedlist>
+  <itemizedlist mark="bullet" spacing="normal">
    <listitem>
     <para>
      <xref linkend="s4s-inst-inst" xrefstyle="select:title,nopage"/>
@@ -30,7 +36,7 @@
    </listitem>
   </itemizedlist>
 
- <sect1 id="s4s-inst-planning">
+ <section xml:id="s4s-inst-planning">
   <title>Planning the Installation</title>
 
   <para>
@@ -38,7 +44,7 @@
    minimal hardware requirements.
   </para>
 
-  <sect2>
+  <section>
    <title>Download and Installation Preparations</title>
 
   <procedure>
@@ -63,10 +69,10 @@
    </step>
    -->
   </procedure>
- </sect2>
+ </section>
 
  <!-- ================================================================== -->
- <sect2>
+ <section>
   <title>Hardware Requirements</title>
 
   <variablelist>
@@ -87,12 +93,12 @@
     </listitem>
    </varlistentry>
   </variablelist>
- </sect2>
+ </section>
 
-</sect1>
+</section>
 
 
- <sect1 id="s4s-inst-booting">
+ <section xml:id="s4s-inst-booting">
  <title>Booting the Installation Medium</title>
  <para>
   Different scenarios are available to install &sles4sap; 11.  Select
@@ -113,7 +119,7 @@
   </para>
  </note>
 
- <figure id="fig-s4s-dvd-bootmenu">
+ <figure xml:id="fig-s4s-dvd-bootmenu">
   <title>DVD Boot Menu</title>
   <mediaobject>
    <imageobject role="fo">
@@ -162,8 +168,7 @@
   </varlistentry>
   <varlistentry>
    <term><guimenu>SLES for SAP Applications &mdash; Installation with
-   External Profile</guimenu> (see <xref
-   linkend="s4s-inst-profile"/>)</term>
+   External Profile</guimenu> (see <xref linkend="s4s-inst-profile"/>)</term>
    <listitem>
     <para>This installation is driven by a user-provided &ay;
     profile.  There are no &suse;-provided SAP optimizations.</para>
@@ -179,8 +184,7 @@
     <para>
      Starting a minimal Linux system without a graphical user
     interface. For more information, see the &admin;, Chapter 34, Common
-    Problems and Their Solutions; find the &admin; at <ulink
-    url="https://www.suse.com/documentation/sles11/"/>.
+    Problems and Their Solutions; find the &admin; at <link xlink:href="https://www.suse.com/documentation/sles11/"/>.
     </para>
    </listitem>
   </varlistentry>
@@ -194,9 +198,9 @@
    </listitem>
   </varlistentry>
  </variablelist>
- </sect1>
+ </section>
 
- <sect1 id="s4s-inst-inst">
+ <section xml:id="s4s-inst-inst">
   <title><guimenu>SLES for SAP Applications &mdash;
   Installation</guimenu></title>
   <para>
@@ -223,9 +227,9 @@
    partitioning of storage devices, network, or software packages.
   </para>
 
- </sect1>
+ </section>
 
- <sect1 id="s4s-inst-wizard">
+ <section xml:id="s4s-inst-wizard">
   <title><guimenu>SLES for SAP Applications &mdash; Installation with
   Wizard</guimenu></title>
   <para>
@@ -239,7 +243,7 @@
    required or possible.
   </para>
 
- <sect2>
+ <section>
   <title>Data Required for Installing the System (with Wizard)</title>
 
   <para>
@@ -248,7 +252,7 @@
   </para>
 
   <informaltable>
-     <tgroup cols = "2">
+     <tgroup cols="2">
       <tbody>
        <row>
         <entry>
@@ -348,7 +352,7 @@
   </para>
 
   <informaltable>
-     <tgroup cols = "2">
+     <tgroup cols="2">
       <tbody>
        <row>
         <entry>
@@ -443,10 +447,10 @@
   </informaltable>
 
   <para>(*) not required for TREX.</para>
- </sect2>
+ </section>
 
 
-  <sect2 id="s4s-inst-wizard-boot">
+  <section xml:id="s4s-inst-wizard-boot">
    <title>Selecting <guimenu>SLES for SAP Applications &mdash;
    Installation with Wizard</guimenu> from the DVD Boot Menu</title>
    <para>
@@ -459,9 +463,9 @@
     &yast; installation program starts and displays the graphical
     installer, which will run mostly automatically.
    </para>
-  </sect2>
+  </section>
 
-  <sect2 id="sec-s4s-inst-wizard-prepauto">
+  <section xml:id="sec-s4s-inst-wizard-prepauto">
    <title>Preparing System for Automated Installation</title>
    <para>
     After analyzing your computer, the next &yast; pop-up dialog will let
@@ -470,7 +474,7 @@
     you select the SAP Application.
    </para>
 
-   <figure id="fig-s4s-inst-yast-storage-system">
+   <figure xml:id="fig-s4s-inst-yast-storage-system">
     <title>System Volume Configuration</title>
     <mediaobject>
      <imageobject role="fo">
@@ -485,8 +489,7 @@
    <para>
     If there is just one hard disk, keep it as the system volume device
     and set the size of the system volume (and the swap space) in GB in
-    the lower field and confirm it; see <xref
-    linkend="fig-s4s-inst-yast-storage-system"/>.
+    the lower field and confirm it; see <xref linkend="fig-s4s-inst-yast-storage-system"/>.
    </para>
 
    <tip>
@@ -494,8 +497,7 @@
     <para>
      Normally, at least 10 GB is required for the system volume.  The
      swap space depends on the available main memory (RAM).  For more
-     information, see the SAP Note 1597355: <ulink
-     url="https://launchpad.support.sap.com/#/notes/1597355"/>.
+     information, see the SAP Note 1597355: <link xlink:href="https://launchpad.support.sap.com/#/notes/1597355"/>.
     </para>
    </tip>
 
@@ -519,9 +521,9 @@
     After confirmation, &yast; performs the software installation.
     Packages are installed one by one, so you can see the progress.
    </para>
-  </sect2>
+  </section>
 
-  <sect2 id="sec-s4s-inst-wizard-yast2-user-root">
+  <section xml:id="sec-s4s-inst-wizard-yast2-user-root">
    <title>Password for the System Administrator &rootuser;</title><indexterm>
    <primary>&yast;</primary>
    <secondary>root password</secondary></indexterm><indexterm>
@@ -534,7 +536,7 @@
     &rootuser;; see <xref linkend="fig-s4s-inst-yast-root-password"/>.
    </para>
 
-   <figure id="fig-s4s-inst-yast-root-password">
+   <figure xml:id="fig-s4s-inst-yast-root-password">
     <title>Password for root User</title>
     <mediaobject>
      <imageobject role="fo">
@@ -576,9 +578,9 @@
      password.
     </para>
    </warning>
-  </sect2>
+  </section>
 
-  <sect2 id="sec-s4s-inst-wizard-yast2-conf-manual-hostname">
+  <section xml:id="sec-s4s-inst-wizard-yast2-conf-manual-hostname">
    <title>Hostname, Domain Name, and IP Address</title><indexterm>
    <primary>&yast;</primary>
     <secondary>hostname</secondary></indexterm><indexterm>
@@ -591,11 +593,10 @@
    </indexterm>
 
    <para>
-    The next dialog starts with the network configuration; see <xref
-    linkend="fig-s4s-inst-yast-network-config"/>.
+    The next dialog starts with the network configuration; see <xref linkend="fig-s4s-inst-yast-network-config"/>.
    </para>
 
-   <figure id="fig-s4s-inst-yast-network-config">
+   <figure xml:id="fig-s4s-inst-yast-network-config">
     <title>Hostname, Domain Name, and IP Address</title>
     <mediaobject>
      <imageobject role="fo">
@@ -622,17 +623,16 @@
      unique and the netmask has to be common to all hosts on the
      network.
    </para>
-  </sect2>
+  </section>
 
-  <sect2 id="sec-s4s-inst-wizard-yast2-conf-manual-dns-ntp">
+  <section xml:id="sec-s4s-inst-wizard-yast2-conf-manual-dns-ntp">
    <title>Domain Name Service (DNS) and Time Server (NTP)</title>
 
    <para>
-    The next dialog continues with the network configuration; see <xref
-    linkend="fig-s4s-inst-yast-network-config2"/>.
+    The next dialog continues with the network configuration; see <xref linkend="fig-s4s-inst-yast-network-config2"/>.
    </para>
 
-   <figure id="fig-s4s-inst-yast-network-config2">
+   <figure xml:id="fig-s4s-inst-yast-network-config2">
     <title>Domain Name Service (DNS) and Time Server (NTP)</title>
     <mediaobject>
      <imageobject role="fo">
@@ -655,20 +655,18 @@
      synchronize automatically via Network Time Protocol (NTP).
     </para>
 
-   </sect2>
+   </section>
 
-   <sect2 id="sec-s4s-inst-wizard-yast2-conf-manual-reg">
+   <section xml:id="sec-s4s-inst-wizard-yast2-conf-manual-reg">
     <title>Registration</title>
     <!-- 215-yast-registration.png -->
 
     <para>
      To get technical support and product updates, you need to register
-     and activate your product with the &ncc;; see <xref
-     linkend="fig-s4s-inst-yast-reg"/>.  This dialog provides assistance
-     for doing so. Find detailed information about &ncc; at <ulink
-     url="http://www.novell.com/documentation/ncc/"/>.
+     and activate your product with the &ncc;; see <xref linkend="fig-s4s-inst-yast-reg"/>.  This dialog provides assistance
+     for doing so. Find detailed information about &ncc; at <link xlink:href="http://www.novell.com/documentation/ncc/"/>.
     </para>
-   <figure id="fig-s4s-inst-yast-reg">
+   <figure xml:id="fig-s4s-inst-yast-reg">
     <title>Registration</title>
     <mediaobject>
      <imageobject role="fo">
@@ -686,9 +684,9 @@
      provide the registration code now, operating system updates will be
      installed automatically during the installation of the system.
     </para>
-   </sect2>
+   </section>
 
-   <sect2>
+   <section>
     <title>System Configuration Settings</title>
     <para>
      After confirming the registration data, the system will be
@@ -713,14 +711,13 @@
      </para>
     </warning>
 
-   </sect2>
+   </section>
 
-   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-               href="s4s_installation_sap.xml"/>
+   <xi:include href="s4s_installation_sap.xml" parse="xml"/>
 
-   </sect1>
+   </section>
 
-   <sect1 id="s4s-inst-profile">
+   <section xml:id="s4s-inst-profile">
     <title><guimenu>SLES for SAP Applications &mdash;
     Installation with External Profile</guimenu></title>
 
@@ -731,8 +728,7 @@
      their own &ay; profiles to install &sles4sap;.  For more
      information about &ay; profiles, see the SLES <emphasis>&ay;
      Guide</emphasis> (the <emphasis>&ay; Guide</emphasis> comes
-      with the product or is available from <ulink
-      url="http://www.suse.com/documentation/sles11/"/>).
+      with the product or is available from <link xlink:href="http://www.suse.com/documentation/sles11/"/>).
     </para>
 
     <para>
@@ -762,7 +758,7 @@
      <filename>autoyast.xml</filename> file.
     </para>
 
-    <sect2>
+    <section>
      <title>About &ay;</title>
 
      <para>
@@ -777,12 +773,11 @@
      <para>
       For more information about &ay;, see the <emphasis>&sls; 11 &ay;
       Guide</emphasis> (the <emphasis>&ay; Guide</emphasis> comes
-      with the product or is available from <ulink
-      url="http://www.suse.com/documentation/sles11/"/>).
+      with the product or is available from <link xlink:href="http://www.suse.com/documentation/sles11/"/>).
      </para>
-    </sect2>
+    </section>
 
-    <sect2>
+    <section>
      <title>Partitioning with &ay;</title>
 
      <para>
@@ -793,11 +788,10 @@
      </para>
 
      <para>
-      For background information on partitioning, see <xref
-      linkend="s4s-part"/>.
+      For background information on partitioning, see <xref linkend="s4s-part"/>.
      </para>
-    </sect2>
+    </section>
 
-   </sect1>
+   </section>
 
 </chapter>

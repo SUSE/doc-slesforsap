@@ -1,11 +1,17 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE chapter PUBLIC "-//Novell//DTD NovDoc XML V1.0//EN" "novdocx.dtd" [
-<!ENTITY % NOVDOC.DEACTIVATE.IDREF "INCLUDE">
-<!ENTITY % entities SYSTEM "entity-decl.ent">
-%entities;
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet href="urn:x-suse:xslt:profiling:docbook51-profile.xsl"
+    type="text/xml"
+    title="Profiling step"
+?>
+<!DOCTYPE chapter
+[
+   <!ENTITY % entities SYSTEM "entity-decl.ent">
+   %entities;
 ]>
-<chapter id="s4s-qinstallation">
- <title>Quick Installation of &sles4sap;</title>
+
+
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.1" xml:id="s4s-qinstallation"><title>Quick Installation of &sles4sap;</title><info/>
+ 
  <para>
   &slsreg; optimized for SAP applications is available as a downloadable
   DVD image.  The image can be deployed automatically&mdash;including
@@ -15,7 +21,7 @@
   The current release of the product is based on &sls; &productnumber;.
  </para>
  <!-- ================================================================== -->
- <sect1 id="s4s-qi-down-and-inst">
+ <section xml:id="s4s-qi-down-and-inst">
   <title>Download and Installation Preparations</title>
 
   <procedure>
@@ -37,10 +43,10 @@
     </para>
    </step>
   </procedure>
- </sect1>
+ </section>
 
  <!-- ================================================================== -->
- <sect1>
+ <section>
   <title>Hardware Requirements</title>
 
   <variablelist>
@@ -60,10 +66,10 @@
     </listitem>
    </varlistentry>
   </variablelist>
- </sect1>
+ </section>
 
  <!-- ================================================================== -->
- <sect1 id="s4s-qi-inst">
+ <section xml:id="s4s-qi-inst">
   <title>Installation</title>
 
   <procedure>
@@ -132,8 +138,7 @@
     <para>
      Select <guimenu>SLES for SAP Applications &mdash; Installation with
      Wizard</guimenu> and press enter to start the semi-automated
-     installation procedure.  For details and caveats, see <xref
-     linkend="s4s-inst-wizard"/>.
+     installation procedure.  For details and caveats, see <xref linkend="s4s-inst-wizard"/>.
     </para>
    </step>
 
@@ -161,7 +166,7 @@
   </procedure>
 
  <!-- ================================================================== -->
- <sect2 id="s4s-qi-inst-s4s-basic">
+ <section xml:id="s4s-qi-inst-s4s-basic">
   <title>Installation of &sles4sap;</title>
 
    <para>
@@ -177,9 +182,9 @@ will provide some dialogs for basic system settings. The Media-Changer will not
 start for installation of a validated SAP solution.  If the Media-Changer
 should be used to install a validated SAP solution, it can be started manually
 from within &yast;.</para>
- </sect2>
+ </section>
  <!-- ================================================================== -->
- <sect2 id="s4s-qi-inst-s4s">
+ <section xml:id="s4s-qi-inst-s4s">
   <title>Installation of &sles4sap; with Wizard</title>
    
    <para>The normal &ay; driven SLES for SAP Applications installation
@@ -194,9 +199,9 @@ automatic system reboot (do not change the default "Boot from Hard Disk" in
 case you left the DVD inserted), you will be prompted to insert the SAP
 installation media; then follow the instructions.
 </para>
-  </sect2>
+  </section>
  <!-- ================================================================== -->
- <sect2 id="s4s-qi-inst-s4s-manual">
+ <section xml:id="s4s-qi-inst-s4s-manual">
   <title>Installation of &sles4sap; with External Profile</title>
 
    <para>
@@ -219,17 +224,17 @@ and configuration of &sles4sap;.</para>
    You can choose the SAP specific pattern, the HA, WebYaST components and SAP
    specific IBM Java as well in this installation scenario, but they are
    <emphasis>not</emphasis> preselected.</para>
-  </sect2>
+  </section>
  <!-- ================================================================== -->
- </sect1>
-<sect1>
+ </section>
+<section>
   <title>SAP Specific Instructions</title>
   
   <para>
    For further installation instructions and the SAP specific parts in
    particular, refer to the SAP Installation Guide (the
    <quote>Cookbook</quote>).</para>
- </sect1>
+ </section>
 
  <!-- This is duplicated info; comment it
  <sect1>
@@ -273,7 +278,7 @@ and configuration of &sles4sap;.</para>
  </sect1>
 -->
 
- <sect1>
+ <section>
   <title>How to Install with Installation Media from the Network</title>
   <procedure>
    <step>
@@ -298,10 +303,10 @@ and configuration of &sles4sap;.</para>
   <para>
     That is all you need for a network installation. If you want to avoid using
     a DVD to bootstrap the system and boot from the network via PXE, read the
-    documentation about setting up a PXE environment (<ulink url="http://www.suse.de/~ug/autoyast_doc/bootmedium.html"/>).</para>
- </sect1>
+    documentation about setting up a PXE environment (<link xlink:href="http://www.suse.de/~ug/autoyast_doc/bootmedium.html"/>).</para>
+ </section>
 
- <sect1>
+ <section>
   <title>Media Changer and Network Sources</title>
   <para>
 If you want to put your media on a NFS Server, proceed as follows:</para>
@@ -335,9 +340,8 @@ If you want to put your media on a NFS Server, proceed as follows:</para>
   <para>
     Now the media changer can also install from your NFS server.
  </para>
- </sect1>
-</chapter>
-<!-- ...
+ </section>
+</chapter><!-- ...
 "Finishing Basic Installation
 Reboot...
 ...

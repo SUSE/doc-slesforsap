@@ -1,10 +1,16 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE sect2 PUBLIC "-//Novell//DTD NovDoc XML V1.0//EN" "novdocx.dtd" [
-<!ENTITY % NOVDOC.DEACTIVATE.IDREF "INCLUDE">
-<!ENTITY % entities SYSTEM "entity-decl.ent">
-%entities;
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet href="urn:x-suse:xslt:profiling:docbook51-profile.xsl"
+    type="text/xml"
+    title="Profiling step"
+?>
+<!DOCTYPE sect2
+[
+   <!ENTITY % entities SYSTEM "entity-decl.ent">
+   %entities;
 ]>
-<sect2 id="sec-s4s-inst-wizard-sap-product-install">
+
+
+<section xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.1" xml:id="sec-s4s-inst-wizard-sap-product-install">
 <!-- 220-yast-start-sap-install.png -->
     <title>SAP Product Installation</title>
 
@@ -32,8 +38,7 @@
      <step>
    <para>
     Select <guimenu>Create SAP file systems and start SAP product
-    installation</guimenu> and confirm the pop-up (see <xref
-    linkend="fig-s4s-inst-yast-start-sap-install"/>) if you want to
+    installation</guimenu> and confirm the pop-up (see <xref linkend="fig-s4s-inst-yast-start-sap-install"/>) if you want to
     continue with the installation right away.
    </para>
    <para>
@@ -53,7 +58,7 @@
      instructions in <citetitle>SAP Note 1944415: Hardware Configuration
      Guide and Software Installation Guide for SUSE Linux Enterprise Server
      with SAP HANA and SAP Business One</citetitle>
-     (<ulink url="https://launchpad.support.sap.com/#/notes/1944415"/>).
+     (<link xlink:href="https://launchpad.support.sap.com/#/notes/1944415"/>).
     </para>
     <para>
      Otherwise, this option will not create a new file system and the
@@ -61,7 +66,7 @@
     </para>
    </important>
 
-    <figure id="fig-s4s-inst-yast-start-sap-install">
+    <figure xml:id="fig-s4s-inst-yast-start-sap-install">
     <title>SAP Product Installation</title>
     <mediaobject>
      <imageobject role="fo">
@@ -81,8 +86,7 @@
      select the <guimenu>SAP Product Installer</guimenu>
      (<guimenu>Computer</guimenu>, then in the YaST Control Center click
      <menuchoice><guimenu>Miscellaneous</guimenu><guimenu>SAP Product
-     Installer</guimenu></menuchoice>; see <xref
-     linkend="fig-s4s-ycc-sap-product-installer"/>).  The functionality
+     Installer</guimenu></menuchoice>; see <xref linkend="fig-s4s-ycc-sap-product-installer"/>).  The functionality
      is the same, but the layout of the dialogs is different; the left
      progress pane is only displayed when continuing with the
      installation without a restart.
@@ -95,7 +99,7 @@
    </tip>
 
 
-   <figure id="fig-s4s-ycc-sap-product-installer">
+   <figure xml:id="fig-s4s-ycc-sap-product-installer">
     <title>&yast; Control Center: SAP Product Installer</title>
     <mediaobject>
      <imageobject role="fo">
@@ -111,8 +115,7 @@
      <step>
    <para>
     In the next dialog provide the <guimenu>Location of the SAP
-    Installation Master</guimenu>; see <xref
-    linkend="fig-s4s-sap-wizard-source"/>.  The location can either be a
+    Installation Master</guimenu>; see <xref linkend="fig-s4s-sap-wizard-source"/>.  The location can either be a
     local source or a remotely provided installation source.
    </para>
 
@@ -120,7 +123,7 @@
     <varlistentry>
      <term>Local Source</term>
      <listitem>
-      <itemizedlist>
+      <itemizedlist mark="bullet" spacing="normal">
        <listitem>
         <para>a directory (<literal>dir://</literal> and <literal><replaceable>/path/to/dir/</replaceable></literal>)</para>
        </listitem>
@@ -146,7 +149,7 @@
     <varlistentry>
      <term>A Remotely Provided Installation Source</term>
       <listitem>
-       <itemizedlist>
+       <itemizedlist mark="bullet" spacing="normal">
         <listitem>
          <para>
           NFS (<literal>nfs://</literal> and <literal><replaceable>server_name</replaceable>/<replaceable>/path/to/dir/on/server</replaceable></literal>)
@@ -177,7 +180,7 @@
     </para>
    </tip>
 
-   <figure id="fig-s4s-sap-wizard-source">
+   <figure xml:id="fig-s4s-sap-wizard-source">
     <title>SAP Installation Wizard: SAP Installation Master Location</title>
     <mediaobject>
      <imageobject role="fo">
@@ -213,11 +216,10 @@
        Engines</guimenu>, etc. and the <guimenu>Database</guimenu> such
        as <guimenu>IBM DB2</guimenu>, <guimenu>MaxDB</guimenu>, etc. you
        want to deploy. In the case of a B1 or HANA installation, such a
-       selection does not exist.  See <xref
-       linkend="fig-s4s-sap-wizard-mode-db"/>.  Click
+       selection does not exist.  See <xref linkend="fig-s4s-sap-wizard-mode-db"/>.  Click
        <guimenu>Help</guimenu> for information.
       </para>
-   <figure id="fig-s4s-sap-wizard-mode-db">
+   <figure xml:id="fig-s4s-sap-wizard-mode-db">
     <title>SAP Installation Wizard: Installation Mode and Database</title>
     <mediaobject>
      <imageobject role="fo">
@@ -263,7 +265,7 @@
     example, see <xref linkend="fig-s4s-sap-wizard-avail-products"/>.
    </para>
 
-    <figure id="fig-s4s-sap-wizard-avail-products">
+    <figure xml:id="fig-s4s-sap-wizard-avail-products">
      <title>SAP Installation Wizard: SAP Products</title>
      <mediaobject>
       <imageobject role="fo">
@@ -277,7 +279,7 @@
 
      </step>
      <!-- ============================================================ -->
-     <step id="pro-sap-wizard-products">
+     <step xml:id="pro-sap-wizard-products">
       <para>
        For example, select <guimenu>SAP NetWeaver 7.4</guimenu> and
        click <guimenu>Next</guimenu>.  Now the relevant part of the SAP
@@ -292,8 +294,7 @@
       <para>
        You are asked to provide the <guimenu>Location of the SAP
        Medium</guimenu> and if additional media are needed, you can also
-       add them afterwards; see <xref
-       linkend="fig-s4s-sap-wizard-sapmedia "/> (here you see the list
+       add them afterwards; see <xref linkend="fig-s4s-sap-wizard-sapmedia "/> (here you see the list
        of already copied or linked SAP media).  Click
        <guimenu>Help</guimenu> for information.
        <!--
@@ -314,7 +315,7 @@
      </mediaobject>
      </figure>
      -->
-      <figure id="fig-s4s-sap-wizard-sapmedia">
+      <figure xml:id="fig-s4s-sap-wizard-sapmedia">
      <title>SAP Installation Wizard: Additional SAP Media</title>
      <mediaobject>
       <imageobject role="fo">
@@ -486,7 +487,7 @@ drwxr-xr-x  4 root root 4096 Sep 27 14:07 RDBMS-ADA/
       <para>
        First, specify the <guimenu>System T-Shirt-Sizing</guimenu>.
       </para>
-    <figure id="fig-s4s-sap-wizard-sysparams-size">
+    <figure xml:id="fig-s4s-sap-wizard-sysparams-size">
     <title>SAP System Parameters: T-Shirt-Sizing</title>
     <mediaobject>
      <imageobject role="fo">
@@ -530,7 +531,7 @@ drwxr-xr-x  4 root root 4096 Sep 27 14:07 RDBMS-ADA/
     enter the virtual network settings, if needed.  For details, see the
     online help on the left.
    </para>
-    <figure id="fig-s4s-sap-wizard-virt-params">
+    <figure xml:id="fig-s4s-sap-wizard-virt-params">
     <title>SAP Virtual Network Settings</title>
     <mediaobject>
      <imageobject role="fo">
@@ -603,7 +604,7 @@ drwxr-xr-x  4 root root 4096 Sep 27 14:07 RDBMS-ADA/
         ID, password for all users, database ID,
     -->
    </para>
-    <figure id="fig-s4s-sapinst-param">
+    <figure xml:id="fig-s4s-sapinst-param">
     <title>SAP Installer (SAPinst): Defining Parameters</title>
     <mediaobject>
      <imageobject role="fo">
@@ -616,10 +617,9 @@ drwxr-xr-x  4 root root 4096 Sep 27 14:07 RDBMS-ADA/
    </figure>
 
    <para>The SAP installer displays a
-    visualization of the installation steps it performs; see <xref
-    linkend="fig-s4s-sapinst"/>.
+    visualization of the installation steps it performs; see <xref linkend="fig-s4s-sapinst"/>.
    </para>
-    <figure id="fig-s4s-sapinst">
+    <figure xml:id="fig-s4s-sapinst">
     <title>SAP Installer (SAPinst)</title>
     <mediaobject>
      <imageobject role="fo">
@@ -674,4 +674,4 @@ usw.
      -->
 
 
-   </sect2>
+   </section>
