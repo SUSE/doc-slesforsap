@@ -1,18 +1,23 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE appendix PUBLIC
- "-//Novell//DTD NovDoc XML V1.0//EN" "novdocx.dtd" [
-<!ENTITY % NOVDOC.DEACTIVATE.IDREF "INCLUDE">
-<!ENTITY % entities SYSTEM "entity-decl.ent">
-%entities;
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet href="urn:x-suse:xslt:profiling:docbook51-profile.xsl"
+    type="text/xml"
+    title="Profiling step"
+?>
+<!DOCTYPE appendix
+[
+   <!ENTITY % entities SYSTEM "entity-decl.ent">
+   %entities;
 ]>
-<appendix id="ap-s4s-docupdate">
- <title>Documentation Updates</title>
+
+
+<appendix xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.1" xml:id="ap-s4s-docupdate"><title>Documentation Updates</title><info/>
+ 
  <para>This section contains information about documentation content
  changes made to the <citetitle>&productname; Guide</citetitle>.
 
  </para>
  <para>This document was updated on the following dates:</para>
- <itemizedlist role="subtoc">
+ <itemizedlist role="subtoc" mark="bullet" spacing="normal">
   <listitem>
    <para><xref linkend="ap-s4s-docupdate-2016-12-08" xrefstyle="SectTitleOnPage"/></para>
   </listitem>
@@ -27,7 +32,7 @@
   </listitem>
  </itemizedlist>
  
- <sect1 id="ap-s4s-docupdate-2016-12-08">
+ <section xml:id="ap-s4s-docupdate-2016-12-08">
   <title>December 08, 2016</title>
   <para>Updates were made to the following sections. The changes are
   explained below.</para>
@@ -43,9 +48,9 @@
      </listitem>
     </varlistentry>
    </variablelist>
- </sect1>
+ </section>
 
- <sect1 id="ap-s4s-docupdate-2016-02-29">
+ <section xml:id="ap-s4s-docupdate-2016-02-29">
   <title>February 29, 2016</title>
   <para>Updates were made to the following sections. The changes are
   explained below.</para>
@@ -69,9 +74,9 @@
      </listitem>
     </varlistentry>
    </variablelist>
- </sect1>
+ </section>
 
- <sect1 id="ap-s4s-docupdate-2015-07-31">
+ <section xml:id="ap-s4s-docupdate-2015-07-31">
   <!-- FIXME: enter date -->
   <title>July 31, 2015</title>
   <para>Updates were made to the following sections. The changes are
@@ -79,8 +84,7 @@
 
    <variablelist>
     <varlistentry>
-     <term><xref linkend="s4s-inst-booting"
-     xrefstyle="SectTitleOnPage"/></term>
+     <term><xref linkend="s4s-inst-booting" xrefstyle="SectTitleOnPage"/></term>
      <listitem>
       <para>
        Add note about installing on &power;.
@@ -88,8 +92,7 @@
      </listitem>
     </varlistentry>
     <varlistentry>
-     <term><xref linkend="sec-s4s-inst-wizard-sap-product-install"
-     xrefstyle="SectTitleOnPage"/></term>
+     <term><xref linkend="sec-s4s-inst-wizard-sap-product-install" xrefstyle="SectTitleOnPage"/></term>
      <listitem>
       <para>
        Update according to the new SAP media format.
@@ -97,17 +100,16 @@
      </listitem>
     </varlistentry>
    </variablelist>
- </sect1>
+ </section>
 
- <sect1 id="ap-s4s-docupdate-2013-10-28">
+ <section xml:id="ap-s4s-docupdate-2013-10-28">
   <title>October 28, 2013</title>
   <para>Updates were made to the following sections. The changes are
   explained below.</para>
 
    <variablelist>
     <varlistentry>
-     <term><xref linkend="s4s-installation"
-     xrefstyle="SectTitleOnPage"/></term>
+     <term><xref linkend="s4s-installation" xrefstyle="SectTitleOnPage"/></term>
      <listitem>
       <para>
        Update <quote>Hardware Requirements</quote>, <quote>Hard
@@ -116,8 +118,7 @@
      </listitem>
     </varlistentry>
     <varlistentry>
-     <term><xref linkend="s4s-part"
-     xrefstyle="SectTitleOnPage"/></term>
+     <term><xref linkend="s4s-part" xrefstyle="SectTitleOnPage"/></term>
      <listitem>
       <para>
        New chapter.
@@ -125,8 +126,7 @@
      </listitem>
     </varlistentry>
     <varlistentry>
-     <term><xref linkend="ap-s4s-docupdate"
-     xrefstyle="SectTitleOnPage"/></term>
+     <term><xref linkend="ap-s4s-docupdate" xrefstyle="SectTitleOnPage"/></term>
      <listitem>
       <para>
        New appendix.
@@ -134,5 +134,5 @@
      </listitem>
     </varlistentry>
    </variablelist>
- </sect1>
+ </section>
 </appendix>

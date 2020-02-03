@@ -1,18 +1,24 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE chapter PUBLIC "-//Novell//DTD NovDoc XML V1.0//EN" "novdocx.dtd" [
-<!ENTITY % NOVDOC.DEACTIVATE.IDREF "INCLUDE">
-<!ENTITY % entities SYSTEM "entity-decl.ent">
-%entities;
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet href="urn:x-suse:xslt:profiling:docbook51-profile.xsl"
+    type="text/xml"
+    title="Profiling step"
+?>
+<!DOCTYPE chapter
+[
+   <!ENTITY % entities SYSTEM "entity-decl.ent">
+   %entities;
 ]>
-<chapter id="s4s-components">
- <title>&sles4sap; Components</title>
+
+
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.1" xml:id="s4s-components"><title>&sles4sap; Components</title><info/>
+ 
 
  <para>&sles4sapreg; consists of several components such as &sle; &hasi;,
  the Kernel page-cache limit feature, and an Installation Wizard, which
  are briefly explained in the following sections.
  </para>
 
- <sect1 id="s4s-comp-hasi">
+ <section xml:id="s4s-comp-hasi">
   <title>&sle; &hasi;</title>
 
   <para>The &sle; &hasi; add-on is part of &sles4sap;.</para>
@@ -21,20 +27,18 @@
    For more information about &sle; &hasi;, see
   </para>
 
-  <itemizedlist>
+  <itemizedlist mark="bullet" spacing="normal">
    <listitem>
-    <para>the &haguide; at <ulink
-    url="http://www.suse.com/documentation/sle_ha/"/> and</para>
+    <para>the &haguide; at <link xlink:href="http://www.suse.com/documentation/sle_ha/"/> and</para>
    </listitem>
    <listitem>
-    <para>the <emphasis>Best Practice Guides</emphasis> at <ulink
-    url="http://www.suse.com/products/sles-for-sap/resource-library/sap-best-practices.html"/>.
+    <para>the <emphasis>Best Practice Guides</emphasis> at <link xlink:href="http://www.suse.com/products/sles-for-sap/resource-library/sap-best-practices.html"/>.
     </para>
    </listitem>
   </itemizedlist>
-</sect1>
+</section>
 
-<sect1 id="sec-s4s-component-hana-replicate">
+<section xml:id="sec-s4s-component-hana-replicate">
   <title>Resource Agents for SAP HANA System Replication</title>
 
   <para>
@@ -52,7 +56,7 @@
    </para>
   </important>
 
-  <sect2 id="sec-s4s-hana-ra">
+  <section xml:id="sec-s4s-hana-ra">
    <title><systemitem>SAPHana</systemitem> Resource Agent</title>
    <!--
     Terms:
@@ -92,7 +96,7 @@
     This resource agent supports system replication for the following in
     scale-up scenarios:
    </para>
-   <itemizedlist>
+   <itemizedlist mark="bullet" spacing="normal">
     <listitem>
      <formalpara>
       <title>Performance-Optimized Scenario</title>
@@ -139,7 +143,7 @@
      <para>
       Using SAP HANA commands, you can then manually decide what to do:
      </para>
-     <itemizedlist>
+     <itemizedlist mark="bullet" spacing="normal">
       <listitem>
        <para>
         The connection between B and C can be broken, so that B can
@@ -160,8 +164,8 @@
      multi-tenant SAP HANA databases. That is, you can use SAP HANA databases that
      serve multiple SAP applications.
     </para>
-  </sect2>
-  <sect2 id="sec-s4s-topology-ra">
+  </section>
+  <section xml:id="sec-s4s-topology-ra">
    <title><systemitem>SAPHanaTopology</systemitem> Resource Agent</title>
    <para>
     To make configuring the cluster as simple as possible, SUSE has
@@ -171,13 +175,13 @@
     configurations of SAP HANA system replications. It is designed as a
     normal (stateless) clone.
    </para>
-  </sect2>
-  <sect2 id="sec-s4s-hana-replicate-more">
+  </section>
+  <section xml:id="sec-s4s-hana-replicate-more">
    <title>For More Information</title>
    <para>
     For more information, see:
    </para>
-   <itemizedlist>
+   <itemizedlist mark="bullet" spacing="normal">
     <listitem>
      <para>
       The &haguide; at &docaddress;.
@@ -192,14 +196,14 @@
      </para>
     </listitem>
    </itemizedlist>
-  </sect2>
- </sect1>
+  </section>
+ </section>
 
  <!-- page cache limit, etc. -->
- <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="s4s_configuration.xml"/>
+ <xi:include href="s4s_configuration.xml" parse="xml"/>
 
 
- <sect1 id="s4s-comp-wizard">
+ <section xml:id="s4s-comp-wizard">
   <title>The Installation Wizard</title>
 
   <para>
@@ -213,7 +217,7 @@
   <para>
    The Installation Wizard consists of four parts:
 </para>
-  <orderedlist>
+  <orderedlist spacing="normal">
    <listitem>
     <para>
      Installation of the operating system (&sls;).
@@ -239,7 +243,7 @@
    It is possible to run most of these parts separately.  This way, very
    flexible installation scenarios are possible.  Here are some examples:</para>
 
-  <itemizedlist>
+  <itemizedlist mark="bullet" spacing="normal">
    <listitem>
     <para>
 Just prepare a machine with the operating system (&sls;) and run the SAP
@@ -284,7 +288,7 @@ Hier der Hinweis auf die SAP-Note mit SWAP
 
   -->
 
-  <sect2 id="s4s-comp-wizard-suppl">
+  <section xml:id="s4s-comp-wizard-suppl">
    <title>Supplement Media</title>
    <para>
     The basic idea of the <quote>Supplement Media</quote> is to enable
@@ -300,7 +304,7 @@ RPMs, running your own scripts, setting up a cluster file system or
 creating your own dialogs and scripts.
    </para>
 
-   <sect3 id="s4s-comp-wizard-suppl-productxml">
+   <section xml:id="s4s-comp-wizard-suppl-productxml">
     <title><filename>product.xml</filename></title>
 
     <para>
@@ -320,16 +324,16 @@ additional workflow.
     <para>
      The following areas or sections will be merged:
     </para>
-<screen>&lt;general>
-  &lt;ask-list>         <co id="co-s4s-ay-general"/>
+<screen>&lt;general&gt;
+  &lt;ask-list&gt;         <co xml:id="co-s4s-ay-general"/>
   ...
-&lt;software>           <co id="co-s4s-ay-software"/>
-  &lt;post-packages>
+&lt;software&gt;           <co xml:id="co-s4s-ay-software"/>
+  &lt;post-packages&gt;
   ...
-&lt;scripts>
-  &lt;chroot-scripts>   <co id="co-s4s-ay-chroot"/>
-  &lt;post-scripts>     <co id="co-s4s-ay-post"/>
-  &lt;init-scripts>     <co id="co-s4s-ay-init"/>
+&lt;scripts&gt;
+  &lt;chroot-scripts&gt;   <co xml:id="co-s4s-ay-chroot"/>
+  &lt;post-scripts&gt;     <co xml:id="co-s4s-ay-post"/>
+  &lt;init-scripts&gt;     <co xml:id="co-s4s-ay-init"/>
   ...</screen>
 <calloutlist>
  <callout arearefs="co-s4s-ay-general">
@@ -347,13 +351,13 @@ additional workflow.
    after the package installation, before the first boot
   </para>
  </callout>
- <callout  arearefs="co-s4s-ay-post">
+ <callout arearefs="co-s4s-ay-post">
   <para>
 during the first boot of the installed system, no
                       services running
   </para>
  </callout>
- <callout  arearefs="co-s4s-ay-init">
+ <callout arearefs="co-s4s-ay-init">
   <para>
 during the first boot of the installed system, all
                       services up and running
@@ -368,22 +372,21 @@ All other sections will be replaced.
  For the details of other customization options, see the SLES <emphasis>&ay;
  Guide</emphasis>, Chapter 4.12. <quote>Custom User Scripts</quote>.
 </para>
-   </sect3>
+   </section>
 
-   <sect3 id="s4s-comp-wizard-suppl-ask">
+   <section xml:id="s4s-comp-wizard-suppl-ask">
     <title>Own &ay; Ask Dialogs</title>
     <para>
      For a general overview and details of the Ask feature of &ay;, see
      Chapter 4.17.  <quote>Ask the User for Values During
      Installation</quote> of the SLES <emphasis>&ay; Guide</emphasis>
      (the <emphasis>&ay; Guide</emphasis> comes with the product or is
-     available from <ulink
-     url="http://www.suse.com/documentation/sles11/"/>).
+     available from <link xlink:href="http://www.suse.com/documentation/sles11/"/>).
     </para>
     <para>
 For the supplement media you can only use dialogs within the
 <literal>cont</literal> stage
-(<literal><![CDATA[<stage>cont</stage>]]></literal>), which means they
+(<literal>&lt;stage&gt;cont&lt;/stage&gt;</literal>), which means they
 are executed after the first reboot.
     </para>
     <para>
@@ -409,72 +412,72 @@ same answer file names and would overwrite the values saved here.
     <para>
      Here is an example with several options:
     </para>
-<screen><![CDATA[<?xml version="1.0"?>
-<!DOCTYPE profile>
-<profile xmlns="http://www.suse.com/1.0/yast2ns"
-         xmlns:config="http://www.suse.com/1.0/configns">
-<general>
-  <ask-list config:type="list">
-      <ask>
-          <stage>cont</stage>
-          <dialog config:type="integer">20</dialog>
-          <element config:type="integer">10</element>
-          <question>What is your name?</question>
-          <default>Enter your name here</default>
-          <help>Please enter your full name within the field</help>
-          <file>/tmp/ay_q_my_name</file>
-          <script>
-             <filename>my_name.sh</filename>
-             <rerun_on_error config:type="boolean">true</rerun_on_error>
-             <environment config:type="boolean">true</environment>
-             <source><![CDATA[
+<screen>&lt;?xml version="1.0"?&gt;
+&lt;!DOCTYPE profile&gt;
+&lt;profile xmlns="http://www.suse.com/1.0/yast2ns"
+         xmlns:config="http://www.suse.com/1.0/configns"&gt;
+&lt;general&gt;
+  &lt;ask-list config:type="list"&gt;
+      &lt;ask&gt;
+          &lt;stage&gt;cont&lt;/stage&gt;
+          &lt;dialog config:type="integer"&gt;20&lt;/dialog&gt;
+          &lt;element config:type="integer"&gt;10&lt;/element&gt;
+          &lt;question&gt;What is your name?&lt;/question&gt;
+          &lt;default&gt;Enter your name here&lt;/default&gt;
+          &lt;help&gt;Please enter your full name within the field&lt;/help&gt;
+          &lt;file&gt;/tmp/ay_q_my_name&lt;/file&gt;
+          &lt;script&gt;
+             &lt;filename&gt;my_name.sh&lt;/filename&gt;
+             &lt;rerun_on_error config:type="boolean"&gt;true&lt;/rerun_on_error&gt;
+             &lt;environment config:type="boolean"&gt;true&lt;/environment&gt;
+             &lt;source&gt;&lt;![CDATA[
 function check_name() {
            local name=$1
            LC_ALL=POSIX
-           [ -z "$name" ] && echo "You need to provide a name." && return 1
+           [ -z "$name" ] &amp;&amp; echo "You need to provide a name." &amp;&amp; return 1
            return 0
 }
 check_name "$VAL"
-]]>]<![CDATA[]>
-             </source>
-             <debug config:type="boolean">false</debug>
-             <feedback config:type="boolean">true</feedback>
-          </script>
-      </ask>
-  </ask-list>
-</general>
-</profile>]]></screen>
-   </sect3>
-   <sect3 id="s4s-comp-wizard-suppl-addpacks">
+]]&gt;
+             &lt;/source&gt;
+             &lt;debug config:type="boolean"&gt;false&lt;/debug&gt;
+             &lt;feedback config:type="boolean"&gt;true&lt;/feedback&gt;
+          &lt;/script&gt;
+      &lt;/ask&gt;
+  &lt;/ask-list&gt;
+&lt;/general&gt;
+&lt;/profile&gt;</screen>
+   </section>
+   <section xml:id="s4s-comp-wizard-suppl-addpacks">
     <title>Install Additional Packages</title>
     <para>
 You can also install RPM packages within the
 <filename>product.xml</filename> file. To do this, you can use the
-<literal>&lt;post-packages></literal> element for installation in stage 2.
+<literal>&lt;post-packages&gt;</literal> element for installation in stage 2.
     </para>
     <para>
      For more information, see the SLES &ay; Guide, Chapter
      4.5.6. <quote>Installing Packages during Stage 2</quote>.  An
      example looks as follows:
     </para>
-<screen><![CDATA[...
-<software>
- <post-packages config:type="list">
-  <package>yast2-cim</package>
- </post-packages>
-</software>
-...]]></screen>
-   </sect3>
-   <sect3>
+<screen>...
+&lt;software&gt;
+ &lt;post-packages config:type="list"&gt;
+  &lt;package&gt;yast2-cim&lt;/package&gt;
+ &lt;/post-packages&gt;
+&lt;/software&gt;
+...</screen>
+   </section>
+   <section>
     <title>Example Directory for the Supplement Media</title>
     <screen># ls
 /
 |--product.xml
 </screen>
-   </sect3>
-  </sect2>
+   </section>
+  </section>
 
-  <sect2  id="s4s-comp-clamsap">
+  <section xml:id="s4s-comp-clamsap">
    <title>ClamSAP</title>
    <para>
 ClamSAP is a new antivirus toolkit integration with the SAP Virus Scan
@@ -486,8 +489,7 @@ scan interface of SAP (NW-VSI). An SAP application can use the ClamAV
 engine to scan for malicious uploads in HTTP uploads for example. If you
 want to use Virus Scan within SAP applications, you can use Virus Scan
 Interface in SAP (<menuchoice><guimenu>Transaction</guimenu><guimenu>VSCAN</guimenu></menuchoice>).
-There is an open source adapter for the ClamAV engine at <ulink
-url="http://freshmeat.net/projects/clamsap/"/>. The library allows
+There is an open source adapter for the ClamAV engine at <link xlink:href="http://freshmeat.net/projects/clamsap/"/>. The library allows
 integration of ClamAV into SAP and works also on Unix, where most other
 antivirus products do not run.</para>
 
@@ -497,8 +499,8 @@ Trojans, viruses, malware, and other malicious threats. It is the de
 facto standard for mail gateway scanning. It provides a high performance
 multi-threaded scanning daemon, command line utilities for on-demand
 file scanning, and an intelligent tool for automatic signature updates.
-For more information, see <ulink url="http://www.clamav.net"/>.</para>
-  </sect2>
- </sect1>
+For more information, see <link xlink:href="http://www.clamav.net"/>.</para>
+  </section>
+ </section>
 
 </chapter>

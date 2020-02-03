@@ -1,11 +1,16 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE sect1 PUBLIC "-//Novell//DTD NovDoc XML V1.0//EN" "novdocx.dtd"
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet href="urn:x-suse:xslt:profiling:docbook51-profile.xsl"
+    type="text/xml"
+    title="Profiling step"
+?>
+<!DOCTYPE sect1
 [
-  <!ENTITY % NOVDOC.DEACTIVATE.IDREF "INCLUDE">
-  <!ENTITY % entities SYSTEM "entity-decl.ent">
-  %entities;
+   <!ENTITY % entities SYSTEM "entity-decl.ent">
+   %entities;
 ]>
-<sect1>
+
+
+<section xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.1">
 <!-- No ID here! -->
 
  <title>Documentation Conventions</title>
@@ -14,7 +19,7 @@
   The following typographical conventions are used in this manual:
  </para>
 
- <itemizedlist>
+ <itemizedlist mark="bullet" spacing="normal">
   <listitem>
    <para>
     <filename>/etc/passwd</filename>: directory names and filenames
@@ -77,4 +82,4 @@
    </para>
   </listitem>
  </itemizedlist>
-</sect1>
+</section>
