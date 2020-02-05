@@ -42,6 +42,23 @@
    operating system.
   </para>
 
+  <important>
+   <title>Installing Oracle Databases</title>
+   <para>
+    To be able to install an Oracle database later, install
+    &sles; first and then convert your installation to &sles4sap;.
+   </para>
+   <para>
+    This is necessary because the installer for Oracle databases queries
+    for the existence of certain files, not all of which are included in
+    a &s4sa; installation.
+   </para>
+   <para condition="noquick">
+    For more information about converting, see
+    <xref linkend="sec-s4s-convert-sles"/>.
+   </para>
+  </important>
+
   <procedure xml:id="pro-s4s-workflow-start">
    <title>Starting the OS Installation</title>
    <step>
@@ -300,25 +317,51 @@
      Proceed with <guimenu>Next</guimenu>.
     </para>
    </step>
-   <step>
-    <para>Optionally, the <guimenu>Add On Product</guimenu> dialog allows you
+   <step performance="optional">
+    <para>The <guimenu>Add On Product</guimenu> dialog allows you
      to add additional software sources (so-called
      <quote>repositories</quote>) to &productname;, that are not provided
-     by the &scc;. Such add-on products may include third-party products and
-     drivers or additional software for your system.
+     by the &scc;. Such add-on products may include third-party products,
+     drivers, or additional software for your system.
     </para>
    </step>
    <step>
     <para>
-     The following screen allows you to choose the
-     <guimenu>System Role</guimenu>.
-     You can choose between:
+     Choose the <guimenu>System Role</guimenu>. System roles are predefinied
+     use cases which tailor the system for the selected scenario.
+     For &sles4sap;, you can choose between:
     </para>
     <itemizedlist>
      <listitem>
       <para>
-       <guimenu>&s4sa;</guimenu>: Recommended for most situations.
+       <guimenu>&slsa; for &sap; Applications</guimenu>:
+       Default, recommended for most situations.
+       This system role contains the following properties:
       </para>
+      <itemizedlist>
+       <listitem>
+        <para>
+         Supports the installation wizard for &sles4sap;.
+        </para>
+       </listitem>
+       <listitem>
+        <para>
+         Enables RDP access (<emphasis>Remote Desktop Protocol</emphasis>)
+        </para>
+       </listitem>
+       <listitem>
+        <para>
+         Provides special partitioning recommendations.
+        </para>
+       </listitem>
+       <!--
+        <listitem>
+        <para>
+         Contains patterns for base, &gnome; basic, and SAP Server pattern.
+        </para>
+       </listitem>
+       -->
+      </itemizedlist>
      </listitem>
      <listitem>
       <para>
@@ -329,25 +372,12 @@
         &instquick;, Section <quote>Installing &sls;</quote>
        </citetitle> (&docaddress;).
       </para>
-      <important>
-       <title>Installing Oracle Databases</title>
-       <para>
-        To be able to install an Oracle database later, choose
-        <guimenu>&slsa;</guimenu> and later
-        convert your installation to &s4sa;.
-       </para>
-       <para>
-        This is necessary because the
-        installer for Oracle databases queries for the existence of certain
-        files, not all of which are included in a &s4sa; installation.
-       </para>
-       <para condition="noquick">
-        For more information about converting, see
-        <xref linkend="sec-s4s-convert-sles"/>.
-       </para>
-      </important>
      </listitem>
     </itemizedlist>
+    <para>
+     Additonal system roles are available for specific use cases (&ha;,
+     text mode, minimal, and KVM/XEN virtualization hosts).
+    </para>
     <para>
      Proceed with <guimenu>Next</guimenu>.
     </para>
@@ -471,6 +501,18 @@
      <guimenu>Confirm Password</guimenu>.
      You can use the text box <guimenu>Test Keyboard Layout</guimenu> to
      make sure that all special characters appear correctly.
+    </para>
+    <para>
+     <!-- toms 2019-12-16:
+      Taken from art_opensuse_install_quick.xml in
+      sect3[@xml:id="sec-opensuse-installquick-root"]
+     -->
+     In case you would like to enable password-less authentication via SSH
+     login, you can import a key via <guimenu>Import Public SSH
+     Key</guimenu>. If you want to completely disable &rootuser; login via
+     password, upload a key only and do not provide a root password. A login
+     as system administrator will only be possible via SSH using the
+     respective key in this case.
     </para>
     <para>
      For more information, see
