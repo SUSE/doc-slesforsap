@@ -414,6 +414,107 @@
    </para>
   </note>
 
+  <sect2 xml:id="sec-s4s-saptune-iosched">
+   <title>Changing I/O Scheduler</title>
+   <!-- Some sentences are taken from doc-sle://tuning_storagescheduler.xml -->
+   <para>
+    The default I/O scheduler offers satisfactory performance for a wide
+    range of I/O task. However, choosing an alternative scheduler may
+    potentially yield better latency characteristics and throughput.
+    &productname; offers various I/O algorithms&mdash;called
+    <emphasis>elevators</emphasis>&mdash;suiting different workloads.
+    Elevators can help to reduce seek operations and can prioritize I/O requests.
+   </para>
+
+   <para>
+    A short list of available I/O elevators can be see in <xref
+     linkend="vl-tuning-io-schedulers"/>. For more detailed information about
+    schedulers, refer to the &tuning;, chapter <citetitle>Tuning I/O
+     Performance</citetitle>.
+   </para>
+
+   <variablelist xml:id="vl-tuning-io-schedulers">
+    <title>Available I/O Elevators</title>
+    <varlistentry>
+     <term><systemitem class="resource">CFQ</systemitem> (Completely Fair Queuing)</term>
+     <listitem>
+      <para>
+       <remark>toms 2020-02-06: is this correct? Shouldn't it be noop?</remark>
+       <systemitem class="resource">CFQ</systemitem> is a fairness-oriented
+       scheduler and is used by default on &productname;. The algorithm assigns
+       each thread a time slice in which it is allowed to submit I/O to disk.
+       This way each thread gets a fair share of I/O throughput. It also allows
+       assigning tasks I/O priorities which are taken into account during
+       scheduling decisions.
+      </para>
+     </listitem>
+    </varlistentry>
+    <varlistentry>
+     <term><systemitem class="resource">NOOP</systemitem></term>
+     <listitem>
+      <para>
+       A trivial scheduler that only passes down the I/O that comes to
+       it. Useful for checking whether complex I/O scheduling decisions of
+       other schedulers are causing I/O performance regressions.
+      </para>
+      <para>
+       This scheduler is recommended for setups with devices that do I/O
+       scheduling themselves, such as intelligent storage or in multipathing
+       environments. If you choose a more complicated scheduler on the host,
+       the scheduler of the host and the scheduler of the storage device
+       compete with each other. This can decrease performance. The storage
+       device can usually determine best how to schedule I/O.
+      </para>
+      <para>
+       For similar reasons, this scheduler is also recommended for use
+       within virtual machines.
+      </para>
+     </listitem>
+    </varlistentry>
+    <varlistentry>
+     <term><systemitem class="resource">DEADLINE</systemitem></term>
+     <listitem>
+      <para>
+       <systemitem class="resource">DEADLINE</systemitem> is a latency-oriented
+       I/O scheduler. Each I/O request is assigned a deadline. Usually,
+       requests are stored in queues (read and write) sorted by sector numbers.
+       The <systemitem class="resource">DEADLINE</systemitem> algorithm
+       maintains two additional queues (read and write) in which requests are
+       sorted by deadline. As long as no request has timed out, the
+        <quote>sector</quote> queue is used. When timeouts occur, requests from
+       the <quote>deadline</quote> queue are served until there are no more
+       expired requests. Generally, the algorithm prefers reads over writes.
+      </para>
+      <para>
+       This scheduler can provide a superior throughput over the
+        <systemitem class="resource">CFQ</systemitem> I/O scheduler in cases
+       where several threads read and write and fairness is not an issue. For
+       example, for several parallel readers from a SAN and for databases
+       (especially when using <quote>TCQ</quote> disks).
+      </para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+
+   <para>
+    For most &sap; environments, <systemitem class="resource"
+     >noop</systemitem> or <systemitem class="resource">none</systemitem> are
+    recommended.
+   </para>
+   <para>
+    To use a new scheduler setting for the respective block device,
+    set the environment variable <envar>IO_SCHEDULER</envar>:
+   </para>
+   <screen><command>export</command> IO_SCHEDULER="noop,none"</screen>
+   <para>
+    <envar>IO_SCHEDULER</envar> contains a comma separated list of
+    possible schedulers which are checked from left to right.
+    Each of the item is checked against
+    <filename>/sys/block/DEVICE/queue/scheduler</filename> and the first
+    which was found is used.
+   </para>
+  </sect2>
+
   <sect2 xml:id="sec-s4s-saptune-enable">
   <title>Enabling &saptune; to Tune for an &sap; Application</title>
   <procedure xml:id="pro-s4s-tune">
