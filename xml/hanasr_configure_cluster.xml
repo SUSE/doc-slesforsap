@@ -7,7 +7,7 @@
 <chapter xmlns="http://docbook.org/ns/docbook" version="5.0"
    xmlns:xi="http://www.w3.org/2001/XInclude"
    xmlns:xlink="http://www.w3.org/1999/xlink"
-   xml:id="cha.s4s.configure-cluster">
+   xml:id="cha-s4s-configure-cluster">
  <title>Configuration of the Cluster and &hana; Database Integration</title>
  <para>
   This chapter describes the configuration of the cluster software SUSE
@@ -357,7 +357,7 @@ crm configure load update crm-bs.txt</screen>
 # enter the following to crm-saphanatop.txt
 
 primitive rsc_SAPHanaTopology_SLE_HDB00 ocf:suse:SAPHanaTopology \
-        operations $id="rsc_sap2_SLE_HDB00-operations" \
+        operations $id="rsc-sap2-SLE-HDB00-operations" \
         op monitor interval="10" timeout="600" \
         op start interval="0" timeout="600" \
         op stop interval="0" timeout="300" \
@@ -388,7 +388,7 @@ crm configure load update crm-saphanatop.txt</screen>
 # enter the following to crm-saphana.txt
 
 primitive rsc_SAPHana_SLE_HDB00 ocf:suse:SAPHana \
-        operations $id="rsc_sap_SLE_HDB00-operations" \
+        operations $id="rsc-sap-SLE-HDB00-operations" \
         op start interval="0" timeout="3600" \
         op stop interval="0" timeout="3600" \
         op promote interval="0" timeout="3600" \
@@ -421,7 +421,7 @@ crm configure load update crm-saphana.txt</screen>
 
 primitive rsc_ip_SLE_HDB00 ocf:heartbeat:IPaddr2 \
         meta target-role="Started" is-managed="true" \
-        operations $id="rsc_ip_SLE_HDB00-operations" \
+        operations $id="rsc-ip-SLE-HDB00-operations" \
         op monitor interval="10s" timeout="20s" \
         params ip="192.168.1.20"
 

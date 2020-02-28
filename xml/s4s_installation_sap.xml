@@ -4,7 +4,7 @@
   <!ENTITY % entities SYSTEM "entity-decl.ent">
     %entities;
 ]>
-<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="cha.s4s.install.sap">
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="cha-s4s-install-sap">
  <title>Installing &sap; Applications</title>
 
  <para>
@@ -15,18 +15,18 @@
   <listitem>
    <para>
     If you are installing an &sap; application within the installation workflow,
-    continue with <xref linkend="sec.s4s.install.sap.welcome"/>.
+    continue with <xref linkend="sec-s4s-install-sap-welcome"/>.
    </para>
   </listitem>
   <listitem>
    <para>
     If you are installing an &sap; application within an installed system,
-    continue with <xref linkend="sec.s4s.install.sap.product"/>.
+    continue with <xref linkend="sec-s4s-install-sap-product"/>.
    </para>
   </listitem>
  </itemizedlist>
 
- <sect1 xml:id="sec.s4s.install.sap.list">
+ <sect1 xml:id="sec-s4s-install-sap-list">
   <title>Products That Can Be Installed Using &sapwiz;</title>
 
   <para>
@@ -49,12 +49,12 @@
     <!-- FIXME: uncomment - sknorr, 2016-09-02 -->
     <!--<para>
      For more information, see
-     <xref linkend="sec.s4s.configure.convert-sles"/>.
+     <xref linkend="sec-s4s-configure-convert-sles"/>.
     </para>-->
   </important>
  </sect1>
 
- <sect1 xml:id="sec.s4s.install.sap.welcome">
+ <sect1 xml:id="sec-s4s-install-sap-welcome">
   <title>First Steps</title>
 
   <para>
@@ -117,7 +117,7 @@
         server providing &sap; installation routines to other systems.
        </para>
        <para>
-        Continue with <xref linkend="sec.s4s.install.sap.product"/>.
+        Continue with <xref linkend="sec-s4s-install-sap-product"/>.
        </para>
       </listitem>
      </varlistentry>
@@ -181,7 +181,7 @@
   </procedure>
  </sect1>
 
- <sect1 xml:id="sec.s4s.install.sap.product">
+ <sect1 xml:id="sec-s4s-install-sap-product">
   <title>Using the &sapwiz;</title>
 
   <para>
@@ -228,14 +228,14 @@
   </tip>
 
   <procedure>
-   <step xml:id="st.s4s.copy-master">
+   <step xml:id="st-s4s-copy-master">
     <para>
      In the screen <guimenu>SAP Installation Wizard</guimenu>, provide the
      <guimenu>Location of the SAP Installation Master</guimenu>
-     (<xref linkend="fig.s4s.sap.wizard.source"/>). The
+     (<xref linkend="fig-s4s-sap-wizard-source"/>). The
      location can either be a local, removable, or remote installation source.
     </para>
-    <figure xml:id="fig.s4s.sap.wizard.source">
+    <figure xml:id="fig-s4s-sap-wizard-source">
      <title>Location of &sap; Installation Master</title>
      <mediaobject>
       <imageobject role="fo">
@@ -252,7 +252,7 @@
      given in the following table.
     </para>
 
-    <table xml:id="tab.sap.media.source">
+    <table xml:id="tab-sap-media-source">
      <title>Media Source Path</title>
      <tgroup cols="3">
       <colspec colnum="1" colname="option" colwidth="15*"/>
@@ -413,7 +413,7 @@
       To install from an NFS source, specify the name of
       the server and the complete path to the media data. For
       information about setting up a remote installation server, see
-      <xref linkend="cha.s4s.serve-mediaset"/>.
+      <xref linkend="cha-s4s-serve-mediaset"/>.
      </para>
     </tip>
 
@@ -445,7 +445,7 @@
         fully apply.
        </para>
        <para>
-        For more information, see <xref linkend="sec.s4s.install.continue"/>.
+        For more information, see <xref linkend="sec-s4s-install-continue"/>.
        </para>
       </listitem>
      </varlistentry>
@@ -479,7 +479,7 @@
      <listitem>
       <para>
        If you are installing an &hana; database, skip ahead to
-       <xref linkend="st.s4s.supplement" xrefstyle="select:label"/>.
+       <xref linkend="st-s4s-supplement" xrefstyle="select:label"/>.
       </para>
      </listitem>
      <listitem>
@@ -490,7 +490,7 @@
      </listitem>
     </itemizedlist>
    </step>
-   <step xml:id="st.s4s.copy-media">
+   <step xml:id="st-s4s-copy-media">
     <para>
      On the screen <guimenu>SAP Installation Wizard</guimenu>, provide
      the location of additional &instmedia; you want to install.
@@ -503,7 +503,7 @@
       <listitem>
        <para>
         Specify a path to additional &instmedia;. For more information about
-        specifying the path, see <xref linkend="tab.sap.media.source"/>.
+        specifying the path, see <xref linkend="tab-sap-media-source"/>.
        </para>
       </listitem>
      </varlistentry>
@@ -545,7 +545,7 @@
      If you chose to copy &instmedia;, the &sapwiz; will copy the relevant
      files to your local hard disk.
     </para>
-    <figure xml:id="fig.s4s.sap.wizard.sapmedia">
+    <figure xml:id="fig-s4s-sap-wizard-sapmedia">
      <title>&sapwiz;: Additional &instmedia;</title>
      <mediaobject>
       <imageobject role="fo">
@@ -563,7 +563,7 @@
      prepare more &instmedia;.
      To do so, click <guimenu>Yes</guimenu>.
      Then follow the instructions in
-     <xref linkend="st.s4s.copy-media" xrefstyle="select:label"/>.
+     <xref linkend="st-s4s-copy-media" xrefstyle="select:label"/>.
     </para>
     <para>
      Otherwise, click <guimenu>No</guimenu>.
@@ -635,7 +635,7 @@
       </listitem>
      </varlistentry>
     </variablelist>
-    <figure xml:id="fig.s4s.sap.wizard.mode.db">
+    <figure xml:id="fig-s4s-sap-wizard-mode-db">
      <title>&sapwiz;: Installation Type and Database</title>
      <mediaobject>
       <imageobject role="fo">
@@ -669,7 +669,7 @@
     <para>
      Proceed with <guimenu>Next</guimenu>.
     </para>
-    <figure xml:id="fig.s4s.sap.wizard.avail.products">
+    <figure xml:id="fig-s4s-sap-wizard-avail-products">
      <title>&sapwiz;: Choose a Product</title>
      <mediaobject>
       <imageobject role="fo">
@@ -681,13 +681,13 @@
      </mediaobject>
     </figure>
    </step>
-   <step xml:id="st.s4s.supplement">
+   <step xml:id="st-s4s-supplement">
     <para>
      You will be asked whether you want to copy &supmedia; or
      &thirdmedia;.
      To do so, click <guimenu>Yes</guimenu>.
      After doing so, follow the instructions in
-     <xref linkend="st.s4s.copy-media" xrefstyle="select:label"/>.
+     <xref linkend="st-s4s-copy-media" xrefstyle="select:label"/>.
     </para>
     <para>
      Otherwise, click <guimenu>No</guimenu>.
@@ -720,7 +720,7 @@
     </tip>
     <para>
      For information on creating &supmedia;, see
-     <xref linkend="app.s4s.component.supplement"/>.
+     <xref linkend="app-s4s-component-supplement"/>.
     </para>
    </step>
    <step>
@@ -761,7 +761,7 @@ SAP-NetWeaver-740-SR2-Installation-Export-CD-3-3</screen>
      </para>
     </note>
    </step>
-   <step xml:id="st.s4s.collect-parameter">
+   <step xml:id="st-s4s-collect-parameter">
     <para>
      Depending on the product you are installing, multiple dialogs will now
      prompt you to supply values for several configuration parameters for the
@@ -775,7 +775,7 @@ SAP-NetWeaver-740-SR2-Installation-Export-CD-3-3</screen>
     <para>
      In each case, fill out the form, then proceed with <guimenu>OK</guimenu>.
     </para>
-    <figure xml:id="fig.s4s.product-parameter">
+    <figure xml:id="fig-s4s-product-parameter">
      <title>Product Parameters</title>
      <mediaobject>
       <imageobject role="html">
@@ -793,7 +793,7 @@ SAP-NetWeaver-740-SR2-Installation-Export-CD-3-3</screen>
      When you are done, the &sapwiz; will download additional software packages.
     </para>
    </step>
-   <step xml:id="st.s4s.sapinst">
+   <step xml:id="st-s4s-sapinst">
     <para>
      The following steps differ somewhat depending on the type of
      &sap; application you are installing:
@@ -817,7 +817,7 @@ SAP-NetWeaver-740-SR2-Installation-Export-CD-3-3</screen>
       </para>
      </listitem>
     </itemizedlist>
-    <figure xml:id="fig.s4s.sapinst.param">
+    <figure xml:id="fig-s4s-sapinst-param">
      <title>&sapin;: Defining Parameters</title>
      <mediaobject>
       <imageobject role="fo">
@@ -838,7 +838,7 @@ SAP-NetWeaver-740-SR2-Installation-Export-CD-3-3</screen>
      </para>
      <para>
       For more information about log files, see
-      <xref linkend="cha.s4s.trouble"/>.
+      <xref linkend="cha-s4s-trouble"/>.
      </para>
     </tip>
    </step>
@@ -858,7 +858,7 @@ SAP-NetWeaver-740-SR2-Installation-Export-CD-3-3</screen>
   </procedure>
  </sect1>
 
- <sect1 xml:id="sec.s4s.install.continue">
+ <sect1 xml:id="sec-s4s-install-continue">
   <title>Continuing an Installation Using an Installation Profile</title>
 
   <para>
@@ -945,7 +945,7 @@ SAP-NetWeaver-740-SR2-Installation-Export-CD-3-3</screen>
   </procedure>
  </sect1>
 
- <sect1 xml:id="sec.partition.command">
+ <sect1 xml:id="sec-partition-command">
   <title>Partitioning for an &sap; Application Without the &sapwiz;</title>
   <para>
    If you do not want to use the &sapwiz;, you can also create the partitioning
@@ -953,7 +953,7 @@ SAP-NetWeaver-740-SR2-Installation-Export-CD-3-3</screen>
    correct partitioning file in the directory
    <filename>/usr/share/YaST2/include/sap-installation-wizard/</filename> or
    create an own partitioning file. For more information, see
-   <xref linkend="sec.s4s.partition.sap"/>.
+   <xref linkend="sec-s4s-partition-sap"/>.
   </para>
   <para>
    When you have determined the correct partitioning XML file, run:

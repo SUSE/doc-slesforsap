@@ -4,7 +4,7 @@
   <!ENTITY % entities SYSTEM "entity-decl.ent">
     %entities;
 ]>
-<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="cha.s4s.serve-mediaset">
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="cha-s4s-serve-mediaset">
  <title>Setting Up an Installation Server for &sap; Media Sets</title>
 
  <para>
@@ -64,7 +64,7 @@
   In the &sapwiz;, specify the path this way:
   <filename><replaceable>server_name</replaceable>/srv/www/htdocs/sap_repo</filename>.
   For more information about specifying the path, see
-  <xref linkend="tab.sap.media.source"/>.
+  <xref linkend="tab-sap-media-source"/>.
  </para>
 
  <para>

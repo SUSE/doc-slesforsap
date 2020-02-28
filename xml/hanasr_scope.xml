@@ -7,7 +7,7 @@
 <chapter xmlns="http://docbook.org/ns/docbook" version="5.0"
   xmlns:xi="http://www.w3.org/2001/XInclude"
   xmlns:xlink="http://www.w3.org/1999/xlink"
-  xml:id="cha.hana-sr.scope">
+  xml:id="cha-hana-sr-scope">
  <title>Scope of this Documentation</title>
  <para>
   This document describes how to setup the cluster to control
@@ -19,7 +19,7 @@
   This setup builds a SAP HANA HA cluster in two data-centers in Walldorf
   and in Rot, installed on two SLES for SAP 11 SP3 virtual machines.
  </para>
- <figure xml:id="fig.hana-sr.cluster-with-hana-sr">
+ <figure xml:id="fig-hana-sr-cluster-with-hana-sr">
   <title>Cluster with SAP HANA SR</title>
   <mediaobject>
    <imageobject role="fo">
@@ -30,7 +30,7 @@
    </imageobject>
   </mediaobject>
  </figure>
- <table xml:id="tab.hana-sr.parameter">
+ <table xml:id="tab-hana-sr-parameter">
   <title>Parameters Used in this Document</title>
   <tgroup cols="3">
    <colspec colnum="1" colname="option" colwidth="20*"/>

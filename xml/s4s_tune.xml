@@ -4,7 +4,7 @@
   <!ENTITY % entities SYSTEM "entity-decl.ent">
     %entities;
 ]>
-<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="cha.s4s.tune">
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="cha-s4s-tune">
  <title>Tuning</title>
 
  <para>
@@ -22,7 +22,7 @@
   </para>
  </note>
 
- <sect1 xml:id="sec.s4s.configure.page-cache">
+ <sect1 xml:id="sec-s4s-configure-page-cache">
   <title>Kernel: Page-Cache Limit</title>
   <remark>
    The presentation of Problem/Solution is on one hand quite useful, on the
@@ -89,13 +89,13 @@
        package <systemitem>sapconf</systemitem>.
       </para>
       <para>
-       For more information, see <xref linkend="sec.s4s.configure.sapconf"/>.
+       For more information, see <xref linkend="sec-s4s-configure-sapconf"/>.
       </para>
      </tip>
      <important>
       <title>The Following Are Example Values</title>
       <para>
-       The values reproduced in <xref linkend="ex.s4s.page-cache"/> are example
+       The values reproduced in <xref linkend="ex-s4s-page-cache"/> are example
        values only. Do not set the following parameters on a productive system
        without first trying and calibrating them on a non-productive system.
       </para>
@@ -109,7 +109,7 @@
        (<link xlink:href="&sapnoteaddress;1557506"/>).
      </para>
      </important>
-     <example xml:id="ex.s4s.page-cache">
+     <example xml:id="ex-s4s-page-cache">
       <title>Permanently Setting the Page-Cache Limit</title>
       <para>
        For permanent use, add both parameters to
@@ -123,7 +123,7 @@ vm.pagecache_limit_ignore_dirty = <replaceable>2</replaceable></screen>
   </variablelist>
  </sect1>
 
- <sect1 xml:id="sec.s4s.configure.sapconf">
+ <sect1 xml:id="sec-s4s-configure-sapconf">
   <title>Tuning Systems with <command>saptune</command></title>
   <para>
    Using &saptune;, you can
@@ -141,9 +141,9 @@ vm.pagecache_limit_ignore_dirty = <replaceable>2</replaceable></screen>
    <systemitem>sapconf</systemitem> are installed on your system.
   </para>
 
-  <sect2 xml:id="sec.s4s.saptune.enable">
+  <sect2 xml:id="sec-s4s-saptune-enable">
   <title>Enabling <command>saptune</command> to Tune for an &sap; Application</title>
-  <procedure xml:id="pro.s4s.tune">
+  <procedure xml:id="pro-s4s-tune">
    <step>
     <para>
      To tune a system, first find a tuning solutions.
@@ -269,7 +269,7 @@ vm.pagecache_limit_ignore_dirty = <replaceable>2</replaceable></screen>
    Using <command>tuned-adm list</command>, you can also see this profile.
   </para>
   </sect2>
-  <sect2 xml:id="sec.s4s.saptune.customize">
+  <sect2 xml:id="sec-s4s-saptune-customize">
    <title>Customizing a &sap; Note</title>
    <para>
     Every &sap; note can be configured freely with:
@@ -281,7 +281,7 @@ vm.pagecache_limit_ignore_dirty = <replaceable>2</replaceable></screen>
    </para>
   </sect2>
 
-  <sect2 xml:id="sec.s4s.saptune.create">
+  <sect2 xml:id="sec-s4s-saptune-create">
    <title>Creating a new &sap; Note</title>
    <para>
      It is possible to create a new &sap; note with:
@@ -325,7 +325,7 @@ vm.pagecache_limit_ignore_dirty = <replaceable>2</replaceable></screen>
    <screen>&prompt.root;<command>saptune note show</command></screen>
   </sect2>
 
-  <sect2 xml:id="sec.s4s.saptune.verify">
+  <sect2 xml:id="sec-s4s-saptune-verify">
    <title>Verifying a &sap; Note or a &sap; Solution</title>
    <para>
     The command <command>saptune note|solution verify [note]</command>
@@ -336,7 +336,7 @@ vm.pagecache_limit_ignore_dirty = <replaceable>2</replaceable></screen>
    </para>
   </sect2>
 
-  <sect2 xml:id="sec.s4s.saptune.simulate">
+  <sect2 xml:id="sec-s4s-saptune-simulate">
    <title>Simulating the Apply of a &sap; Note or a &sap; Solution</title>
    <para>
     To show each parameter, use:
@@ -348,7 +348,7 @@ vm.pagecache_limit_ignore_dirty = <replaceable>2</replaceable></screen>
    </para>
   </sect2>
 
-  <sect2 xml:id="sec.s4s.saptune.disable">
+  <sect2 xml:id="sec-s4s-saptune-disable">
    <title>Disabling &saptune;</title>
    <para>
     To disable &saptune; and to stop and disable &tuned; run:
@@ -382,7 +382,7 @@ vm.pagecache_limit_ignore_dirty = <replaceable>2</replaceable></screen>
 
   <!-- Check whether we still need the following notes with 12 SP3... - sknorr,
   2016-11-23 -->
-  <sect2 xml:id="sec.saptune.legacyprofile">
+  <sect2 xml:id="sec-saptune-legacyprofile">
    <title>Legacy Profiles</title>
    <para>
     The <systemitem class="resource">tuned</systemitem> profiles
@@ -391,7 +391,7 @@ vm.pagecache_limit_ignore_dirty = <replaceable>2</replaceable></screen>
     have nothing to do with the <command>saptune</command> configuration.
    </para>
   </sect2>
-  <sect2 xml:id="sec.saptune.legacysapconf">
+  <sect2 xml:id="sec-saptune-legacysapconf">
    <title>Legacy Utility <command>sapconf</command></title>
    <para>
     The package <systemitem>sapconf</systemitem> contains the deprecated
@@ -414,7 +414,7 @@ vm.pagecache_limit_ignore_dirty = <replaceable>2</replaceable></screen>
    <screen>&prompt.root;<command>systemctl disable sapconf tuned</command></screen>
   </sect2>
 
-  <sect2 xml:id="sec.saptune.more">
+  <sect2 xml:id="sec-saptune-more">
    <title>For More Information</title>
   <para>
    See the following man pages:
@@ -453,7 +453,7 @@ vm.pagecache_limit_ignore_dirty = <replaceable>2</replaceable></screen>
   </sect2>
  </sect1>
 
- <sect1 xml:id="sec.s4s.sysctl">
+ <sect1 xml:id="sec-s4s-sysctl">
   <title>Tuning Kernel Parameters Manually Using <command>sysctl</command></title>
   <para>
    In addition to or instead of tuning kernel parameters using

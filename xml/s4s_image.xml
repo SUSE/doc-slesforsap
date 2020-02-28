@@ -4,7 +4,7 @@
   <!ENTITY % entities SYSTEM "entity-decl.ent">
     %entities;
 ]>
-<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="cha.s4s.image">
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="cha-s4s-image">
  <title>Creating &kiwi; Images</title>
 
  <para>
@@ -13,7 +13,7 @@
   information on creating &s4sa; images with &kiwi;.
  </para>
 
- <sect1 xml:id="sec.s4s.configure.scrub-instance">
+ <sect1 xml:id="sec-s4s-configure-scrub-instance">
   <title>Cleaning Up an Instance Before Using It as a Master Image</title>
 
   <para>
@@ -75,7 +75,7 @@
   </para>
  </sect1>
 
- <sect1 xml:id="sec.s4s.configure.kiwi">
+ <sect1 xml:id="sec-s4s-configure-kiwi">
   <title>Creating Images with &kiwi;</title>
 
   <para>
@@ -129,7 +129,7 @@
     <para>
      The service <systemitem>xrdp</systemitem> is started automatically, so
      you can connect to the machine via RDP. For more information, see
-     <xref linkend="cha.s4s.configure.rdp"/>.
+     <xref linkend="cha-s4s-configure-rdp"/>.
     </para>
    </listitem>
   </itemizedlist>

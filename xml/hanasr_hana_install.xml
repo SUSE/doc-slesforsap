@@ -7,7 +7,7 @@
 <chapter xmlns="http://docbook.org/ns/docbook" version="5.0"
    xmlns:xi="http://www.w3.org/2001/XInclude"
    xmlns:xlink="http://www.w3.org/1999/xlink"
-   xml:id="cha.s4s.hana-install">
+   xml:id="cha-s4s-hana-install">
  <title>Installing the &hana; Database</title>
  <para>
   Even though this document focuses on the integration of an already installed
@@ -108,7 +108,7 @@ suse02:HDB:sleadm ~ 5&gt;</screen>
     synchronization status is to first create a user store key and then send
     the query which is described at the end of this subsection.
    </para>
-   <figure xml:id="fig.hana-sr.studio-user">
+   <figure xml:id="fig-hana-sr-studio-user">
     <title>Database User Configuration in SAP HANA Studio</title>
     <mediaobject>
      <imageobject role="fo">

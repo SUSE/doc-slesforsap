@@ -7,7 +7,7 @@
 <appendix xmlns="http://docbook.org/ns/docbook" version="5.0"
    xmlns:xi="http://www.w3.org/2001/XInclude"
    xmlns:xlink="http://www.w3.org/1999/xlink"
-   xml:id="app.s4s.docupdate">
+   xml:id="app-s4s-docupdate">
  <title>Documentation Updates</title>
 
  <para>
@@ -20,11 +20,11 @@
  <itemizedlist role="subtoc" mark="bullet" spacing="normal">
   <listitem>
    <para>
-    <xref linkend="app.s4s.docupdate.2016-02-15" xrefstyle="SectTitleOnPage"/>
+    <xref linkend="app-s4s-docupdate-2016-02-15" xrefstyle="SectTitleOnPage"/>
    </para>
   </listitem>
  </itemizedlist>
- <sect1 xml:id="app.s4s.docupdate.2016-02-15">
+ <sect1 xml:id="app-s4s-docupdate-2016-02-15">
 
   <title>February 15, 2015</title>
 
@@ -39,7 +39,7 @@
 
   <!--<variablelist>
    <varlistentry>
-    <term><xref linkend="sec.hana-sr.dummy" xrefstyle="SectTitleOnPage"/>
+    <term><xref linkend="sec-hana-sr-dummy" xrefstyle="SectTitleOnPage"/>
     </term>
     <listitem>
      <para>

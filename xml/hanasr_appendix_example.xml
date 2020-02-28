@@ -7,7 +7,7 @@
 <appendix xmlns="http://docbook.org/ns/docbook" version="5.0"
    xmlns:xi="http://www.w3.org/2001/XInclude"
    xmlns:xlink="http://www.w3.org/1999/xlink"
-   xml:id="app.hana-sr.example">
+   xml:id="app-hana-sr-example">
  <title>Examples</title>
  <sect1>
   <title>Example <literal>sleha-init</literal> Configuration</title>
@@ -76,13 +76,13 @@ Change the hacluster password</screen>
 node suse02
 
 primitive rsc_SAPHanaTopology_SLE_HDB00 ocf:suse:SAPHanaTopology \
-        operations $id="rsc_sap2_SLE_HDB00-operations" \
+        operations $id="rsc-sap2-SLE-HDB00-operations" \
         op monitor interval="10" timeout="300" \
         op start interval="0" timeout="300" \
         op stop interval="0" timeout="300" \
         params SID="SLE" InstanceNumber="00"
 primitive rsc_SAPHana_SLE_HDB00 ocf:suse:SAPHana \
-        operations $id="rsc_sap_SLE_HDB00-operations" \
+        operations $id="rsc-sap-SLE-HDB00-operations" \
         op monitor interval="61" role="Slave" timeout="700" \
         op start interval="0" timeout="3600" \
         op stop interval="0" timeout="3600" \
@@ -92,7 +92,7 @@ primitive rsc_SAPHana_SLE_HDB00 ocf:suse:SAPHana \
 DUPLICATE_PRIMARY_TIMEOUT="7200" AUTOMATED_REGISTER=“false“
 primitive rsc_ip_SLE_HDB00 ocf:heartbeat:IPaddr2 \
         meta target-role="Started" is-managed="true" \
-        operations $id="rsc_ip_SLE_HDB00-operations" \
+        operations $id="rsc-ip-SLE-HDB00-operations" \
         op monitor interval="10s" timeout="20s" \
         params ip="192.168.1.20"
 primitive stonith-sbd stonith:external/sbd \
@@ -114,10 +114,10 @@ property $id="cib-bootstrap-options" \
         stonith-action="reboot" \
         stonith-timeout="150s" \
         last-lrm-refresh="1398346620"
-rsc_defaults $id="rsc_default-options" \
+rsc_defaults $id="rsc-default-options" \
         resource-stickiness="1000" \
         migration-threshold="5000"
-op_defaults $id="op_defaults-options" \
+op_defaults $id="op-defaults-options" \
         timeout="600"</screen>
  </sect1>
  <sect1>

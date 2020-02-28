@@ -4,7 +4,7 @@
   <!ENTITY % entities SYSTEM "entity-decl.ent">
     %entities;
 ]>
-<appendix xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="app.s4s.autoyast-partition">
+<appendix xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="app-s4s-autoyast-partition">
  <title>Partitioning for the &sap; System Using &ay;</title>
 
  <para>
@@ -105,7 +105,7 @@
   </listitem>
  </itemizedlist>
 
- <procedure xml:id="pro.partition.custom">
+ <procedure xml:id="pro-partition-custom">
   <title>Creating a Custom &sap; Partitioning Setup</title>
   <para>
    The steps below illustrates how to create a partitioning setup for TREX.

@@ -7,7 +7,7 @@
 <chapter xmlns="http://docbook.org/ns/docbook" version="5.0"
    xmlns:xi="http://www.w3.org/2001/XInclude"
    xmlns:xlink="http://www.w3.org/1999/xlink"
-   xml:id="cha.hana-sr.administrate">
+   xml:id="cha-hana-sr-administrate">
  <title>Administration</title>
  <sect1>
   <title>Do and Don't</title>
@@ -73,7 +73,7 @@
    <para>
     You can use an internet browser to check the cluster status.
    </para>
-   <figure xml:id="fig.hana-sr.hawk-status">
+   <figure xml:id="fig-hana-sr-hawk-status">
     <title>Cluster Status in HAWK</title>
     <mediaobject>
      <imageobject role="fo">
@@ -100,7 +100,7 @@
     Database-specific administration and checks can be done with
     SAP HANA studio.
    </para>
-   <figure xml:id="fig.hana-sr.hana-studio-landscape">
+   <figure xml:id="fig-hana-sr-hana-studio-landscape">
     <title>SAP HANA Studio – Landscape</title>
     <mediaobject>
      <imageobject role="fo">
@@ -183,7 +183,7 @@ overall host status: ok</screen>
     Following the SAP HA guideline, the SAPHana resource agent interprets the
     return codes in the following way:
    </para>
-   <table xml:id="tab.hana-sr.return-code">
+   <table xml:id="tab-hana-sr-return-code">
     <title>Interpretation of Return Codes</title>
     <tgroup cols="2">
      <colspec colnum="1" colname="option" colwidth="15*"/>
