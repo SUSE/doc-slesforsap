@@ -17,7 +17,7 @@
   For detailed information about installing &sls; from a network server
   in general, see the &deploy;, Chapter 14, <quote>Remote
   Installation</quote> (the &deploy; comes with the product or is
-  available from <link xlink:href="http://www.suse.com/documentation/sles11/"/>).
+  available from <link xlink:href="http://documentation.suse.com/sles/11-SP4/"/>).
  </para>
 
  <para>The following section provides a short description about
@@ -73,7 +73,7 @@
     avoid using a DVD to bootstrap the system and boot from the network
     via PXE, read the <emphasis>&ay; Guide</emphasis> about setting up a
     PXE environment (the <emphasis>&ay; Guide</emphasis> comes with the
-    product or is available from <link xlink:href="http://www.suse.com/documentation/sles11/"/>).</para>
+    product or is available from <link xlink:href="http://documentation.suse.com/sles/11-SP4/"/>).</para>
  </section>
 
  <section>

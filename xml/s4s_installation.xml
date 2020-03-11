@@ -184,7 +184,7 @@
     <para>
      Starting a minimal Linux system without a graphical user
     interface. For more information, see the &admin;, Chapter 34, Common
-    Problems and Their Solutions; find the &admin; at <link xlink:href="https://www.suse.com/documentation/sles11/"/>.
+    Problems and Their Solutions; find the &admin; at <link xlink:href="https://documentation.suse.com/sles/11-SP4/"/>.
     </para>
    </listitem>
   </varlistentry>
@@ -728,7 +728,7 @@
      their own &ay; profiles to install &sles4sap;.  For more
      information about &ay; profiles, see the SLES <emphasis>&ay;
      Guide</emphasis> (the <emphasis>&ay; Guide</emphasis> comes
-      with the product or is available from <link xlink:href="http://www.suse.com/documentation/sles11/"/>).
+      with the product or is available from <link xlink:href="http://documentation.suse.com/sles/11-SP4/"/>).
     </para>
 
     <para>
@@ -773,7 +773,7 @@
      <para>
       For more information about &ay;, see the <emphasis>&sls; 11 &ay;
       Guide</emphasis> (the <emphasis>&ay; Guide</emphasis> comes
-      with the product or is available from <link xlink:href="http://www.suse.com/documentation/sles11/"/>).
+      with the product or is available from <link xlink:href="http://documentation.suse.com/sles/11-SP4/"/>).
      </para>
     </section>
 
