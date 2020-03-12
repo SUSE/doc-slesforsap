@@ -24,7 +24,7 @@
    <listitem>
     <para>
      To report bugs for a product component, or to submit enhancement
-     requests, please use <link xlink:href="https://bugzilla.novell.com/"/>. For
+     requests, please use <link xlink:href="https://bugzilla.suse.com/"/>. For
      documentation bugs, submit a bug report for the component
      <guimenu>Documentation</guimenu> of the respective product.
     </para>
@@ -32,7 +32,7 @@
      If you are new to Bugzilla, you might find the following articles
      helpful:
     </para>
-    <itemizedlist mark="bullet" spacing="normal">
+    <itemizedlist>
      <listitem>
       <para>
        <link xlink:href="http://en.opensuse.org/openSUSE:Submitting_bug_reports"/>
