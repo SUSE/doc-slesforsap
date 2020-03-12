@@ -160,7 +160,7 @@
 <!ENTITY sles4sapreg   "&slsreg; for &sap; Applications">
 <!ENTITY productname   '&sles4sap;'>
 <!ENTITY productnamereg '&sles4sapreg;'>
-<!ENTITY product-ga    '12'>
+<!ENTITY product-ga    '12 SP2'>
 <!ENTITY product-sp    '2'>
 <!ENTITY productnumber '&product-ga; SP&product-sp;'>
 <!ENTITY smt           "SMT">
