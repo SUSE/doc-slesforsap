@@ -131,10 +131,10 @@ Resource agents, also for SAP
    </itemizedlist>
 
    <para>For more information about &sle; &hasi;, see the &haguide; (<ulink
-   url="http://www.suse.com/documentation/sle_ha/"/>)
+   url="https://documentation.suse.com/sle-ha-12/"/>)
    and
    the <emphasis>Best Practice Guides</emphasis> (<ulink
-   url="http://www.suse.com/products/sles-for-sap/resource-library/sap-best-practices.html"/>).</para>
+    url="https://documentation.suse.com/sbp/all/"/>).</para>
     </listitem>
    </varlistentry>
 

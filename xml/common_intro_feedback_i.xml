@@ -19,7 +19,7 @@
    <listitem>
     <para>
      To report bugs for a product component, or to submit enhancement
-     requests, please use <ulink url="https://bugzilla.novell.com/"/>. For
+     requests, please use <ulink url="https://bugzilla.suse.com/"/>. For
      documentation bugs, submit a bug report for the component
      <guimenu>Documentation</guimenu> of the respective product.
     </para>
@@ -46,11 +46,11 @@
    <listitem>
     <para>
      For services and support options available for your product, refer to
-     <ulink url="http://www.suse.com/support/"></ulink>.
+     <ulink url="https://www.suse.com/support/"></ulink>.
     </para>
     <para>
      To report bugs for a product component, log into the &ncc; from
-     <ulink url="http://www.suse.com/support/"/> and select <menuchoice>
+     <ulink url="https://www.suse.com/support/"/> and select <menuchoice>
      <guimenu>My Support</guimenu> <guimenu>Service Request</guimenu>
      </menuchoice>.
     </para>
@@ -63,7 +63,7 @@
      We want to hear your comments about and suggestions for this manual and the
      other documentation included with this product. Use the User Comments
      feature at the bottom of each page in the online documentation or go to
-     <ulink url="http://www.suse.com/documentation/feedback.html"/> and
+     <ulink url="https://www.suse.com/"/> and
      enter your comments there.
      <!--taroth 2012-01-25: this at least now redirects to the novell
           feedback page, see bnc#723015-->
