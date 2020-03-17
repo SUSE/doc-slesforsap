@@ -181,7 +181,7 @@
    <para>
     For more information, see:
    </para>
-   <itemizedlist mark="bullet" spacing="normal">
+   <itemizedlist>
     <listitem>
      <para>
       The &haguide; at &docaddress;.
@@ -190,9 +190,10 @@
     <listitem>
      <para>
       The <emphasis>White Papers</emphasis> and <emphasis>Best Practice
-      Guides</emphasis> in the Resource Library at &reslibrary;.
+      Guides</emphasis> at <link xlink:href="https://documentation.suse.com/sbp/all/"/>.
       In particular, see
-      <citetitle>Automate your SAP HANA System Replication Failover</citetitle>.
+      <citetitle xlink:href="https://www.suse.com/programs/sap/hana/replication-techcast/"
+       >Automate your SAP HANA System Replication Failover</citetitle>.
      </para>
     </listitem>
    </itemizedlist>

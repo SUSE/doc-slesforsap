@@ -98,13 +98,10 @@
 
 <!ENTITY docaddress     "<link xmlns='http://docbook.org/ns/docbook'
                                xmlns:xlink='http://www.w3.org/1999/xlink'
-                               xlink:href='https://www.suse.com/documentation/sles-12/'/>">
+                               xlink:href='https://documentation.suse.com/sles-12/'/>">
 <!ENTITY ha-docaddress  "<link xmlns='http://docbook.org/ns/docbook'
                                xmlns:xlink='http://www.w3.org/1999/xlink'
-                               xlink:href='https://www.suse.com/documentation/sle-ha-12/'/>">
-<!ENTITY reslibrary     "<link xmlns='http://docbook.org/ns/docbook'
-                               xmlns:xlink='http://www.w3.org/1999/xlink'
-                               xlink:href='https://www.suse.com/products/sles-for-sap/resource-library/'/>">
+                               xlink:href='https://documentation.suse.com/sle-ha-12/'/>">
 
 
 <!-- ============================================================= -->
