@@ -35,27 +35,27 @@
    <listitem>
     <para>
      The SUSE product manuals and documentation can be downloaded at
-     www.suse.com/documentation.
+     documentation.suse.com.
     </para>
     <itemizedlist>
      <listitem>
       <para>
-       <link xlink:href="https://www.suse.com/documentation/sles_for_sap/index.html"/>
+       <link xlink:href="https://documentation.suse.com/sles-sap/"/>
       </para>
      </listitem>
      <listitem>
       <para>
-       <link xlink:href="https://www.suse.com/documentation/sle_ha/pdfdoc/book_sleha/book_sleha.pdf"/>
+       <link xlink:href="https://documentation.suse.com/sles-11/pdfdoc/book_sleha/book_sleha.pdf"/>
       </para>
      </listitem>
      <listitem>
       <para>
-       <link xlink:href="https://www.suse.com/documentation/sles11/book_sle_tuning/data/book_sle_tuning.html"/>
+       <link xlink:href="https://documentation.suse.com/sles-11/html/SLES-all/book-sle-tuning.html"/>
       </para>
      </listitem>
      <listitem>
       <para>
-       <link xlink:href="https://www.suse.com/documentation/sles11/stor_admin/data/bookinfo.html"/>
+       <link xlink:href="https://documentation.suse.com/sles-11/html/SLES-all/book-storage.html"/>
       </para>
      </listitem>
      <listitem>
