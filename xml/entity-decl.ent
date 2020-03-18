@@ -188,7 +188,7 @@
 <!ENTITY sles4sapreg   "&slsreg; for SAP Applications">
 <!ENTITY productname   '&sles4sap;'>
 <!ENTITY productnamereg '&sles4sapreg;'>
-<!ENTITY productnumber '11 SP4'>
+<!ENTITY productnumber '12'>
 <!ENTITY smt           "SMT">
 <!ENTITY lxc           "LXC">
 <!ENTITY xen           "Xen">
