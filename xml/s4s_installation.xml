@@ -65,8 +65,8 @@
     <itemizedlist>
      <listitem>
       <para>
-       On &x86-64;, boot from the DVD.
-       From the DVD boot menu, select <guimenu>Installation</guimenu>.
+       On &x86-64;, boot from the installation media.
+       From the boot menu, select <guimenu>Installation</guimenu>.
        <!-- Too basic? -->
        <!-- To navigate to the entry, use the keys <keycap function="up"/> and
        <keycap function="down"/>.
@@ -84,14 +84,14 @@
      </listitem>
     </itemizedlist>
 
-    <figure xml:id="fig-s4s-dvd-bootmenu">
-     <title>DVD Boot Menu</title>
+    <figure xml:id="fig-s4s-install-media-bootmenu">
+     <title>Installation Media Boot Menu</title>
      <mediaobject>
       <imageobject role="fo">
-       <imagedata fileref="s4s-dvd-boot-menu.png" width="73%" format="PNG"/>
+       <imagedata fileref="s4s-install-media-boot-menu.png" width="73%" format="PNG"/>
       </imageobject>
       <imageobject role="html">
-       <imagedata fileref="s4s-dvd-boot-menu.png" width="73%" format="PNG"/>
+       <imagedata fileref="s4s-install-media-boot-menu.png" width="73%" format="PNG"/>
       </imageobject>
      </mediaobject>
     </figure>
@@ -633,14 +633,14 @@
   <procedure>
    <step>
     <para>
-     Copy the content of the &sles4sap; DVD to a Web server (for example,
-     <literal>example.com</literal>), to the directory
+     Copy the content of the &sles4sap; installation media to a Web server
+     (for example, <literal>example.com</literal>), to the directory
      <filename>/srv/www/htdocs/sap_repo</filename>.
     </para>
    </step>
    <step>
     <para>
-     Boot from a SUSE DVD.
+     Boot from a &slsa; installation media.
     </para>
    </step>
    <step>
@@ -685,8 +685,8 @@
   </para>
 
   <para>
-   To avoid having to use a DVD to initialize the system, you can boot over
-   the network via PXE.
+   To avoid having to use a &slsa; installation media to initialize the
+   system, you can boot over the network via PXE.
    For details, see <citetitle>&ay; Guide,
    Chapter <quote>Booting via PXE over the Network</quote></citetitle>
    (&docaddress;).
