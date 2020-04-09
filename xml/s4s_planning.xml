@@ -127,44 +127,36 @@
 
  <sect1 xml:id="sec-s4s-download">
   <title>Installation Image</title>
-  <procedure>
-   <step>
-    <para>
-     Unlike previous &slea; products, the entire &slea; &productnumber;
-     product line can be installed from a single installation medium:
-     The <literal>&slea; &productnumber; Online media 1</literal>.
-     If you want to install without network access, download the
-     <literal>&slea; &productnumber; Full media 1</literal> image.
-    </para>
-    <para>
-     Both ISO images are available from
-     <link xlink:href="https://download.suse.com/"/>.
-    </para>
-   </step>
-   <step>
-    <para>
-     Burn the image onto a physical DVD or copy it to a removable flash disk.
-     Make sure the size of the disk is sufficient for the desired image.
-     Alternatively, use a virtual DVD-ROM device for installation
-     in a virtual machine.
-    </para>
-    <tip>
-     <title>
-      Copying the Installation Media Image to a Removable Flash Disk
-     </title>
-     <para>
-      Use the following command to copy the contents of the installation image
-      to a removable flash disk.
-     </para>
-     <screen>&prompt.sudo;dd if=<replaceable>IMAGE</replaceable> of=<replaceable>FLASH_DISK</replaceable> bs=4M &amp;&amp; sync</screen>
-     <para>
-      Replace <replaceable>IMAGE</replaceable> with the path to the
-      installation media image file and <replaceable>FLASH_DISK</replaceable>
-      with the flash device.
-     </para>
-    </tip>
-   </step>
-  </procedure>
+  <para>
+   Unlike previous &slea; products, the entire &slea; &productnumber;
+   product line can be installed from a single installation medium:
+   The <literal>&slea; &productnumber; Online media 1</literal>.
+   If you want to install without network access, download the
+   <literal>&slea; &productnumber; Full media 1</literal> image.
+   Both ISO images are available from
+   <link xlink:href="https://download.suse.com/"/>.
+  </para>
+  <para>
+   Burn the image onto a physical DVD or copy it to a removable flash disk.
+   Make sure the size of the disk is sufficient for the desired image.
+   Alternatively, use a virtual DVD-ROM device for installation
+   in a virtual machine.
+  </para>
+  <tip>
+   <title>
+    Copying the Installation Media Image to a Removable Flash Disk
+   </title>
+   <para>
+    Use the following command to copy the contents of the installation image
+    to a removable flash disk.
+   </para>
+   <screen>&prompt.sudo;dd if=<replaceable>IMAGE</replaceable> of=<replaceable>FLASH_DISK</replaceable> bs=4M &amp;&amp; sync</screen>
+   <para>
+    Replace <replaceable>IMAGE</replaceable> with the path to the
+    installation media image file and <replaceable>FLASH_DISK</replaceable>
+    with the flash device.
+   </para>
+  </tip>
  </sect1>
 
  <sect1 xml:id="sec-s4s-migration">
