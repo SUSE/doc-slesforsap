@@ -132,9 +132,9 @@
     <para>
      Unlike previous &slea; products, the entire &slea; &productnumber;
      product line can be installed from a single installation medium:
-     The &slea; &productnumber; Online media 1.
+     The <literal>&slea; &productnumber; Online media 1</literal>.
      If you want to install without network access, download the
-     &slea; &productnumber; Full media 1 image.
+     <literal>&slea; &productnumber; Full media 1</literal> image.
     </para>
     <para>
      Both ISO images are available from
