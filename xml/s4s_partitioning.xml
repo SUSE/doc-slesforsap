@@ -4,7 +4,7 @@
   <!ENTITY % entities SYSTEM "generic-entities.ent">
     %entities;
 ]>
-<sect1 xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="sec-s4s-partition">
+<sect1 xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="sec-partition">
  <title>Partitioning</title>
 
  <para>
@@ -13,19 +13,19 @@
  <orderedlist>
   <listitem>
    <para>
-    <xref linkend="sec-s4s-partition-os" xrefstyle="select:title"/> (during
+    <xref linkend="sec-partition-os" xrefstyle="select:title"/> (during
     the installation of the operating system)
    </para>
   </listitem>
   <listitem>
    <para>
-    <xref linkend="sec-s4s-partition-sap" xrefstyle="select:title"/> (during
+    <xref linkend="sec-partition-sap" xrefstyle="select:title"/> (during
     the installation of the &sap; product)
    </para>
   </listitem>
  </orderedlist>
 
- <sect2 xml:id="sec-s4s-partition-os">
+ <sect2 xml:id="sec-partition-os">
   <title>Partitioning for the Operating System (stage 1)</title>
 
   <para>
@@ -61,7 +61,7 @@
 
  </sect2>
 
- <sect2 xml:id="sec-s4s-partition-sap">
+ <sect2 xml:id="sec-partition-sap">
   <title>Partitioning for the &sap; System (stage 2)</title>
 
   <para condition="noquick">
@@ -70,7 +70,7 @@
   <itemizedlist condition="noquick">
    <listitem>
     <para>
-     The &sapwiz; (see <xref linkend="sec-s4s-install-sap-product"/>).
+     The &sapwiz; (see <xref linkend="sec-install-sap-product"/>).
     </para>
    </listitem>
    <listitem>
@@ -91,7 +91,7 @@
   </para>
   <para condition="noquick">
    For information on partitioning for the &sap; system using &ay;, see
-   <xref linkend="app-s4s-autoyast-partition"/>.
+   <xref linkend="app-autoyast-partition"/>.
   </para>
  </sect2>
 </sect1>

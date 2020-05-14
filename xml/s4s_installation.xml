@@ -4,7 +4,7 @@
   <!ENTITY % entities SYSTEM "generic-entities.ent">
     %entities;
 ]>
-<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="cha-s4s-install">
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="cha-install">
  <title>Installing the Operating System</title>
 
  <para>
@@ -14,7 +14,7 @@
   &ay;.
  </para>
 
- <sect1 xml:id="sec-s4s-install-workflow">
+ <sect1 xml:id="sec-install-workflow">
   <title>Using the Installation Workflow</title>
 
   <para>
@@ -30,11 +30,11 @@
    medium.
    <phrase condition="noquick">
    To learn how to start the installation from a remote medium, see
-   <xref linkend="sec-s4s-install-network"/>.
+   <xref linkend="sec-install-network"/>.
    </phrase>
   </para>
   <para>
-   For more information, see <xref linkend="sec-s4s-workflow-overview"/>.
+   For more information, see <xref linkend="sec-workflow-overview"/>.
   </para>
 
   <para>
@@ -55,11 +55,11 @@
    </para>
    <para condition="noquick">
     For more information about converting, see
-    <xref linkend="sec-s4s-convert-sles"/>.
+    <xref linkend="sec-convert-sles"/>.
    </para>
   </important>
 
-  <procedure xml:id="pro-s4s-workflow-start">
+  <procedure xml:id="pro-workflow-start">
    <title>Starting the OS Installation</title>
    <step>
     <itemizedlist>
@@ -84,7 +84,7 @@
      </listitem>
     </itemizedlist>
 
-    <figure xml:id="fig-s4s-install-media-bootmenu">
+    <figure xml:id="fig-install-media-bootmenu">
      <title>Installation Media Boot Menu</title>
      <mediaobject>
       <imageobject role="fo">
@@ -183,7 +183,7 @@
     <para>
      Select the default system language under <guimenu>Language</guimenu>.
     </para>
-    <figure xml:id="fig-s4s-install-license">
+    <figure xml:id="fig-install-license">
      <title>Language, Keyboard and Product Selection</title>
      <mediaobject>
       <imageobject role="fo">
@@ -281,7 +281,7 @@
       product on the next page.
      </para>
     </important>
-    <figure xml:id="fig-s4s-install-reg-dialog">
+    <figure xml:id="fig-install-reg-dialog">
      <title>Registration</title>
      <mediaobject>
       <imageobject role="fo">
@@ -381,7 +381,7 @@
     <para>
      Proceed with <guimenu>Next</guimenu>.
     </para>
-    <figure xml:id="fig-s4s-install-type">
+    <figure xml:id="fig-install-type">
      <title>System Role</title>
      <mediaobject>
       <imageobject role="fo">
@@ -399,7 +399,7 @@
        through the SLES workflow, you have to stop here and read the SLES
        Installation Quick Start. Probably not ideal. - sknorr, 2016-02-11. -->
 
-  <procedure xml:id="pro-s4s-workflow-finish">
+  <procedure xml:id="pro-workflow-finish">
    <title>Finishing the OS Installation</title>
    <step>
     <para>
@@ -421,7 +421,7 @@
       </para>
       <para condition="noquick">
        For more information about connecting via RDP, see
-       <xref linkend="cha-s4s-configure-rdp"/>.
+       <xref linkend="cha-configure-rdp"/>.
       </para>
      </listitem>
     </itemizedlist>
@@ -431,7 +431,7 @@
      Review the proposed partition setup for the volumes
      <literal>/dev/system/root</literal> and <literal>/dev/system/swap</literal>.
      The volume <literal>/dev/system/data</literal> will be created later,
-     as described in <xref linkend="sec-s4s-partition"/>.
+     as described in <xref linkend="sec-partition"/>.
     </para>
     <para condition="noquick">
      Suitable values are preselected. However, if necessary, change the
@@ -459,7 +459,7 @@
        </para>
        <para>
         For partitioning advice specific to &sles4sap;, see
-        <xref linkend="sec-s4s-partition"/>.
+        <xref linkend="sec-partition"/>.
        </para>
       </listitem>
      </varlistentry>
@@ -468,7 +468,7 @@
      To accept the proposed setup without changes, proceed with
      <guimenu>Next</guimenu>.
     </para>
-    <figure xml:id="fig-s4s-install-partition">
+    <figure xml:id="fig-install-partition">
      <title>Suggested Partitioning</title>
      <mediaobject>
       <imageobject role="fo">
@@ -557,11 +557,11 @@
       ports manually.
      </para>
      <para>
-      For details, see <xref linkend="sec-s4s-configure-firewall"/>.
+      For details, see <xref linkend="sec-configure-firewall"/>.
      </para>
     </important>
 
-    <figure xml:id="fig-s4s-install-overview">
+    <figure xml:id="fig-install-overview">
      <title>Installation Settings</title>
      <mediaobject>
       <imageobject role="fo">
@@ -608,7 +608,7 @@
       <para>
        If you chose to install an &sap; application now, the installation
        will continue after a reboot. Continue with
-       <xref linkend="cha-s4s-install-sap"/>.
+       <xref linkend="cha-install-sap"/>.
       </para>
      </listitem>
     </itemizedlist>
@@ -616,7 +616,7 @@
   </procedure>
  </sect1>
 
- <sect1 condition="noquick" xml:id="sec-s4s-install-network">
+ <sect1 condition="noquick" xml:id="sec-install-network">
   <title>Using &sles4sapa; Media from the Network</title>
 
   <remark>
@@ -673,7 +673,7 @@
    </step>
    <step>
     <para>
-     Follow the instructions in <xref linkend="sec-s4s-install-workflow"/>.
+     Follow the instructions in <xref linkend="sec-install-workflow"/>.
     </para>
    </step>
   </procedure>
@@ -696,7 +696,7 @@
  <xi:include condition="noquick" href="s4s_autoyast.xml" parse="xml"/>
 
 
- <sect1 condition="noquick" xml:id="sec-s4s-convert-sles">
+ <sect1 condition="noquick" xml:id="sec-convert-sles">
   <title>Converting an &slsa; Installation to an &s4sa; Installation</title>
   <para>
    To convert an installation of &sls; &productnumber; or &jeos;
@@ -709,7 +709,7 @@
    Make sure that you have an e-mail address for registration and a
    registration code for &s4sa;.
   </para>
-  <procedure xml:id="pro-s4s-convert-sles">
+  <procedure xml:id="pro-convert-sles">
    <step>
     <para>
      Install the package <package>migrate-sles-to-sles4sap</package>.

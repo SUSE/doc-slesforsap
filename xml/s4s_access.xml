@@ -4,7 +4,7 @@
   <!ENTITY % entities SYSTEM "generic-entities.ent">
     %entities;
 ]>
-<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="cha-s4s-access">
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="cha-access">
  <title>Firewalling</title>
 
  <para>
@@ -13,7 +13,7 @@
   the system remotely.
  </para>
 
- <sect1 xml:id="sec-s4s-configure-firewall">
+ <sect1 xml:id="sec-configure-firewall">
   <title>Configuring &susefirewall;</title>
 
   <para>
@@ -31,7 +31,7 @@
    <listitem>
     <para>
      Database (see the documentation of your database vendor; for &hana;, see
-     <xref linkend="sec-s4s-configure-firewall-hana"/>)
+     <xref linkend="sec-configure-firewall-hana"/>)
     </para>
    </listitem>
   </itemizedlist>
@@ -47,7 +47,7 @@
   </para>
  </sect1>
 
- <sect1 xml:id="sec-s4s-configure-firewall-hana">
+ <sect1 xml:id="sec-configure-firewall-hana">
   <title>Configuring &hana-fw;</title>
 
   <para>
@@ -149,7 +149,7 @@
      <guimenu>Allow Remote Shell Access (SSH)</guimenu>.
     </para>
    </step>
-   <step xml:id="st-s4s-hana-firewall-network">
+   <step xml:id="st-hana-firewall-network">
     <remark>toms 2019-06-12: this step needs to be removed/replaced?</remark>
     <para>
      Choose a network interface under <guimenu>Allowed Services on Network
@@ -189,7 +189,7 @@
    </step>
    <step>
     <para>
-     Repeat from <xref linkend="st-s4s-hana-firewall-network"/> for all
+     Repeat from <xref linkend="st-hana-firewall-network"/> for all
      network interfaces.
     </para>
    </step>
@@ -218,7 +218,7 @@ HANA firewall is active. Everything is OK.
   </para>
  </sect1>
 
- <sect1 xml:id="sec-s4s-configure-saprouter">
+ <sect1 xml:id="sec-configure-saprouter">
   <title>&saprouter; Integration</title>
   <para>
    The &saprouter; software from &sap; allows proxying network traffic

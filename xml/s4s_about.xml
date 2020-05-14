@@ -4,7 +4,7 @@
   <!ENTITY % entities SYSTEM "generic-entities.ent">
     %entities;
 ]>
-<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="cha-s4s-about">
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="cha-about">
 <title>What Is &sles4sap;?</title>
 <info>
  <abstract>
@@ -41,13 +41,13 @@
  <para>
   &sles4sap; consists of software components and service offerings which are
   described in the following sections. The figure
-  <xref linkend="fig-s4s-offering" xrefstyle="select:title"/> shows an
+  <xref linkend="fig-offering" xrefstyle="select:title"/> shows an
   overview of which software components and services
   are also available with other products from &suse; (green)
   and which are exclusively available with &sles4sap; (blue).
  </para>
 
- <figure xml:id="fig-s4s-offering">
+ <figure xml:id="fig-offering">
   <title>Offerings of &sles4sap;</title>
   <mediaobject>
    <imageobject role="fo">
@@ -62,7 +62,7 @@
  <xi:include condition="quick"   href="s4s_components_quick.xml" parse="xml"/>
  <xi:include condition="noquick" href="s4s_components.xml" parse="xml"/>
 
- <sect1 condition="noquick" xml:id="sec-s4s-repository">
+ <sect1 condition="noquick" xml:id="sec-repository">
   <title>Software Repository Setup</title>
 
   <para>
@@ -88,7 +88,7 @@
    setup should include the following:
   </para>
 
-  <table xml:id="tab-s4s-repository">
+  <table xml:id="tab-repository">
     <title>Standard Repositories</title>
     <tgroup cols="3">
       <colspec colname="type"/>
@@ -181,356 +181,18 @@
   </note>
 
   <para>
-   In addition to the standard repositories, you can enable the following
+   In addition to the standard repositories, you can enable
    &slea; Modules and &slea; Extensions either during the installation or from
    the running system using &yast; or the command
    <command>SUSEConnect</command>.
   </para>
-  <remark>
-   We currently don't have a good section in the SLES guides to link to, but
-   it has just been commissioned. So, FIXME: find an xref. - sknorr, 2017-05-09
-  </remark>
-
-  <table xml:id="tab-s4s-repository-module">
-    <title>Module Repositories</title>
-    <tgroup cols="3">
-      <colspec colname="type"/>
-      <colspec colname="base"/>
-      <colspec colname="update"/>
-      <thead>
-        <row>
-          <entry>
-            <para>Content</para>
-          </entry>
-          <entry>
-            <para>Base repository (<quote>Pool</quote>)</para>
-          </entry>
-          <entry>
-            <para>Update repository</para>
-          </entry>
-        </row>
-      </thead>
-      <tbody>
-        <row>
-          <entry>
-            <para>
-              Advanced Systems Management Module: CFEngine, Puppet and the
-              Machinery tool
-            </para>
-          </entry>
-          <entry>
-            <para><literal>SLE-Module-Adv-Systems-Management&product-ga;-Pool</literal></para>
-          </entry>
-          <entry>
-            <para><literal>SLE-Module-Adv-Systems-Management&product-ga;-Updates</literal></para>
-          </entry>
-        </row>
-        <!-- Available for SP1, not yet available for SP2/SP3. -->
-        <!-- <row>
-          <entry>
-            <para>
-              Certifications Module: FIPS 140-2 certification-specific packages
-            </para>
-          </entry>
-          <entry>
-            <para><literal>SLE-Module-Certifications&product-ga;-Pool</literal></para>
-          </entry>
-          <entry>
-            <para><literal>SLE-Module-Certifications&product-ga;-Updates</literal></para>
-          </entry>
-        </row> -->
-        <row>
-          <entry>
-            <para>
-              Containers Module: Docker, tools, prepackaged images
-            </para>
-          </entry>
-          <entry>
-            <para><literal>SLE-Module-Containers&product-ga;-Pool</literal></para>
-          </entry>
-          <entry>
-            <para><literal>SLE-Module-Containers&product-ga;-Updates</literal></para>
-          </entry>
-        </row>
-        <row>
-          <entry>
-            <para>
-              HPC Module: tools and libraries related to High Performance
-              Computing
-            </para>
-          </entry>
-          <entry>
-            <para><literal>SLE-Module-HPC&product-ga;-Pool</literal></para>
-          </entry>
-          <entry>
-            <para><literal>SLE-Module-HPC&product-ga;-Updates</literal></para>
-          </entry>
-        </row>
-        <!-- FIXME 12 SP3: This will be empty (except for ksh). Do what?-->
-        <row>
-          <entry>
-            <para>
-              Legacy Module: Sendmail, old IMAP stack, old Java, etc.
-            </para>
-          </entry>
-          <entry>
-            <para><literal>SLE-Module-Legacy&product-ga;-Pool</literal></para>
-          </entry>
-          <entry>
-            <para><literal>SLE-Module-Legacy&product-ga;-Updates</literal></para>
-          </entry>
-        </row>
-        <row>
-          <entry>
-            <para>
-              Public Cloud Module: public cloud initialization code and tools
-            </para>
-          </entry>
-          <entry>
-            <para><literal>SLE-Module-Public-Cloud&product-ga;-Pool</literal></para>
-          </entry>
-          <entry>
-            <para><literal>SLE-Module-Public-Cloud&product-ga;-Updates</literal></para>
-          </entry>
-        </row>
-        <row>
-          <entry>
-            <para>
-              Toolchain Module: GNU Compiler Collection (GCC)
-            </para>
-          </entry>
-          <entry>
-            <para><literal>SLE-Module-Toolchain&product-ga;-Pool</literal></para>
-          </entry>
-          <entry>
-            <para><literal>SLE-Module-Toolchain&product-ga;-Updates</literal></para>
-          </entry>
-        </row>
-        <row>
-          <entry>
-            <para>
-              Web and Scripting Module: PHP, Python, Ruby on Rails
-            </para>
-          </entry>
-          <entry>
-            <para><literal>SLE-Module-Web-Scripting&product-ga;-Pool</literal></para>
-          </entry>
-          <entry>
-            <para><literal>SLE-Module-Web-Scripting&product-ga;-Updates</literal></para>
-          </entry>
-        </row>
-      </tbody>
-    </tgroup>
-  </table>
-  <table xml:id="tab-s4s-repository-extension">
-    <title>Extension Repositories</title>
-    <!-- FIXME: Does HA GEO belong here? - sknorr, 2017-05-09 -->
-    <tgroup cols="3">
-      <colspec colname="type"/>
-      <colspec colname="base"/>
-      <colspec colname="update"/>
-      <thead>
-        <row>
-          <entry>
-            <para>Content</para>
-          </entry>
-          <entry>
-            <para>Base repository (<quote>Pool</quote>)</para>
-          </entry>
-          <entry>
-            <para>Update repository</para>
-          </entry>
-        </row>
-      </thead>
-      <tbody>
-        <row>
-          <entry>
-            <para>
-              &slea; SDK
-            </para>
-          </entry>
-          <entry>
-            <para><literal>SLE-SDK&product-ga;-SP&product-sp;-Pool</literal></para>
-          </entry>
-          <entry>
-            <para><literal>SLE-SDK&product-ga;-SP&product-sp;-Updates</literal></para>
-          </entry>
-        </row>
-        <row>
-          <entry>
-            <para>
-              &suse; Package Hub
-            </para>
-          </entry>
-          <entry>
-            <para><literal>SUSE-PackageHub-&product-ga;-SP&product-sp;-Pool</literal></para>
-          </entry>
-          <entry>
-            <para><literal>SUSE-PackageHub-&product-ga;-SP&product-sp;-Updates</literal></para>
-          </entry>
-        </row>
-      </tbody>
-    </tgroup>
-  </table>
   <para>
-   <phrase condition="noquick">
-   For more information about &ph;, see <xref linkend="sec-s4s-packagehub"/>.
-   </phrase>
-   For information about life cycle and support of modules and extensions, see
-   <xref linkend="sec-s4s-service"/>.
+   For information about all modules and extensions available for the &sle;
+   product line, see
+   <link xlink:href="https://documentation.suse.com/sles/15-SP2/html/SLES-all/art-modules.html"/>.
   </para>
- </sect1>
-
- <sect1 xml:id="sec-s4s-service">
-  <title>Included Services</title>
-
-  <variablelist>
-   <varlistentry>
-    <term><emphasis>Extended Service Pack Overlap Support (ESPOS)</emphasis>
-    </term>
-    <listitem>
-     <para>
-      Subscriptions for &sles4sap; include Extended Service Pack Overlap
-      Support, which extends the overlap between the support periods of two
-      consecutive service packs by three years. During this period, you
-      receive support and all relevant maintenance updates under the terms of
-      Long Term Service Pack Support (LTSS). This feature is only available
-      with &sles4sap;.
-     </para>
-     <para>
-      Extended Service Pack Overlap Support allows you to perform service pack
-      migrations within three and a half (3½) years instead of only six
-      months. This enables you to schedule migrations more easily and perform
-      testing before a migration under less restrictive time constraints.
-     </para>
-     <para>
-      At an additional cost, &suse; also offers Long Term Service Pack Support
-      (LTSS). With LTSS, you receive support for a particular service pack
-      after the ESPOS period ends. Since &sles4sap; includes one and a half
-      (1½) years of general support and three years of ESPOS for each service
-      pack, LTSS may only be offered for the last service pack. For more
-      information about the life cycle of &suse; products, see:
-     </para>
-     <itemizedlist>
-      <listitem>
-       <para>
-        General explanation:
-        <citetitle>&deploy;, Part
-        <quote>Updating and Upgrading &sle;</quote>, Chapter <quote>Life Cycle
-        and Support</quote></citetitle> (&docaddress;)
-       </para>
-      </listitem>
-      <listitem>
-       <para>
-        Exact dates: <link xlink:href="https://www.suse.com/lifecycle/"/>
-       </para>
-      </listitem>
-     </itemizedlist>
-    </listitem>
-   </varlistentry>
-   <varlistentry>
-    <term><emphasis>&sls; Priority Support for &sap; Applications</emphasis>
-    </term>
-    <listitem>
-     <para>
-      Subscriptions for &sles4sap; include &sls; Priority Support for &sap;
-      Applications, which offers technical support for &sles4sap; directly from
-      &sap;. The joint support infrastructure, provided by support engineers
-      from &suse; Technical Support and &sap;, is based upon &sap; Resolve
-      and offers seamless communication with both &sap; and
-      &suse;. This <quote>One Face to the Customer</quote> support model
-      reduces complexity and lowers the total cost of ownership.
-     </para>
-     <para>
-      For more information, see <citetitle>SAP Note 1056161: SUSE
-      Priority Support for SAP Applications</citetitle> (<link
-      xlink:href="&sapnoteaddress;1056161"/>).
-     </para>
-    </listitem>
-   </varlistentry>
-  </variablelist>
-  <important condition="noquick">
-   <title>Life Cycle and Support for Modules and Extensions</title>
-   <para>
-    Modules and extensions have a different life cycle than &s4sa; and &suse;
-    provides different support offerings for them:
-   </para>
-   <itemizedlist>
-    <listitem>
-     <para>
-      Modules:
-     </para>
-     <itemizedlist>
-      <listitem>
-       <formalpara>
-        <title>Life Cycle</title>
-        <para>
-         Varies depending on the module.
-        </para>
-       </formalpara>
-      </listitem>
-      <listitem>
-       <formalpara>
-        <title>Support</title>
-        <para>
-         Only up-to-date packages are supported. Support is included with
-         your subscription for &productname;. You do not need an additional
-         registration key.
-        </para>
-       </formalpara>
-      </listitem>
-     </itemizedlist>
-    </listitem>
-    <listitem>
-     <para>
-      Extensions
-     </para>
-     <itemizedlist>
-      <listitem>
-       <formalpara>
-        <title>Life Cycle</title>
-        <para>
-         Releases are usually coordinated with &productname;.
-        </para>
-       </formalpara>
-      </listitem>
-      <listitem>
-       <formalpara>
-        <title>Support</title>
-        <para>
-         Support is available but not included with your subscription for
-         &productname;. You need an additional
-         registration key.
-        </para>
-       </formalpara>
-      </listitem>
-     </itemizedlist>
-    </listitem>
-    <listitem>
-     <para>
-      Unsupported Extensions (&ph; and &sdk;)
-     </para>
-     <itemizedlist>
-      <listitem>
-       <formalpara>
-        <title>Life Cycle</title>
-        <para>
-         Releases are usually coordinated with &productname;.
-        </para>
-       </formalpara>
-      </listitem>
-      <listitem>
-       <formalpara>
-        <title>Support</title>
-        <para>
-         There is no support beyond fixes for security and packaging issues.
-         You do not need an additional registration key.
-        </para>
-       </formalpara>
-      </listitem>
-     </itemizedlist>
-    </listitem>
-   </itemizedlist>
-  </important>
+  <para condition="noquick">
+   For more information about &ph;, see <xref linkend="sec-packagehub"/>.
+  </para>
  </sect1>
 </chapter>

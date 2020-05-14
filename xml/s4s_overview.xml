@@ -31,7 +31,7 @@
 
   <variablelist>
    <varlistentry>
-    <term><xref linkend="cha-s4s-about" xrefstyle="select:title,nopage"/>
+    <term><xref linkend="cha-about" xrefstyle="select:title,nopage"/>
     </term>
     <listitem>
      <para>
@@ -40,7 +40,7 @@
     </listitem>
    </varlistentry>
    <varlistentry>
-    <term><xref linkend="cha-s4s-plan" xrefstyle="select:title,nopage"/>
+    <term><xref linkend="cha-plan" xrefstyle="select:title,nopage"/>
     </term>
     <listitem>
      <para>
@@ -50,7 +50,7 @@
     </listitem>
    </varlistentry>
    <varlistentry>
-    <term><xref linkend="cha-s4s-install" xrefstyle="select:title,nopage"/>
+    <term><xref linkend="cha-install" xrefstyle="select:title,nopage"/>
     </term>
     <listitem>
      <para>
@@ -60,7 +60,7 @@
     </listitem>
    </varlistentry>
    <varlistentry>
-    <term><xref linkend="cha-s4s-install-sap" xrefstyle="select:title,nopage"/>
+    <term><xref linkend="cha-install-sap" xrefstyle="select:title,nopage"/>
     </term>
     <listitem>
      <para>
@@ -70,7 +70,7 @@
     </listitem>
    </varlistentry>
    <varlistentry>
-    <term><xref linkend="cha-s4s-serve-mediaset" xrefstyle="select:title,nopage"/>
+    <term><xref linkend="cha-serve-mediaset" xrefstyle="select:title,nopage"/>
     </term>
     <listitem>
      <para>
@@ -79,7 +79,7 @@
     </listitem>
    </varlistentry>
    <varlistentry>
-    <term><xref linkend="sec-s4s-component" xrefstyle="select:title,nopage"/>
+    <term><xref linkend="sec-component" xrefstyle="select:title,nopage"/>
     </term>
     <listitem>
      <para>
@@ -93,4 +93,5 @@
  <xi:include condition="noquick" href="common_intro_available_doc.xml" parse="xml"/>
  <xi:include condition="noquick" href="common_intro_feedback.xml" parse="xml"/>
  <xi:include condition="noquick" href="common_intro_convention.xml" parse="xml"/>
+ <xi:include condition="noquick" href="common_intro_support.xml" parse="xml"/>
 </preface>
