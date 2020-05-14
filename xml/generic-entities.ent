@@ -50,7 +50,6 @@
 
 <!-- COMPANY -->
 
-<!ENTITY novell        "Novell">
 <!ENTITY opensuse      "openSUSE">
 <!ENTITY opensusereg   "openSUSE&reg;">
 <!ENTITY suse          "SUSE">
@@ -95,10 +94,6 @@
 <!ENTITY susemgrproxy  "&susemgr; Proxy">
 <!ENTITY smr           "&susemgr; for Retail">
 
-<!-- Studio (unsupported since Mar 2019, so should not be used) -->
-<!ENTITY susestudio     "&suse; Studio">
-<!ENTITY studioexpress  "&susestudio; Express">
-<!ENTITY suseonsite     "&susestudio; Onsite">
 
 
 <!-- SUSE PRODUCT ACRONYMS (Scott Corfield via news@suse.com, 2019-03-25) -->
@@ -138,7 +133,6 @@
 
 <!-- SUSE SERVICES -->
 
-<!ENTITY ncc           "&scc;">
 <!ENTITY scc           "&suse; Customer Center">
 <!ENTITY sccreg        "&suse;&reg; Customer Center">
 <!ENTITY obs           "Open Build Service">
@@ -168,7 +162,6 @@
 
 <!-- URLS -->
 
-<!ENTITY sccurl         "https://scc.suse.com/">
 <!ENTITY dsc            "https://documentation.suse.com">
 <!ENTITY dsc-sles       "&dsc;/sles">
 <!ENTITY dsc-sled       "&dsc;/sled">
@@ -176,11 +169,18 @@
 <!ENTITY dsc-sap        "&dsc;/sles-sap">
 <!ENTITY dsc-ses        "&dsc;/ses">
 <!ENTITY dsc-suma       "&dsc;/suma">
+<!ENTITY dsc-caasp      "&dsc;/suse-caasp">
+<!ENTITY dsc-cap        "&dsc;/suse-cap">
+<!ENTITY dsc-soc        "&dsc;/soc">
+
 
 <!ENTITY beta-www       "https://susedoc.github.io">
 
 <!ENTITY doo            "https://doc.opensuse.org">
 
+<!ENTITY sc-rn          "https://www.suse.com/releasenotes">
+
+<!ENTITY sccurl         "https://scc.suse.com/">
 
 <!-- PLATFORMS -->
 
@@ -195,8 +195,6 @@
 <!ENTITY arm64          "&arm;&nbsp;&aarch64;">
 
 <!ENTITY power          "POWER">
-<!ENTITY ipseries       "&power;">
-<!ENTITY ppc            "&power;">
 <!ENTITY ppc64le        "ppc64le">
 
 <!ENTITY zseries        "IBM&nbsp;Z">
@@ -233,12 +231,8 @@
 <!ENTITY rmt               "RMT">
 <!ENTITY rmtool            "Repository Management Tool">
 <!ENTITY selnx             "SELinux">
-<!ENTITY smt               "&rmt;">
-<!ENTITY smtool            "&rmtool;">
 <!ENTITY sudo              "<command xmlns='http://docbook.org/ns/docbook'>sudo</command>">
 <!ENTITY suseconnect       "SUSEConnect">
-<!ENTITY susefirewall      "SuSEfirewall2">
-<!ENTITY susefirewallfiles "SuSEfirewall2">
 <!ENTITY xgeneric          "X Window System">
 <!ENTITY xvendor           "X.Org">
 <!ENTITY yast              "YaST">
@@ -312,7 +306,6 @@
 <!ENTITY cpufreq       "CPUfreq">
 <!ENTITY gpg           "GPG"> <!-- or GnuGP -->
 <!ENTITY mariadb       "MariaDB">
-<!ENTITY mysql         "&mariadb;">
 <!ENTITY nautilus      "&gnome; Files">
 <!ENTITY oprof         "OProfile">
 <!ENTITY postgresql    "PostgreSQL">
@@ -352,14 +345,6 @@
 <!ENTITY haguide       "<citetitle xmlns='http://docbook.org/ns/docbook'>High Availability Guide</citetitle>">
 
 <!-- SUSE Manager -->
-<!-- old -->
-<!ENTITY mgrclientconfguide "<citetitle xmlns='http://docbook.org/ns/docbook'>Client Configuration Guide</citetitle>">
-<!ENTITY mgrinstguide       "<citetitle xmlns='http://docbook.org/ns/docbook'>Installation &amp; Troubleshooting Guide</citetitle>">
-<!ENTITY mgrproxyquick      "<citetitle xmlns='http://docbook.org/ns/docbook'>Proxy Quick Start</citetitle>">
-<!ENTITY mgrquick           "<citetitle xmlns='http://docbook.org/ns/docbook'>Quick Start</citetitle>">
-<!ENTITY mgrrefguide        "<citetitle xmlns='http://docbook.org/ns/docbook'>Reference Guide</citetitle>">
-<!ENTITY mgruserguide       "<citetitle xmlns='http://docbook.org/ns/docbook'>User Guide</citetitle>">
-<!-- new -->
 <!ENTITY mgradvtop          "<citetitle xmlns='http://docbook.org/ns/docbook'>Advanced Topics Guide</citetitle>">
 <!ENTITY mgrbestpract       "<citetitle xmlns='http://docbook.org/ns/docbook'>Best Practices Guide</citetitle>">
 <!ENTITY mgrgetstart        "<citetitle xmlns='http://docbook.org/ns/docbook'>Getting Started Guide</citetitle>">
@@ -381,3 +366,33 @@
 <!ENTITY % xml.features "INCLUDE">
 <!ENTITY % dbcent PUBLIC "-//OASIS//ENTITIES DocBook Character Entities V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/dbcentx.mod">
   %dbcent;
+
+
+<!-- LEGACY COMPATIBILITY ENTITIES -->
+<!-- Do not use in new documentation. -->
+
+<!ENTITY novell        "Novell">
+
+
+<!ENTITY susestudio     "&suse; Studio">
+<!ENTITY studioexpress  "&susestudio; Express">
+<!ENTITY suseonsite     "&susestudio; Onsite">
+
+<!ENTITY ncc           "&scc;">
+
+<!ENTITY ipseries       "&power;">
+<!ENTITY ppc            "&power;">
+
+<!ENTITY smt               "&rmt;">
+<!ENTITY smtool            "&rmtool;">
+<!ENTITY susefirewall      "SuSEfirewall2">
+<!ENTITY susefirewallfiles "SuSEfirewall2">
+<!ENTITY mysql         "&mariadb;">
+
+<!--SUSE Manager, old guide names -->
+<!ENTITY mgrclientconfguide "<citetitle xmlns='http://docbook.org/ns/docbook'>Client Configuration Guide</citetitle>">
+<!ENTITY mgrinstguide       "<citetitle xmlns='http://docbook.org/ns/docbook'>Installation &amp; Troubleshooting Guide</citetitle>">
+<!ENTITY mgrproxyquick      "<citetitle xmlns='http://docbook.org/ns/docbook'>Proxy Quick Start</citetitle>">
+<!ENTITY mgrquick           "<citetitle xmlns='http://docbook.org/ns/docbook'>Quick Start</citetitle>">
+<!ENTITY mgrrefguide        "<citetitle xmlns='http://docbook.org/ns/docbook'>Reference Guide</citetitle>">
+<!ENTITY mgruserguide       "<citetitle xmlns='http://docbook.org/ns/docbook'>User Guide</citetitle>">

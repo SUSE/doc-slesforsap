@@ -2,6 +2,6 @@ MAIN="MAIN-SLES4SAP-guide.xml"
 ROOTID=""
 
 PROFOS="sles"
-PROFCONDITION="noquick"
+PROFCONDITION="noquick;suse-product"
 
 STYLEROOT="/usr/share/xml/docbook/stylesheet/suse2013-ns"
