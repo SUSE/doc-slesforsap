@@ -4,7 +4,7 @@
   <!ENTITY % entities SYSTEM "generic-entities.ent">
     %entities;
 ]>
-<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="cha-s4s-about">
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="cha-about">
 <title>What Is &sles4sap;?</title>
 <info>
  <abstract>
@@ -41,13 +41,13 @@
  <para>
   &sles4sap; consists of software components and service offerings which are
   described in the following sections. The figure
-  <xref linkend="fig-s4s-offering" xrefstyle="select:title"/> shows an
+  <xref linkend="fig-offering" xrefstyle="select:title"/> shows an
   overview of which software components and services
   are also available with other products from &suse; (green)
   and which are exclusively available with &sles4sap; (blue).
  </para>
 
- <figure xml:id="fig-s4s-offering">
+ <figure xml:id="fig-offering">
   <title>Offerings of &sles4sap;</title>
   <mediaobject>
    <imageobject role="fo">
@@ -62,7 +62,7 @@
  <xi:include condition="quick"   href="s4s_components_quick.xml" parse="xml"/>
  <xi:include condition="noquick" href="s4s_components.xml" parse="xml"/>
 
- <sect1 condition="noquick" xml:id="sec-s4s-repository">
+ <sect1 condition="noquick" xml:id="sec-repository">
   <title>Software Repository Setup</title>
 
   <para>
@@ -88,7 +88,7 @@
    setup should include the following:
   </para>
 
-  <table xml:id="tab-s4s-repository">
+  <table xml:id="tab-repository">
     <title>Standard Repositories</title>
     <tgroup cols="3">
       <colspec colname="type"/>
@@ -192,7 +192,7 @@
    <link xlink:href="https://documentation.suse.com/sles/15-SP2/html/SLES-all/art-modules.html"/>.
   </para>
   <para condition="noquick">
-   For more information about &ph;, see <xref linkend="sec-s4s-packagehub"/>.
+   For more information about &ph;, see <xref linkend="sec-packagehub"/>.
   </para>
  </sect1>
 </chapter>

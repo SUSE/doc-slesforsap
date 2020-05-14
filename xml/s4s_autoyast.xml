@@ -5,7 +5,7 @@
     %entities;
 ]>
 <sect1 xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink"
-  xml:id="sec-s4s-autoyast">
+  xml:id="sec-autoyast">
  <title>Using an External &ay; Profile</title>
 
  <para>
@@ -28,7 +28,7 @@
 
  <para>
   For more information about partitioning for &sap; applications with &ay;, see
-  <xref linkend="sec-s4s-partition"/>.
+  <xref linkend="sec-partition"/>.
  </para>
 
  <para>

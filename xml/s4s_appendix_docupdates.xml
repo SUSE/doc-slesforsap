@@ -4,7 +4,7 @@
   <!ENTITY % entities SYSTEM "generic-entities.ent">
     %entities;
 ]>
-<appendix xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="app-s4s-docupdate">
+<appendix xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="app-docupdate">
  <title>Documentation Updates</title>
 
  <para>
@@ -17,21 +17,21 @@
  <itemizedlist role="subtoc">
   <listitem>
    <para>
-    <xref linkend="app-s4s-docupdate-2018-04-25" xrefstyle="SectTitleOnPage"/>
+    <xref linkend="app-docupdate-2018-04-25" xrefstyle="SectTitleOnPage"/>
    </para>
   </listitem>
  </itemizedlist>
 
-  <sect1 xml:id="sec-s4s-docupdate-s4s15-sp1">
+  <sect1 xml:id="sec-docupdate-s4s15-sp1">
    <title>&productname; 15 SP1</title>
    <para/>
-   <sect2 xml:id="sec-s4s-docupdate-s4s15-sp1-june-2019">
+   <sect2 xml:id="sec-docupdate-s4s15-sp1-june-2019">
     <title>June, 2019</title>
     <variablelist>
      <varlistentry>
       <term>Bugfixes</term>
       <listitem>
-       <para>In <xref linkend="sec-s4s-convert-sles"/>, mentioned
+       <para>In <xref linkend="sec-convert-sles"/>, mentioned
         <command>Migrate_SLES_to_SLES-for-SAP.sh</command> script
         and added procedure how to convert an installation
         (<link xlink:href="&bsc;1125271"/>).</para>
@@ -41,7 +41,7 @@
    </sect2>
   </sect1>
 
- <!-- <sect1 xml:id="app-s4s-docupdate-2018-04-25">
+ <!-- <sect1 xml:id="app-docupdate-2018-04-25">
   <title>April 25, 2018&mdash;&s4sa; 12 SP3 Documentation Update</title>
 
   <para>
@@ -52,7 +52,7 @@
   <variablelist>
    <varlistentry>
     <term>
-     <xref linkend="sec-s4s-service" xrefstyle="SectTitleOnPage"/>
+     <xref linkend="sec-service" xrefstyle="SectTitleOnPage"/>
     </term>
     <listitem>
      <para>
@@ -62,7 +62,7 @@
    </varlistentry>
    <varlistentry>
     <term>
-     <xref linkend="sec-s4s-hana-cluster-wizard" xrefstyle="SectTitleOnPage"/>
+     <xref linkend="sec-hana-cluster-wizard" xrefstyle="SectTitleOnPage"/>
     </term>
     <listitem>
      <para>

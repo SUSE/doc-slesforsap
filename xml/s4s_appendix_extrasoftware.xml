@@ -4,7 +4,7 @@
   <!ENTITY % entities SYSTEM "generic-entities.ent">
     %entities;
 ]>
-<appendix xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="app-s4s-additional-software">
+<appendix xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="app-additional-software">
  <title>Additional Software for &s4sa;</title>
 
  <para>
@@ -26,18 +26,18 @@
     <guimenu>SUSE Connect Program</guimenu> allows installing packages created
     and supported by third parties, specifically for &s4sa;. It also gives
     easy access to third-party trainings and support. See
-    <xref linkend="sec-s4s-suseconnectprogram"/>.
+    <xref linkend="sec-suseconnectprogram"/>.
    </para>
   </listitem>
   <listitem>
    <para>
     &suse; Package Hub allows installation of packages created by the &sle;
-    community without support. See <xref linkend="sec-s4s-packagehub"/>.
+    community without support. See <xref linkend="sec-packagehub"/>.
    </para>
   </listitem>
  </itemizedlist>
 
- <sect1 xml:base="sec-s4s-identifying-sap">
+ <sect1 xml:base="sec-identifying-sap">
   <title>Identifying a Base Product for &sles4sap;</title>
   <para>
    To identify and distinguish &suse; products, use one of the following
@@ -134,7 +134,7 @@ SUSE_SLE
 sle-ha</screen>
  </sect1>
 
- <sect1 xml:id="sec-s4s-suseconnectprogram">
+ <sect1 xml:id="sec-suseconnectprogram">
   <title>SUSE Connect Program</title>
   <para>
    Start SUSE Connect Program from the &yast; control center using
@@ -155,7 +155,7 @@ sle-ha</screen>
    </para>
   </note>
  </sect1>
- <sect1 xml:id="sec-s4s-packagehub">
+ <sect1 xml:id="sec-packagehub">
   <title>&ph;</title>
   <para>
    &ph; provides many packages for &slea; that were previously
