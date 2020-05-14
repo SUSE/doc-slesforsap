@@ -8,7 +8,7 @@
 <!ENTITY productnumber '&product-ga;'>
 
 <!-- PROJECT REPOSITORY URL -->
-<!ENTITY repourl "https://github.com/SUSE/doc-slesforsap">
+<!ENTITY repo-url "https://github.com/SUSE/doc-slesforsap">
 
 
 <!-- START YEAR OF COPYRIGHT -->
@@ -22,6 +22,8 @@
 <!ENTITY sapnoteaddress "https://launchpad.support.sap.com/#/notes/">
 <!ENTITY suma-docaddress "<link xmlns='http://docbook.org/ns/docbook' xmlns:xlink='http://www.w3.org/1999/xlink' xlink:href='&dsc-suma;'/>">
 <!ENTITY reslibrary     "<link xmlns='http://docbook.org/ns/docbook' xmlns:xlink='http://www.w3.org/1999/xlink' xlink:href='https://www.suse.com/products/sles-for-sap/resource-library/'/>">
+
+<!ENTITY rn-url "&sc-rn;/x86_64/SLE-SAP/15/">
 
 <!-- SAP-SPECIFIC ENTITIES -->
 
