@@ -58,3 +58,10 @@
 <!ENTITY saptune        "<command xmlns='http://docbook.org/ns/docbook'>saptune</command>">
 <!ENTITY sapconf        "<literal xmlns='http://docbook.org/ns/docbook'>sapconf</literal>">
 <!ENTITY tuned          "<systemitem xmlns='http://docbook.org/ns/docbook' class='daemon'>tuned</systemitem>">
+
+<!-- General Product Entities -->
+<!ENTITY salt           "Salt">
+<!ENTITY saltmaster     "&salt; Master">
+<!ENTITY saltstack      "&salt;Stack">
+<!ENTITY terraform      "Terraform">
+<!ENTITY crmshell       "crm shell">
