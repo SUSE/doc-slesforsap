@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="file:/usr/share/xml/geekodoc/rng/geekodoc5-flat.rnc"
+   type="application/relax-ng-compact-syntax"?>
+
+<!DOCTYPE article
+[
+  <!ENTITY % entities SYSTEM "generic-entities.ent">
+    %entities;
+]>
+
+<!--
+Further information:
+
+* SAP Monitoring will become easier and powerful using SLES for SAP
+  https://suse.com/c/coming-soon-sap-landscape-monitoring-on-sles-for-sap/
+-->
+
+<article version="5.1" xml:lang="en" xml:id="art-sol-monitoring"
+  xmlns="http://docbook.org/ns/docbook"
+  xmlns:xi="http://www.w3.org/2001/XInclude"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+   <title>&sap; Monitoring</title>
+  <subtitle>&sles4sapreg; · &sleha;</subtitle>
+   <info>
+     <abstract>
+       <para>
+         This article shows monitoring solutions for &sap; administrators
+         to efficiently monitor their &sap; systems.
+         The solutions that is described here works for &slsreg;&nbsp;12
+         SP3 to 15&nbsp;SP2.
+       </para>
+       <para>
+         Keep in mind, the solutions described here is not officially supported by &suse;.
+         Nevertheless, it is based on best-efforts and published
+         <quote>as is</quote>.
+       </para>
+     </abstract>
+   </info>
+
+  <sect1 xml:id="sec-sol-monit-concept-overview">
+    <title>Conceptual Overview</title>
+    <para>
+      Starting from the idea of improving user experience, &suse; engineering worked
+      on how to monitor &ha; clusters that manage &sap; workloads (&hana; and &nw;).
+    </para>
+    <para>
+      The exporters showed here export their metrics which can be combined and
+      integrated with Prometheus and Grafana to produce complex dashboards.
+    </para>
+    <para>
+      &suse; supports Prometheus and Grafana through &suma; 4.0. Some Grafana
+      dashboards for &hana;, &s4h;, &netweaver;, and the cluster monitoring
+      are provided by &suse; via Grafana community dashboards.
+    </para>
+  </sect1>
+
+  <sect1 xml:id="sec-sol-monit-terms">
+    <title>Terminology</title>
+    <variablelist>
+      <varlistentry>
+        <term>Grafana</term>
+        <listitem>
+          <para>
+            An interactive visualization and analytics Web application.
+            It provides methods to visualize, explore,
+            and query your metrics, and trigger alerts.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Prometheus</term>
+        <listitem>
+          <para>
+            A systems monitoring and alerting toolkit. It collects and evaluates
+            metrics, displays the result, and triggers possible alerts
+            when an observed condition is true.
+            Metrics can be collected from different targets at given intervals.
+          </para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </sect1>
+
+  <sect1 xml:id="sec-sol-autom-install-exporters">
+    <title>Installing Exporters</title>
+    <para>
+      Installation of an exporter follows always the same pattern.
+      Execute the following steps:
+    </para>
+
+    <procedure>
+      <title>General Way</title>
+      <step>
+        <para>Install the package. All package are available in &sles4sap;.</para>
+      </step>
+      <step performance="optional">
+        <para>
+          Copy the configuration file to <filename>/etc/<replaceable>EXPORTER_DIR</replaceable></filename>.
+          The exact folder name is different for each exporter.
+          This step depends on the exporter. If you skip this step, the default
+          configuration is used.
+        </para>
+      </step>
+      <step>
+        <para>
+          Start the daemon:
+        </para>
+        <screen>systemctl start <replaceable>NAME_OF_DAEMON</replaceable></screen>
+      </step>
+    </procedure>
+    <para>
+      The above procedure is automatically done by each of the &salt; formulas
+      described in <xref linkend="art-sol-automation"/>.
+    </para>
+  </sect1>
+
+  <sect1 xml:id="sec-sol-monit-hana-db-exp">
+    <title>&hana; Database Exporter</title>
+    <para>
+      Exports &hana; database metrics.
+      The exporter can to export the metrics from more than one database or tenant.
+      This <option>multi_tenant</option> option is enabled by default.
+    </para>
+    <formalpara>
+      <title>Package:</title>
+      <para><package>prometheus-hanadb_exporter</package></para>
+    </formalpara>
+    <formalpara>
+      <title>Link:</title>
+      <para>
+        <link xlink:href="https://github.com/SUSE/hanadb_exporter"/>.
+      </para>
+    </formalpara>
+    <itemizedlist>
+      <title>Export Metrics in Prometheus Format</title>
+      <listitem>
+        <para>
+          Memory metrics
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          CPU metrics
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          Disk usage metrics
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          I/O metrics
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          Network metrics
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          Top queries consuming time and memory
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          System replication metrics
+        </para>
+      </listitem>
+    </itemizedlist>
+    <para>
+Find installation instruction in the previous link.
+    </para>
+  </sect1>
+
+  <sect1 xml:id="sec-sol-monit-ha-cluster-exp">
+    <title>&ha; Cluster Exporter</title>
+    <para>
+      Enables monitoring of Pacemaker, &corosync;, SBD, DRBD and other components of &ha; clusters.
+      Collects metrics to easily monitor cluster status and health.
+    </para>
+    <formalpara>
+      <title>Link:</title>
+      <para>
+        <link xlink:href="https://github.com/ClusterLabs/ha_cluster_exporter"/>.
+      </para>
+    </formalpara>
+    <itemizedlist>
+      <title>Export Metrics in Prometheus Format</title>
+      <listitem>
+        <para>
+          Pacemaker cluster summary, nodes, and resource status
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          Corosync ring errors and quorum votes.
+          Currently, only Corosync version&nbsp;2 is supported.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          Health status of SBD devices.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          DRBD resources and connections status.
+          Currently, only DRBD version&nbsp;9 is supported.
+        </para>
+      </listitem>
+    </itemizedlist>
+  </sect1>
+
+  <sect1 xml:id="sec-sol-monit-sap-host-exp">
+    <title>&sap; Host Exporter</title>
+    <para>
+      Enables the monitoring of &netweaver;, &hana;, and other applications.
+      The gathered metrics are the data that can be obtained by running the
+      <command>sapcontrol</command> command.
+    </para>
+    <formalpara>
+      <title>Link:</title>
+      <para>
+        <link xlink:href="https://github.com/SUSE/sap_host_exporter"/>.
+      </para>
+    </formalpara>
+    <itemizedlist>
+      <title>Exports Metrics (for &s4h;, &netweaver;, or &hana; hosts) in Prometheus Format</title>
+      <listitem>
+        <para>
+          &sap; start service process list
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          &sap; enqueue server metrics
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          &sap; application server dispatcher metrics
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          &sap; internal alerts
+        </para>
+      </listitem>
+    </itemizedlist>
+  </sect1>
+
+  <sect1 xml:id="sec-sol-monit-more">
+    <title>For More Information</title>
+    <remark>toms 2020-06-10: Need to be reworked which one is useful and should be included</remark>
+    <itemizedlist>
+      <listitem>
+        <para>
+          <link xlink:href="https://documentation.suse.com/suma/4.0/"
+            >&suma;</link>
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          <link xlink:href="https://grafana.com/grafana/dashboards?orderBy=name&amp;direction=asc"
+            >Grafana Dashboards</link>
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          Some <filename class="extension">.md</filename> files
+          are included in RPM packages. They contain documentation from
+          upstream sources. This can be helpful in isolated data centers without
+          Internet connection.
+        </para>
+      </listitem>
+    </itemizedlist>
+  </sect1>
+
+  <xi:include href="common_copyright_quick.xml"/>
+  <xi:include href="common_legal.xml"/>
+</article>

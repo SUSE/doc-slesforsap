@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="file:/usr/share/xml/geekodoc/rng/geekodoc5-flat.rnc" type="application/relax-ng-compact-syntax"?>
+<!DOCTYPE book
+[
+  <!ENTITY % entities SYSTEM "generic-entities.ent">
+    %entities;
+]>
+
+<!--
+HINT (toms) 2020-06-05:
+
+* SAP Automation and Monitoring Documentation - SLES for SAP
+  https://confluence.suse.com/x/8IEnGw
+*
+  https://suse.com/c/coming-soon-sap-landscape-monitoring-on-sles-for-sap/
+-->
+
+<book version="5.1-subset GeekoDoc-1.0.2.1" xml:lang="en"
+  xmlns="http://docbook.org/ns/docbook"
+  xmlns:xi="http://www.w3.org/2001/XInclude"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+  <title>Solution Based Documentation</title>
+  <info>
+    <productname>&productname;</productname>
+    <productname role="abbrev">&sles4sapa;</productname>
+    <productnumber>&productnumber;</productnumber>
+    <date><?dbtimestamp format="B d, Y"?></date>
+    <dm:docmanager xmlns:dm="urn:x-suse:ns:docmanager">
+      <dm:bugtracker>
+        <dm:url>https://bugzilla.suse.com/enter_bug.cgi</dm:url>
+        <dm:component>Documentation</dm:component>
+        <dm:product
+          >SUSE Linux Enterprise Server for SAP Applications 15 SP2</dm:product>
+        <dm:assignee>thomas.schraitle@suse.com</dm:assignee>
+      </dm:bugtracker>
+      <dm:editurl>https://github.com/SUSE/doc-slesforsap/blob/master/xml/</dm:editurl>
+      <dm:translation>no</dm:translation>
+    </dm:docmanager>
+    <xi:include href="common_copyright_gfdl.xml"/>
+  </info>
+
+  <xi:include href="art_solution_automation.xml"/>
+  <xi:include href="art_solution_monitoring.xml"/>
+
+  <xi:include href="common_legal.xml"/>
+</book>
