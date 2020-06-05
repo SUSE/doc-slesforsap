@@ -1,0 +1,425 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="file:/usr/share/xml/geekodoc/rng/geekodoc5-flat.rnc"
+   type="application/relax-ng-compact-syntax"?>
+
+<!DOCTYPE article
+[
+  <!ENTITY % entities SYSTEM "generic-entities.ent">
+    %entities;
+]>
+<!--
+Confluence page:
+https://confluence.suse.com/x/8IEnGw
+-->
+
+<article version="5.1" xml:lang="en" xml:id="art-sol-automation"
+  xmlns="http://docbook.org/ns/docbook"
+  xmlns:xi="http://www.w3.org/2001/XInclude"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+  <title>&sap; Automation</title>
+  <subtitle>&sles4sapreg; · &slereg; &hasi;</subtitle>
+  <info>
+    <abstract>
+      <para>
+        This article offers some automation solutions for &sap; administrators.
+        With &salt; formulas, it helps to efficiently configure &ha; and &sap; systems.
+        The solutions that is described here works from &slsreg;&nbsp;12 SP3
+        and beyond. All packages are available in the SLES4SAP module.
+      </para>
+    </abstract>
+  </info>
+
+  <note>
+    <title>No Official &suse; Support</title>
+    <para>
+      The referenced &salt; formulas install and configure &sles4sapreg;
+      and configure the &ha; cluster.
+      The other parts that belong to the infrastructure (like machines, network,
+      disk formats, mount points) need to be done with &suma;, &ay;,
+      or &terraform;. Keep in mind, our &terraform; project is published
+      <emphasis>as-is</emphasis> and supported by the open source community.
+      For more information, see <link
+        xlink:href="https://github.com/SUSE/ha-sap-terraform-deployments"/>.
+    </para>
+  </note>
+
+  <sect1 xml:id="sec-sol-autom-concept-overview">
+    <title>Conceptual Overview</title>
+    <para>
+      Starting from the idea of modernizing and simplifying &hana; and &nw; deployments,
+      &suse; engineering worked on rewriting the deployment wizards in &salt;.
+      &salt; is a configuration management system that is also supported by
+      &susemgr; and &slsreg; for any sort of automation.
+    </para>
+    <para>
+      The major motivation was to improve and simplify the installation of &hana;
+      on &sls;.
+    </para>
+    <remark>toms 2020-06-10: Mention Stack Formulas?</remark>
+  </sect1>
+
+  <sect1 xml:id="sec-sol-autom-terms">
+    <title>Terminology</title>
+    <remark>toms 2020-06-23: add more terms and further explanations?</remark>
+    <variablelist>
+      <varlistentry>
+        <term>Python</term>
+        <listitem>
+          <para>
+            A scripting language. It interacts with lower-layer utilities
+            such as &crmshell; and several &sap; commands, including &hana; management
+            tools.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>&salt; (also &saltstack;)</term>
+        <listitem>
+          <remark>toms 2020-06-10: https://docs.saltstack.com/en/getstarted/</remark>
+          <para>
+            A configuration infrastructure management system written in Python.
+            Due to its modular approach, it is often referred as &saltstack;.
+            <!--&salt; configures and provision the needed machines/nodes.-->
+            &salt; works as a client/server architecture. The server (also called
+            the &saltmaster;) acts as a central control unit for the clients
+            (<quote>minions</quote>). The other supported setup option is called masterless.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>&salt; Grains</term>
+        <listitem>
+          <para>
+            Static data about &salt; minions. Grains contain information about the
+            operating system that is running, the CPU architecture in use, and much more.
+            Grains can also be set to assign values to minions.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>&salt; Formulas</term>
+        <listitem>
+          <para>
+            Formulas are pre-written &salt; States.
+          </para>
+          <!--
+            Installed:
+            * through a Git repository
+            * through a directory
+          -->
+          <para>
+            For more information about &salt;, refer to the upstream documentation at
+            <link xlink:href="https://docs.saltstack.com"/>.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>&saltmaster;</term>
+        <listitem>
+          <para>
+            Manages the infrastructure and the minions within it.
+            It can execute commands remotely on minions and manage their state.
+            The &saltmaster; captures grains sent from minions and decide what to do
+            with this information.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>&salt; Minion</term>
+        <listitem>
+          <para>A server or machine often controlled by the &saltmaster;.
+          Its main purpose is to execute commands sent from the &saltmaster;,
+          report data back, and send information about itself.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>&salt; State</term>
+        <listitem>
+          <para>
+            YAML text file to maintain consistency across your environment.
+            &salt; states can be executed.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>&terraform;</term>
+        <listitem>
+          <remark>toms 2020-06-10: https://www.terraform.io/intro/index.html</remark>
+          <para>
+            An <quote>infrastructure as code</quote> software tool.
+            It deploys the required infrastructure in cloud or virtual environments
+            and &ay; for on-premises deployments.
+          </para>
+          <para>
+            Currently, &terraform; is <emphasis role="strong">NOT</emphasis> supported
+            by &suse;.
+            <remark>toms 2020-07-09: check, if this is really the case in the future.</remark>
+          </para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </sect1>
+
+
+  <sect1 xml:id="sec-sol-autom-hana-deploy">
+    <title>&hana; Automated Deployment</title>
+    <para>
+      Use the &salt; formula <package>saphanabootstrap-formula</package> for bootstrapping
+      and managing &hana; platform and system replication.
+    </para>
+    <formalpara>
+      <title>Link:</title>
+      <para><link xlink:href="https://github.com/SUSE/saphanabootstrap-formula"/>.</para>
+    </formalpara>
+    <para>The &salt; formula takes care of the following</para>
+    <itemizedlist>
+      <listitem>
+        <para>
+          Installs &hana;.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          Configures system replication.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          Preconfigures the &ha; cluster requirements.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          Configures the &hana; Prometheus exporter
+        </para>
+      </listitem>
+    </itemizedlist>
+    <para>
+      The &salt; formula can be used in these scenarios:
+    </para>
+    <itemizedlist>
+      <title>Scenarios for <package>saphanabootstrap-formula</package></title>
+      <listitem>
+        <para>
+          &hana; single instance automated deployment.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          Two &hana; instances on system replication setup.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          Two &hana; instances on system replication and cluster scale-up
+          performance-optimized configuration.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          Two &hana; instances on system replication setup, cluster scale-up
+          cost-optimized configuration, and extra &hana; installation on a secondary host.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          Cloud Service Provides (Azure, AWS, and GCP) automated adjustments for each provider 
+          as best-practice.
+        </para>
+      </listitem>
+    </itemizedlist>
+    <example>
+      <title>Installation</title>
+      <!-- old: obs://network:ha-clustering:sap-deployments:devel -->
+      <screen>zypper install saphanabootstrap-formula</screen>
+    </example>
+    <para>
+      The following links provide best practices:
+    </para>
+    <itemizedlist>
+      <title>Best Practices</title>
+      <listitem>
+        <para>
+          <link xlink:href="https://documentation.suse.com/sbp/all/html/SLES4SAP-hana-sr-guide-PerfOpt-12/index.html"
+            >SAP HANA System Replication Scale-Up - Performance Optimized Scenario (Code 12)</link>
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          <link xlink:href="https://www.suse.com/media/white-paper/sap_hana_sr_cost_optimized_scenario_12_sp1.pdf"
+            >Setting up a SAP HANA SR Cost Optimized Infrastructure (SLES-SAP 12 SP1)</link>
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          <link xlink:href="https://documentation.suse.com/sbp/all/html/SLES4SAP-hana-sr-guide-PerfOpt-15/index.html"
+            >SAP HANA System Replication Scale-Up - Performance Optimized Scenario (Code 15)</link>
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          <link xlink:href="https://documentation.suse.com/sbp/all/html/SLES4SAP-hana-sr-guide-PerfOpt-12_AWS/index.html"
+            >SAP HANA High Availability Cluster for the AWS Cloud </link>
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          <link xlink:href="https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/sap-hana-high-availability"
+            >High availability of SAP HANA on Azure VMs on SUSE Linux Enterprise Server</link>
+        </para>
+      </listitem>
+    </itemizedlist>
+  </sect1>
+
+  <sect1 xml:id="sec-sol-autom-hana-and-netweaver-deploy">
+    <title>&nw; Automated Configuration</title>
+    <para>
+      Use the &salt; formula <package>sapnwbootstrap-formula</package> for bootstrapping
+      and managing the &netweaver; platform.
+    </para>
+    <formalpara>
+      <title>Link:</title>
+      <para><link xlink:href="https://github.com/SUSE/sapnwbootstrap-formula"/>.</para>
+    </formalpara>
+    <note>
+      <para>The formula works only with &hana; as database.</para>
+    </note>
+    <itemizedlist>
+      <title>&netweaver; Components</title>
+      <listitem>
+        <para>ASCS instance</para>
+      </listitem>
+      <listitem>
+        <para>ERS instance</para>
+      </listitem>
+      <listitem>
+        <para>PAS instance</para>
+      </listitem>
+      <listitem>
+        <para>AAS instance</para>
+      </listitem>
+      <listitem>
+        <para>Database instance (this adds the required users, tables, views, etc. to the current Hana database)</para>
+      </listitem>
+    </itemizedlist>
+    <para>
+      The &salt; formula can be used in these scenarios:
+    </para>
+    <itemizedlist>
+      <title>Scenarios for <package>sapnwbootstrap-formula</package></title>
+      <listitem>
+        <para>Enqueue replication server version 1</para>
+      </listitem>
+      <listitem>
+        <para>Enqueue replication server version 2</para>
+      </listitem>
+    </itemizedlist>
+    <example>
+      <title>Installation</title>
+      <!-- old: obs://network:ha-clustering:sap-deployments:devel -->
+      <screen>zypper install sapnwbootstrap-formula</screen>
+    </example>
+
+    <itemizedlist>
+      <title>Best Practices</title>
+      <listitem>
+        <para><link xlink:href="https://documentation.suse.com/sbp/all/html/SAP_HA740_SetupGuide_AWS/index.html"
+          >&netweaver; &ha; Cluster 7.40 for the AWS Cloud - Setup Guide (Code 12)</link></para>
+      </listitem>
+      <listitem>
+        <para><link xlink:href="https://www.suse.com/media/white-paper/sap_netweaver_availability_cluster_740_setup_guide.pdf"
+          >&netweaver; &ha; Cluster 7.40 - Setup Guide (Code 12)</link></para>
+      </listitem>
+      <listitem>
+        <para><link xlink:href="https://www.suse.com/media/white-paper/sap_netweaver_availability_cluster_740_setup_guide.pdf"
+          >Simple Stack - &netweaver; &ha; on &sle; 12 (SP1 or newer)</link></para>
+      </listitem>
+      <listitem>
+        <para><link xlink:href="https://documentation.suse.com/sbp/all/html/SAP_S4HA10_SetupGuide-SLE12/index.html"
+          >&s4h; - Enqueue Replication 2 &ha; Cluster - Setup Guide</link></para>
+      </listitem>
+      <listitem>
+        <para><link xlink:href="https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/high-availability-guide-suse"
+          >Azure</link></para>
+      </listitem>
+    </itemizedlist>
+  </sect1>
+
+  <sect1 xml:id="sec-sol-autom-ha-cluster-config">
+    <title>&ha; Cluster Automated Configuration</title>
+    <para>
+      Use the &salt; formula <package>habootstrap-formula</package> for bootstrapping and managing
+      a high availability cluster with the &crmshell;.
+    </para>
+    <formalpara>
+      <title>Link:</title>
+      <para><link xlink:href="https://github.com/SUSE/habootstrap-formula"/>.</para>
+    </formalpara>
+    <itemizedlist>
+      <title>Properties for <package>habootstrap-formula</package></title>
+      <listitem>
+        <para>
+          Creates and configures the &ha; cluster (Pacemaker, Corosync, SBD, and resource
+          agents).
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          Run on-premises and Cloud-service providers (Azure, GCP, AWS).
+        </para>
+      </listitem>
+      <listitem>
+        <para>Azure, AWS, and GCP automated adjustments for each provider best-practices.
+        </para>
+      </listitem>
+    </itemizedlist>
+  </sect1>
+
+  <sect1 xml:id="sec-sol-autom-drbd-nfs-config">
+    <title>DRBD/NFS Automated Configuration</title>
+    <para>
+      Use the &salt; formula <package>drbd-formula</package> for setting up and managing a DRBD cluster,
+      for example, with the command <command>drbdadm</command>.
+    </para>
+    <remark>toms 2020-06-29: Isn't the following addition "dangerous" for SLE users?</remark>
+    <example>
+      <title>Installation</title>
+      <!-- old: obs://network:ha-clustering:sap-deployments:devel -->
+      <screen>zypper install drbd-formula</screen>
+    </example>
+  </sect1>
+
+  <sect1 xml:id="sec-sol-autom-more">
+    <title>For More Information</title>
+    <para>
+      Find some more general information in the following list:
+    </para>
+    <remark>toms 2020-06-10: Need to be reworked which one is useful and should be included</remark>
+    <itemizedlist>
+      <listitem>
+        <para><link xlink:href="https://documentation.suse.com/sbp/all/html/SLES4SAP-hana-sr-guide-PerfOpt-15/index.html"
+          >&hana; System Replication Scale-Up - Performance Optimized Scenario (Code 15):</link></para>
+      </listitem>
+      <listitem>
+        <para><link xlink:href="https://documentation.suse.com/sbp/all/html/SLES4SAP-hana-sr-guide-PerfOpt-12/index.html"
+          >&hana; System Replication Scale-Up - Performance Optimized Scenario (Code 12)</link></para>
+      </listitem>
+      <listitem>
+        <para><link xlink:href="https://www.suse.com/media/white-paper/sap_hana_sr_cost_optimized_scenario_12_sp1.pdf"
+          >Setting up a &hana; SR Cost Optimized Infrastructure (&slsa; for SAP 12 SP1)</link></para>
+      </listitem>
+      <listitem>
+        <para><link xlink:href="https://documentation.suse.com/sbp/all/html/SLES4SAP-hana-sr-guide-PerfOpt-12_AWS/index.html"
+          >&hana; High Availability Cluster for the AWS Cloud</link></para>
+      </listitem>
+      <listitem>
+        <para><link xlink:href="https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/sap-hana-high-availability"
+          >High availability of &hana; on Azure VMs on &sls;</link></para>
+      </listitem>
+    </itemizedlist>
+  </sect1>
+
+  <xi:include href="common_copyright_quick.xml"/>
+  <xi:include href="common_legal.xml"/>
+</article>
