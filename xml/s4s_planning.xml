@@ -130,11 +130,10 @@
   <para>
    Unlike previous &slea; products, the entire &slea; &productnumber;
    product line can be installed from a single installation medium:
-   The <literal>&slea; &productnumber; Online media 1</literal>.
-   If you want to install without network access or registration, download
-   the <literal>&slea; &productnumber; Full media 1</literal> image.
-   Both ISO images are available from
-   <link xlink:href="https://download.suse.com/"/>.
+   <literal>&slea; &productnumber; Online media 1</literal>. If you want to
+   install without network access or registration, download the
+   <literal>&slea; &productnumber; Full media 1</literal> image. Both ISO images
+   are available from <link xlink:href="https://download.suse.com/"/>.
   </para>
   <para>
    Burn the image onto a physical DVD or copy it to a removable flash disk.

@@ -19,11 +19,11 @@
 
   <para>
    The installation workflow is a guided installation of the operating system
-   with optimized
-   settings for &sap; applications. During the installation workflow, you can
-   choose whether you want to install an &sap; application. If so, you will be
-   asked to provide &sap; installation media when the &sls; installation is
-   finished. You can also choose whether to install third-party extensions.
+   with optimized settings for &sap; applications. During the installation
+   workflow, you can choose whether you want to install an &sap; application. If
+   so, you will be asked to provide &sap; installation media when the &sls;
+   installation is finished. You can also choose whether to install third-party
+   extensions.
   </para>
   <para>
    This section assumes that you are starting the installation from a local
@@ -327,9 +327,9 @@
    </step>
    <step>
     <para>
-     Choose the <guimenu>System Role</guimenu>. System roles are predefinied
-     use cases which tailor the system for the selected scenario.
-     For &sles4sap;, you can choose between:
+     Choose the <guimenu>System Role</guimenu>. System roles are predefined
+     use cases which tailor the system for the selected scenario. For
+     &sles4sap;, you can choose between:
     </para>
     <itemizedlist>
      <listitem>
@@ -346,7 +346,7 @@
        </listitem>
        <listitem>
         <para>
-         Enables RDP access (<emphasis>Remote Desktop Protocol</emphasis>)
+         Enables RDP access (<emphasis>Remote Desktop Protocol</emphasis>).
         </para>
        </listitem>
        <listitem>
@@ -375,7 +375,7 @@
      </listitem>
     </itemizedlist>
     <para>
-     Additonal system roles are available for specific use cases (&ha;,
+     Additional system roles are available for specific use cases (&ha;,
      text mode, minimal, and KVM/XEN virtualization hosts).
     </para>
     <para>
