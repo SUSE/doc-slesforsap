@@ -36,7 +36,11 @@
  <xi:include condition="noquick" href="s4s_setup_cluster.xml" parse="xml"/>
  <xi:include condition="noquick" href="s4s_tune.xml" parse="xml"/>
  <xi:include condition="noquick" href="s4s_access.xml" parse="xml"/>
- <xi:include condition="noquick" href="s4s_encrypt.xml" parse="xml"/>
+ <!--'Encrypting Directories Using cryptctl' has been moved to the
+ SLES Security Guide because the cryptctl package was moved from 
+ the SAP application Module to the Base Application module in SLE15SP2, 
+ so it is available to all SLE users (cschroder, 9 June 2020) 
+ <xi:include condition="noquick" href="s4s_encrypt.xml" parse="xml"/>-->
  <xi:include condition="noquick" href="s4s_clamsap.xml" parse="xml"/>
  <xi:include condition="noquick" href="s4s_remoteaccess.xml" parse="xml"/>
  <xi:include condition="noquick" href="s4s_image.xml" parse="xml"/>
