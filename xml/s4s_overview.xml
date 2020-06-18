@@ -90,8 +90,7 @@
   </variablelist>
  </sect1>
 
- <xi:include condition="noquick" href="common_intro_available_doc.xml" parse="xml"/>
- <xi:include condition="noquick" href="common_intro_feedback.xml" parse="xml"/>
- <xi:include condition="noquick" href="common_intro_convention.xml" parse="xml"/>
- <xi:include condition="noquick" href="common_intro_support.xml" parse="xml"/>
+ <xi:include condition="noquick" href="common_intro_available_doc.xml"/>
+ <xi:include condition="noquick" href="common_intro_feedback.xml"/>
+ <xi:include condition="noquick" href="common_intro_convention.xml"/>
 </preface>
