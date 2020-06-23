@@ -947,7 +947,7 @@ SAP-NetWeaver-740-SR2-Installation-Export-CD-3-3</screen>
   <para>
    When you have determined the correct partitioning XML file, run:
   </para>
-  <screen>&prompt.root;<command>yast2 sap_create_storage <replaceable>ABSOLUTE_PATH_TO_PARTITIONING_FILE</replaceable></command></screen>
+  <screen>&prompt.root;<command>yast2 sap_create_storage_ng <replaceable>ABSOLUTE_PATH_TO_PARTITIONING_FILE</replaceable></command></screen>
  </sect1>
 
  <sect1 condition="noquick" xml:id="sec-s4s-install-sap-autoyast">
