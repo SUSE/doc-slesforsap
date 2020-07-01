@@ -12,7 +12,7 @@
   setup options is given in <xref linkend="sec-hana-replicate"/>.
  </para>
  <para>
-  Administrators can now use the &hana;-SR Wizard to run the modul unattended,
+  Administrators can now use the &hana;-SR Wizard to run the module unattended,
   usually for on-premises deployments.
   Additionally, it is possible to configure the &hana; cluster on Azure now.
   The &yast; module identifies automatically when running on Azure and
