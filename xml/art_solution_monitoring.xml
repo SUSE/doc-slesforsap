@@ -30,9 +30,8 @@ Further information:
          SP3 to 15&nbsp;SP2.
        </para>
        <para>
-         Keep in mind, the solutions described here is not officially supported by &suse;.
-         Nevertheless, it is based on best-efforts and published
-         <quote>as is</quote>.
+         Keep in mind, the solution described here is not officially supported by &suse;.
+         It is based on best efforts and published <quote>as is</quote>.
        </para>
      </abstract>
    </info>
@@ -44,7 +43,7 @@ Further information:
       on how to monitor &ha; clusters that manage &sap; workloads (&hana; and &nw;).
     </para>
     <para>
-      The exporters showed here export their metrics which can be combined and
+      The exporters shown here export their metrics which can be combined and
       integrated with Prometheus and Grafana to produce complex dashboards.
     </para>
     <para>
