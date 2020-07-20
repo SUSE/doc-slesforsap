@@ -660,7 +660,7 @@
   <title>Unattended Setup Using &hana;-SR Wizard</title>
   <para>
    An unattended setup requires a manual installation of HANA first.
-   The result is saved into a file, containing all configuration options that
+   The result is saved into a file containing all configuration options that
    were chosen.
    If the administrator needs to reproduce the installation, with this file
    the installation can be run automatically and unattended.
