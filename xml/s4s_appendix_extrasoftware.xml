@@ -53,7 +53,7 @@
      </para>
      <para>
       You can search for the <varname>CPE_NAME</varname> key; however,
-      between different releases and service packs, the value have been
+      between different releases and service packs, the value may have been
       changed. If you need further details, refer to the article at
       <link xlink:href="https://www.suse.com/support/kb/doc/?id=7023490"/>.
      </para>
@@ -114,7 +114,7 @@
   <para>
    The same can be achieved with <command>xmlstarlet</command>. You need
    an XPath (the steps that lead you to your information). With the appropriate
-   options you can avoid the <tag class="starttag">cpeid</tag>/<tag
+   options, you can avoid the <tag class="starttag">cpeid</tag>/<tag
     class="endtag">cpeid</tag> tags:
   </para>
   <screen>&prompt.user;<command>xmlstarlet</command> sel -T -t -v<!--
@@ -124,7 +124,7 @@ cpe:/o:suse:sle-module-sap-applications:<replaceable
   <para>
    A more advanced search (which would be difficult for <command>grep</command>)
    would be to list all required dependencies to other products.
-   Assuming, <filename>basename</filename> points to
+   Assuming that <filename>basename</filename> points to
    <filename>sle-module-sap-applications.prod</filename>, the following
    command will output all product dependencies which are required for &sles4sap;:
   </para>

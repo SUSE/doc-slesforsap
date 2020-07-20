@@ -538,9 +538,9 @@
   </sect2>
 
   <sect2 xml:id="sec-s4s-saptune-delete">
-   <title>Deleting a &sap; Note</title>
+   <title>Deleting an &sap; Note</title>
    <para>
-    This command allows to delete a created note including the corresponding override
+    This command allows to delete a created note, including the corresponding override
     after confirmation:
    </para>
    <screen>&prompt.root;<command>saptune note delete</command></screen>
@@ -552,9 +552,9 @@
   </sect2>
 
   <sect2 xml:id="sec-s4s-saptune-rename">
-   <title>Renaming a &sap; Note</title>
+   <title>Renaming an &sap; Note</title>
    <para>
-    This command allows to rename a created note including the corresponding override
+    This command allows to rename a created note, including the corresponding override
     after confirmation:
    </para>
    <screen>&prompt.root;<command>saptune note rename</command></screen>

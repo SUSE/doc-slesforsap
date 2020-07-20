@@ -51,7 +51,7 @@
    <para>
     This is necessary because the installer for Oracle databases queries
     for the existence of certain files, not all of which are included in
-    a &s4sa; installation.
+    an &s4sa; installation.
    </para>
    <para condition="noquick">
     For more information about converting, see
@@ -643,7 +643,7 @@
    </step>
    <step>
     <para>
-     Boot from a SUSE DVD.
+     Boot from an &slsa; installation medium.
     </para>
    </step>
    <step>
@@ -688,8 +688,8 @@
   </para>
 
   <para>
-   To avoid having to use a DVD to initialize the system, you can boot over
-   the network via PXE.
+   To avoid having to use an &slsa; installation medium to initialize the
+   system, you can boot over the network via PXE.
    For details, see <citetitle>&ay; Guide,
    Chapter <quote>Booting via PXE over the Network</quote></citetitle>
    (&docaddress;).

@@ -8,7 +8,7 @@
  xmlns="http://docbook.org/ns/docbook"
  xmlns:xi="http://www.w3.org/2001/XInclude"
  xmlns:xlink="http://www.w3.org/1999/xlink">
- <title>Upgrading a &hana; Cluster</title>
+ <title>Upgrading an &hana; Cluster</title>
  <info>
   <abstract>
    <para>
@@ -32,7 +32,7 @@
   <para>
    This &yast; module is available in the <package>yast2-sap-ha</package>
    package for &productname; 12&nbsp;SP3 and higher.
-   Until now, the wizard is only prepared to handle the
+   Currently, the wizard is only prepared to handle the
    <emphasis>&hana; Scale-up Performance Optimized</emphasis> scenario.
   </para>
   <para>The upgrade covers the following tasks:</para>
@@ -55,7 +55,7 @@
     <para>Install the <package>yast2-hana-update</package> package on both nodes:</para>
     <screen>&prompt.root;<command>zypper</command> install yast2-hana-update</screen>
     <para>
-     After the installation you can find the module <guimenu>SUSE HANA
+     After the installation, you can find the module <guimenu>SUSE HANA
      Cluster Update</guimenu> in the &yastcc;.
     </para>
    </step>
@@ -76,8 +76,11 @@
     <para> To upgrade the &hana; system, select the secondary node. </para>
    </step>
    <step>
-    <para> Select the location of the installation media. </para>
-    <para> Point to the location where the &sap; media is located. If
+    <para>
+     Select the location of the installation medium.
+    </para>
+    <para>
+     Point to the location where the &sap; medium is located. If
      wanted, check the <guimenu>Mount an update medium on all hosts</guimenu>
      and provide the NFS share and path. </para>
     <important>
@@ -103,7 +106,7 @@
     <para> The wizard shows you two steps: automatic and manual.
      In this automatic step, the wizard puts cluster resources into
      maintenance mode before it starts with the automatic steps.
-     The manual steps are &hana; specific and need to be executed by a &hana;
+     The manual steps are &hana; specific and need to be executed by an &hana;
      administrator.
      For more information, see the official &hana; documentation.
     </para>
@@ -158,7 +161,7 @@
      <para>
       If the wizard is faster than the status update of the cluster resources,
       the summary shows an intermediate cluster state. The cluster state is
-      in state <literal>UNDEFINIED</literal> or <literal>DEMOTED</literal>.
+      <literal>UNDEFINIED</literal> or <literal>DEMOTED</literal>.
      </para>
      <para>
       To overcome this, check the cluster status again with the command
