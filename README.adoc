@@ -38,6 +38,7 @@ master branch. ***
 |=======================================================================
 | Name                             | Purpose
 | `master`                         | Current working branch
+| `maintenance/15_SP2`             | Maintenance branch for SLES-SAP 15 SP2
 | `maintenance/15_SP1`             | Maintenance branch for SLES-SAP 15 SP1
 | `maintenance/15_GA`              | Maintenance branch for SLES-SAP 15 GA
 | `maintenance/12_SP4`             | Maintenance branch for SLES-SAP 12 SP4
