@@ -422,12 +422,12 @@
     and no &tuned;.
    </para>
   </note>
-  <note>
+  <!--<note>
    <title>No Profiles in &productname; &productnumber;</title>
    <para>
     In &productname; 15 and above &sapconf; does not support profiles anymore.
    </para>
-  </note>
+  </note>-->
   <sect2 xml:id="sec-sapconf-5-enable">
    <title>Enabling and Disabling &sapconf; and Viewing Its Status</title>
    <para>
