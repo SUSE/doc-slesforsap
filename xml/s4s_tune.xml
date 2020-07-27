@@ -482,7 +482,7 @@
   <note>
    <title>No Profiles in &productname; &productnumber;</title>
    <para>
-    In &productname; 15, &sapconf; does not support profiles anymore.
+    In &productname; 15, &sapconf; no longer supports profiles.
    </para>
   </note>
   <sect2 xml:id="sec-sapconf-5-enable">
