@@ -430,16 +430,16 @@
     <listitem>
      <itemizedlist>
       <listitem>
-       <para><systemitem>sap-netweaver</systemitem> (&sapconf; profile as a replacement for &tuned; profile)</para>
+       <para><systemitem>sapconf-netweaver</systemitem> (&sapconf; profile as a replacement for &tuned; profile)</para>
       </listitem>
       <listitem>
-       <para><systemitem>sap-hana</systemitem> (&sapconf; profile as a replacement for &tuned; profile)</para>
+       <para><systemitem>sapconf-hana</systemitem> (&sapconf; profile as a replacement for &tuned; profile)</para>
       </listitem>
       <listitem>
-       <para><systemitem>sap-bobj</systemitem> (&sapconf; profile as a replacement for &tuned; profile)</para>
+       <para><systemitem>sapconf-bobj</systemitem> (&sapconf; profile as a replacement for &tuned; profile)</para>
       </listitem>
       <listitem>
-       <para><systemitem>sap-ase</systemitem> (&sapconf; profile as a replacement for &tuned; profile)</para>
+       <para><systemitem>sapconf-ase</systemitem> (&sapconf; profile as a replacement for &tuned; profile)</para>
       </listitem>
      </itemizedlist>
     </listitem>
