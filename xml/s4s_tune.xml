@@ -32,6 +32,39 @@
    This single tuning profile sets recommended parameters for the following
    types of &sap; applications: &netweaver;, &hana; and &hana;-based applications.
   </para>
+
+  <variablelist xml:id="vl-tune-sapconf4-overview">
+   <title>Overview of &sapconf;4 in &slsreg;&nbsp;12</title>
+   <varlistentry>
+    <term>&sapconf;4 (&tuned; based)</term>
+    <listitem>
+     <itemizedlist>
+      <listitem>
+       <para><systemitem>sap-netweaver</systemitem> (&tuned; profile)</para>
+      </listitem>
+      <listitem>
+       <para><systemitem>sap-hana</systemitem> (&tuned; profile)</para>
+      </listitem>
+      <listitem>
+       <para><systemitem>sap-bobj</systemitem> (&tuned; profile)</para>
+      </listitem>
+      <listitem>
+       <para><systemitem>sap-ase</systemitem> (&tuned; profile)</para>
+      </listitem>
+     </itemizedlist>
+    </listitem>
+   </varlistentry>
+  </variablelist>
+
+  <variablelist>
+   <title>Overview of &sapconf;4 in &slsreg;&nbsp;15</title>
+   <varlistentry>
+    <term>&sapconf;4 (&tuned; based)</term>
+    <listitem>
+     <para>&sapconf; (&tuned; profile)</para>
+    </listitem>
+   </varlistentry>
+  </variablelist>
   <para>
    Note that if you previously made changes to the system tuning, those
    changes may be overwritten by the &sapconf; profile.
@@ -399,6 +432,40 @@
    It sets recommended parameters for the following types of &sap; applications:
    &netweaver;, &hana; and &hana;-based applications.
   </para>
+
+  <variablelist>
+   <title>Overview of &sapconf;5 in &slsreg;&nbsp;12</title>
+   <varlistentry>
+    <term>&sapconf;5 (without &tuned;)</term>
+    <listitem>
+     <itemizedlist>
+      <listitem>
+       <para><systemitem>sapconf-netweaver</systemitem> (&sapconf; profile as a replacement for &tuned; profile)</para>
+      </listitem>
+      <listitem>
+       <para><systemitem>sapconf-hana</systemitem> (&sapconf; profile as a replacement for &tuned; profile)</para>
+      </listitem>
+      <listitem>
+       <para><systemitem>sapconf-bobj</systemitem> (&sapconf; profile as a replacement for &tuned; profile)</para>
+      </listitem>
+      <listitem>
+       <para><systemitem>sapconf-ase</systemitem> (&sapconf; profile as a replacement for &tuned; profile)</para>
+      </listitem>
+     </itemizedlist>
+    </listitem>
+   </varlistentry>
+  </variablelist>
+
+  <variablelist>
+   <title>Overview of &sapconf;5 in &slsreg;&nbsp;15</title>
+   <varlistentry>
+    <term>&sapconf;5 (without &tuned;)</term>
+    <listitem>
+     <para>no profiles anymore</para>
+    </listitem>
+   </varlistentry>
+  </variablelist>
+
   <para>
    Note that if you previously made changes to the system tuning, those
    changes may be overwritten by &sapconf;.
@@ -425,7 +492,7 @@
   <note>
    <title>No Profiles in &productname; &productnumber;</title>
    <para>
-    In &productname; 15 and above &sapconf; does not support profiles anymore.
+    In &productname; 15, &sapconf; no longer supports profiles.
    </para>
   </note>
   <sect2 xml:id="sec-sapconf-5-enable">
