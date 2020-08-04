@@ -224,7 +224,7 @@
    </tip>
   </sect2>
   <sect2 xml:id="sec-sapconf-4-configure">
-   <title>Configuring &sapconf;</title>
+   <title>Configuring &sapconf;4</title>
    <para>
     In general, the default configuration of &sapconf; already uses the
     parameter values recommended by &sap;. However, if you have special
@@ -576,7 +576,7 @@
    </tip>
   </sect2>
   <sect2 xml:id="sec-sapconf-5-configure">
-   <title>Configuring &sapconf;</title>
+   <title>Configuring &sapconf;5</title>
    <para>
     In general, the default configuration of &sapconf; already uses the
     parameter values recommended by &sap;. However, if you have special
