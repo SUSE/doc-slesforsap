@@ -103,7 +103,7 @@
   <note>
    <title>Unified Profiles in &productname; &productnumber;</title>
    <para>
-    In &productname; 15 and above, only a single &tuned; profile,
+    In &sls; and &productname; 15 and above, only a single &tuned; profile,
     <literal>sapconf</literal>, is shipped. It is equivalent to the profiles
     <literal>sap-hana</literal>/<literal>sap-netweaver</literal> shipped in
     earlier versions of &productname;.
@@ -236,13 +236,11 @@
    </para>
    <variablelist>
     <varlistentry>
-     <term><filename>/usr/lib/tuned/sapconf/tuned.conf</filename></term>
+     <term><filename>/usr/lib/tuned/<replaceable>PROFILE</replaceable>/tuned.conf</filename></term>
      <listitem>
       <para>
-       This file contains basic parameters. It also calls the
-       <filename>script.sh</filename> from the same directory.
-      </para>
-      <para>
+       Any file that adheres to this pattern
+       can be edited like in <xref linkend="pro-sapconf-4-configure"/>.
        To configure parameters from this file, copy it to the custom profile
        directory of &tuned; under <filename>/etc/tuned</filename> first and
        then change values in it. If you change the file in place instead, you
@@ -250,10 +248,13 @@
        <package>sapconf</package> package.
       </para>
       <para>
-       Configure the file as described in the following:
+       The following procedure shows an example how to adapt the file
+        <filename>/usr/lib/tuned/sapconf/tuned.conf</filename>.
+       However, as written before, this is possible with any profile.
+       Configure the file as described in the following procedure:
       </para>
-      <procedure>
-       <title></title>
+      <procedure xml:id="pro-sapconf-4-configure">
+       <title>Configuring &sapconf;4 Profiles</title>
        <step>
         <para>
          Create a new custom &tuned; profile directory and copy the file
