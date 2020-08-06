@@ -80,15 +80,16 @@
      </itemizedlist>
      <tip>
       <title>
-       Use &sapconf; to Configure Parameters
+       Use &sapconf;/&saptune; to Configure Parameters
       </title>
       <para>
        The parameters <literal>vm.pagecache_limit_mb</literal> and
-       <literal>vm.pagecache_limit_ignore_dirty</literal> are also configured by
-       the &tuned; profiles delivered with &sapconf;.
+       <literal>vm.pagecache_limit_ignore_dirty</literal> are also
+       configured by &saptune; and &sapconf;.
       </para>
       <para>
-       For more information, see <xref linkend="sec-sapconf"/>.
+       For more information, see <xref linkend="sec-sapconf-4"/>,
+       <xref linkend="sec-sapconf-5"/>, or <xref linkend="sec-saptune"/>.
       </para>
      </tip>
      <important>
@@ -122,14 +123,22 @@ vm.pagecache_limit_ignore_dirty = <replaceable>2</replaceable></screen>
   </variablelist>
  </sect1>
 
- <sect1 xml:id="sec-sapconf">
-  <title>Tuning Systems with &sapconf;</title>
+ <sect1 xml:id="sec-sapconf-4">
+  <title>Tuning Systems with &sapconf;4</title>
   <para>
    The package <systemitem>sapconf</systemitem> contains the
-   <systemitem>tuned</systemitem> profile <literal>sap-netweaver</literal>.
-   This single tuning profile sets recommended parameters for &sap;
-   applications, in particular &netweaver;, &hana;, and &hana;-based
-   applications. <!-- FIXME: &ase; and &bo;? -->
+   <systemitem>tuned</systemitem> profiles <literal>sap-netweaver</literal>,
+   <literal>sap-hana</literal>, <literal>sap-ase</literal> and
+   <literal>sap-bobj</literal>.
+   These tuning profiles set recommended parameters for &netweaver;, &hana;,
+   and &hana;-based applications.
+  </para>
+  <para>
+     (The profile <literal>sap-netweaver</literal> (default) is currently identical
+     to <literal>sap-hana</literal>.
+     &sapconf; additionally includes the profiles <literal>sap-ase</literal>
+     and <literal>sap-bobj</literal> which are currently not recommended
+     for use.)
   </para>
   <para>
    &sapconf; consists of two primary parts:
@@ -138,21 +147,13 @@ vm.pagecache_limit_ignore_dirty = <replaceable>2</replaceable></screen>
    <listitem>
     <para>
      A &systemd; service that ensures &tuned; and related services are
-     running and the <literal>sap-netweaver</literal> profile is applied.
+     running and the sapconf-based profile is applied.
     </para>
    </listitem>
    <listitem>
     <para>
-     The &tuned; profile <literal>sap-netweaver</literal> that applies
-     configured &sapconf; tuning parameters using a script and configuration
-     files.
-    </para>
-    <para>
-     (The profile <literal>sap-hana</literal> is currently identical
-     to <literal>sap-netweaver</literal>.
-     &sapconf; additionally includes the profiles <literal>sap-ase</literal>
-     and <literal>sap-bobj</literal> which are currently not recommended
-     for use.)
+     The &tuned; profile that applies configured &sapconf; tuning parameters
+     using a script and configuration files.
     </para>
    </listitem>
   </itemizedlist>
@@ -164,7 +165,7 @@ vm.pagecache_limit_ignore_dirty = <replaceable>2</replaceable></screen>
    <title><command>sapconf</command> Utility</title>
    <para>
     The command line utility <command>sapconf</command> is still available in
-    &productname; &productnumber;. However, it is no longer the preferred
+    &sls; and &productname; &productnumber;. However, it is no longer the preferred
     utility to control &sapconf;.
    </para>
    <para>
@@ -175,14 +176,14 @@ vm.pagecache_limit_ignore_dirty = <replaceable>2</replaceable></screen>
   <note>
    <title>Unified Profiles in &productname; 15</title>
    <para>
-    In &productname; 15 and up, only a single &tuned; profile,
+    In &sls; and &productname; 15 and up, only a single &tuned; profile,
     <literal>sapconf</literal>, is shipped. It is equivalent to the profiles
     <literal>sap-hana</literal>/<literal>sap-netweaver</literal> (both
     profiles are identical) that are shipped with &sapconf; in
     &productname; &productnumber;.
    </para>
   </note>
-  <sect2 xml:id="sec-sapconf-enable">
+  <sect2 xml:id="sec-sapconf-4-enable">
    <title>Enabling and Disabling &sapconf; and Viewing Its Status</title>
    <para>
     After the installation of &sapconf;, &tuned; is enabled and the
@@ -268,8 +269,8 @@ vm.pagecache_limit_ignore_dirty = <replaceable>2</replaceable></screen>
      </para>
      <screen>&prompt.root;<command>tuned-adm active</command></screen>
      <para>
-      If this command does not return the name of the currently active profile
-      as <literal>sap-netweaver</literal>, enable that profile:
+      If this command does not return the name of the required profile, enable that
+      profile with:
      </para>
      <screen>&prompt.root;<command>tuned-adm profile sap-netweaver</command></screen>
     </listitem>
@@ -297,8 +298,8 @@ vm.pagecache_limit_ignore_dirty = <replaceable>2</replaceable></screen>
     </itemizedlist>
    </tip>
   </sect2>
-  <sect2 xml:id="sec-sapconf-configure">
-   <title>Configuring &sapconf;</title>
+  <sect2 xml:id="sec-sapconf-4-configure">
+   <title>Configuring &sapconf;4</title>
    <para>
     In general, the default configuration of &sapconf; already uses the
     parameter values recommended by &sap;. However, if you have special
@@ -310,13 +311,11 @@ vm.pagecache_limit_ignore_dirty = <replaceable>2</replaceable></screen>
    </para>
    <variablelist>
     <varlistentry>
-     <term><filename>/usr/lib/tuned/sap-netweaver/tuned.conf</filename></term>
+     <term><filename>/usr/lib/tuned/<replaceable>PROFILE</replaceable>/tuned.conf</filename></term>
      <listitem>
       <para>
-       This file contains basic parameters. It also calls the
-       <filename>script.sh</filename> from the same directory.
-      </para>
-      <para>
+       Any file that adheres to this pattern can be edited like in
+       <xref linkend="pro-sapconf-4-configure"/>.
        To configure parameters from this file, copy it to the custom profile
        directory of &tuned; under <filename>/etc/tuned</filename> first and
        then change values in it. If you change the file in place instead, you
@@ -324,10 +323,13 @@ vm.pagecache_limit_ignore_dirty = <replaceable>2</replaceable></screen>
        <package>sapconf</package> package.
       </para>
       <para>
-       Configure the file as described in the following:
+       The following procedure shows an example how to adapt the file
+       <filename>/usr/lib/tuned/sap-netweaver/tuned.conf</filename>.
+       However, as written before, this is possible with any profile.
+       Configure the file as described in the following procedure:
       </para>
-      <procedure>
-       <title></title>
+      <procedure xml:id="pro-sapconf-4-configure">
+       <title>Configuring &sapconf;4 Profiles</title>
        <step>
         <para>
          Create a new custom &tuned; profile directory and copy the file
@@ -371,7 +373,7 @@ vm.pagecache_limit_ignore_dirty = <replaceable>2</replaceable></screen>
       <para>
        This file contains most parameters of &sapconf;. The parameters from
        this file are applied using the aforementioned script
-       <filename>/usr/lib/tuned/sap-netweaver/script.sh</filename>.
+       <filename>/usr/lib/tuned/<replaceable>PROFILE</replaceable>/script.sh</filename>.
       </para>
       <para>
        This file can be edited directly. All parameters in this file are
@@ -415,7 +417,7 @@ vm.pagecache_limit_ignore_dirty = <replaceable>2</replaceable></screen>
     differently for different parameters. Hence, the following serves as an
     example only:
    </para>
-   <example xml:id="ex-sapconf-change-parameter">
+   <example xml:id="ex-sapconf-4-change-parameter">
     <title>Checking Parameters</title>
     <para>
      To confirm that the setting for <literal>TCP_SLOW_START</literal> was
@@ -448,7 +450,7 @@ vm.pagecache_limit_ignore_dirty = <replaceable>2</replaceable></screen>
     </itemizedlist>
    </example>
   </sect2>
-  <sect2 xml:id="sec-sapconf-remove">
+  <sect2 xml:id="sec-sapconf-4-remove">
    <title>Removing &sapconf;</title>
    <para>
     To remove &sapconf; from a system, uninstall its package with:
@@ -467,7 +469,277 @@ vm.pagecache_limit_ignore_dirty = <replaceable>2</replaceable></screen>
     sapconf</command>, section <citetitle>PACKAGE REQUIREMENTS</citetitle>.
    </para>
   </sect2>
-  <sect2 xml:id="sec-sapconf-more">
+  <sect2 xml:id="sec-sapconf-4-more">
+   <title>For More Information</title>   
+   <para>
+    The following man pages provide additional information about &sapconf;:
+   </para>
+   <itemizedlist>
+    <listitem>
+     <para>
+      An overview of tuning parameters for the profiles:
+      <command>man 7 profile-sapconf-hana</command>
+      <command>man 7 profile-sapconf-netweaver</command>
+      <command>man 7 profile-sapconf-ase</command>
+      <command>man 7 profile-sapconf-bobj</command>
+     </para>
+    </listitem>   
+    <listitem>
+     <para>
+      Detailed description of all tuning parameters set by &sapconf;:
+      <command>man 5 sapconf</command>
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      Information about configuring and customizing the &sapconf; profile:
+      <command>man 7 sapconf</command>
+     </para>
+    </listitem>
+   </itemizedlist>
+   <para>
+    Also see the blog series detailing the updated version of &sapconf; at
+    <link xlink:href="https://www.suse.com/c/a-new-sapconf-is-available/"/>.
+   </para>
+  </sect2>
+ </sect1>
+
+ <sect1 xml:id="sec-sapconf-5">
+  <title>Tuning Systems with &sapconf;5</title>
+  <note>
+   <title>Important: <command>tuned</command> has been removed!</title>
+   <para>
+    With version 5 &sapconf; does not rely on <command>tuned</command> anymore!
+    Please read this chapter carefully if you are used to version 4.
+   </para>
+  </note>
+  <para>
+   The package <systemitem>sapconf</systemitem> contains the
+    &sapconf; profiles <literal>netweaver</literal>,
+   <literal>hana</literal>, <literal>ase</literal> and
+   <literal>bobj</literal>.
+   These profiles set recommended parameters for &netweaver;, &hana;,
+   and &hana;-based applications.
+  </para>
+  <para>
+     (The profile <literal>netweaver</literal> (default) is currently identical
+     to <literal>hana</literal>.
+     &sapconf; additionally includes the profiles <literal>ase</literal>
+     and <literal>bobj</literal> which are currently not recommended
+     for use.)
+  </para>
+  <para>
+   To use &sapconf;, install the package <package>sapconf</package>
+   on your system.
+  </para>
+  <note>
+   <title>Profiles removed in &productname; 15</title>
+   <para>
+    In &sls; and &productname; 15 and up, no profiles exist anymore!
+   </para>
+  </note>
+  <sect2 xml:id="sec-sapconf-5-enable">
+   <title>Enabling and Disabling &sapconf; and Viewing It's Status</title>
+   <para>
+    After the installation of &sapconf;, the
+    <literal>netweaver</literal> profile is activated.
+   </para>	   
+   <para>
+    To make sure &sapconf; applies all tuning parameters,
+    reboot the machine after installation.
+   </para>
+   <para>
+    You can inspect or change the status of &sapconf; as described in the
+    following:
+   </para>
+   <itemizedlist>
+    <listitem>
+     <para>
+      To see the status of the service
+      <systemitem class="daemon">sapconf</systemitem>:
+     </para>
+     <screen>&prompt.root;<command>systemctl status sapconf</command></screen>
+     <para>
+      The service should be displayed as <emphasis>active (exited)</emphasis>.
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      To start the service
+      <systemitem class="daemon">sapconf</systemitem>:
+     </para>
+     <screen>&prompt.root;<command>systemctl start sapconf</command></screen>
+    </listitem>
+    <listitem>
+     <para>
+      Should <systemitem class="daemon">sapconf</systemitem> be disabled,
+      enable and start it with:
+     </para>
+     <screen>&prompt.root;<command>systemctl enable --now sapconf</command></screen>
+    </listitem>
+    <listitem>
+     <para>
+      To stop the service
+      <systemitem class="daemon">sapconf</systemitem>:
+     </para>
+     <screen>&prompt.root;<command>systemctl stop sapconf</command></screen>
+     <para>
+      The vast majority of optimizations which do not require a system reboot to disable
+      are disabled immediately.
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      To disable <systemitem class="daemon">sapconf</systemitem>, use:
+     </para>
+     <screen>&prompt.root;<command>systemctl disable sapconf</command></screen>
+     <para>
+      If you yourself have not specifically enabled any of the services that &sapconf;
+      depends on, this will also disable most tuning parameters and
+      all services used by &sapconf;.
+     </para>
+    </listitem>
+    <listitem> 
+     <para>
+      To see which profile is currently in use:
+     </para>
+     <screen>&prompt.root;<command>cat /var/lib/sapconf/act_profile</command></screen>
+    </listitem>
+    <listitem> 
+     <para>
+      To change the profile use:
+     </para>
+     <screen>&prompt.root;<command>sapconf stop &amp;&amp; sapconf PROFILE</command></screen>
+    </listitem>
+   </itemizedlist>
+   <tip>
+    <title>Additional Services that &sapconf; Relies On</title>
+    <para>
+     In addition to the &sapconf; service the following two services are also relied on:
+    </para>
+    <itemizedlist>
+     <listitem>
+      <para>
+       <systemitem class="daemon">sysstat</systemitem> collects data on
+       system activity.
+      </para>
+     </listitem>
+     <listitem>
+      <para>
+       <systemitem class="daemon">uuidd</systemitem> which generates time-based
+       UUIDs that are guaranteed to be unique even in settings where many
+       processor cores are involved. This is necessary for &sap; applications.
+      </para>
+     </listitem>
+    </itemizedlist>
+   </tip>
+  </sect2>
+  <sect2 xml:id="sec-sapconf-5-configure">
+   <title>Configuring &sapconf;5</title>
+   <para>
+    In general, the default configuration of &sapconf; already uses the
+    parameter values recommended by &sap;. However, if you have special
+    needs, you can configure the tool to better suit those.
+   </para>
+   <variablelist>
+    <varlistentry>
+     <term><filename>/etc/sysconfig/sapconf</filename></term>
+     <listitem>
+      <para>
+       This file contains all parameters of &sapconf;and can be edited directly.
+       All parameters in this file are explained by means of comments and references
+       to &sap; Notes which can be viewed at
+       <link xlink:href="https://launchpad.support.sap.com/"/>.
+      </para>
+      <para>
+       When &sapconf; is updated, all customized parameters from this file will
+       be preserved as much as possible. However, sometimes parameters cannot
+       be transferred cleanly to the new configuration file. The previous
+       custom configuration is moved to
+       <filename>/etc/sysconfig/sapconf.rpmsave</filename> during the update.
+       After updating check the difference between the previous
+       custom configuration and the new version at
+       <filename>/etc/sysconfig/sapconf</filename>.
+      </para>
+      <para>
+       Log messages related to this file are written to
+       <filename>/var/log/sapconf.log</filename>.
+      </para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+   <para>
+    When editing either of these files, you will find that some values are
+    commented with a <literal>#</literal> character at the beginning of
+    the line. This means that while the parameter is relevant for tuning, there
+    is no suitable default for it.
+   </para>
+   <para>
+    Conversely, you can add <literal>#</literal> characters to the beginning of
+    the line to comment specific parameters. However, you should avoid this
+    practice, as it can lead to &sapconf; not properly applying the profile.
+   </para>
+   <para>
+    To apply edited configuration, restart &sapconf;:
+   </para>
+   <screen>&prompt.root;<command>systemctl restart sapconf</command></screen>
+   <para>
+    Confirming that a certain parameter value was applied correctly works
+    differently for different parameters. Hence, the following serves as an
+    example only:
+   </para>
+   <example xml:id="ex-sapconf-5-change-parameter">
+    <title>Checking Parameters</title>
+    <para>
+     To confirm that the setting for <literal>TCP_SLOW_START</literal> was
+     applied, do the following:
+    </para>
+    <itemizedlist>
+     <listitem>
+      <para>
+       View the log file of &sapconf; to see whether it applied the value.
+       Within <filename>/var/log/sapconf.log</filename>, check for a line
+       containing this text:
+      </para>
+      <screen>Change net.ipv4.tcp_slow_start_after_idle from 1 to 0</screen>
+      <para>
+       Alternatively, the parameter may have already been set correctly
+       before &sapconf; was started. In this case, &sapconf; will not change
+       its value:
+      </para>
+      <screen>Leaving net.ipv4.tcp_slow_start_after_idle unchanged at 1</screen>
+     </listitem>
+     <listitem>
+      <para>
+       The underlying option behind <literal>TCP_SLOW_START</literal> can be
+       manually configured at
+       <filename>/proc/sys/net.ipv4.tcp_slow_start_after_idle</filename>.
+       To check its actual current value, use:
+      </para>
+      <screen>&prompt.root;<command>sysctl net.ipv4.tcp_slow_start_after_idle</command></screen>
+     </listitem>
+    </itemizedlist>
+   </example>
+  </sect2>
+  <sect2 xml:id="sec-sapconf-5-remove">
+   <title>Removing &sapconf;</title>
+   <para>
+    To remove &sapconf; from a system, uninstall its package with:
+   </para>
+   <screen>&prompt.root;<command>zypper rm sapconf</command></screen>
+   <para>
+    Note that when doing this, dependencies of &sapconf; will remain installed.
+    However, the <systemitem class="daemon">sysstat</systemitem> service will
+    go into a disabled state. If it is still relevant to you, make sure to
+    enable it again.
+   </para>
+   <para>
+    Certain parameters and files are not removed when &sapconf; is uninstalled.
+    For more information, see the man page <command>man 7
+    sapconf</command>, section <citetitle>PACKAGE REQUIREMENTS</citetitle>.
+   </para>
+  </sect2>
+  <sect2 xml:id="sec-sapconf-5-more">
    <title>For More Information</title>
    <para>
     The following man pages provide additional information about &sapconf;:
@@ -475,8 +747,11 @@ vm.pagecache_limit_ignore_dirty = <replaceable>2</replaceable></screen>
    <itemizedlist>
     <listitem>
      <para>
-      High-level overview of tuning parameters used by &sapconf;:
-      <command>man 7 tuned-profiles-sapconf</command>
+      An overview of tuning parameters for the profiles:
+      <command>man 7 profile-sapconf-hana</command>
+      <command>man 7 profile-sapconf-netweaver</command>
+      <command>man 7 profile-sapconf-ase</command>
+      <command>man 7 profile-sapconf-bobj</command>
      </para>
     </listitem>
     <listitem>
@@ -496,6 +771,24 @@ vm.pagecache_limit_ignore_dirty = <replaceable>2</replaceable></screen>
     Also see the blog series detailing the updated version of &sapconf; at
     <link xlink:href="https://www.suse.com/c/a-new-sapconf-is-available/"/>.
    </para>
+  </sect2>
+  
+  <!--HINTS REGARDING TUNED-->
+  <sect2 xml:id="sec-sapconf-5-tuned">
+   <title>Using <command>tuned</command> Together with  &sapconf;</title>
+   <para>
+    With version 5 sapconf does not rely on tuned anymore. This means both tools
+    can be used independently.
+    &sapconf; will print a warning in it's log if <command>tuned</command> service
+    is started.
+   </para>
+   <important>
+    <title>Using <command>tuned</command> and &sapconf; together</title>
+    <para>
+     If you are going to use <command>tuned</command> and &sapconf; simultaneously,
+     be very careful, that both tools do not configure the same system parameters.
+    </para>
+   </important>
   </sect2>
  </sect1>
 
