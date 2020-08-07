@@ -15,8 +15,7 @@
  <sect1 xml:id="sec-sapconf-4">
   <title>Tuning Systems with &sapconf; 4</title>
   <para>
-   The package <systemitem>sapconf</systemitem> is available for the &x86-64;
-   and &ppc64le; architecture.
+   The package <systemitem>sapconf</systemitem> is available in &sls; and &s4s;.
    This package contains the
    <systemitem>tuned</systemitem> profile <literal>sapconf</literal>.
    This single tuning profile sets recommended parameters for the following
@@ -483,7 +482,7 @@
   <note>
    <title>No Profiles in &productname; &productnumber;</title>
    <para>
-    In &productname; 15, &sapconf; no longer supports profiles.
+    In &sls; and &productname; 15, &sapconf; no longer supports profiles.
    </para>
   </note>
   <sect2 xml:id="sec-sapconf-5-enable">
