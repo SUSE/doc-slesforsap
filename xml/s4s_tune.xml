@@ -8,20 +8,29 @@
  <title>Tuning</title>
 
  <para>
-  This chapter presents information about tuning &s4sa; to work optimally with
+  This chapter presents information about tuning &productname; to work optimally with
   &sap; applications.
  </para>
-
-
- <note>
-  <title>Choosing between <command>sapconf</command> and
-   <command>saptune</command></title>
-  <para>
+ <para>
    On &s4s; you have the choice between <command>sapconf</command> and
    <command>saptune</command>. However, <command>saptune</command> is
    the more elaborate tool that offers more features.
   </para>
- </note>
+
+ <note>
+   <title>The <command>sapconf</command> Command Has Been Removed</title>
+   <para>
+    In &sls; and &productname; 11 and 12, the <command>sapconf</command> command
+    was included in the package with the same name.
+  </para>
+  <para>
+    For &sls; and &productname; 15 this has been changed:
+    the command <command>sapconf</command> have been removed from the
+    <package>sapconf</package> package. The package contains a &systemd; service
+    only. There is no &sapconf; command line tool anymore, no &sapconf;/&tuned; profiles,
+    and no &tuned;.
+   </para>
+  </note>
 
  <sect1 xml:id="sec-s4s-configure-page-cache">
   <title>Kernel: Page-Cache Limit</title>
@@ -162,26 +171,15 @@ vm.pagecache_limit_ignore_dirty = <replaceable>2</replaceable></screen>
    To use &sapconf;, install the package <package>sapconf</package>
    on your system.
   </para>
+
   <note>
-   <title><command>sapconf</command> Utility</title>
-   <para>
-    The command line utility <command>sapconf</command> is still available in
-    &sls; and &productname; &productnumber;. However, it is no longer the preferred
-    utility to control &sapconf;.
-   </para>
-   <para>
-    Starting with &productname; 15, the utility <command>sapconf</command> is
-    not included in the package <package>sapconf</package> anymore.
-   </para>
-  </note>
-  <note>
-   <title>Unified Profiles in &productname; 15</title>
+   <title>Unified Profiles in &sls; and &productname; 15</title>
    <para>
     In &sls; and &productname; 15 and up, only a single &tuned; profile,
     <literal>sapconf</literal>, is shipped. It is equivalent to the profiles
     <literal>sap-hana</literal>/<literal>sap-netweaver</literal> (both
     profiles are identical) that are shipped with &sapconf; in
-    &productname; &productnumber;.
+    &productname; 15.
    </para>
   </note>
   <sect2 xml:id="sec-sapconf-4-enable">
@@ -470,7 +468,7 @@ vm.pagecache_limit_ignore_dirty = <replaceable>2</replaceable></screen>
    </para>
   </sect2>
   <sect2 xml:id="sec-sapconf-4-more">
-   <title>For More Information</title>   
+   <title>For More Information</title>
    <para>
     The following man pages provide additional information about &sapconf;:
    </para>
@@ -505,14 +503,46 @@ vm.pagecache_limit_ignore_dirty = <replaceable>2</replaceable></screen>
  </sect1>
 
  <sect1 xml:id="sec-sapconf-5">
-  <title>Tuning Systems with &sapconf;5</title>
-  <note>
-   <title>Important: <command>tuned</command> has been removed!</title>
-   <para>
-    With version 5 &sapconf; does not rely on <command>tuned</command> anymore!
-    Please read this chapter carefully if you are used to version 4.
-   </para>
-  </note>
+  <title>Tuning Systems with &sapconf; 5</title>
+  <para>
+   The package <systemitem>sapconf</systemitem> is available in &sls; and &s4s;.
+   It sets recommended parameters for the following types of &sap; applications:
+   &netweaver;, &hana; and &hana;-based applications.
+  </para>
+
+  <variablelist>
+   <title>Overview of &sapconf;5 in &slsreg;&nbsp;12</title>
+   <varlistentry>
+    <term>&sapconf;5 (without &tuned;)</term>
+    <listitem>
+     <itemizedlist>
+      <listitem>
+       <para><systemitem>sapconf-netweaver</systemitem> (&sapconf; profile as a replacement for &tuned; profile)</para>
+      </listitem>
+      <listitem>
+       <para><systemitem>sapconf-hana</systemitem> (&sapconf; profile as a replacement for &tuned; profile)</para>
+      </listitem>
+      <listitem>
+       <para><systemitem>sapconf-bobj</systemitem> (&sapconf; profile as a replacement for &tuned; profile)</para>
+      </listitem>
+      <listitem>
+       <para><systemitem>sapconf-ase</systemitem> (&sapconf; profile as a replacement for &tuned; profile)</para>
+      </listitem>
+     </itemizedlist>
+    </listitem>
+   </varlistentry>
+  </variablelist>
+
+  <variablelist>
+   <title>Overview of &sapconf;5 in &slsreg;&nbsp;15</title>
+   <varlistentry>
+    <term>&sapconf;5 (without &tuned;)</term>
+    <listitem>
+     <para>no profiles anymore</para>
+    </listitem>
+   </varlistentry>
+  </variablelist>
+
   <para>
    The package <systemitem>sapconf</systemitem> contains the
     &sapconf; profiles <literal>netweaver</literal>,
@@ -532,12 +562,14 @@ vm.pagecache_limit_ignore_dirty = <replaceable>2</replaceable></screen>
    To use &sapconf;, install the package <package>sapconf</package>
    on your system.
   </para>
+
   <note>
-   <title>Profiles removed in &productname; 15</title>
+   <title>No Profiles in &sls; and &productname; 15</title>
    <para>
-    In &sls; and &productname; 15 and up, no profiles exist anymore!
+    In &sls; and &productname; 15, &sapconf; no longer supports profiles.
    </para>
   </note>
+
   <sect2 xml:id="sec-sapconf-5-enable">
    <title>Enabling and Disabling &sapconf; and Viewing It's Status</title>
    <para>
