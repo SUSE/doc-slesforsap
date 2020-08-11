@@ -8,19 +8,29 @@
  <title>Tuning</title>
 
  <para>
-  This chapter presents information about tuning &s4sa; to work optimally with
+  This chapter presents information about tuning &productname; to work optimally with
   &sap; applications.
  </para>
-
- <note>
-  <title>Choosing between <command>sapconf</command> and
-   <command>saptune</command></title>
-  <para>
+ <para>
    On &s4s; you have the choice between <command>sapconf</command> and
    <command>saptune</command>. However, <command>saptune</command> is
    the more elaborate tool that offers more features.
   </para>
- </note>
+
+ <note>
+   <title>The <command>sapconf</command> Command Has Been Removed</title>
+   <para>
+    In &sls; and &productname; 11 and 12, the <command>sapconf</command> command
+    was included in the package with the same name.
+  </para>
+  <para>
+    For &sls; and &productname; 15 this has been changed:
+    the command <command>sapconf</command> have been removed from the
+    <package>sapconf</package> package. The package contains a &systemd; service
+    only. There is no &sapconf; command line tool anymore, no &sapconf;/&tuned; profiles,
+    and no &tuned;.
+   </para>
+  </note>
 
  <sect1 xml:id="sec-sapconf-4">
   <title>Tuning Systems with &sapconf; 4</title>
@@ -91,16 +101,9 @@
    that the packages <package>tuned</package> and
    <package>sapconf</package> are installed on your system.
   </para>
+
   <note>
-   <title><command>sapconf</command> Utility Is Not Included in &productname; &productnumber;</title>
-   <para>
-    The command-line utility <command>sapconf</command> that was included in
-    &productname; 11 and 12 is not available anymore in
-    &productname; &productnumber;.
-   </para>
-  </note>
-  <note>
-   <title>Unified Profiles in &productname; &productnumber;</title>
+   <title>Unified Profiles in &sls; and &productname; &productnumber;</title>
    <para>
     In &sls; and &productname; 15 and above, only a single &tuned; profile,
     <literal>sapconf</literal>, is shipped. It is equivalent to the profiles
@@ -427,8 +430,7 @@
  <sect1 xml:id="sec-sapconf-5">
   <title>Tuning Systems with &sapconf; 5</title>
   <para>
-   The package <systemitem>sapconf</systemitem> is available for the &x86-64;
-   and &ppc64le; architecture.
+   The package <systemitem>sapconf</systemitem> is available in &sls; and &s4s;.
    It sets recommended parameters for the following types of &sap; applications:
    &netweaver;, &hana; and &hana;-based applications.
   </para>
@@ -478,23 +480,14 @@
    To use &sapconf;, make sure
    that the package <package>sapconf</package> is installed on your system.
   </para>
+
   <note>
-   <title><command>sapconf</command> Utility Is Not Included in &productname; &productnumber;</title>
-   <para>
-    The command-line utility <command>sapconf</command> that was included in
-    &productname; 11 and 12 is not available anymore in
-    &productname; &productnumber;.
-    &productname; &productnumber;, &sapconf; contains a &systemd; service
-    only. There is no &sapconf; command line tool anymore, no &sapconf;/&tuned; profiles,
-    and no &tuned;.
-   </para>
-  </note>
-  <note>
-   <title>No Profiles in &productname; &productnumber;</title>
+   <title>No Profiles in &sls; and &productname; &productnumber;</title>
    <para>
     In &sls; and &productname; 15, &sapconf; no longer supports profiles.
    </para>
   </note>
+
   <sect2 xml:id="sec-sapconf-5-enable">
    <title>Enabling and Disabling &sapconf; and Viewing Its Status</title>
    <para>
