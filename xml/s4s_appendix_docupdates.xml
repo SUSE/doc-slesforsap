@@ -17,6 +17,11 @@
  <itemizedlist role="subtoc">
   <listitem>
    <para>
+    <xref linkend="app-s4s-docupdate-2020-08-13" xrefstyle="SectTitleOnPage"/>
+   </para>
+  </listitem>
+  <listitem>
+   <para>
     <xref linkend="app-s4s-docupdate-2019-05-06" xrefstyle="SectTitleOnPage"/>
    </para>
   </listitem>
@@ -93,6 +98,22 @@
  </itemizedlist>
 
 
+ <sect1 xml:id="app-s4s-docupdate-2020-08-13">
+  <title>August 2020&mdash;&s4sa; 12 SP4 Maintenance Release</title>
+  <para></para>
+  <variablelist>
+   <varlistentry>
+    <term><xref linkend="cha-s4s-tune" xrefstyle="SectTitleOnPage"/></term>
+    <listitem>
+     <para>
+      Mention changes in the <package>sapconf</package> package, revise
+      notes, and mention &sls; in conjuction to &s4s;.
+     </para>
+    </listitem>
+   </varlistentry>
+  </variablelist>
+ </sect1>
+
  <sect1 xml:id="app-s4s-docupdate-2019-05-06">
   <title>May 06, 2019&mdash;&s4sa; 12 SP4 FCS Documentation Release</title>
 
@@ -124,7 +145,7 @@
    </varlistentry>
    <varlistentry>
     <term>
-     <xref linkend="sec-sapconf" xrefstyle="SectTitleOnPage"/>
+     <xref linkend="cha-s4s-tune" xrefstyle="SectTitleOnPage"/>
     </term>
     <listitem>
      <para>
@@ -168,7 +189,7 @@
    </varlistentry>
    <varlistentry>
     <term>
-     <xref linkend="sec-sapconf" xrefstyle="SectTitleOnPage"/>
+     <xref linkend="cha-s4s-tune" xrefstyle="SectTitleOnPage"/>
     </term>
     <listitem>
      <para>
@@ -200,7 +221,7 @@
    </varlistentry>
    <varlistentry>
     <term>
-     <xref linkend="sec-sapconf" xrefstyle="SectTitleOnPage"/>
+     <xref linkend="cha-s4s-tune" xrefstyle="SectTitleOnPage"/>
     </term>
     <listitem>
      <para>
