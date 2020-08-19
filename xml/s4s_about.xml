@@ -115,10 +115,23 @@
             </para>
           </entry>
           <entry>
-            <para><literal>SLES&product-ga;-SP&product-sp;-Pool</literal></para>
+            <para><literal>SLE-Module-Basesystem&product-ga;-SP&product-sp;-Pool</literal></para>
           </entry>
           <entry>
-            <para><literal>SLES&product-ga;-SP&product-sp;-Updates</literal></para>
+            <para><literal>SLE-Module-Basesystem&product-ga;-SP&product-sp;-Updates</literal></para>
+          </entry>
+        </row>
+        <row>
+          <entry>
+            <para>
+              Basic server functionality of &sls;
+            </para>
+          </entry>
+          <entry>
+            <para><literal>SLE-Module-Server-Applications&product-ga;-SP&product-sp;-Pool</literal></para>
+          </entry>
+          <entry>
+            <para><literal>SLE-Module-Server-Applications&product-ga;-SP&product-sp;-Updates</literal></para>
           </entry>
         </row>
         <row>
@@ -129,11 +142,11 @@
           </entry>
           <entry>
             <para>
-              <literal>SLE&product-ga;-SP&product-sp;-SAP-Pool</literal>
+              <literal>SLE-Module-SAP-Applications&product-ga;-SP&product-sp;-Pool</literal>
             </para>
           </entry>
           <entry>
-            <para><literal>SLE-&product-ga;-SP&product-sp;-SAP-Updates</literal></para>
+            <para><literal>SLE-Module-SAP-Applications&product-ga;-SP&product-sp;-Updates</literal></para>
           </entry>
         </row>
         <row>
@@ -143,10 +156,10 @@
             </para>
           </entry>
           <entry>
-            <para><literal>SLE-HA&product-ga;-SP&product-sp;-Pool</literal></para>
+            <para><literal>SLE-Product-HA&product-ga;-SP&product-sp;-Pool</literal></para>
           </entry>
           <entry>
-            <para><literal>SLE-HA&product-ga;-SP&product-sp;-Updates</literal></para>
+            <para><literal>SLE-Product-HA&product-ga;-SP&product-sp;-Updates</literal></para>
           </entry>
         </row>
       </tbody>
