@@ -14,12 +14,29 @@
  </para>
 
  <sect1 xml:id="sec-configure-firewall">
-  <title>Configuring &susefirewall;</title>
+  <title>Configuring &firewalld;</title>
 
   <para>
    By default, the installation workflow of &sles4sap; enables
-   &susefirewall;. The firewall needs to
-   be manually configured to allow network access for the following:
+   &firewalld;.
+  </para>
+
+  <note>
+   <!-- Taken from doc-sle://security_firewall.xml -->
+   <title>&firewalld; Replaces &susefirewall;</title>
+   <para>
+    &productname;&nbsp;15 GA introduces &firewalld; as the new default
+    software firewall, replacing &susefirewall;.
+    &susefirewall; has not been removed from &productname;&nbsp;15 GA
+    and is still part of the main repository, though not installed by default.
+    If you are upgrading from a release older than &productname; 15 GA
+    &susefirewall; will be unchanged and you must manually upgrade to
+    &firewalld; (see &secguide;).
+   </para>
+  </note>
+  <para>
+   The firewall needs to be manually configured to allow network access
+   for the following:
   </para>
 
   <itemizedlist>
