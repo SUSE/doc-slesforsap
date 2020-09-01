@@ -257,6 +257,7 @@
 <!ENTITY hbvs          "Heartbeat 2">
 <!ENTITY lvs           "Linux Virtual Server">
 <!ENTITY rear          "ReaR">
+<!ENTITY pace           "Pacemaker">
 <!ENTITY stonith       "STONITH">
 
 
