@@ -55,6 +55,11 @@ https://confluence.suse.com/x/8IEnGw
       The major motivation was to improve and simplify the installation of &hana;
       on &sls;.
     </para>
+    <para>
+      The following sections contain a brief overview of available formulas.
+      Each section contains also a link to the upstream GitHub project. There
+      you can find additional documentation on how to use and apply the formulas.
+    </para>
     <remark>toms 2020-06-10: Mention Stack Formulas?</remark>
   </sect1>
 
@@ -382,6 +387,10 @@ https://confluence.suse.com/x/8IEnGw
       Use the &salt; formula <package>drbd-formula</package> for setting up and managing a DRBD cluster,
       for example, with the command <command>drbdadm</command>.
     </para>
+    <formalpara>
+      <title>Link:</title>
+      <para><link xlink:href="https://github.com/SUSE/drbd-formula"/>.</para>
+    </formalpara>
     <remark>toms 2020-06-29: Isn't the following addition "dangerous" for SLE users?</remark>
     <example>
       <title>Installation</title>
