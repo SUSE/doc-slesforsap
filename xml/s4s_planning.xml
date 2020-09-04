@@ -220,26 +220,6 @@
    </listitem>
   </orderedlist>
 
-  <important>
-   <title>Installation of Only &sls;</title>
-   <para>
-    You can choose to only install a base &sls; system. In that case,
-    only the first step of the installation workflow is executed.
-   </para>
-   <para>
-    This can be necessary when you want to install an Oracle database on a
-    &s4s; machine. To do so, install the base product &sls; first, then
-    install the Oracle database and later convert your
-    installation to &s4sa;. This is necessary because the Oracle databases
-    installer queries for the existence of certain files, not all of which are
-    included in an &s4sa; installation.
-   </para>
-   <para condition="noquick">
-    For more information about converting, see
-    <xref linkend="sec-s4s-convert-sles"/>.
-   </para>
-  </important>
-
   <para>
    Most of these steps do not need to be run immediately after each other, which
    allows for flexibility in how you install systems.
