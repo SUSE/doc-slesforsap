@@ -770,6 +770,12 @@
      </para>
     </formalpara>
    </listitem>
+   <listitem>
+    <formalpara>
+     <title>Implementing the Python Hook SAPHanaSR</title>
+     <para><link xlink:href="https://documentation.suse.com/sbp/all/html/SLES4SAP-hana-sr-guide-PerfOpt-15/"/></para>
+    </formalpara>
+   </listitem>
   </itemizedlist>
  </sect1>
 </chapter>
