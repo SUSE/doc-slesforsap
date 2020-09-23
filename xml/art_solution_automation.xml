@@ -185,7 +185,7 @@ https://confluence.suse.com/x/8IEnGw
           <title>&salt; Client only</title>
           <para>
             All steps in <xref linkend="pro-sol-autom-hana-apply-salt-formulas"/> must be
-            executed in all of the &salt; clients where the formulas are going to executed.
+            executed in all of the &salt; clients where the formulas are going to be executed.
           </para>
         </formalpara>
       </listitem>
@@ -193,7 +193,7 @@ https://confluence.suse.com/x/8IEnGw
 
     <para>
       The following procedure is written in a general way to make it fit for all use cases.
-      You need some knowledge about &salt; and how to customize it to your needs. 
+      You need some knowledge about &salt; and how to customize it to your needs.
     </para>
 
     <procedure xml:id="pro-sol-autom-hana-apply-salt-formulas">
@@ -253,20 +253,9 @@ https://confluence.suse.com/x/8IEnGw
       </step>
       <step>
         <para>
-          Download the pillar files and store them in the correct directory under <filename
-            class="directory">/srv/pillar</filename>:
+          Download the examples from the upstream GitHub repository:
         </para>
-        <substeps>
-          <step>
-            <remark>toms 2020-09-23: You can download the files and store them
-            to the directory in one go. However, I thought due to security reasons,
-            it would be better to split this into two tasks. Is that okay?
-            Or is there an easier way to do it?
-            </remark>
-            <para>
-              Download the the examples from the upstream GitHub repository:
-            </para>
-            <screen>&prompt.user;<command>wget</command> -O hana.sls \
+        <screen>&prompt.user;<command>wget</command> -O hana.sls \
   https://github.com/SUSE/saphanabootstrap-formula/raw/master/pillar.example
 &prompt.user;<command>wget</command> -O netweaver.sls \
   https://github.com/SUSE/sapnwbootstrap-formula/raw/master/pillar.example
@@ -274,16 +263,14 @@ https://confluence.suse.com/x/8IEnGw
   https://github.com/SUSE/drbd-formula/raw/master/pillar.example
 &prompt.user;<command>wget</command> -O cluster.sls \
   https://github.com/SUSE/habootstrap-formula/raw/master/pillar.example</screen>
-          </step>
-          <step>
-            <para>
-              Copy all pillar files to the right directory:
-            </para>
-            <screen>&prompt.sudo;<command>cp</command> -vi hana.sls cluster.sls /srv/pillar/hana
+      </step>
+      <step>
+        <para>
+          Copy all pillar files to the right directory:
+        </para>
+        <screen>&prompt.sudo;<command>cp</command> -vi hana.sls cluster.sls /srv/pillar/hana
 &prompt.sudo;<command>cp</command> -vi netweaver.sls cluster.sls /srv/pillar/netweaver
 &prompt.sudo;<command>cp</command> -vi drbd.sls cluster.sls /srv/pillar/drbd</screen>
-          </step>
-        </substeps>
       </step>
       <step>
         <para>
@@ -295,9 +282,6 @@ https://confluence.suse.com/x/8IEnGw
           <filename>cluster.sls</filename> files. Each might have different HA cluster
           requirements.
         </para>
-        <remark>toms 2020-09-23: Maybe we should link to the upstream Salt documentation here?
-        Or does the user need any other helpful tips, to watch out for errors etc.?
-        </remark>
       </step>
       <step>
         <para>
