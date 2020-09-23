@@ -191,11 +191,16 @@ https://confluence.suse.com/x/8IEnGw
       </listitem>
     </itemizedlist>
 
+    <para>
+      The following procedure is written in a general way to make it fit for all use cases.
+      You need some knowledge about &salt; and how to customize it to your needs. 
+    </para>
+
     <procedure xml:id="pro-sol-autom-hana-apply-salt-formulas">
       <title>Applying &salt; Formulas</title>
       <para>
-        In this procedure we show how an example how to create a pillar structure for
-        a system with &hana;, &netweaver;, and with DRBD. All this uses &sleha;.
+        In this procedure we show how to create a pillar structure for
+        a system with &hana;, &netweaver;, and with DRBD. All this uses &sles4sap;.
       </para>
       <step>
         <para>
@@ -313,8 +318,6 @@ https://confluence.suse.com/x/8IEnGw
         <para>
           In the above example, folder part is removed, as we are pointing to the formulas with
           their name.
-          <remark>toms 2020-09-23: why? Could we make it consistent with /srv/pillar/top.sls?
-          </remark>
         </para>
       </step>
       <step>
@@ -330,8 +333,9 @@ https://confluence.suse.com/x/8IEnGw
             <screen>&prompt.root;<command>salt</command> --local state.highstate</screen>
           </step>
         </stepalternatives>
-        <remark>toms 2020-09-23: I miss some kind of "closing" step. How can I see/check
-        if everything was applied correctly?</remark>
+        <para>
+          The command shows the result (green for everything is fine, red for errors).
+        </para>
       </step>
     </procedure>
   </sect1>
