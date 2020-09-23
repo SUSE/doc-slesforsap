@@ -62,7 +62,9 @@
 
 <!-- General Product Entities -->
 <!ENTITY salt           "Salt">
-<!ENTITY saltmaster     "&salt; Master">
+<!ENTITY smaster        "&salt; Master">
+<!ENTITY sminion        "&salt; Minion">
+<!ENTITY saltmaster     "&smaster;">
 <!ENTITY saltstack      "&salt;Stack">
 <!ENTITY terraform      "Terraform">
 <!ENTITY crmshell       "crm shell">
