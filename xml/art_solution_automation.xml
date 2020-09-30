@@ -30,7 +30,7 @@ https://confluence.suse.com/x/8IEnGw
   </info>
 
   <note>
-    <title>Note about Official &suse; Support</title>
+    <title>About Official &suse; Support</title>
     <para>
       The referenced &salt; formulas install and configure &sles4sapreg; including
       advanced configurations like SAP HANA System Replication setup and configure 
