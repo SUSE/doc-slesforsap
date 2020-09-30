@@ -33,7 +33,7 @@ https://confluence.suse.com/x/8IEnGw
     <title>About Official &suse; Support</title>
     <para>
       The referenced &salt; formulas install and configure &sles4sapreg; including
-      advanced configurations like SAP HANA System Replication setup and configure 
+      advanced configurations like &hana; System Replication setup and configure 
       the &ha; cluster. The &salt; formulas are part of &sles4sapreg; and fully supported 
       by &suse;.
       The other parts that belong to the infrastructure (like machines, network,
