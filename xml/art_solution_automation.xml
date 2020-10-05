@@ -199,7 +199,7 @@ https://confluence.suse.com/x/8IEnGw
     <procedure xml:id="pro-sol-autom-hana-apply-salt-formulas">
       <title>Applying &salt; Formulas</title>
       <para>
-        In this procedure we show how to create a pillar structure for
+        In this procedure, we show how to create a pillar structure for
         a system with &hana;, &netweaver;, and with DRBD. All this uses &sles4sap;.
       </para>
       <step>
@@ -278,7 +278,7 @@ https://confluence.suse.com/x/8IEnGw
           of each &salt; formula.
         </para>
         <para>
-          Notice, in this example, we have three different
+          Notice that, in this example, we have three different
           <filename>cluster.sls</filename> files. Each might have different HA cluster
           requirements.
         </para>
@@ -301,19 +301,21 @@ https://confluence.suse.com/x/8IEnGw
         - cluster</screen>
         <para>
           In the above example, folder part is removed, as we are pointing to the formulas with
-          their name.
+          their names.
         </para>
       </step>
       <step>
-        <para> Execute &salt; as shown in the following commands. Keep in mind,
-          &salt; supports more options, it is just an example: </para>
+        <para>
+         Execute &salt; as shown in the following commands. Bear in mind,
+         these are just examples&mdash;&salt; supports more options.
+        </para>
         <stepalternatives>
           <step>
-            <para>If you use a &saltmaster; with &salt; client, run:</para>
+            <para>If you use a &saltmaster; with &salt; clients, run:</para>
             <screen>&prompt.root;<command>salt</command> '*' state.highstate</screen>
           </step>
           <step>
-            <para>If you use a &salt; client only, run:</para>
+            <para>If you use only a &salt; client, run:</para>
             <screen>&prompt.root;<command>salt</command> --local state.highstate</screen>
           </step>
         </stepalternatives>
