@@ -88,8 +88,8 @@ https://confluence.suse.com/x/8IEnGw
             Due to its modular approach, it is often referred as &saltstack;.
             <!--&salt; configures and provision the needed machines/nodes.-->
             &salt; has as a client/server architecture. The server (also called
-            the &saltmaster;) acts as a central control unit for the clients
-            (<quote>minions</quote>). The other supported setup option is called masterless.
+            the &saltmaster;) acts as a central control unit for the &salt; clients.
+            The other supported setup option is called masterless.
           </para>
         </listitem>
       </varlistentry>
@@ -97,9 +97,9 @@ https://confluence.suse.com/x/8IEnGw
         <term>&salt; Grains</term>
         <listitem>
           <para>
-            Static data about &salt; minions. Grains contain information about the
+            Static data about &salt; clients. Grains contain information about the
             operating system that is running, the CPU architecture in use, and much more.
-            Grains can also be set to assign values to minions.
+            Grains can also be set to assign values to &salt; clients.
           </para>
         </listitem>
       </varlistentry>
@@ -124,15 +124,15 @@ https://confluence.suse.com/x/8IEnGw
         <term>&saltmaster;</term>
         <listitem>
           <para>
-            Manages the infrastructure and the minions within it.
-            It can execute commands remotely on minions and manage their state.
-            The &saltmaster; captures grains sent from minions and decide what to do
+            Manages the infrastructure and the &salt; clients within it.
+            It can execute commands remotely on &salt; clients and manage their state.
+            The &saltmaster; captures grains sent from &salt; clients and decide what to do
             with this information.
           </para>
         </listitem>
       </varlistentry>
       <varlistentry>
-        <term>&salt; Minion</term>
+        <term>&salt; Client (sometimes Minion)</term>
         <listitem>
           <para>A server or machine often controlled by the &saltmaster;.
           Its main purpose is to execute commands sent from the &saltmaster;,
@@ -163,6 +163,165 @@ https://confluence.suse.com/x/8IEnGw
     </variablelist>
   </sect1>
 
+  <sect1 xml:id="sec-sol-autom-hana-using-salt-formulas">
+    <title>Using &salt; Formulas</title>
+    <para>
+      &salt; formulas can be applied in two ways:
+    </para>
+    <itemizedlist>
+      <listitem>
+        <formalpara>
+          <title>&saltmaster; with &salt; Client</title>
+          <para>
+            All steps in <xref linkend="pro-sol-autom-hana-apply-salt-formulas"/> must be
+            executed on the &saltmaster; machine.</para>
+        </formalpara>
+      </listitem>
+      <listitem>
+        <formalpara>
+          <title>&salt; Client only</title>
+          <para>
+            All steps in <xref linkend="pro-sol-autom-hana-apply-salt-formulas"/> must be
+            executed in all of the &salt; clients where the formulas are going to be executed.
+          </para>
+        </formalpara>
+      </listitem>
+    </itemizedlist>
+
+    <para>
+      The following procedure is written in a general way to make it fit for all use cases.
+      You need some knowledge about &salt; and how to customize it to your needs.
+    </para>
+
+    <procedure xml:id="pro-sol-autom-hana-apply-salt-formulas">
+      <title>Applying &salt; Formulas</title>
+      <para>
+        In this procedure, we show how to create a pillar structure for
+        a system with &hana;, &netweaver;, and with DRBD. All this uses &sles4sap;.
+      </para>
+      <step>
+        <para>
+          Install the &salt; formulas with <command>zypper</command>.
+          Get the package name from the upstream GitHub repository.
+        </para>
+      </step>
+      <step>
+        <para>
+          Create the pillar files structure.
+        </para>
+        <para>
+          The pillar files work as configuration files for the &salt; formulas
+          and are intended as user input. To use the files, create a
+          <filename>top.sls</filename> file which references other files you
+          want to apply.
+        </para>
+        <substeps>
+          <step>
+            <para>
+              Create the directory <filename class="directory">/srv/pillar</filename>
+              and its subdirectories <filename class="directory">hana</filename>,
+              <filename class="directory">netweaver</filename>,
+              and <filename class="directory">drbd</filename>:
+            </para>
+            <screen>&prompt.root;<command>mkdir</command> --parents /srv/pillar/{hana,netweaver,drbd}</screen>
+            <para>
+              The directory names match with the names in the <filename>top.sls</filename>
+              file (see next step).
+            </para>
+          </step>
+          <step>
+            <para>
+              Create the file <filename>/srv/pillar/top.sls</filename> with the following content:
+            </para>
+            <screen language="sls">base:
+    'hana01,hana02':
+        - hana.hana
+        - hana.cluster
+
+    'netweaver01,netweaver02':
+        - netweaver.netweaver
+        - netweaver.cluster
+
+    'drbd01,drbd02':
+        - drbd.drbd
+        - drbd.cluster</screen>
+          </step>
+        </substeps>
+      </step>
+      <step>
+        <para>
+          Download the examples from the upstream GitHub repository:
+        </para>
+        <screen>&prompt.user;<command>wget</command> -O hana.sls \
+  https://github.com/SUSE/saphanabootstrap-formula/raw/master/pillar.example
+&prompt.user;<command>wget</command> -O netweaver.sls \
+  https://github.com/SUSE/sapnwbootstrap-formula/raw/master/pillar.example
+&prompt.user;<command>wget</command> -O drbd.sls \
+  https://github.com/SUSE/drbd-formula/raw/master/pillar.example
+&prompt.user;<command>wget</command> -O cluster.sls \
+  https://github.com/SUSE/habootstrap-formula/raw/master/pillar.example</screen>
+      </step>
+      <step>
+        <para>
+          Copy all pillar files to the right directory:
+        </para>
+        <screen>&prompt.sudo;<command>cp</command> -vi hana.sls cluster.sls /srv/pillar/hana
+&prompt.sudo;<command>cp</command> -vi netweaver.sls cluster.sls /srv/pillar/netweaver
+&prompt.sudo;<command>cp</command> -vi drbd.sls cluster.sls /srv/pillar/drbd</screen>
+      </step>
+      <step>
+        <para>
+          Modify the content of the pillar files for each &salt; formula,
+          according to the configuration you need.
+        </para>
+        <para>
+          Notice that, in this example, we have three different
+          <filename>cluster.sls</filename> files. Each might have different HA cluster
+          requirements.
+        </para>
+      </step>
+      <step>
+        <para>
+          Create the file <filename>/srv/salt/top.sls</filename> with the following content:
+        </para>
+        <screen>base:
+    'hana01,hana02':
+        - hana
+        - cluster
+
+    'netweaver01,netweaver02':
+        - netweaver
+        - cluster
+
+    'drbd01,drbd02':
+        - drbd
+        - cluster</screen>
+        <para>
+          In the above example, folder part is removed, as we are pointing to the formulas with
+          their names.
+        </para>
+      </step>
+      <step>
+        <para>
+         Execute &salt; as shown in the following commands. Bear in mind,
+         these are just examples&mdash;&salt; supports more options.
+        </para>
+        <stepalternatives>
+          <step>
+            <para>If you use a &saltmaster; with &salt; clients, run:</para>
+            <screen>&prompt.root;<command>salt</command> '*' state.highstate</screen>
+          </step>
+          <step>
+            <para>If you use only a &salt; client, run:</para>
+            <screen>&prompt.root;<command>salt</command> --local state.highstate</screen>
+          </step>
+        </stepalternatives>
+        <para>
+          The command shows the result (green for everything is fine, red for errors).
+        </para>
+      </step>
+    </procedure>
+  </sect1>
 
   <sect1 xml:id="sec-sol-autom-hana-deploy">
     <title>&hana; Automated Deployment</title>
