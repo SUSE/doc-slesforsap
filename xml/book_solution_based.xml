@@ -41,6 +41,7 @@ HINT (toms) 2020-06-05:
 
   <xi:include href="art_solution_automation.xml"/>
   <xi:include href="art_solution_monitoring.xml"/>
+  <xi:include href="art_sol_activedirectory.xml"/>
 
   <xi:include href="common_legal.xml"/>
 </book>

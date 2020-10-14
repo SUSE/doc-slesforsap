@@ -1,0 +1,7 @@
+MAIN="book_solution_based.xml"
+ROOTID="art_sol_activedirectory"
+
+PROFOS="sles"
+PROFCONDITION="noquick;suse-product"
+
+STYLEROOT="/usr/share/xml/docbook/stylesheet/suse2013-ns"

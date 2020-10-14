@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="file:/usr/share/xml/geekodoc/rng/geekodoc5-flat.rnc"
+   type="application/relax-ng-compact-syntax"?>
+
+<!DOCTYPE article
+[
+  <!ENTITY % entities SYSTEM "generic-entities.ent">
+    %entities;
+]>
+<!--
+Confluence page:
+https://confluence.suse.com/x/8IEnGw
+-->
+
+<article version="5.1" xml:lang="en" xml:id="art_sol_activedirectory"
+  xmlns="http://docbook.org/ns/docbook"
+  xmlns:xi="http://www.w3.org/2001/XInclude"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+  <title>&sap; Active Directory integration</title>
+  <subtitle>&sles4sapreg; · &slereg; &hasi;</subtitle>
+  <info>
+    <abstract>
+      <para>
+        This article offers some guidance for &sap; administrators, who wants to integrate SUSE Linux with Microsoft active directory server.
+
+        In most Microsoft environments, the Active Directory domain is the central hub for user information,
+        which means that there needs to be some way for Linux systems to access that user information for authentication requests.  
+        The AD integration main goal is to provide the ability to a Microsoft Admin to manage all the important HA/SAP users authentication cecentrally via Microsoft Active Directory server,
+        instead of having local users to Linux machines and having to log in and manage them separately.
+      </para>
+    </abstract>
+  </info>
+
+  <note>
+    <title>About Official &suse; Support</title>
+    <para>
+      Realmd component is supported starting only from SLE15sp2.
+      For more information, see <link
+        xlink:href="https://github.com/SUSE/ha-sap-terraform-deployments"/>.
+    </para>
+  </note>
+
+  <sect1 xml:id="sec-sol-active-dir-concept-overview">
+    <title>Realmd</title>
+    <para>
+       Realmd discovers information about the domain or realm automatically and does not require complicated configuration in order to join a domain or realm, like IdM, Microsoft Active Directory, or Kerberos realms.
+       Using realmd is easy. A one-line command and it configures Linux systems service like sssd to do the network authentication and user account lookups. 
+    </para>
+  </sect1>
+
+  <sect1 xml:id="joining-microsoft-domain">
+    <title>Joining a Microsoft Active Directory Domain</title>
+    <para>
+       Realmd discovers information about the domain or realm automatically and does not require complicated configuration in order to join a domain or realm, like IdM, Microsoft Active Directory, or Kerberos realms.
+       Using realmd is easy. A one-line command and it configures Linux systems service like sssd to do the network authentication and user account lookups. 
+    </para>
+  </sect1>
+
+
+
+  
+
+  <xi:include href="common_copyright_quick.xml"/>
+  <xi:include href="common_legal.xml"/>
+</article>
