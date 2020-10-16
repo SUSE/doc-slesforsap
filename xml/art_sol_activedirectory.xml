@@ -12,7 +12,7 @@ Confluence page:
 https://confluence.suse.com/x/8IEnGw
 -->
 
-<article version="5.1" xml:lang="en" xml:id="art_sol_activedirectory"
+<article version="5.1" xml:lang="en" xml:id="art-sol-activedirectory"
   xmlns="http://docbook.org/ns/docbook"
   xmlns:xi="http://www.w3.org/2001/XInclude"
   xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -36,8 +36,7 @@ https://confluence.suse.com/x/8IEnGw
   <note>
     <title>About Official &suse; Support</title>
     <para>
-      Realmd component is supported starting from SLE15sp2.
-
+      Realmd component is supported starting from &productname; 15 SP2.
     </para>
   </note>
 
@@ -53,12 +52,12 @@ https://confluence.suse.com/x/8IEnGw
     </para>
   </sect1>
 
-  <sect1 xml:id="joining-microsoft-domain">
-    <title>Join a SLE Machine to a Microsoft domain before installation of HANA</title>
+  <sect1 xml:id="sec-joining-microsoft-domain">
+    <title>Join a SLE Machine to a Microsoft Domain Before Installation of HANA</title>
     <procedure>
       <step>
         <para>
-         On you SLE15SP2 system install the following packages:
+         On you &productname; 15 SP2 system install the following packages:
         </para>
         <screen>zypper in realmd adcli sssd sssd-tools sssd-ad samba-client</screen>
       </step>
