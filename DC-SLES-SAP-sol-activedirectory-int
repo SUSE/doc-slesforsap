@@ -1,5 +1,5 @@
 MAIN="book_solution_based.xml"
-ROOTID="art_sol_activedirectory"
+ROOTID="art-sol-activedirectory"
 
 PROFOS="sles"
 PROFCONDITION="noquick;suse-product"
