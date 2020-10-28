@@ -537,21 +537,33 @@ https://confluence.suse.com/x/8IEnGw
     </itemizedlist>
   </sect1>
 
-  <sect1 xml:id="sec-sol-autom-drbd-nfs-config">
-    <title>DRBD/NFS Automated Configuration</title>
+  <sect1 xml:id="sec-sol-autom-ha-nfs-config">
+    <title>High Available NFS Storage</title>
     <para>
-      Use the &salt; formula <package>drbd-formula</package> for setting up and managing a DRBD cluster,
-      for example, with the command <command>drbdadm</command>.
+      Use the &salt; formulas <package>drbd-formula</package> and
+      <package>habootstrap-formula</package> to create a highly available NFS storage cluster. 
+    </para>
+    <para>
+      Use the formula <package>drbd-formula</package> for setting up and managing
+      DRBD devices with the command <command>drbdadm</command>.
+      Find more information in <link xlink:href="https://documentation.suse.com/sle-ha/15-SP2/html/SLE-HA-all/cha-ha-drbd.html"/>.
+    </para>
+    <para>
+      Use the &salt; formula <package>habootstrap-formula</package> for bootstrapping and managing
+      a high availability cluster with the &crmshell;.
     </para>
     <formalpara>
       <title>Link:</title>
       <para><link xlink:href="https://github.com/SUSE/drbd-formula"/>.</para>
     </formalpara>
-    <remark>toms 2020-06-29: Isn't the following addition "dangerous" for SLE users?</remark>
+    <formalpara>
+      <title>Link:</title>
+      <para><link xlink:href="https://github.com/SUSE/habootstrap-formula"/>.</para>
+    </formalpara>
     <example>
       <title>Installation</title>
       <!-- old: obs://network:ha-clustering:sap-deployments:devel -->
-      <screen>zypper install drbd-formula</screen>
+      <screen>zypper install drbd-formula habootstrap-formula</screen>
     </example>
   </sect1>
 
