@@ -45,7 +45,7 @@ https://confluence.suse.com/x/8IEnGw
       points) that need to be performed with &suma;, &ay;, or Terraform
       and are not shipped as part of &productname;.
       These parts of the project available via &suse; GitHub repositories are
-      published as-is and supported by the open-source community. For more
+      published as-is and supported by the open source community. For more
       information, see <link
         xlink:href="https://github.com/SUSE/ha-sap-terraform-deployments"/>.
     </para>
@@ -335,10 +335,6 @@ https://confluence.suse.com/x/8IEnGw
       Use the &salt; formula <package>saphanabootstrap-formula</package> for bootstrapping
       and managing &hana; platform and system replication.
     </para>
-    <formalpara>
-      <title>Link:</title>
-      <para><link xlink:href="https://github.com/SUSE/saphanabootstrap-formula"/>.</para>
-    </formalpara>
     <para>The &salt; formula takes care of the following</para>
     <itemizedlist>
       <listitem>
@@ -445,10 +441,6 @@ https://confluence.suse.com/x/8IEnGw
       Use the &salt; formula <package>sapnwbootstrap-formula</package> for bootstrapping
       and managing the &netweaver; platform.
     </para>
-    <formalpara>
-      <title>Link:</title>
-      <para><link xlink:href="https://github.com/SUSE/sapnwbootstrap-formula"/>.</para>
-    </formalpara>
     <note>
       <para>The formula works only with &hana; as database.</para>
     </note>
@@ -519,10 +511,6 @@ https://confluence.suse.com/x/8IEnGw
       Use the &salt; formula <package>habootstrap-formula</package> for bootstrapping and managing
       a high availability cluster with the &crmshell;.
     </para>
-    <formalpara>
-      <title>Link:</title>
-      <para><link xlink:href="https://github.com/SUSE/habootstrap-formula"/>.</para>
-    </formalpara>
     <itemizedlist>
       <title>Properties for <package>habootstrap-formula</package></title>
       <listitem>
@@ -558,14 +546,6 @@ https://confluence.suse.com/x/8IEnGw
       Use the &salt; formula <package>habootstrap-formula</package> for bootstrapping and managing
       a high availability cluster with the &crmshell;.
     </para>
-    <formalpara>
-      <title>Link:</title>
-      <para><link xlink:href="https://github.com/SUSE/drbd-formula"/>.</para>
-    </formalpara>
-    <formalpara>
-      <title>Link:</title>
-      <para><link xlink:href="https://github.com/SUSE/habootstrap-formula"/>.</para>
-    </formalpara>
     <example>
       <title>Installation</title>
       <!-- old: obs://network:ha-clustering:sap-deployments:devel -->
@@ -601,6 +581,44 @@ https://confluence.suse.com/x/8IEnGw
           >High availability of &hana; on Azure VMs on &sls;</link></para>
       </listitem>
     </itemizedlist>
+    <para>
+      The open source repositories of the deployment automation can be found
+      at the following GitHub repositories, including the Terraform
+      scripts. All scripts provided in the repositories are as-is and are
+      not supported as part of &sles4sap;.
+    </para>
+    <variablelist>
+      <varlistentry>
+        <term>&hana; deployment automation</term>
+        <listitem>
+          <para><link xlink:href="https://github.com/SUSE/saphanabootstrap-formula"/></para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>&netweaver; automated configuration</term>
+        <listitem>
+          <para><link xlink:href="https://github.com/SUSE/sapnwbootstrap-formula"/></para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>&ha; cluster automated configuration</term>
+        <listitem>
+          <para><link xlink:href="https://github.com/SUSE/habootstrap-formula"/></para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>&ha; cluster automated configuration (DRBD)</term>
+        <listitem>
+          <para><link xlink:href="https://github.com/SUSE/drbd-formula"/></para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>&ha; cluster automated configuration (&salt;)</term>
+        <listitem>
+          <para><link xlink:href="https://github.com/SUSE/habootstrap-formula"/></para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
   </sect1>
 
   <xi:include href="common_copyright_quick.xml"/>
