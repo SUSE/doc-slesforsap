@@ -636,7 +636,16 @@ vm.pagecache_limit_ignore_dirty = <replaceable>2</replaceable></screen>
      <para>
       To see which profile is currently in use:
      </para>
-     <screen>&prompt.root;<command>cat /var/lib/sapconf/act_profile</command></screen>
+     <itemizedlist>
+      <listitem>
+       <para>For &sapconf; 5.0.0:</para>
+       <screen>&prompt.root;<command>cat /var/lib/sapconf/act_profile</command></screen>
+      </listitem>
+      <listitem>
+       <para>From &sapconf; 5.0.1 and higher:</para>
+       <screen>&prompt.root;<command>cat /run/sapconf_act_profile</command></screen>
+      </listitem>
+     </itemizedlist>
     </listitem>
     <listitem> 
      <para>
