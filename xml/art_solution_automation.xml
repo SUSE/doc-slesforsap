@@ -32,15 +32,21 @@ https://confluence.suse.com/x/8IEnGw
   <note>
     <title>About Official &suse; Support</title>
     <para>
-      The referenced &salt; formulas install and configure &sles4sapreg; including
-      advanced configurations like &hana; System Replication setup and configure 
-      the &ha; cluster. The &salt; formulas are part of &sles4sapreg; and fully supported 
-      by &suse;.
-      The other parts that belong to the infrastructure (like machines, network,
-      disk formats, mount points) need to be done with &suma;, &ay;,
-      or &terraform;. Keep in mind, our &terraform; project is currently published
-      <emphasis>as-is</emphasis> and supported by the open-source community.
-      For more information, see <link
+       The referenced &salt; formulas install and configure SAP software
+       (&hana;, &netweaver;, and &s4h;) on &productname; including
+       advanced configurations like &hana; System Replication setup and
+       configure the &ha; cluster.
+       The &salt; formulas are part of  &sles4sapreg;, provided via the
+       official repositories and are fully supported by &suse;.
+     </para>
+    <para>
+      &suse; works in the overall project on additional parts that cover
+      infrastructure aspects (like machines, network, disk formats, mount
+      points) that need to be performed with &suma;, &ay;, or Terraform
+      and are not shipped as part of &productname;.
+      These parts of the project available via &suse; GitHub repositories are
+      published as-is and supported by the open-source community. For more
+      information, see <link
         xlink:href="https://github.com/SUSE/ha-sap-terraform-deployments"/>.
     </para>
   </note>
