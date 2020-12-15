@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE sect1
+<!DOCTYPE chapter
 [
   <!ENTITY % entities SYSTEM "generic-entities.ent">
     %entities;
@@ -1037,24 +1037,6 @@
     <literal>sysctl.d(5)</literal>. </para>
  </sect1>
 
- <sect1 xml:id="sec-memory-protection">
-  <title>Tuning Workload Memory Protection</title>
-  <para>
-   Since &slsreg; 15, the page cache limit functionality has been replaced by
-   workload memory protection using <systemitem
-    class="resource">cgroup</systemitem>s.
-  </para>
-  <para>
-   The idea is to put &sap; processes into a dedicated <systemitem
-    class="resource">cgroup</systemitem> and protect memory by setting
-   the <systemitem>memory.low</systemitem> interface file.
-  </para>
-  <para>
-   The kernel will try to keep the configured amount of memory as long as
-   possible in physical memory. This protects SAP workload for being
-   swapped out to disk.
-   Service Pack 2 contains an significant update of workload memory protection.
-  </para>
- </sect1>
+ <xi:include href="s4s_tune_wmp.xml"/>
 
 </chapter>
