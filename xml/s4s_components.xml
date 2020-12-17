@@ -307,7 +307,7 @@
     Securing &hana; can require many additional firewall rules. To simplify
     firewall setups for &hana;, &sles4sap;
     contains the package <package>HANA-Firewall</package> which
-    provides preconfigured rules and integrates with &susefirewall;.
+    provides preconfigured rules and integrates with &firewalld;.
    </para>
    <para>
     For more information, see <xref linkend="sec-s4s-configure-firewall-hana"/>.
