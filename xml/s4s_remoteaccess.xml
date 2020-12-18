@@ -69,24 +69,27 @@
    </para>
    <step>
     <para>
-     First, create an exception for the firewall. Add the port (3389)
-     the protocol (TCP) and the zone. Depending on your setup, replace the placeholder
-     <replaceable>ZONE</replaceable> with <literal>dmz</literal> (for demilitarized zone),
-     <literal>ext</literal> (external), or <literal>int</literal> (internal):
+     First, create the necessary exception for your firewall, opening port
+     TCP 3389 in all relevant zones.
+     For example, if your internal network uses the <literal>internal</literal>
+     zone, use the following command:
     </para>
-    <screen>&prompt.root;<command>firewall-cmd</command> --zone=<replaceable>ZONE</replaceable> --add-port=3389/tcp</screen>
+    <screen>&prompt.root;<command>firewall-cmd</command> --zone=internal --add-port=3389/tcp</screen>
+    <para>
+     This is a temporary assignment for testing the new setting. If you need to change
+     more than one zone, change and test each zone one at a time.
+    </para>
    </step>
    <step>
     <para>
-     Test your new setup.
-    </para>
-   </step>
-   <step>
-    <para>
-     To make your exception rule permanent, run:
+     When you are satisfied that new configuration is correct, make it permanent:
     </para>
     <screen>&prompt.root;<command>firewall-cmd</command> --runtime-to-permanent
 &prompt.root;<command>firewall-cmd</command> --reload</screen>
    </step>
   </procedure>
+ <para>
+  Find more information on using firewalld in
+  <link xlink:href="https://docs.suse.com/sles/15/single-html/SLES-security/#sec-security-firewall-firewalld"/>.
+ </para>
  </chapter>
