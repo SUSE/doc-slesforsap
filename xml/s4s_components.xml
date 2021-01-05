@@ -5,7 +5,7 @@
     %entities;
 ]>
 <sect1 xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="sec-component">
- <title>Software Components</title>
+ <title>Software components</title>
 
  <para>
   As depicted in <xref linkend="fig-offering"/>,
@@ -96,7 +96,7 @@
  </sect2>
 
  <sect2 xml:id="sec-hana-replicate">
-  <title>Simplified &hana; System Replication Setup</title>
+  <title>Simplified &hana; system replication setup</title>
 
   <para>
    &sles4sap; supports &hana; System Replication using components of &sleha;
@@ -105,7 +105,7 @@
   </para>
 
   <sect3 xml:id="sec-hana-ra">
-   <title><systemitem>SAPHana</systemitem> Resource Agent</title>
+   <title><systemitem>SAPHana</systemitem> Resource agent</title>
    <!--
     Terms:
     + scale-up: adding more resources to an existing system
@@ -147,7 +147,7 @@
    <itemizedlist>
     <listitem>
      <formalpara>
-      <title>Performance-Optimized Scenario</title>
+      <title>Performance-optimized scenario</title>
       <para>
        Two servers (A and B) in the same &sleha; cluster, one primary (A)
        and one secondary (B). The &hana; instance from the primary server (A) is
@@ -157,7 +157,7 @@
     </listitem>
     <listitem>
      <formalpara>
-      <title>Cost-Optimized Scenario</title>
+      <title>Cost-optimized scenario</title>
       <para>
        The basic setup of A and B is the same as in the
        <emphasis>Performance-Optimized Scenario</emphasis>.
@@ -174,7 +174,7 @@
     </listitem>
     <listitem>
      <formalpara>
-      <title>Chain/Multi-Tier Scenario</title>
+      <title>Chain/multi-tier scenario</title>
       <para>
        Three servers (A, B, and C), of which two are located in the
        same &sleha; cluster (A and B). The third server (C) is located
@@ -220,7 +220,7 @@
    </para>-->
   </sect3>
   <sect3 xml:id="sec-topology-ra">
-   <title><systemitem>SAPHanaTopology</systemitem> Resource Agent</title>
+   <title><systemitem>SAPHanaTopology</systemitem> Resource agent</title>
    <para>
     To make configuring the cluster as simple as possible, SUSE has
     developed the <systemitem>SAPHanaTopology</systemitem> resource agent.
@@ -231,7 +231,7 @@
    </para>
   </sect3>
   <sect3 xml:id="sec-hana-replicate-wizard">
-   <title>&yast; Wizard to Set Up &hana; Clusters</title>
+   <title>&yast; wizard to set up &hana; clusters</title>
    <para>
     &s4s; now additionally ships a &yast; wizard that manages the
     initial setup of such clusters according to best practices.
@@ -243,7 +243,7 @@
    </para>
   </sect3>
   <sect3 xml:id="sec-hana-replicate-more">
-   <title>For More Information</title>
+   <title>For more information</title>
    <para>
     For more information, see:
    </para>
@@ -267,7 +267,7 @@
  </sect2>
 
  <sect2 xml:id="sec-component-install">
- <title>Installation Workflow</title>
+ <title>Installation workflow</title>
   <para>
    The installation workflow offers a guided installation path for both the
    &sls; operating system and the &sap; application.
@@ -282,7 +282,7 @@
  </sect2>
 
  <sect2 xml:id="sec-component-clamsap">
-  <title>Malware Protection with &clamsap;</title>
+  <title>Malware protection with &clamsap;</title>
   <para>
    &clamsap; integrates the &clamav; anti-malware toolkit into &netweaver; and
    &sap; Mobile Platform applications to enable cross-platform threat
@@ -295,7 +295,7 @@
  </sect2>
 
  <sect2 xml:id="sec-component-hana-secure">
-  <title>&hana; Security</title>
+  <title>&hana; security</title>
   <para>
    &sles4sap; contains additional features to help set up well-secured &hana;
    installations.
@@ -315,7 +315,7 @@
   </sect3>
 
   <sect3 xml:id="sec-component-harden">
-   <title>Hardening Guide for &hana;</title>
+   <title>Hardening guide for &hana;</title>
    <para>
     For information on hardening the underlying operating system, see the
     &sles4sap; resource library: &reslibrary;. There, find the document
@@ -330,14 +330,14 @@
  </sect2>
 
  <sect2 xml:id="sec-component-manage-operation">
-  <title>Simplified Operations Management</title>
+  <title>Simplified operations management</title>
   <para>
     &sles4sap; combines several features that enable simplified operations
     management.
   </para>
 
   <sect3 xml:id="sec-component-sapconf">
-   <title>System Tuning with <command>saptune</command></title>
+   <title>System tuning with <command>saptune</command></title>
    <para>
     The system tuning application <command>saptune</command> allows you to
     automatically and comprehensively tune your system as recommended by
@@ -356,7 +356,7 @@
   that the cryptctl chapter has been moved to the Security Guide (cschroder
   9 June 2020
   <sect3 xml:id="sec-component-cryptctl">
-   <title>Storage Encryption for Hosted Applications with <command>cryptctl</command></title>
+   <title>Storage encryption for hosted applications with <command>cryptctl</command></title>
    <para>
     Today, databases and similar applications are often hosted on external
     servers that are serviced by third-party staff. Certain data center
@@ -388,7 +388,7 @@
    </sect3> -->
 
   <sect3 xml:id="sec-component-pattern">
-   <title>Patterns Providing Dependencies of &sap; Applications</title>
+   <title>Patterns providing dependencies of &sap; applications</title>
    <para>
     To simplify working with software dependencies of &sap; applications, &suse;
     has created patterns that combine relevant dependency RPM packages for

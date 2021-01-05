@@ -10,7 +10,7 @@
  xmlns="http://docbook.org/ns/docbook" version="5.1"
  xmlns:xi="http://www.w3.org/2001/XInclude"
  xmlns:xlink="http://www.w3.org/1999/xlink">
- <title>Product Life Cycle and Support Offerings</title>
+ <title>Product life cycle and support offerings</title>
  <variablelist>
   <varlistentry>
    <term><emphasis>Extended Service Pack Overlap Support (ESPOS)</emphasis>
@@ -77,7 +77,7 @@
   </varlistentry>
  </variablelist>
  <important condition="noquick">
-  <title>Life Cycle and Support for Modules and Extensions</title>
+  <title>Life cycle and support for modules and extensions</title>
   <para>
    Modules and extensions have a different life cycle than &s4sa; and &suse;
    provides different support offerings for them:
@@ -90,7 +90,7 @@
     <itemizedlist>
      <listitem>
       <formalpara>
-       <title>Life Cycle</title>
+       <title>Life cycle</title>
        <para>
         Varies depending on the module.
        </para>
@@ -115,7 +115,7 @@
     <itemizedlist>
      <listitem>
       <formalpara>
-       <title>Life Cycle</title>
+       <title>Life cycle</title>
        <para>
         Releases are usually coordinated with &productname;.
        </para>
@@ -140,7 +140,7 @@
     <itemizedlist>
      <listitem>
       <formalpara>
-       <title>Life Cycle</title>
+       <title>Life cycle</title>
        <para>
         Releases are usually coordinated with &productname;.
        </para>

@@ -5,7 +5,7 @@
     %entities;
 ]>
 <appendix xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="app-additional-software">
- <title>Additional Software for &s4sa;</title>
+ <title>Additional software for &s4sa;</title>
 
  <para>
   &s4s; makes it easy to install software that is not included with your
@@ -38,7 +38,7 @@
  </itemizedlist>
 
  <sect1 xml:base="sec-identifying-sap">
-  <title>Identifying a Base Product for &sles4sap;</title>
+  <title>Identifying a base product for &sles4sap;</title>
   <para>
    To identify and distinguish &suse; products, use one of the following
    files:
@@ -135,7 +135,7 @@ sle-ha</screen>
  </sect1>
 
  <sect1 xml:id="sec-suseconnectprogram">
-  <title>SUSE Connect Program</title>
+  <title>SUSE connect program</title>
   <para>
    Start SUSE Connect Program from the &yast; control center using
    <guimenu>SUSE Connect Program</guimenu>. Choose from the available options.

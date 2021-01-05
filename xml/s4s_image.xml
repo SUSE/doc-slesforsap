@@ -5,7 +5,7 @@
     %entities;
 ]>
 <chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="cha-image">
- <title>Creating Operating System Images</title>
+ <title>Creating operating system images</title>
 
  <para>
   There are multiple ways to create custom operating system images from
@@ -18,7 +18,7 @@
  </para>
 
  <sect1 xml:id="sec-configure-kiwi">
-  <title>Creating Images with &kiwi;</title>
+  <title>Creating images with &kiwi;</title>
 
   <para>
    &kiwi; is a tool to create operating system images that can be easily
@@ -101,7 +101,7 @@
  </sect1>
 
  <sect1 xml:id="sec-configure-scrub-instance">
-  <title>Cleaning Up an Instance Before Using It as a Master Image</title>
+  <title>Cleaning up an instance before using it as a master image</title>
 
   <para>
    In some cases, it makes sense to use an image of an already-configured
@@ -228,7 +228,7 @@
    </para>
   </sect2>
   <sect2 xml:id="sec-configure-scrub-instance-more">
-   <title>For More Information</title>
+   <title>For more information</title>
    <para>
     The following sources provide additional information about &cmcu;:
    </para>

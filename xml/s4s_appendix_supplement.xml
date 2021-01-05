@@ -97,7 +97,7 @@
  </sect1>
 
  <sect1 xml:id="sec-component-supplement-ask">
-  <title>Own &ay; Ask Dialogs</title>
+  <title>Own &ay; ask dialogs</title>
   <para>
    For more information about the <quote>Ask</quote> feature of &ay;, see
    <citetitle>
@@ -174,7 +174,7 @@ check_name "$VAL"
  </sect1>
 
  <sect1 xml:id="sec-component-supplement-rpm">
-  <title>Installing Additional Packages</title>
+  <title>Installing additional packages</title>
   <para>
    You can also install RPM packages within the
    <filename>product.xml</filename> file. To do this, you can use the
@@ -200,7 +200,7 @@ check_name "$VAL"
  </sect1>
 
  <sect1 xml:id="sec-supplement-directory">
-  <title>Example Directory for &supmedia;</title>
+  <title>Example directory for &supmedia;</title>
   <para>
    A minimal example for the &supmedia; directory contains only a file called
    <filename>product.xml</filename>.

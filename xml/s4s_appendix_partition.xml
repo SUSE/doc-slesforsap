@@ -5,7 +5,7 @@
     %entities;
 ]>
 <appendix xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="app-autoyast-partition">
- <title>Partitioning for the &sap; System Using &ay;</title>
+ <title>Partitioning for the &sap; system using &ay;</title>
 
  <para>
   Partitioning for the &sap; system is controlled by the files from the directory
@@ -15,7 +15,7 @@
  <itemizedlist>
    <listitem>
     <formalpara>
-     <title>&nw; or &s4ha; Installation</title>
+     <title>&nw; or &s4ha; installation</title>
      <para>
       <filename>base_partitioning.xml</filename>
      </para>
@@ -23,7 +23,7 @@
    </listitem>
    <listitem>
     <formalpara>
-     <title>&hana; or &s4hd; Installation</title>
+     <title>&hana; or &s4hd; installation</title>
      <para>
       <filename>hana_partitioning.xml</filename>
      </para>
@@ -31,7 +31,7 @@
    </listitem>
    <listitem>
     <formalpara>
-     <title>&hana; or &s4hd; Installation on &b1;-Certified Hardware</title>
+     <title>&hana; or &s4hd; installation on &b1;-certified hardware</title>
      <para>
       hardware-specific partitioning file
      </para>
@@ -106,7 +106,7 @@
  </itemizedlist>
 
  <procedure xml:id="pro-partition-custom">
-  <title>Creating a Custom &sap; Partitioning Setup</title>
+  <title>Creating a custom &sap; partitioning setup</title>
   <para>
    The steps below illustrate how to create a partitioning setup for TREX.
    However, creating a partitioning setup for other applications works
@@ -140,7 +140,7 @@
  </procedure>
 
  <important>
-  <title>Do Not Edit <filename>base_partitioning.xml</filename></title>
+  <title>Do not edit <filename>base_partitioning.xml</filename></title>
   <para>
    Do not edit <filename>base_partitioning.xml</filename> directly. With
    the next update, this file will be overwritten.
