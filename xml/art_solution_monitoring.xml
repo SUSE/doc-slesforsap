@@ -33,7 +33,7 @@ Further information:
    </info>
 
   <sect1 xml:id="sec-sol-monit-concept-overview">
-    <title>Conceptual Overview</title>
+    <title>Conceptual overview</title>
     <para>
       Starting from the idea of improving user experience, &suse; engineering worked
       on how to monitor &ha; clusters that manage &sap; workloads (&hana; and &nw;).
@@ -77,14 +77,14 @@ Further information:
   </sect1>
 
   <sect1 xml:id="sec-sol-autom-install-exporters">
-    <title>Installing Exporters</title>
+    <title>Installing exporters</title>
     <para>
       Installation of an exporter follows always the same pattern.
       Execute the following steps:
     </para>
 
     <procedure>
-      <title>General Way</title>
+      <title>General way</title>
       <step>
         <para>Install the package. All package are available in &sles4sap;.</para>
       </step>
@@ -110,7 +110,7 @@ Further information:
   </sect1>
 
   <sect1 xml:id="sec-sol-monit-hana-db-exp">
-    <title>&hana; Database Exporter</title>
+    <title>&hana; database exporter</title>
     <para>
       Exports &hana; database metrics.
       The exporter can to export the metrics from more than one database or tenant.
@@ -127,7 +127,7 @@ Further information:
       </para>
     </formalpara>
     <itemizedlist>
-      <title>Export Metrics in Prometheus Format</title>
+      <title>Export metrics in prometheus format</title>
       <listitem>
         <para>
           Memory metrics
@@ -170,7 +170,7 @@ Find installation instruction in the previous link.
   </sect1>
 
   <sect1 xml:id="sec-sol-monit-ha-cluster-exp">
-    <title>&ha; Cluster Exporter</title>
+    <title>&ha; cluster exporter</title>
     <para>
       Enables monitoring of Pacemaker, &corosync;, SBD, DRBD and other components of &ha; clusters.
       Collects metrics to easily monitor cluster status and health.
@@ -182,7 +182,7 @@ Find installation instruction in the previous link.
       </para>
     </formalpara>
     <itemizedlist>
-      <title>Export Metrics in Prometheus Format</title>
+      <title>Export metrics in prometheus format</title>
       <listitem>
         <para>
           Pacemaker cluster summary, nodes, and resource status
@@ -209,7 +209,7 @@ Find installation instruction in the previous link.
   </sect1>
 
   <sect1 xml:id="sec-sol-monit-sap-host-exp">
-    <title>&sap; Host Exporter</title>
+    <title>&sap; host exporter</title>
     <para>
       Enables the monitoring of &netweaver;, &hana;, and other applications.
       The gathered metrics are the data that can be obtained by running the
@@ -222,7 +222,7 @@ Find installation instruction in the previous link.
       </para>
     </formalpara>
     <itemizedlist>
-      <title>Exports Metrics (for &s4h;, &netweaver;, or &hana; hosts) in Prometheus Format</title>
+      <title>Exports metrics (for &s4h;, &netweaver;, or &hana; hosts) in prometheus format</title>
       <listitem>
         <para>
           &sap; start service process list
@@ -247,7 +247,7 @@ Find installation instruction in the previous link.
   </sect1>
 
   <sect1 xml:id="sec-sol-monit-more">
-    <title>For More Information</title>
+    <title>For more information</title>
     <remark>toms 2020-06-10: Need to be reworked which one is useful and should be included</remark>
     <itemizedlist>
       <listitem>

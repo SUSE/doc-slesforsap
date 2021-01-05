@@ -19,7 +19,7 @@ HINT (toms) 2020-06-05:
   xmlns="http://docbook.org/ns/docbook"
   xmlns:xi="http://www.w3.org/2001/XInclude"
   xmlns:xlink="http://www.w3.org/1999/xlink">
-  <title>Solution Based Documentation</title>
+  <title>Solution-Based Documentation</title>
   <info>
     <productname>&productname;</productname>
     <productname role="abbrev">&sles4sapa;</productname>

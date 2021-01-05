@@ -30,7 +30,7 @@ https://confluence.suse.com/x/8IEnGw
   </info>
 
   <note>
-    <title>About Official &suse; Support</title>
+    <title>About official &suse; support</title>
     <para>
        The referenced &salt; formulas install and configure SAP software
        (&hana;, &netweaver;, and &s4h;) on &productname; including
@@ -52,7 +52,7 @@ https://confluence.suse.com/x/8IEnGw
   </note>
 
   <sect1 xml:id="sec-sol-autom-concept-overview">
-    <title>Conceptual Overview</title>
+    <title>Conceptual overview</title>
     <para>
       Starting from the idea of modernizing and simplifying &hana; and &nw; deployments,
       &suse; engineering worked on rewriting the deployment wizards in &salt;.
@@ -100,7 +100,7 @@ https://confluence.suse.com/x/8IEnGw
         </listitem>
       </varlistentry>
       <varlistentry>
-        <term>&salt; Grains</term>
+        <term>&salt; grains</term>
         <listitem>
           <para>
             Static data about &salt; minions. Grains contain information about the
@@ -110,7 +110,7 @@ https://confluence.suse.com/x/8IEnGw
         </listitem>
       </varlistentry>
       <varlistentry>
-        <term>&salt; Formulas</term>
+        <term>&salt; formulas</term>
         <listitem>
           <para>
             Formulas are pre-written &salt; States.
@@ -138,7 +138,7 @@ https://confluence.suse.com/x/8IEnGw
         </listitem>
       </varlistentry>
       <varlistentry>
-        <term>&salt; Minion</term>
+        <term>&salt; client (sometimes minion)</term>
         <listitem>
           <para>A server or machine often controlled by the &saltmaster;.
           Its main purpose is to execute commands sent from the &saltmaster;,
@@ -147,7 +147,7 @@ https://confluence.suse.com/x/8IEnGw
         </listitem>
       </varlistentry>
       <varlistentry>
-        <term>&salt; State</term>
+        <term>&salt; state</term>
         <listitem>
           <para>
             YAML text file to maintain consistency across your environment.
@@ -169,9 +169,8 @@ https://confluence.suse.com/x/8IEnGw
     </variablelist>
   </sect1>
 
-
   <sect1 xml:id="sec-sol-autom-hana-deploy">
-    <title>&hana; Automated Deployment</title>
+    <title>&hana; automated deployment</title>
     <para>
       Use the &salt; formula <package>saphanabootstrap-formula</package> for bootstrapping
       and managing &hana; platform and system replication.
@@ -242,7 +241,7 @@ https://confluence.suse.com/x/8IEnGw
       The following links provide best practices:
     </para>
     <itemizedlist>
-      <title>Best Practices</title>
+      <title>Best practices</title>
       <listitem>
         <para>
           <link xlink:href="https://documentation.suse.com/sbp/all/html/SLES4SAP-hana-sr-guide-PerfOpt-12/index.html"
@@ -277,7 +276,7 @@ https://confluence.suse.com/x/8IEnGw
   </sect1>
 
   <sect1 xml:id="sec-sol-autom-hana-and-netweaver-deploy">
-    <title>&nw; Automated Configuration</title>
+    <title>&nw; automated configuration</title>
     <para>
       Use the &salt; formula <package>sapnwbootstrap-formula</package> for bootstrapping
       and managing the &netweaver; platform.
@@ -286,7 +285,7 @@ https://confluence.suse.com/x/8IEnGw
       <para>The formula works only with &hana; as database.</para>
     </note>
     <itemizedlist>
-      <title>&netweaver; Components</title>
+      <title>&netweaver; components</title>
       <listitem>
         <para>ASCS instance</para>
       </listitem>
@@ -322,7 +321,7 @@ https://confluence.suse.com/x/8IEnGw
     </example>
 
     <itemizedlist>
-      <title>Best Practices</title>
+      <title>Best practices</title>
       <listitem>
         <para><link xlink:href="https://documentation.suse.com/sbp/all/html/SAP_HA740_SetupGuide_AWS/index.html"
           >&netweaver; &ha; Cluster 7.40 for the AWS Cloud - Setup Guide (Code 12)</link></para>
@@ -347,7 +346,7 @@ https://confluence.suse.com/x/8IEnGw
   </sect1>
 
   <sect1 xml:id="sec-sol-autom-ha-cluster-config">
-    <title>&ha; Cluster Automated Configuration</title>
+    <title>&ha; cluster automated configuration</title>
     <para>
       Use the &salt; formula <package>habootstrap-formula</package> for bootstrapping and managing
       a high availability cluster with the &crmshell;.
@@ -373,7 +372,7 @@ https://confluence.suse.com/x/8IEnGw
   </sect1>
 
   <sect1 xml:id="sec-sol-autom-ha-nfs-config">
-    <title>High Available NFS Storage</title>
+    <title>High available NFS storage</title>
     <para>
       Use the &salt; formulas <package>drbd-formula</package> and
       <package>habootstrap-formula</package> to create a highly available NFS storage cluster. 
@@ -395,7 +394,7 @@ https://confluence.suse.com/x/8IEnGw
   </sect1>
 
   <sect1 xml:id="sec-sol-autom-more">
-    <title>For More Information</title>
+    <title>For more information</title>
     <para>
       Find some more general information in the following list:
     </para>
