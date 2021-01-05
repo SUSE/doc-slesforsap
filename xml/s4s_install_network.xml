@@ -5,7 +5,7 @@
     %entities;
 ]>
 <chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="cha-serve-mediaset">
- <title>Setting Up an Installation Server for &sap; Media Sets</title>
+ <title>Setting up an installation server for &sap; media sets</title>
 
  <para>
   Using the &sapwiz;, it is possible to copy the &sap; media sets from a
@@ -22,7 +22,7 @@
  </para>
 
  <procedure xml:id="pro-nfs-server">
-  <title>Adding &sap; Product Installation Files to an NFS Server</title>
+  <title>Adding &sap; product installation files to an NFS server</title>
   <step>
    <para>
     On your installation server, create the directory
@@ -35,7 +35,7 @@
    </para>
 <screen>/srv/www/htdocs/sap_repo *(ro,no_root_squash,sync,no_subtree_check,insecure)</screen>
    <important>
-    <title>Executable Rights Must Be Visible</title>
+    <title>Executable rights must be visible</title>
     <para>
      Clients must be able to see which files are executable. Otherwise,
      &suse;'s &sapwiz; will not be able to execute the &sapin;.
@@ -57,7 +57,7 @@
     with <command>cp -a</command>.
    </para>
    <important>
-    <title>Avoid Using Windows&ast; Operating Systems for Copying</title>
+    <title>Avoid using Windows&ast; operating systems for copying</title>
     <para>
      Using a Windows operating system for copying from/to Windows
      file systems like NTFS can break permission settings and capitalization

@@ -5,7 +5,7 @@
     %entities;
 ]>
 <chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="cha-install">
- <title>Installing the Operating System</title>
+ <title>Installing the operating system</title>
 
  <para>
   The following section provides instructions for installing the base operating
@@ -15,7 +15,7 @@
  </para>
 
  <sect1 xml:id="sec-install-workflow">
-  <title>Using the Installation Workflow</title>
+  <title>Using the installation workflow</title>
 
   <para>
    The installation workflow is a guided installation of the operating system
@@ -43,7 +43,7 @@
   </para>
 
   <important>
-   <title>Installing Oracle Databases</title>
+   <title>Installing oracle databases</title>
    <para>
     To be able to install an Oracle database later, install
     &sles; first and then convert your installation to &sles4sap;.
@@ -60,7 +60,7 @@
   </important>
 
   <procedure xml:id="pro-workflow-start">
-   <title>Starting the OS Installation</title>
+   <title>Starting the OS installation</title>
    <step>
     <itemizedlist>
      <listitem>
@@ -85,7 +85,7 @@
     </itemizedlist>
 
     <figure xml:id="fig-install-media-bootmenu">
-     <title>Installation Media Boot Menu</title>
+     <title>Installation media boot menu</title>
      <mediaobject>
       <imageobject role="fo">
        <imagedata fileref="s4s-install-media-boot-menu.png" width="73%" format="PNG"/>
@@ -110,7 +110,7 @@
         it. We want a straightforward procedure. -->
    <!-- <variablelist>
     <varlistentry>
-     <term>Boot from Hard Disk</term>
+     <term>Boot from hard disk</term>
      <listitem>
       <para>
        Boot the system that is already installed on the local hard disk.
@@ -143,7 +143,7 @@
      </listitem>
     </varlistentry>
     <varlistentry>
-     <term>Rescue System</term>
+     <term>Rescue system</term>
      <listitem>
       <para>
        Start a minimal Linux system without a graphical user interface.
@@ -156,7 +156,7 @@
      </listitem>
     </varlistentry>
     <varlistentry>
-     <term>Check Installation Media</term>
+     <term>Check installation media</term>
      <listitem>
       <para>
        Check the data integrity of the installation media.
@@ -169,7 +169,7 @@
      </listitem>
     </varlistentry>
     <varlistentry>
-     <term>Memory Test</term>
+     <term>Memory test</term>
      <listitem>
       <para>
        Test the system RAM using repeated read and write cycles.
@@ -184,7 +184,7 @@
      Select the default system language under <guimenu>Language</guimenu>.
     </para>
     <figure xml:id="fig-install-license">
-     <title>Language, Keyboard and Product Selection</title>
+     <title>Language, keyboard and product selection</title>
      <mediaobject>
       <imageobject role="fo">
        <imagedata fileref="s4s-install-product.png" width="73%" format="PNG"/>
@@ -241,7 +241,7 @@
      <guimenu>Next</guimenu>.
     </para>
     <important>
-     <title>Configure Networking as Recommended by &sap;</title>
+     <title>Configure networking as recommended by &sap;</title>
      <para>
       Make sure to configure the network connection as recommended in the
       documentation provided to you by &sap;.
@@ -266,7 +266,7 @@
      Proceed with <guimenu>Next</guimenu>.
     </para>
     <important>
-     <title>Register at This Step</title>
+     <title>Register at this step</title>
      <para>
       Make sure to register your system at this step in the installation.
       Otherwise, you can only install a minimal &slea; system and will not
@@ -307,7 +307,7 @@
      activate its entry.
     </para>
     <note>
-     <title>Release Notes</title>
+     <title>Release notes</title>
      <para>
       From this point on, the Release Notes can be viewed from any screen during
       the installation process by selecting <guimenu>Release Notes</guimenu>.
@@ -382,7 +382,7 @@
      Proceed with <guimenu>Next</guimenu>.
     </para>
     <figure xml:id="fig-install-type">
-     <title>System Role</title>
+     <title>System role</title>
      <mediaobject>
       <imageobject role="fo">
        <imagedata fileref="s4s-install-installationtype.png" width="73%" format="PNG"/>
@@ -400,7 +400,7 @@
        Installation Quick Start. Probably not ideal. - sknorr, 2016-02-11. -->
 
   <procedure xml:id="pro-workflow-finish">
-   <title>Finishing the OS Installation</title>
+   <title>Finishing the OS installation</title>
    <step>
     <para>
      Choose whether to enable the following options:
@@ -440,7 +440,7 @@
     </para>
     <variablelist condition="noquick">
      <varlistentry>
-      <term><guimenu>Guided Setup</guimenu></term>
+      <term><guimenu>Guided setup</guimenu></term>
       <listitem>
        <para>
         Create a new partitioning suggestion based on your input.
@@ -448,7 +448,7 @@
       </listitem>
      </varlistentry>
      <varlistentry>
-      <term><guimenu>Expert Partitioner</guimenu></term>
+      <term><guimenu>Expert partitioner</guimenu></term>
       <listitem>
        <para>
         Open the <guimenu>Expert Partitioner</guimenu> described in
@@ -469,7 +469,7 @@
      <guimenu>Next</guimenu>.
     </para>
     <figure xml:id="fig-install-partition">
-     <title>Suggested Partitioning</title>
+     <title>Suggested partitioning</title>
      <mediaobject>
       <imageobject role="fo">
        <imagedata fileref="s4s-install-partitioning.png" width="73%" format="PNG"/>
@@ -526,7 +526,7 @@
      Proceed with <guimenu>Next</guimenu>.
     </para>
     <important>
-     <title>Do Not Forget the <systemitem>root</systemitem> Password</title>
+     <title>Do not forget the <systemitem>root</systemitem> password</title>
      <para>
       The user <systemitem class="username">root</systemitem> has the
       permission to carry out all administrative tasks. Without this password,
@@ -545,7 +545,7 @@
      other underlined items.
     </para>
     <important condition="noquick">
-     <title>Firewall Configuration</title>
+     <title>Firewall configuration</title>
      <remark>
       Still FIXME for SP2. - sknorr, 2016-08-09
      </remark>
@@ -562,7 +562,7 @@
     </important>
 
     <figure xml:id="fig-install-overview">
-     <title>Installation Settings</title>
+     <title>Installation settings</title>
      <mediaobject>
       <imageobject role="fo">
        <imagedata fileref="s4s-install-overview.png" width="73%" format="PNG"/>
@@ -584,7 +584,7 @@
      the installation process.
     </para>
     <warning>
-     <title>Deletion of Data</title>
+     <title>Deletion of data</title>
      <para>
       The installation process fully or partially overwrites existing
       data on the disk.
@@ -617,7 +617,7 @@
  </sect1>
 
  <sect1 condition="noquick" xml:id="sec-install-network">
-  <title>Using &sles4sapa; Media from the Network</title>
+  <title>Using &sles4sapa; media from the network</title>
 
   <remark>
    FIXME: This section is not up-to-date SP2 does not ship with a sap.dud
@@ -697,7 +697,7 @@
 
 
  <sect1 condition="noquick" xml:id="sec-convert-sles">
-  <title>Converting an &slsa; Installation to an &s4sa; Installation</title>
+  <title>Converting an &slsa; installation to an &s4sa; installation</title>
   <para>
    To convert an installation of &sls; &productnumber; or &jeos;
    &productnumber; to an installation of &s4sa;, use the script
@@ -748,7 +748,7 @@
   </procedure>
 
   <important>
-   <title>Script Does Not Install Default &s4sa; Packages</title>
+   <title>Script does not install default &s4sa; packages</title>
    <para>
     The script does not install all packages that are included with a default
     &s4sa; installation. However, you can install these yourself manually.

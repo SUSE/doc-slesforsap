@@ -5,7 +5,7 @@
     %entities;
 ]>
 <chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="cha-about">
-<title>What Is &sles4sap;?</title>
+<title>What is &sles4sap;?</title>
 <info>
  <abstract>
   <para>
@@ -63,7 +63,7 @@
  <xi:include condition="noquick" href="s4s_components.xml" parse="xml"/>
 
  <sect1 condition="noquick" xml:id="sec-repository">
-  <title>Software Repository Setup</title>
+  <title>Software repository setup</title>
 
   <para>
    Software included with operating systems based on &sle; is delivered as
@@ -89,7 +89,7 @@
   </para>
 
   <table xml:id="tab-repository">
-    <title>Standard Repositories</title>
+    <title>Standard repositories</title>
     <tgroup cols="3">
       <colspec colname="type"/>
       <colspec colname="base"/>
@@ -184,7 +184,7 @@
    packages and patches that are specific to &productname;.
   </para>
   <note>
-   <title>ESPOS Updates Shipped Directly in Update Repositories</title>
+   <title>ESPOS updates shipped directly in update repositories</title>
    <para>
     Unlike in &productname; 11, updates related to Extended Service Pack
     Overlay Support (ESPOS) are shipped directly from the

@@ -8,7 +8,7 @@
    type="text/xml"
    title="Profiling step"?>
 <chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:lang="en" xml:id="cha-clamsap">
- <title>Protecting Against Malware with &clamsap;</title>
+ <title>Protecting against malware with &clamsap;</title>
   <para>
    &clamsap; integrates the &clamav; anti-malware toolkit into &netweaver; and
    &sap; Mobile Platform applications. &clamsap; is a shared library that
@@ -56,7 +56,7 @@ Active: active (running) since Tue 2017-04-11 10:33:03 UTC; 24h ago
   </procedure>
  </sect1>
  <sect1 xml:id="sec-clamsap-scannergroup">
-  <title>Creating a Virus Scanner Group in &nw;</title>
+  <title>Creating a virus scanner group in &nw;</title>
   <procedure>
    <step>
     <para>
@@ -148,7 +148,7 @@ Active: active (running) since Tue 2017-04-11 10:33:03 UTC; 24h ago
   </procedure>
  </sect1>
  <sect1 xml:id="sec-clamsap-library">
-  <title>Setting Up the &clamsap; Library in &nw;</title>
+  <title>Setting up the &clamsap; library in &nw;</title>
   <procedure>
    <step>
     <para>
@@ -257,7 +257,7 @@ Active: active (running) since Tue 2017-04-11 10:33:03 UTC; 24h ago
    click <emphasis>Start</emphasis>.
   </para>
   <figure xml:id="fig-clamsap-scanner-change">
-   <title>Change View <quote>Virus Scan Provider Definition</quote></title>
+   <title>Change view <quote>virus scan provider definition</quote></title>
    <mediaobject>
     <imageobject role="html">
      <imagedata fileref="sap-nw-scanner-definition-change.jpg" format="JPG"/>
@@ -272,7 +272,7 @@ Active: active (running) since Tue 2017-04-11 10:33:03 UTC; 24h ago
    and &clamav; (shown in <xref linkend="fig-clamsap-summary"/>).
   </para>
   <figure xml:id="fig-clamsap-summary">
-   <title>Summary of &clamsap; Data</title>
+   <title>Summary of &clamsap; data</title>
    <mediaobject>
     <imageobject role="html">
      <imagedata fileref="sap-nw-scanner-summary.jpg" format="JPG"/>
@@ -284,7 +284,7 @@ Active: active (running) since Tue 2017-04-11 10:33:03 UTC; 24h ago
   </figure>
  </sect1>
  <sect1 xml:id="sec-clamsap-more">
-  <title>For More Information</title>
+  <title>For more information</title>
   <para>
    For more information, also see the project home page
    <link xlink:href="https://sourceforge.net/projects/clamsap/"/>.

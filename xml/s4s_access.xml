@@ -23,7 +23,7 @@
 
   <note>
    <!-- Taken from doc-sle://security_firewall.xml -->
-   <title>&firewalld; Replaces &susefirewall;</title>
+   <title>&firewalld; replaces &susefirewall;</title>
    <para>
     &productname;&nbsp;15 GA introduces &firewalld; as the new default
     software firewall, replacing &susefirewall;.
@@ -78,7 +78,7 @@
   <itemizedlist>
    <listitem>
     <formalpara>
-     <title>&yast; Module <guimenu>SAP HANA Firewall</guimenu></title>
+     <title>&yast; module <guimenu>SAP HANA firewall</guimenu></title>
      <para>
       Allows configuring, applying, and reverting firewall rules for &hana;
       from a graphical user interface.
@@ -87,7 +87,7 @@
    </listitem>
    <listitem>
     <formalpara>
-     <title>Command-Line Utility <systemitem>hana-firewall</systemitem></title>
+     <title>Command-line utility <systemitem>hana-firewall</systemitem></title>
      <para>
       Creates XML files containing firewall rules for &hana;.
      </para>
@@ -101,7 +101,7 @@
   </itemizedlist>
 
   <important>
-   <title>&hana; MDC Databases</title>
+   <title>&hana; MDC databases</title>
    <para>
     For multi-tenant &hana; (MDC) databases, determining the port numbers that
     need to be opened is not yet possible automatically.
@@ -124,7 +124,7 @@
   </important>
 
   <note>
-   <title>Install &hana-fw; Packages</title>
+   <title>Install &hana-fw; packages</title>
    <para>
     Before continuing, make sure that the packages
     <package>HANA-Firewall</package> and
@@ -236,7 +236,7 @@ HANA firewall is active. Everything is OK.
  </sect1>
 
  <sect1 xml:id="sec-configure-saprouter">
-  <title>&saprouter; Integration</title>
+  <title>&saprouter; integration</title>
   <para>
    The &saprouter; software from &sap; allows proxying network traffic
    between different &sap;

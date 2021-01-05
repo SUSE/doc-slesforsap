@@ -5,7 +5,7 @@
     %entities;
 ]>
 <sect1 xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="sec-component">
- <title>Software Components</title>
+ <title>Software components</title>
 
  <para>
   As depicted in <xref linkend="fig-offering"/>,
@@ -35,7 +35,7 @@
    </listitem>
   </varlistentry>
   <varlistentry>
-   <term>Simplified &hana; System Replication Setup</term>
+   <term>Simplified &hana; system replication setup</term>
    <listitem>
     <para>
      &sles4sap; supports &hana; System Replication using components of
@@ -46,7 +46,7 @@
    </listitem>
   </varlistentry>
   <varlistentry>
-   <term>Installation Workflow</term>
+   <term>Installation workflow</term>
    <listitem>
     <para>
      The installation workflow offers a guided installation path for both the
@@ -57,7 +57,7 @@
    </listitem>
   </varlistentry>
   <varlistentry>
-   <term>Malware Protection with &clamsap;</term>
+   <term>Malware protection with &clamsap;</term>
    <listitem>
     <para>
      &clamsap; integrates the &clamav; anti-malware toolkit into &netweaver;
@@ -67,7 +67,7 @@
    </listitem>
   </varlistentry>
   <varlistentry>
-   <term>&hana; Firewall and &hana; Hardening Guide</term>
+   <term>&hana; firewall and &hana; hardening guide</term>
    <listitem>
     <para>
      &sles4sap; additionally provides the package
@@ -83,7 +83,7 @@
    </listitem>
   </varlistentry>
   <varlistentry>
-   <term>Simplified Operations Management</term>
+   <term>Simplified operations management</term>
    <listitem>
     <para>
      The system tuning profile provided by <command>sapconf</command> allows

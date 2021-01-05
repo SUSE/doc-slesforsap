@@ -5,7 +5,7 @@
     %entities;
 ]>
 <chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="cha-plan">
- <title>Planning the Installation</title>
+ <title>Planning the installation</title>
 
  <para>
   Read this chapter carefully, as it helps you plan the installation: It lists
@@ -13,7 +13,7 @@
  </para>
 
  <sect1 xml:id="sec-hardware">
-  <title>Hardware Requirements</title>
+  <title>Hardware requirements</title>
   <para>
    This section lists minimum hardware requirements for the installation of
    &s4s; and gives basic guidance on the expected hardware requirements of
@@ -37,7 +37,7 @@
     </listitem>
    </varlistentry>
    <varlistentry>
-    <term>Hard Disk</term>
+    <term>Hard disk</term>
     <listitem>
      <para>
       &s4s; requires at least 41 GB (without swap) of hard disk space for the
@@ -126,7 +126,7 @@
  </sect1>
 
  <sect1 xml:id="sec-download">
-  <title>Installation Image</title>
+  <title>Installation image</title>
   <para>
    Unlike previous &slea; products, the entire &slea; &productnumber;
    product line can be installed from a single installation medium:
@@ -159,7 +159,7 @@
  </sect1>
 
  <sect1 xml:id="sec-migration">
-  <title>Offline Migration</title>
+  <title>Offline migration</title>
   <para>
    The migration paths for &sls; are identical to those for &sles4sap;.
    Find detailed information in the &upgrade_guide; at <link
@@ -168,7 +168,7 @@
  </sect1>
 
  <sect1 condition="noquick" xml:id="sec-how-install">
-  <title>Installation Methods</title>
+  <title>Installation methods</title>
   <para>
    There are multiple ways of installing &sles4sap;:
   </para>
@@ -188,7 +188,7 @@
  </sect1>
 
  <sect1 xml:id="sec-workflow-overview">
-  <title>Overview of the Installation Workflow</title>
+  <title>Overview of the installation workflow</title>
 
   <para>
    The installation workflow of &sles4sap; consists of the following steps:
@@ -258,11 +258,11 @@
  </sect1>
 
  <sect1 xml:id="sec-data">
-  <title>Required Data for Installing</title>
+  <title>Required data for installing</title>
 
   <variablelist>
    <varlistentry>
-    <term>Operating System</term>
+    <term>Operating system</term>
     <listitem>
      <para>
       The &sls; installation requires the following data for every
@@ -285,7 +285,7 @@
     </listitem>
    </varlistentry>
    <varlistentry>
-    <term>&sap; Application</term>
+    <term>&sap; application</term>
     <listitem>
      <para>
       The installation of an &sap; application generally requires specifying:
@@ -314,7 +314,7 @@
     </listitem>
    </varlistentry>
    <varlistentry>
-    <term>&hana; Database</term>
+    <term>&hana; database</term>
     <listitem>
      <para>
       The installation of &hana; requires specifying:
