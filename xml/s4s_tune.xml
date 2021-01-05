@@ -18,7 +18,7 @@
   </para>
 
  <note>
-   <title>The <command>sapconf</command> Command Has Been Removed</title>
+   <title>The <command>sapconf</command> command has been removed</title>
    <para>
     In &sls; and &productname; 11 and 12, the <command>sapconf</command> command
     was included in the package with the same name.
@@ -33,7 +33,7 @@
   </note>
 
  <sect1 xml:id="sec-sapconf-4">
-  <title>Tuning Systems with &sapconf; 4</title>
+  <title>Tuning systems with &sapconf; 4</title>
   <para>
    The package <systemitem>sapconf</systemitem> is available in &sls; and &s4s;.
    This package contains the
@@ -103,7 +103,7 @@
   </para>
 
   <note>
-   <title>Unified Profiles in &sls; and &productname; &productnumber;</title>
+   <title>Unified profiles in &sls; and &productname; &productnumber;</title>
    <para>
     In &sls; and &productname; 15 and above, only a single &tuned; profile,
     <literal>sapconf</literal>, is shipped. It is equivalent to the profiles
@@ -112,7 +112,7 @@
    </para>
   </note>
   <sect2 xml:id="sec-sapconf-4-enable">
-   <title>Enabling and Disabling &sapconf; and Viewing Its Status</title>
+   <title>Enabling and disabling &sapconf; and viewing its status</title>
    <para>
     After the installation of &sapconf;, &tuned; is enabled and the
     <literal>sapconf</literal> profile is activated. However, if
@@ -203,7 +203,7 @@
     </listitem>
    </itemizedlist>
    <tip>
-    <title>Additional Services that &sapconf; Relies On</title>
+    <title>Additional services that &sapconf; relies on</title>
     <para>
      In addition to the &sapconf; service itself and the &tuned; service,
      &sapconf; also relies on the following two services:
@@ -256,7 +256,7 @@
        Configure the file as described in the following procedure:
       </para>
       <procedure xml:id="pro-sapconf-4-configure">
-       <title>Configuring &sapconf;4 Profiles</title>
+       <title>Configuring &sapconf;4 profiles</title>
        <step>
         <para>
          Create a new custom &tuned; profile directory and copy the file
@@ -344,7 +344,7 @@
     example only:
    </para>
    <example xml:id="ex-sapconf-change-parameter">
-    <title>Checking Parameters</title>
+    <title>Checking parameters</title>
     <para>
      To confirm that the setting for <literal>TCP_SLOW_START</literal> was
      applied, do the following:
@@ -396,7 +396,7 @@
    </para>
   </sect2>
   <sect2 xml:id="sec-sapconf-4-more">
-   <title>For More Information</title>
+   <title>For more information</title>
    <para>
     The following man pages provide additional information about &sapconf;:
    </para>
@@ -428,7 +428,7 @@
  </sect1>
 
  <sect1 xml:id="sec-sapconf-5">
-  <title>Tuning Systems with &sapconf; 5</title>
+  <title>Tuning systems with &sapconf; 5</title>
   <para>
    The package <systemitem>sapconf</systemitem> is available in &sls; and &s4s;.
    It sets recommended parameters for the following types of &sap; applications:
@@ -482,14 +482,14 @@
   </para>
 
   <note>
-   <title>No Profiles in &sls; and &productname; &productnumber;</title>
+   <title>No profiles in &sls; and &productname; &productnumber;</title>
    <para>
     In &sls; and &productname; 15, &sapconf; no longer supports profiles.
    </para>
   </note>
 
   <sect2 xml:id="sec-sapconf-5-enable">
-   <title>Enabling and Disabling &sapconf; and Viewing Its Status</title>
+   <title>Enabling and disabling &sapconf; and viewing its status</title>
    <para>
     After the installation of &sapconf;, the &sapconf; service is enabled.
    </para>
@@ -547,7 +547,7 @@
    </itemizedlist>
 
    <tip>
-    <title>Additional Services that &sapconf; Relies On</title>
+    <title>Additional services that &sapconf; relies on</title>
     <para>
      In addition to the &sapconf; service it also relies on the following two services:
     </para>
@@ -616,7 +616,7 @@
     example only:
    </para>
    <example xml:id="ex-sapconf-change-parameter-5">
-    <title>Checking Parameters</title>
+    <title>Checking parameters</title>
     <para>
      To confirm that the setting for <literal>TCP_SLOW_START</literal> was
      applied, do the following:
@@ -662,7 +662,7 @@
    </para>
   </sect2>
   <sect2 xml:id="sec-sapconf-5-more">
-   <title>For More Information</title>
+   <title>For more information</title>
    <para>
     The following man pages provide additional information about &sapconf;:
    </para>
@@ -686,7 +686,7 @@
    </para>
   </sect2>
   <sect2 xml:id="sec-sapconf-5-tuned">
-   <title>Using <command>tuned</command> Together with  &sapconf;</title>
+   <title>Using <command>tuned</command> together with  &sapconf;</title>
    <para>
     With version 5 &sapconf; does not rely on &tuned; anymore. This means both tools
     can be used independently.
@@ -694,7 +694,7 @@
     is started.
    </para>
    <note>
-    <title>Important: Using <command>tuned</command> and &sapconf; together</title>
+    <title>Important: using <command>tuned</command> and &sapconf; together</title>
     <para>
      If you are going to use <command>tuned</command> and &sapconf; simultaneously,
      be very careful, that bot tools do not configure the same system parameters.
@@ -704,7 +704,7 @@
  </sect1>
 
  <sect1 xml:id="sec-saptune">
-  <title>Tuning Systems with &saptune;</title>
+  <title>Tuning systems with &saptune;</title>
   <para>
    Using &saptune;, you can
    tune a system for &netweaver;, &hana;/&bo;, and &s4h; applications. This method
@@ -716,7 +716,7 @@
    <package>saptune</package> are installed on your system.
   </para>
   <note>
-   <title>&tuned; Daemon</title>
+   <title>&tuned; daemon</title>
    <para>
     &sapconf; (only version 4) and &saptune; both rely on the daemon &tuned; to set tuning
     configuration but they use different (though very similar) tuning
@@ -726,7 +726,7 @@
   </note>
 
   <sect2 xml:id="sec-saptune-enable">
-  <title>Enabling &saptune; to Tune for an &sap; Application</title>
+  <title>Enabling &saptune; to tune for an &sap; application</title>
   <procedure xml:id="pro-tune">
    <step>
     <para>
@@ -826,7 +826,7 @@
      </listitem>
     </itemizedlist>
     <note>
-     <title>Combining Optimizations</title>
+     <title>Combining optimizations</title>
      <para>
       You can combine solutions and notes. However, only one solution can be
       active at a time.
@@ -855,7 +855,7 @@
   </sect2>
 
   <sect2 xml:id="sec-saptune-customize">
-   <title>Customizing an &sap; Note</title>
+   <title>Customizing an &sap; note</title>
    <para>
     Every &sap; note can be configured freely with:
     <remark>"customise" is (sadly) correct. - sknorr, 2019-07-19</remark>
@@ -867,7 +867,7 @@
   </sect2>
 
   <sect2 xml:id="sec-saptune-create">
-   <title>Creating a new &sap; Note</title>
+   <title>Creating a new &sap; note</title>
    <para>
      It is possible to create a new &sap; note with:
    </para>
@@ -876,7 +876,7 @@
   </sect2>
 
   <sect2 xml:id="sec-saptune-delete">
-   <title>Deleting an &sap; Note</title>
+   <title>Deleting an &sap; note</title>
    <para>
     This command allows to delete a created note, including the corresponding override
     after confirmation:
@@ -890,7 +890,7 @@
   </sect2>
 
   <sect2 xml:id="sec-saptune-rename">
-   <title>Renaming an &sap; Note</title>
+   <title>Renaming an &sap; note</title>
    <para>
     This command allows to rename a created note, including the corresponding override
     after confirmation:
@@ -903,7 +903,7 @@
   </sect2>
 
   <sect2 xml:id="sec-saptune-show">
-   <title>Showing the Configuration of an &sap; Note</title>
+   <title>Showing the configuration of an &sap; note</title>
    <para>
     The shipped configuration of a note can be listed with:
    </para>
@@ -911,7 +911,7 @@
   </sect2>
 
   <sect2 xml:id="sec-saptune-verify">
-   <title>Verifying an &sap; Note or an &sap; Solution</title>
+   <title>Verifying an &sap; note or an &sap; solution</title>
    <para>
     The commands <command>saptune note verify <replaceable>NOTE</replaceable></command>
     and
@@ -948,7 +948,7 @@
   </sect2>
 
   <sect2 xml:id="sec-saptune-simulate">
-   <title>Simulating the Application of an &sap; Note or an &sap; Solution</title>
+   <title>Simulating the application of an &sap; note or an &sap; solution</title>
    <para>
     To show each parameter of a <literal>note</literal>, use:
    </para>
@@ -972,7 +972,7 @@
   </sect2>
 
   <sect2 xml:id="sec-saptune-more">
-   <title>For More Information</title>
+   <title>For more information</title>
   <para>
    See the following man pages:
   </para>
@@ -1011,7 +1011,7 @@
  </sect1>
 
  <sect1 xml:id="sec-sysctl">
-  <title>Tuning Kernel Parameters Manually Using <command>sysctl</command></title>
+  <title>Tuning kernel parameters manually using <command>sysctl</command></title>
   <para>
    In addition to or instead of tuning kernel parameters using
    &sapconf;/&saptune;, you can also use <command>sysctl</command> to

@@ -5,7 +5,7 @@
     %entities;
 ]>
 <chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="cha-cluster">
- <title>Setting Up an &hana; Cluster</title>
+ <title>Setting up an &hana; cluster</title>
  <para>
   You can use a &yast; wizard to set up &hana; or &s4hd; clusters according
   to best practices, including &hana; system replication. A summary of the
@@ -46,7 +46,7 @@
   </listitem>
  </itemizedlist>
  <important>
-  <title>Wizard Can Only Be Used for Initial Configuration</title>
+  <title>Wizard can only be used for initial configuration</title>
   <para>
    The &yast; wizard described in the following can only be used for the
    initial cluster configuration.
@@ -396,7 +396,7 @@
      100&nbsp;MB.
     </para>
     <warning>
-     <title>Data on Device Will Be Lost</title>
+     <title>Data on device will be lost</title>
      <para>
       All data on the chosen SBD device or devices will be deleted.
      </para>
@@ -461,7 +461,7 @@
     </para>
     <variablelist>
      <varlistentry>
-      <term>Production &hana; Instance</term>
+      <term>Production &hana; instance</term>
       <listitem>
        <itemizedlist>
         <listitem>
@@ -552,7 +552,7 @@
       </listitem>
      </varlistentry>
      <varlistentry>
-      <term><emphasis>Cost-optimized Scenario Only:</emphasis> Non-production &hana; Instance</term>
+      <term><emphasis>Cost-optimized scenario only:</emphasis> non-production &hana; instance</term>
       <listitem>
        <itemizedlist>
         <listitem>
@@ -585,7 +585,7 @@
           <filename>/hana/shared/<replaceable>SID</replaceable>/srHook</filename>.
          </para>
          <warning>
-          <title>Passwords Stored in Plain Text</title>
+          <title>Passwords stored in plain text</title>
           <para>
            By default, the hook script stores all credentials in plain text.
            To improve security, modify the script yourself.
@@ -600,7 +600,7 @@
      Proceed with <guimenu>Next</guimenu>.
     </para>
     <figure>
-     <title>&hana; Options (Cost-Optimized Scenario)</title>
+     <title>&hana; options (cost-optimized scenario)</title>
      <mediaobject>
       <imageobject role="html">
        <imagedata fileref="s4s-cluster-hana-option.png" format="PNG"/>
@@ -657,7 +657,7 @@
   </procedure>
  </sect1>
  <sect1 xml:id="sec-hana-cluster-wizard-semiautomatic">
-  <title>Unattended Setup Using &hana;-SR Wizard</title>
+  <title>Unattended setup using &hana;-SR wizard</title>
   <para>
    An unattended setup requires a manual installation of HANA first.
    The result is saved into a file containing all configuration options that
@@ -740,7 +740,7 @@
    </listitem>
   </itemizedlist>
   <important>
-   <title>Secure Password</title>
+   <title>Secure password</title>
    <para>
     Replace the default password with a secure one as soon as possible:
    </para>
@@ -748,7 +748,7 @@
   </important>
  </sect1>
  <sect1 xml:id="sec-moreinfo">
-  <title>For More Information</title>
+  <title>For more information</title>
   <itemizedlist>
    <listitem>
     <formalpara>
@@ -763,11 +763,17 @@
    </listitem>
    <listitem>
     <formalpara>
-     <title>Near Zero Downtime for &hana; System Replication</title>
+     <title>Near zero downtime for &hana; system replication</title>
      <para><link
       xlink:href="https://help.sap.com/viewer/2c1988d620e04368aa4103bf26f17727/2.0.03/en-US/ee3fd9a0c2e74733a74e4ad140fde60b.html"
       >Use &hana; System Replication for Near Zero Downtime Upgrades</link>.
      </para>
+    </formalpara>
+   </listitem>
+   <listitem>
+    <formalpara>
+     <title>Implementing the Python hook SAPHanaSR</title>
+     <para><link xlink:href="https://documentation.suse.com/sbp/all/html/SLES4SAP-hana-sr-guide-PerfOpt-15/"/></para>
     </formalpara>
    </listitem>
   </itemizedlist>

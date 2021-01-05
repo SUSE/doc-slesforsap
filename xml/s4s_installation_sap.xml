@@ -5,7 +5,7 @@
     %entities;
 ]>
 <chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="cha-install-sap">
- <title>Installing &sap; Applications</title>
+ <title>Installing &sap; applications</title>
 
  <para>
   This section guides you through the installation of &sap; media sets you
@@ -27,7 +27,7 @@
  </itemizedlist>
 
  <sect1 condition="noquick" xml:id="sec-install-sap-list">
-  <title>Products That Can Be Installed Using &sapwiz;</title>
+  <title>Products that can be installed using &sapwiz;</title>
 
   <para>
    Using the &sapwiz;, you can install stand-alone &hana; database instances.
@@ -37,7 +37,7 @@
   <xi:include href="s4s_installation_product.xml" parse="xml"/>
 
   <important>
-    <title>Installation of Oracle Databases Not Possible</title>
+    <title>Installation of Oracle databases not possible</title>
     <para>
      The &sapwiz; does not allow installing products together with Oracle
      databases. To install an Oracle database, install the base product &sls;
@@ -54,7 +54,7 @@
  </sect1>
 
  <sect1 xml:id="sec-install-sap-welcome">
-  <title>First Steps</title>
+  <title>First steps</title>
 
   <para>
    These first steps are only relevant during the installation workflow.
@@ -78,7 +78,7 @@
      <guimenu>Next</guimenu>.
     </para>
     <important>
-     <title>Configure Networking as Recommended by &sap;</title>
+     <title>Configure networking as recommended by &sap;</title>
      <para>
       Make sure to configure the network connection according to the
       documentation of your &sap; application.
@@ -138,7 +138,7 @@
         can't do much anyway. - sknorr, 2016-01-28
        </remark>
        <important>
-        <title>Hardware Requirements</title>
+        <title>Hardware requirements</title>
         <para>
          Make sure your machine fulfills the hardware requirements for &hana;
          detailed in <xref linkend="sec-hardware"/>.
@@ -184,7 +184,7 @@
   </para>
 
   <tip>
-   <title>Installing an &sap; Application in a Fully Installed System</title>
+   <title>Installing an &sap; application in a fully installed system</title>
    <para>
     This process is documented as it appears during the installation workflow.
     However, it also applies to the &yast; module <guimenu>&sapwiz;</guimenu>
@@ -200,7 +200,7 @@
    </para>
   </tip>
   <tip>
-   <title>&sapwiz; Configuration</title>
+   <title>&sapwiz; configuration</title>
    <remark>
     Terminology: "SAP Installer"/"SAPinst" and "SAP Installation Wizard" are
     pretty close. Maybe SUSE should change the wizard's name some time in the
@@ -223,7 +223,7 @@
      location can either be a local, removable, or remote installation source.
     </para>
     <figure xml:id="fig-sap-wizard-source">
-     <title>Location of &sap; Installation Master</title>
+     <title>Location of &sap; installation master</title>
      <mediaobject>
       <imageobject role="fo">
        <imagedata fileref="s4s_sap_wizard_source.png" width="73%" format="PNG"/>
@@ -240,7 +240,7 @@
     </para>
 
     <table xml:id="tab-sap-media-source">
-     <title>Media Source Path</title>
+     <title>Media source path</title>
      <tgroup cols="3">
       <colspec colnum="1" colname="option" colwidth="15*"/>
       <colspec colnum="2" colname="desc" colwidth="30*"/>
@@ -395,7 +395,7 @@
     </table>
 
     <tip condition="noquick">
-     <title>Remote Location Specification</title>
+     <title>Remote location specification</title>
      <para>
       To install from an NFS source, specify the name of
       the server and the complete path to the media data. For
@@ -516,7 +516,7 @@
      files to your local hard disk.
     </para>
     <figure xml:id="fig-sap-wizard-sapmedia">
-     <title>&sapwiz;: Additional &instmedia;</title>
+     <title>&sapwiz;: additional &instmedia;</title>
      <mediaobject>
       <imageobject role="fo">
        <imagedata fileref="s4s_sap_wizard_location_sapmedia.png" width="73%" format="PNG"/>
@@ -547,7 +547,7 @@
     </para>
     <variablelist>
      <varlistentry>
-      <term><guimenu>SAP Standard System</guimenu></term>
+      <term><guimenu>SAP standard system</guimenu></term>
       <listitem>
        <para>
         Install an &sap; application including its database.
@@ -555,7 +555,7 @@
       </listitem>
      </varlistentry>
      <varlistentry>
-      <term><guimenu>SAP Standalone Engines</guimenu></term>
+      <term><guimenu>SAP standalone engines</guimenu></term>
       <listitem>
        <para>
         Engines that add functionality to a standard product: &sap; TREX,
@@ -568,7 +568,7 @@
       </listitem>
      </varlistentry>
      <varlistentry>
-      <term><guimenu>Distributed System</guimenu></term>
+      <term><guimenu>Distributed system</guimenu></term>
       <listitem>
        <para>
         An &sap; application that is separated onto multiple servers.
@@ -580,7 +580,7 @@
       </listitem>
      </varlistentry>
      <varlistentry>
-      <term><guimenu>SAP High-Availability System</guimenu></term>
+      <term><guimenu>SAP high-availability system</guimenu></term>
       <listitem>
        <para>
         Installation of &netweaver; in a high-availability setup.
@@ -588,7 +588,7 @@
       </listitem>
      </varlistentry>
      <varlistentry>
-      <term><guimenu>System Rename</guimenu></term>
+      <term><guimenu>System rename</guimenu></term>
       <listitem>
        <para>
         Allows changing the various system properties such as the &sap; system
@@ -605,7 +605,7 @@
      </varlistentry>
     </variablelist>
     <figure xml:id="fig-sap-wizard-mode-db">
-     <title>&sapwiz;: Installation Type and Database</title>
+     <title>&sapwiz;: installation type and database</title>
      <mediaobject>
       <imageobject role="fo">
        <imagedata fileref="s4s_sap_wizard_mode_db.png" width="73%" format="PNG"/>
@@ -639,7 +639,7 @@
      Proceed with <guimenu>Next</guimenu>.
     </para>
     <figure xml:id="fig-sap-wizard-avail-products">
-     <title>&sapwiz;: Choose a Product</title>
+     <title>&sapwiz;: choose a product</title>
      <mediaobject>
       <imageobject role="fo">
        <imagedata fileref="s4s_sap_wizard_available_products.png" width="73%" format="PNG"/>
@@ -661,7 +661,7 @@
      Otherwise, click <guimenu>No</guimenu>.
     </para>
     <note>
-     <title>Difference Between &supmedia;/&thirdmedia; and Additional Software Repositories</title>
+     <title>Difference between &supmedia;/&thirdmedia; and additional software repositories</title>
      <para>
       Both types of delivery mechanisms allow installing software
       that is neither part of the &sles4sap; media nor part of your &mediaset;
@@ -704,7 +704,7 @@
      Proceed with <guimenu>Next</guimenu>.
     </para>
     <note>
-     <title>Location of Copied &sap; Media</title>
+     <title>Location of copied &sap; media</title>
      <para>
       At this point, all data required for the &sap; installation has been
       copied to <filename>/data/SAP_CDs</filename> (unless you chose to skip
@@ -743,7 +743,7 @@ SAP-NetWeaver-740-SR2-Installation-Export-CD-3-3</screen>
      Fill out the form (or forms), then proceed with <guimenu>OK</guimenu>.
     </para>
     <figure xml:id="fig-product-parameter">
-     <title>Product Parameters</title>
+     <title>Product parameters</title>
      <mediaobject>
       <imageobject role="html">
        <imagedata fileref="s4s_sap_wizard_product_param.png" format="PNG"/>
@@ -807,7 +807,7 @@ SAP-NetWeaver-740-SR2-Installation-Export-CD-3-3</screen>
      </listitem>
     </itemizedlist>
     <figure xml:id="fig-sapinst-param">
-     <title>&sapin;: Defining Parameters</title>
+     <title>&sapin;: defining parameters</title>
      <mediaobject>
       <imageobject role="fo">
        <imagedata fileref="s4s_sapinst_param.png" width="73%" format="PNG"/>
@@ -818,7 +818,7 @@ SAP-NetWeaver-740-SR2-Installation-Export-CD-3-3</screen>
      </mediaobject>
     </figure>
     <tip>
-     <title>Installation Log Files</title>
+     <title>Installation log files</title>
      <para>
       If the installation of the &sap; application fails, refer to the
       installation log files. They are located in
@@ -848,7 +848,7 @@ SAP-NetWeaver-740-SR2-Installation-Export-CD-3-3</screen>
  </sect1>
 
  <sect1 condition="noquick" xml:id="sec-install-continue">
-  <title>Continuing an Installation Using an Installation Profile</title>
+  <title>Continuing an installation using an installation profile</title>
 
   <para>
    If you chose <guimenu>Collect installation profiles but do not execute
@@ -935,7 +935,7 @@ SAP-NetWeaver-740-SR2-Installation-Export-CD-3-3</screen>
  </sect1>
 
  <sect1 condition="noquick" xml:id="sec-partition-command">
-  <title>Partitioning for an &sap; Application without the &sapwiz;</title>
+  <title>Partitioning for an &sap; application without the &sapwiz;</title>
   <para>
    If you do not want to use the &sapwiz;, you can also create the partitioning
    for &sap; applications directly from the command line. First, find the
@@ -951,7 +951,7 @@ SAP-NetWeaver-740-SR2-Installation-Export-CD-3-3</screen>
  </sect1>
 
  <sect1 condition="noquick" xml:id="sec-install-sap-autoyast">
-  <title>Automated Installation of &sap; Applications with &ay;</title>
+  <title>Automated installation of &sap; applications with &ay;</title>
 
   <para>
    The &sapwiz; can be used from &ay; to automate the installation of &sap;
@@ -959,7 +959,7 @@ SAP-NetWeaver-740-SR2-Installation-Export-CD-3-3</screen>
   </para>
 
   <sect2 xml:id="sec-install-sap-autoyast-hana">
-   <title>&hana; Installation</title>
+   <title>&hana; installation</title>
    <para>
     The following &ay; snippet shows how an &hana; or &trex; installation can
     be automated:
@@ -1008,7 +1008,7 @@ SAP-NetWeaver-740-SR2-Installation-Export-CD-3-3</screen>
   </sect2>
 
   <sect2 xml:id="sec-install-sap-autoyast-netweaver">
-   <title>&nw; Installation</title>
+   <title>&nw; installation</title>
    <para>
     For &netweaver;, the following example shows how the installation can be
     automated. Specifically, this example is tailored to installing ASCS

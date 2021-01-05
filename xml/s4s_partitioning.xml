@@ -26,7 +26,7 @@
  </orderedlist>
 
  <sect2 xml:id="sec-partition-os">
-  <title>Partitioning for the Operating System (stage 1)</title>
+  <title>Partitioning for the operating system (stage 1)</title>
 
   <para>
    During the installation of the operating system, partitions for the
@@ -62,7 +62,7 @@
  </sect2>
 
  <sect2 xml:id="sec-partition-sap">
-  <title>Partitioning for the &sap; System (stage 2)</title>
+  <title>Partitioning for the &sap; system (stage 2)</title>
 
   <para condition="noquick">
    The partitioning for the &sap; system can be created by:

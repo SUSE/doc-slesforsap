@@ -7,7 +7,7 @@
 <sect1 xmlns="http://docbook.org/ns/docbook"  xml:id="sec-memory-protection"
     xmlns:xi="http://www.w3.org/2001/XInclude"
     xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0">
-    <title>Tuning Workload Memory Protection</title>
+    <title>Tuning workload memory protection</title>
     <para>
         Keeping SAP applications in physical memory is essential for their performance.
         With &productname; 11 SP1 onwards and &productname; 12 the Page Cache Limit
@@ -74,7 +74,7 @@
                 </listitem>
             </varlistentry>
             <varlistentry>
-                <term>&sap; Start Service</term>
+                <term>&sap; start service</term>
                 <listitem>
                     <para>
                         The SAP Start Service (<systemitem>sapstartsrv</systemitem>)
@@ -92,7 +92,7 @@
     </sect2>
 
     <sect2 xml:id="sec-memory-protection-support">
-        <title>Support for Workload Memory Protection</title>
+        <title>Support for workload memory protection</title>
         <para>WMP is supported for &productname; &productnumber; on &x86-64;
             for one or multiple &sap; systems on one host, such as:</para>
         <itemizedlist>
@@ -143,10 +143,10 @@
     </sect2>
 
     <sect2 xml:id="sec-memory-protection-setup">
-        <title>Setting Up Workload Memory Protection</title>
+        <title>Setting up workload memory protection</title>
         <remark>toms 2020-09-28: Some introduction para is missing here.</remark>
         <sect3 xml:id="sec-memory-protection-setup-preparation">
-            <title>Preparing for Workload Memory Protection</title>
+            <title>Preparing for workload memory protection</title>
             <procedure>
                 <step>
                     <para>
@@ -171,7 +171,7 @@
                     <para>Install the package <package>sapwmp</package>:</para>
                     <screen>&prompt.sudo;<command>zypper</command> install sapwmp</screen>
                     <important xml:id="adm-order-of-packages">
-                        <title>Watch Out Order of Package</title>
+                        <title>Watch out order of package</title>
                         <para>The following message should only appear if no
                             &sap; software has been installed on the system:</para>
                         <screen>Warning: sapsys group not found warning: group<!--
@@ -248,7 +248,7 @@ chmod +s /usr/lib/sapwmp/sapwmp-capture</screen>
                             </listitem>
                         </varlistentry>
                         <varlistentry>
-                            <term>&sap; Application Server (&netweaver;, &s4h;)</term>
+                            <term>&sap; application server (&netweaver;, &s4h;)</term>
                             <listitem>
                                 <para>
                                     For the Application Server the sizing for the workload should
@@ -297,7 +297,7 @@ chmod +s /usr/lib/sapwmp/sapwmp-capture</screen>
                         </listitem>
                     </itemizedlist>
                     <note>
-                        <title>Correctly Calculate <varname>MemoryLow</varname> Value</title>
+                        <title>Correctly calculate <varname>MemoryLow</varname> value</title>
                         <para>
                             <varname>MemoryLow</varname> takes the memory size in bytes. If
                         the value is suffixed with K, M, G or T, the
@@ -349,7 +349,7 @@ chmod +s /usr/lib/sapwmp/sapwmp-capture</screen>
             <para>Now the system is ready for a reboot.</para>
         </sect3>
         <sect3 xml:id="sec-memory-protection-reboot-and-verification">
-            <title>Reboot and Verification</title>
+            <title>Reboot and verification</title>
             <remark>toms 2020-09-16: introduction of the procedure is missing.</remark>
             <procedure>
                 <step>
@@ -430,7 +430,7 @@ Directory /sys/fs/cgroup/SAP.slice:
     </sect2>
 
     <sect2 xml:id="sec-memory-protection-configuration">
-        <title>Configuring Workload Memory Protection</title>
+        <title>Configuring workload memory protection</title>
         <para>To configure WMP edit <filename>/etc/sapwmp.conf</filename>:</para>
         <screen># NOTE: Local changes may be reverted after update of WMP package. Check for
 #      .rpmsave file to restore &amp; merge changes.
@@ -453,7 +453,7 @@ PARENT_COMMANDS=sapstart,sapstartsrv</screen>
     </sect2>
 
     <sect2 xml:id="sec-memory-protection-operation-change-the-value-of-memorylow">
-        <title>Changing the Value of MemoryLow</title>
+        <title>Changing the value of memoryLow</title>
         <para>To change the value of <varname>MemoryLow</varname> run:</para>
         <screen>&prompt.root;<command>systemctl</command> set-property SAP.slice MemoryLow=...</screen>
         <para>The changes will take effect immediately.</para>
@@ -469,7 +469,7 @@ PARENT_COMMANDS=sapstart,sapstartsrv</screen>
         </important>
     </sect2>
     <sect2 xml:id="sec-memory-protection-operation-monitor-memory-usage">
-        <title>Monitoring Memory Usage</title>
+        <title>Monitoring memory usage</title>
         <para>Logging the memory usage can either be necessary to
             determine the value for <varname>memory.low</varname>, but also to monitor the
             correct operation of WMP.</para>
@@ -555,7 +555,7 @@ system.slice : memory.low=0           memory.current=1863335936 memory.swap.curr
     </sect2>
 
     <sect2 xml:id="sec-memory-protection-verify-correct-operation">
-        <title>Verifying Correct Operation</title>
+        <title>Verifying correct operation</title>
         <para>Besides monitoring memory consumption and swapping (see
             <xref linkend="sec-memory-protection-operation-monitor-memory-usage"/>)
             you also should check
@@ -602,7 +602,7 @@ ha0adm    3327 0::/SAP.slice/wmp-ra42489517eb846c282c57681e627a496.scope    saps
     </sect2>
 
     <sect2 xml:id="sec-memory-protection-deinstallation">
-        <title>Deinstalling Workload Memory Protection</title>
+        <title>Deinstalling workload memory protection</title>
         <procedure>
             <step>
                 <para>Stop the &sap; system completely. The <systemitem
@@ -643,13 +643,13 @@ ha0adm    3327 0::/SAP.slice/wmp-ra42489517eb846c282c57681e627a496.scope    saps
                     <filename>/usr/sap/<replaceable>SID</replaceable>/SYS/profile/</filename>):</para>
                 <screen>Execute_20 = local /usr/lib/sapwmp/sapwmp-capture -a</screen>
                 <important>
-                    <title>Backup is Necessary</title>
+                    <title>Backup is necessary</title>
                     <para>Before editing an instance profile create a backup!
                         Errors in a profile can prevent a &sap; system from
                         starting!</para>
                 </important>
                 <important>
-                    <title>About Ediging Profiles Directly</title>
+                    <title>About ediging profiles directly</title>
                     <para>Edit the instance profiles directly <emphasis
                         role="strong">only</emphasis> if you do not have
                         imported the profiles into the database to manage them

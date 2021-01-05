@@ -35,7 +35,7 @@
    </listitem>
   </itemizedlist>
   <important>
-   <title>Connection Parameters</title>
+   <title>Connection parameters</title>
    <para>
     Make sure to set up the connection with the following parameters:
    </para>
@@ -50,7 +50,7 @@
     </listitem>
     <listitem>
      <formalpara>
-      <title>Color Depth:</title>
+      <title>Color depth:</title>
       <para>
        16-bit or 24-bit only
       </para>
@@ -60,7 +60,7 @@
   </important>
 
   <procedure xml:id="pro-enable-rdp">
-   <title>Setting Up RDP</title>
+   <title>Setting up RDP</title>
    <!-- I could use the package yast2-rdp but it does not have support (says
    YaST), so avoid that. - sknorr, 2016-12-02 -->
    <para>
