@@ -69,69 +69,27 @@
    </para>
    <step>
     <para>
-     First, create an exception for the firewall. Start by creating a file that
-     sets up the port that needs to be opened for RDP.
+     First, create the necessary exception for your firewall, opening port
+     TCP 3389 in all relevant zones.
+     For example, if your internal network uses the <literal>internal</literal>
+     zone, use the following command:
     </para>
+    <screen>&prompt.root;<command>firewall-cmd</command> --zone=internal --add-port=3389/tcp</screen>
     <para>
-     As <systemitem class="username">root</systemitem>, create a new file
-     under <filename>/etc/sysconfig/SuSEfirewall2.d/services/</filename> with
-     the name <filename>xrdp</filename> and the following content:
-    </para>
-    <screen>
-## Name: Remote Desktop Protocol
-TCP="3389"
-    </screen>
-   </step>
-   <step>
-    <para>
-     Open the file <filename>/etc/sysconfig/SuSEfirewall2</filename> and
-     change the lines for the settings
-     <option>FW_CONFIGURATIONS_EXT</option>,
-     <option>FW_CONFIGURATIONS_DMZ</option>, and
-     <option>FW_CONFIGURATIONS_INT</option> to include
-     <literal>xrdp</literal>. If there are no other services enabled, the
-     respective lines should read:
-    </para>
-    <screen>
-FW_CONFIGURATIONS_EXT="xrdp"
-FW_CONFIGURATIONS_DMZ="xrdp"
-FW_CONFIGURATIONS_INT="xrdp"
-    </screen>
-    <para>
-     If there are other services, separate them within the quotes using a
-     space character.
+     This is a temporary assignment for testing the new setting. If you need to change
+     more than one zone, change and test each zone one at a time.
     </para>
    </step>
    <step>
     <para>
-     Now set up <systemitem class="daemon">xrdp</systemitem> itself.
+     When you are satisfied that new configuration is correct, make it permanent:
     </para>
-    <para>
-     If the package <package>xrdp</package> is not installed, install it:
-    </para>
-    <screen>
-&prompt.root;<command>zypper install xrdp</command>
-    </screen>
-   </step>
-   <step>
-    <para>
-     Restart the firewall:
-    </para>
-    <screen>
-&prompt.root;<command>systemctl restart SuSEfirewall2</command>
-    </screen>
-   </step>
-   <step>
-    <para>
-     Enable and start the service:
-    </para>
-    <screen>
-&prompt.root;<command>systemctl enable xrdp</command>
-&prompt.root;<command>systemctl start xrdp</command>
-    </screen>
-    <para>
-     You can now connect to the machine.
-    </para>
+    <screen>&prompt.root;<command>firewall-cmd</command> --runtime-to-permanent
+&prompt.root;<command>firewall-cmd</command> --reload</screen>
    </step>
   </procedure>
+ <para>
+  Find more information on using firewalld in
+  <link xlink:href="https://docs.suse.com/sles/15/single-html/SLES-security/#sec-security-firewall-firewalld"/>.
+ </para>
  </chapter>
