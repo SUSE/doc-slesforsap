@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="urn:x-suse:xslt:profiling:docbook51-profile.xsl"
+ type="text/xml"
+ title="Profiling step"?>
+<sect1 xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" xml:base="common_intro_available_doc.xml" xml:lang="ja" version="5.1">
+ <title>利用可能なマニュアルとリソース</title>
+ <info>
+  <dm:docmanager xmlns:dm="urn:x-suse:ns:docmanager">
+   <dm:translation>yes</dm:translation>
+  </dm:docmanager>
+ </info>
+ <para>
+  このマニュアルの複数の章に、システム上またはインターネットで利用可能な追加のドキュメントリソースへのリンクが含まれています。
+ </para>
+
+ <itemizedlist>
+  <listitem condition="noquick">
+   <para>
+    このガイドの最新アップデートについては、<link xlink:href="https://documentation.suse.com/sles-sap"/>を参照してください。
+   </para>
+  </listitem>
+  
+  <listitem>
+   <para>
+    SUSE Linux Enterprise Server for SAP Applicationsリソースライブラリ(<link xlink:href="https://www.suse.com/products/sles-for-sap/resource-library/"/>)でさまざまなホワイトペーパー、ベストプラクティスガイド、および他のリソースを見つけることができます。
+   </para>
+  </listitem>
+  <listitem>
+   <para>
+    SUSE Linux Enterprise Serverのマニュアルについては、<link xlink:href="https://documentation.suse.com/sles-15"/>を参照してください。
+   </para>
+  </listitem>
+  <listitem>
+   <para>
+    SUSE Linux Enterprise High Availability Extensionのマニュアルについては、<link xlink:href="https://documentation.suse.com/sle-ha-15"/>を参照してください。
+   </para>
+  </listitem>
+ </itemizedlist>
+</sect1>

@@ -1,0 +1,3 @@
+DC-SLES-SAP-quick
+xml/common_copyright_gfdl.xml
+xml/common_legal.xml

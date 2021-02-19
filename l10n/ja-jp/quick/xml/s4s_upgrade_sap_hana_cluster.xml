@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" xml:base="s4s_upgrade_sap_hana_cluster.xml" version="5.0" xml:id="cha-upgrade-sap-hana-cluster">
+ <title>SAP HANAクラスタのアップグレード</title>
+ <info>
+  <abstract>
+   <para>
+    この章では、YaSTモジュール<guimenu>SUSE HANA Cluster Update (SUSE HANAクラスタのアップデート)</guimenu>を使用してSAP HANAクラスタをアップグレードする方法について説明します。これはウィザードとして機能し、すべてのSAP HANAクラスタメンテナンス手順について説明します。
+   </para>
+  </abstract>
+  <dm:docmanager xmlns:dm="urn:x-suse:ns:docmanager">
+   <dm:translation>yes</dm:translation>
+  </dm:docmanager>
+ </info>
+
+  <para>
+   SAP HANAの公式ドキュメントでは、いわゆる<emphasis/>「ニアゼロダウンタイムアップグレードプロセス」について説明しています。YaSTモジュールは、このプロセスに基づいており、SUSEクラスタに関連する手順の一部を処理します。すべての手順が自動的に実行できるわけではありません。一部の手順は、SAP HANA管理者が手動で実行する必要があります。YaSTモジュールはプロセス中に通知します。
+  </para>
+  <para>
+   このYaSTモジュールは <emphasis>SUSE Linux Enterprise Server for SAP Applications 12 SP3</emphasis>
+   以降の<package>yast2-sap-ha</package>パッケージで利用可能です。現在、このウィザードは「SAP HANA Scale-up Performance Optimized (SAP HANAスケールアップパフォーマンス最適化)」シナリオに対応するためにのみ準備されています。
+  </para>
+  <para>アップグレードは次のタスクをカバーします。</para>
+  <procedure>
+   <step>
+    <para><xref linkend="sec-upgrade-sap-hana-cluster-preparing"/></para>
+   </step>
+   <step>
+    <para><xref linkend="sec-upgrade-sap-hana-cluster-upgrading"/></para>
+   </step>
+   <step>
+    <para><xref linkend="sec-upgrade-sap-hana-cluster-finishing"/></para>
+   </step>
+  </procedure>
+
+ <sect1 xml:id="sec-upgrade-sap-hana-cluster-preparing">
+  <title>アップグレードの準備</title>
+  <procedure>
+   <step>
+    <para>
+     両方のノードに <package>yast2-hana-update</package> パッケージをインストールします。
+    </para>
+    <screen><prompt role="root">root # </prompt><command>zypper</command> install yast2-hana-update</screen>
+    <para>
+     インストール後、<guimenu>YaSTコントロールセンター</guimenu>に<guimenu>SUSE HANA Cluster Update (SUSE HANAクラスタのアップデート)</guimenu>モジュールが見つかります。
+    </para>
+   </step>
+   <step>
+    <para>
+     セカンダリノードで、<guimenu>YaSTコントロールセンター</guimenu>を起動して、<guimenu>SUSE HANA Cluster Update (SUSE HANAクラスタのアップデート)</guimenu>モジュールを開きます。
+    </para>
+   </step>
+   <step>
+    <para>
+     YaSTモジュールで、前提条件を確認します。次の手順に進む前にこれらのすべての操作を完了してください。このウィザードは「HANA Scale-up Performance Optimized (HANAスケールアップパフォーマンス最適化)」シナリオのみをサポートしていることに注意してください。
+    </para>
+   </step>
+   <step>
+    <para>
+     SAP HANAシステムをアップグレードするには、セカンダリノードを選択します。
+    </para>
+   </step>
+   <step>
+    <para>
+     インストールメディアの場所を選択します。
+    </para>
+    <para>
+     SAPメディアが配置される場所をポイントします。必要に応じて、<guimenu>Mount an update medium on all hosts (すべてのホストにアップデートメディアをマウントする)</guimenu>をオンにして、NFS共有とパスを指定します。
+    </para>
+    <important>
+     <title>SAP HANAバージョン1.0と2.0の違い</title>
+     <para>
+      SAP HANAバージョン1.0からバージョン2.0にアップグレードする場合は、<guimenu>これはHANA 1.0からHANA 2.0への更新です</guimenu>をオンにしてください。
+     </para>
+     <para>
+      YaSTモジュールは以前のセカンダリノードから以前のプライマリノードに<emphasis/>「PKI SSFSキー」をコピーします。詳細については、<guimenu>ヘルプ</guimenu>ボタンから確認できます。
+     </para>
+    </important>
+   </step>
+  </procedure>
+  <para>
+   <xref linkend="sec-upgrade-sap-hana-cluster-upgrading"/>に進んでください。
+  </para>
+ </sect1>
+
+ <sect1 xml:id="sec-upgrade-sap-hana-cluster-upgrading">
+  <title>SAP HANAクラスタのアップグレード</title>
+  <para/>
+  <procedure>
+   <step>
+    <para>
+     ウィザードによって生成されたアップデート計画を確認してください。
+    </para>
+    <para>
+     ウィザードには、自動と手動の2つの手順が示されます。この自動手順では、ウィザードはクラスタリソースをメンテナンスモードにしてから、自動手順で開始します。手動手順はSAP HANA固有で、SAP HANA管理者によって実行される必要があります。詳細については、公式のSAP HANAドキュメントを参照してください。
+    </para>
+   </step>
+   <step>
+    <para>
+     SAP HANAソフトウェアをアップデートします。
+    </para>
+    <para>
+     ウィザードは自動アクションを実行し、SAP HANA管理者がSAP HANAアップグレードを実行するまで待機します。
+    </para>
+   </step>
+   <step>
+    <para>
+     SAP HANAアップグレードを実行します。
+    </para>
+   </step>
+   <step>
+    <para>
+     プライマリ(リモート)ノードの計画を確認します。
+    </para>
+    <para>
+     SAP HANAアップグレードが実行された後で、ウィザードはアップデート計画を示します。この手順を続行すると、ウィザードによってプライマリノードがセカンダリノードになり、アップグレードの準備が整います。
+    </para>
+    <para>
+     この手順にはしばらく時間がかかる場合があることに注意してください。
+    </para>
+   </step>
+  </procedure>
+  <para>
+   <xref linkend="sec-upgrade-sap-hana-cluster-finishing"/>に進んでください。
+  </para>
+ </sect1>
+
+ <sect1 xml:id="sec-upgrade-sap-hana-cluster-finishing">
+  <title>アップグレードタスクの終了</title>
+  <para/>
+  <procedure>
+   <step>
+   <para>
+    以前のプライマリノードをアップデートします。
+   </para>
+   <para>
+    この手順では<option>--hdbupd_server_nostart</option>オプションに特別の注意を払います。
+   </para>
+  </step>
+  <step>
+   <para>
+    クラスタの以前の状態に復元します。
+   </para>
+   <para>
+    デフォルトで、ウィザードは以前のマスタをSAP HANAシステムレプリケーションのセカンダリとして登録します。システムレプリケーションを元の状態に戻したい場合は、<guimenu>逆</guimenu>ボタンをクリックします。
+   </para>
+  </step>
+   <step>
+    <para>
+     アップデートの概要を確認します。
+    </para>
+    <para>
+     SAP HANAの元のバージョンと現在のバージョン、およびクラスタの状態を確認できます。
+    </para>
+    <note>
+     <title>中間クラスタ状態の処理</title>
+     <para>
+      ウィザードがクラスタリソースのステータスアップデートより速い場合は、概要に中間クラスタ状態が表示されます。クラスタ状態は<literal>UNDEFINED</literal>または<literal>DEMOTED</literal>です。
+     </para>
+     <para>
+      これを解決するには、<command>SAPHanaSR-showAttr</command>コマンドでクラスタステータスを再度確認し、以前のセカンダリノードが<literal>PROMOTED</literal>状態になっていることを確認します。
+     </para>
+    </note>
+   </step>
+  </procedure>
+
+  <para>
+   詳細については、SUSEブログの投稿<link xlink:href="https://www.suse.com/c/how-to-upgrade-your-suse-sap-hana-cluster-in-an-easy-way/"/>を参照してください。
+  </para>
+ </sect1>
+
+</chapter>

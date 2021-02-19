@@ -1,0 +1,848 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" xml:base="s4s_tune.xml" version="5.0" xml:id="cha-tune">
+ <title>チューニング</title>
+ <info>
+  <dm:docmanager xmlns:dm="urn:x-suse:ns:docmanager">
+   <dm:translation>yes</dm:translation>
+  </dm:docmanager>
+ </info>
+
+ <para>
+  この章では、SUSE Linux Enterprise Server for SAP ApplicationsがSAPアプリケーションと最適に連携できるようにチューニングする方法について説明します。
+ </para>
+ <para>
+   SUSE Linux Enterprise Server for SAP Applicationsでは、<command>sapconf</command>と<command>saptune</command>のいずれかを選択できます。ただし、<command>saptune</command>は、より多くの機能を提供する、より精巧なツールです。
+  </para>
+
+ <note>
+   <title><command>sapconf</command>コマンドは削除されました</title>
+   <para>
+    SUSE Linux Enterprise Server、およびSUSE Linux Enterprise Server for SAP Applications 11/12では、<command>sapconf</command>コマンドは同じ名前のパッケージに含まれていました。
+  </para>
+  <para>
+    SUSE Linux Enterprise ServerおよびSUSE Linux Enterprise Server for SAP Applications 15では、これが変更されました。コマンド<command>sapconf</command>は、
+    <package>sapconf</package> パッケージから削除されました。このパッケージには、<systemitem class="daemon">systemd</systemitem>サービスのみが含まれています。<literal>sapconf</literal>コマンドラインツール、<literal>sapconf</literal>/<systemitem class="daemon">tuned</systemitem>プロファイル、<systemitem class="daemon">tuned</systemitem>は現在はありません。
+   </para>
+  </note>
+
+ <sect1 xml:id="sec-sapconf-4">
+  <title><literal>sapconf</literal> 4を使用したシステムのチューニング</title>
+  <para>
+   パッケージ<systemitem>sapconf</systemitem>は、SUSE Linux Enterprise ServerおよびSUSE Linux Enterprise Server for SAP Applicationsで使用できます。このパッケージには、<systemitem>tuned</systemitem>プロファイル<literal>sapconf</literal>が含まれています。この単一のチューニングプロファイルは、次のタイプのSAPアプリケーション(SAP NetWeaver、SAP HANA、およびSAP HANAベースのアプリケーション)に推奨されるパラメータを設定します。
+  </para>
+
+  <variablelist xml:id="vl-tune-sapconf4-overview">
+   <title>SUSE® Linux Enterprise Server 12の<literal>sapconf</literal>4の概要</title>
+   <varlistentry>
+    <term><literal>sapconf</literal>4 (<systemitem class="daemon">tuned</systemitem>ベース)</term>
+    <listitem>
+     <itemizedlist>
+      <listitem>
+       <para><systemitem>sap-netweaver</systemitem> (<systemitem class="daemon">tuned</systemitem>プロファイル)</para>
+      </listitem>
+      <listitem>
+       <para><systemitem>sap-hana</systemitem> (<systemitem class="daemon">tuned</systemitem>プロファイル)</para>
+      </listitem>
+      <listitem>
+       <para><systemitem>sap-bobj</systemitem> (<systemitem class="daemon">tuned</systemitem>プロファイル)</para>
+      </listitem>
+      <listitem>
+       <para><systemitem>sap-ase</systemitem> (<systemitem class="daemon">tuned</systemitem>プロファイル)</para>
+      </listitem>
+     </itemizedlist>
+    </listitem>
+   </varlistentry>
+  </variablelist>
+
+  <variablelist>
+   <title>SUSE® Linux Enterprise Server 15の<literal>sapconf</literal>4の概要</title>
+   <varlistentry>
+    <term><literal>sapconf</literal>4 (<systemitem class="daemon">tuned</systemitem>ベース)</term>
+    <listitem>
+     <para><literal>sapconf</literal> (<systemitem class="daemon">tuned</systemitem>プロファイル)</para>
+    </listitem>
+   </varlistentry>
+  </variablelist>
+  <para>
+   以前、システムチューニングに変更を行った場合は、これらの変更が<literal>sapconf</literal>プロファイルによって上書きされる可能性があることに注意してください。
+  </para>
+  <para>
+   <literal>sapconf</literal>は、次の2つの主要部分で構成されています。
+  </para>
+  <itemizedlist>
+   <listitem>
+    <para>
+     <systemitem class="daemon">tuned</systemitem>および関連サービスが実行され、<literal>sapconf</literal>プロファイルが確実に適用されるようにする<systemitem class="daemon">systemd</systemitem>サービス。
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     スクリプトおよび設定ファイルを使用して、設定された<literal>sapconf</literal>チューニングパラメータを適用する <systemitem class="daemon">tuned</systemitem>プロファイル<literal>sapconf</literal>。
+    </para>
+   </listitem>
+  </itemizedlist>
+  <para>
+   <literal>sapconf</literal>を使用するには、パッケージ <package>tuned</package> および
+   <package>sapconf</package> がシステムにインストールされていることを確認します。
+  </para>
+
+  <note>
+   <title>SUSE Linux Enterprise ServerおよびSUSE Linux Enterprise Server for SAP Applications 15 SP2の統合プロファイル</title>
+   <para>
+    SUSE Linux Enterprise ServerおよびSUSE Linux Enterprise Server for SAP Applications 15以降では、単一の<systemitem class="daemon">tuned</systemitem>プロファイル<literal>sapconf</literal>のみが付属しています。これは、それより前のバージョンのSUSE Linux Enterprise Server for SAP Applicationsに付属していたプロファイル<literal>sap-hana</literal>/<literal>sap-netweaver</literal>と同等です。
+   </para>
+  </note>
+  <sect2 xml:id="sec-sapconf-4-enable">
+   <title><literal>sapconf</literal>の有効化/無効化、およびそのステータスの表示</title>
+   <para>
+    <literal>sapconf</literal>のインストール後、<systemitem class="daemon">tuned</systemitem>が有効になり、<literal>sapconf</literal>プロファイルがアクティブ化されます。ただし、別の<systemitem class="daemon">tuned</systemitem>プロファイルがすでに有効になっている場合、<literal>sapconf</literal>は独自の<systemitem class="daemon">tuned</systemitem>プロファイルを有効にしません。
+   </para>
+   <para>
+    <literal>sapconf</literal>ですべてのチューニングパラメータを適用するようにするには、インストール後にコンピュータを再起動してください。
+   </para>
+   <para>
+    <literal>sapconf</literal>のステータスは、以下に記載される方法で検査または変更できます。
+   </para>
+   <itemizedlist>
+    <listitem>
+     <para>
+      サービス<systemitem class="daemon">sapconf</systemitem>のステータスを確認するには:
+     </para>
+     <screen><prompt role="root">root # </prompt><command>systemctl status sapconf</command></screen>
+     <para>
+      サービスは<systemitem class="daemon">tuned</systemitem>の開始のみを担当し、その後終了するため、「<emphasis>アクティブ(終了済み)</emphasis>」として表示される必要があります。
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      サービス<systemitem class="daemon">sapconf</systemitem>、およびそれとともにサービス<systemitem class="daemon">tuned</systemitem>を開始するには:
+     </para>
+     <screen><prompt role="root">root # </prompt><command>systemctl start sapconf</command></screen>
+    </listitem>
+    <listitem>
+     <para>
+      <systemitem class="daemon">sapconf</systemitem>が無効な場合は、次のコマンドを使用して有効にし、起動します。
+     </para>
+     <screen><prompt role="root">root # </prompt><command>systemctl enable --now sapconf</command></screen>
+    </listitem>
+    <listitem>
+     <para>
+      サービス<systemitem class="daemon">sapconf</systemitem>、およびそれとともにサービス<systemitem class="daemon">tuned</systemitem>を停止するには:
+     </para>
+     <screen><prompt role="root">root # </prompt><command>systemctl stop sapconf</command></screen>
+     <para>
+      これにより、<systemitem class="daemon">tuned</systemitem>も停止されるため、最適化のほとんどの部分がただちに無効にされます。ただし、システムを再起動する必要があるオプションは、この例には入りません。
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      <systemitem class="daemon">sapconf</systemitem>を無効にするには、次のコマンドを使用します。
+     </para>
+     <screen><prompt role="root">root # </prompt><command>systemctl disable sapconf</command></screen>
+     <para>
+      <literal>sapconf</literal>が、ユーザが特定するサービスを特別に有効にしていない場合は、ほとんどのチューニングパラメータと、<literal>sapconf</literal>が使用するすべてのサービスも無効になります。
+     </para>
+    </listitem>
+   </itemizedlist>
+   <para>
+    同様に、基本サービス<systemitem class="daemon">tuned</systemitem>のステータスを検査および変更できます。
+   </para>
+   <itemizedlist>
+    <listitem>
+     <para>
+      サービス<systemitem class="daemon">tuned</systemitem>のステータスを確認するには:
+     </para>
+     <screen><prompt role="root">root # </prompt><command>systemctl status tuned</command></screen>
+    </listitem>
+    <listitem>
+     <para>
+      現在使用中の<systemitem class="daemon">tuned</systemitem>プロファイルを確認するには:
+     </para>
+     <screen><prompt role="root">root # </prompt><command>tuned-adm active</command></screen>
+     <para>
+      このコマンドが現在アクティブなプロファイルの名前を<literal>sapconf</literal>として返さない場合は、そのプロファイルを有効にします。
+     </para>
+     <screen><prompt role="root">root # </prompt><command>tuned-adm profile sapconf</command></screen>
+    </listitem>
+   </itemizedlist>
+   <tip>
+    <title><literal>sapconf</literal>が依存する追加のサービス</title>
+    <para>
+     <literal>sapconf</literal>サービス自体と<systemitem class="daemon">tuned</systemitem>サービスに加えて、<literal>sapconf</literal>は、次の2つのサービスにも依存します。
+    </para>
+    <itemizedlist>
+     <listitem>
+      <para>
+       システムアクティビティに関するデータを収集する<systemitem class="daemon">sysstat</systemitem>。
+      </para>
+     </listitem>
+     <listitem>
+      <para>
+       多くのプロセッサコアが関与する設定でも固有であることが保証されている時間ベースのUUIDを生成する<systemitem class="daemon">uuidd</systemitem>。これはSAPアプリケーションに必要です。
+      </para>
+     </listitem>
+    </itemizedlist>
+   </tip>
+  </sect2>
+  <sect2 xml:id="sec-sapconf-4-configure">
+   <title><literal>sapconf</literal>4の設定</title>
+   <para>
+    一般に、<literal>sapconf</literal>のデフォルト設定では、SAPによって推奨されるパラメータ値をすでに使用しています。ただし、特別なニーズがある場合は、それらに合わせてツールを設定できます。
+   </para>
+   <para>
+    <literal>sapconf</literal>の設定は、さまざまな方法で設定可能な2つの部分に分かれています。
+   </para>
+   <variablelist>
+    <varlistentry>
+     <term><filename>/usr/lib/tuned/<replaceable>PROFILE</replaceable>/tuned.conf</filename></term>
+     <listitem>
+      <para>
+       このパターンに従うすべてのファイルは、<xref linkend="pro-sapconf-4-configure"/>のように編集できます。このファイルからパラメータを設定するには、まず、<filename>/etc/tuned</filename>の下の<systemitem class="daemon">tuned</systemitem>のカスタムプロファイルディレクトリにコピーしてから、その中の値を変更します。代わりに所定の場所のファイルを変更する場合は、
+       <package>sapconf</package> パッケージの次のアップデートで加える変更は保存されません。
+      </para>
+      <para>
+       次の手順は、<filename>/usr/lib/tuned/sapconf/tuned.conf</filename>ファイルを調整する方法の例を示すものです。すでに述べたように、これはどのプロファイルでも可能です。次の手順でファイルを設定します。
+      </para>
+      <procedure xml:id="pro-sapconf-4-configure">
+       <title><literal>sapconf</literal>4プロファイルの設定</title>
+       <step>
+        <para>
+         新しいカスタム<systemitem class="daemon">tuned</systemitem>プロファイルディレクトリを作成して、<filename>tuned.conf</filename>ファイルをコピーします。
+        </para>
+<screen><prompt role="root">root # </prompt>mkdir /etc/tuned/sapconf
+<prompt role="root">root # </prompt>cp /usr/lib/tuned/sapconf/tuned.conf /etc/tuned/sapconf/</screen>
+       </step>
+       <step>
+        <para>
+         新しくコピーした<filename>tuned.conf</filename>内で、<filename>script.sh</filename>への参照を修正して、元のプロファイルからスクリプトを指す絶対パスを使用するように指定します。
+        </para>
+        <screen>script = /usr/lib/tuned/sapconf/script.sh</screen>
+        <para>
+         代わりに<filename>script.sh</filename>をコピーしないでください。<literal>sapconf</literal>をアップデートする際に互換性に問題が発生します。
+        </para>
+       </step>
+       <step>
+        <para>
+         <filename>/etc/tuned/sapconf/tuned.conf</filename>のパラメータを編集します。
+        </para>
+       </step>
+      </procedure>
+      <para>
+       <literal>sapconf</literal>をアップデートするたびに、元のコンテンツとカスタム<filename>tuned.conf</filename>のコンテンツを比較してください。
+      </para>
+      <para>
+       このファイルに関連するログメッセージは、<filename>/var/log/tuned/tuned.log</filename>に書き込まれます。
+      </para>
+     </listitem>
+    </varlistentry>
+    <varlistentry>
+     <term><filename>/etc/sysconfig/sapconf</filename></term>
+     <listitem>
+      <para>
+       このファイルには、<literal>sapconf</literal>のほとんどのパラメータが含まれています。このファイルのパラメータは、先に述べたスクリプト<filename>/usr/lib/tuned/sapconf/script.sh</filename>を使用して適用されます。
+      </para>
+      <para>
+       このファイルは直接編集できます。このファイルのパラメータはすべて、コメントやSAP Notesの参照資料で説明されています。参照資料は、<link xlink:href="https://launchpad.support.sap.com/"/>で参照可能です。
+      </para>
+      <para>
+       <literal>sapconf</literal>がアップデートされると、このファイルからカスタマイズされたすべてのパラメータが可能な限り保持されます。ただし、パラメータは、新しい設定ファイルにクリーンな状態で転送できない場合があります。したがって、アップデート中に<filename>/etc/sysconfig/sapconf.rpmsave</filename>に移動された以前のカスタム設定と、<filename>/etc/sysconfig/sapconf</filename>にある新しいバージョンとの違いを、アップデート後に確認することをお勧めします。
+      </para>
+      <para>
+       このファイルに関連するログメッセージは、<filename>/var/log/sapconf.log</filename>に書き込まれます。
+      </para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+   <para>
+    これらのファイルのいずれかを編集すると、一部の値が行の先頭に<literal>#</literal>文字でコメント化されていることがわかります。これは、パラメータがチューニングに関連している間は、適切なデフォルトがないことを意味します。
+   </para>
+   <para>
+    これとは逆に、行の先頭に<literal>#</literal>文字を追加して、特定のパラメータにコメントを付けることができます。ただし、<literal>sapconf</literal>が適切にプロファイルを適用しなくなる可能性があるため、コメント付けは避けた方が無難です。
+   </para>
+   <para>
+    編集した設定を適用するには、<literal>sapconf</literal>を再起動します。
+   </para>
+   <screen><prompt role="root">root # </prompt><command>systemctl restart sapconf</command></screen>
+   <para>
+    特定のパラメータ値が正しく適用されているかどうかの確認手段は、パラメータごとに異なります。したがって、次の例は一例にすぎません。
+   </para>
+   <example xml:id="ex-sapconf-change-parameter">
+    <title>パラメータの確認</title>
+    <para>
+     <literal>TCP_SLOW_START</literal>の設定が適用されていることを確認するには、次の手順を実行します。
+    </para>
+    <itemizedlist>
+     <listitem>
+      <para>
+       <literal>sapconf</literal>のログファイルを表示して、値が適用されているかどうかを確認します。<filename>/var/log/sapconf.log</filename>内で、次のテキストを含む行を確認します。
+      </para>
+      <screen>Change net.ipv4.tcp_slow_start_after_idle from 1 to 0</screen>
+      <para>
+       または、<literal>sapconf</literal>が開始される前に、パラメータがすでに正しく設定されている可能性があります。この場合、<literal>sapconf</literal>はその値を変更しません。
+      </para>
+      <screen>Leaving net.ipv4.tcp_slow_start_after_idle unchanged at 1</screen>
+     </listitem>
+     <listitem>
+      <para>
+       <literal>TCP_SLOW_START</literal>の背後にある基本のオプションは<filename>/proc/sys/net.ipv4.tcp_slow_start_after_idle</filename>で手動で設定できます。その実際の現在値を確認するには、次のコマンドを使用します。
+      </para>
+      <screen><prompt role="root">root # </prompt><command>sysctl net.ipv4.tcp_slow_start_after_idle</command></screen>
+     </listitem>
+    </itemizedlist>
+   </example>
+  </sect2>
+  <sect2 xml:id="sec-sapconf-4-remove">
+   <title><literal>sapconf</literal>の削除</title>
+   <para>
+    システムから<literal>sapconf</literal>を削除するには、次のコマンドを使用してそのパッケージをアンインストールします。
+   </para>
+   <screen><prompt role="root">root # </prompt><command>zypper rm sapconf</command></screen>
+   <para>
+    これを実行する際には、<literal>sapconf</literal>の依存関係はインストールされたままであることに注意してください。ただし、サービス<systemitem class="daemon">sysstat</systemitem>および<systemitem class="daemon">tuned</systemitem>は、無効な状態になります。いずれかのサービスをまだ使用している場合は、再度有効にしてください。
+   </para>
+   <para>
+    <literal>sapconf</literal>がアンインストールされても、特定のパラメータやファイルは削除されません。詳細については、マニュアルページの<command>man 7 sapconf</command>の「<citetitle>PACKAGE REQUIREMENTS</citetitle>」セクションを参照してください。
+   </para>
+  </sect2>
+  <sect2 xml:id="sec-sapconf-4-more">
+   <title>詳細情報</title>
+   <para>
+    次のマニュアルページには、<literal>sapconf</literal>に関する追加情報が記載されています。
+   </para>
+   <itemizedlist>
+    <listitem>
+     <para>
+      <literal>sapconf</literal>で使用されるチューニングパラメータの概要: <command>man 7 tuned-profiles-sapconf</command>
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      <literal>sapconf</literal>で設定されたすべてのチューニングパラメータの詳細な説明: <command>man 5 sapconf</command>
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      <literal>sapconf</literal>プロファイルの設定およびカスタマイズに関する情報: <command>man 7 sapconf</command>
+     </para>
+    </listitem>
+   </itemizedlist>
+   <para>
+    <link xlink:href="https://www.suse.com/c/a-new-sapconf-is-available/"/>にある<literal>sapconf</literal>の更新バージョンを詳しく説明するブログシリーズも参照してください。
+   </para>
+  </sect2>
+ </sect1>
+
+ <sect1 xml:id="sec-sapconf-5">
+  <title><literal>sapconf</literal> 5を使用したシステムのチューニング</title>
+  <para>
+   パッケージ<systemitem>sapconf</systemitem>は、SUSE Linux Enterprise ServerおよびSUSE Linux Enterprise Server for SAP Applicationsで使用できます。これは、次のタイプのSAPアプリケーション(SAP NetWeaver、SAP HANA、およびSAP HANAベースのアプリケーション)に推奨されるパラメータを設定します
+  </para>
+
+  <variablelist>
+   <title>SUSE® Linux Enterprise Server 12の<literal>sapconf</literal>5の概要</title>
+   <varlistentry>
+    <term><literal>sapconf</literal>5 (<systemitem class="daemon">tuned</systemitem>なし)</term>
+    <listitem>
+     <itemizedlist>
+      <listitem>
+       <para><systemitem>sapconf-netweaver</systemitem> (<systemitem class="daemon">tuned</systemitem>プロファイルの代替としての<literal>sapconf</literal>プロファイル)</para>
+      </listitem>
+      <listitem>
+       <para><systemitem>sapconf-hana</systemitem> (<systemitem class="daemon">tuned</systemitem>プロファイルの代替としての<literal>sapconf</literal>プロファイル)</para>
+      </listitem>
+      <listitem>
+       <para><systemitem>sapconf-bobj</systemitem> (<systemitem class="daemon">tuned</systemitem>プロファイルの代替としての<literal>sapconf</literal>プロファイル)</para>
+      </listitem>
+      <listitem>
+       <para><systemitem>sapconf-ase</systemitem> (<systemitem class="daemon">tuned</systemitem>プロファイルの代替としての<literal>sapconf</literal>プロファイル)</para>
+      </listitem>
+     </itemizedlist>
+    </listitem>
+   </varlistentry>
+  </variablelist>
+
+  <variablelist>
+   <title>SUSE® Linux Enterprise Server 15の<literal>sapconf</literal>5の概要</title>
+   <varlistentry>
+    <term><literal>sapconf</literal>5 (<systemitem class="daemon">tuned</systemitem>なし)</term>
+    <listitem>
+     <para>現在ではプロファイルなし</para>
+    </listitem>
+   </varlistentry>
+  </variablelist>
+
+  <para>
+   以前、システムチューニングに変更を行った場合は、これらの変更が<literal>sapconf</literal>によって上書きされる可能性があることに注意してください。
+  </para>
+  <para>
+   <literal>sapconf</literal> 5には、チューニングを適用し、関連するサービスが確実に実行されるようにする<systemitem class="daemon">systemd</systemitem>サービスが付属しています。
+  </para>
+  <para>
+   <literal>sapconf</literal>を使用するには、パッケージ <package>sapconf</package> がシステムにインストールされていることを確認します。
+  </para>
+
+  <note>
+   <title>SUSE Linux Enterprise ServerおよびSUSE Linux Enterprise Server for SAP Applications 15 SP2にはプロファイルはありません</title>
+   <para>
+    SUSE Linux Enterprise ServerおよびSUSE Linux Enterprise Server for SAP Applications 15では、<literal>sapconf</literal>によるプロファイルのサポートは終了しています。
+   </para>
+  </note>
+
+  <sect2 xml:id="sec-sapconf-5-enable">
+   <title><literal>sapconf</literal>の有効化/無効化、およびそのステータスの表示</title>
+   <para>
+    <literal>sapconf</literal>のインストール後に、<literal>sapconf</literal>サービスが有効になります。
+   </para>
+   <para>
+    <literal>sapconf</literal>のステータスは、以下に記載される方法で検査または変更できます。
+   </para>
+   <itemizedlist>
+    <listitem>
+     <para>
+      サービス<systemitem class="daemon">sapconf</systemitem>のステータスを確認するには:
+     </para>
+     <screen><prompt role="root">root # </prompt><command>systemctl status sapconf</command></screen>
+     <para>
+      サービスは「<emphasis>アクティブ(終了済み)</emphasis>」と表示される必要があります。
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      サービス<systemitem class="daemon">sapconf</systemitem>を開始するには:
+     </para>
+     <screen><prompt role="root">root # </prompt><command>systemctl start sapconf</command></screen>
+    </listitem>
+    <listitem>
+     <para>
+      <systemitem class="daemon">sapconf</systemitem>が無効な場合は、次のコマンドを使用して有効にし、起動します。
+     </para>
+     <screen><prompt role="root">root # </prompt><command>systemctl enable --now sapconf</command></screen>
+    </listitem>
+    <listitem>
+     <para>
+      サービス<systemitem class="daemon">sapconf</systemitem>を停止するには:
+     </para>
+     <screen><prompt role="root">root # </prompt><command>systemctl stop sapconf</command></screen>
+     <para>
+      このコマンドは、最適化の大部分を直ちに無効にします。このルールの唯一の例外は、有効/無効にするためにシステムを再起動する必要があるオプションです。
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      <systemitem class="daemon">sapconf</systemitem>を無効にするには、次のコマンドを使用します。
+     </para>
+     <screen><prompt role="root">root # </prompt><command>systemctl disable sapconf</command></screen>
+     <para>
+      <literal>sapconf</literal>が、ユーザが特定するサービスを特別に有効にしていない場合は、ほとんどのチューニングパラメータと、<literal>sapconf</literal>が使用するすべてのサービスも無効になります。
+     </para>
+    </listitem>
+   </itemizedlist>
+
+   <tip>
+    <title><literal>sapconf</literal>が依存する追加のサービス</title>
+    <para>
+     <literal>sapconf</literal>サービスに加えて、次の2つのサービスにも依存します。
+    </para>
+    <itemizedlist>
+     <listitem>
+      <para>
+       システムアクティビティに関するデータを収集する<systemitem class="daemon">sysstat</systemitem>。
+      </para>
+     </listitem>
+     <listitem>
+      <para>
+       多くのプロセッサコアが関与する設定でも固有であることが保証されている時間ベースのUUIDを生成する<systemitem class="daemon">uuidd</systemitem>。これはSAPアプリケーションに必要です。
+      </para>
+     </listitem>
+    </itemizedlist>
+   </tip>
+  </sect2>
+  <sect2 xml:id="sec-sapconf-5-configure">
+   <title><literal>sapconf</literal>5の設定</title>
+   <para>
+    一般に、<literal>sapconf</literal>のデフォルト設定では、SAPによって推奨されるパラメータ値をすでに使用しています。ただし、特別なニーズがある場合は、それらに合わせてツールを設定できます。
+   </para>
+   <para>
+    <literal>sapconf</literal>のすべてのパラメータは<filename>/etc/sysconfig/sapconf</filename>ファイルにあります。このファイルは直接編集できます。このファイルのパラメータはすべて、コメントやSAP Notesの参照資料で説明されています。参照資料は、<link xlink:href="https://launchpad.support.sap.com/"/>で参照可能です。
+   </para>
+   <para>
+    <literal>sapconf</literal>がアップデートされると、このファイルからカスタマイズされたすべてのパラメータが可能な限り保持されます。ただし、パラメータは、新しい設定ファイルにクリーンな状態で転送できない場合があります。したがって、アップデート中に<filename>/etc/sysconfig/sapconf.rpmsave</filename>に移動された以前のカスタム設定と、<filename>/etc/sysconfig/sapconf</filename>にある新しいバージョンとの違いを、アップデート後に確認することをお勧めします。
+   </para>
+   <para>
+    このファイルに関連するログメッセージは、<filename>/var/log/sapconf.log</filename>に書き込まれます。
+   </para>
+   <para>
+    これらのファイルのいずれかを編集すると、一部の値が行の先頭に<literal>#</literal>文字でコメント化されていることがわかります。これは、パラメータがチューニングに関連している間は、適切なデフォルトがないことを意味します。
+   </para>
+   <para>
+    これとは逆に、行の先頭に<literal>#</literal>文字を追加して、特定のパラメータにコメントを付けることができます。ただし、<literal>sapconf</literal>が適切にプロファイルを適用しなくなる可能性があるため、コメント付けは避けた方が無難です。
+   </para>
+   <para>
+    編集した設定を適用するには、<literal>sapconf</literal>を再起動します。
+   </para>
+   <screen><prompt role="root">root # </prompt><command>systemctl restart sapconf</command></screen>
+   <para>
+    特定のパラメータ値が正しく適用されているかどうかの確認手段は、パラメータごとに異なります。したがって、次の例は一例にすぎません。
+   </para>
+   <example xml:id="ex-sapconf-change-parameter-5">
+    <title>パラメータの確認</title>
+    <para>
+     <literal>TCP_SLOW_START</literal>の設定が適用されていることを確認するには、次の手順を実行します。
+    </para>
+    <itemizedlist>
+     <listitem>
+      <para>
+       <literal>sapconf</literal>のログファイルを表示して、値が適用されているかどうかを確認します。<filename>/var/log/sapconf.log</filename>内で、次のテキストを含む行を確認します。
+      </para>
+      <screen>Change net.ipv4.tcp_slow_start_after_idle from 1 to 0</screen>
+      <para>
+       または、<literal>sapconf</literal>が開始される前に、パラメータがすでに正しく設定されている可能性があります。この場合、<literal>sapconf</literal>はその値を変更しません。
+      </para>
+      <screen>Leaving net.ipv4.tcp_slow_start_after_idle unchanged at 1</screen>
+     </listitem>
+     <listitem>
+      <para>
+       <literal>TCP_SLOW_START</literal>の背後にある基本のオプションは<filename>/proc/sys/net.ipv4.tcp_slow_start_after_idle</filename>で手動で設定できます。その実際の現在値を確認するには、次のコマンドを使用します。
+      </para>
+      <screen><prompt role="root">root # </prompt><command>sysctl net.ipv4.tcp_slow_start_after_idle</command></screen>
+     </listitem>
+    </itemizedlist>
+   </example>
+  </sect2>
+  <sect2 xml:id="sec-sapconf-5-remove">
+   <title><literal>sapconf</literal>の削除</title>
+   <para>
+    システムから<literal>sapconf</literal>を削除するには、次のコマンドを使用してそのパッケージをアンインストールします。
+   </para>
+   <screen><prompt role="root">root # </prompt><command>zypper rm sapconf</command></screen>
+   <para>
+    これを実行する際には、<literal>sapconf</literal>の依存関係はインストールされたままであることに注意してください。ただし、サービス<systemitem class="daemon">sysstat</systemitem>は無効な状態になります。サービスをまだ使用している場合は、再度有効にしてください。
+   </para>
+  </sect2>
+  <sect2 xml:id="sec-sapconf-5-more">
+   <title>詳細情報</title>
+   <para>
+    次のマニュアルページには、<literal>sapconf</literal>に関する追加情報が記載されています。
+   </para>
+   <itemizedlist>
+    <listitem>
+     <para>
+      <literal>sapconf</literal>で設定されたすべてのチューニングパラメータの詳細な説明: <command>man 5 sapconf</command>
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      <literal>sapconf</literal>プロファイルの設定およびカスタマイズに関する情報: <command>man 7 sapconf</command>
+     </para>
+    </listitem>
+   </itemizedlist>
+   <para>
+    <link xlink:href="https://www.suse.com/c/a-new-sapconf-is-available/"/>にある<literal>sapconf</literal>の更新バージョンを詳しく説明するブログシリーズも参照してください。
+   </para>
+  </sect2>
+  <sect2 xml:id="sec-sapconf-5-tuned">
+   <title><literal>sapconf</literal>と<command>tuned</command>の併用</title>
+   <para>
+    バージョン5では、<literal>sapconf</literal>は、<systemitem class="daemon">tuned</systemitem>に依存しなくなりました。これは、両方のツールを個別に使用できることを意味します。<command>tuned</command>サービスが開始される場合、<literal>sapconf</literal>はそのログに警告を出力します。
+   </para>
+   <note>
+    <title>重要: <command>tuned</command>と<literal>sapconf</literal>の併用</title>
+    <para>
+     <command>tuned</command>と<literal>sapconf</literal>を同時に使用する場合は、ボットツールが同じシステムパラメータを設定しないように十分注意してください。
+    </para>
+   </note>
+  </sect2>
+ </sect1>
+
+ <sect1 xml:id="sec-saptune">
+  <title><command>saptune</command>を使用したシステムのチューニング</title>
+  <para>
+   <command>saptune</command>を使用すると、SAP NetWeaver、SAP HANA/SAP BusinessObjects、およびSAP S/4HANAアプリケーション用にシステムをチューニングできます。この方法は、システムチューニングサービス<systemitem class="daemon">tuned</systemitem>に依存します。
+  </para>
+  <para>
+   <command>saptune</command>を使用するには、パッケージ <package>tuned</package> および
+   <package>saptune</package> がシステムにインストールされていることを確認します。
+  </para>
+  <note>
+   <title><systemitem class="daemon">tuned</systemitem>デーモン</title>
+   <para>
+    <literal>sapconf</literal> (バージョン4のみ)および<command>saptune</command>の両方がデーモン<systemitem class="daemon">tuned</systemitem>に依存していますが、さまざまな(非常に類似した)チューニングプロファイルを使用します。したがって、<literal>sapconf</literal>または<command>saptune</command>のいずれかのみを一度に有効にできます。
+   </para>
+  </note>
+
+  <sect2 xml:id="sec-saptune-enable">
+  <title>SAPアプリケーションのチューニングのための<command>saptune</command>の有効化</title>
+  <procedure xml:id="pro-tune">
+   <step>
+    <para>
+     システムをチューニングするには、まず、チューニングソリューションを見つけます。適切なソリューションを見つけるには、次のコマンドを使用します。
+    </para>
+    <screen><prompt>tux &gt; </prompt><command>saptune solution list</command></screen>
+    <para>
+     <command>saptune</command>では、次のチューニングソリューション(SAP Notesのグループ)を認識します。
+    </para>
+    <itemizedlist>
+     <listitem>
+      <formalpara>
+       <title><literal>BOBJ</literal></title>
+       <para>
+        SAP BusinessObjectsを実行するためのソリューション。
+       </para>
+      </formalpara>
+     </listitem>
+     <listitem>
+      <formalpara>
+       <title><literal>HANA</literal></title>
+       <para>
+        SAP HANAデータベースを実行するためのソリューション。
+       </para>
+      </formalpara>
+     </listitem>
+     <listitem>
+      <formalpara>
+       <title><literal>MAXDB</literal></title>
+       <para>
+        SAP MaxDBデータベースを実行するためのソリューション。
+       </para>
+      </formalpara>
+     </listitem>
+     <listitem>
+      <formalpara>
+       <title><literal>NETWEAVER</literal></title>
+       <para>
+        SAP NetWeaverアプリケーションサーバを実行するためのソリューション。
+       </para>
+      </formalpara>
+     </listitem>
+     <listitem>
+      <formalpara>
+       <title><literal>S4HANA-APPSERVER</literal></title>
+       <para> SAP S/4HANAアプリケーションサーバを実行するためのソリューション(SAP NetWeaverソリューションと同じ)。 </para>
+      </formalpara>
+     </listitem>
+     <listitem>
+      <formalpara>
+       <title><literal>S4HANA-APP+DB</literal></title>
+       <para>SAP S/4HANAアプリケーションサーバとSAP HANAの両方を同じホスト上で実行するためのソリューション(SAP NetWeaver + SAP HANAソリューションと同じ)。 </para>
+      </formalpara>
+     </listitem>
+     <listitem>
+      <formalpara>
+       <title><literal>S4HANA-DBSERVER</literal></title>
+       <para>
+        SAP S/4HANAインストールのSAP HANAデータベースを実行するためのソリューション(SAP HANAソリューションと同じ)。
+       </para>
+      </formalpara>
+     </listitem>
+     <listitem>
+      <formalpara>
+       <title><literal>SAP-ASE</literal></title>
+       <para>
+        SAP Adaptive Server Enterpriseデータベースを実行するためのソリューション。
+       </para>
+      </formalpara>
+     </listitem>
+    </itemizedlist>
+    <para>
+     または、特定のSAP Notesからの推奨事項に従って、コンピュータをチューニングできます。チューニングできるNotesのリストは次のコマンドを介して入手できます。。
+    </para>
+    <screen><prompt role="root">root # </prompt><command>saptune note list</command></screen>
+   </step>
+   <step>
+    <itemizedlist>
+     <listitem>
+      <para>
+       事前設定されたソリューションを使用して<command>saptune</command>を設定するには、次のコマンドを使用します。
+      </para>
+      <screen><prompt role="root">root # </prompt><command>saptune solution apply <replaceable>SOLUTION</replaceable></command></screen>
+     </listitem>
+     <listitem>
+      <para>
+       特定のSAPノートの推奨事項に合わせて<command>saptune</command>を設定するには、次のコマンドを使用します。
+      </para>
+      <screen><prompt role="root">root # </prompt><command>saptune note apply <replaceable>NOTE</replaceable></command></screen>
+     </listitem>
+    </itemizedlist>
+    <note>
+     <title>最適化の組み合わせ</title>
+     <para>
+      ソリューションとノートを組み合わせることができます。ただし、一度にアクティブにできるのは1つのソリューションのみです。まれに、ノートでオプションまたはパラメータの競合が発生する可能性があります。競合を避けるには、最後のノートが常に以前のノートの競合するオプションまたはパラメータを上書きすることに注意してください。
+     </para>
+    </note>
+   </step>
+   <step>
+    <para>
+     <command>saptune</command>を開始し、ブート時に有効にするには、次のコマンドを実行してください。
+    </para>
+    <screen><prompt role="root">root # </prompt><command>saptune daemon start</command></screen>
+   </step>
+  </procedure>
+  <para>
+   バックグラウンドで、<command>saptune</command>は、選択した<quote>ソリューション</quote>および<quote>ノート</quote>に従って動的にカスタマイズされる<command>saptune</command>とも呼ばれる<systemitem class="daemon">tuned</systemitem>プロファイルを適用します。<command>tuned-adm list</command>を使用して、このプロファイルを表示することもできます。
+  </para>
+  </sect2>
+
+  <sect2 xml:id="sec-saptune-customize">
+   <title>SAPノートのカスタマイズ</title>
+   <para>
+    すべてのSAPノートは次のコマンドを使用して自由に設定できます。<remark>"customise" is (sadly) correct. - sknorr, 2019-07-19</remark>
+   </para>
+   <screen><prompt role="root">root # </prompt><command>saptune note customise</command></screen>
+   <para>
+    このコマンドには、値の変更やパラメータの無効化が含まれています。
+   </para>
+  </sect2>
+
+  <sect2 xml:id="sec-saptune-create">
+   <title>新しいSAPノートの作成</title>
+   <para>
+     新しいSAPノートを次のコマンドを使用して作成できます。
+   </para>
+   <screen><prompt role="root">root # </prompt><command>saptune note create</command></screen>
+   <para><command>saptune</command>のすべての機能が利用できます。</para>
+  </sect2>
+
+  <sect2 xml:id="sec-saptune-delete">
+   <title>SAPノートの削除</title>
+   <para>
+    次のコマンドを使用すると、確認後に対応する上書きを含む、作成済みノートを削除できます。
+   </para>
+   <screen><prompt role="root">root # </prompt><command>saptune note delete</command></screen>
+   <para>
+    ノートはその時点では適用されない場合があります。<command>saptune</command>で提供されたSAPノートは削除できません。代わりに、利用可能な場合は、上書きファイルが削除されます。
+   </para>
+  </sect2>
+
+  <sect2 xml:id="sec-saptune-rename">
+   <title>SAPノートの名前の変更</title>
+   <para>
+    次のコマンドを使用すると作成済みノートの名前が変更できます。これには確認後の、対応する上書きが含まれます。
+   </para>
+   <screen><prompt role="root">root # </prompt><command>saptune note rename</command></screen>
+   <para>
+    ノートはその時点では適用されない場合があります。<command>saptune</command>で提供されたSAPノートの名前は変更できません。
+   </para>
+  </sect2>
+
+  <sect2 xml:id="sec-saptune-show">
+   <title>SAPノートの設定の表示</title>
+   <para>
+    ノート提供時の設定は、次のコマンドで一覧表示できます。
+   </para>
+   <screen><prompt role="root">root # </prompt><command>saptune note show</command></screen>
+  </sect2>
+
+  <sect2 xml:id="sec-saptune-verify">
+   <title>SAPノートまたはSAPソリューションの確認</title>
+   <para>
+    コマンド<command>saptune note verify <replaceable>NOTE</replaceable></command>および<command>saptune solution verify <replaceable>SOLUTION</replaceable></command>は、アクティブまたは要求されたノートごとに次のデータを一覧表示します。
+   </para>
+   <itemizedlist>
+    <listitem>
+     <para>
+      パラメータ名
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      予想される値(デフォルト)
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      設定された上書き(<command>saptune customise</command>を使用して作成)
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      現在のシステム値
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      現在の状態がSAP推奨事項に従っているかどうか
+     </para>
+    </listitem>
+   </itemizedlist>
+  </sect2>
+
+  <sect2 xml:id="sec-saptune-simulate">
+   <title>SAPノートまたはSAPソリューションのアプリケーションのシミュレート</title>
+   <para>
+    <literal>note</literal>の各パラメータを表示するには、次のコマンドを使用します。
+   </para>
+   <screen><prompt role="root">root # </prompt><command>saptune note simulate</command></screen>
+   <para>
+    <literal>solution</literal>の各パラメータを表示するには、次のコマンドを使用します。
+   </para>
+   <screen><prompt role="root">root # </prompt><command>saptune solution simulate</command></screen>
+   <para>
+    現在のシステム値と予想される値(デフォルトおよび上書き)を一覧表示します。
+   </para>
+  </sect2>
+
+  <sect2 xml:id="sec-saptune-disable">
+   <title><command>saptune</command>の無効化</title>
+   <para>
+    <command>saptune</command>を無効にして、<systemitem class="daemon">tuned</systemitem>を停止および無効にするには、次のコマンドを実行します。
+   </para>
+   <screen><prompt role="root">root # </prompt><command>saptune daemon stop</command></screen>
+  </sect2>
+
+  <sect2 xml:id="sec-saptune-more">
+   <title>詳細情報</title>
+  <para>
+   次のマニュアルページを参照してください。
+  </para>
+  <itemizedlist>
+   <listitem>
+    <para>
+     <command>man 8 saptune</command>
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     <command>man 8 saptune_v1</command>
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     <command>man 8 saptune_v2</command>
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     <command>man 8 saptune-migrate</command>
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     <command>man 8 saptune-note</command>
+    </para>
+   </listitem>
+  </itemizedlist>
+  <para>
+   プロジェクトホームページ(<link xlink:href="https://github.com/SUSE/saptune/"/>)も参照してください。
+  </para>
+  </sect2>
+ </sect1>
+
+ <sect1 xml:id="sec-sysctl">
+  <title><command>sysctl</command>を使用したカーネルパラメータの手動チューニング</title>
+  <para>
+   <literal>sapconf</literal>/<command>saptune</command>を使用してカーネルパラメータをチューニングする際は、<command>sysctl</command>を使用して、カーネルパラメータを手動調整することもできます。また、sapconf/saptuneを使用したカーネルパラメータのチューニングの代わりに、sysctlを使用して、カーネルパラメータを手動調整することもできます。ただし、<command>sysctl</command>を使用したこのような変更は、デフォルトでは再起動後も持続しません。再起動後も持続するようにするには、<command>sysctl</command>によって読み込まれた設定ファイルのいずれかにそれらを追加します。
+  </para>
+  <tip>
+   <title><command>sysctl</command>と<command>saptune</command></title>
+   <para>
+    SAPシステムに<command>sysctl</command>パラメータを設定する場合は、このような設定を管理する中心的なツールとして<command>saptune</command>を使用することを検討してください。
+   </para>
+  </tip>
+  <para>
+   
+   <command>sysctl</command>に関する詳細については、マニュアルページの<literal>sysctl(8)</literal>、<literal>sysctl.conf(5)</literal>、および<literal>sysctl.d(5)</literal>を参照してください。 </para>
+ </sect1>
+
+ <xi:include href="s4s_tune_wmp.xml"/>
+
+</chapter>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<preface xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" xml:base="s4s_overview.xml" version="5.0" xml:id="pre-s4s">
+ <title>本書について</title>
+ <info>
+  <dm:docmanager xmlns:dm="urn:x-suse:ns:docmanager">
+   <dm:translation>yes</dm:translation>
+  </dm:docmanager>
+ </info>
+
+
+ <para>
+  SUSE® Linux Enterprise Server for SAP Applicationsは、SAPのソフトウェア開発のための参照プラットフォームです。SAPアプリケーション用に最適化されています。<phrase condition="noquick">このドキュメントでは、SUSE Linux Enterprise Server for SAP Applicationsのインストールとカスタマイズについて詳細に説明します。</phrase>
+  
+ </para>
+ <para>
+  SUSE Linux Enterprise High Availability Extensionは、SUSE Linux Enterprise Server for SAP Applicationsの一部でもあります。
+ </para>
+
+ <sect1 condition="noquick">
+  <title>概要</title>
+
+  <para>
+   SUSE Linux Enterprise Server for SAP Applicationsガイドは、次の章に分かれています。
+  </para>
+
+  <variablelist>
+   <varlistentry>
+    <term><xref linkend="cha-about" xrefstyle="select:title,nopage"/>
+    </term>
+    <listitem>
+     <para>
+      SUSE Linux Enterprise Server for SAP Applicationsの概要。
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term><xref linkend="cha-plan" xrefstyle="select:title,nopage"/>
+    </term>
+    <listitem>
+     <para>
+      ハードウェア要件、インストールワークフロー、パーティショニング、他のインストール計画に関する情報。
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term><xref linkend="cha-install" xrefstyle="select:title,nopage"/>
+    </term>
+    <listitem>
+     <para>
+      SUSE Linux Enterprise Server for SAP Applicationsの基盤となるSUSE Linux Enterprise Serverオペレーティングシステムのインストール。
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term><xref linkend="cha-install-sap" xrefstyle="select:title,nopage"/>
+    </term>
+    <listitem>
+     <para>
+      SUSE Linux Enterprise Server for SAP ApplicationsへのSAPアプリケーションのインストール。オペレーティングシステムのインストール直後、または実行中のシステムのいずれか。
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term><xref linkend="cha-serve-mediaset" xrefstyle="select:title,nopage"/>
+    </term>
+    <listitem>
+     <para>
+      組織内で使用されるすべてのインストールメディアのサーバの設定。
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term><xref linkend="sec-component" xrefstyle="select:title,nopage"/>
+    </term>
+    <listitem>
+     <para>
+      SUSE Linux Enterprise Server for SAP Applicationsを設定するためのツールの説明。
+     </para>
+    </listitem>
+   </varlistentry>
+  </variablelist>
+ </sect1>
+
+ <xi:include href="common_intro_available_doc.xml"/>
+ <xi:include href="common_intro_feedback.xml"/>
+ <xi:include href="common_intro_convention.xml"/>
+</preface>

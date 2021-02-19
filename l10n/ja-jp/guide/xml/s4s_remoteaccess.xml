@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" xml:base="s4s_remoteaccess.xml" version="5.0" xml:id="cha-configure-rdp">
+  <title>RDPを介した接続</title>
+ <info>
+  <dm:docmanager xmlns:dm="urn:x-suse:ns:docmanager">
+   <dm:translation>yes</dm:translation>
+  </dm:docmanager>
+ </info>
+  <para>
+   RDPオプションを有効にしてSLES-SAPをインストールした場合、またはKIWIイメージからインストールした場合、RDPはサービス<systemitem class="daemon">xrdp</systemitem>を介してマシンで有効になります。または、このセクションの終わりで説明するように、RDPを後で有効にすることもできます。
+  </para>
+  <para>
+   次のような、RDPをサポートする任意のソフトウェアを使用して接続できます。
+  </para>
+  <itemizedlist>
+   <listitem>
+    <formalpara>
+     <title>Linux:</title>
+     <para>
+      Vinagre (SUSE Linux Enterprise Desktop/SLE-WEおよびopenSUSEで利用可能)またはRemmina (openSUSEで利用可能)
+     </para>
+    </formalpara>
+   </listitem>
+   <listitem>
+    <formalpara>
+     <title>Windows:</title>
+     <para>
+      リモートデスクトップ接続
+     </para>
+    </formalpara>
+   </listitem>
+  </itemizedlist>
+  <important>
+   <title>接続パラメータ</title>
+   <para>
+    次のパラメータで接続を設定してください。
+   </para>
+   <itemizedlist>
+    <listitem>
+     <formalpara>
+      <title>ポート:</title>
+      <para>
+       3389
+      </para>
+     </formalpara>
+    </listitem>
+    <listitem>
+     <formalpara>
+      <title>色の深さ:</title>
+      <para>
+       16ビットまたは24ビットのみ
+      </para>
+     </formalpara>
+    </listitem>
+   </itemizedlist>
+  </important>
+
+  <procedure xml:id="pro-enable-rdp">
+   <title>RDPの設定</title>
+   
+   <para>
+    インストール中にRDP接続を設定していない場合は、次の手順を使用して後で実行することもできます。
+   </para>
+   <step>
+    <para>
+     まず、ファイアウォールの例外を作成します。RDP用に開く必要のあるポートを設定するファイルを作成して開始します。
+    </para>
+    <para>
+     <systemitem class="username">root</systemitem>として、<filename>xrdp</filename>という名前、および次のコンテンツを含む新しいファイルを<filename>/etc/sysconfig/SuSEfirewall2.d/services/</filename>の下に作成します。
+    </para>
+    <screen>
+## Name: Remote Desktop Protocol
+TCP="3389"
+    </screen>
+   </step>
+   <step>
+    <para>
+     <filename>/etc/sysconfig/SuSEfirewall2</filename>ファイルを開き、<option>FW_CONFIGURATIONS_EXT</option>、​<option>FW_CONFIGURATIONS_DMZ</option>、および<option>FW_CONFIGURATIONS_INT</option>の​設定行を<literal>xrdp</literal>を含めるように変更します。他のサービスが有効になっていない場合、各行は次のようになります。
+    </para>
+    <screen>
+FW_CONFIGURATIONS_EXT="xrdp"
+FW_CONFIGURATIONS_DMZ="xrdp"
+FW_CONFIGURATIONS_INT="xrdp"
+    </screen>
+    <para>
+     他のサービスがある場合は、スペース文字を使用して引用符を区切ります。
+    </para>
+   </step>
+   <step>
+    <para>
+     次に、<systemitem class="daemon">xrdp</systemitem>自体を設定します。
+    </para>
+    <para>
+     パッケージ <package>xrdp</package> がインストールされていない場合、インストールします。
+    </para>
+    <screen>
+<prompt role="root">root # </prompt><command>zypper install xrdp</command>
+    </screen>
+   </step>
+   <step>
+    <para>
+     ファイアウォールを再起動します。
+    </para>
+    <screen>
+<prompt role="root">root # </prompt><command>systemctl restart SuSEfirewall2</command>
+    </screen>
+   </step>
+   <step>
+    <para>
+     サービスを有効にして起動します。
+    </para>
+    <screen>
+<prompt role="root">root # </prompt><command>systemctl enable xrdp</command>
+<prompt role="root">root # </prompt><command>systemctl start xrdp</command>
+    </screen>
+    <para>
+     これでマシンに接続できるようになりました。
+    </para>
+   </step>
+  </procedure>
+ </chapter>
