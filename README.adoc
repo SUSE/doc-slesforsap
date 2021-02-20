@@ -51,8 +51,7 @@ git pull -r
 
 Thank you for contributing to this repo. Please adhere to the following guidelines when creating a pull request:
 
-. Make your pull request against the _master_ branch (not `develop`) if you are contributing to the most recent release
-(currently SLES-SAP 15 SP1). This branch is is protected.
+. Make your pull request against the __main__ branch if you are contributing to the most recent release. This branch is is protected.
 
 . If you are contributing to a previous release, please see _maintenance/_<RELEASENUMBER>_. These branches are also protected.
 
