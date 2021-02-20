@@ -98,5 +98,5 @@ either DAPS directly or use daps2docker. Both tools only work on Linux.
 ** `$ daps -d DC-<YOUR_BOOK> validate`: Make sure what you have written is
     well-formed XML and valid DocBook 5
 ** `$ daps -d DC-<YOUR_BOOK> pdf`: Build a PDF document
-** `$ daps -d DC-<YOUR_BOOK> html`: Build muliti-page HTML document
+** `$ daps -d DC-<YOUR_BOOK> html`: Build multi-page HTML document
 ** Learn more at https://opensuse.github.io/daps
