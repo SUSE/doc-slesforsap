@@ -1,32 +1,24 @@
-sudo: required
 language: bash
+dist: focal
 services:
   - docker
 
 env:
   global:
     - secure: Qxk/weEQa0Beo443NkmFWn1O1om+oGYxvpsYIfMVr3hg1ebYYgmRa87+bOOUpBocuNDdaowqVjCINpL5kGst8ZXH+yPLt6Ny1cWBCy2K3Q1uJLdZdbMwXtIjniXieMsVYvkezdkt7vFhJOnHbF+738eC7JlOvimyh9+wKJSof8BEZcm53TY9tIjpXPeCyCcL/OMe7680O/txNPTs1g+hV4RxK0LkmWH7Yq6wiXxWNK6id+aDvZetRsRWk5p27LNG4QQtXuO/RZqoezpyIxokvKFLD26m3UXzxaVO3qW/PJ6r6tPYaDTQoy6aKbojUQWlqHZ5To1HDDoR6r8JaJJ8kfuEfI9xUL3ehvmwYkWbZ9YTmkcV8F3oZB2c42xSoRFYWzLCLNYUsWJ/p+Ycuh5Dnfqs6ZNb7VBO3WUKI1VfMiyOIyzfO4RAFFBTznduHb3h9lP9/T/lC5C77D7uhNV24uYHvQhfA2Gzty+lDwo6q6+qTJtMXpWYqW6es7VpoxSkE1/ZC/JFkLNercffwbWALP5F+GqoVNQRTnNJxaFl8qI4Ty97pKELgND1fy8bpDJ8D49doZD1qYziaUteM0Tg83cypp0ms8yEtCFCgLaZdjcH7+sNM7b+G116bmBsHkCeL5TSjoaLDIcXw762ZVdMy81lAs8h9k5tWO9DC2c/v0o=
-    # If you want to see a list of installed packages in the doc-ci docker container, set to TRUE
-    - LIST_PACKAGES=0
 
 before_install:
   - echo "TRAVIS_PULL_REQUEST=$TRAVIS_PULL_REQUEST" >> env.list
   - echo "TRAVIS_BRANCH=$TRAVIS_BRANCH" >> env.list
-  - echo "SOURCE_BRANCH=$SOURCE_BRANCH" >> env.list
   - echo "TRAVIS_REPO_SLUG=$TRAVIS_REPO_SLUG" >> env.list
-  - echo "LIST_PACKAGES=$LIST_PACKAGES" >> env.list
-  - echo "PUBLISH_PRODUCTS=\"$PUBLISH_PRODUCTS\"" >> env.list
   - echo "ENCRYPTED_PRIVKEY_SECRET=$ENCRYPTED_PRIVKEY_SECRET" >> env.list
   - echo "TRAVIS_COMMIT=$TRAVIS_COMMIT" >> env.list
-  - wget https://raw.githubusercontent.com/openSUSE/doc-ci/develop/travis/travis.sh
-  - ls
-  - echo "Building docker image"
-  - docker build -t sle-doc-image .
+  - wget https://raw.githubusercontent.com/openSUSE/doc-ci/master/travis/travis.sh
 
 script:
-  - docker run --rm -it sle-doc-image /bin/bash -c '/bin/bash travis.sh'
+  - docker run --rm -it --volume ${PWD}:/usr/src/app --workdir /usr/src/app susedoc/ci:latest /bin/bash -c '/bin/bash travis.sh'
 
 notifications:
   email:
-    on_success: never
+    on_success: change
     on_failure: always
