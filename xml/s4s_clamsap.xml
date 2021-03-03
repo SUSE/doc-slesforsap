@@ -208,7 +208,7 @@ Active: active (running) since Tue 2017-04-11 10:33:03 UTC; 24h ago
      </listitem>
      <listitem>
       <para>
-       <guimenu>Adapter Path</guimenu>: <filename>libclamsap.so</filename>
+       <guimenu>Adapter Path</guimenu>: <filename>libclamdsap.so</filename>
       </para>
      </listitem>
     </itemizedlist>
