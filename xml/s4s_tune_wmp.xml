@@ -231,7 +231,7 @@ chmod +s /usr/lib/sapwmp/sapwmp-capture</screen>
                     <para>
                         The <package>sapwmp</package> package includes the systemd configuration
                         <systemitem>SAP.slice</systemitem> which creates the cgroup of the same name
-                        for the SAP instances. <varname>MemoryLow</varname> is the systemd aquivalent
+                        for the SAP instances. <varname>MemoryLow</varname> is the systemd equivalent
                         of the cgroup parameter
                         <varname>memory.low</varname> mentioned in the introduction.
                         The value for <varname>MemoryLow</varname> depends on the type of the
@@ -649,7 +649,7 @@ ha0adm    3327 0::/SAP.slice/wmp-ra42489517eb846c282c57681e627a496.scope    saps
                         starting!</para>
                 </important>
                 <important>
-                    <title>About ediging profiles directly</title>
+                    <title>About editing profiles directly</title>
                     <para>Edit the instance profiles directly <emphasis
                         role="strong">only</emphasis> if you do not have
                         imported the profiles into the database to manage them

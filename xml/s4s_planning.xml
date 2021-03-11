@@ -272,7 +272,7 @@
       <listitem>
        <para>
         Network configuration parameters, such as host name, domain, IP address,
-        subnet mask, domain searchlist (DNS), IP for name server, IP for gateway
+        subnet mask, domain search list (DNS), IP for name server, IP for gateway
        </para>
       </listitem>
       <listitem>
