@@ -689,7 +689,7 @@
    </step>
    <step>
     <para>
-     Import, validate, and install the cluster unattendedly,
+     Import, validate, and install the cluster unattended,
      based on the provided configuration file:
     </para>
     <screen>&prompt.root;<command>yast2 sap_ha readconfig <replaceable>CONFIGURATION_FILE_PATH</replaceable> unattended</command></screen>
