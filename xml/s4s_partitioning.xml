@@ -48,9 +48,9 @@
    <listitem>
     <para>
      <filename>/dev/system/swap</filename>: by default 2 GB, avoid setting a
-     smaller size.  See also <citetitle>SAP Note 1984787: SUSE Linux Enterprise
-     Server 12: Installation notes</citetitle>
-     (<link xlink:href="&sapnoteaddress;1984787"/>).
+     smaller size.  See also <citetitle>SAP Note 2578899: SUSE Linux Enterprise
+     Server 15: Installation notes</citetitle>
+     (<link xlink:href="&sapnoteaddress;2578899"/>).
     </para>
    </listitem>
   </itemizedlist>
