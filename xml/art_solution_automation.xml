@@ -410,7 +410,7 @@ https://confluence.suse.com/x/8IEnGw
       </listitem>
       <listitem>
         <para>
-          <link xlink:href="https://www.suse.com/media/white-paper/sap_hana_sr_cost_optimized_scenario_12_sp1.pdf"
+          <link xlink:href="https://documentation.suse.com/sbp/all/pdf/SLES4SAP-hana-sr-guide-CostOpt-12_color_en.pdf"
             >Setting up a SAP HANA SR Cost Optimized Infrastructure (SLES-SAP 12 SP1)</link>
         </para>
       </listitem>
@@ -487,11 +487,11 @@ https://confluence.suse.com/x/8IEnGw
           >&netweaver; &ha; Cluster 7.40 for the AWS Cloud - Setup Guide (Code 12)</link></para>
       </listitem>
       <listitem>
-        <para><link xlink:href="https://www.suse.com/media/white-paper/sap_netweaver_availability_cluster_740_setup_guide.pdf"
+        <para><link xlink:href="https://documentation.suse.com/sbp/all/pdf/SAP_NW740_SLE12_SetupGuide_color_en.pdf"
           >&netweaver; &ha; Cluster 7.40 - Setup Guide (Code 12)</link></para>
       </listitem>
       <listitem>
-        <para><link xlink:href="https://www.suse.com/media/white-paper/sap_netweaver_availability_cluster_740_setup_guide.pdf"
+        <para><link xlink:href="https://documentation.suse.com/sbp/all/pdf/SAP_NW740_SLE12_SetupGuide_color_en.pdf"
           >Simple Stack - &netweaver; &ha; on &sle; 12 (SP1 or newer)</link></para>
       </listitem>
       <listitem>
@@ -569,7 +569,7 @@ https://confluence.suse.com/x/8IEnGw
           >&hana; System Replication Scale-Up - Performance Optimized Scenario (Code 12)</link></para>
       </listitem>
       <listitem>
-        <para><link xlink:href="https://www.suse.com/media/white-paper/sap_hana_sr_cost_optimized_scenario_12_sp1.pdf"
+        <para><link xlink:href="https://documentation.suse.com/sbp/all/pdf/SLES4SAP-hana-sr-guide-CostOpt-12_color_en.pdf"
           >Setting up a &hana; SR Cost Optimized Infrastructure (&slsa; for SAP 12 SP1)</link></para>
       </listitem>
       <listitem>
