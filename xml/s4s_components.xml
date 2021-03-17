@@ -467,9 +467,7 @@
    </itemizedlist>
    <para>
     For more information, see the man page of the respective tool,
-    included with the package <package>ClusterTools2</package>. Also see the
-    project home page at
-    <link xlink:href="https://github.com/SUSE/cluster-tools.git"/>.
+    included with the package <package>ClusterTools2</package>.
    </para>
   </sect3>
  </sect2>
