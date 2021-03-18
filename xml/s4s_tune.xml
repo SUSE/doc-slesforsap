@@ -819,27 +819,66 @@
    <title>Deleting an &sap; Note</title>
    <para>
     This command allows to delete a created note, including the corresponding override
-    after confirmation:
+    file if available:
    </para>
-   <screen>&prompt.root;<command>saptune note delete</command></screen>
+   <screen>&prompt.root;<command>saptune note delete test</command>
+Note to delete is a customer/vendor specific Note.
+Do you really want to delete this Note (test2)? [y/n]: y</screen>
    <para>
-    The note may not be applied at the time.
-    &sap; notes shipped by &saptune; cannot be deleted. Instead, the override
-    file is removed when available.
+    The note may not be applied at the time. Keep in mind the following points:
    </para>
+   <itemizedlist>
+    <listitem>
+     <para>
+      A confirmation is needed to finish the action.
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      Internal &sap; notes shipped by &saptune; cannot be deleted.
+      Instead, the override file is removed when available.
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      If the note is already applied, the command will be terminated with the
+      information, that the note first needs to be reverted before it can be deleted.
+     </para>
+    </listitem>
+   </itemizedlist>
   </sect2>
 
   <sect2 xml:id="sec-saptune-rename">
    <title>Renaming an &sap; Note</title>
    <para>
-    This command allows to rename a created note, including the corresponding override
-    after confirmation:
+    This command allows to rename a created note to a new name.
+    If a corresponding override file is available, this file will be renamed too:
    </para>
-   <screen>&prompt.root;<command>saptune note rename</command></screen>
+   <screen>&prompt.root;<command>saptune note rename test test2</command>
+Note to rename is a customer/vendor specific Note.
+Do you really want to rename this Note (test) to the new name 'test2'? [y/n]: y</screen>
    <para>
     The note may not be applied at the time.
-    &sap; notes shipped by &saptune; cannot be renamed.
+    Keep in mind the following points:
    </para>
+   <itemizedlist>
+    <listitem>
+     <para>
+      A confirmation is needed to finish the action.
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      Internal &sap; notes shipped by &saptune; cannot be renamed.
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      If the note is already applied, the command will be terminated with the
+      information, that the note first needs to be reverted before it can be deleted.
+     </para>
+    </listitem>
+   </itemizedlist>
   </sect2>
 
   <sect2 xml:id="sec-saptune-show">
