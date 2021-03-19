@@ -43,7 +43,7 @@
   </para>
 
   <important>
-   <title>Installing oracle databases</title>
+   <title>Installing Oracle databases</title>
    <para>
     To be able to install an Oracle database later, install
     &sles; first and then convert your installation to &sles4sap;.
@@ -309,7 +309,7 @@
     <note>
      <title>Release notes</title>
      <para>
-      From this point on, the Release Notes can be viewed from any screen during
+      From this point on, the release notes can be viewed from any screen during
       the installation process by selecting <guimenu>Release Notes</guimenu>.
      </para>
     </note>
