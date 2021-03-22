@@ -15,43 +15,77 @@
  xmlns="http://docbook.org/ns/docbook" version="5.1"
  xmlns:xi="http://www.w3.org/2001/XInclude"
  xmlns:xlink="http://www.w3.org/1999/xlink">
- <title>Available documentation and resources</title>
+ <title>Available documentation</title>
 
  <para>
   Chapters in this manual contain links to additional documentation
   resources that are either available on the system or on the Internet.
  </para>
-
- <itemizedlist>
-  <listitem condition="noquick">
-   <para>
-    For the latest updates to this guide, see
-    <link xlink:href="&dsc-sap;"/>.
-   </para>
-  </listitem>
-  <listitem condition="quick">
-   <para>
-    This is an abridged version of the <citetitle>&sles4sap; Guide</citetitle>.
-    For the latest version of the full <citetitle>&sles4sap; Guide</citetitle>,
-    see
-    <link xlink:href="&dsc-sap;"/>.
-   </para>
-  </listitem>
-  <listitem>
-   <para>
-    You can find numerous whitepapers, a best-practices guide, and other
-    resources at the &sles4sap; resource library: &reslibrary;.
-   </para>
-  </listitem>
-  <listitem>
-   <para>
-    For documentation on &sls;, see &docaddress;.
-   </para>
-  </listitem>
-  <listitem>
-   <para>
-    For documentation on &sleha;, see &ha-docaddress;.
-   </para>
-  </listitem>
- </itemizedlist>
+ 
+ <variablelist>
+  <varlistentry>
+   <term>Online documentation</term>
+   <listitem condition="noquick">
+    <para>
+     For the latest updates to this guide, see
+     <link xlink:href="https://documentation.suse.com/#sles-sap"/>.
+     Browse or download the documentation in various formats.
+     You can find numerous whitepapers, a best-practices guide, and other
+      resources at the &sles4sap; resource library: &reslibrary;.
+     </para>
+    <para>
+     Find the online documentation for other products
+     at <link xlink:href="https://documentation.suse.com/"/>.</para>
+    <note>
+     <title>Latest updates</title>
+     <para>
+      The latest documentation updates are usually available in the English
+      version of the documentation.
+     </para>
+    </note>
+   </listitem>
+   <listitem condition="quick">
+    <para>
+     This is an abridged version of the <citetitle>&sles4sap; Guide</citetitle>.
+     For the latest version of the full <citetitle>&sles4sap; Guide</citetitle>,
+     see
+     <link xlink:href="https://documentation.suse.com/#sles-sap"/>.
+     Browse or download the documentation in various formats.
+     You can find numerous whitepapers, a best-practices guide, and other
+     resources at the &sles4sap; resource library: &reslibrary;.
+    </para>
+    <para>
+     Find the online documentation for other products
+     at <link xlink:href="https://documentation.suse.com/"/>.</para>
+    <note>
+     <title>Latest updates</title>
+     <para>
+      The latest documentation updates are usually available in the English
+      version of the documentation.
+     </para>
+    </note>
+   </listitem>
+  </varlistentry>
+  <varlistentry>
+   <term>Release notes</term>
+   <listitem>
+    <para>
+     For release notes, see <link xlink:href="https://www.suse.com/releasenotes/"/>.
+    </para>
+   </listitem>
+  </varlistentry>
+  <varlistentry>
+   <term>In your system</term>
+   <listitem>
+    <para>
+     For offline use, find documentation in your installed system under
+     <filename>/usr/share/doc</filename>. Many commands are also
+     described in detail in their <emphasis>manual pages</emphasis>. To view
+     them, run <command>man</command>, followed by a specific command name. If the
+     <command>man</command> command is not installed on your system, install it
+     with <command>sudo zypper install man</command>.
+    </para>
+   </listitem>
+  </varlistentry>
+ </variablelist>
 </sect1>
