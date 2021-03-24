@@ -25,4 +25,5 @@
  <xi:include condition="noquick" href="common_intro_available_doc.xml"/>
  <xi:include condition="noquick" href="common_intro_feedback.xml"/>
  <xi:include condition="noquick" href="common_intro_convention.xml"/>
+ <xi:include condition="noquick" href="common_intro_support.xml"/>
 </preface>
