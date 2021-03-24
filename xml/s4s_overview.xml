@@ -5,7 +5,7 @@
     %entities;
 ]>
 <preface xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="pre-s4s">
- <title>About this guide</title>
+ <title>Preface</title>
 
  <para>
   &sles4sapreg; is the reference platform for the software development of &sap;.
@@ -22,75 +22,8 @@
   &sleha; is also part of &sles4sap;.
  </para>
 
- <sect1 condition="noquick">
-  <title>Overview</title>
-
-  <para>
-   The &sles4sap; Guide is divided into the following chapters:
-  </para>
-
-  <variablelist>
-   <varlistentry>
-    <term><xref linkend="cha-about" xrefstyle="select:title,nopage"/>
-    </term>
-    <listitem>
-     <para>
-      An overview of &sles4sap;.
-     </para>
-    </listitem>
-   </varlistentry>
-   <varlistentry>
-    <term><xref linkend="cha-plan" xrefstyle="select:title,nopage"/>
-    </term>
-    <listitem>
-     <para>
-      Information on hardware requirements, the installation workflow,
-      partitioning, and other installation planning aspects.
-     </para>
-    </listitem>
-   </varlistentry>
-   <varlistentry>
-    <term><xref linkend="cha-install" xrefstyle="select:title,nopage"/>
-    </term>
-    <listitem>
-     <para>
-      Installing the &sls; operating system that forms the basis of
-      &sles4sap;.
-     </para>
-    </listitem>
-   </varlistentry>
-   <varlistentry>
-    <term><xref linkend="cha-install-sap" xrefstyle="select:title,nopage"/>
-    </term>
-    <listitem>
-     <para>
-      Installing &sap; applications on &sles4sap;, either directly after the
-      installation of the operating system or in a running system.
-     </para>
-    </listitem>
-   </varlistentry>
-   <varlistentry>
-    <term><xref linkend="cha-serve-mediaset" xrefstyle="select:title,nopage"/>
-    </term>
-    <listitem>
-     <para>
-      Setting up a server for all &instmedia; used within your organization.
-     </para>
-    </listitem>
-   </varlistentry>
-   <varlistentry>
-    <term><xref linkend="sec-component" xrefstyle="select:title,nopage"/>
-    </term>
-    <listitem>
-     <para>
-      Description of tools to configure &sles4sap;.
-     </para>
-    </listitem>
-   </varlistentry>
-  </variablelist>
- </sect1>
-
  <xi:include condition="noquick" href="common_intro_available_doc.xml"/>
  <xi:include condition="noquick" href="common_intro_feedback.xml"/>
  <xi:include condition="noquick" href="common_intro_convention.xml"/>
+ <xi:include condition="noquick" href="common_intro_support.xml"/>
 </preface>
