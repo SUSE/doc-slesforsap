@@ -269,13 +269,13 @@ HANA firewall is active. Everything is OK.
    <listitem>
     <para>
      The &saprouter; systemd integration, packaged as
-     <package>systemd-saprouter</package>
+     <package>saprouter-systemd</package>
     </para>
    </listitem>
   </itemizedlist>
   <para>
    If you got the order of applications to install wrong initially, reinstall
-   <package>systemd-saprouter</package>.
+   <package>saprouter-systemd</package>.
   </para>
   <para>
    To control &saprouter; with <command>systemctl</command>, use:
