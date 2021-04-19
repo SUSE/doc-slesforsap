@@ -94,7 +94,8 @@
     <sect2 xml:id="sec-memory-protection-support">
         <title>Support for workload memory protection</title>
         <para>WMP is supported for &productname; &productnumber; on &x86-64;
-            for one or multiple &sap; systems on one host, such as:</para>
+            and &power; for one or multiple &sap; systems on one host, such as:
+        </para>
         <itemizedlist>
             <listitem>
                 <para>App Server (&netweaver;, &s4h;) or</para>
