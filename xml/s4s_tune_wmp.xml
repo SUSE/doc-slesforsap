@@ -7,21 +7,21 @@
 <sect1 xmlns="http://docbook.org/ns/docbook"  xml:id="sec-memory-protection"
     xmlns:xi="http://www.w3.org/2001/XInclude"
     xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0">
-    <title>Tuning workload memory protection</title>
+    <title>Tuning &wmp;</title>
     <para>
         Keeping SAP applications in physical memory is essential for their performance.
         With &productname; 11 SP1 onwards and &productname; 12 the Page Cache Limit
         prevented a swap out to disk by a growing page cache.
         In &productname; 15 the Page Cache Limit has been replaced with the more
-        advanced Workload Memory Protection.
+        advanced &wmp;.
     </para>
     <para>
-        Workload Memory Protection puts &sap; instances into a dedicated cgroup (v2)
+        &wmp; puts &sap; instances into a dedicated cgroup (v2)
         and tells the kernel by the <varname>memory.low</varname> parameter the amount of memory to keep
         in physical memory.
         This protects the processes in this cgroup against any form of memory pressure
         outside that cgroup, including a growing page cache.
-        Workload Memory Protection can not protect against memory pressure inside this
+        &wmp; can not protect against memory pressure inside this
         cgroup. It covers the memory of <emphasis>all</emphasis> instances together on one
         host.
     </para>
@@ -92,7 +92,7 @@
     </sect2>
 
     <sect2 xml:id="sec-memory-protection-support">
-        <title>Support for workload memory protection</title>
+        <title>Support for &wmp;</title>
         <para>WMP is supported for &productname; &productnumber; on &x86-64;
             and &power; for one or multiple &sap; systems on one host, such as:
         </para>
@@ -106,7 +106,7 @@
         </itemizedlist>
 
         <para>
-            Workload Memory Protection does not cover databases other than
+            &wmp; does not cover databases other than
             &hana;. Depending on their start method the processes might run inside
             or outside the dedicated cgroup.
             If they run inside, the memory consumption has to be taken into account
@@ -144,10 +144,10 @@
     </sect2>
 
     <sect2 xml:id="sec-memory-protection-setup">
-        <title>Setting up workload memory protection</title>
+        <title>Setting up &wmp;</title>
         <remark>toms 2020-09-28: Some introduction para is missing here.</remark>
         <sect3 xml:id="sec-memory-protection-setup-preparation">
-            <title>Preparing for workload memory protection</title>
+            <title>Preparing for &wmp;</title>
             <procedure>
                 <step>
                     <para>
@@ -431,7 +431,7 @@ Directory /sys/fs/cgroup/SAP.slice:
     </sect2>
 
     <sect2 xml:id="sec-memory-protection-configuration">
-        <title>Configuring workload memory protection</title>
+        <title>Configuring &wmp;</title>
         <para>To configure WMP edit <filename>/etc/sapwmp.conf</filename>:</para>
         <screen># NOTE: Local changes may be reverted after update of WMP package. Check for
 #      .rpmsave file to restore &amp; merge changes.
@@ -603,7 +603,7 @@ ha0adm    3327 0::/SAP.slice/wmp-ra42489517eb846c282c57681e627a496.scope    saps
     </sect2>
 
     <sect2 xml:id="sec-memory-protection-deinstallation">
-        <title>Deinstalling workload memory protection</title>
+        <title>Deinstalling &wmp;</title>
         <procedure>
             <step>
                 <para>Stop the &sap; system completely. The <systemitem
