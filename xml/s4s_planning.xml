@@ -222,9 +222,9 @@
     This can be necessary when you want to install an Oracle database on a
     &s4s; machine. To do so, install the base product &sls; first, then
     install the Oracle database and later convert your
-    installation to &s4sa;. This is necessary because the installer of Oracle
-    databases queries for the existence of certain files, not all of which are
-    included in a &s4sa; installation.
+    installation to &s4sa;. This is necessary because the installer of
+    Oracle databases queries for the existence of the <package>sles-release</package>
+    package (to extract the version). The package is not available for &s4sa;.
    </para>
    <para>
     For more information about converting, see
