@@ -388,14 +388,19 @@ MemoryLow=18487889920    &lt;- Should be your chosen value (always in bytes)!
                     <screen>&prompt.root;<command>systemd-cgls</command> -a /sys/fs/cgroup/SAP.slice
 Directory /sys/fs/cgroup/SAP.slice:
 |-wmp-rd91fd6b3ca0d4c1183659ef4f9a092fa.scope
-| |-2707 /usr/sap/HA0/ERS10/exe/sapstartsrv pf=/usr/sap/HA0/ERS10/profile/H...
 | |-3349 sapstart pf=/usr/sap/HA0/ERS10/profile/HA0_ERS10_sapha0er
 | `-3375 er.sapHA0_ERS10 pf=/usr/sap/HA0/ERS10/profile/HA0_ERS10_sapha0er N...
 |-wmp-r360ebfe09bcd4df4873ef69898576199.scope
-| |-3128 /usr/sap/HA0/D01/exe/sapstartsrv pf=/usr/sap/HA0/SYS/profile/HA0_D...
 | |-3572 sapstart pf=/usr/sap/HA0/SYS/profile/HA0_D01_sapha0ci
 | |-3624 dw.sapHA0_D01 pf=/usr/sap/HA0/SYS/profile/HA0_D01_sapha0ci
 ...</screen>
+                    <para>
+                        The <systemitem>sapstartsrv</systemitem> process of an instance
+                        remains always in the user slice of
+                        <literal><replaceable>SID</replaceable>adm</literal>.
+                        Only the <systemitem class="process">sapstart</systemitem> process
+                        and its children will be moved to the target cgroup.
+                    </para>
                     <para>For each instance a directory
                         <filename>wmp-r<replaceable>SCOPEID</replaceable>.scope</filename>
                         exists with all processes of
@@ -418,15 +423,59 @@ Directory /sys/fs/cgroup/SAP.slice:
 2020-06-16T18:41:28.319423+02:00 server-03 sapwmp-capture: Successful capture into SAP.slice/wmp-r07a27e12d7f2491f8ccb9aeb0e080aaa.scope
 2020-06-16T18:41:28.319672+02:00 server-03 systemd[1]: Started wmp-r07a27e12d7f2491f8ccb9aeb0e080aaa.scope.
 ...</screen>
-
                 </step>
             </procedure>
-            <tip>
-                <para> You can find a script to verify your WMP setup here:
-                        <link
-                        xlink:href="https://github.com/scmschmidt/wmp_check"/>.
-                </para>
-            </tip>
+            <para>
+                To verify the correct setup, run <command>wmp_check</command>.
+                The script checks the setup of &wmp;:
+            </para>
+            <itemizedlist>
+                <listitem>
+                    <para>
+                        Correct setup of cgroup2.
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>
+                        Ownership and permission of the capture program.
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>
+                        WMP entries of &sap; instance profiles.
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>
+                        Correct cgrop of running &sap; instance processes.
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>
+                        Correct setup of <systemitem>SAP.slice</systemitem>.
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>
+                        Sane configuration of MemoryLow. However, it cannot determine
+                        if the MemoryLow value has been chosen wisely.
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>
+                        Setup of the optional memory sampler.
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>
+                        Setup of optional swap accounting.
+                    </para>
+                </listitem>
+            </itemizedlist>
+            <para>
+                It assumes &sap; instances profiles can be found beneath
+                <filename>/usr/sap/<replaceable>SID</replaceable>SYS/profile/</filename>.
+            </para>
         </sect3>
     </sect2>
 
