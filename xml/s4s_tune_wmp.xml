@@ -568,11 +568,9 @@ system.slice : memory.low=0           memory.current=1863335936 memory.swap.curr
         <screen>&prompt.root;<command>systemd-cgls</command> -a /sys/fs/cgroup/SAP.slice
 Directory /sys/fs/cgroup/SAP.slice:
 |-wmp-rd91fd6b3ca0d4c1183659ef4f9a092fa.scope
-| |-2707 /usr/sap/HA0/ERS10/exe/sapstartsrv pf=/usr/sap/HA0/ERS10/profile/H...
 | |-3349 sapstart pf=/usr/sap/HA0/ERS10/profile/HA0_ERS10_sapha0er
 | `-3375 er.sapHA0_ERS10 pf=/usr/sap/HA0/ERS10/profile/HA0_ERS10_sapha0er N...
 |-wmp-r360ebfe09bcd4df4873ef69898576199.scope
-| |-3128 /usr/sap/HA0/D01/exe/sapstartsrv pf=/usr/sap/HA0/SYS/profile/HA0_D...
 | |-3572 sapstart pf=/usr/sap/HA0/SYS/profile/HA0_D01_sapha0ci
 | |-3624 dw.sapHA0_D01 pf=/usr/sap/HA0/SYS/profile/HA0_D01_sapha0ci
 ...</screen>
@@ -582,24 +580,17 @@ Directory /sys/fs/cgroup/SAP.slice:
         <screen>&prompt.user;<command>ps</command> -eo user,pid,cgroup:60,args | <command>grep</command> -e [h]a0adm
 ha0adm    2062 0::/user.slice/user-1001.slice/user@1001.service/init.scope  /usr/lib/systemd/systemd --user
 ha0adm    2065 0::/user.slice/user-1001.slice/user@1001.service/init.scope  (sd-pam)
-ha0adm    2480 0::/SAP.slice/wmp-r73c594e050904c9c922a312dd9a28fd4.scope    /usr/sap/HA0/ASCS00/exe/sapstartsrv pf=/usr/sap/HA0/SYS/profile/HA0_ASCS00_sapha0as -D -u ha0adm
-ha0adm    2688 0::/SAP.slice/wmp-ra42489517eb846c282c57681e627a496.scope    /usr/sap/HA0/ERS10/exe/sapstartsrv pf=/usr/sap/HA0/ERS10/profile/HA0_ERS10_sapha0er -D -u ha0adm
 ha0adm    3081 0::/SAP.slice/wmp-r73c594e050904c9c922a312dd9a28fd4.scope    sapstart pf=/usr/sap/HA0/SYS/profile/HA0_ASCS00_sapha0as
-ha0adm    3106 0::/SAP.slice/wmp-r0951160bb5454f4fa32be03a6e8bc98a.scope    /usr/sap/HA0/D01/exe/sapstartsrv pf=/usr/sap/HA0/SYS/profile/HA0_D01_sapha0ci -D -u ha0adm
 ha0adm    3133 0::/SAP.slice/wmp-r73c594e050904c9c922a312dd9a28fd4.scope    ms.sapHA0_ASCS00 pf=/usr/sap/HA0/SYS/profile/HA0_ASCS00_sapha0as
 ha0adm    3134 0::/SAP.slice/wmp-r73c594e050904c9c922a312dd9a28fd4.scope    en.sapHA0_ASCS00 pf=/usr/sap/HA0/SYS/profile/HA0_ASCS00_sapha0as
 ha0adm    3327 0::/SAP.slice/wmp-ra42489517eb846c282c57681e627a496.scope    sapstart pf=/usr/sap/HA0/ERS10/profile/HA0_ERS10_sapha0er
 ...</screen>
-        <para>All instance processes have to be in a scope below
+        <para>All instance processes except <systemitem>sapstartsrv</systemitem> have to be in a scope below
             <systemitem>0::/SAP.slice/</systemitem>.</para>
-        <warning>
-            <para>It is possible that a <systemitem>sapstartsrv</systemitem> process is in a user
-                slice temporarily. This happens if the process was started
-                manually or was missing and started when running a
-                <command>sapcontrol</command> command. After an instance restart this is
-                corrected normally. Never should an instance process except
-                sapstartsrv be running outside of <systemitem>SAP.slice</systemitem>.</para>
-        </warning>
+        <para>
+            To verify the correct setup, use the <command>wmp_check</command> tool.
+            See <xref linkend="sec-memory-protection-reboot-and-verification"/> for more details.
+        </para>
     </sect2>
 
     <sect2 xml:id="sec-memory-protection-deinstallation">
