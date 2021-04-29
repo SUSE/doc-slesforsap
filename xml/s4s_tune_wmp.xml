@@ -444,8 +444,8 @@ DEFAULT_SLICE="SAP.slice"
 ## Description: Comma-separated list of command names to which capture is
 ##              applied (matching against /proc/$PID/stat)
 ## Type:        string
-## Default:     sapstart,sapstartsrv
-PARENT_COMMANDS=sapstart,sapstartsrv</screen>
+## Default:     sapstart
+PARENT_COMMANDS=sapstart</screen>
         <para>After a change restart all &sap; instances.</para>
         <warning>
             <para>Altering <filename>/etc/sapwmp.conf</filename> should not be necessary.
