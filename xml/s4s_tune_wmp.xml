@@ -474,7 +474,7 @@ Directory /sys/fs/cgroup/SAP.slice:
             </itemizedlist>
             <para>
                 It assumes &sap; instances profiles can be found beneath
-                <filename>/usr/sap/<replaceable>SID</replaceable>SYS/profile/</filename>.
+                <filename>/usr/sap/<replaceable>SID</replaceable>/SYS/profile/</filename>.
             </para>
         </sect3>
     </sect2>
