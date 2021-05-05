@@ -250,6 +250,102 @@ Active: active (running) since Tue 2017-04-11 10:33:03 UTC; 24h ago
    </step>
   </procedure>
  </sect1>
+ <sect1 xml:id="sec-clamsap-changedir">
+  <title>Configuring the default location of virus definitions</title>
+  <para>
+   By default, &clamav; expects the virus definitions to be located in <filename
+    class="directory">/var/lib/clamsap</filename>.
+   To change this default location, proceed as follows:
+  </para>
+  <procedure>
+   <step>
+    <para>
+     Log in to the &nw; installation through the GUI. Do not log in as
+     a <systemitem class="username">DDIC</systemitem> or
+     <systemitem class="username">SAP*</systemitem> user, because the virus
+     scanner needs to be configured cross-client.
+    </para>
+   </step>
+   <step>
+    <para>
+     Select the <literal>CLAMSAPVSI</literal> group.
+    </para>
+   </step>
+   <step>
+    <para>
+     In the left navigation pane, click <guimenu>Configuration Parameters</guimenu>.
+    </para>
+   </step>
+   <step>
+    <para>
+     To switch from view mode to change mode, click the button <guimenu>Change View</guimenu>
+     (<inlinemediaobject>
+      <textobject role="description">
+       <phrase>Change View</phrase>
+      </textobject>
+      <imageobject role="html">
+       <imagedata fileref="sap-nw-viewmode-icon.png" width="1em" format="PNG"/>
+      </imageobject>
+      <imageobject role="fo">
+       <imagedata fileref="sap-nw-viewmode-icon.png" width="0.8em" format="PNG"/>
+      </imageobject>
+     </inlinemediaobject>).
+    </para>
+    <para>
+      Confirm the message <guimenu>This table is cross-client</guimenu> by
+      clicking the check mark. The table is now editable.
+    </para>
+    <figure xml:id="fig-clamsap-add-entry">
+     <title></title>
+     <mediaobject>
+      <imageobject role="html">
+       <imagedata fileref="sap-new-scanner-clamsap-add-entries.jpg" width="95%"/>
+      </imageobject>
+      <imageobject role="fo">
+       <imagedata fileref="sap-new-scanner-clamsap-add-entries.jpg" width="85%"/>
+      </imageobject>
+     </mediaobject>
+    </figure>
+   </step>
+   <step>
+    <para>
+     Click <guimenu>New Entries</guimenu> and select <parameter>INITDRIVERDIRECTORY</parameter>.
+    </para>
+    <figure xml:id="fig-clamsap-add-value">
+     <title></title>
+     <mediaobject>
+      <imageobject role="html">
+       <imagedata fileref="sap-new-scanner-clamsap-add-value.jpg" width="95%"/>
+      </imageobject>
+      <imageobject role="fo">
+       <imagedata fileref="sap-new-scanner-clamsap-add-value.jpg" width="85%"/>
+      </imageobject>
+     </mediaobject>
+    </figure>
+   </step>
+   <step>
+    <para>
+     Enter the path to a different virus scanner location.
+    </para>
+   </step>
+   <step>
+    <para>
+     To save the form, click the button <guimenu>Save</guimenu>
+     (<inlinemediaobject>
+      <textobject role="description">
+       <phrase>Save</phrase>
+      </textobject>
+      <imageobject role="html">
+       <imagedata fileref="sap-nw-save-icon.png" width="1em" format="PNG"/>
+      </imageobject>
+      <imageobject role="fo">
+       <imagedata fileref="sap-nw-save-icon.png" width="0.8em" format="PNG"/>
+      </imageobject>
+     </inlinemediaobject>).
+    </para>
+   </step>
+  </procedure>
+ </sect1>
  <sect1 xml:id="sec-clamsap-engage">
   <title>Engaging &clamsap;</title>
   <para>
