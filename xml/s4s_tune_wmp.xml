@@ -395,7 +395,7 @@ Directory /sys/fs/cgroup/SAP.slice:
 | |-3624 dw.sapHA0_D01 pf=/usr/sap/HA0/SYS/profile/HA0_D01_sapha0ci
 ...</screen>
                     <para>
-                        The <systemitem>sapstart</systemitem> process of an instance
+                        The <systemitem>sapstartsrv</systemitem> process of an instance
                         remains always in the user slice of
                         <literal><replaceable>SID</replaceable>adm</literal>.
                         Only the <systemitem class="process">sapstart</systemitem> process
@@ -634,7 +634,7 @@ ha0adm    3133 0::/SAP.slice/wmp-r73c594e050904c9c922a312dd9a28fd4.scope    ms.s
 ha0adm    3134 0::/SAP.slice/wmp-r73c594e050904c9c922a312dd9a28fd4.scope    en.sapHA0_ASCS00 pf=/usr/sap/HA0/SYS/profile/HA0_ASCS00_sapha0as
 ha0adm    3327 0::/SAP.slice/wmp-ra42489517eb846c282c57681e627a496.scope    sapstart pf=/usr/sap/HA0/ERS10/profile/HA0_ERS10_sapha0er
 ...</screen>
-        <para>All instance processes except <systemitem>sapstart</systemitem> have to be in a scope below
+        <para>All instance processes except <systemitem>sapstartsrv</systemitem> have to be in a scope below
             <systemitem>0::/SAP.slice/</systemitem>.</para>
         <para>
             To verify the correct setup, use the <command>wmp_check</command> tool.
