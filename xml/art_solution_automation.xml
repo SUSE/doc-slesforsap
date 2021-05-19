@@ -540,7 +540,7 @@ https://confluence.suse.com/x/8IEnGw
     <para>
       Use the formula <package>drbd-formula</package> for setting up and managing
       DRBD devices with the command <command>drbdadm</command>.
-      Find more information in <link xlink:href="https://documentation.suse.com/sle-ha/15-SP2/html/SLE-HA-all/cha-ha-drbd.html"/>.
+      Find more information in <link xlink:href="https://documentation.suse.com/sle-ha/html/SLE-HA-all/cha-ha-drbd.html"/>.
     </para>
     <para>
       Use the &salt; formula <package>habootstrap-formula</package> for bootstrapping and managing
