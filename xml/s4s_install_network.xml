@@ -38,7 +38,7 @@
     <title>Executable rights must be visible</title>
     <para>
      Clients must be able to see which files are executable. Otherwise,
-     &suse;'s &sapwiz; will not be able to execute the &sapin;.
+     &suse;'s &sapwiz; cannot execute the &sapin;.
     </para>
    </important>
   </step>

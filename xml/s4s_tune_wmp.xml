@@ -10,8 +10,8 @@
     <title>Tuning &wmp;</title>
     <para>
         Keeping SAP applications in physical memory is essential for their performance.
-        With &productname; 11 SP1 onwards and &productname; 12 the Page Cache Limit
-        prevented a swap out to disk by a growing page cache.
+        In older product versions, the Page Cache Limit prevented a swap out to disk by
+        a growing page cache (in &productname; 11 SP1 onwards and in &productname; 12).
         In &productname; 15 the Page Cache Limit has been replaced with the more
         advanced &wmp;.
     </para>
@@ -21,13 +21,13 @@
         in physical memory.
         This protects the processes in this cgroup against any form of memory pressure
         outside that cgroup, including a growing page cache.
-        &wmp; can not protect against memory pressure inside this
+        &wmp; cannot protect against memory pressure inside this
         cgroup. It covers the memory of <emphasis>all</emphasis> instances together on one
         host.
     </para>
     <para>
         The value for <varname>memory.low</varname> depends on the kind of &sap; instance
-        and the workload and has to be configured manually.
+        and the workload and needs to be configured manually.
         If the system is under extreme pressure the Linux kernel will ignore the
         <varname>memory.low</varname> value and try to stabilize the whole system, even
         by swapping or invoking the OOM killer.
@@ -66,7 +66,7 @@
                 <listitem>
                     <para>
                         Systemd provides the infrastructure to create and maintain
-                        the cgroup hierarchy and also allows the configuration of
+                        the cgroup hierarchy and allows the configuration of
                         cgroup parameters. WMP ships &systemd; configuration files
                         to allow easy configuration of <parameter>memory.low</parameter>
                         via &systemd; methods.
@@ -109,7 +109,7 @@
             &wmp; does not cover databases other than
             &hana;. Depending on their start method the processes might run inside
             or outside the dedicated cgroup.
-            If they run inside, the memory consumption has to be taken into account
+            If they run inside, the memory consumption needs to be taken into account
             when determine <varname>memory.low</varname>.
         </para>
 
@@ -165,7 +165,7 @@
                     <screen>&prompt.root;<command>systemctl</command> stop sapinit</screen>
                     <para>
                         The service can be enabled, but all &sap;
-                        processes have to be terminated.
+                        processes need to be terminated.
                     </para>
                 </step>
                 <step>
@@ -205,7 +205,7 @@ chmod +s /usr/lib/sapwmp/sapwmp-capture</screen>
                         controller, are still available and can be used though.
                         Tools using cgroup1 might not work anymore out of the box and
                         need reconfiguration. Also the required mount structure for cgroup1
-                        has to be provided.
+                        needs to be provided.
                     </para>
                     <para>
                         The parameter <varname>swapaccount=1</varname> is not needed for
@@ -280,7 +280,7 @@ chmod +s /usr/lib/sapwmp/sapwmp-capture</screen>
                                 If you are using a database other than &hana;
                                 some database processes might be part of
                                 <systemitem>SAP.slice</systemitem>. Their
-                                memory consumption has to be taken into
+                                memory consumption needs to be taken into
                                 account when determine the
                                 <varname>MemoryLow</varname> value.
                             </para>
@@ -336,6 +336,7 @@ chmod +s /usr/lib/sapwmp/sapwmp-capture</screen>
                             is executed last.
                     </para>
                     <important>
+                        <title>Editing instance profiles</title>
                         <para>Edit the instance profiles directly <emphasis
                                 role="strong">only</emphasis> if you do not have
                             imported the profiles into the database to manage
@@ -498,7 +499,7 @@ PARENT_COMMANDS=sapstart</screen>
         <para>After a change restart all &sap; instances.</para>
         <warning>
             <para>Altering <filename>/etc/sapwmp.conf</filename> should not be necessary.
-                Don&#8217;t do it until you know exactly what you do!</para>
+                Do not do it until you know exactly what you do!</para>
         </warning>
     </sect2>
 
@@ -513,6 +514,7 @@ PARENT_COMMANDS=sapstart</screen>
             multiple of the page sizes as value for <varname>MemoryLow</varname>.
         </para>
         <important>
+            <title>Value of <varname>MemoryLow</varname></title>
             <para>Never set <varname>MemoryLow</varname> to a value lower than the memory
                 already accounted to <systemitem>SAP.slice</systemitem>. To check run:</para>
             <screen>&prompt.root;<command>systemctl</command> show -p MemoryCurrent SAP.slice</screen>
@@ -596,7 +598,7 @@ system.slice : memory.low=0           memory.current=1863335936 memory.swap.curr
         <para>All values are in bytes. See <xref linkend="st-conf-memorylow-sap-slice"/>
             in <xref linkend="sec-memory-protection-setup-preparation"/>.</para>
 
-        <tip>
+        <tip><title>Script for printing</title>
             <para>You can find a script to print the information as table
                 or CSV here:
                 <link xlink:href="https://github.com/scmschmidt/wmp_log_extract"/>
@@ -634,7 +636,7 @@ ha0adm    3133 0::/SAP.slice/wmp-r73c594e050904c9c922a312dd9a28fd4.scope    ms.s
 ha0adm    3134 0::/SAP.slice/wmp-r73c594e050904c9c922a312dd9a28fd4.scope    en.sapHA0_ASCS00 pf=/usr/sap/HA0/SYS/profile/HA0_ASCS00_sapha0as
 ha0adm    3327 0::/SAP.slice/wmp-ra42489517eb846c282c57681e627a496.scope    sapstart pf=/usr/sap/HA0/ERS10/profile/HA0_ERS10_sapha0er
 ...</screen>
-        <para>All instance processes except <systemitem>sapstartsrv</systemitem> have to be in a scope below
+        <para>All instance processes except <systemitem>sapstartsrv</systemitem> need to be in a scope below
             <systemitem>0::/SAP.slice/</systemitem>.</para>
         <para>
             To verify the correct setup, use the <command>wmp_check</command> tool.
@@ -643,7 +645,7 @@ ha0adm    3327 0::/SAP.slice/wmp-ra42489517eb846c282c57681e627a496.scope    saps
     </sect2>
 
     <sect2 xml:id="sec-memory-protection-deinstallation">
-        <title>Deinstalling &wmp;</title>
+        <title>Uninstalling &wmp;</title>
         <procedure>
             <step>
                 <para>Stop the &sap; system completely. The <systemitem

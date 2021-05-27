@@ -174,7 +174,7 @@
    </para>
    <para>
     By default, the wizard registers the former master as now being secondary on
-    the &hana; system replication. If you wish to revert the system
+    the &hana; system replication. If you want to revert the system
     replication to its original state, click the <guimenu>Reverse</guimenu>
     button.
    </para>

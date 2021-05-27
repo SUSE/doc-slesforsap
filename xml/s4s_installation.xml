@@ -507,7 +507,7 @@
       Taken from art_opensuse_install_quick.xml in
       sect3[@xml:id="sec-opensuse-installquick-root"]
      -->
-     In case you would like to enable password-less authentication via SSH
+     In case you want to enable password-less authentication via SSH
      login, you can import a key via <guimenu>Import Public SSH
      Key</guimenu>. If you want to completely disable &rootuser; login via
      password, upload a key only and do not provide a root password. A login

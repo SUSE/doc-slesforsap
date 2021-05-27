@@ -407,7 +407,7 @@
      appropriate device. Click <guimenu>OK</guimenu>.
     </para>
     <para>
-     To define additional SBD command-line parameters, add them to
+     To define additional SBD command line parameters, add them to
      <guimenu>SBD options</guimenu>.
     </para>
     <para>

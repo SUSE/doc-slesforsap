@@ -89,14 +89,14 @@
   </para>
 
   <para>
-   Basically, you can extract any information from the file <filename
+   You can extract any information from the file <filename
     >/etc/product.d/baseproduct</filename>
    either with the commands <command>grep</command> or <command>xmlstarlet</command>
    (both are available for your products).
    As XML is also text, use <command>grep</command> for <quote>simple searches</quote>
    when the format of the output does not matter much. However, if your search
-   is more advanced, you need the output in another script, or your would
-   like to avoid the XML tags in the output, use the
+   is more advanced, you need the output in another script, or you want
+   to avoid the XML tags in the output, use the
    <command>xmlstarlet</command> command instead.
   </para>
   <para>
@@ -147,9 +147,9 @@ sle-ha</screen>
    provide support for these offerings.
   </para>
   <note>
-   <title><command>SUSEConnect</command> command-line tool</title>
+   <title><command>SUSEConnect</command> command line tool</title>
    <para>
-    The <command>SUSEConnect</command> command-line tool is a separate tool
+    The <command>SUSEConnect</command> command line tool is a separate tool
     with a different purpose: It allows you to register installations of
     &suse; products.
    </para>
