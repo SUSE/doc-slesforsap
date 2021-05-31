@@ -580,8 +580,8 @@ vm.pagecache_limit_ignore_dirty = <replaceable>2</replaceable></screen>
 This is sapconf_check v1.0.
 It verifies if sapconf is set up correctly and will give advice to do so.
 Please keep in mind:
-{{ - This tool does not check, if the tuning itself works correctly.}}
-{{ - Follow the hints from top to down to minimize side effects.}}
+- This tool does not check, if the tuning itself works correctly.
+- Follow the hints from top to down to minimize side effects.
 Checking sapconf
 ================
 [ OK ] sapconf package has version 5.0.2
