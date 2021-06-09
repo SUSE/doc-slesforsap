@@ -812,7 +812,7 @@ Sapconf will not work properly!</screen>
        <title><literal>S4HANA-DBSERVER</literal></title>
        <para>
         Solution for running the &hana; database of an &s4h;
-        installation (identical to &hana; solution).
+        installation<!-- (identical to &hana; solution)-->.
        </para>
       </formalpara>
      </listitem>
@@ -824,6 +824,15 @@ Sapconf will not work properly!</screen>
         Adaptive Server Enterprise).
         <!-- SAP bought Sybase in 2010, really keep "Sybase" in here? -
         sknorr, 2017-07-04 -->
+       </para>
+      </formalpara>
+     </listitem>
+     <listitem>
+      <formalpara>
+       <title><literal>NETWEAVER+HANA</literal></title>
+       <para>
+        Solution for running both &sap; application servers and &hana;
+        on the same host.
        </para>
       </formalpara>
      </listitem>
