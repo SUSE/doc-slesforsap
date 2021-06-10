@@ -1,5 +1,5 @@
 MAIN="book_solution_based.xml"
-ROOTID="art-sol-automation"
+ROOTID="article-sap-monitoring"
 
 PROFOS="sles"
 PROFCONDITION="noquick;suse-product"
