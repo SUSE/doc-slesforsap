@@ -15,7 +15,7 @@ Further information:
   https://suse.com/c/coming-soon-sap-landscape-monitoring-on-sles-for-sap/
 -->
 
-<article version="5.1" xml:lang="en" xml:id="art-sol-monitoring"
+<article version="5.1" xml:lang="en" xml:id="article-sap-monitoring"
   xmlns="http://docbook.org/ns/docbook"
   xmlns:xi="http://www.w3.org/2001/XInclude"
   xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -105,7 +105,7 @@ Further information:
     </procedure>
     <para>
       The above procedure is automatically done by each of the &salt; formulas
-      described in <xref linkend="art-sol-automation"/>.
+      described in <xref linkend="article-sap-automation"/>.
     </para>
   </sect1>
 
