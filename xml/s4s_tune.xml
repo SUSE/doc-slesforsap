@@ -928,15 +928,15 @@ Sapconf will not work properly!</screen>
      <listitem>
       <formalpara>
        <title><literal>S4HANA-APPSERVER</literal></title>
-       <para> Solution for running &s4h; application servers
-         (identical to &netweaver; solution). </para>
+       <para> Solution for running &s4h; application servers<!--
+         (identical to &netweaver; solution)-->. </para>
       </formalpara>
      </listitem>
      <listitem>
       <formalpara>
        <title><literal>S4HANA-APP+DB</literal></title>
        <para>Solution for running both &s4h; application servers and &hana;
-        on the same host (identical to &netweaver; + &hana; solution). </para>
+        on the same host<!-- (identical to &netweaver; + &hana; solution)-->. </para>
       </formalpara>
      </listitem>
      <listitem>
@@ -944,7 +944,7 @@ Sapconf will not work properly!</screen>
        <title><literal>S4HANA-DBSERVER</literal></title>
        <para>
         Solution for running the &hana; database of an &s4h;
-        installation (identical to &hana; solution)
+        installation<!-- (identical to &hana; solution)-->.
        </para>
       </formalpara>
      </listitem>
@@ -953,6 +953,15 @@ Sapconf will not work properly!</screen>
        <title><literal>SAP-ASE</literal></title>
        <para>
         Solution for running an &ase; database.
+       </para>
+      </formalpara>
+     </listitem>
+     <listitem>
+      <formalpara>
+       <title><literal>NETWEAVER+HANA</literal></title>
+       <para>
+        Solution for running both &sap; application servers and &hana;
+        on the same host.
        </para>
       </formalpara>
      </listitem>
