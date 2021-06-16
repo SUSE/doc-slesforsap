@@ -149,7 +149,6 @@ sle-ha</screen>
  </sect1>
  <sect1 xml:id="sec-suseconnectprogram">
   <title>SUSE Connect Program</title>
-
   <para>
    Start SUSE Connect Program from the &yast; control center using
    <guimenu>SUSE Connect Program</guimenu>. Choose from the available options.

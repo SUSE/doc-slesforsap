@@ -214,7 +214,7 @@
    </para>-->
   </sect3>
   <sect3 xml:id="sec-topology-ra">
-   <title><systemitem>SAPHanaTopology</systemitem> resource agent</title>
+   <title><systemitem>SAPHanaTopology</systemitem> Resource agent</title>
    <para>
     To make configuring the cluster as simple as possible, SUSE has developed
     the <systemitem>SAPHanaTopology</systemitem> resource agent. This agent
