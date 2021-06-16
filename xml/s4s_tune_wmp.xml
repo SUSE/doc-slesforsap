@@ -50,7 +50,7 @@
     <listitem>
      <para>
       The cgroup2 memory controller parameter <parameter>memory.low</parameter>
-      allows to define an amount of memory, which the Linux kernel will keep in
+      allows defining an amount of memory, which the Linux kernel will keep in
       physical memory. This amount of memory will be excluded from the
       reclaiming process unless the entire system is in a critical memory
       situation.
