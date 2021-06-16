@@ -13,8 +13,8 @@
   Keeping SAP applications in physical memory is essential for their
   performance. In older product versions, the Page Cache Limit prevented a swap
   out to disk by a growing page cache (in &productname; 11 SP1 onwards and in
-  &productname; 12). In &productname; 15, the Page Cache Limit has been replaced
-  by the more advanced &wmp;.
+  &productname; 12). In &productname; 15, the Page Cache Limit has been
+  replaced by the more advanced &wmp;.
  </para>
 
  <para>
@@ -81,7 +81,7 @@
       The SAP start service manages the starting and stopping of &sap;
       instances. An important feature for WMP is the configurable execution of
       programs before the instance itself gets started in the instance profile.
-      WMP uses this method to call a program to move the 
+      WMP uses this method to call a program to move the
       <systemitem>sapstart</systemitem> process into a designated cgroup, so
       the &sap; instance will be started inside that cgroup.
      </para>
@@ -267,8 +267,8 @@ chmod +s /usr/lib/sapwmp/sapwmp-capture</screen>
        <term>&sap; Application Server (&netweaver;, &s4h;)</term>
        <listitem>
         <para>
-         For the Application Server, the sizing for the workload should indicate
-         the value for <varname>MemoryLow</varname>. The
+         For the Application Server, the sizing for the workload should
+         indicate the value for <varname>MemoryLow</varname>. The
          <package>sapwmp</package> package contains a monitoring part which
          might be useful to determine <varname>MemoryLow</varname>. See
          <xref linkend="sec-memory-protection-operation-monitor-memory-usage"/>.
@@ -311,9 +311,9 @@ chmod +s /usr/lib/sapwmp/sapwmp-capture</screen>
       <title>Correctly calculate <varname>MemoryLow</varname> value</title>
       <para>
        <varname>MemoryLow</varname> takes the memory size in bytes. If the
-       value is suffixed with K, M, G, or T, the specified memory size is parsed
-       as Kibibytes, Mebibytes, Gibibytes, or Tebibytes (with the base 1024
-       instead of 1000, see
+       value is suffixed with K, M, G, or T, the specified memory size is
+       parsed as Kibibytes, Mebibytes, Gibibytes, or Tebibytes (with the base
+       1024 instead of 1000, see
        <link xlink:href="https://en.wikipedia.org/wiki/Binary_prefix"/>),
        respectively. Alternatively, a percentage value may be specified, which
        is taken relative to the installed physical memory on the system.
@@ -346,11 +346,12 @@ chmod +s /usr/lib/sapwmp/sapwmp-capture</screen>
      <important>
       <title>Editing instance profiles</title>
       <para>
-       Edit the instance profiles directly <emphasis role="strong">only</emphasis> 
-       if you do not have the profiles imported into the database to manage
-       them via the &sap; GUI (transaction RZ11). If you have imported them, use
-       the &sap; GUI to add the lines. Profile files located in the file system
-       are overwritten and any manual changes would be lost!
+       Edit the instance profiles directly
+       <emphasis role="strong">only</emphasis> if you do not have the profiles
+       imported into the database to manage them via the &sap; GUI (transaction
+       RZ11). If you have imported them, use the &sap; GUI to add the lines.
+       Profile files located in the file system are overwritten and any manual
+       changes would be lost!
       </para>
      </important>
     </step>
@@ -387,8 +388,8 @@ MemoryLow=18487889920    &lt;- Should be your chosen value (always in bytes)!
 18487889920    &lt;- Should be your chosen value!</screen>
      <para>
       The variable <varname>MemoryLow</varname> can be set to any value, but
-      the content of the variable is always a multiple of the page size.
-      Keep this in mind if you notice a slight difference between the values.
+      the content of the variable is always a multiple of the page size. Keep
+      this in mind if you notice a slight difference between the values.
      </para>
     </step>
     <step>
@@ -562,9 +563,9 @@ PARENT_COMMANDS=sapstart</screen>
  <sect2 xml:id="sec-memory-protection-operation-monitor-memory-usage">
   <title>Monitoring memory usage</title>
   <para>
-   Logging the memory usage can be necessary not only to determine the value for
-   <varname>memory.low</varname>, but also for monitoring the correct operation
-   of WMP.
+   Logging the memory usage can be necessary not only to determine the value
+   for <varname>memory.low</varname>, but also for monitoring the correct
+   operation of WMP.
   </para>
   <para>
    To enable monitoring, activate the shipped timer unit:
@@ -645,9 +646,9 @@ system.slice : memory.low=0           memory.current=1863335936 memory.swap.curr
    currently allocated amount of physical memory of processes in this cgroup.
   </para>
   <para>
-   If you enabled swap accounting (<varname>swapaccount=1</varname>)
-   during setup, you also have <varname>memory.swap.current</varname>, the
-   amount of swapped-out memory of the cgroup.
+   If you enabled swap accounting (<varname>swapaccount=1</varname>) during
+   setup, you also have <varname>memory.swap.current</varname>, the amount of
+   swapped-out memory of the cgroup.
   </para>
   <para>
    All values are in bytes. See <xref linkend="st-conf-memorylow-sap-slice"/>
@@ -718,9 +719,8 @@ ha0adm    3327 0::/SAP.slice/wmp-ra42489517eb846c282c57681e627a496.scope    saps
    <step>
     <para>
      Stop the &sap; system completely. The
-     <systemitem class="service">sapinit.service</systemitem>
-     has to be stopped, but can stay enabled. All &sap; processes have to be
-     terminated.
+     <systemitem class="service">sapinit.service</systemitem> has to be
+     stopped, but can stay enabled. All &sap; processes have to be terminated.
     </para>
    </step>
    <step>
@@ -777,11 +777,12 @@ ha0adm    3327 0::/SAP.slice/wmp-ra42489517eb846c282c57681e627a496.scope    saps
     <important>
      <title>About editing profiles directly</title>
      <para>
-      Edit the instance profiles directly <emphasis role="strong">only</emphasis>
-      if you have not imported the profiles into the database to manage them via
-      the &sap; GUI (transaction RZ11). If you have imported them, use the &sap;
-      GUI to add the lines. Profile files located in the file system are
-      overwritten, and any manual changes will be lost!
+      Edit the instance profiles directly
+      <emphasis role="strong">only</emphasis> if you have not imported the
+      profiles into the database to manage them via the &sap; GUI (transaction
+      RZ11). If you have imported them, use the &sap; GUI to add the lines.
+      Profile files located in the file system are overwritten, and any manual
+      changes will be lost!
      </para>
     </important>
    </step>

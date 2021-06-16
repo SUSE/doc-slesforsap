@@ -8,19 +8,18 @@
  <title>Software components</title>
 
  <para>
-  As depicted in <xref linkend="fig-offering"/>,
-  &sles4sap; is based on &sls; but contains several additional
-  software components such as &sleha;, and the installation
-  workflow. These software components are briefly explained in the
+  As depicted in <xref linkend="fig-offering"/>, &sles4sap; is based on &sls;
+  but contains several additional software components such as &sleha;, and the
+  installation workflow. These software components are briefly explained in the
   following sections.
  </para>
 
  <sect2 xml:id="sec-component-sles">
   <title>&sls;</title>
   <para>
-   The current release is based on &sls; &productnumber;. &sls;
-   is the most interoperable platform for mission-critical computing,
-   both physical and virtual.
+   The current release is based on &sls; &productnumber;. &sls; is the most
+   interoperable platform for mission-critical computing, both physical and
+   virtual.
   </para>
  </sect2>
 
@@ -29,7 +28,7 @@
   <para>
    This component consists of:
   </para>
-  <!-- ke 2015-05-04: https://www.suse.com/products/highavailability/features/
+<!-- ke 2015-05-04: https://www.suse.com/products/highavailability/features/
   -->
   <itemizedlist>
    <listitem>
@@ -69,44 +68,41 @@
    </listitem>
   </itemizedlist>
   <para>
-   &sleha; provides two resource agents specifically for working with
-   &sap; applications:
+   &sleha; provides two resource agents specifically for working with &sap;
+   applications:
   </para>
   <itemizedlist>
    <listitem>
     <para>
-     <systemitem>SAPInstance</systemitem> which allows starting
-     and stopping instances of &sap; products.
+     <systemitem>SAPInstance</systemitem> which allows starting and stopping
+     instances of &sap; products.
     </para>
    </listitem>
    <listitem>
     <para>
-     <systemitem>SAPDatabase</systemitem> which allows starting
-     and stopping all databases supported by &sap; applications (&hana;,
-     &sap; MaxDB, &sap; ASE, Oracle, Sybase, IBM DB2).
+     <systemitem>SAPDatabase</systemitem> which allows starting and stopping
+     all databases supported by &sap; applications (&hana;, &sap; MaxDB, &sap;
+     ASE, Oracle, Sybase, IBM DB2).
     </para>
    </listitem>
   </itemizedlist>
-
   <para>
-   For more information about &sleha;, see the &haguide; (&ha-docaddress;)
-   and the White Papers and Best Practice Guides in the
-   &sles4sap; Resource Library (&reslibrary;).
+   For more information about &sleha;, see the &haguide; (&ha-docaddress;) and
+   the White Papers and Best Practice Guides in the &sles4sap; Resource Library
+   (&reslibrary;).
   </para>
  </sect2>
 
  <sect2 xml:id="sec-hana-replicate">
   <title>Simplified &hana; system replication setup</title>
-
   <para>
    &sles4sap; supports &hana; System Replication using components of &sleha;
-   and two additional resource agents (RA). Additionally, &s4s; ships with
-   a &yast; wizard that simplifies the cluster setup.
+   and two additional resource agents (RA). Additionally, &s4s; ships with a
+   &yast; wizard that simplifies the cluster setup.
   </para>
-
   <sect3 xml:id="sec-hana-ra">
    <title><systemitem>SAPHana</systemitem> resource agent</title>
-   <!--
+<!--
     Terms:
     + scale-up: adding more resources to an existing system
     + scale-out: adding complementary systems to your existing ones
@@ -118,7 +114,7 @@
     Fixme/12 SP2: Are scale-out scenarios supported? FATE#318793
     - sknorr, 2016-02-04
    -->
-   <!--
+<!--
     Feedback from Fabian Herschel regarding the word "failover":
     "[W]e should be careful about terms like "failover" or "takeover". Because
     in the SAP HANA ecosystem, the terms are all used twice but differently
@@ -128,29 +124,28 @@
    -->
    <para>
     This resource agent from SUSE supports scale-up scenarios by checking the
-    &hana; database instances for whether a takeover needs to happen.
-    Unlike with the pure &sap; solution, takeovers can be automated.
+    &hana; database instances for whether a takeover needs to happen. Unlike
+    with the pure &sap; solution, takeovers can be automated.
    </para>
    <para>
     It is configured as a master/slave resource: The master assumes
-    responsibility for the &hana; databases running in primary mode,
-    whereas the slave is responsible for instances
-    that are operated in synchronous (secondary) status. In case of a takeover,
-    the secondary (slave resource instance) can automatically be promoted to
-    become the new primary (master resource instance).
+    responsibility for the &hana; databases running in primary mode, whereas
+    the slave is responsible for instances that are operated in synchronous
+    (secondary) status. In case of a takeover, the secondary (slave resource
+    instance) can automatically be promoted to become the new primary (master
+    resource instance).
    </para>
-
    <para>
-    This resource agent supports system replication for the following
-    scale-up scenarios:
+    This resource agent supports system replication for the following scale-up
+    scenarios:
    </para>
    <itemizedlist>
     <listitem>
      <formalpara>
       <title>Performance-optimized scenario</title>
       <para>
-       Two servers (A and B) in the same &sleha; cluster, one primary (A)
-       and one secondary (B). The &hana; instance from the primary server (A) is
+       Two servers (A and B) in the same &sleha; cluster, one primary (A) and
+       one secondary (B). The &hana; instance from the primary server (A) is
        replicated synchronously to the secondary server (B).
       </para>
      </formalpara>
@@ -160,12 +155,11 @@
       <title>Cost-optimized scenario</title>
       <para>
        The basic setup of A and B is the same as in the
-       <emphasis>Performance-Optimized Scenario</emphasis>.
-       However, the secondary server (B) is also used for non-productive
-       purposes, such as for an additional &hana; database for development or
-       QA. The production
-       database is only kept on permanent memory, such as a hard disk.
-       If a takeover needs to occur, the non-productive server will be stopped
+       <emphasis>Performance-Optimized Scenario</emphasis>. However, the
+       secondary server (B) is also used for non-productive purposes, such as
+       for an additional &hana; database for development or QA. The production
+       database is only kept on permanent memory, such as a hard disk. If a
+       takeover needs to occur, the non-productive server will be stopped
        before the takeover is processed. The system resources for the
        productive database are then increased as quickly as possible via an
        &sap; hook call-out script.
@@ -176,18 +170,18 @@
      <formalpara>
       <title>Chain/multi-tier scenario</title>
       <para>
-       Three servers (A, B, and C), of which two are located in the
-       same &sleha; cluster (A and B). The third server (C) is located
-       externally. The &hana; system on the primary server (A) is replicated
-       synchronously to the secondary server (B). The secondary server (B) is
-       replicated asynchronously to the external server (C).
+       Three servers (A, B, and C), of which two are located in the same
+       &sleha; cluster (A and B). The third server (C) is located externally.
+       The &hana; system on the primary server (A) is replicated synchronously
+       to the secondary server (B). The secondary server (B) is replicated
+       asynchronously to the external server (C).
       </para>
      </formalpara>
      <para>
       If a takeover from A to B occurs, the connection between B and C remains
-      untouched. However, B is not allowed to be the source for two servers
-      (A and C), as this would be a <quote>star</quote> topology, which
-      is not supported with current &hana; versions (such as SPS11).
+      untouched. However, B is not allowed to be the source for two servers (A
+      and C), as this would be a <quote>star</quote> topology, which is not
+      supported with current &hana; versions (such as SPS11).
      </para>
      <para>
       Using &hana; commands, you can then manually decide what to do:
@@ -195,14 +189,14 @@
      <itemizedlist>
       <listitem>
        <para>
-        The connection between B and C can be broken, so that B can
-        connect to A.
+        The connection between B and C can be broken, so that B can connect to
+        A.
        </para>
       </listitem>
       <listitem>
        <para>
-        If replication to the external site (C) is more important than
-        local system replication, the connection between B and C can be kept.
+        If replication to the external site (C) is more important than local
+        system replication, the connection between B and C can be kept.
        </para>
       </listitem>
      </itemizedlist>
@@ -210,10 +204,10 @@
    </itemizedlist>
    <para>
     For all of the scenarios, &sles4sap; supports both single-tenant and
-    multi-tenant (MDC) &hana; databases. That is, you can use &hana; databases that
-    serve multiple &sap; applications.
+    multi-tenant (MDC) &hana; databases. That is, you can use &hana; databases
+    that serve multiple &sap; applications.
    </para>
-   <!--taroth 2019-07-29: commenting because not publicly available
+<!--taroth 2019-07-29: commenting because not publicly available
     <para>
     For more information, also see the project home page
     <link xlink:href="https://github.com/fmherschel/SAPHanaSR/"/>.
@@ -222,21 +216,20 @@
   <sect3 xml:id="sec-topology-ra">
    <title><systemitem>SAPHanaTopology</systemitem> resource agent</title>
    <para>
-    To make configuring the cluster as simple as possible, SUSE has
-    developed the <systemitem>SAPHanaTopology</systemitem> resource agent.
-    This agent runs on all
-    nodes of a &sleha; cluster and gathers information about the status and
-    configurations of &hana; system replications. It is designed as a
-    normal (stateless) clone.
+    To make configuring the cluster as simple as possible, SUSE has developed
+    the <systemitem>SAPHanaTopology</systemitem> resource agent. This agent
+    runs on all nodes of a &sleha; cluster and gathers information about the
+    status and configurations of &hana; system replications. It is designed as
+    a normal (stateless) clone.
    </para>
   </sect3>
   <sect3 xml:id="sec-hana-replicate-wizard">
    <title>&yast; wizard to set up &hana; clusters</title>
    <para>
-    &s4s; now additionally ships a &yast; wizard that manages the
-    initial setup of such clusters according to best practices.
-    The wizard is part of the package <package>yast2-sap-ha</package> and can
-    be started using &yast;, via <guimenu>HA Setup for SAP Products</guimenu>.
+    &s4s; now additionally ships a &yast; wizard that manages the initial setup
+    of such clusters according to best practices. The wizard is part of the
+    package <package>yast2-sap-ha</package> and can be started using &yast;,
+    via <guimenu>HA Setup for SAP Products</guimenu>.
    </para>
    <para>
     For more information, see <xref linkend="cha-cluster"/>.
@@ -255,11 +248,10 @@
     </listitem>
     <listitem>
      <para>
-      The <emphasis>Best Practices</emphasis> in the Resource Library
-      at &reslibrary;.
-      In particular, see <citetitle>Setting up a SAP HANA SR performance
-      optimized infrastructure</citetitle> and <citetitle>Setting up a SAP
-      HANA SR cost optimized infrastructure</citetitle>.
+      The <emphasis>Best Practices</emphasis> in the Resource Library at
+      &reslibrary;. In particular, see <citetitle>Setting up a SAP HANA SR
+      performance optimized infrastructure</citetitle> and <citetitle>Setting
+      up a SAP HANA SR cost optimized infrastructure</citetitle>.
      </para>
     </listitem>
    </itemizedlist>
@@ -267,17 +259,17 @@
  </sect2>
 
  <sect2 xml:id="sec-component-install">
- <title>Installation workflow</title>
+  <title>Installation workflow</title>
   <para>
    The installation workflow offers a guided installation path for both the
    &sls; operating system and the &sap; application.
-   <!-- ke: jweber does not want plural ("applications") here.-->
+<!-- ke: jweber does not want plural ("applications") here.-->
    For more information, see <xref linkend="sec-workflow-overview"/>.
   </para>
   <para>
-   Additionally, the installation workflow can be extended by
-   third-party vendors or customers using &supmedia;. For more information about
-   creating &supmedia;, see <xref linkend="app-component-supplement"/>.
+   Additionally, the installation workflow can be extended by third-party
+   vendors or customers using &supmedia;. For more information about creating
+   &supmedia;, see <xref linkend="app-component-supplement"/>.
   </para>
  </sect2>
 
@@ -286,8 +278,8 @@
   <para>
    &clamsap; integrates the &clamav; anti-malware toolkit into &netweaver; and
    &sap; Mobile Platform applications to enable cross-platform threat
-   detection. For example, you can use &clamsap; to allow an &sap;
-   application to scan for malicious uploads in HTTP uploads.
+   detection. For example, you can use &clamsap; to allow an &sap; application
+   to scan for malicious uploads in HTTP uploads.
   </para>
   <para>
    For more information, see <xref linkend="cha-clamsap"/>.
@@ -300,20 +292,18 @@
    &sles4sap; contains additional features to help set up well-secured &hana;
    installations.
   </para>
-
   <sect3 xml:id="sec-component-firewall-hana">
    <title>Firewall for &hana;</title>
    <para>
     Securing &hana; can require many additional firewall rules. To simplify
-    firewall setups for &hana;, &sles4sap;
-    contains the package <package>HANA-Firewall</package> which
-    provides preconfigured rules and integrates with &firewalld;.
+    firewall setups for &hana;, &sles4sap; contains the package
+    <package>HANA-Firewall</package> which provides preconfigured rules and
+    integrates with &firewalld;.
    </para>
    <para>
     For more information, see <xref linkend="sec-configure-firewall-hana"/>.
    </para>
   </sect3>
-
   <sect3 xml:id="sec-component-harden">
    <title>Hardening guide for &hana;</title>
    <para>
@@ -332,27 +322,25 @@
  <sect2 xml:id="sec-component-manage-operation">
   <title>Simplified operations management</title>
   <para>
-    &sles4sap; combines several features that enable simplified operations
-    management.
+   &sles4sap; combines several features that enable simplified operations
+   management.
   </para>
-
   <sect3 xml:id="sec-component-sapconf">
    <title>System tuning with <command>saptune</command></title>
    <para>
     The system tuning application <command>saptune</command> allows you to
-    automatically and comprehensively tune your system as recommended by
-    &sap; for use with &s4h;, &netweaver;, or &hana;/&b1;. To do this,
+    automatically and comprehensively tune your system as recommended by &sap;
+    for use with &s4h;, &netweaver;, or &hana;/&b1;. To do this,
     <command>saptune</command> activates
-    <systemitem class="daemon">tuned</systemitem> profiles. These allow
-    tuning several kernel parameters, depending on the hardware components
-    you are using, such as the amount of available RAM.
+    <systemitem class="daemon">tuned</systemitem> profiles. These allow tuning
+    several kernel parameters, depending on the hardware components you are
+    using, such as the amount of available RAM.
    </para>
    <para>
     For more information, see <xref linkend="sec-saptune"/>.
    </para>
   </sect3>
-
-  <!-- commenting out; may be restored if necessary. There will be a release note
+<!-- commenting out; may be restored if necessary. There will be a release note
   that the cryptctl chapter has been moved to the Security Guide (cschroder
   9 June 2020
   <sect3 xml:id="sec-component-cryptctl">
@@ -386,13 +374,12 @@
     <link xlink:href="https://documentation.suse.com/sles-15/html/SLES-all/book-security.html"/>
    </para>    
    </sect3> -->
-
   <sect3 xml:id="sec-component-pattern">
    <title>Patterns providing dependencies of &sap; applications</title>
    <para>
-    To simplify working with software dependencies of &sap; applications, &suse;
-    has created patterns that combine relevant dependency RPM packages for
-    specific applications:
+    To simplify working with software dependencies of &sap; applications,
+    &suse; has created patterns that combine relevant dependency RPM packages
+    for specific applications:
    </para>
    <itemizedlist>
     <listitem>
@@ -412,32 +399,29 @@
     </listitem>
    </itemizedlist>
    <important>
-    <title>
-     Packages may be missing from patterns
-    </title>
+    <title>Packages may be missing from patterns</title>
     <para>
      The selection of packages of the software patterns is defined while a
      specific release (Service Pack or major version) of &sles4sap; is
      developed. This package selection is stable over the lifetime of this
      particular release. When working with &sap; applications that have been
-     released more recently than your &sles4sap; version,
-     dependencies can be missing from the patterns.
+     released more recently than your &sles4sap; version, dependencies can be
+     missing from the patterns.
     </para>
     <para>
-     For definitive information about the dependencies of your &sap; application,
-     see the documentation provided to you by &sap;.
+     For definitive information about the dependencies of your &sap;
+     application, see the documentation provided to you by &sap;.
     </para>
    </important>
   </sect3>
-
   <sect3 xml:id="sec-component-clustertool">
    <title><systemitem>ClusterTools2</systemitem></title>
    <para>
-    <systemitem>ClusterTools2</systemitem> provides tools that help set up
-    and manage a Corosync/<systemitem>pacemaker</systemitem> cluster. Among
-    them are <systemitem>wow</systemitem> which helps create
-    highly available system resources, and
-    <systemitem>ClusterService</systemitem> which allows managing a cluster.
+    <systemitem>ClusterTools2</systemitem> provides tools that help set up and
+    manage a Corosync/<systemitem>pacemaker</systemitem> cluster. Among them
+    are <systemitem>wow</systemitem> which helps create highly available system
+    resources, and <systemitem>ClusterService</systemitem> which allows
+    managing a cluster.
    </para>
    <para>
     Additionally, <systemitem>ClusterTools2</systemitem> provides scripts that
@@ -459,17 +443,15 @@
     </listitem>
     <listitem>
      <para>
-      Scripts that monitor the system and scripts that show or collect
-      system information. For example, to find known error patterns in
-      log files.
+      Scripts that monitor the system and scripts that show or collect system
+      information. For example, to find known error patterns in log files.
      </para>
     </listitem>
    </itemizedlist>
    <para>
-    For more information, see the man page of the respective tool,
-    included with the package <package>ClusterTools2</package>.
+    For more information, see the man page of the respective tool, included
+    with the package <package>ClusterTools2</package>.
    </para>
   </sect3>
  </sect2>
-
 </sect1>

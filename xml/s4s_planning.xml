@@ -6,21 +6,21 @@
 ]>
 <chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="cha-plan">
  <title>Planning the installation</title>
-
  <para>
   Read this chapter carefully, as it helps you plan the installation: It lists
   requirements and helps you collect data about your system.
  </para>
-
  <sect1 xml:id="sec-hardware">
   <title>Hardware requirements</title>
+
   <para>
    This section lists minimum hardware requirements for the installation of
    &s4s; and gives basic guidance on the expected hardware requirements of
    certain &sap; software. For the most up-to-date information about the
-   hardware requirements of &sap; software, see the official sizing
-   guidelines at <link xlink:href="https://service.sap.com/sizing"/>.
+   hardware requirements of &sap; software, see the official sizing guidelines
+   at <link xlink:href="https://service.sap.com/sizing"/>.
   </para>
+
   <variablelist>
    <varlistentry>
     <term>Supported CPU</term>
@@ -41,13 +41,12 @@
     <listitem>
      <para>
       &s4s; requires at least 41 GB (without swap) of hard disk space for the
-      system volume.
-      In addition to that, reserve an appropriate amount of hard disk space
-      for the swap partition.
+      system volume. In addition to that, reserve an appropriate amount of hard
+      disk space for the swap partition.
      </para>
      <para>
-      To install an &sap; application such as &nw;, you need at least 200 GB of
-      free disk space in addition to the required space for the operating
+      To install an &sap; application such as &nw;, you need at least 200 GB
+      of free disk space in addition to the required space for the operating
       system for the application's <filename>/data</filename> partition.
      </para>
      <para>
@@ -88,7 +87,7 @@
      <para>
       For more information about &hana; TDI storage requirements, see:
      </para>
-     <!-- FIXME! Long link is line-wrapped in terrible ways, so added new
+<!-- FIXME! Long link is line-wrapped in terrible ways, so added new
      para despite this being semantic nonsense. -->
      <para>
       <link xlink:href="https://www.sap.com/docs/download/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.pdf"/>
@@ -112,66 +111,69 @@
     </listitem>
    </varlistentry>
   </variablelist>
+
   <para>
    For more information about configuring hardware for &hana;, see
    <citetitle>SAP Note 1944415: Hardware Configuration Guide and Software
-   Installation Guide for SUSE Linux Enterprise Server with SAP HANA and
-   SAP Business One</citetitle>
-   (<link xlink:href="&sapnoteaddress;1944415"/>).
+   Installation Guide for SUSE Linux Enterprise Server with SAP HANA and SAP
+   Business One</citetitle> (<link xlink:href="&sapnoteaddress;1944415"/>).
   </para>
+
   <para>
    For more information about partitioning, see
    <xref linkend="sec-partition"/>.
   </para>
  </sect1>
-
  <sect1 xml:id="sec-download">
   <title>Installation image</title>
+
   <para>
-   Unlike previous &slea; products, the entire &slea; &productnumber;
-   product line can be installed from a single installation medium:
-   <literal>&slea; &productnumber; Online media 1</literal>. To
-   install without network access or registration, download the
-   <literal>&slea; &productnumber; Full media 1</literal> image. Both ISO images
-   are available from <link xlink:href="https://download.suse.com/"/>.
+   Unlike previous &slea; products, the entire &slea; &productnumber; product
+   line can be installed from a single installation medium:
+   <literal>&slea; &productnumber; Online media 1</literal>. To install
+   without network access or registration, download the
+   <literal>&slea; &productnumber; Full media 1</literal> image. Both ISO
+   images are available from <link xlink:href="https://download.suse.com/"/>.
   </para>
+
   <para>
    Burn the image onto a physical DVD or copy it to a removable flash disk.
    Make sure the size of the disk is sufficient for the desired image.
-   Alternatively, use a virtual DVD-ROM device for installation
-   in a virtual machine.
+   Alternatively, use a virtual DVD-ROM device for installation in a virtual
+   machine.
   </para>
+
   <tip>
-   <title>
-    Copying the installation media image to a removable flash disk
-   </title>
+   <title>Copying the installation media image to a removable flash disk</title>
    <para>
-    Use the following command to copy the contents of the installation image
-    to a removable flash disk.
+    Use the following command to copy the contents of the installation image to
+    a removable flash disk.
    </para>
-   <screen>&prompt.sudo;dd if=<replaceable>IMAGE</replaceable> of=<replaceable>FLASH_DISK</replaceable> bs=4M &amp;&amp; sync</screen>
+<screen>&prompt.sudo;dd if=<replaceable>IMAGE</replaceable> of=<replaceable>FLASH_DISK</replaceable> bs=4M &amp;&amp; sync</screen>
    <para>
-    Replace <replaceable>IMAGE</replaceable> with the path to the
-    installation media image file and <replaceable>FLASH_DISK</replaceable>
-    with the flash device.
+    Replace <replaceable>IMAGE</replaceable> with the path to the installation
+    media image file and <replaceable>FLASH_DISK</replaceable> with the flash
+    device.
    </para>
   </tip>
  </sect1>
-
  <sect1 xml:id="sec-migration">
   <title>Offline migration</title>
+
   <para>
-   The migration paths for &sls; are identical to those for &sles4sap;.
-   Find detailed information in the &upgrade_guide; at <link
+   The migration paths for &sls; are identical to those for &sles4sap;. Find
+   detailed information in the &upgrade_guide; at
+   <link
    xlink:href="&dsc-sles;/html/SLES-all/cha-upgrade-paths.html"/>.
   </para>
  </sect1>
-
  <sect1 condition="noquick" xml:id="sec-how-install">
   <title>Installation methods</title>
+
   <para>
    There are multiple ways of installing &sles4sap;:
   </para>
+
   <itemizedlist>
    <listitem>
     <para>
@@ -186,7 +188,6 @@
    </listitem>
   </itemizedlist>
  </sect1>
-
  <sect1 xml:id="sec-workflow-overview">
   <title>Overview of the installation workflow</title>
 
@@ -203,34 +204,34 @@
    </listitem>
    <listitem>
     <para>
-     &sapwiz;, part 1: Copying all required &sap; media to the
-     local disk or selecting a shared storage medium to use.
-     See <xref linkend="sec-install-sap-product"/>, in particular
+     &sapwiz;, part 1: Copying all required &sap; media to the local disk or
+     selecting a shared storage medium to use. See
+     <xref linkend="sec-install-sap-product"/>, in particular
      <xref linkend="st-copy-master" xrefstyle="select:title"/>.
     </para>
    </listitem>
    <listitem>
     <para>
-     &sapwiz;, part 2: Collecting all parameters for the
-     actual installation by querying the user interactively.
-     See <xref linkend="sec-install-sap-product"/>, in particular
+     &sapwiz;, part 2: Collecting all parameters for the actual installation by
+     querying the user interactively. See
+     <xref linkend="sec-install-sap-product"/>, in particular
      <xref linkend="st-collect-parameter" xrefstyle="select:title"/>.
     </para>
    </listitem>
    <listitem>
     <para>
-     &sapwiz;, part 3: Running the &sap; Installer.
-     See <xref linkend="sec-install-sap-product"/>, in particular
+     &sapwiz;, part 3: Running the &sap; Installer. See
+     <xref linkend="sec-install-sap-product"/>, in particular
      <xref linkend="st-sapinst" xrefstyle="select:title"/>.
     </para>
    </listitem>
   </orderedlist>
 
   <para>
-   Most of these steps do not need to be run immediately after each other, which
-   allows for flexibility in how you install systems.
-   This means that you can prepare a single installation
-   as a first step and then continue from there. For example:
+   Most of these steps do not need to be run immediately after each other,
+   which allows for flexibility in how you install systems. This means that you
+   can prepare a single installation as a first step and then continue from
+   there. For example:
   </para>
 
   <itemizedlist>
@@ -244,8 +245,8 @@
    </listitem>
    <listitem>
     <para>
-     Install the operating system (&sls;), copy &sap; media, and collect
-     &sap; installation parameters.
+     Install the operating system (&sls;), copy &sap; media, and collect &sap;
+     installation parameters.
     </para>
    </listitem>
   </itemizedlist>
@@ -256,7 +257,6 @@
    individually.
   </para>
  </sect1>
-
  <sect1 xml:id="sec-data">
   <title>Required data for installing</title>
 
@@ -265,14 +265,15 @@
     <term>Operating system</term>
     <listitem>
      <para>
-      The &sls; installation requires the following data for every
-      physical server:
+      The &sls; installation requires the following data for every physical
+      server:
      </para>
      <itemizedlist>
       <listitem>
        <para>
-        Network configuration parameters, such as host name, domain, IP address,
-        subnet mask, domain search list (DNS), IP for name server, IP for gateway
+        Network configuration parameters, such as host name, domain, IP
+        address, subnet mask, domain search list (DNS), IP for name server, IP
+        for gateway
        </para>
       </listitem>
       <listitem>
@@ -308,8 +309,9 @@
       </listitem>
      </itemizedlist>
      <para>
-      Depending on the &sap; application you are installing, more parameters may be
-      necessary, such as T-Shirt Sizing or parameters for virtual networking.
+      Depending on the &sap; application you are installing, more parameters
+      may be necessary, such as T-Shirt Sizing or parameters for virtual
+      networking.
      </para>
     </listitem>
    </varlistentry>
@@ -332,10 +334,10 @@
       </listitem>
       <listitem>
        <para>
-        Whether to enable Multitenant Database Containers (MDC).
-        The multi-tenant support of &hana; allows having multiple
-        databases that run as one &hana; installation.
-        (To use &hana; MDC, you need &hana; Life Cycle Manager.)
+        Whether to enable Multitenant Database Containers (MDC). The
+        multi-tenant support of &hana; allows having multiple databases that
+        run as one &hana; installation. (To use &hana; MDC, you need &hana;
+        Life Cycle Manager.)
        </para>
        <para>
         For a single-tenant installation, choose <guimenu>No</guimenu>.
@@ -346,8 +348,8 @@
         user, choose <guimenu>Yes with low isolation</guimenu>.
        </para>
        <para>
-        For a multi-tenant instance administrated in which each database
-        has its own
+        For a multi-tenant instance administrated in which each database has
+        its own
         <systemitem class="username"><replaceable>SID</replaceable>adm</systemitem>
         user, choose <guimenu>Yes with high isolation</guimenu>.
        </para>
@@ -361,14 +363,12 @@
     </listitem>
    </varlistentry>
   </variablelist>
+
   <para>
    For more information about installing &sap; software, see the &sap;
    documentation at <link xlink:href="https://help.sap.com"/> and
    <link xlink:href="https://support.sap.com"/>.
   </para>
  </sect1>
-
-
  <xi:include href="s4s_partitioning.xml" parse="xml"/>
-
 </chapter>
