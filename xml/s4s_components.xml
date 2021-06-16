@@ -105,7 +105,7 @@
   </para>
 
   <sect3 xml:id="sec-hana-ra">
-   <title><systemitem>SAPHana</systemitem> Resource agent</title>
+   <title><systemitem>SAPHana</systemitem> resource agent</title>
    <!--
     Terms:
     + scale-up: adding more resources to an existing system
@@ -220,7 +220,7 @@
    </para>-->
   </sect3>
   <sect3 xml:id="sec-topology-ra">
-   <title><systemitem>SAPHanaTopology</systemitem> Resource agent</title>
+   <title><systemitem>SAPHanaTopology</systemitem> resource agent</title>
    <para>
     To make configuring the cluster as simple as possible, SUSE has
     developed the <systemitem>SAPHanaTopology</systemitem> resource agent.
@@ -413,7 +413,7 @@
    </itemizedlist>
    <important>
     <title>
-     Packages May Be Missing from Patterns
+     Packages may be missing from patterns
     </title>
     <para>
      The selection of packages of the software patterns is defined while a

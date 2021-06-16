@@ -198,8 +198,8 @@
   <sect2 xml:id="sec-saptune-delete">
    <title>Deleting an &sap; note</title>
    <para>
-    This command allows to delete a created note, including the corresponding override
-    file if available:
+    This command allows deleting a created note, including the corresponding
+    override file if available:
    </para>
    <screen>&prompt.root;<command>saptune note delete test</command>
 Note to delete is a customer/vendor specific Note.
@@ -222,7 +222,8 @@ Do you really want to delete this Note (test2)? [y/n]: y</screen>
     <listitem>
      <para>
       If the note is already applied, the command will be terminated with the
-      information, that the note first needs to be reverted before it can be deleted.
+      information that the note first needs to be reverted before it can be
+      deleted.
      </para>
     </listitem>
    </itemizedlist>
@@ -231,8 +232,8 @@ Do you really want to delete this Note (test2)? [y/n]: y</screen>
   <sect2 xml:id="sec-saptune-rename">
    <title>Renaming an &sap; note</title>
    <para>
-    This command allows to rename a created note to a new name.
-    If a corresponding override file is available, this file will be renamed too:
+    This command allows renaming a previously-created note. If a corresponding
+    override file is available, that file will be renamed too:
    </para>
    <screen>&prompt.root;<command>saptune note rename test test2</command>
 Note to rename is a customer/vendor specific Note.
@@ -255,7 +256,8 @@ Do you really want to rename this Note (test) to the new name 'test2'? [y/n]: y<
     <listitem>
      <para>
       If the note is already applied, the command will be terminated with the
-      information, that the note first needs to be reverted before it can be deleted.
+      information that the note first needs to be reverted before it can be
+      deleted.
      </para>
     </listitem>
    </itemizedlist>
