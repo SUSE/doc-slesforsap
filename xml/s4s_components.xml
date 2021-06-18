@@ -216,7 +216,7 @@
   <sect3 xml:id="sec-topology-ra">
    <title><systemitem>SAPHanaTopology</systemitem> Resource agent</title>
    <para>
-    To make configuring the cluster as simple as possible, SUSE has developed
+    To make configuring the cluster as simple as possible, &suse; has developed
     the <systemitem>SAPHanaTopology</systemitem> resource agent. This agent
     runs on all nodes of a &sleha; cluster and gathers information about the
     status and configurations of &hana; system replications. It is designed as
