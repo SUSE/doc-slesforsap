@@ -418,7 +418,7 @@
    <title><systemitem>ClusterTools2</systemitem></title>
    <para>
     <systemitem>ClusterTools2</systemitem> provides tools that help set up and
-    manage a Corosync/<systemitem>pacemaker</systemitem> cluster. Among them
+    manage a &coro; &amp; &pace; cluster. Among them
     are <systemitem>wow</systemitem> which helps create highly available system
     resources, and <systemitem>ClusterService</systemitem> which allows
     managing a cluster.
