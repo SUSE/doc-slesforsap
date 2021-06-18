@@ -6,7 +6,6 @@
 ]>
 <appendix xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="app-additional-software">
  <title>Additional software for &s4sa;</title>
-
  <para>
   &s4s; makes it easy to install software that is not included with your
   subscription:
@@ -15,17 +14,17 @@
   <listitem>
    <para>
     Extensions and modules allow installing additional software created and
-    supported by &suse;. For more information about extensions and modules,
-    see <citetitle>&deploy;, Part <quote>Initial System
-    Configuration</quote>, Chapter <quote>Installing Modules, Extensions, and
-    Third Party Add-On Products</quote></citetitle> at &docaddress;.
+    supported by &suse;. For more information about extensions and modules, see
+    <citetitle>&deploy;, Part <quote>Initial System Configuration</quote>,
+    Chapter <quote>Installing Modules, Extensions, and Third Party Add-On
+    Products</quote></citetitle> at &docaddress;.
    </para>
   </listitem>
   <listitem>
    <para>
     <guimenu>SUSE Connect Program</guimenu> allows installing packages created
-    and supported by third parties, specifically for &s4sa;. It also gives
-    easy access to third-party trainings and support. See
+    and supported by third parties, specifically for &s4sa;. It also gives easy
+    access to third-party trainings and support. See
     <xref linkend="sec-suseconnectprogram"/>.
    </para>
   </listitem>
@@ -36,25 +35,25 @@
    </para>
   </listitem>
  </itemizedlist>
-
  <sect1 xml:base="sec-identifying-sap">
   <title>Identifying a base product for &sles4sap;</title>
+
   <para>
-   To identify and distinguish &suse; products, use one of the following
-   files:
+   To identify and distinguish &suse; products, use one of the following files:
   </para>
+
   <variablelist>
    <varlistentry>
     <term><filename>/etc/os-release</filename></term>
     <listitem>
      <para>
-      A text file with key-value pairs, similar to shell-compatible
-      variable assignments. Each key is on a separate line.
+      A text file with key-value pairs, similar to shell-compatible variable
+      assignments. Each key is on a separate line.
      </para>
      <para>
-      You can search for the <varname>CPE_NAME</varname> key; however,
-      between different releases and service packs, the value may have been
-      changed. If you need further details, refer to the article at
+      You can search for the <varname>CPE_NAME</varname> key; however, between
+      different releases and service packs, the value may have been changed. If
+      you need further details, refer to the article at
       <link xlink:href="https://www.suse.com/support/kb/doc/?id=7023490"/>.
      </para>
     </listitem>
@@ -63,106 +62,123 @@
     <term><filename>/etc/product.d/baseproduct</filename></term>
     <listitem>
      <para>
-      A link to an XML file. The <filename class="directory"
-       >/etc/product.d/</filename> directory contains different <filename
-        class="extension">.prod</filename> files.
+      A link to an XML file. The
+      <filename class="directory"
+       >/etc/product.d/</filename> directory
+      contains different <filename
+        class="extension">.prod</filename>
+      files.
      </para>
      <para>
-      Depending on which products you have purchased and how you installed
-      your system, the link <filename>/etc/product.d/baseproduct</filename>
-      can point to a different <filename
-        class="extension">.prod</filename> file, for example,
-      <filename>sle-module-sap-applications.prod</filename>.
-      The same information as <varname>CPE_NAME</varname> is stored in
-      the tag <tag class="starttag">cpeid</tag>.
+      Depending on which products you have purchased and how you installed your
+      system, the link <filename>/etc/product.d/baseproduct</filename> can
+      point to a different <filename
+        class="extension">.prod</filename>
+      file, for example, <filename>sle-module-sap-applications.prod</filename>.
+      The same information as <varname>CPE_NAME</varname> is stored in the tag
+      <tag class="starttag">cpeid</tag>.
      </para>
     </listitem>
    </varlistentry>
   </variablelist>
 
   <para>
-   Among other information, both files contain the operating system and
-   base product. The base product (key <varname>CPE_NAME</varname> and tag
-   <tag class="starttag">cpeid</tag>) follow the <link
+   Among other information, both files contain the operating system and base
+   product. The base product (key <varname>CPE_NAME</varname> and tag
+   <tag class="starttag">cpeid</tag>) follow the
+   <link
     xlink:href="http://scap.nist.gov/specifications/cpe/"
-    >Common Platform Enumeration Specification</link>.
+    >Common
+   Platform Enumeration Specification</link>.
   </para>
 
   <para>
-   You can extract any information from the file <filename
-    >/etc/product.d/baseproduct</filename>
-   either with the commands <command>grep</command> or <command>xmlstarlet</command>
-   (both are available for your products).
-   As XML is also text, use <command>grep</command> for <quote>simple searches</quote>
-   when the format of the output does not matter much. However, if your search
-   is more advanced, you need the output in another script, or you want
-   to avoid the XML tags in the output, use the
-   <command>xmlstarlet</command> command instead.
+   You can extract any information from the file
+   <filename
+    >/etc/product.d/baseproduct</filename> either with the
+   commands <command>grep</command> or <command>xmlstarlet</command> (both are
+   available for your products). As XML is also text, use
+   <command>grep</command> for <quote>simple searches</quote> when the format
+   of the output does not matter much. However, if your search is more
+   advanced, you need the output in another script, or you want to avoid the
+   XML tags in the output, use the <command>xmlstarlet</command> command
+   instead.
   </para>
+
   <para>
-   For example, to get your base product, use <command>grep</command> like this:
+   For example, to get your base product, use <command>grep</command> like
+   this:
   </para>
-  <screen>&prompt.user;<command>grep</command> cpeid /etc/products.d/baseproduct
+
+<screen>&prompt.user;<command>grep</command> cpeid /etc/products.d/baseproduct
 &lt;cpeid>cpe:/o:suse:sle-module-sap-applications:<replaceable
  >RELEASE</replaceable>:sp<replaceable
   >SP_NUMBER</replaceable>&lt;/cpeid></screen>
 
   <para>
-   The <replaceable>RELEASE</replaceable> and <replaceable>SP_NUMBER</replaceable>
-   are placeholders and describe your product release number and service pack.
+   The <replaceable>RELEASE</replaceable> and
+   <replaceable>SP_NUMBER</replaceable> are placeholders and describe your
+   product release number and service pack.
   </para>
+
   <para>
-   The same can be achieved with <command>xmlstarlet</command>. You need
-   an XPath (the steps that lead you to your information). With the appropriate
-   options, you can avoid the <tag class="starttag">cpeid</tag>/<tag
+   The same can be achieved with <command>xmlstarlet</command>. You need an
+   XPath (the steps that lead you to your information). With the appropriate
+   options, you can avoid the
+   <tag class="starttag">cpeid</tag>/<tag
     class="endtag">cpeid</tag> tags:
   </para>
-  <screen>&prompt.user;<command>xmlstarlet</command> sel -T -t -v<!--
+
+<screen>&prompt.user;<command>xmlstarlet</command> sel -T -t -v<!--
   --> "/product/cpeid" /etc/products.d/baseproduct
 cpe:/o:suse:sle-module-sap-applications:<replaceable
  >RELEASE</replaceable>:sp<replaceable>SP_NUMBER</replaceable></screen>
+
   <para>
-   A more advanced search (which would be difficult for <command>grep</command>)
-   would be to list all required dependencies to other products.
-   Assuming that <filename>basename</filename> points to
-   <filename>sle-module-sap-applications.prod</filename>, the following
-   command will output all product dependencies which are required for &sles4sap;:
+   A more advanced search (which would be difficult for
+   <command>grep</command>) would be to list all required dependencies to other
+   products. Assuming that <filename>basename</filename> points to
+   <filename>sle-module-sap-applications.prod</filename>, the following command
+   will output all product dependencies which are required for &sles4sap;:
   </para>
-  <screen>>&prompt.user;<command>xmlstarlet</command> sel -T -t -v<!--
+
+<screen>>&prompt.user;<command>xmlstarlet</command> sel -T -t -v<!--
   --> "/product/productdependency[@relationship='requires']/@name" /etc/products.d/baseproduct
 SUSE_SLE
 sle-ha</screen>
  </sect1>
-
  <sect1 xml:id="sec-suseconnectprogram">
-  <title>SUSE connect program</title>
+  <title>SUSE Connect Program</title>
   <para>
    Start SUSE Connect Program from the &yast; control center using
    <guimenu>SUSE Connect Program</guimenu>. Choose from the available options.
    To enable a software repository, click <guimenu>Add repository</guimenu>.
   </para>
+
   <para>
-   All software enabled by SUSE Connect Program originates from third
-   parties. For support, contact the vendor in question. &suse; does not
-   provide support for these offerings.
+   All software enabled by SUSE Connect Program originates from third parties.
+   For support, contact the vendor in question. &suse; does not provide support
+   for these offerings.
   </para>
+
   <note>
    <title><command>SUSEConnect</command> command line tool</title>
    <para>
     The <command>SUSEConnect</command> command line tool is a separate tool
-    with a different purpose: It allows you to register installations of
-    &suse; products.
+    with a different purpose: It allows you to register installations of &suse;
+    products.
    </para>
   </note>
  </sect1>
  <sect1 xml:id="sec-packagehub">
   <title>&ph;</title>
+
   <para>
-   &ph; provides many packages for &slea; that were previously
-   only available on &opensuse;.
-   Packages from &suse; Package Hub are created by the community and come
-   without support. The selection includes, for example:
+   &ph; provides many packages for &slea; that were previously only available
+   on &opensuse;. Packages from &suse; Package Hub are created by the community
+   and come without support. The selection includes, for example:
   </para>
+
   <itemizedlist>
    <listitem>
     <para>
@@ -180,10 +196,12 @@ sle-ha</screen>
     </para>
    </listitem>
   </itemizedlist>
+
   <para>
    To enable &ph;, add the repository as described at
    <link xlink:href="https://packagehub.suse.com/how-to-use/"/>.
   </para>
+
   <para>
    For more information, see the &ph; Web site at
    <link xlink:href="https://packagehub.suse.com"/>.
