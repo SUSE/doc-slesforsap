@@ -1,0 +1,6 @@
+pdfsub   SLES4SAP-guide  common_copyright_gfdl.xml
+html     SLES4SAP-guide		common_copyright_gfdl.xml ok https://api.suse.de SUSE:SLE-15:SP3:Products
+pdfsub	 SLES-SAP-automation	common_copyright_gfdl.xml
+pdfsub	 SLES-SAP-guide		common_copyright_gfdl.xml
+pdfsub	 SLES-SAP-installation	common_copyright_gfdl.xml
+pdfsub	 SLES-SAP-monitoring	common_copyright_gfdl.xml
