@@ -16,7 +16,11 @@
  xmlns:xi="http://www.w3.org/2001/XInclude"
  xmlns:xlink="http://www.w3.org/1999/xlink">
  <title>Available documentation</title>
-
+ <info>
+  <dm:docmanager xmlns:dm="urn:x-suse:ns:docmanager">
+    <dm:translation>yes</dm:translation>
+  </dm:docmanager>
+ </info>
  <para>
   Chapters in this manual contain links to additional documentation
   resources that are either available on the system or on the Internet.

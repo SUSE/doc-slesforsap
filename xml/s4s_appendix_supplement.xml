@@ -7,11 +7,17 @@
 <appendix xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="app-component-supplement">
  <title>&supmedia;</title>
 
+ <info>
+  <dm:docmanager xmlns:dm="urn:x-suse:ns:docmanager">
+   <dm:translation>yes</dm:translation>
+  </dm:docmanager>
+ </info>
+ 
  <para>
   &supmedia; allow partners or customers to add their own tasks or workflows to
   the Installation Wizard.
  </para>
-
+ 
  <para>
   This is done by adding an XML file which will be part of an &ay; XML file. To
   be included in the workflow, this file must be called

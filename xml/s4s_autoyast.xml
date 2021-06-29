@@ -8,6 +8,12 @@
   xml:id="sec-autoyast">
  <title>Using an external &ay; profile</title>
 
+ <info>
+  <dm:docmanager xmlns:dm="urn:x-suse:ns:docmanager">
+   <dm:translation>yes</dm:translation>
+  </dm:docmanager>
+ </info>
+ 
  <para>
   For more information about installing with &ay;, see:
  </para>
