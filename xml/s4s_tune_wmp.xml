@@ -454,7 +454,7 @@ Directory /sys/fs/cgroup/SAP.slice:
     </step>
    </procedure>
    <para>
-    To verify the correct setup, run <command>wmp_check</command>. The script
+    To verify the correct setup, run <command>wmp-check</command>. The script
     checks the setup of &wmp;:
    </para>
    <itemizedlist>
@@ -707,7 +707,7 @@ ha0adm    3327 0::/SAP.slice/wmp-ra42489517eb846c282c57681e627a496.scope    saps
    be in a scope below <systemitem>0::/SAP.slice/</systemitem>.
   </para>
   <para>
-   To verify the correct setup, use the <command>wmp_check</command> tool. See
+   To verify the correct setup, use the <command>wmp-check</command> tool. See
    <xref linkend="sec-memory-protection-reboot-and-verification"/> for more
    details.
   </para>
