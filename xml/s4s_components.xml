@@ -192,8 +192,8 @@
       The <emphasis>White Papers</emphasis> and <emphasis>Best Practice
       Guides</emphasis> at <link xlink:href="https://documentation.suse.com/sbp/all/"/>.
       In particular, see
-      <citetitle xlink:href="https://www.suse.com/programs/sap/hana/replication-techcast/"
-       >Automate your SAP HANA System Replication Failover</citetitle>.
+      <link xlink:href="https://www.suse.com/programs/sap/hana/replication-techcast/"
+       >Automate your SAP HANA System Replication Failover</link>.
      </para>
     </listitem>
    </itemizedlist>
