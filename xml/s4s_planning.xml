@@ -26,7 +26,7 @@
     <term>Supported CPU</term>
     <listitem>
      <para>
-      &x86-64;
+      &intel64;
      </para>
      <para>
       IBM &power;&nbsp;8 (with PowerVM)
