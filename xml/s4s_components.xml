@@ -354,9 +354,7 @@
    <para>
     The system tuning application &sapconf; allows you to
     automatically and comprehensively tune your system as recommended by
-    &sap; (for use with &s4h;, &netweaver;, or &hana;/&b1;). To do this,
-    &sapconf; activates
-    <systemitem class="daemon">tuned</systemitem> profiles. These allow
+    &sap; for use with &s4h;, &netweaver;, or &hana;/&b1;. This allow
     tuning several kernel parameters, depending on the hardware components
     you are using, such as the amount of available RAM.
    </para>
