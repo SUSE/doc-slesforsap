@@ -50,7 +50,7 @@
   </mediaobject>
  </figure>
 
- <!-- <xi:include href="s4s_components_quick.xml" parse="xml"/> -->
+ <xi:include href="s4s_components_quick.xml" parse="xml"/>
  
 
  
