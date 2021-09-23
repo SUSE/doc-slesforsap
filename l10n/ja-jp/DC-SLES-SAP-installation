@@ -1,8 +1,0 @@
-MAIN="MAIN-SLES4SAP-guide.xml"
-ROOTID=""
-
-PROFOS="sles"
-PROFCONDITION="quick;suse-product"
-
-STYLEROOT="/usr/share/xml/docbook/stylesheet/suse2021-ns"
-
