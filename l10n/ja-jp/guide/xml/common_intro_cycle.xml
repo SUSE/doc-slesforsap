@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sect2 xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" xml:base="common_intro_cycle.xml" xml:lang="ja" version="5.1">
+ <title>製品のライフサイクルとサポートサービス</title>
+ <info>
+  <dm:docmanager xmlns:dm="urn:x-suse:ns:docmanager">
+   <dm:translation>yes</dm:translation>
+  </dm:docmanager>
+ </info>
+ <variablelist>
+  <varlistentry>
+   <term>「<emphasis>Extended Service Pack Overlap Support (ESPOS)</emphasis>」
+   </term>
+   <listitem>
+    <para>
+     SUSE Linux Enterprise Server for SAP Applicationsの購読には、ESPOSが含まれています。これにより、2つの連続するサービスパックのサポート期間の重複期間が3年延長されます。この期間中、Long Term Service Pack Support (LTSS)の条件に基づいてサポートとすべての関連する保守の更新を受けることができます。この機能は、SUSE Linux Enterprise Server for SAP Applicationsでのみ使用可能です。
+    </para>
+    <para>
+     ESPOSを使用すると、わずか6カ月ではなく3年半以内にサービスパックのマイグレーションを実行できます。これにより、マイグレーションをより簡単にスケジュールし、制限の少ない時間制約下でマイグレーション前にテストを実行できます。
+    </para>
+    <para>
+     追加コストで、SUSEではLTSSも提供します。LTSSでは、ESPOS期間の終了後に特定のサービスパックのサポートを受けることができます。SUSE Linux Enterprise Server for SAP Applicationsにはサービスパックごとに1年半の一般的なサポートと3年のESPOSが含まれるため、LTSSは最後のサービスパックにのみ提供される場合があります。SUSE製品のライフサイクルの詳細については、以下を参照してください。
+    </para>
+    <itemizedlist>
+     <listitem>
+      <para>
+       一般的な説明: <citetitle><citetitle>『導入ガイド』</citetitle>の<quote>SUSE Linux Enterpriseの更新とアップグレード</quote>パートの章、<quote>ライフサイクルとサポート</quote></citetitle>を参照してください。(<link xlink:href="https://documentation.suse.com/sles-15"/>)
+      </para>
+     </listitem>
+     <listitem>
+      <para>
+       正確な日付: <link xlink:href="https://www.suse.com/lifecycle/"/>
+      </para>
+     </listitem>
+    </itemizedlist>
+   </listitem>
+  </varlistentry>
+  <varlistentry>
+   <term>「<emphasis>SUSE Linux Enterprise Server Priority Support for SAP Applications</emphasis>」
+   </term>
+   <listitem>
+    <para>
+     SUSE Linux Enterprise Server for SAP Applicationsの購読には、SUSE Linux Enterprise Server Priority Support for SAP Applicationsが含まれ、SAPから直接SUSE Linux Enterprise Server for SAP Applicationsのテクニカルサポートが提供されます。SUSEテクニカルサポートとSAPのサポートエンジニアが提供する共同サポートインフラストラクチャは、SAP Resolveに基づいており、SAPとSUSEの両方とのシームレスな通信を提供します。この<quote>One Face to the Customer</quote>サポートモデルは、複雑さを軽減し、総所有コストを削減します。
+    </para>
+    <para>
+     詳細については、『<citetitle>SAP Note 1056161: SUSE Priority Support for SAP Applications</citetitle>』(<link xlink:href="https://launchpad.support.sap.com/#/notes/1056161"/>)を参照してください。
+    </para>
+   </listitem>
+  </varlistentry>
+ </variablelist>
+ <important condition="noquick">
+  <title>モジュールと拡張機能のライフサイクルとサポート</title>
+  <para>
+   モジュールと拡張機能には、SLES-SAPとは異なるライフサイクルがあり、SUSEはこれらに異なるサポートサービスを提供しています。
+  </para>
+  <itemizedlist>
+   <listitem>
+    <para>
+     モジュール:
+    </para>
+    <itemizedlist>
+     <listitem>
+      <formalpara>
+       <title>ライフサイクル</title>
+       <para>
+        モジュールによって異なります。
+       </para>
+      </formalpara>
+     </listitem>
+     <listitem>
+      <formalpara>
+       <title>サポート</title>
+       <para>
+        最新のパッケージのみがサポートされます。サポートはSUSE Linux Enterprise Server for SAP Applicationsの購読に含まれています。追加の登録キーは必要ありません。
+       </para>
+      </formalpara>
+     </listitem>
+    </itemizedlist>
+   </listitem>
+   <listitem>
+    <para>
+     拡張機能
+    </para>
+    <itemizedlist>
+     <listitem>
+      <formalpara>
+       <title>ライフサイクル</title>
+       <para>
+        SUSE Linux Enterprise Server for SAP Applicationsとともに通常リリースが調整されます。
+       </para>
+      </formalpara>
+     </listitem>
+     <listitem>
+      <formalpara>
+       <title>サポート</title>
+       <para>
+        サポートは利用できますが、SUSE Linux Enterprise Server for SAP Applicationsの購読に含まれていません。追加の登録キーが必要です。
+       </para>
+      </formalpara>
+     </listitem>
+    </itemizedlist>
+   </listitem>
+   <listitem>
+    <para>
+     サポートされていない拡張機能(PackageHubとSUSE Linux Enterprise Software Development Kit)
+    </para>
+    <itemizedlist>
+     <listitem>
+      <formalpara>
+       <title>ライフサイクル</title>
+       <para>
+        SUSE Linux Enterprise Server for SAP Applicationsとともに通常リリースが調整されます。
+       </para>
+      </formalpara>
+     </listitem>
+     <listitem>
+      <formalpara>
+       <title>サポート</title>
+       <para>
+        セキュリティとパッケージの問題に対する修正以外のサポートはありません。追加の登録キーは必要ありません。
+       </para>
+      </formalpara>
+     </listitem>
+    </itemizedlist>
+   </listitem>
+  </itemizedlist>
+ </important>
+</sect2>
