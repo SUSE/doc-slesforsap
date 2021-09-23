@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" xml:base="s4s_about.xml" version="5.0" xml:id="cha-about">
+<title>SUSE Linux Enterprise Server for SAP Applicationsとは</title>
+<info>
+ <abstract>
+  <para>
+   SUSE® Linux Enterprise Server for SAP Applicationsは、SAPユーザ固有のニーズに対応するソフトウェアとサービスのバンドルです。すべてのSAPソフトウェアソリューション用に最適化された唯一のオペレーティングシステムです。
+  </para>
+ </abstract>
+  <dm:docmanager xmlns:dm="urn:x-suse:ns:docmanager">
+   <dm:translation>yes</dm:translation>
+  </dm:docmanager>
+</info>
+
+ <para>
+  対象となる使用例は次のとおりです。
+ </para>
+
+ <itemizedlist>
+  <listitem>
+   <para>
+    UnixからLinuxへのマイグレーションとプラットフォームの再構築
+   </para>
+  </listitem>
+  <listitem>
+   <para>
+    SAPアプライアンス
+   </para>
+  </listitem>
+  <listitem>
+   <para>
+    SAPクラウドの展開
+   </para>
+  </listitem>
+ </itemizedlist>
+
+ <para>
+  SUSE Linux Enterprise Server for SAP Applicationsは、以降のセクションで説明されるソフトウェアコンポーネントとサービスで構成されます。図<xref linkend="fig-offering" xrefstyle="select:title"/>は、SUSEの他の製品でも利用可能なソフトウェアコンポーネントとサービス(緑色)およびSUSE Linux Enterprise Server for SAP Applicationsでのみ利用可能なソフトウェアコンポーネントとサービス(青色)の概要を示しています。
+ </para>
+
+ <figure xml:id="fig-offering">
+  <title>SUSE Linux Enterprise Server for SAP Applicationsのオファリング</title>
+  <mediaobject>
+   <imageobject role="fo">
+    <imagedata fileref="s4s_overview.svg" width="85%" format="SVG"/>
+   </imageobject>
+   <imageobject role="html">
+    <imagedata fileref="s4s_overview.png" width="85%" format="PNG"/>
+   </imageobject>
+  </mediaobject>
+ </figure>
+
+ 
+ <xi:include href="s4s_components.xml" parse="xml"/>
+
+ <sect1 condition="noquick" xml:id="sec-repository">
+  <title>ソフトウェアリポジトリのセットアップ</title>
+
+  <para>
+   SUSE Linux Enterpriseに基づくオペレーティングシステムに含まれるソフトウェアはRPMパッケージとして配布されます。このパッケージは、他のパッケージに依存する可能性のあるインストールパッケージの形式です。サーバまたはインストールメディアで、これらのパッケージはソフトウェアリポジトリ（<quote>チャネル</quote>と呼ばれる場合もある)に保存されます。
+  </para>
+  <remark>
+   FIXME: "variant" is maybe not a good word... - sknorr, 2016-06-17
+  </remark>
+  <para>
+   デフォルトで、SUSE Linux Enterprise Server for SAP Applicationsを実行しているコンピュータは、複数のリポジトリからパッケージを受信するように設定されています。各標準リポジトリには、最初に出荷されたときのソフトウェアの状態を示す<quote>プール</quote>バリアントがあります。<quote>プール</quote>バリアントのソフトウェアに対する最新の保守更新を含む<quote>更新</quote>バリアントもあります。
+  </para>
+  <para>
+   インストール中にシステムを登録した場合は、リポジトリセットアップに以下が含まれている必要があります。
+  </para>
+
+  <table xml:id="tab-repository">
+    <title>標準リポジトリ</title>
+    <tgroup cols="3">
+      <colspec colname="type"/>
+      <colspec colname="base"/>
+      <colspec colname="update"/>
+      <thead>
+        <row>
+          <entry>
+            <para>コンテンツ</para>
+          </entry>
+          <entry>
+            <para>ベースリポジトリ(<quote>プール</quote>)</para>
+          </entry>
+          <entry>
+            <para>更新リポジトリ</para>
+          </entry>
+        </row>
+      </thead>
+      <tbody>
+        <row>
+          <entry>
+            <para>
+              SUSE Linux Enterprise Serverのベースパッケージ
+            </para>
+          </entry>
+          <entry>
+            <para><literal>SLE-Module-Basesystem15-SP3-Pool</literal></para>
+          </entry>
+          <entry>
+            <para><literal>SLE-Module-Basesystem15-SP3-Updates</literal></para>
+          </entry>
+        </row>
+        <row>
+          <entry>
+            <para>
+              SUSE Linux Enterprise Serverの基本的なサーバ機能
+            </para>
+          </entry>
+          <entry>
+            <para><literal>SLE-Module-Server-Applications15-SP3-Pool</literal></para>
+          </entry>
+          <entry>
+            <para><literal>SLE-Module-Server-Applications15-SP3-Updates</literal></para>
+          </entry>
+        </row>
+        <row>
+          <entry>
+            <para>
+              SUSE Linux Enterprise Server for SAP Applicationsに固有のパッケージ
+            </para>
+          </entry>
+          <entry>
+            <para>
+              <literal>SLE-Module-SAP-Applications15-SP3-Pool</literal>
+            </para>
+          </entry>
+          <entry>
+            <para><literal>SLE-Module-SAP-Applications15-SP3-Updates</literal></para>
+          </entry>
+        </row>
+        <row>
+          <entry>
+            <para>
+              SUSE Linux Enterprise High Availability Extensionに固有のパッケージ
+            </para>
+          </entry>
+          <entry>
+            <para><literal>SLE-Product-HA15-SP3-Pool</literal></para>
+          </entry>
+          <entry>
+            <para><literal>SLE-Product-HA15-SP3-Updates</literal></para>
+          </entry>
+        </row>
+      </tbody>
+    </tgroup>
+  </table>
+  <para>
+   このセクションのテーブルには、「<emphasis>デバッグ情報</emphasis>」リポジトリと「<emphasis>ソース</emphasis>」リポジトリは表示されません。これらも設定されていますが、デフォルトで無効になっています。「<emphasis>デバッグ情報</emphasis>」リポジトリには、通常のパッケージをデバッグするために使用可能なパッケージが含まれています。「<emphasis>ソース</emphasis>」リポジトリには、パッケージのソースコードが含まれています。
+  </para>
+  <para>
+   インストール方法に応じて、インストールメディアである、<literal>SLE-15-SP3-SAP-15.3-0</literal>が表示される場合もあります。上記のすべてのベースソフトウェアリポジトリのパッケージが含まれています。
+  </para>
+  <para>
+   SUSE Linux Enterprise Server for SAP Applications用の独自のリポジトリがあるため、SUSEはSUSE Linux Enterprise Server for SAP Applicationsに固有のパッケージとパッチを出荷することができます。
+  </para>
+  <note>
+   <title>更新リポジトリで直接出荷されるESPOSの更新</title>
+   <para>
+    SUSE Linux Enterprise Server for SAP Applications 11とは異なり、Extended Service Pack Overlay Support (ESPOS)に関連する更新は、<literal>更新</literal>リポジトリから直接出荷されます。これは、設定される個別のESPOSリポジトリがないことを意味します。
+   </para>
+  </note>
+
+  <para>
+   標準リポジトリのほか、インストール中、またはYaSTまたはコマンド<command>SUSEConnect</command>を使用して実行中のシステムからSLEモジュールおよびSLE拡張機能を有効にすることができます。
+  </para>
+  <para>
+   SUSE Linux Enterprise製品ラインで利用可能なすべてのモジュールおよび拡張機能については、<link xlink:href="https://documentation.suse.com/sles-15/html/SLES-all/art-modules.html"/>を参照してください。
+  </para>
+  <para condition="noquick">
+   PackageHubの詳細については、<xref linkend="sec-packagehub"/>を参照してください。
+  </para>
+ </sect1>
+</chapter>
