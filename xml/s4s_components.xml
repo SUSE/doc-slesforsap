@@ -337,7 +337,7 @@
     using, such as the amount of available RAM.
    </para>
    <para>
-    For more information, see <xref linkend="sec-saptune"/>.
+    For more information, see <xref linkend="cha-tune"/>.
    </para>
   </sect3>
 <!-- commenting out; may be restored if necessary. There will be a release note
