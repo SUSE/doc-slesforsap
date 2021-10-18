@@ -5,36 +5,28 @@
     %entities;
 ]>
 <chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="cha-tune">
- <title>Tuning</title>
+ <title>Tuning systems with &saptune;</title>
  <para>
   This chapter presents information about tuning &productname; to work
   optimally with &sap; applications.
  </para>
- <sect1 xml:id="sec-saptune">
-  <title>Tuning systems with &saptune;</title>
-
-  <para>
+ <para>
    Using &saptune;, you can tune a system for &netweaver;, &hana;/&bo;, and
-   &s4h; applications. This method relies on the system tuning service &tuned;.
-  </para>
-
-  <para>
-   To use &saptune;, make sure that the packages <package>tuned</package> and
-   <package>saptune</package> are installed on your system.
-  </para>
-
-<!-- <note>
-   <title>&tuned; Daemon</title>
+   &s4h; applications.
+ </para>
+ <important>
    <para>
-    &sapconf; (only version 4) and &saptune; both rely on the daemon &tuned; to set tuning
-    configuration but they use different (though very similar) tuning
-    profiles. Therefore, only one of &sapconf; or &saptune; can be enabled at
-    a time.
+    This chapter describes &saptune; version 3 which does not use
+    &tuned; anymore.
    </para>
-  </note> -->
+ </important>
 
-  <sect2 xml:id="sec-saptune-enable">
-   <title>Enabling &saptune; to tune for an &sap; application</title>
+  <sect1 xml:id="sec-saptune-enable">
+   <title>Enabling &saptune;</title>
+   <para>
+   To enable &saptune; to tune an &sap; application, use the following
+   procedure:
+   </para>
    <procedure xml:id="pro-tune">
     <step>
      <para>
@@ -43,7 +35,7 @@
      </para>
 <screen>&prompt.user;<command>saptune solution list</command></screen>
      <para>
-      &saptune; knows the following tuning solutions (groups of &sap; notes):
+      &saptune; knows the following tuning solutions (groups of &sapnote;s):
      </para>
      <itemizedlist>
       <listitem>
@@ -129,7 +121,7 @@
      </itemizedlist>
      <para>
       Alternatively, you can tune the computer according to recommendations
-      from specific &sap; Notes. A list of notes that you can tune for is
+      from specific &sapnote;s. A list of notes that you can tune for is
       available via:
      </para>
 <screen>&prompt.root;<command>saptune note list</command></screen>
@@ -144,7 +136,7 @@
       </listitem>
       <listitem>
        <para>
-        To set up &saptune; for the recommendations of a specific &sap; Note,
+        To set up &saptune; for the recommendations of a specific &sapnote;,
         use:
        </para>
 <screen>&prompt.root;<command>saptune note apply <replaceable>NOTE</replaceable></command></screen>
@@ -166,42 +158,88 @@
       To start &saptune; and enable it at boot, make sure to run the following
       command:
      </para>
-<screen>&prompt.root;<command>saptune daemon start</command></screen>
+<screen>&prompt.root;<command>saptune service enablestart</command></screen>
+     <para>
+      To make sure that &sapconf; and &tuned; gets stopped and disabled too,
+      run instead:
+     </para>
+     <screen>&prompt.root;<command>saptune service takeover</command></screen>
     </step>
    </procedure>
-   <para>
-    In the background, &saptune; applies a &tuned; profile also named &saptune;
-    that is dynamically customized according to selected
-    <quote>solutions</quote> and <quote>notes</quote>. Using <command>tuned-adm
-    list</command>, you can also see this profile.
-   </para>
-  </sect2>
+  </sect1>
 
-  <sect2 xml:id="sec-saptune-customize">
-   <title>Customizing an &sap; note</title>
+ <sect1 xml:id="sec-saptune-disable">
+  <title>Disabling &saptune;</title>
+  <para>
+   To disable and stop &saptune;, run:
+  </para>
+  <screen>&prompt.root;<command>saptune service disablestop</command></screen>
+ </sect1>
+
+ <sect1 xml:id="sec-saptune-update">
+  <title>Updating &saptune;</title>
+  <para>To update saptune to a new version, just update the package.</para>
+  <important>
    <para>
-    Every &sap; note can be configured freely with:
-    <remark>"customise" is (sadly) correct. - sknorr, 2019-07-19</remark>
+    The &saptune; tool does not rely on &tuned; anymore.
+    Configuring &tuned; to set up &saptune;&nbsp;3 will not work.
+    To start and enable &saptune;&nbsp;3 use one of the following methods:
    </para>
-<screen>&prompt.root;<command>saptune note customise</command></screen>
+   <itemizedlist>
+    <listitem>
+     <screen>saptune service enablestart</screen>
+     <para>
+      Enables and starts the <systemitem>saptune.service</systemitem>.
+     </para>
+    </listitem>
+    <listitem>
+     <screen>saptune service takeover</screen>
+     <para>
+      Enables and starts the <systemitem>saptune.service</systemitem> and also
+      disables &sapconf; as well as &tuned;.
+     </para>
+    </listitem>
+    <listitem>
+     <screen>saptune daemon start</screen>
+     <para>Deprecated. Gets redirected to &saptune; service takeover.</para>
+    </listitem>
+   </itemizedlist>
+  </important>
+ </sect1>
+
+ <sect1 xml:id="sec-saptune-sapnotes">
+  <title>Managing &sapnote;s</title>
+  <para>
+   In the following sections you will learn how to create, delete, and rename
+   &sapnote;s and much more.
+  </para>
+  <sect2 xml:id="sec-saptune-customize">
+   <title>Customizing an &sapnote;</title>
+   <para>
+    Every &sapnote; can be configured freely with:
+    <remark>"customise" is (sadly) correct. - sknorr, 2019-07-19</remark>
+    <remark>toms 2021-10-15: according from Sören, it's the english spelling.
+    Inofficially, "customize" is also accepted. :)</remark>
+   </para>
+<screen>&prompt.root;<command>saptune note customise <replaceable>NOTE</replaceable></command></screen>
    <para>
     The command includes changing a value or disabling a parameter.
    </para>
   </sect2>
 
   <sect2 xml:id="sec-saptune-create">
-   <title>Creating a new &sap; note</title>
+   <title>Creating a new &sapnote;</title>
    <para>
-    It is possible to create a new &sap; note with:
+    It is possible to create a new &sapnote; with:
    </para>
-<screen>&prompt.root;<command>saptune note create</command></screen>
+<screen>&prompt.root;<command>saptune note create <replaceable>NOTE</replaceable></command></screen>
    <para>
     All features of &saptune; are available.
    </para>
   </sect2>
 
   <sect2 xml:id="sec-saptune-delete">
-   <title>Deleting an &sap; note</title>
+   <title>Deleting an &sapnote;</title>
    <para>
     This command allows deleting a created note, including the corresponding
     override file if available:
@@ -220,7 +258,7 @@ Do you really want to delete this Note (test2)? [y/n]: y</screen>
     </listitem>
     <listitem>
      <para>
-      Internal &sap; notes shipped by &saptune; cannot be deleted. Instead, the
+      Internal &sapnote;s shipped by &saptune; cannot be deleted. Instead, the
       override file is removed when available.
      </para>
     </listitem>
@@ -234,7 +272,7 @@ Do you really want to delete this Note (test2)? [y/n]: y</screen>
   </sect2>
 
   <sect2 xml:id="sec-saptune-rename">
-   <title>Renaming an &sap; note</title>
+   <title>Renaming an &sapnote;</title>
    <para>
     This command allows renaming a created note to a new name. If a
     corresponding override file is available, this file will be renamed too:
@@ -253,7 +291,7 @@ Do you really want to rename this Note (test) to the new name 'test2'? [y/n]: y<
     </listitem>
     <listitem>
      <para>
-      Internal &sap; notes shipped by &saptune; cannot be renamed.
+      Internal &sapnote;s shipped by &saptune; cannot be renamed.
      </para>
     </listitem>
     <listitem>
@@ -266,15 +304,15 @@ Do you really want to rename this Note (test) to the new name 'test2'? [y/n]: y<
   </sect2>
 
   <sect2 xml:id="sec-saptune-show">
-   <title>Showing the configuration of an &sap; note</title>
+   <title>Showing the configuration of an &sapnote;</title>
    <para>
     The shipped configuration of a note can be listed with:
    </para>
-<screen>&prompt.root;<command>saptune note show</command></screen>
+<screen>&prompt.root;<command>saptune note show <replaceable>NOTE</replaceable></command></screen>
   </sect2>
 
   <sect2 xml:id="sec-saptune-verify">
-   <title>Verifying an &sap; note or an &sap; solution</title>
+   <title>Verifying an &sapnote; or an &sapsol;</title>
    <para>
     The commands <command>saptune note verify
     <replaceable>NOTE</replaceable></command> and <command>saptune solution
@@ -312,7 +350,7 @@ Do you really want to rename this Note (test) to the new name 'test2'? [y/n]: y<
   </sect2>
 
   <sect2 xml:id="sec-saptune-simulate">
-   <title>Simulating the application of an &sap; note or an &sap; solution</title>
+   <title>Simulating the application of an &sapnote; or an &sapsol;</title>
    <para>
     To show each parameter of a <literal>note</literal>, use:
    </para>
@@ -327,52 +365,213 @@ Do you really want to rename this Note (test) to the new name 'test2'? [y/n]: y<
    </para>
   </sect2>
 
-  <sect2 xml:id="sec-saptune-disable">
-   <title>Disabling &saptune;</title>
-   <para>
-    To disable &saptune; and to stop and disable &tuned; run:
-   </para>
-<screen>&prompt.root;<command>saptune daemon stop</command></screen>
+  <sect2 xml:id="sec-saptune-revert">
+   <title>Reverting a &sapnote;</title>
+   <para>To revert a &sapnote;, run:</para>
+    <screen>&prompt.root;<command>saptune note revert <replaceable>NOTE</replaceable></command></screen>
+   <para>All parameters of this &sapnote; will be restored to their values at the time of apply.</para>
+   <para>To revert anything, run:</para>
+   <screen>&prompt.root;<command>saptune note revert all</command></screen>
   </sect2>
 
-  <sect2 xml:id="sec-saptune-more">
-   <title>For more information</title>
+ <sect2 xml:id="sec-saptune-edit">
+  <title>Editing a &sapnote;</title>
+  <para>Each custom &sapnote; can be edited by:</para>
+  <screen>&prompt.root;<command>saptune note edit <replaceable>NOTE</replaceable></command></screen>
+ </sect2>
+
+  <sect2 xml:id="sec-saptune-list">
+   <title>Listing all enabled or applied &sapnote;s</title>
    <para>
-    See the following man pages:
+    To list all enabled &sapnote;s, run:
    </para>
-   <itemizedlist>
-    <listitem>
-     <para>
-      <command>man 8 saptune</command>
-     </para>
-    </listitem>
-    <listitem>
-     <para>
-      <command>man 8 saptune_v1</command>
-     </para>
-    </listitem>
-    <listitem>
-     <para>
-      <command>man 8 saptune_v2</command>
-     </para>
-    </listitem>
-    <listitem>
-     <para>
-      <command>man 8 saptune-migrate</command>
-     </para>
-    </listitem>
-    <listitem>
-     <para>
-      <command>man 8 saptune-note</command>
-     </para>
-    </listitem>
-   </itemizedlist>
+   <screen>&prompt.root;<command>saptune note enabled</command></screen>
+   <para>To list all applied &sapnote;s, run:</para>
+   <screen>&prompt.root;<command>saptune note applied</command></screen>
+  </sect2>
+ </sect1>
+ 
+ <sect1 xml:id="sec-saptune-sapsolution">
+  <title>Managing &sapsol;s</title>
+  <para>
+   In the following sections you will learn how to create, delete, and rename
+   &sapsol;s and much more.
+  </para>
+  
+ <sect2 xml:id="sec-saptune-create-solution">
+  <title>Creating a new &sapsol;</title>
+  <para>To create a new &sapsol;, run:</para>
+  <screen>&prompt.root;<command>saptune solution create <replaceable>SOLUTION</replaceable></command></screen>
+ </sect2>
+
+ <sect2 xml:id="sec-saptune-delete-solution">
+   <title>Deleting a &sapsol;</title>
+   <para>To delete a &sapsol;, run:</para>
+  <screen>&prompt.root;<command>saptune solution delete myHANA</command>
+
+Solution to delete is a customer/vendor specific Solution.
+Do you really want to delete this Solution 'myHANA'? [y/n]: y</screen>
+  <para>
+   The &sapsol; may not be applied at the time. Keep in mind the following points:
+  </para>
+  <itemizedlist>
+   <listitem>
+    <para>
+     A confirmation is needed to finish the action.
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+      &sapsol;s shipped by &saptune; cannot be deleted.
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+      If the &sapsol; is already applied, the command will be terminated
+      with the information, that the &sapsol; first needs to be reverted
+      before it can be deleted.
+    </para>
+   </listitem>
+  </itemizedlist>
+ </sect2>
+
+  <sect2 xml:id="sec-saptune-rename-solution">
+   <title>Renaming a &sapsol;</title>
+   <para>To rename a &sapsol;, run:</para>
+   <screen>&prompt.root;<command>saptune solution rename myHANA myHANA2</command>
+
+Solution to rename is a customer/vendor specific Solution.
+Do you really want to rename this Solution 'myHANA' to the new name 'myHANA2'? [y/n]:</screen>
+  <para>
+   The &sapsol; may not be applied at the time. Keep in mind the following points:
+  </para>
+  <itemizedlist>
+   <listitem>
+    <para>
+     A confirmation is needed to finish the action.
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+      &sapsol;s shipped by &saptune; cannot be renamed.
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+      If the &sapsol; is already applied, the command will be terminated
+      with the information, that the &sapsol; first needs to be reverted
+      before it can be renamed.
+    </para>
+   </listitem>
+  </itemizedlist>
+  </sect2>
+
+  <sect2 xml:id="sec-saptune-show-solution">
+   <title>Showing the configuration of a &sapsol;</title>
+   <para>To list the configuration of a &sapsol;, run:</para>
+   <screen>&prompt.root;<command>saptune solution show <replaceable>SOLUTION</replaceable></command></screen>
+  </sect2>
+
+  <sect2 xml:id="sec-saptune-revert-solution">
+    <title>Reverting a &sapsol;</title>
+    <para>To revert a &sapsol;, run:</para>
+    <screen>&prompt.root;<command>saptune solution revert <replaceable>SOLUTION</replaceable></command></screen>
+    <para>
+     The &sapsol; must be applied. All &sapnote;s part of that &sapsol; which still are
+     applied will be reverted.
+    </para>
+  </sect2>
+
+  <sect2 xml:id="sec-saptune-edit-custom-solution">
+   <title>Editing a custom &sapsol;</title>
+   <para>To edit a custom &sapsol;, run:</para>
+   <screen>&prompt.root;<command>saptune solution edit <replaceable>SOLUTION</replaceable></command></screen>
+  </sect2>
+
+  <sect2 xml:id="sec-saptune-list-solution">
+   <title>Listing enabled/applied &sapsol;</title>
+   <para>To list enabled &sapsol;, run:</para>
+   <screen>&prompt.root;<command>saptune solution enabled</command></screen>
+   <para>To list applied &sapsol;, run:</para>
+   <screen>&prompt.root;<command>saptune solution applied</command></screen>
    <para>
-    Also see the project home page
-    <link xlink:href="https://github.com/SUSE/saptune/"/>.
+    If &sapnote;s from an applied &sapsol; have been reverted, the string <literal>(partial)</literal>
+    has been added to the solution name.
    </para>
   </sect2>
  </sect1>
+ 
+  <sect1 xml:id="sec-saptune-verify-and-troubleshooting">
+   <title>Verification and troubleshooting</title>
+   <para>The see the current status of &saptune;, run:</para>
+   <screen>&prompt.root;<command>saptune status</command></screen>
+   <para>The output contains:</para>
+   <itemizedlist>
+    <listitem>
+     <para>status of the &saptune;, &sapconf;, and &tuned; service</para>
+    </listitem>
+    <listitem>
+     <para>version of package and running &saptune;</para>
+    </listitem>
+    <listitem>
+     <para>details about configured &sapsol; and &sapnote;s</para>
+    </listitem>
+    <listitem>
+     <para>details about staging</para>
+    </listitem>
+   </itemizedlist>
+   <para>
+    In case of a problem, run:
+   </para>
+   <screen>&prompt.root;<command>saptune_check</command></screen>
+   <para>
+    The script does a deeper analysis, reports any problems and gives advice how
+    to rectify them.
+   </para>
+  </sect1>
+
+ <sect1 xml:id="sec-saptune-staging">
+   <title>Staging</title>
+   <para>
+    It is possible, that a new &saptune; package can contain both: binary changes (for
+    example, bug fixes) and new or altered &sapnote;s and &sapsol;s.
+    This can be unfavorable for some customers. Installation of bug fixes or new
+    features might be wanted, but altering the systems configuration at the same time
+    might not.
+   </para>
+   <para>
+    With staging enabled, &sapnote; and &sapsol; changes shipped with a package
+    update are <emphasis>not</emphasis> active immediately. They are placed in a
+    staging area, which can be reviewed and released later.
+   </para>
+   <important>
+    <para>With the current implementation a package update will overwrite the
+    staging if staging is enabled.</para>
+    <remark>toms 2021-10-14: What to do to avoid this?</remark>
+   </important>
+   <para>Staging is disabled per default. To enable it, run:</para>
+   <screen>&prompt.root;<command>saptune staging enable</command></screen>
+   <para>From now on, &sapnote; and &sapsol; changes shipped by a &saptune;
+   package will put in the staging area. To view the staging area, run:</para>
+   <screen>&prompt.root;<command>saptune staging list</command></screen>
+   <para>You can print a tabular overview of the differences of the &sapnote; and
+   &sapsol; in the staging and the working area by running:</para>
+   <screen>&prompt.root;<command>saptune staging diff [NOTE...|SOLUTION...|all]</command></screen>
+   <para>
+    After reviewing the differences you can do an analysis to see if a release has
+    potential issues or might require additional steps afterwards by running:
+   </para>
+   <screen>&prompt.root;<command>saptune staging analysis [NOTE...|SOLUTION...|all]</command></screen>
+   <para>
+    To releasea &sapnote; or a &sapsol; from the staging area, run:
+   </para>
+   <screen>&prompt.root;<command>saptune staging [--force|--dry-run] [NOTE..|SOLUTION...|all]</command></screen>
+   <para>
+    The previous command presents an analysis (see <command>saptune staging analysis</command>) and
+    do the release after asking for confirmation.
+   </para>
+  </sect1>
+
  <sect1 xml:id="sec-sysctl">
   <title>Tuning kernel parameters manually using <command>sysctl</command></title>
 
@@ -401,5 +600,32 @@ Do you really want to rename this Note (test) to the new name 'test2'? [y/n]: y<
    <literal>sysctl.d(5)</literal>.
   </para>
  </sect1>
- <xi:include href="s4s_tune_wmp.xml"/>
+
+ <sect1 xml:id="sec-saptune-more">
+  <title>For more information</title>
+  <para>
+   See the following man pages:
+  </para>
+  <itemizedlist>
+   <listitem>
+    <para>
+     <command>man 8 saptune</command>
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     <command>man 8 saptune-migrate</command>
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     <command>man 8 saptune-note</command>
+    </para>
+   </listitem>
+  </itemizedlist>
+  <para>
+   Also see the project home page
+   <link xlink:href="https://github.com/SUSE/saptune/"/>.
+  </para>
+ </sect1>
 </chapter>
