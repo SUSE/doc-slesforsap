@@ -5,36 +5,28 @@
     %entities;
 ]>
 <chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="cha-tune">
- <title>Tuning</title>
+ <title>Tuning systems with &saptune;</title>
  <para>
   This chapter presents information about tuning &productname; to work
   optimally with &sap; applications.
  </para>
- <sect1 xml:id="sec-saptune">
-  <title>Tuning systems with &saptune;</title>
-
-  <para>
+ <para>
    Using &saptune;, you can tune a system for &netweaver;, &hana;/&bo;, and
    &s4h; applications.
-  </para>
-  <important>
+ </para>
+ <important>
    <para>
     This chapter describes &saptune; version 3 which does not use
     &tuned; anymore.
    </para>
-  </important>
-<!-- <note>
-   <title>&tuned; Daemon</title>
-   <para>
-    &sapconf; (only version 4) and &saptune; both rely on the daemon &tuned; to set tuning
-    configuration but they use different (though very similar) tuning
-    profiles. Therefore, only one of &sapconf; or &saptune; can be enabled at
-    a time.
-   </para>
-  </note> -->
+ </important>
 
-  <sect2 xml:id="sec-saptune-enable">
-   <title>Enabling &saptune; to tune for an &sap; application</title>
+  <sect1 xml:id="sec-saptune-enable">
+   <title>Enabling &saptune;</title>
+   <para>
+   To enable &saptune; to tune an &sap; application, use the following
+   procedure:
+   </para>
    <procedure xml:id="pro-tune">
     <step>
      <para>
@@ -174,8 +166,53 @@
      <screen>&prompt.root;<command>saptune service takeover</command></screen>
     </step>
    </procedure>
-  </sect2>
+  </sect1>
 
+ <sect1 xml:id="sec-saptune-disable">
+  <title>Disabling &saptune;</title>
+  <para>
+   To disable and stop &saptune;, run:
+  </para>
+  <screen>&prompt.root;<command>saptune service disablestop</command></screen>
+ </sect1>
+
+ <sect1 xml:id="sec-saptune-update">
+  <title>Updating &saptune;</title>
+  <para>To update saptune to a new version, just update the package.</para>
+  <important>
+   <para>
+    The &saptune; tool does not rely on &tuned; anymore.
+    Configuring &tuned; to set up &saptune;&nbsp;3 will not work.
+    To start and enable &saptune;&nbsp;3 use one of the following methods:
+   </para>
+   <itemizedlist>
+    <listitem>
+     <screen>saptune service enablestart</screen>
+     <para>
+      Enables and starts the <systemitem>saptune.service</systemitem>.
+     </para>
+    </listitem>
+    <listitem>
+     <screen>saptune service takeover</screen>
+     <para>
+      Enables and starts the <systemitem>saptune.service</systemitem> and also
+      disables &sapconf; as well as &tuned;.
+     </para>
+    </listitem>
+    <listitem>
+     <screen>saptune daemon start</screen>
+     <para>Deprecated. Gets redirected to &saptune; service takeover.</para>
+    </listitem>
+   </itemizedlist>
+  </important>
+ </sect1>
+
+ <sect1 xml:id="sec-saptune-sapnotes">
+  <title>Managing &sapnote;s</title>
+  <para>
+   In the following sections you will learn how to create, delete, and rename
+   &sapnote;s and much more.
+  </para>
   <sect2 xml:id="sec-saptune-customize">
    <title>Customizing an &sapnote;</title>
    <para>
@@ -328,15 +365,7 @@ Do you really want to rename this Note (test) to the new name 'test2'? [y/n]: y<
    </para>
   </sect2>
 
-  <sect2 xml:id="sec-saptune-disable">
-   <title>Disabling &saptune;</title>
-   <para>
-    To disable and stop &saptune;, run:
-   </para>
-<screen>&prompt.root;<command>saptune service disablestop</command></screen>
-  </sect2>
-
-  <sect2>
+  <sect2 xml:id="sec-saptune-revert">
    <title>Reverting a &sapnote;</title>
    <para>To revert a &sapnote;, run:</para>
     <screen>&prompt.root;<command>saptune note revert <replaceable>NOTE</replaceable></command></screen>
@@ -345,13 +374,13 @@ Do you really want to rename this Note (test) to the new name 'test2'? [y/n]: y<
    <screen>&prompt.root;<command>saptune note revert all</command></screen>
   </sect2>
 
- <sect2>
+ <sect2 xml:id="sec-saptune-edit">
   <title>Editing a &sapnote;</title>
   <para>Each custom &sapnote; can be edited by:</para>
   <screen>&prompt.root;<command>saptune note edit <replaceable>NOTE</replaceable></command></screen>
  </sect2>
 
-  <sect2>
+  <sect2 xml:id="sec-saptune-list">
    <title>Listing all enabled or applied &sapnote;s</title>
    <para>
     To list all enabled &sapnote;s, run:
@@ -360,14 +389,22 @@ Do you really want to rename this Note (test) to the new name 'test2'? [y/n]: y<
    <para>To list all applied &sapnote;s, run:</para>
    <screen>&prompt.root;<command>saptune note applied</command></screen>
   </sect2>
-
- <sect2>
+ </sect1>
+ 
+ <sect1 xml:id="sec-saptune-sapsolution">
+  <title>Managing &sapsol;s</title>
+  <para>
+   In the following sections you will learn how to create, delete, and rename
+   &sapsol;s and much more.
+  </para>
+  
+ <sect2 xml:id="sec-saptune-create-solution">
   <title>Creating a new &sapsol;</title>
   <para>To create a new &sapsol;, run:</para>
   <screen>&prompt.root;<command>saptune solution create <replaceable>SOLUTION</replaceable></command></screen>
  </sect2>
 
- <sect2>
+ <sect2 xml:id="sec-saptune-delete-solution">
    <title>Deleting a &sapsol;</title>
    <para>To delete a &sapsol;, run:</para>
   <screen>&prompt.root;<command>saptune solution delete myHANA</command>
@@ -398,7 +435,7 @@ Do you really want to delete this Solution 'myHANA'? [y/n]: y</screen>
   </itemizedlist>
  </sect2>
 
-  <sect2>
+  <sect2 xml:id="sec-saptune-rename-solution">
    <title>Renaming a &sapsol;</title>
    <para>To rename a &sapsol;, run:</para>
    <screen>&prompt.root;<command>saptune solution rename myHANA myHANA2</command>
@@ -429,13 +466,13 @@ Do you really want to rename this Solution 'myHANA' to the new name 'myHANA2'? [
   </itemizedlist>
   </sect2>
 
-  <sect2>
+  <sect2 xml:id="sec-saptune-show-solution">
    <title>Showing the configuration of a &sapsol;</title>
    <para>To list the configuration of a &sapsol;, run:</para>
    <screen>&prompt.root;<command>saptune solution show <replaceable>SOLUTION</replaceable></command></screen>
   </sect2>
 
-  <sect2>
+  <sect2 xml:id="sec-saptune-revert-solution">
     <title>Reverting a &sapsol;</title>
     <para>To revert a &sapsol;, run:</para>
     <screen>&prompt.root;<command>saptune solution revert <replaceable>SOLUTION</replaceable></command></screen>
@@ -445,13 +482,13 @@ Do you really want to rename this Solution 'myHANA' to the new name 'myHANA2'? [
     </para>
   </sect2>
 
-  <sect2>
+  <sect2 xml:id="sec-saptune-edit-custom-solution">
    <title>Editing a custom &sapsol;</title>
    <para>To edit a custom &sapsol;, run:</para>
    <screen>&prompt.root;<command>saptune solution edit <replaceable>SOLUTION</replaceable></command></screen>
   </sect2>
 
-  <sect2>
+  <sect2 xml:id="sec-saptune-list-solution">
    <title>Listing enabled/applied &sapsol;</title>
    <para>To list enabled &sapsol;, run:</para>
    <screen>&prompt.root;<command>saptune solution enabled</command></screen>
@@ -462,8 +499,9 @@ Do you really want to rename this Solution 'myHANA' to the new name 'myHANA2'? [
     has been added to the solution name.
    </para>
   </sect2>
-
-  <sect2>
+ </sect1>
+ 
+  <sect1 xml:id="sec-saptune-verify-and-troubleshooting">
    <title>Verification and troubleshooting</title>
    <para>The see the current status of &saptune;, run:</para>
    <screen>&prompt.root;<command>saptune status</command></screen>
@@ -490,9 +528,9 @@ Do you really want to rename this Solution 'myHANA' to the new name 'myHANA2'? [
     The script does a deeper analysis, reports any problems and gives advice how
     to rectify them.
    </para>
-  </sect2>
+  </sect1>
 
-  <sect2>
+ <sect1 xml:id="sec-saptune-staging">
    <title>Staging</title>
    <para>
     It is possible, that a new &saptune; package can contain both: binary changes (for
@@ -532,67 +570,8 @@ Do you really want to rename this Solution 'myHANA' to the new name 'myHANA2'? [
     The previous command presents an analysis (see <command>saptune staging analysis</command>) and
     do the release after asking for confirmation.
    </para>
-  </sect2>
+  </sect1>
 
-  <sect2>
-   <title>Updating &saptune;</title>
-   <para>To update saptune to a new version, just update the package.</para>
-   <important>
-    <para>
-     The &saptune; tool does not rely on &tuned; anymore.
-     Configuring &tuned; to set up &saptune;&nbsp;3 will not work.
-     To start and enable &saptune;&nbsp;3 use one of the following methods:
-    </para>
-    <itemizedlist>
-     <listitem>
-      <screen>saptune service enablestart</screen>
-      <para>
-       Enables and starts the <systemitem>saptune.service</systemitem>.
-      </para>
-     </listitem>
-     <listitem>
-      <screen>saptune service takeover</screen>
-      <para>
-       Enables and starts the <systemitem>saptune.service</systemitem> and also
-       disables &sapconf; as well as &tuned;.
-      </para>
-     </listitem>
-     <listitem>
-      <screen>saptune daemon start</screen>
-      <para>Deprecated. Gets redirected to &saptune; service takeover.</para>
-     </listitem>
-    </itemizedlist>
-   </important>
-  </sect2>
-
-  <sect2 xml:id="sec-saptune-more">
-   <title>For more information</title>
-   <para>
-    See the following man pages:
-   </para>
-   <itemizedlist>
-    <listitem>
-     <para>
-      <command>man 8 saptune</command>
-     </para>
-    </listitem>
-    <listitem>
-     <para>
-      <command>man 8 saptune-migrate</command>
-     </para>
-    </listitem>
-    <listitem>
-     <para>
-      <command>man 8 saptune-note</command>
-     </para>
-    </listitem>
-   </itemizedlist>
-   <para>
-    Also see the project home page
-    <link xlink:href="https://github.com/SUSE/saptune/"/>.
-   </para>
-  </sect2>
- </sect1>
  <sect1 xml:id="sec-sysctl">
   <title>Tuning kernel parameters manually using <command>sysctl</command></title>
 
@@ -621,5 +600,34 @@ Do you really want to rename this Solution 'myHANA' to the new name 'myHANA2'? [
    <literal>sysctl.d(5)</literal>.
   </para>
  </sect1>
+
  <xi:include href="s4s_tune_wmp.xml"/>
+
+ <sect1 xml:id="sec-saptune-more">
+  <title>For more information</title>
+  <para>
+   See the following man pages:
+  </para>
+  <itemizedlist>
+   <listitem>
+    <para>
+     <command>man 8 saptune</command>
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     <command>man 8 saptune-migrate</command>
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     <command>man 8 saptune-note</command>
+    </para>
+   </listitem>
+  </itemizedlist>
+  <para>
+   Also see the project home page
+   <link xlink:href="https://github.com/SUSE/saptune/"/>.
+  </para>
+ </sect1>
 </chapter>
