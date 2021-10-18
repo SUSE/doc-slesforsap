@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE sect1
+<!DOCTYPE chapter
 [
   <!ENTITY % entities SYSTEM "generic-entities.ent">
     %entities;
 ]>
-<sect1 xmlns="http://docbook.org/ns/docbook"  xml:id="sec-memory-protection"
+<chapter xmlns="http://docbook.org/ns/docbook"  xml:id="cha-memory-protection"
     xmlns:xi="http://www.w3.org/2001/XInclude"
     xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0">
  <title>Tuning &wmp;</title>
@@ -39,7 +39,7 @@
   <link xlink:href="https://documentation.suse.com/sles-15/html/SLES-all/cha-tuning-cgroups.html"/>.
  </para>
 
- <sect2 xml:id="sec-memory-protection-architecture">
+ <sect1 xml:id="sec-memory-protection-architecture">
   <title>Architecture</title>
   <para>
    WMP relies on three components:
@@ -88,9 +88,9 @@
     </listitem>
    </varlistentry>
   </variablelist>
- </sect2>
+ </sect1>
 
- <sect2 xml:id="sec-memory-protection-support">
+ <sect1 xml:id="sec-memory-protection-support">
   <title>Support for &wmp;</title>
   <para>
    WMP is supported for &productname; &productnumber; on &x86-64; and &power;
@@ -141,12 +141,12 @@
     </listitem>
    </itemizedlist>
   </important>
- </sect2>
+ </sect1>
 
- <sect2 xml:id="sec-memory-protection-setup">
+ <sect1 xml:id="sec-memory-protection-setup">
   <title>Setting up &wmp;</title>
   <remark>toms 2020-09-28: Some introduction para is missing here.</remark>
-  <sect3 xml:id="sec-memory-protection-setup-preparation">
+  <sect2 xml:id="sec-memory-protection-setup-preparation">
    <title>Preparing for &wmp;</title>
    <procedure>
     <step>
@@ -359,8 +359,8 @@ chmod +s /usr/lib/sapwmp/sapwmp-capture</screen>
    <para>
     Now the system is ready for a reboot.
    </para>
-  </sect3>
-  <sect3 xml:id="sec-memory-protection-reboot-and-verification">
+  </sect2>
+  <sect2 xml:id="sec-memory-protection-reboot-and-verification">
    <title>Reboot and verification</title>
    <remark>toms 2020-09-16: introduction of the procedure is missing.</remark>
    <procedure>
@@ -504,10 +504,10 @@ Directory /sys/fs/cgroup/SAP.slice:
     It assumes &sap; instances profiles can be found beneath
     <filename>/usr/sap/<replaceable>SID</replaceable>/SYS/profile/</filename>.
    </para>
-  </sect3>
- </sect2>
+  </sect2>
+ </sect1>
 
- <sect2 xml:id="sec-memory-protection-configuration">
+ <sect1 xml:id="sec-memory-protection-configuration">
   <title>Configuring &wmp;</title>
   <para>
    To configure WMP, edit <filename>/etc/sapwmp.conf</filename>:
@@ -534,9 +534,9 @@ PARENT_COMMANDS=sapstart</screen>
     not do it until you know exactly what you are doing!
    </para>
   </warning>
- </sect2>
+ </sect1>
 
- <sect2 xml:id="sec-memory-protection-operation-change-the-value-of-memorylow">
+ <sect1 xml:id="sec-memory-protection-operation-change-the-value-of-memorylow">
   <title>Changing the value of memoryLow</title>
   <para>
    To change the value of <varname>MemoryLow</varname> run:
@@ -558,9 +558,9 @@ PARENT_COMMANDS=sapstart</screen>
    </para>
 <screen>&prompt.root;<command>systemctl</command> show -p MemoryCurrent SAP.slice</screen>
   </important>
- </sect2>
+ </sect1>
 
- <sect2 xml:id="sec-memory-protection-operation-monitor-memory-usage">
+ <sect1 xml:id="sec-memory-protection-operation-monitor-memory-usage">
   <title>Monitoring memory usage</title>
   <para>
    Logging the memory usage can be necessary not only to determine the value
@@ -661,9 +661,9 @@ system.slice : memory.low=0           memory.current=1863335936 memory.swap.curr
     <link xlink:href="https://github.com/scmschmidt/wmp_log_extract"/>
    </para>
   </tip>
- </sect2>
+ </sect1>
 
- <sect2 xml:id="sec-memory-protection-verify-correct-operation">
+ <sect1 xml:id="sec-memory-protection-verify-correct-operation">
   <title>Verifying correct operation</title>
   <para>
    Besides monitoring memory consumption and swapping (see
@@ -711,9 +711,9 @@ ha0adm    3327 0::/SAP.slice/wmp-ra42489517eb846c282c57681e627a496.scope    saps
    <xref linkend="sec-memory-protection-reboot-and-verification"/> for more
    details.
   </para>
- </sect2>
+ </sect1>
 
- <sect2 xml:id="sec-memory-protection-deinstallation">
+ <sect1 xml:id="sec-memory-protection-deinstallation">
   <title>Uninstalling &wmp;</title>
   <procedure>
    <step>
@@ -793,5 +793,5 @@ ha0adm    3327 0::/SAP.slice/wmp-ra42489517eb846c282c57681e627a496.scope    saps
     </para>
    </step>
   </procedure>
- </sect2>
-</sect1>
+ </sect1>
+</chapter>
