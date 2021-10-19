@@ -35,6 +35,7 @@
  <xi:include condition="noquick" href="s4s_install_network.xml" parse="xml"/>
  <xi:include condition="noquick" href="s4s_setup_cluster.xml" parse="xml"/>
  <xi:include condition="noquick" href="s4s_tune.xml" parse="xml"/>
+ <xi:include condition="noquick" href="s4s_tune_wmp.xml" parse="xml"/>
  <xi:include condition="noquick" href="s4s_access.xml" parse="xml"/>
  <!--'Encrypting Directories Using cryptctl' has been moved to the
  SLES Security Guide because the cryptctl package was moved from 

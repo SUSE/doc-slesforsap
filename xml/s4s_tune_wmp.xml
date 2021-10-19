@@ -1,391 +1,413 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE sect1
+<!DOCTYPE chapter
 [
   <!ENTITY % entities SYSTEM "generic-entities.ent">
     %entities;
 ]>
-<sect1 xmlns="http://docbook.org/ns/docbook"  xml:id="sec-memory-protection"
+<chapter xmlns="http://docbook.org/ns/docbook"  xml:id="cha-memory-protection"
     xmlns:xi="http://www.w3.org/2001/XInclude"
     xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0">
-    <title>Tuning &wmp;</title>
+ <title>Tuning &wmp;</title>
+
+ <para>
+  Keeping SAP applications in physical memory is essential for their
+  performance. In older product versions, the Page Cache Limit prevented a swap
+  out to disk by a growing page cache (in &productname; 11 SP1 onwards and in
+  &productname; 12). In &productname; 15, the Page Cache Limit has been
+  replaced by the more advanced &wmp;.
+ </para>
+
+ <para>
+  &wmp; puts &sap; instances into a dedicated cgroup (v2) and tells the kernel,
+  by the <varname>memory.low</varname> parameter, the amount of memory to keep
+  in physical memory. This protects the processes in this cgroup against any
+  form of memory pressure outside that cgroup, including a growing page cache.
+  &wmp; cannot protect against memory pressure inside this cgroup. It covers
+  the memory of <emphasis>all</emphasis> instances together on one host.
+ </para>
+
+ <para>
+  The value for <varname>memory.low</varname> depends on the kind of &sap;
+  instance and the workload and needs to be configured manually. If the system
+  is under extreme pressure, the Linux kernel will ignore the
+  <varname>memory.low</varname> value and try to stabilize the whole system,
+  even by swapping or invoking the OOM killer.
+ </para>
+
+ <para>
+  For more information about cgroups, see
+  <link xlink:href="https://documentation.suse.com/sles-15/html/SLES-all/cha-tuning-cgroups.html"/>.
+ </para>
+
+ <sect1 xml:id="sec-memory-protection-architecture">
+  <title>Architecture</title>
+  <para>
+   WMP relies on three components:
+  </para>
+  <variablelist>
+   <varlistentry>
+    <term>cgroup2 memory controller (Linux kernel)</term>
+    <listitem>
+     <para>
+      The cgroup2 memory controller parameter <parameter>memory.low</parameter>
+      allows defining an amount of memory, which the Linux kernel will keep in
+      physical memory. This amount of memory will be excluded from the
+      reclaiming process unless the entire system is in a critical memory
+      situation.
+     </para>
+     <para>
+      WMP uses <parameter>memory.low</parameter> to prevent memory from SAP
+      processes from being paged or swapped out to disk. Apart from the memory
+      controller, cgroup1 controllers are still available, but are not mounted
+      any more.
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term>&systemd;</term>
+    <listitem>
+     <para>
+      Systemd provides the infrastructure to create and maintain the cgroup
+      hierarchy and allows the configuration of cgroup parameters. WMP ships
+      &systemd; configuration files to allow easy configuration of
+      <parameter>memory.low</parameter> via &systemd; methods.
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term>&sap; start service</term>
+    <listitem>
+     <para>
+      The SAP start service manages the starting and stopping of &sap;
+      instances. An important feature for WMP is the configurable execution of
+      programs before the instance itself gets started in the instance profile.
+      WMP uses this method to call a program to move the
+      <systemitem>sapstart</systemitem> process into a designated cgroup, so
+      the &sap; instance will be started inside that cgroup.
+     </para>
+    </listitem>
+   </varlistentry>
+  </variablelist>
+ </sect1>
+
+ <sect1 xml:id="sec-memory-protection-support">
+  <title>Support for &wmp;</title>
+  <para>
+   WMP is supported for &productname; &productnumber; on &x86-64; and &power;
+   for one or multiple &sap; systems on one host, such as:
+  </para>
+  <itemizedlist>
+   <listitem>
     <para>
-        Keeping SAP applications in physical memory is essential for their performance.
-        With &productname; 11 SP1 onwards and &productname; 12 the Page Cache Limit
-        prevented a swap out to disk by a growing page cache.
-        In &productname; 15 the Page Cache Limit has been replaced with the more
-        advanced &wmp;.
+     App Server (&netweaver;, &s4h;) or
     </para>
+   </listitem>
+   <listitem>
     <para>
-        &wmp; puts &sap; instances into a dedicated cgroup (v2)
-        and tells the kernel by the <varname>memory.low</varname> parameter the amount of memory to keep
-        in physical memory.
-        This protects the processes in this cgroup against any form of memory pressure
-        outside that cgroup, including a growing page cache.
-        &wmp; can not protect against memory pressure inside this
-        cgroup. It covers the memory of <emphasis>all</emphasis> instances together on one
-        host.
+     &hana; 1.0/2.0
     </para>
-    <para>
-        The value for <varname>memory.low</varname> depends on the kind of &sap; instance
-        and the workload and has to be configured manually.
-        If the system is under extreme pressure the Linux kernel will ignore the
-        <varname>memory.low</varname> value and try to stabilize the whole system, even
-        by swapping or invoking the OOM killer.
-    </para>
-    <para>
-        For more information about cgroups, see
-        <link xlink:href="https://documentation.suse.com/sles/15-SP2/html/SLES-all/cha-tuning-cgroups.html"
-        />.
-    </para>
+   </listitem>
+  </itemizedlist>
+  <para>
+   &wmp; does not cover databases other than &hana;. Depending on their start
+   method, the processes might run inside or outside the dedicated cgroup. If
+   they run inside, the memory consumption needs to be taken into account when
+   determining <varname>memory.low</varname>.
+  </para>
+  <important>
+   <title>Restrictions of WMP</title>
+   <para>
+    Using WMP comes with benefits, but you should be aware of some
+    restrictions:
+   </para>
+   <itemizedlist>
+    <listitem>
+     <para>
+      WMP cannot protect against memory pressure inside the dedicated cgroup.
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      WMP cannot protect &sap; systems or their instances from each other. All
+      &sap; processes share the same memory limit. If you have multiple &sap;
+      systems (for example, &netweaver; and &s4h;), WMP cannot shield one &sap;
+      application from the other.
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      Support for &suse;’s HA cluster solution is not yet available.
+     </para>
+    </listitem>
+   </itemizedlist>
+  </important>
+ </sect1>
 
-    <sect2 xml:id="sec-memory-protection-architecture">
-        <title>Architecture</title>
-        <para>WMP relies on three components:</para>
-        <variablelist>
-            <varlistentry>
-                <term>cgroup2 memory controller (Linux kernel)</term>
-                <listitem>
-                    <para>
-                        The cgroup2 memory controller parameter
-                        <parameter>memory.low</parameter> allows to define an
-                        amount of memory, which the Linux kernel will keep
-                        in physical memory. This amount of memory will be
-                        excluded from the reclaiming process except the entire
-                        system is in a critical memory situation.
-                    </para>
-                    <para>
-                        WMP uses <parameter>memory.low</parameter> to prevent
-                        memory of SAP processes to be paged or swapped out to disk.
-                        Cgroup1 controllers, except the memory controller,
-                        still are available, but not mounted anymore.
-                    </para>
-                </listitem>
-            </varlistentry>
-            <varlistentry>
-                <term>&systemd;</term>
-                <listitem>
-                    <para>
-                        Systemd provides the infrastructure to create and maintain
-                        the cgroup hierarchy and also allows the configuration of
-                        cgroup parameters. WMP ships &systemd; configuration files
-                        to allow easy configuration of <parameter>memory.low</parameter>
-                        via &systemd; methods.
-                    </para>
-                </listitem>
-            </varlistentry>
-            <varlistentry>
-                <term>&sap; start service</term>
-                <listitem>
-                    <para>
-                        The SAP Start Service
-                        manages the start and stop of &sap; instances. An important
-                        feature for WMP is the configurable execution of programs
-                        before the instance itself gets started in the instance profile.
-                        WMP uses this method to call a program to move the
-                        <systemitem>sapstart</systemitem>
-                        process into a designated cgroup, so the &sap; instance will
-                        be started inside that cgroup.
-                    </para>
-                </listitem>
-            </varlistentry>
-        </variablelist>
-    </sect2>
-
-    <sect2 xml:id="sec-memory-protection-support">
-        <title>Support for &wmp;</title>
-        <para>WMP is supported for &productname; &productnumber; on &x86-64;
-            and &power; for one or multiple &sap; systems on one host, such as:
-        </para>
-        <itemizedlist>
-            <listitem>
-                <para>App Server (&netweaver;, &s4h;) or</para>
-            </listitem>
-            <listitem>
-                <para>&hana; 1.0/2.0</para>
-            </listitem>
-        </itemizedlist>
-
-        <para>
-            &wmp; does not cover databases other than
-            &hana;. Depending on their start method the processes might run inside
-            or outside the dedicated cgroup.
-            If they run inside, the memory consumption has to be taken into account
-            when determine <varname>memory.low</varname>.
-        </para>
-
-        <important>
-            <title>Restrictions of WMP</title>
-            <para>
-                Using WMP comes with benefits, but you should be aware of some restrictions:
-            </para>
-            <itemizedlist>
-                <listitem>
-                    <para>
-                        WMP cannot protect against memory pressure inside the
-                        dedicated cgroup.
-                    </para>
-                </listitem>
-                <listitem>
-                    <para>
-                        WMP cannot protect &sap; systems or their instances
-                        from each other. All &sap; processes share the same
-                        memory limit. If you have multiple &sap; systems (for
-                        example, &netweaver; and &s4h;), WMP cannot shield one &sap;
-                        application from the other. </para>
-                </listitem>
-                <listitem>
-                    <para>
-                        Support for &suse;’s HA cluster solution is not yet available.
-                    </para>
-                </listitem>
-            </itemizedlist>
-        </important>
-
-    </sect2>
-
-    <sect2 xml:id="sec-memory-protection-setup">
-        <title>Setting up &wmp;</title>
-        <remark>toms 2020-09-28: Some introduction para is missing here.</remark>
-        <sect3 xml:id="sec-memory-protection-setup-preparation">
-            <title>Preparing for &wmp;</title>
-            <procedure>
-                <step>
-                    <para>
-                        Check if your &sap; software (&hana;, &netweaver; etc) is installed.
-                        The group <systemitem class="groupname">sapsys</systemitem>
-                        is needed during the package installation of <package>sapwmp</package>
-                        later. If you skip that part, you will get a warning message
-                        (see <xref linkend="adm-order-of-packages"/>).
-                    </para>
-                </step>
-                <step>
-                    <para>
-                        Stop the &sap; system:
-                    </para>
-                    <screen>&prompt.root;<command>systemctl</command> stop sapinit</screen>
-                    <para>
-                        The service can be enabled, but all &sap;
-                        processes have to be terminated.
-                    </para>
-                </step>
-                <step>
-                    <para>Install the package <package>sapwmp</package>:</para>
-                    <screen>&prompt.sudo;<command>zypper</command> install sapwmp</screen>
-                    <important xml:id="adm-order-of-packages">
-                        <title>Watch out order of package</title>
-                        <para>The following message should only appear if no
-                            &sap; software has been installed on the system:</para>
-                        <screen>Warning: sapsys group not found warning: group<!--
+ <sect1 xml:id="sec-memory-protection-setup">
+  <title>Setting up &wmp;</title>
+  <remark>toms 2020-09-28: Some introduction para is missing here.</remark>
+  <sect2 xml:id="sec-memory-protection-setup-preparation">
+   <title>Preparing for &wmp;</title>
+   <procedure>
+    <step>
+     <para>
+      Check if your &sap; software (&hana;, &netweaver; etc) is installed. The
+      group <systemitem class="groupname">sapsys</systemitem> is needed during
+      the package installation of <package>sapwmp</package> later. If you skip
+      that part, you will get a warning message (see
+      <xref linkend="adm-order-of-packages"/>).
+     </para>
+    </step>
+    <step>
+     <para>
+      Stop the &sap; system:
+     </para>
+<screen>&prompt.root;<command>systemctl</command> stop sapinit</screen>
+     <para>
+      The service can be enabled, but all &sap; processes need to be
+      terminated.
+     </para>
+    </step>
+    <step>
+     <para>
+      Install the package <package>sapwmp</package>:
+     </para>
+<screen>&prompt.sudo;<command>zypper</command> install sapwmp</screen>
+     <important xml:id="adm-order-of-packages">
+      <title>Watch out for order of packages</title>
+      <para>
+       The following message should only appear if no &sap; software has been
+       installed on the system:
+      </para>
+<screen>Warning: sapsys group not found warning: group<!--
                            --> sapsys does not exist - using root</screen>
-                        <para>Remove the package <package>sapwmp</package> and
-                            install the &sap; software first before installing it
-                            again.
-                        </para>
-                        <para>As an alternative you can fix ownership and
-                            permission <emphasis>after</emphasis>
-                            installing the &sap; software with:</para>
-                        <screen>&prompt.sudo;<command>chgrp</command> sapsys /usr/lib/sapwmp/sapwmp-capture &amp;&amp; \
+      <para>
+       Remove the package <package>sapwmp</package> and install the &sap;
+       software first before installing <package>sapwmp</package> again.
+      </para>
+      <para>
+       As an alternative, you can fix ownership and permission
+       <emphasis>after</emphasis> installing the &sap; software with:
+      </para>
+<screen>&prompt.sudo;<command>chgrp</command> sapsys /usr/lib/sapwmp/sapwmp-capture &amp;&amp; \
 chmod +s /usr/lib/sapwmp/sapwmp-capture</screen>
-                    </important>
-                    <para>The following message can be ignored:</para>
-                    <screen>Warning: Found memory controller on v1<!--
+     </important>
+     <para>
+      The following message can be ignored:
+     </para>
+<screen>Warning: Found memory controller on v1<!--
                        --> hierarchy. Make sure unified hierarchy only is<!--
                        --> used.</screen>
-                    <para>Switching to unified hierarchy is done in the next step.</para>
-                </step>
-                <step>
-                    <para>Add <varname>systemd.unified_cgroup_hierarchy=true</varname> to the
-                        kernel command line by adding it to
-                        <varname>GRUB_CMDLINE_LINUX_DEFAULT</varname> in <filename>/etc/default/grub</filename>
-                        like:</para>
-                    <screen>GRUB_CMDLINE_LINUX_DEFAULT="... systemd.unified_cgroup_hierarchy=true swapaccount=1"</screen>
-                    <para>
-                        With this change, only cgroup2 controllers will be mounted on
-                        <filename>/sys/fs/cgroup</filename>. Cgroup1 controllers, except the memory
-                        controller, are still available and can be used though.
-                        Tools using cgroup1 might not work anymore out of the box and
-                        need reconfiguration. Also the required mount structure for cgroup1
-                        has to be provided.
-                    </para>
-                    <para>
-                        The parameter <varname>swapaccount=1</varname> is not needed for
-                        WMP to work, but it aids the analysis in support
-                        cases to show the amount of swapped out memory for
-                        each cgroup.
-                    </para>
-                </step>
-                <step>
-                    <para>Rewrite the GRUB2 configuration:</para>
-                    <screen>&prompt.sudo;<command>grub2-mkconfig</command> -o /boot/grub2/grub.cfg</screen>
-                    <para>After reboot (will be done later), the cgroup
-                        hierarchy is switched to v2 (unified hierarchy)
-                        only.</para>
-                </step>
-                <step xml:id="st-conf-memorylow-sap-slice">
-                    <para>Configure <varname>MemoryLow</varname> for the <systemitem>SAP.slice</systemitem>:</para>
-                    <screen>&prompt.sudo;<command>systemctl</command> set-property SAP.slice MemoryLow=...</screen>
-                    <para>
-                        This command creates a drop-in in
-                            <filename>/etc/systemd/system.control/SAP.slice.d/</filename> to set
-                            <varname>MemoryLow</varname>.
-                    </para>
-                    <para>
-                        The <package>sapwmp</package> package includes the systemd configuration
-                        <systemitem>SAP.slice</systemitem> which creates the cgroup of the same name
-                        for the SAP instances. <varname>MemoryLow</varname> is the systemd equivalent
-                        of the cgroup parameter
-                        <varname>memory.low</varname> mentioned in the introduction.
-                        The value for <varname>MemoryLow</varname> depends on the type of the
-                        &sap; application and the workload.
-                    </para>
-                    <variablelist>
-                        <varlistentry>
-                            <term>For &hana;</term>
-                            <listitem>
-                                <para>
-                                    Since &hana; has a Global Allocation Limit its value can
-                                    be used directly.
-                                </para>
-                            </listitem>
-                        </varlistentry>
-                        <varlistentry>
-                            <term>&sap; application server (&netweaver;, &s4h;)</term>
-                            <listitem>
-                                <para>
-                                    For the Application Server the sizing for the workload should
-                                    indicate the value for <varname>MemoryLow</varname>.
-                                    The <package>sapwmp</package> package contains a monitoring
-                                    part which might be useful to determine <varname>MemoryLow</varname>.
-                                    See <xref linkend="sec-memory-protection-operation-monitor-memory-usage"/>.
-                                </para>
-                            </listitem>
-                        </varlistentry>
-                    </variablelist>
-                    <para>
-                        Keep in mind:
-                    </para>
-                    <itemizedlist>
-                        <listitem>
-                            <para>
-                                All SAP instances on one host are inside the
-                                <systemitem>SAP.slice</systemitem>.
-                                <varname>MemoryLow</varname> must cover the amount
-                                of memory of <emphasis>all</emphasis> instances
-                                together on that host. You cannot protect &sap;
-                                systems or their instances from each other.
-                            </para>
-                        </listitem>
-                        <listitem>
-                            <para>
-                                If you are using a database other than &hana;
-                                some database processes might be part of
-                                <systemitem>SAP.slice</systemitem>. Their
-                                memory consumption has to be taken into
-                                account when determine the
-                                <varname>MemoryLow</varname> value.
-                            </para>
-                        </listitem>
-                        <listitem>
-                            <para>
-                                Never chose a value for <varname>MemoryLow</varname>
-                                very close or larger than your physical memory.
-                                System services and additional installed
-                                software require memory too. If they are forced
-                                to use swap to extensively in expense of the &sap;
-                                application, your system can become
-                                unresponsive.
-                            </para>
-                        </listitem>
-                    </itemizedlist>
-                    <note>
-                        <title>Correctly calculate <varname>MemoryLow</varname> value</title>
-                        <para>
-                            <varname>MemoryLow</varname> takes the memory size in bytes. If
-                        the value is suffixed with K, M, G or T, the
-                        specified memory size is parsed as Kibibytes,
-                        Mebibytes, Gibibytes, or Tebibytes (with the base
-                        1024 instead of 1000, see <link
-                            xlink:href="https://en.wikipedia.org/wiki/Binary_prefix"/>),
-                        respectively.
-                        Alternatively, a percentage
-                        value may be specified, which is taken relative to
-                        the installed physical memory on the system.
-                        </para>
-                        <para>
-                            The underlying cgroup memory controller will round up the value
-                            to a multiple of the page size. To avoid confusion already set
-                            a multiple of the page sizes as value for <varname>MemoryLow</varname>.
-                        </para>
-                    </note>
-                </step>
-                <step>
-                    <para>
-                        Create a backup of each &sap; instance profile.
-                        Errors in a profile can prevent a &sap; system from starting.
-                    </para>
-                </step>
-                <step>
-                    <para>For each &sap; instance, add the following line to the
-                        instance profile (usually located in
-                        <filename>/usr/sap/<replaceable>SID</replaceable>/SYS/profile/</filename>) after the last
-                        <literal>Execute_</literal> line:</para>
-                    <screen>Execute_20 = local /usr/lib/sapwmp/sapwmp-capture -a</screen>
-                    <para>
-                        Increase the number of the Execute statement
-                            when necessary, to be the highest one and the line
-                            is executed last.
-                    </para>
-                    <important>
-                        <para>Edit the instance profiles directly <emphasis
-                                role="strong">only</emphasis> if you do not have
-                            imported the profiles into the database to manage
-                            them by the &sap; GUI (transaction RZ11). If you do
-                            so, use the &sap; GUI to add the lines. The profile
-                            files located in the file system are getting
-                            overwritten and any manual changes would get
-                            lost!</para>
-                    </important>
-                </step>
-            </procedure>
-            <para>Now the system is ready for a reboot.</para>
-        </sect3>
-        <sect3 xml:id="sec-memory-protection-reboot-and-verification">
-            <title>Reboot and verification</title>
-            <remark>toms 2020-09-16: introduction of the procedure is missing.</remark>
-            <procedure>
-                <step>
-                    <para>Reboot the system.</para>
-                </step>
-                <step>
-                    <para>After Reboot verify that indeed cgroups v2 has been
-                        used:</para>
-                    <screen>&prompt.root;<command>grep</command>  cgroup /proc/mounts
+     <para>
+      Switching to unified hierarchy is done in the next step.
+     </para>
+    </step>
+    <step>
+     <para>
+      Add <varname>systemd.unified_cgroup_hierarchy=true</varname> to the
+      kernel command line by adding it to
+      <varname>GRUB_CMDLINE_LINUX_DEFAULT</varname> in
+      <filename>/etc/default/grub</filename> like:
+     </para>
+<screen>GRUB_CMDLINE_LINUX_DEFAULT="... systemd.unified_cgroup_hierarchy=true swapaccount=1"</screen>
+     <para>
+      With this change, only cgroup2 controllers will be mounted on
+      <filename>/sys/fs/cgroup</filename>. Cgroup1 controllers, except the
+      memory controller, are still available and can be used though. Tools
+      using cgroup1 might not work out of the box any more and might need
+      reconfiguration. Also, the required mount structure for cgroup1 needs to
+      be provided.
+     </para>
+     <para>
+      The parameter <varname>swapaccount=1</varname> is not needed for WMP to
+      work, but it aids the analysis in support cases to show the amount of
+      swapped out memory for each cgroup.
+     </para>
+    </step>
+    <step>
+     <para>
+      Rewrite the GRUB2 configuration:
+     </para>
+<screen>&prompt.sudo;<command>grub2-mkconfig</command> -o /boot/grub2/grub.cfg</screen>
+     <para>
+      After reboot (will be done later), the cgroup hierarchy is switched to v2
+      (unified hierarchy) only.
+     </para>
+    </step>
+    <step xml:id="st-conf-memorylow-sap-slice">
+     <para>
+      Configure <varname>MemoryLow</varname> for the
+      <systemitem>SAP.slice</systemitem>:
+     </para>
+<screen>&prompt.sudo;<command>systemctl</command> set-property SAP.slice MemoryLow=...</screen>
+     <para>
+      This command creates a drop-in in
+      <filename>/etc/systemd/system.control/SAP.slice.d/</filename> to set
+      <varname>MemoryLow</varname>.
+     </para>
+     <para>
+      The <package>sapwmp</package> package includes the systemd configuration
+      <systemitem>SAP.slice</systemitem> which creates the cgroup of the same
+      name for the SAP instances. <varname>MemoryLow</varname> is the systemd
+      equivalent of the cgroup parameter <varname>memory.low</varname>
+      mentioned in the introduction. The value for <varname>MemoryLow</varname>
+      depends on the type of the &sap; application and the workload.
+     </para>
+     <variablelist>
+      <varlistentry>
+       <term>For &hana;</term>
+       <listitem>
+        <para>
+         Since &hana; has a Global Allocation Limit, its value can be used
+         directly.
+        </para>
+       </listitem>
+      </varlistentry>
+      <varlistentry>
+       <term>&sap; Application Server (&netweaver;, &s4h;)</term>
+       <listitem>
+        <para>
+         For the Application Server, the sizing for the workload should
+         indicate the value for <varname>MemoryLow</varname>. The
+         <package>sapwmp</package> package contains a monitoring part which
+         might be useful to determine <varname>MemoryLow</varname>. See
+         <xref linkend="sec-memory-protection-operation-monitor-memory-usage"/>.
+        </para>
+       </listitem>
+      </varlistentry>
+     </variablelist>
+     <para>
+      Keep in mind:
+     </para>
+     <itemizedlist>
+      <listitem>
+       <para>
+        All SAP instances on one host are inside the
+        <systemitem>SAP.slice</systemitem>. <varname>MemoryLow</varname> must
+        cover the amount of memory of <emphasis>all</emphasis> instances
+        together on that host. You cannot protect &sap; systems or their
+        instances from each other.
+       </para>
+      </listitem>
+      <listitem>
+       <para>
+        If you are using a database other than &hana;, some database processes
+        might be part of <systemitem>SAP.slice</systemitem>. Their memory
+        consumption needs to be taken into account when determining the
+        <varname>MemoryLow</varname> value.
+       </para>
+      </listitem>
+      <listitem>
+       <para>
+        Never choose a value for <varname>MemoryLow</varname> very close to or
+        larger than your physical memory. System services and additional
+        installed software require memory too. If they are forced to use swap
+        too extensively, at the expense of the &sap; application, your system
+        can become unresponsive.
+       </para>
+      </listitem>
+     </itemizedlist>
+     <note>
+      <title>Correctly calculate <varname>MemoryLow</varname> value</title>
+      <para>
+       <varname>MemoryLow</varname> takes the memory size in bytes. If the
+       value is suffixed with K, M, G, or T, the specified memory size is
+       parsed as Kibibytes, Mebibytes, Gibibytes, or Tebibytes (with the base
+       1024 instead of 1000, see
+       <link xlink:href="https://en.wikipedia.org/wiki/Binary_prefix"/>),
+       respectively. Alternatively, a percentage value may be specified, which
+       is taken relative to the installed physical memory on the system.
+      </para>
+      <para>
+       The underlying cgroup memory controller will round up the value to a
+       multiple of the page size. To avoid confusion, set the value for
+       <varname>MemoryLow</varname> to a multiple of the page size.
+      </para>
+     </note>
+    </step>
+    <step>
+     <para>
+      Create a backup of each &sap; instance profile. Errors in a profile can
+      prevent a &sap; system from starting.
+     </para>
+    </step>
+    <step>
+     <para>
+      For each &sap; instance, add the following line to the instance profile
+      (usually located in
+      <filename>/usr/sap/<replaceable>SID</replaceable>/SYS/profile/</filename>)
+      after the last <literal>Execute_</literal> line:
+     </para>
+<screen>Execute_20 = local /usr/lib/sapwmp/sapwmp-capture -a</screen>
+     <para>
+      If necessary, increase the number of the Execute statement so that it is
+      the highest one, which means that that line is executed last.
+     </para>
+     <important>
+      <title>Editing instance profiles</title>
+      <para>
+       Edit the instance profiles directly
+       <emphasis role="strong">only</emphasis> if you do not have the profiles
+       imported into the database to manage them via the &sap; GUI (transaction
+       RZ11). If you have imported them, use the &sap; GUI to add the lines.
+       Profile files located in the file system are overwritten and any manual
+       changes would be lost!
+      </para>
+     </important>
+    </step>
+   </procedure>
+   <para>
+    Now the system is ready for a reboot.
+   </para>
+  </sect2>
+  <sect2 xml:id="sec-memory-protection-reboot-and-verification">
+   <title>Reboot and verification</title>
+   <remark>toms 2020-09-16: introduction of the procedure is missing.</remark>
+   <procedure>
+    <step>
+     <para>
+      Reboot the system.
+     </para>
+    </step>
+    <step>
+     <para>
+      After rebooting, verify that cgroups v2 has indeed been used:
+     </para>
+<screen>&prompt.root;<command>grep</command>  cgroup /proc/mounts
 cgroup /sys/fs/cgroup cgroup2 rw,nosuid,nodev,noexec,relatime 0 0</screen>
-                </step>
-                <step>
-                    <para>Verify that the cgroup was created successfully and
-                        the low memory value has been set:</para>
-                    <screen>&prompt.user;<command>systemctl</command> show -p MemoryLow SAP.slice
+    </step>
+    <step>
+     <para>
+      Verify that the cgroup was created successfully and the low memory value
+      has been set:
+     </para>
+<screen>&prompt.user;<command>systemctl</command> show -p MemoryLow SAP.slice
 MemoryLow=18487889920    &lt;- Should be your chosen value (always in bytes)!
 
 # cat /sys/fs/cgroup/SAP.slice/memory.low
 18487889920    &lt;- Should be your chosen value!</screen>
-                    <para>
-                        The variable <varname>MemoryLow</varname> can be set to any value,
-                        but the content of the variable is always be a multiple of the page size.
-                        Keep this in mind, when you notice a slight difference between both values.
-                    </para>
-                </step>
-                <step>
-                    <para>Check that all &sap; instance processes are in the
-                        correct system slices/cgroup.</para>
-                    <para>If you have not enabled <systemitem
+     <para>
+      The variable <varname>MemoryLow</varname> can be set to any value, but
+      the content of the variable is always a multiple of the page size. Keep
+      this in mind if you notice a slight difference between the values.
+     </para>
+    </step>
+    <step>
+     <para>
+      Check that all &sap; instance processes are in the correct system
+      slices/cgroup.
+     </para>
+     <para>
+      If you have not enabled
+      <systemitem
                         class="service">sapinit.service</systemitem>
-                        start the service now. If autostart is not enabled in
-                        the instance profiles, start the instances before
-                        you check.</para>
-                    <para>Example:</para>
-                    <screen>&prompt.root;<command>systemd-cgls</command> -a /sys/fs/cgroup/SAP.slice
+      start the service now. If autostart is not enabled in the instance
+      profiles, start the instances before you check.
+     </para>
+     <para>
+      Example:
+     </para>
+<screen>&prompt.root;<command>systemd-cgls</command> -a /sys/fs/cgroup/SAP.slice
 Directory /sys/fs/cgroup/SAP.slice:
 |-wmp-rd91fd6b3ca0d4c1183659ef4f9a092fa.scope
 | |-3349 sapstart pf=/usr/sap/HA0/ERS10/profile/HA0_ERS10_sapha0er
@@ -394,28 +416,34 @@ Directory /sys/fs/cgroup/SAP.slice:
 | |-3572 sapstart pf=/usr/sap/HA0/SYS/profile/HA0_D01_sapha0ci
 | |-3624 dw.sapHA0_D01 pf=/usr/sap/HA0/SYS/profile/HA0_D01_sapha0ci
 ...</screen>
-                    <para>
-                        The <systemitem>sapstartsrv</systemitem> process of an instance
-                        remains always in the user slice of
-                        <literal><replaceable>SID</replaceable>adm</literal>.
-                        Only the <systemitem class="process">sapstart</systemitem> process
-                        and its children will be moved to the target cgroup.
-                    </para>
-                    <para>For each instance a directory
-                        <filename>wmp-r<replaceable>SCOPEID</replaceable>.scope</filename>
-                        exists with all processes of
-                        this instance. The <replaceable>SCOPEID</replaceable> is a hexadecimal 128bit
-                        random value.</para>
-                    <para>The &sap; HostAgent is not covered by WMP and remains
-                        partly in <systemitem>sapinit.slice</systemitem> and partly in the user slice of
-                        <systemitem>sapadm</systemitem>.</para>
-                </step>
-                <step>
-                    <para>If the processes are not in the cgroup,
-                        check if the <literal>Execute</literal> lines in the instance profiles are
-                        correct. Also each instance start should now be logged
-                        in the system log <filename>/var/log/messages</filename>:</para>
-                    <screen>...
+     <para>
+      The <systemitem>sapstartsrv</systemitem> process of an instance always
+      remains in the user slice of
+      <literal><replaceable>SID</replaceable>adm</literal>. Only the
+      <systemitem class="process">sapstart</systemitem> process and its
+      children will be moved to the target cgroup.
+     </para>
+     <para>
+      For each instance, a directory
+      <filename>wmp-r<replaceable>SCOPEID</replaceable>.scope</filename> exists
+      with all processes of this instance. The
+      <replaceable>SCOPEID</replaceable> is a random 128-bit value in
+      hexadecimal.
+     </para>
+     <para>
+      The &sap; HostAgent is not covered by WMP and remains partly in
+      <systemitem>sapinit.slice</systemitem> and partly in the user slice of
+      <systemitem>sapadm</systemitem>.
+     </para>
+    </step>
+    <step>
+     <para>
+      If the processes are not in the cgroup, check if the
+      <literal>Execute</literal> lines in the instance profiles are correct.
+      Also each instance start should now be logged in the system log
+      <filename>/var/log/messages</filename>:
+     </para>
+<screen>...
 2020-06-16T18:41:28.317233+02:00 server-03 sapwmp-capture: Found PIDs:
 2020-06-16T18:41:28.317624+02:00 server-03 sapwmp-capture:      17001
 2020-06-16T18:41:28.317813+02:00 server-03 sapwmp-capture:      16994
@@ -423,66 +451,68 @@ Directory /sys/fs/cgroup/SAP.slice:
 2020-06-16T18:41:28.319423+02:00 server-03 sapwmp-capture: Successful capture into SAP.slice/wmp-r07a27e12d7f2491f8ccb9aeb0e080aaa.scope
 2020-06-16T18:41:28.319672+02:00 server-03 systemd[1]: Started wmp-r07a27e12d7f2491f8ccb9aeb0e080aaa.scope.
 ...</screen>
-                </step>
-            </procedure>
-            <para>
-                To verify the correct setup, run <command>wmp-check</command>.
-                The script checks the setup of &wmp;:
-            </para>
-            <itemizedlist>
-                <listitem>
-                    <para>
-                        Correct setup of cgroup2.
-                    </para>
-                </listitem>
-                <listitem>
-                    <para>
-                        Ownership and permission of the capture program.
-                    </para>
-                </listitem>
-                <listitem>
-                    <para>
-                        WMP entries of &sap; instance profiles.
-                    </para>
-                </listitem>
-                <listitem>
-                    <para>
-                        Correct cgrop of running &sap; instance processes.
-                    </para>
-                </listitem>
-                <listitem>
-                    <para>
-                        Correct setup of <systemitem>SAP.slice</systemitem>.
-                    </para>
-                </listitem>
-                <listitem>
-                    <para>
-                        Sane configuration of MemoryLow. However, it cannot determine
-                        if the MemoryLow value has been chosen wisely.
-                    </para>
-                </listitem>
-                <listitem>
-                    <para>
-                        Setup of the optional memory sampler.
-                    </para>
-                </listitem>
-                <listitem>
-                    <para>
-                        Setup of optional swap accounting.
-                    </para>
-                </listitem>
-            </itemizedlist>
-            <para>
-                It assumes &sap; instances profiles can be found beneath
-                <filename>/usr/sap/<replaceable>SID</replaceable>/SYS/profile/</filename>.
-            </para>
-        </sect3>
-    </sect2>
+    </step>
+   </procedure>
+   <para>
+    To verify the correct setup, run <command>wmp-check</command>. The script
+    checks the setup of &wmp;:
+   </para>
+   <itemizedlist>
+    <listitem>
+     <para>
+      Correct setup of cgroup2.
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      Ownership and permission of the capture program.
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      WMP entries of &sap; instance profiles.
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      Correct cgrop of running &sap; instance processes.
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      Correct setup of <systemitem>SAP.slice</systemitem>.
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      Sane configuration of MemoryLow. However, it cannot determine if the
+      MemoryLow value has been chosen wisely.
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      Setup of the optional memory sampler.
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      Setup of optional swap accounting.
+     </para>
+    </listitem>
+   </itemizedlist>
+   <para>
+    It assumes &sap; instances profiles can be found beneath
+    <filename>/usr/sap/<replaceable>SID</replaceable>/SYS/profile/</filename>.
+   </para>
+  </sect2>
+ </sect1>
 
-    <sect2 xml:id="sec-memory-protection-configuration">
-        <title>Configuring &wmp;</title>
-        <para>To configure WMP edit <filename>/etc/sapwmp.conf</filename>:</para>
-        <screen># NOTE: Local changes may be reverted after update of WMP package. Check for
+ <sect1 xml:id="sec-memory-protection-configuration">
+  <title>Configuring &wmp;</title>
+  <para>
+   To configure WMP, edit <filename>/etc/sapwmp.conf</filename>:
+  </para>
+<screen># NOTE: Local changes may be reverted after update of WMP package. Check for
 #      .rpmsave file to restore &amp; merge changes.
 
 ## Description: Slice unit name where workload is put into
@@ -495,48 +525,66 @@ DEFAULT_SLICE="SAP.slice"
 ## Type:        string
 ## Default:     sapstart
 PARENT_COMMANDS=sapstart</screen>
-        <para>After a change restart all &sap; instances.</para>
-        <warning>
-            <para>Altering <filename>/etc/sapwmp.conf</filename> should not be necessary.
-                Don&#8217;t do it until you know exactly what you do!</para>
-        </warning>
-    </sect2>
+  <para>
+   After any change, restart all &sap; instances.
+  </para>
+  <warning>
+   <para>
+    Altering <filename>/etc/sapwmp.conf</filename> should not be necessary. Do
+    not do it until you know exactly what you are doing!
+   </para>
+  </warning>
+ </sect1>
 
-    <sect2 xml:id="sec-memory-protection-operation-change-the-value-of-memorylow">
-        <title>Changing the value of memoryLow</title>
-        <para>To change the value of <varname>MemoryLow</varname> run:</para>
-        <screen>&prompt.root;<command>systemctl</command> set-property SAP.slice MemoryLow=...</screen>
-        <para>The changes will take effect immediately.</para>
-        <para>
-            The underlying cgroup memory controller will round up the value
-            to a multiple of the page size. To avoid confusion set a
-            multiple of the page sizes as value for <varname>MemoryLow</varname>.
-        </para>
-        <important>
-            <para>Never set <varname>MemoryLow</varname> to a value lower than the memory
-                already accounted to <systemitem>SAP.slice</systemitem>. To check run:</para>
-            <screen>&prompt.root;<command>systemctl</command> show -p MemoryCurrent SAP.slice</screen>
-        </important>
-    </sect2>
-    <sect2 xml:id="sec-memory-protection-operation-monitor-memory-usage">
-        <title>Monitoring memory usage</title>
-        <para>Logging the memory usage can either be necessary to
-            determine the value for <varname>memory.low</varname>, but also to monitor the
-            correct operation of WMP.</para>
-        <para>To enable monitoring activate the shipped timer
-            unit:</para>
-        <screen>&prompt.root;<command>systemctl</command> enable --now wmp-sample-memory.timer</screen>
-        <para>Now the timer should be listed by <command>systemctl
-            list-timers</command>:</para>
-        <screen>&prompt.root;<command>systemctl</command> list-timers
+ <sect1 xml:id="sec-memory-protection-operation-change-the-value-of-memorylow">
+  <title>Changing the value of memoryLow</title>
+  <para>
+   To change the value of <varname>MemoryLow</varname> run:
+  </para>
+<screen>&prompt.root;<command>systemctl</command> set-property SAP.slice MemoryLow=...</screen>
+  <para>
+   The changes will take effect immediately.
+  </para>
+  <para>
+   The underlying cgroup memory controller will round up the value to a
+   multiple of the page size. To avoid confusion, set the value of
+   <varname>MemoryLow</varname> to a multiple of the page size.
+  </para>
+  <important>
+   <title>Value of <varname>MemoryLow</varname></title>
+   <para>
+    Never set <varname>MemoryLow</varname> to a value lower than the memory
+    already accounted in <systemitem>SAP.slice</systemitem>. To check, run:
+   </para>
+<screen>&prompt.root;<command>systemctl</command> show -p MemoryCurrent SAP.slice</screen>
+  </important>
+ </sect1>
+
+ <sect1 xml:id="sec-memory-protection-operation-monitor-memory-usage">
+  <title>Monitoring memory usage</title>
+  <para>
+   Logging the memory usage can be necessary not only to determine the value
+   for <varname>memory.low</varname>, but also for monitoring the correct
+   operation of WMP.
+  </para>
+  <para>
+   To enable monitoring, activate the shipped timer unit:
+  </para>
+<screen>&prompt.root;<command>systemctl</command> enable --now wmp-sample-memory.timer</screen>
+  <para>
+   Now the timer should be listed by <command>systemctl list-timers</command>:
+  </para>
+<screen>&prompt.root;<command>systemctl</command> list-timers
 NEXT    LEFT       LAST    PASSED  UNIT                     ACTIVATES
 ...
 Tue...  9min left  Tue...  4s ago  wmp-sample-memory.timer  wmp-sample-memory.service
 ...</screen>
-        <para>If you check the current configuration, you can see that
-            memory data gets collected every 10 minutes with a randomized
-            delay of 3&nbsp;minutes:</para>
-        <screen>&prompt.root;<command>systemctl</command> cat wmp-sample-memory.timer
+  <para>
+   If you check the current configuration, you can see that memory data is
+   collected every 10&nbsp;minutes with a randomized delay of
+   three&nbsp;minutes:
+  </para>
+<screen>&prompt.root;<command>systemctl</command> cat wmp-sample-memory.timer
 # /usr/lib/systemd/system/wmp-sample-memory.timer
 [Unit]
 Description=WMP periodic log of memory consumption
@@ -548,9 +596,11 @@ AccuracySec=60
 
 [Install]
 WantedBy=timers.target</screen>
-        <para>To change this, create a drop-in file and reload systemd
-            (example with increasing the interval to 30&nbsp;minutes):</para>
-        <screen>&prompt.root;<command>mkdir</command> /etc/systemd/system/wmp-sample-memory.timer.d
+  <para>
+   To change this, create a drop-in file and reload systemd (for example, by
+   increasing the interval to 30&nbsp;minutes):
+  </para>
+<screen>&prompt.root;<command>mkdir</command> /etc/systemd/system/wmp-sample-memory.timer.d
 
 # cat &lt;&lt;EOF &gt;/etc/systemd/system/wmp-sample-memory.timer.d/override.conf
 [Timer]
@@ -559,13 +609,15 @@ OnCalendar=*:0/30
 EOF
 
 # systemctl daemon-reload</screen>
-        <para>
-            <emphasis>(The first OnCalendar= line is important to delete
-                previously defined OnCalendar= settings.)</emphasis>
-        </para>
-        <para>To see the memory consumption check the system log for
-            lines written by <literal>wmp_memory_current</literal>:</para>
-        <screen>&prompt.root;<command>grep</command> wmp_memory_current /var/log/messages
+  <para>
+   <emphasis>(The first OnCalendar= line is important for deleting previously
+   defined OnCalendar= settings.)</emphasis>
+  </para>
+  <para>
+   To see the memory consumption, check the system log for lines written by
+   <literal>wmp_memory_current</literal>:
+  </para>
+<screen>&prompt.root;<command>grep</command> wmp_memory_current /var/log/messages
 ...
 
 
@@ -573,48 +625,60 @@ EOF
 2020-09-14T12:03:00.767838+02:00 server-03 wmp_memory_current: SAP.slice : memory.low=21474836480 memory.current=2294022144 memory.swap.current=0 , user.slice : memory.low=0 memory.current=5499473920 memory.swap.current=0 , init.scope : memory.low=0 memory.current=8364032 memory.swap.current=0 , system.slice : memory.low=0 memory.current=1862586368 memory.swap.current=0
 2020-09-14T12:04:00.337315+02:00 server-03 wmp_memory_current: SAP.slice : memory.low=21474836480 memory.current=2294022144 memory.swap.current=0 , user.slice : memory.low=0 memory.current=5499207680 memory.swap.current=0 , init.scope : memory.low=0 memory.current=8355840 memory.swap.current=0 , system.slice : memory.low=0 memory.current=1862746112 memory.swap.current=0
 ...</screen>
-        <para>Here a reformatted log line to get a better impression:</para>
-        <screen>2020-09-14T12:02:40.337266+02:00 server-03 wmp_memory_current:
+  <para>
+   Here is a reformatted log line to get a better impression:
+  </para>
+<screen>2020-09-14T12:02:40.337266+02:00 server-03 wmp_memory_current:
 SAP.slice    : memory.low=21474836480 memory.current=2294059008 memory.swap.current=0 ,
 user.slice   : memory.low=0           memory.current=5499219968 memory.swap.current=0 ,
 init.scope   : memory.low=0           memory.current=8364032    memory.swap.current=0 ,
 system.slice : memory.low=0           memory.current=1863335936 memory.swap.current=0</screen>
-        <para>For each cgroup directly below <filename>/sys/fs/cgroup/</filename> one block
-            exists separated by comma. On a normal system you should at
-            least find <systemitem>user.slice</systemitem>, <systemitem>system.slice</systemitem>,
-            and <systemitem>init.scope</systemitem>.
-            WMP adds <systemitem>SAP.slice</systemitem>.</para>
-        <para>Each block contains the information about the current value
-            of <varname>memory.low</varname> and <varname>memory.current</varname>, the currently allocated amount
-            of physical memory of processes in this cgroup.
-        </para>
-        <para>
-            If you have enabled swap accounting (<varname>swapaccount=1</varname>) during setup
-            you also have <varname>memory.swap.current</varname>, the amount of swapped out
-            memory of the cgroup.
-        </para>
-        <para>All values are in bytes. See <xref linkend="st-conf-memorylow-sap-slice"/>
-            in <xref linkend="sec-memory-protection-setup-preparation"/>.</para>
+  <para>
+   For each cgroup directly below <filename>/sys/fs/cgroup/</filename> one
+   comma-separated block exists. On a normal system, you should find at least
+   <systemitem>user.slice</systemitem>, <systemitem>system.slice</systemitem>,
+   and <systemitem>init.scope</systemitem>. WMP adds
+   <systemitem>SAP.slice</systemitem>.
+  </para>
+  <para>
+   Each block contains the information about the current value of
+   <varname>memory.low</varname> and <varname>memory.current</varname>, and the
+   currently allocated amount of physical memory of processes in this cgroup.
+  </para>
+  <para>
+   If you enabled swap accounting (<varname>swapaccount=1</varname>) during
+   setup, you also have <varname>memory.swap.current</varname>, the amount of
+   swapped-out memory of the cgroup.
+  </para>
+  <para>
+   All values are in bytes. See <xref linkend="st-conf-memorylow-sap-slice"/>
+   in <xref linkend="sec-memory-protection-setup-preparation"/>.
+  </para>
+  <tip>
+   <title>Script for printing</title>
+   <para>
+    You can find a script to print the information as table or CSV here:
+    <link xlink:href="https://github.com/scmschmidt/wmp_log_extract"/>
+   </para>
+  </tip>
+ </sect1>
 
-        <tip>
-            <para>You can find a script to print the information as table
-                or CSV here:
-                <link xlink:href="https://github.com/scmschmidt/wmp_log_extract"/>
-            </para>
-        </tip>
-    </sect2>
-
-    <sect2 xml:id="sec-memory-protection-verify-correct-operation">
-        <title>Verifying correct operation</title>
-        <para>Besides monitoring memory consumption and swapping (see
-            <xref linkend="sec-memory-protection-operation-monitor-memory-usage"/>)
-            you also should check
-            regularly that all &sap; instance processes are in their scopes
-            below <systemitem>SAP.slice</systemitem>.</para>
-        <para>To do so, run '<command>systemd-cgls</command> and check each instance
-            process.</para>
-        <para>Example:</para>
-        <screen>&prompt.root;<command>systemd-cgls</command> -a /sys/fs/cgroup/SAP.slice
+ <sect1 xml:id="sec-memory-protection-verify-correct-operation">
+  <title>Verifying correct operation</title>
+  <para>
+   Besides monitoring memory consumption and swapping (see
+   <xref linkend="sec-memory-protection-operation-monitor-memory-usage"/>), you
+   should also regularly check that all &sap; instance processes are in their
+   scopes below <systemitem>SAP.slice</systemitem>.
+  </para>
+  <para>
+   To do so, run <command>systemd-cgls</command> and check each instance
+   process.
+  </para>
+  <para>
+   Example:
+  </para>
+<screen>&prompt.root;<command>systemd-cgls</command> -a /sys/fs/cgroup/SAP.slice
 Directory /sys/fs/cgroup/SAP.slice:
 |-wmp-rd91fd6b3ca0d4c1183659ef4f9a092fa.scope
 | |-3349 sapstart pf=/usr/sap/HA0/ERS10/profile/HA0_ERS10_sapha0er
@@ -623,10 +687,14 @@ Directory /sys/fs/cgroup/SAP.slice:
 | |-3572 sapstart pf=/usr/sap/HA0/SYS/profile/HA0_D01_sapha0ci
 | |-3624 dw.sapHA0_D01 pf=/usr/sap/HA0/SYS/profile/HA0_D01_sapha0ci
 ...</screen>
-        <para>A simpler test would be listing all processes including
-            cgroups for all &lt;SID&gt;s used on the system.</para>
-        <para>Example:</para>
-        <screen>&prompt.user;<command>ps</command> -eo user,pid,cgroup:60,args | <command>grep</command> -e [h]a0adm
+  <para>
+   A simpler test would be to list all processes, including cgroups, for all
+   <literal>SID</literal>s used on the system.
+  </para>
+  <para>
+   Example:
+  </para>
+<screen>&prompt.user;<command>ps</command> -eo user,pid,cgroup:60,args | <command>grep</command> -e [h]a0adm
 ha0adm    2062 0::/user.slice/user-1001.slice/user@1001.service/init.scope  /usr/lib/systemd/systemd --user
 ha0adm    2065 0::/user.slice/user-1001.slice/user@1001.service/init.scope  (sd-pam)
 ha0adm    3081 0::/SAP.slice/wmp-r73c594e050904c9c922a312dd9a28fd4.scope    sapstart pf=/usr/sap/HA0/SYS/profile/HA0_ASCS00_sapha0as
@@ -634,77 +702,96 @@ ha0adm    3133 0::/SAP.slice/wmp-r73c594e050904c9c922a312dd9a28fd4.scope    ms.s
 ha0adm    3134 0::/SAP.slice/wmp-r73c594e050904c9c922a312dd9a28fd4.scope    en.sapHA0_ASCS00 pf=/usr/sap/HA0/SYS/profile/HA0_ASCS00_sapha0as
 ha0adm    3327 0::/SAP.slice/wmp-ra42489517eb846c282c57681e627a496.scope    sapstart pf=/usr/sap/HA0/ERS10/profile/HA0_ERS10_sapha0er
 ...</screen>
-        <para>All instance processes except <systemitem>sapstartsrv</systemitem> have to be in a scope below
-            <systemitem>0::/SAP.slice/</systemitem>.</para>
-        <para>
-            To verify the correct setup, use the <command>wmp-check</command> tool.
-            See <xref linkend="sec-memory-protection-reboot-and-verification"/> for more details.
-        </para>
-    </sect2>
+  <para>
+   All instance processes except <systemitem>sapstartsrv</systemitem> need to
+   be in a scope below <systemitem>0::/SAP.slice/</systemitem>.
+  </para>
+  <para>
+   To verify the correct setup, use the <command>wmp-check</command> tool. See
+   <xref linkend="sec-memory-protection-reboot-and-verification"/> for more
+   details.
+  </para>
+ </sect1>
 
-    <sect2 xml:id="sec-memory-protection-deinstallation">
-        <title>Deinstalling &wmp;</title>
-        <procedure>
-            <step>
-                <para>Stop the &sap; system completely. The <systemitem
-                    class="service">sapinit.service</systemitem> has
-                    to be stopped, but can stay enabled. All &sap; processes have
-                    to be terminated.</para>
-            </step>
-            <step>
-                <para>Remove any changes made to <systemitem>SAP.slice</systemitem>
-                    like setting <varname>MemoryLow</varname>:</para>
-                <screen>&prompt.root;<command>systemctl</command> revert SAP.slice</screen>
-            </step>
-            <step performance="optional">
-                <para>Remove the package <package>sapwmp</package>:</para>
-                <screen>&prompt.root;<command>zypper</command> remove sapwmp</screen>
-                <para>
-                    This step is optional. The package can stay on the
-                    system without having an influence.
-                </para>
-            </step>
-            <step performance="optional">
-                <para>Remove <varname>systemd.unified_cgroup_hierarchy=true</varname> from
-                    <varname>GRUB_CMDLINE_LINUX_DEFAULT</varname> in <filename>/etc/default/grub</filename>.
-                </para>
-                <para>
-                    This step is optional. You can keep cgroup2 without using WMP.
-                </para>
-            </step>
-            <step>
-                <para>Rewrite the GRUB2 configuration:</para>
-                <screen>&prompt.root;<command>grub2-mkconfig</command> -o /boot/grub2/grub.cfg</screen>
-                <para>After the next boot, the system is switched back to the
-                    hybrid cgroup hierarchy.</para>
-            </step>
-            <step>
-                <para>Remove the line to call sapwmp-capture from each &sap;
-                    instance profile (usually located in
-                    <filename>/usr/sap/<replaceable>SID</replaceable>/SYS/profile/</filename>):</para>
-                <screen>Execute_20 = local /usr/lib/sapwmp/sapwmp-capture -a</screen>
-                <important>
-                    <title>Backup is necessary</title>
-                    <para>Before editing an instance profile create a backup!
-                        Errors in a profile can prevent a &sap; system from
-                        starting!</para>
-                </important>
-                <important>
-                    <title>About editing profiles directly</title>
-                    <para>Edit the instance profiles directly <emphasis
-                        role="strong">only</emphasis> if you do not have
-                        imported the profiles into the database to manage them
-                        by the &sap; GUI (transaction RZ11). If you do so, use the
-                        &sap; GUI to add the lines. The profile files located in
-                        the file system are getting overwritten and any manual
-                        changes would get lost!</para>
-                </important>
-            </step>
-            <step>
-                <para>Reboot the system and verify that your &sap; system has
-                    been started successfully.</para>
-            </step>
-        </procedure>
-    </sect2>
-
-</sect1>
+ <sect1 xml:id="sec-memory-protection-deinstallation">
+  <title>Uninstalling &wmp;</title>
+  <procedure>
+   <step>
+    <para>
+     Stop the &sap; system completely. The
+     <systemitem class="service">sapinit.service</systemitem> has to be
+     stopped, but can stay enabled. All &sap; processes have to be terminated.
+    </para>
+   </step>
+   <step>
+    <para>
+     Remove any changes made to <systemitem>SAP.slice</systemitem>, such as
+     setting <varname>MemoryLow</varname>:
+    </para>
+<screen>&prompt.root;<command>systemctl</command> revert SAP.slice</screen>
+   </step>
+   <step performance="optional">
+    <para>
+     Remove the package <package>sapwmp</package>:
+    </para>
+<screen>&prompt.root;<command>zypper</command> remove sapwmp</screen>
+    <para>
+     This step is optional. The package can stay on the system without having
+     an influence.
+    </para>
+   </step>
+   <step performance="optional">
+    <para>
+     Remove <varname>systemd.unified_cgroup_hierarchy=true</varname> from
+     <varname>GRUB_CMDLINE_LINUX_DEFAULT</varname> in
+     <filename>/etc/default/grub</filename>.
+    </para>
+    <para>
+     This step is optional. You can keep cgroup2 without using WMP.
+    </para>
+   </step>
+   <step>
+    <para>
+     Rewrite the GRUB2 configuration:
+    </para>
+<screen>&prompt.root;<command>grub2-mkconfig</command> -o /boot/grub2/grub.cfg</screen>
+    <para>
+     After the next boot, the system is switched back to the hybrid cgroup
+     hierarchy.
+    </para>
+   </step>
+   <step>
+    <para>
+     Remove the line to call sapwmp-capture from each &sap; instance profile
+     (usually located in
+     <filename>/usr/sap/<replaceable>SID</replaceable>/SYS/profile/</filename>):
+    </para>
+<screen>Execute_20 = local /usr/lib/sapwmp/sapwmp-capture -a</screen>
+    <important>
+     <title>Backup is necessary</title>
+     <para>
+      Before editing an instance profile, create a backup! Errors in a profile
+      can prevent an &sap; system from starting!
+     </para>
+    </important>
+    <important>
+     <title>About editing profiles directly</title>
+     <para>
+      Edit the instance profiles directly
+      <emphasis role="strong">only</emphasis> if you have not imported the
+      profiles into the database to manage them via the &sap; GUI (transaction
+      RZ11). If you have imported them, use the &sap; GUI to add the lines.
+      Profile files located in the file system are overwritten, and any manual
+      changes will be lost!
+     </para>
+    </important>
+   </step>
+   <step>
+    <para>
+     Reboot the system and verify that your &sap; system has been started
+     successfully.
+    </para>
+   </step>
+  </procedure>
+ </sect1>
+</chapter>
