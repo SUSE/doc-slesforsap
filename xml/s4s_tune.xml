@@ -1,1050 +1,249 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE sect1
+<!DOCTYPE chapter
 [
   <!ENTITY % entities SYSTEM "generic-entities.ent">
     %entities;
 ]>
-<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="cha-s4s-tune">
- <title>Tuning</title>
-
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="cha-tune">
+ <title>Tuning systems with &saptune;</title>
  <para>
-  This chapter presents information about tuning &productname; to work optimally with
-  &sap; applications.
+  This chapter presents information about tuning &productname; to work
+  optimally with &sap; applications.
  </para>
  <para>
-   On &s4s; you have the choice between <command>sapconf</command> and
-   <command>saptune</command>. However, <command>saptune</command> is
-   the more elaborate tool that offers more features.
-  </para>
-
- <note>
-   <title>The <command>sapconf</command> Command Has Been Removed</title>
+   Using &saptune;, you can tune a system for &netweaver;, &hana;/&bo;, and
+   &s4h; applications.
+ </para>
+ <important>
    <para>
-    In &sls; and &productname; 11 and 12, the <command>sapconf</command> command
-    was included in the package with the same name.
-  </para>
-  <para>
-    For &sls; and &productname; 15 this has been changed:
-    the command <command>sapconf</command> have been removed from the
-    <package>sapconf</package> package. The package contains a &systemd; service
-    only. There is no &sapconf; command line tool anymore, no &sapconf;/&tuned; profiles,
-    and no &tuned;.
+    This chapter describes &saptune; version 3 which does not use
+    &tuned; anymore.
    </para>
-  </note>
+ </important>
 
- <sect1 xml:id="sec-s4s-configure-page-cache">
-  <title>Kernel: Page-Cache Limit</title>
-  <remark>
-   The presentation of Problem/Solution is on one hand quite useful, on the
-   other it is very inconsistent with the rest of this chapter.
-   - sknorr, 2016-02-12
-  </remark>
-  <variablelist>
-   <varlistentry>
-    <term>Problem</term>
-    <listitem>
+  <sect1 xml:id="sec-saptune-enable">
+   <title>Enabling &saptune;</title>
+   <para>
+   To enable &saptune; to tune an &sap; application, use the following
+   procedure:
+   </para>
+   <procedure xml:id="pro-tune">
+    <step>
      <para>
-      The kernel swaps out rarely accessed memory pages to use
-      freed memory pages as cache to speed up file system operations, for
-      example during backup operations.
+      To tune a system, first find a tuning solution. To find the appropriate
+      solution, use:
      </para>
+<screen>&prompt.user;<command>saptune solution list</command></screen>
      <para>
-      &netweaver; and &hana; use large amounts of memory for accelerated access
-      to business data. Parts of this memory are rarely accessed. When a
-      user request needs to access paged-out memory, the response time
-      is poor. It is even worse when an &sap; application running on Java incurs
-      a Java garbage collection: The system starts heavy page-in (disk I/O)
-      activity and has a poor response time for an extended period of time.
-     </para>
-    </listitem>
-   </varlistentry>
-   <varlistentry>
-    <term>Solution</term>
-    <listitem>
-     <para>
-      &sles4sap; includes a kernel tuning option that allows the system
-      administrator to limit the amount of page cache that the kernel uses
-      when there is competition between application memory and page cache.
-      This option tells the kernel that when the page cache is filled to the
-      configured limit, application memory is more important and should thus
-      not be paged out. No pages will be paged out if the memory footprint
-      of the workload plus the configured page-cache limit do not exceed the
-      amount of physical RAM in the system.
-     </para>
-     <para>
-      These kernel options are available for configuration:
+      &saptune; knows the following tuning solutions (groups of &sapnote;s):
      </para>
      <itemizedlist>
       <listitem>
-       <para>
-        <literal>vm.pagecache_limit_mb</literal>
-        (<filename>/proc/sys/vm/pagecache_limit_mb</filename>)
-       </para>
+       <formalpara>
+        <title><literal>BOBJ</literal></title>
+        <para>
+         Solution for running &bo;.
+        </para>
+       </formalpara>
       </listitem>
       <listitem>
-       <para>
-        <literal>vm.pagecache_limit_ignore_dirty</literal>
-        (<filename>/proc/sys/vm/pagecache_limit_ignore_dirty</filename>)
-       </para>
+       <formalpara>
+        <title><literal>HANA</literal></title>
+        <para>
+         Solution for running an &hana; database.
+        </para>
+       </formalpara>
+      </listitem>
+      <listitem>
+       <formalpara>
+        <title><literal>MAXDB</literal></title>
+        <para>
+         Solution for running an &sap; MaxDB database.
+        </para>
+       </formalpara>
+      </listitem>
+      <listitem>
+       <formalpara>
+        <title><literal>NETWEAVER</literal></title>
+        <para>
+         Solution for running &netweaver; application servers.
+        </para>
+       </formalpara>
+      </listitem>
+      <listitem>
+       <formalpara>
+        <title><literal>S4HANA-APPSERVER</literal></title>
+        <para>
+         Solution for running &s4h; application servers.
+<!--(identical to &netweaver; solution)-->
+        </para>
+       </formalpara>
+      </listitem>
+      <listitem>
+       <formalpara>
+        <title><literal>S4HANA-APP+DB</literal></title>
+        <para>
+         Solution for running both &s4h; application servers and &hana; on the
+         same host.
+<!-- (identical to &netweaver; + &hana; solution)-->
+        </para>
+       </formalpara>
+      </listitem>
+      <listitem>
+       <formalpara>
+        <title><literal>S4HANA-DBSERVER</literal></title>
+        <para>
+         Solution for running the &hana; database of an &s4h; installation.
+<!-- (identical to &hana; solution)-->
+        </para>
+       </formalpara>
+      </listitem>
+      <listitem>
+       <formalpara>
+        <title><literal>SAP-ASE</literal></title>
+        <para>
+         Solution for running an &ase; database.
+        </para>
+       </formalpara>
+      </listitem>
+      <listitem>
+       <formalpara>
+        <title><literal>NETWEAVER+HANA</literal></title>
+        <para>
+         Solution for running both &sap; application servers and &hana; on the
+         same host.
+        </para>
+       </formalpara>
       </listitem>
      </itemizedlist>
-     <tip>
-      <title>
-       Use &sapconf;/&saptune; to Configure Parameters
-      </title>
-      <para>
-       The parameters <literal>vm.pagecache_limit_mb</literal> and
-       <literal>vm.pagecache_limit_ignore_dirty</literal> are also
-       configured by &saptune; and &sapconf;.
-      </para>
-      <para>
-       For more information, see <xref linkend="sec-sapconf-4"/>,
-       <xref linkend="sec-sapconf-5"/>, or <xref linkend="sec-saptune"/>.
-      </para>
-     </tip>
-     <important>
-      <title>The Following Are Example Values</title>
-      <para>
-       The values reproduced in <xref linkend="ex-s4s-page-cache"/> are example
-       values only. Do not set the following parameters on a productive system
-       without first trying and calibrating them on a non-productive system.
-      </para>
-      <para>
-       If your system does not exhibit page-cache limit issues under the
-       workloads it is running, there is no need to adjust these parameters.
-      </para>
-      <para>
-       For more information, see <citetitle>SAP Note 1557506: Linux Paging
-       Improvements</citetitle>
-       (<link xlink:href="&sapnoteaddress;1557506"/>).
-     </para>
-     </important>
-     <example xml:id="ex-s4s-page-cache">
-      <title>Permanently Setting the Page-Cache Limit</title>
-      <para>
-       For permanent use, add both parameters to
-       <filename>/etc/sysctl.conf</filename>, for example:
-      </para>
-<screen>vm.pagecache_limit_mb = <replaceable>1024</replaceable>
-vm.pagecache_limit_ignore_dirty = <replaceable>2</replaceable></screen>
-     </example>
-    </listitem>
-   </varlistentry>
-  </variablelist>
- </sect1>
-
- <sect1 xml:id="sec-sapconf-4">
-  <title>Tuning Systems with &sapconf;4</title>
-  <para>
-   The package <systemitem>sapconf</systemitem> contains the
-   <systemitem>tuned</systemitem> profiles <literal>sap-netweaver</literal>,
-   <literal>sap-hana</literal>, <literal>sap-ase</literal> and
-   <literal>sap-bobj</literal>.
-   These tuning profiles set recommended parameters for &netweaver;, &hana;,
-   and &hana;-based applications.
-  </para>
-  <para>
-     (The profile <literal>sap-netweaver</literal> (default) is currently identical
-     to <literal>sap-hana</literal>.
-     &sapconf; additionally includes the profiles <literal>sap-ase</literal>
-     and <literal>sap-bobj</literal> which are currently not recommended
-     for use.)
-  </para>
-  <para>
-   &sapconf; consists of two primary parts:
-  </para>
-  <itemizedlist>
-   <listitem>
-    <para>
-     A &systemd; service that ensures &tuned; and related services are
-     running and the sapconf-based profile is applied.
-    </para>
-   </listitem>
-   <listitem>
-    <para>
-     The &tuned; profile that applies configured &sapconf; tuning parameters
-     using a script and configuration files.
-    </para>
-   </listitem>
-  </itemizedlist>
-  <para>
-   To use &sapconf;, install the package <package>sapconf</package>
-   on your system.
-  </para>
-
-  <note>
-   <title>Unified Profiles in &sls; and &productname; 15</title>
-   <para>
-    In &sls; and &productname; 15 and up, only a single &tuned; profile,
-    <literal>sapconf</literal>, is shipped. It is equivalent to the profiles
-    <literal>sap-hana</literal>/<literal>sap-netweaver</literal> (both
-    profiles are identical) that are shipped with &sapconf; in
-    &productname; 15.
-   </para>
-  </note>
-  <sect2 xml:id="sec-sapconf-4-enable">
-   <title>Enabling and Disabling &sapconf; and Viewing Its Status</title>
-   <para>
-    After the installation of &sapconf;, &tuned; is enabled and the
-    <literal>sap-netweaver</literal> profile is activated. However, if
-    another &tuned; profile is already enabled, &sapconf; will not enable its
-    own &tuned; profile. If you previously made other changes to system
-    tuning, these may be overridden by the profile of &sapconf;.
-   </para>
-   <para>
-    To make sure &sapconf; applies all tuning parameters,
-    reboot the machine after installation.
-   </para>
-   <para>
-    You can inspect or change the status of &sapconf; as described in the
-    following:
-   </para>
-   <itemizedlist>
-    <listitem>
      <para>
-      To see the status of the service
-      <systemitem class="daemon">sapconf</systemitem>:
+      Alternatively, you can tune the computer according to recommendations
+      from specific &sapnote;s. A list of notes that you can tune for is
+      available via:
      </para>
-     <screen>&prompt.root;<command>systemctl status sapconf</command></screen>
-     <para>
-      The service should be displayed as <emphasis>active (exited)</emphasis>,
-      as it is only responsible for starting &tuned; and will exit afterward.
-     </para>
-    </listitem>
-    <listitem>
-     <para>
-      To start the service
-      <systemitem class="daemon">sapconf</systemitem> and with it the service
-      &tuned;:
-     </para>
-     <screen>&prompt.root;<command>systemctl start sapconf</command></screen>
-    </listitem>
-    <listitem>
-     <para>
-      Should <systemitem class="daemon">sapconf</systemitem> be disabled,
-      enable and start it with:
-     </para>
-     <screen>&prompt.root;<command>systemctl enable --now sapconf</command></screen>
-    </listitem>
-    <listitem>
-     <para>
-      To stop the service
-      <systemitem class="daemon">sapconf</systemitem> and with it the service
-      &tuned;:
-     </para>
-     <screen>&prompt.root;<command>systemctl stop sapconf</command></screen>
-     <para>
-      As &tuned; is also terminated at that point, the vast majority of
-      optimizations which do not require a system reboot to disable are
-      disabled immediately.
-     </para>
-    </listitem>
-    <listitem>
-     <para>
-      To disable <systemitem class="daemon">sapconf</systemitem>, use:
-     </para>
-     <screen>&prompt.root;<command>systemctl disable sapconf</command></screen>
-     <para>
-      If you have not specifically enabled any of the services that &sapconf;
-      depends on yourself, this will also disable most tuning parameters and
-      all services used by &sapconf;.
-     </para>
-    </listitem>
-   </itemizedlist>
-   <para>
-    Similarly, you can inspect and change the status of the underlying service
-    &tuned;:
-   </para>
-   <itemizedlist>
-    <listitem>
-     <para>
-      To see the status of the service &tuned;:
-     </para>
-     <screen>&prompt.root;<command>systemctl status tuned</command></screen>
-    </listitem>
-    <listitem>
-     <para>
-      To see which &tuned; profile is currently in use:
-     </para>
-     <screen>&prompt.root;<command>tuned-adm active</command></screen>
-     <para>
-      If this command does not return the name of the required profile, enable that
-      profile with:
-     </para>
-     <screen>&prompt.root;<command>tuned-adm profile sap-netweaver</command></screen>
-    </listitem>
-   </itemizedlist>
-   <tip>
-    <title>Additional Services that &sapconf; Relies On</title>
-    <para>
-     In addition to the &sapconf; service itself and the &tuned; service,
-     &sapconf; also relies on the following two services:
-    </para>
-    <itemizedlist>
-     <listitem>
-      <para>
-       <systemitem class="daemon">sysstat</systemitem> collects data on
-       system activity.
-      </para>
-     </listitem>
-     <listitem>
-      <para>
-       <systemitem class="daemon">uuidd</systemitem> which generates time-based
-       UUIDs that are guaranteed to be unique even in settings where many
-       processor cores are involved. This is necessary for &sap; applications.
-      </para>
-     </listitem>
-    </itemizedlist>
-   </tip>
-  </sect2>
-  <sect2 xml:id="sec-sapconf-4-configure">
-   <title>Configuring &sapconf;4</title>
-   <para>
-    In general, the default configuration of &sapconf; already uses the
-    parameter values recommended by &sap;. However, if you have special
-    needs, you can configure the tool to better suit those.
-   </para>
-   <para>
-    The configuration of &sapconf; is split in two parts that can be configured
-    in different ways:
-   </para>
-   <variablelist>
-    <varlistentry>
-     <term><filename>/usr/lib/tuned/<replaceable>PROFILE</replaceable>/tuned.conf</filename></term>
-     <listitem>
-      <para>
-       Any file that adheres to this pattern can be edited like in
-       <xref linkend="pro-sapconf-4-configure"/>.
-       To configure parameters from this file, copy it to the custom profile
-       directory of &tuned; under <filename>/etc/tuned</filename> first and
-       then change values in it. If you change the file in place instead, you
-       will lose the changes you make on the next update of the
-       <package>sapconf</package> package.
-      </para>
-      <para>
-       The following procedure shows an example how to adapt the file
-       <filename>/usr/lib/tuned/sap-netweaver/tuned.conf</filename>.
-       However, as written before, this is possible with any profile.
-       Configure the file as described in the following procedure:
-      </para>
-      <procedure xml:id="pro-sapconf-4-configure">
-       <title>Configuring &sapconf;4 Profiles</title>
-       <step>
-        <para>
-         Create a new custom &tuned; profile directory and copy the file
-         <filename>tuned.conf</filename>:
-        </para>
-<screen>&prompt.root;mkdir /etc/tuned/sap-netweaver
-&prompt.root;cp /usr/lib/tuned/sap-netweaver/tuned.conf /etc/tuned/sap-netweaver/</screen>
-       </step>
-       <step>
-        <para>
-         Within the newly copied <filename>tuned.conf</filename>, fix the
-         reference to <filename>script.sh</filename> to use an absolute path
-         that points to the script from the original profile:
-        </para>
-        <screen>script = /usr/lib/tuned/sap-netweaver/script.sh</screen>
-        <para>
-         Do not instead copy <filename>script.sh</filename>, as that
-         provokes update compatibility issues for &sapconf;.
-        </para>
-       </step>
-       <step>
-        <para>
-         Edit the parameters in
-         <filename>/etc/tuned/sap-netweaver/tuned.conf</filename>.
-        </para>
-       </step>
-      </procedure>
-      <para>
-       After each update to &sapconf;, make sure to compare the contents of
-       the original and the custom <filename>tuned.conf</filename>.
-      </para>
-      <para>
-       Log messages related to this file are written to
-       <filename>/var/log/tuned/tuned.log</filename>.
-      </para>
-     </listitem>
-    </varlistentry>
-    <varlistentry>
-     <term><filename>/etc/sysconfig/sapconf</filename></term>
-     <listitem>
-      <para>
-       This file contains most parameters of &sapconf;. The parameters from
-       this file are applied using the aforementioned script
-       <filename>/usr/lib/tuned/<replaceable>PROFILE</replaceable>/script.sh</filename>.
-      </para>
-      <para>
-       This file can be edited directly. All parameters in this file are
-       explained by means of comments and references to &sap; Notes which can
-       be viewed at <link xlink:href="https://launchpad.support.sap.com/"/>.
-      </para>
-      <para>
-       When &sapconf; is updated, all customized parameters from this file will
-       be preserved as much as possible. However, sometimes parameters cannot
-       be transferred cleanly to the new configuration file. Therefore, after
-       updating it is advisable to check the difference between the previous
-       custom configuration which during the update is moved to
-       <filename>/etc/sysconfig/sapconf.rpmsave</filename>
-       and the new version at <filename>/etc/sysconfig/sapconf</filename>.
-      </para>
-      <para>
-       Log messages related to this file are written to
-       <filename>/var/log/sapconf.log</filename>.
-      </para>
-     </listitem>
-    </varlistentry>
-   </variablelist>
-   <para>
-    When editing either of these files, you will find that some values are
-    commented by means of a <literal>#</literal> character at the beginning of
-    the line. This means that while the parameter is relevant for tuning, there
-    is no suitable default for it.
-   </para>
-   <para>
-    Conversely, you can add <literal>#</literal> characters to the beginning of
-    the line to comment specific parameters. However, you should avoid this
-    practice, as it can lead to &sapconf; not properly applying the profile.
-   </para>
-   <para>
-    To apply edited configuration, restart &sapconf;:
-   </para>
-   <screen>&prompt.root;<command>systemctl restart sapconf</command></screen>
-   <para>
-    Confirming that a certain parameter value was applied correctly works
-    differently for different parameters. Hence, the following serves as an
-    example only:
-   </para>
-   <example xml:id="ex-sapconf-4-change-parameter">
-    <title>Checking Parameters</title>
-    <para>
-     To confirm that the setting for <literal>TCP_SLOW_START</literal> was
-     applied, do the following:
-    </para>
-    <itemizedlist>
-     <listitem>
-      <para>
-       View the log file of &sapconf; to see whether it applied the value.
-       Within <filename>/var/log/sapconf.log</filename>, check for a line
-       containing this text:
-      </para>
-      <screen>Change net.ipv4.tcp_slow_start_after_idle from 1 to 0</screen>
-      <para>
-       Alternatively, the parameter may have already been set correctly
-       before &sapconf; was started. In this case, &sapconf; will not change
-       its value:
-      </para>
-      <screen>Leaving net.ipv4.tcp_slow_start_after_idle unchanged at 1</screen>
-     </listitem>
-     <listitem>
-      <para>
-       The underlying option behind <literal>TCP_SLOW_START</literal> can be
-       manually configured at
-       <filename>/proc/sys/net.ipv4.tcp_slow_start_after_idle</filename>.
-       To check its actual current value, use:
-      </para>
-      <screen>&prompt.root;<command>sysctl net.ipv4.tcp_slow_start_after_idle</command></screen>
-     </listitem>
-    </itemizedlist>
-   </example>
-  </sect2>
-  <sect2 xml:id="sec-sapconf-4-remove">
-   <title>Removing &sapconf;</title>
-   <para>
-    To remove &sapconf; from a system, uninstall its package with:
-   </para>
-   <screen>&prompt.root;<command>zypper rm sapconf</command></screen>
-   <para>
-    Note that when doing this, dependencies of &sapconf; will remain installed.
-    However, the services <systemitem class="daemon">sysstat</systemitem> and
-    <systemitem class="daemon">tuned</systemitem> will
-    go into a disabled state. If either is still relevant to you, make sure to
-    enable it again.
-   </para>
-   <para>
-    Certain parameters and files are not removed when &sapconf; is uninstalled.
-    For more information, see the man page <command>man 7
-    sapconf</command>, section <citetitle>PACKAGE REQUIREMENTS</citetitle>.
-   </para>
-  </sect2>
-  <sect2 xml:id="sec-sapconf-4-more">
-   <title>For More Information</title>
-   <para>
-    The following man pages provide additional information about &sapconf;:
-   </para>
-   <itemizedlist>
-    <listitem>
-     <para>
-      An overview of tuning parameters for the profiles:
-      <command>man 7 profile-sapconf-hana</command>
-      <command>man 7 profile-sapconf-netweaver</command>
-      <command>man 7 profile-sapconf-ase</command>
-      <command>man 7 profile-sapconf-bobj</command>
-     </para>
-    </listitem>   
-    <listitem>
-     <para>
-      Detailed description of all tuning parameters set by &sapconf;:
-      <command>man 5 sapconf</command>
-     </para>
-    </listitem>
-    <listitem>
-     <para>
-      Information about configuring and customizing the &sapconf; profile:
-      <command>man 7 sapconf</command>
-     </para>
-    </listitem>
-   </itemizedlist>
-   <para>
-    Also see the blog series detailing the updated version of &sapconf; at
-    <link xlink:href="https://www.suse.com/c/a-new-sapconf-is-available/"/>.
-   </para>
-  </sect2>
- </sect1>
-
- <sect1 xml:id="sec-sapconf-5">
-  <title>Tuning Systems with &sapconf; 5</title>
-  <para>
-   The package <systemitem>sapconf</systemitem> is available in &sls; and &s4s;.
-   It sets recommended parameters for the following types of &sap; applications:
-   &netweaver;, &hana; and &hana;-based applications.
-  </para>
-
-  <variablelist>
-   <title>Overview of &sapconf;5 in &slsreg;&nbsp;12</title>
-   <varlistentry>
-    <term>&sapconf;5 (without &tuned;)</term>
-    <listitem>
+<screen>&prompt.root;<command>saptune note list</command></screen>
+    </step>
+    <step>
      <itemizedlist>
       <listitem>
-       <para><systemitem>sapconf-netweaver</systemitem> (&sapconf; profile as a replacement for &tuned; profile)</para>
+       <para>
+        To set up &saptune; with a preconfigured solution, use:
+       </para>
+<screen>&prompt.root;<command>saptune solution apply <replaceable>SOLUTION</replaceable></command></screen>
       </listitem>
       <listitem>
-       <para><systemitem>sapconf-hana</systemitem> (&sapconf; profile as a replacement for &tuned; profile)</para>
-      </listitem>
-      <listitem>
-       <para><systemitem>sapconf-bobj</systemitem> (&sapconf; profile as a replacement for &tuned; profile)</para>
-      </listitem>
-      <listitem>
-       <para><systemitem>sapconf-ase</systemitem> (&sapconf; profile as a replacement for &tuned; profile)</para>
+       <para>
+        To set up &saptune; for the recommendations of a specific &sapnote;,
+        use:
+       </para>
+<screen>&prompt.root;<command>saptune note apply <replaceable>NOTE</replaceable></command></screen>
       </listitem>
      </itemizedlist>
-    </listitem>
-   </varlistentry>
-  </variablelist>
+     <note>
+      <title>Combining optimizations</title>
+      <para>
+       You can combine solutions and notes. However, only one solution can be
+       active at a time. In rare cases, notes can have conflicting options or
+       parameters. To avoid conflicts, order your notes, keeping in mind that
+       the last note always overrides conflicting options or parameters of
+       previous notes.
+      </para>
+     </note>
+    </step>
+    <step>
+     <para>
+      To start &saptune; and enable it at boot, make sure to run the following
+      command:
+     </para>
+<screen>&prompt.root;<command>saptune service enablestart</command></screen>
+     <para>
+      To make sure that &sapconf; and &tuned; gets stopped and disabled too,
+      run instead:
+     </para>
+     <screen>&prompt.root;<command>saptune service takeover</command></screen>
+    </step>
+   </procedure>
+  </sect1>
 
-  <variablelist>
-   <title>Overview of &sapconf;5 in &slsreg;&nbsp;15</title>
-   <varlistentry>
-    <term>&sapconf;5 (without &tuned;)</term>
-    <listitem>
-     <para>no profiles anymore</para>
-    </listitem>
-   </varlistentry>
-  </variablelist>
-
+ <sect1 xml:id="sec-saptune-disable">
+  <title>Disabling &saptune;</title>
   <para>
-   The package <systemitem>sapconf</systemitem> contains the
-    &sapconf; profiles <literal>netweaver</literal>,
-   <literal>hana</literal>, <literal>ase</literal> and
-   <literal>bobj</literal>.
-   These profiles set recommended parameters for &netweaver;, &hana;,
-   and &hana;-based applications.
+   To disable and stop &saptune;, run:
   </para>
-  <para>
-     (The profile <literal>netweaver</literal> (default) is currently identical
-     to <literal>hana</literal>.
-     &sapconf; additionally includes the profiles <literal>ase</literal>
-     and <literal>bobj</literal> which are currently not recommended
-     for use.)
-  </para>
-  <para>
-   To use &sapconf;, install the package <package>sapconf</package>
-   on your system.
-  </para>
-
-  <note>
-   <title>No Profiles in &sls; and &productname; 15</title>
-   <para>
-    In &sls; and &productname; 15, &sapconf; no longer supports profiles.
-   </para>
-  </note>
-
-  <sect2 xml:id="sec-sapconf-5-verify">
-   <title>Verifying &sapconf; setup</title>
-   <para>
-    With &sapconf; 5.0.2 onwards the check tool <command>sapconf_check</command> is available,
-    which verifies the correct setup of &sapconf;. For example:
-   </para>
-   <screen>&prompt.root;<command>sapconf_check</command>
-This is sapconf_check v1.0.
-It verifies if sapconf is set up correctly and will give advice to do so.
-Please keep in mind:
-- This tool does not check, if the tuning itself works correctly.
-- Follow the hints from top to down to minimize side effects.
-Checking sapconf
-================
-[ OK ] sapconf package has version 5.0.2
-[ OK ] saptune.service is inactive
-[ OK ] saptune.service is disabled
-[WARN] tuned.service is enabled/active with profile 'virtual-guest -> Sapconf does not require tuned! Run 'systemctl stop tuned.service', if not needed otherwise.
-[FAIL] sapconf.service is inactive -> Run 'systemctl start sapconf.service' to activate the tuning now.
-[FAIL] sapconf.service is disabled -> Run 'systemctl enable sapconf.service' to activate sapconf at boot.1 warning(s) have been found.
-2 error(s) have been found.
-Sapconf will not work properly!</screen>
-   <para>
-    If <command>sapconf_check</command> finds problems, it will give hints how to resolve the issue.
-    The tool will not verify if the system has been tuned correctly. It only checks that &sapconf;
-    is setup correctly and has been started.
-   </para>
-  </sect2>
-  <sect2 xml:id="sec-sapconf-5-enable">
-   <title>Enabling and Disabling &sapconf; and Viewing It's Status</title>
-   <para>
-    After the installation of &sapconf;, the
-    <literal>netweaver</literal> profile is activated.
-   </para>	   
-   <para>
-    To make sure &sapconf; applies all tuning parameters,
-    reboot the machine after installation.
-   </para>
-   <para>
-    You can inspect or change the status of &sapconf; as described in the
-    following:
-   </para>
-   <itemizedlist>
-    <listitem>
-     <para>
-      To see the status of the service
-      <systemitem class="daemon">sapconf</systemitem>:
-     </para>
-     <screen>&prompt.root;<command>systemctl status sapconf</command></screen>
-     <para>
-      The service should be displayed as <emphasis>active (exited)</emphasis>.
-     </para>
-    </listitem>
-    <listitem>
-     <para>
-      To start the service
-      <systemitem class="daemon">sapconf</systemitem>:
-     </para>
-     <screen>&prompt.root;<command>systemctl start sapconf</command></screen>
-    </listitem>
-    <listitem>
-     <para>
-      Should <systemitem class="daemon">sapconf</systemitem> be disabled,
-      enable and start it with:
-     </para>
-     <screen>&prompt.root;<command>systemctl enable --now sapconf</command></screen>
-    </listitem>
-    <listitem>
-     <para>
-      To stop the service
-      <systemitem class="daemon">sapconf</systemitem>:
-     </para>
-     <screen>&prompt.root;<command>systemctl stop sapconf</command></screen>
-     <para>
-      The vast majority of optimizations which do not require a system reboot to disable
-      are disabled immediately.
-     </para>
-    </listitem>
-    <listitem>
-     <para>
-      To disable <systemitem class="daemon">sapconf</systemitem>, use:
-     </para>
-     <screen>&prompt.root;<command>systemctl disable sapconf</command></screen>
-     <para>
-      If you yourself have not specifically enabled any of the services that &sapconf;
-      depends on, this will also disable most tuning parameters and
-      all services used by &sapconf;.
-     </para>
-    </listitem>
-    <listitem> 
-     <para>
-      To see which profile is currently in use:
-     </para>
-     <itemizedlist>
-      <listitem>
-       <para>For &sapconf; 5.0.0:</para>
-       <screen>&prompt.root;<command>cat /var/lib/sapconf/act_profile</command></screen>
-      </listitem>
-      <listitem>
-       <para>From &sapconf; 5.0.1 and higher:</para>
-       <screen>&prompt.root;<command>cat /run/sapconf_act_profile</command></screen>
-      </listitem>
-     </itemizedlist>
-    </listitem>
-    <listitem> 
-     <para>
-      To change the profile use:
-     </para>
-     <screen>&prompt.root;<command>sapconf stop &amp;&amp; sapconf PROFILE</command></screen>
-    </listitem>
-   </itemizedlist>
-   <tip>
-    <title>Additional Services that &sapconf; Relies On</title>
-    <para>
-     In addition to the &sapconf; service the following two services are also relied on:
-    </para>
-    <itemizedlist>
-     <listitem>
-      <para>
-       <systemitem class="daemon">sysstat</systemitem> collects data on
-       system activity.
-      </para>
-     </listitem>
-     <listitem>
-      <para>
-       <systemitem class="daemon">uuidd</systemitem> which generates time-based
-       UUIDs that are guaranteed to be unique even in settings where many
-       processor cores are involved. This is necessary for &sap; applications.
-      </para>
-     </listitem>
-    </itemizedlist>
-   </tip>
-  </sect2>
-  <sect2 xml:id="sec-sapconf-5-configure">
-   <title>Configuring &sapconf;5</title>
-   <para>
-    In general, the default configuration of &sapconf; already uses the
-    parameter values recommended by &sap;. However, if you have special
-    needs, you can configure the tool to better suit those.
-   </para>
-   <variablelist>
-    <varlistentry>
-     <term><filename>/etc/sysconfig/sapconf</filename></term>
-     <listitem>
-      <para>
-       This file contains all parameters of &sapconf;and can be edited directly.
-       All parameters in this file are explained by means of comments and references
-       to &sap; Notes which can be viewed at
-       <link xlink:href="https://launchpad.support.sap.com/"/>.
-      </para>
-      <para>
-       When &sapconf; is updated, all customized parameters from this file will
-       be preserved as much as possible. However, sometimes parameters cannot
-       be transferred cleanly to the new configuration file. The previous
-       custom configuration is moved to
-       <filename>/etc/sysconfig/sapconf.rpmsave</filename> during the update.
-       After updating check the difference between the previous
-       custom configuration and the new version at
-       <filename>/etc/sysconfig/sapconf</filename>.
-      </para>
-      <para>
-       Log messages related to this file are written to
-       <filename>/var/log/sapconf.log</filename>.
-      </para>
-     </listitem>
-    </varlistentry>
-   </variablelist>
-   <para>
-    When editing either of these files, you will find that some values are
-    commented with a <literal>#</literal> character at the beginning of
-    the line. This means that while the parameter is relevant for tuning, there
-    is no suitable default for it.
-   </para>
-   <para>
-    Conversely, you can add <literal>#</literal> characters to the beginning of
-    the line to comment specific parameters. However, you should avoid this
-    practice, as it can lead to &sapconf; not properly applying the profile.
-   </para>
-   <para>
-    To apply edited configuration, restart &sapconf;:
-   </para>
-   <screen>&prompt.root;<command>systemctl restart sapconf</command></screen>
-   <para>
-    Confirming that a certain parameter value was applied correctly works
-    differently for different parameters. Hence, the following serves as an
-    example only:
-   </para>
-   <example xml:id="ex-sapconf-5-change-parameter">
-    <title>Checking Parameters</title>
-    <para>
-     To confirm that the setting for <literal>TCP_SLOW_START</literal> was
-     applied, do the following:
-    </para>
-    <itemizedlist>
-     <listitem>
-      <para>
-       View the log file of &sapconf; to see whether it applied the value.
-       Within <filename>/var/log/sapconf.log</filename>, check for a line
-       containing this text:
-      </para>
-      <screen>Change net.ipv4.tcp_slow_start_after_idle from 1 to 0</screen>
-      <para>
-       Alternatively, the parameter may have already been set correctly
-       before &sapconf; was started. In this case, &sapconf; will not change
-       its value:
-      </para>
-      <screen>Leaving net.ipv4.tcp_slow_start_after_idle unchanged at 1</screen>
-     </listitem>
-     <listitem>
-      <para>
-       The underlying option behind <literal>TCP_SLOW_START</literal> can be
-       manually configured at
-       <filename>/proc/sys/net.ipv4.tcp_slow_start_after_idle</filename>.
-       To check its actual current value, use:
-      </para>
-      <screen>&prompt.root;<command>sysctl net.ipv4.tcp_slow_start_after_idle</command></screen>
-     </listitem>
-    </itemizedlist>
-   </example>
-  </sect2>
-  <sect2 xml:id="sec-sapconf-5-remove">
-   <title>Removing &sapconf;</title>
-   <para>
-    To remove &sapconf; from a system, uninstall its package with:
-   </para>
-   <screen>&prompt.root;<command>zypper rm sapconf</command></screen>
-   <para>
-    Note that when doing this, dependencies of &sapconf; will remain installed.
-    However, the <systemitem class="daemon">sysstat</systemitem> service will
-    go into a disabled state. If it is still relevant to you, make sure to
-    enable it again.
-   </para>
-   <para>
-    Certain parameters and files are not removed when &sapconf; is uninstalled.
-    For more information, see the man page <command>man 7
-    sapconf</command>, section <citetitle>PACKAGE REQUIREMENTS</citetitle>.
-   </para>
-  </sect2>
-  <sect2 xml:id="sec-sapconf-5-more">
-   <title>For More Information</title>
-   <para>
-    The following man pages provide additional information about &sapconf;:
-   </para>
-   <itemizedlist>
-    <listitem>
-     <para>
-      An overview of tuning parameters for the profiles:
-      <command>man 7 profile-sapconf-hana</command>
-      <command>man 7 profile-sapconf-netweaver</command>
-      <command>man 7 profile-sapconf-ase</command>
-      <command>man 7 profile-sapconf-bobj</command>
-     </para>
-    </listitem>
-    <listitem>
-     <para>
-      Detailed description of all tuning parameters set by &sapconf;:
-      <command>man 5 sapconf</command>
-     </para>
-    </listitem>
-    <listitem>
-     <para>
-      Information about configuring and customizing the &sapconf; profile:
-      <command>man 7 sapconf</command>
-     </para>
-    </listitem>
-   </itemizedlist>
-   <para>
-    Also see the blog series detailing the updated version of &sapconf; at
-    <link xlink:href="https://www.suse.com/c/a-new-sapconf-is-available/"/>.
-   </para>
-  </sect2>
-  
-  <!--HINTS REGARDING TUNED-->
-  <sect2 xml:id="sec-sapconf-5-tuned">
-   <title>Using <command>tuned</command> Together with  &sapconf;</title>
-   <para>
-    With version 5 sapconf does not rely on tuned anymore. This means both tools
-    can be used independently.
-    &sapconf; will print a warning in it's log if <command>tuned</command> service
-    is started.
-   </para>
-   <important>
-    <title>Using <command>tuned</command> and &sapconf; together</title>
-    <para>
-     If you are going to use <command>tuned</command> and &sapconf; simultaneously,
-     be very careful, that both tools do not configure the same system parameters.
-    </para>
-   </important>
-  </sect2>
+  <screen>&prompt.root;<command>saptune service disablestop</command></screen>
  </sect1>
 
- <sect1 xml:id="sec-saptune">
-  <title>Tuning Systems with &saptune;</title>
-  <para>
-   Using &saptune;, you can
-   tune a system for &netweaver;, &hana;/&bo;, and &s4h; applications. This method
-   relies on the system tuning service &tuned;.
-  </para>
-  <para>
-   If you used the &sapwiz; to install an &sap; application,
-   &tuned; is usually already active and configured with
-   a profile for the application you installed.
-  </para>
-  <para>
-   If you did not use the &sapwiz; to install an &sap; application, make sure
-   that the packages <package>tuned</package> and
-   <package>saptune</package> are installed on your system.
-  </para>
-
-  <sect2 xml:id="sec-s4s-saptune-enable">
-  <title>Enabling &saptune; to Tune for an &sap; Application</title>
-  <procedure xml:id="pro-s4s-tune">
-   <step>
-    <para>
-     To tune a system, first find a tuning solutions.
-     To find the appropriate solution, use:
-    </para>
-    <screen>&prompt.user;<command>saptune solution list</command></screen>
-    <para>
-     &saptune; knows the following tuning solutions (groups of &sap; notes):
-    </para>
-    <itemizedlist>
-     <listitem>
-      <formalpara>
-       <title><literal>BOBJ</literal></title>
-       <para>
-        Solution for running &bo;.
-       </para>
-      </formalpara>
-     </listitem>
-     <listitem>
-      <formalpara>
-       <title><literal>HANA</literal></title>
-       <para>
-        Solution for running a &hana; database.
-       </para>
-      </formalpara>
-     </listitem>
-     <listitem>
-      <formalpara>
-       <title><literal>MAXDB</literal></title>
-       <para>
-        Solution for running a &sap; MaxDB database.
-       </para>
-      </formalpara>
-     </listitem>
-     <listitem>
-      <formalpara>
-       <title><literal>NETWEAVER</literal></title>
-       <para>
-        Solution for running &netweaver; application servers.
-       </para>
-      </formalpara>
-     </listitem>
-     <listitem>
-      <formalpara>
-       <title><literal>S4HANA-APPSERVER</literal></title>
-       <para> Solution for running &s4h; application servers<!--
-         (identical to &netweaver; solution)-->. </para>
-      </formalpara>
-     </listitem>
-     <listitem>
-      <formalpara>
-       <title><literal>S4HANA-APP+DB</literal></title>
-       <para>Solution for running both &s4h; application servers and &hana;
-        on the same host<!-- (identical to &netweaver; + &hana; solution)-->. </para>
-      </formalpara>
-     </listitem>
-     <listitem>
-      <formalpara>
-       <title><literal>S4HANA-DBSERVER</literal></title>
-       <para>
-        Solution for running the &hana; database of an &s4h;
-        installation<!-- (identical to &hana; solution)-->.
-       </para>
-      </formalpara>
-     </listitem>
-     <listitem>
-      <formalpara>
-       <title><literal>SAP-ASE</literal></title>
-       <para>
-        Solution for running an &ase; database.
-       </para>
-      </formalpara>
-     </listitem>
-     <listitem>
-      <formalpara>
-       <title><literal>NETWEAVER+HANA</literal></title>
-       <para>
-        Solution for running both &sap; application servers and &hana;
-        on the same host.
-       </para>
-      </formalpara>
-     </listitem>
-    </itemizedlist>
-    <para>
-     Alternatively, you can tune the computer according to recommendations
-     from specific &sap; Notes. A list of notes that you can tune for is
-     available via:
-    </para>
-    <screen>&prompt.root;<command>saptune note list</command></screen>
-   </step>
-   <step>
-    <itemizedlist>
-     <listitem>
-      <para>
-       To set up &saptune; with a preconfigured solution, use:
-      </para>
-      <screen>&prompt.root;<command>saptune solution apply <replaceable>SOLUTION</replaceable></command></screen>
-     </listitem>
-     <listitem>
-      <para>
-       To set up &saptune; for the recommendations of a specific
-       &sap; Note, use:
-      </para>
-      <screen>&prompt.root;<command>saptune note apply <replaceable>NOTE</replaceable></command></screen>
-     </listitem>
-    </itemizedlist>
-    <note>
-     <title>Combining Optimizations</title>
-     <para>
-      You can combine solutions and notes. However, only one solution can be
-      active at a time.
-      In rare cases, notes can have conflicting options or parameters.
-      To avoid conflicts, order your notes, keeping in mind that the
-      last note always overrides conflicting options or parameters
-      of previous notes.
-     </para>
-    </note>
-   </step>
-   <step>
-    <para>
-     To start &saptune; and enable it at boot, make sure to run
-     the following command:
-    </para>
-    <screen>&prompt.root;<command>saptune daemon start</command></screen>
-   </step>
-  </procedure>
-  <para>
-   In the background, &saptune; applies a
-   &tuned; profile also named
-   &saptune; that is dynamically customized according to
-   selected <quote>solutions</quote> and <quote>notes</quote>.
-   Using <command>tuned-adm list</command>, you can also see this profile.
-  </para>
-  </sect2>
-
-  <sect2 xml:id="sec-s4s-saptune-customize">
-   <title>Customizing a &sap; Note</title>
+ <sect1 xml:id="sec-saptune-update">
+  <title>Updating &saptune;</title>
+  <para>To update saptune to a new version, just update the package.</para>
+  <important>
    <para>
-    Every &sap; note can be configured freely with:
+    The &saptune; tool does not rely on &tuned; anymore.
+    Configuring &tuned; to set up &saptune;&nbsp;3 will not work.
+    To start and enable &saptune;&nbsp;3 use one of the following methods:
+   </para>
+   <itemizedlist>
+    <listitem>
+     <screen>saptune service enablestart</screen>
+     <para>
+      Enables and starts the <systemitem>saptune.service</systemitem>.
+     </para>
+    </listitem>
+    <listitem>
+     <screen>saptune service takeover</screen>
+     <para>
+      Enables and starts the <systemitem>saptune.service</systemitem> and also
+      disables &sapconf; as well as &tuned;.
+     </para>
+    </listitem>
+    <listitem>
+     <screen>saptune daemon start</screen>
+     <para>Deprecated. Gets redirected to &saptune; service takeover.</para>
+    </listitem>
+   </itemizedlist>
+  </important>
+ </sect1>
+
+
+ <sect1 xml:id="sec-saptune-sapnotes">
+  <title>Managing &sapnote;s</title>
+  <para>
+   In the following sections you will learn how to create, delete, and rename
+   &sapnote;s and much more.
+  </para>
+
+  <sect2 xml:id="sec-saptune-customize">
+   <title>Customizing an &sapnote;</title>
+   <para>
+    Every &sapnote; can be configured freely with:
     <remark>"customise" is (sadly) correct. - sknorr, 2019-07-19</remark>
+    <remark>toms 2021-10-15: according from Sören, it's the english spelling.
+    Inofficially, "customize" is also accepted. :)</remark>
    </para>
-   <screen>&prompt.root;<command>saptune note customise</command></screen>
+<screen>&prompt.root;<command>saptune note customise <replaceable>NOTE</replaceable></command></screen>
    <para>
     The command includes changing a value or disabling a parameter.
    </para>
   </sect2>
 
-  <sect2 xml:id="sec-s4s-saptune-create">
-   <title>Creating a new &sap; Note</title>
+  <sect2 xml:id="sec-saptune-create">
+   <title>Creating a new &sapnote;</title>
    <para>
-     It is possible to create a new &sap; note with:
+    It is possible to create a new &sapnote; with:
    </para>
-   <screen>&prompt.root;<command>saptune note create</command></screen>
-   <para>All features of &saptune; are available.</para>
+<screen>&prompt.root;<command>saptune note create <replaceable>NOTE</replaceable></command></screen>
+   <para>
+    All features of &saptune; are available.
+   </para>
   </sect2>
 
-  <sect2 xml:id="sec-s4s-saptune-delete">
-   <title>Deleting a &sap; Note</title>
+  <sect2 xml:id="sec-saptune-delete">
+   <title>Deleting an &sapnote;</title>
    <para>
-    This command allows to delete a created note, including the corresponding override
-    file if available:
+    This command allows deleting a created note, including the corresponding
+    override file if available:
    </para>
-   <screen>&prompt.root;<command>saptune note delete test</command>
+<screen>&prompt.root;<command>saptune note delete test</command>
 Note to delete is a customer/vendor specific Note.
 Do you really want to delete this Note (test2)? [y/n]: y</screen>
    <para>
@@ -1058,8 +257,8 @@ Do you really want to delete this Note (test2)? [y/n]: y</screen>
     </listitem>
     <listitem>
      <para>
-      Internal &sap; notes shipped by &saptune; cannot be deleted.
-      Instead, the override file is removed when available.
+      Internal &sapnote;s shipped by &saptune; cannot be deleted. Instead, the
+      override file is removed when available.
      </para>
     </listitem>
     <listitem>
@@ -1071,18 +270,17 @@ Do you really want to delete this Note (test2)? [y/n]: y</screen>
    </itemizedlist>
   </sect2>
 
-  <sect2 xml:id="sec-s4s-saptune-rename">
-   <title>Renaming a &sap; Note</title>
+  <sect2 xml:id="sec-saptune-rename">
+   <title>Renaming an &sapnote;</title>
    <para>
-    This command allows to rename a created note to a new name.
-    If a corresponding override file is available, this file will be renamed too:
+    This command allows renaming a created note to a new name. If a
+    corresponding override file is available, this file will be renamed too:
    </para>
-   <screen>&prompt.root;<command>saptune note rename test test2</command>
+<screen>&prompt.root;<command>saptune note rename test test2</command>
 Note to rename is a customer/vendor specific Note.
 Do you really want to rename this Note (test) to the new name 'test2'? [y/n]: y</screen>
    <para>
-    The note may not be applied at the time.
-    Keep in mind the following points:
+    The note may not be applied at the time. Keep in mind the following points:
    </para>
    <itemizedlist>
     <listitem>
@@ -1092,7 +290,7 @@ Do you really want to rename this Note (test) to the new name 'test2'? [y/n]: y<
     </listitem>
     <listitem>
      <para>
-      Internal &sap; notes shipped by &saptune; cannot be renamed.
+      Internal &sapnote;s shipped by &saptune; cannot be renamed.
      </para>
     </listitem>
     <listitem>
@@ -1104,21 +302,22 @@ Do you really want to rename this Note (test) to the new name 'test2'? [y/n]: y<
    </itemizedlist>
   </sect2>
 
-  <sect2 xml:id="sec-s4s-saptune-show">
-   <title>Showing the Configuration of a &sap; Note</title>
+
+  <sect2 xml:id="sec-saptune-show">
+   <title>Showing the configuration of an &sapnote;</title>
    <para>
     The shipped configuration of a note can be listed with:
    </para>
-   <screen>&prompt.root;<command>saptune note show</command></screen>
+<screen>&prompt.root;<command>saptune note show <replaceable>NOTE</replaceable></command></screen>
   </sect2>
 
-  <sect2 xml:id="sec-s4s-saptune-verify">
-   <title>Verifying a &sap; Note or a &sap; Solution</title>
+  <sect2 xml:id="sec-saptune-verify">
+   <title>Verifying an &sapnote; or an &sapsol;</title>
    <para>
-    The commands <command>saptune note verify <replaceable>NOTE</replaceable></command>
-    and
-    <command>saptune solution verify <replaceable>SOLUTION</replaceable></command>
-    list the following data for each active or requested note:
+    The commands <command>saptune note verify
+    <replaceable>NOTE</replaceable></command> and <command>saptune solution
+    verify <replaceable>SOLUTION</replaceable></command> list the following
+    data for each active or requested note:
    </para>
    <itemizedlist>
     <listitem>
@@ -1133,7 +332,8 @@ Do you really want to rename this Note (test) to the new name 'test2'? [y/n]: y<
     </listitem>
     <listitem>
      <para>
-      A configured override (created using <command>saptune customise</command>)
+      A configured override (created using <command>saptune
+      customise</command>)
      </para>
     </listitem>
     <listitem>
@@ -1149,57 +349,260 @@ Do you really want to rename this Note (test) to the new name 'test2'? [y/n]: y<
    </itemizedlist>
   </sect2>
 
-  <sect2 xml:id="sec-s4s-saptune-simulate">
-   <title>Simulating the Application of a &sap; Note or a &sap; Solution</title>
+  <sect2 xml:id="sec-saptune-simulate">
+   <title>Simulating the application of an &sapnote; or an &sapsol;</title>
    <para>
     To show each parameter of a <literal>note</literal>, use:
    </para>
-   <screen>&prompt.root;<command>saptune note simulate</command></screen>
+<screen>&prompt.root;<command>saptune note simulate</command></screen>
    <para>
     To show each parameter of a <literal>solution</literal>, use:
    </para>
-   <screen>&prompt.root;<command>saptune solution simulate</command></screen>
+<screen>&prompt.root;<command>saptune solution simulate</command></screen>
    <para>
     It lists the current system value and the expected values (default and
     override).
    </para>
   </sect2>
 
-  <sect2 xml:id="sec-s4s-saptune-disable">
-   <title>Disabling &saptune;</title>
-   <para>
-    To disable &saptune; and to stop and disable &tuned; run:
-   </para>
-   <screen>&prompt.root;<command>saptune daemon stop</command></screen>
-  </sect2>
-  <sect2 xml:id="sec-s4s-saptune-manual">
-   <title>Tuning Kernel Parameters Manually Using <command>sysctl</command></title>
-   <para>
-    In addition to or instead of tuning kernel parameters using
-    &saptune;, you can also use <command>sysctl</command> to
-    make manual adjustments to kernel parameters. However, such changes using
-    <command>sysctl</command> do not persist across reboots by default. To
-    make them persist across reboots, add them to the file
-    <filename>/etc/sysctl.conf</filename> (or another configuration file read
-    by <command>sysctl</command>).
-   </para>
-   <tip>
-    <para>If you plan to configure sysctl parameters for your SAP system,
-     consider to use <command>saptune</command> as a central instance for
-     managing your system configuration.</para>
-   </tip>
-   <para>
-    <!-- FIXME: -> SLES docs: we don't seem to have any good section to
-    reference here. Thisll do for the moment. - sknorr, 2017-05-04 -->
-    For more information about <command>sysctl</command>, see the man pages
-    <literal>sysctl(8)</literal>, <literal>sysctl.conf(5)</literal>, and
-    <literal>sysctl.d(5)</literal>.
-   </para>
+  <sect2 xml:id="sec-saptune-revert">
+   <title>Reverting a &sapnote;</title>
+   <para>To revert a &sapnote;, run:</para>
+    <screen>&prompt.root;<command>saptune note revert <replaceable>NOTE</replaceable></command></screen>
+   <para>All parameters of this &sapnote; will be restored to their values at the time of apply.</para>
+   <para>To revert anything, run:</para>
+   <screen>&prompt.root;<command>saptune note revert all</command></screen>
   </sect2>
 
+ <sect2 xml:id="sec-saptune-edit">
+  <title>Editing a &sapnote;</title>
+  <para>Each custom &sapnote; can be edited by:</para>
+  <screen>&prompt.root;<command>saptune note edit <replaceable>NOTE</replaceable></command></screen>
+ </sect2>
 
-  <sect2 xml:id="sec-saptune-more">
-   <title>For More Information</title>
+  <sect2 xml:id="sec-saptune-list">
+   <title>Listing all enabled or applied &sapnote;s</title>
+   <para>
+    To list all enabled &sapnote;s, run:
+   </para>
+   <screen>&prompt.root;<command>saptune note enabled</command></screen>
+   <para>To list all applied &sapnote;s, run:</para>
+   <screen>&prompt.root;<command>saptune note applied</command></screen>
+  </sect2>
+ </sect1>
+
+ <sect1 xml:id="sec-saptune-sapsolution">
+  <title>Managing &sapsol;s</title>
+  <para>
+   In the following sections you will learn how to create, delete, and rename
+   &sapsol;s and much more.
+  </para>
+
+ <sect2 xml:id="sec-saptune-create-solution">
+  <title>Creating a new &sapsol;</title>
+  <para>To create a new &sapsol;, run:</para>
+  <screen>&prompt.root;<command>saptune solution create <replaceable>SOLUTION</replaceable></command></screen>
+ </sect2>
+
+ <sect2 xml:id="sec-saptune-delete-solution">
+   <title>Deleting a &sapsol;</title>
+   <para>To delete a &sapsol;, run:</para>
+  <screen>&prompt.root;<command>saptune solution delete myHANA</command>
+
+Solution to delete is a customer/vendor specific Solution.
+Do you really want to delete this Solution 'myHANA'? [y/n]: y</screen>
+  <para>
+   The &sapsol; may not be applied at the time. Keep in mind the following points:
+  </para>
+  <itemizedlist>
+   <listitem>
+    <para>
+     A confirmation is needed to finish the action.
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+      &sapsol;s shipped by &saptune; cannot be deleted.
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+      If the &sapsol; is already applied, the command will be terminated
+      with the information, that the &sapsol; first needs to be reverted
+      before it can be deleted.
+    </para>
+   </listitem>
+  </itemizedlist>
+ </sect2>
+
+  <sect2 xml:id="sec-saptune-rename-solution">
+   <title>Renaming a &sapsol;</title>
+   <para>To rename a &sapsol;, run:</para>
+   <screen>&prompt.root;<command>saptune solution rename myHANA myHANA2</command>
+
+Solution to rename is a customer/vendor specific Solution.
+Do you really want to rename this Solution 'myHANA' to the new name 'myHANA2'? [y/n]:</screen>
+  <para>
+   The &sapsol; may not be applied at the time. Keep in mind the following points:
+  </para>
+  <itemizedlist>
+   <listitem>
+    <para>
+     A confirmation is needed to finish the action.
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+      &sapsol;s shipped by &saptune; cannot be renamed.
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+      If the &sapsol; is already applied, the command will be terminated
+      with the information, that the &sapsol; first needs to be reverted
+      before it can be renamed.
+    </para>
+   </listitem>
+  </itemizedlist>
+  </sect2>
+
+  <sect2 xml:id="sec-saptune-show-solution">
+   <title>Showing the configuration of a &sapsol;</title>
+   <para>To list the configuration of a &sapsol;, run:</para>
+   <screen>&prompt.root;<command>saptune solution show <replaceable>SOLUTION</replaceable></command></screen>
+  </sect2>
+
+  <sect2 xml:id="sec-saptune-revert-solution">
+    <title>Reverting a &sapsol;</title>
+    <para>To revert a &sapsol;, run:</para>
+    <screen>&prompt.root;<command>saptune solution revert <replaceable>SOLUTION</replaceable></command></screen>
+    <para>
+     The &sapsol; must be applied. All &sapnote;s part of that &sapsol; which still are
+     applied will be reverted.
+    </para>
+  </sect2>
+
+  <sect2 xml:id="sec-saptune-edit-custom-solution">
+   <title>Editing a custom &sapsol;</title>
+   <para>To edit a custom &sapsol;, run:</para>
+   <screen>&prompt.root;<command>saptune solution edit <replaceable>SOLUTION</replaceable></command></screen>
+  </sect2>
+
+  <sect2 xml:id="sec-saptune-list-solution">
+   <title>Listing enabled/applied &sapsol;</title>
+   <para>To list enabled &sapsol;, run:</para>
+   <screen>&prompt.root;<command>saptune solution enabled</command></screen>
+   <para>To list applied &sapsol;, run:</para>
+   <screen>&prompt.root;<command>saptune solution applied</command></screen>
+   <para>
+    If &sapnote;s from an applied &sapsol; have been reverted, the string <literal>(partial)</literal>
+    has been added to the solution name.
+   </para>
+  </sect2>
+ </sect1>
+
+  <sect1 xml:id="sec-saptune-verify-and-troubleshooting">
+   <title>Verification and troubleshooting</title>
+   <para>The see the current status of &saptune;, run:</para>
+   <screen>&prompt.root;<command>saptune status</command></screen>
+   <para>The output contains:</para>
+   <itemizedlist>
+    <listitem>
+     <para>status of the &saptune;, &sapconf;, and &tuned; service</para>
+    </listitem>
+    <listitem>
+     <para>version of package and running &saptune;</para>
+    </listitem>
+    <listitem>
+     <para>details about configured &sapsol; and &sapnote;s</para>
+    </listitem>
+    <listitem>
+     <para>details about staging</para>
+    </listitem>
+   </itemizedlist>
+   <para>
+    In case of a problem, run:
+   </para>
+   <screen>&prompt.root;<command>saptune_check</command></screen>
+   <para>
+    The script does a deeper analysis, reports any problems and gives advice how
+    to rectify them.
+   </para>
+  </sect1>
+
+ <sect1 xml:id="sec-saptune-staging">
+   <title>Staging</title>
+   <para>
+    It is possible, that a new &saptune; package can contain both: binary changes (for
+    example, bug fixes) and new or altered &sapnote;s and &sapsol;s.
+    This can be unfavorable for some customers. Installation of bug fixes or new
+    features might be wanted, but altering the systems configuration at the same time
+    might not.
+   </para>
+   <para>
+    With staging enabled, &sapnote; and &sapsol; changes shipped with a package
+    update are <emphasis>not</emphasis> active immediately. They are placed in a
+    staging area, which can be reviewed and released later.
+   </para>
+   <important>
+    <para>With the current implementation a package update will overwrite the
+    staging if staging is enabled.</para>
+    <remark>toms 2021-10-14: What to do to avoid this?</remark>
+   </important>
+   <para>Staging is disabled per default. To enable it, run:</para>
+   <screen>&prompt.root;<command>saptune staging enable</command></screen>
+   <para>From now on, &sapnote; and &sapsol; changes shipped by a &saptune;
+   package will put in the staging area. To view the staging area, run:</para>
+   <screen>&prompt.root;<command>saptune staging list</command></screen>
+   <para>You can print a tabular overview of the differences of the &sapnote; and
+   &sapsol; in the staging and the working area by running:</para>
+   <screen>&prompt.root;<command>saptune staging diff [NOTE...|SOLUTION...|all]</command></screen>
+   <para>
+    After reviewing the differences you can do an analysis to see if a release has
+    potential issues or might require additional steps afterwards by running:
+   </para>
+   <screen>&prompt.root;<command>saptune staging analysis [NOTE...|SOLUTION...|all]</command></screen>
+   <para>
+    To releasea &sapnote; or a &sapsol; from the staging area, run:
+   </para>
+   <screen>&prompt.root;<command>saptune staging [--force|--dry-run] [NOTE..|SOLUTION...|all]</command></screen>
+   <para>
+    The previous command presents an analysis (see <command>saptune staging analysis</command>) and
+    do the release after asking for confirmation.
+   </para>
+  </sect1>
+
+ <sect1 xml:id="sec-sysctl">
+  <title>Tuning kernel parameters manually using <command>sysctl</command></title>
+
+  <para>
+   In addition to or instead of tuning kernel parameters using &saptune;, you
+   can also use <command>sysctl</command> to make manual adjustments to kernel
+   parameters. However, such changes using <command>sysctl</command> do not
+   persist across reboots by default. To make them persist across reboots, add
+   them to one of the configuration files read by <command>sysctl</command>.
+  </para>
+
+  <tip>
+   <title><command>sysctl</command> and &saptune;</title>
+   <para>
+    If you plan to configure <command>sysctl</command> parameters for your
+    &sap; system, consider using &saptune; as the central tool for managing
+    such configurations.
+   </para>
+  </tip>
+
+  <para>
+<!-- FIXME: -> SLES docs: we don't seem to have any good section to
+   reference here. This will do for the moment. - sknorr, 2017-05-04 -->
+   For more information about <command>sysctl</command>, see the man pages
+   <literal>sysctl(8)</literal>, <literal>sysctl.conf(5)</literal>, and
+   <literal>sysctl.d(5)</literal>.
+  </para>
+ </sect1>
+
+ <sect1 xml:id="sec-saptune-more">
+  <title>For more information</title>
   <para>
    See the following man pages:
   </para>
@@ -1207,16 +610,6 @@ Do you really want to rename this Note (test) to the new name 'test2'? [y/n]: y<
    <listitem>
     <para>
      <command>man 8 saptune</command>
-    </para>
-   </listitem>
-   <listitem>
-    <para>
-     <command>man 8 saptune_v1</command>
-    </para>
-   </listitem>
-   <listitem>
-    <para>
-     <command>man 8 saptune_v2</command>
     </para>
    </listitem>
    <listitem>
@@ -1234,25 +627,5 @@ Do you really want to rename this Note (test) to the new name 'test2'? [y/n]: y<
    Also see the project home page
    <link xlink:href="https://github.com/SUSE/saptune/"/>.
   </para>
-  </sect2>
  </sect1>
-
- <sect1 xml:id="sec-s4s-sysctl">
-  <title>Tuning Kernel Parameters Manually Using <command>sysctl</command></title>
-  <para>
-   In addition to or instead of tuning kernel parameters using
-   &sapconf;/&saptune;, you can also use <command>sysctl</command> to
-   make manual adjustments to kernel parameters. However, such changes using
-   <command>sysctl</command> do not persist across reboots by default. To
-   make them persist across reboots, add them to one of the configuration
-   files read by <command>sysctl</command>).
-  </para>
-  <para>
-   <!-- FIXME: -> SLES docs: we don't seem to have any good section to
-   reference here. This will do for the moment. - sknorr, 2017-05-04 -->
-   For more information about <command>sysctl</command>, see the man pages
-    <literal>sysctl(8)</literal>, <literal>sysctl.conf(5)</literal>, and
-    <literal>sysctl.d(5)</literal>. </para>
- </sect1>
-
 </chapter>

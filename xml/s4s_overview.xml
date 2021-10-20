@@ -82,7 +82,7 @@
     </listitem>
    </varlistentry>
    <varlistentry>
-    <term><xref linkend="cha-s4s-tune" xrefstyle="select:title,nopage"/></term>
+    <term><xref linkend="cha-tune" xrefstyle="select:title,nopage"/></term>
     <listitem>
      <para>
       Tuning the system to enable the best performance for &sap; applications.
