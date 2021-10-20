@@ -289,9 +289,6 @@
    behavior. With this feature, you can often gain better performance by
    allocating memory to an application.
   </para>
-  <para>
-   For more information, see <xref linkend="sec-s4s-configure-page-cache"/>.
-  </para>
  </sect2>
 
  <sect2 xml:id="sec-s4s-component-clamsap">
@@ -359,7 +356,7 @@
     you are using, such as the amount of available RAM.
    </para>
    <para>
-    For more information, see <xref linkend="sec-sapconf-4"/>.
+    For more information, see <xref linkend="cha-tune-sapconf"/>.
    </para>
   </sect3>
 
