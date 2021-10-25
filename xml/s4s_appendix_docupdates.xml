@@ -202,7 +202,7 @@
    </varlistentry>
    <varlistentry>
     <term>
-     <xref linkend="cha-s4s-tune" xrefstyle="SectTitleOnPage"/>
+     <xref linkend="cha-tune" xrefstyle="SectTitleOnPage"/>
     </term>
     <listitem>
      <para>
@@ -271,7 +271,7 @@
    </varlistentry>
    <varlistentry>
     <term>
-     <xref linkend="sec-saptune" xrefstyle="SectTitleOnPage"/>
+     <xref linkend="cha-tune" xrefstyle="SectTitleOnPage"/>
     </term>
     <listitem>
      <para>
@@ -364,7 +364,7 @@
    </varlistentry>
    <varlistentry>
     <term>
-      <xref linkend="cha-s4s-tune" xrefstyle="SectTitleOnPage"/>
+      <xref linkend="cha-tune" xrefstyle="SectTitleOnPage"/>
     </term>
     <term>
       <xref linkend="cha-s4s-configure-cryptctl" xrefstyle="SectTitleOnPage"/>
@@ -431,7 +431,7 @@
    </varlistentry>
    <varlistentry>
     <term>
-      <xref linkend="cha-s4s-tune" xrefstyle="SectTitleOnPage"/>,
+      <xref linkend="cha-tune" xrefstyle="SectTitleOnPage"/>,
       <xref linkend="cha-s4s-access" xrefstyle="SectTitleOnPage"/>,
       <xref linkend="cha-s4s-image" xrefstyle="SectTitleOnPage"/>,
       <xref linkend="cha-s4s-trouble" xrefstyle="SectTitleOnPage"/>
@@ -445,7 +445,7 @@
    </varlistentry>
    <varlistentry>
     <term>
-      <xref linkend="sec-saptune" xrefstyle="SectTitleOnPage"/>
+      <xref linkend="cha-tune" xrefstyle="SectTitleOnPage"/>
     </term>
     <listitem>
      <para>
@@ -717,7 +717,7 @@
    </varlistentry>
    <varlistentry>
     <term>
-      <xref linkend="sec-saptune" xrefstyle="SectTitleOnPage"/>
+      <xref linkend="cha-tune" xrefstyle="SectTitleOnPage"/>
     </term>
     <listitem>
      <para>

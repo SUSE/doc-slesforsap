@@ -1,4 +1,8 @@
-build/
+*~
 \#*#
 .#*
-*~
+*.bak
+*.orig
+*.swp
+
+build/
