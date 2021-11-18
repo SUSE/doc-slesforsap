@@ -179,6 +179,12 @@
  <sect1 xml:id="sec-saptune-update">
   <title>Updating &saptune;</title>
   <para>To update saptune to a new version, just update the package.</para>
+  <para>
+   Since a package update can contain updates of &sapnote;s and &sapsol;s,
+   restart &saptune; with <command>saptune service restart</command> to re-apply
+   the tuning. Check afterwards with <command>saptune note verify</command>
+   if all recommendations are still met.
+  </para>
   <important>
    <para>
     The &saptune; tool does not rely on &tuned; anymore.
