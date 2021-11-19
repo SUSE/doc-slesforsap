@@ -1,0 +1,7 @@
+MAIN="article_sap_trento.xml"
+# ROOTID=""
+
+PROFOS="sles"
+PROFCONDITION="noquick;suse-product"
+
+STYLEROOT="/usr/share/xml/docbook/stylesheet/suse2021-ns"
