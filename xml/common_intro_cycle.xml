@@ -41,10 +41,8 @@
     <itemizedlist>
      <listitem>
       <para>
-       General explanation:
-       <citetitle>&deploy;, Part
-       <quote>Updating and Upgrading &sle;</quote>, Chapter <quote>Life Cycle
-       and Support</quote></citetitle> (&docaddress;)
+       General explanation: <citetitle>&upgrade_guide;, Chapter
+       <quote>Life Cycle and Support</quote></citetitle> (&docaddress;)
       </para>
      </listitem>
      <listitem>
