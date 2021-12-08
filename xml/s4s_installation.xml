@@ -755,7 +755,7 @@
     To install the default package selection, use:
    </para>
     <screen>
-&prompt.root;<command>zypper in patterns-sles-sap_server</command>
+&prompt.root;<command>zypper in patterns-server-enterprise-sap_server</command>
     </screen>
   </important>
  </sect1>
