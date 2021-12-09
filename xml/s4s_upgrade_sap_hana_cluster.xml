@@ -51,6 +51,11 @@
  <sect1 xml:id="sec-upgrade-sap-hana-cluster-preparing">
   <title>Preparing the Upgrade</title>
   <procedure>
+   <para>
+    Ensure passwordless SSH access between the two nodes (primary and secondary) for &rootuser;.
+    Keep in mind, some cloud service providers might not have set up SSH access
+    for the &rootuser; by default.
+   </para>
    <step>
     <para>Install the <package>yast2-hana-update</package> package on both nodes:</para>
     <screen>&prompt.root;<command>zypper</command> install yast2-hana-update</screen>
