@@ -8,7 +8,7 @@
  xmlns="http://docbook.org/ns/docbook"
  xmlns:xi="http://www.w3.org/2001/XInclude"
  xmlns:xlink="http://www.w3.org/1999/xlink">
- <title>Upgrading an &hana; cluster</title>
+ <title>Upgrading a &hana; cluster</title>
  <info>
   <abstract>
    <para>
@@ -123,7 +123,7 @@
      The wizard shows you two steps: automatic and manual. In this automatic
      step, the wizard puts cluster resources into maintenance mode before it
      starts with the automatic steps. The manual steps are &hana; specific and
-     need to be executed by an &hana; administrator. For more information, see
+     need to be executed by a &hana; administrator. For more information, see
      the official &hana; documentation.
     </para>
    </step>
