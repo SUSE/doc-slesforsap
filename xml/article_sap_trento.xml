@@ -34,7 +34,7 @@ As agreed on https://confluence.suse.com/x/DAEcN on our Trento doc kick off
     xmlns="http://docbook.org/ns/docbook"
     xmlns:xi="http://www.w3.org/2001/XInclude"
     xmlns:xlink="http://www.w3.org/1999/xlink">
-  <title>Monitoring &sap; Systems with Trento</title>
+  <title>Getting started with Trento</title>
   <subtitle>&sles4sapreg;</subtitle>
   <info>
     <abstract>
@@ -279,6 +279,14 @@ As agreed on https://confluence.suse.com/x/DAEcN on our Trento doc kick off
 
   <section>
     <title>Installing &t.server;</title>
+    <important>
+      <title>Expect changes in the installation procedure</title>
+      <para>
+        The product is under active development. Expect changes in the described
+        installation procedure. RPM packages for Trento are in the works.
+      </para>
+    </important>
+
     <para> The procedure uses the following placeholders: </para>
     <itemizedlist>
       <listitem>
@@ -362,6 +370,14 @@ trento-server-runner-5cdc4995b6-f96vb     1/1     Running   1          42m</scre
 
   <section>
     <title>Installing &t.agent;s</title>
+    <important>
+      <title>Expect changes in the installation procedure</title>
+      <para>
+        The product is under active development. Expect changes in the described
+        installation procedure. RPM packages for Trento are in the works.
+      </para>
+    </important>
+
     <para> Repeat the following steps on each host to be monitored in your
       &sap; Environment. </para>
     <para> The procedure uses the following placeholders: </para>
@@ -607,7 +623,7 @@ Warning: Permanently added '<replaceable>TRENTO_AGENT_IP</replaceable>' (ECDSA) 
 
     <section>
       <title>Showing &pace; clusters</title>
-      <para> To display a list of the registered &pace; clusters, click
+      <para> To display a list of the discovered &pace; clusters, click
         the <guimenu>&pace; Clusters</guimenu> entry on the left
         sidebar. </para>
       <important>
@@ -769,9 +785,6 @@ Warning: Permanently added '<replaceable>TRENTO_AGENT_IP</replaceable>' (ECDSA) 
         </imageobject>
         </mediaobject>
         </figure>-->
-      <para> Using the dialog of <xref
-        linkend="fig-trento-web-pagemaker-cluster-settings" /> you
-        can change the following settings: </para>
     </section>
 
     <section>
