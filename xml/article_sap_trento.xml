@@ -53,7 +53,7 @@ As agreed on https://confluence.suse.com/x/DAEcN on our Trento doc kick off
                 <email>project-trento@suse.com</email>. </para>
   </important>
 
-  <section>
+  <section xml:id="sec-trento-what">
     <title>What is Trento?</title>
     <!--<para>
       Trento is a an open cloud-native web console aimed to help administrators to improve
@@ -115,7 +115,7 @@ As agreed on https://confluence.suse.com/x/DAEcN on our Trento doc kick off
     </figure>
   </section>
 
-  <section>
+  <section xml:id="sec-trento-product-lifecycle-update-strategy">
     <title>Product lifecycle and update strategy</title>
     <!--
       Most ist taken from https://confluence.suse.com/x/uoOyN
@@ -186,11 +186,11 @@ As agreed on https://confluence.suse.com/x/DAEcN on our Trento doc kick off
  Do we have specific terms which needs to be explained in a terminology section?
 -->
 
-  <section xml:id="sec-trento-software-requirements">
+  <section xml:id="sec-trento-requirements">
     <title>Requirements</title>
     <para> This section describes requirements for the &t.server; and its
       &t.agent;s. </para>
-    <section>
+    <section xml:id="sec-trento-server-requirements">
       <title>&t.server; requirements</title>
       <para> Running all the &t.server; components requires 2GB of RAM and
         two CPU cores. </para>
@@ -216,7 +216,7 @@ As agreed on https://confluence.suse.com/x/DAEcN on our Trento doc kick off
         </listitem>
       </itemizedlist>
     </section>
-    <section>
+    <section xml:id="sec-trento-agent-requirements">
       <title>&t.agent; requirements</title>
       <para> The resource footprint of the &t.agent; is designed to not
         impact the performance of the host it runs on. </para>
@@ -224,7 +224,7 @@ As agreed on https://confluence.suse.com/x/DAEcN on our Trento doc kick off
         low-level system components that are part of the &productname;
         distribution. </para>
     </section>
-    <section>
+    <section xml:id="sec-trento-network-requirements">
       <title>Network requirements</title>
       <para />
       <remark>toms 2021-12-02: which ports do we need?</remark>
@@ -246,7 +246,7 @@ As agreed on https://confluence.suse.com/x/DAEcN on our Trento doc kick off
       </itemizedlist>
     </section>
 
-    <section>
+    <section xml:id="sec-trento-installation-prerequisites">
       <title>Installation pre-requisites</title>
       <itemizedlist>
         <listitem>
@@ -277,7 +277,7 @@ As agreed on https://confluence.suse.com/x/DAEcN on our Trento doc kick off
     </section>
   </section>
 
-  <section>
+  <section xml:id="sec-trento-installing-trentoserver">
     <title>Installing &t.server;</title>
     <important>
       <title>Expect changes in the installation procedure</title>
@@ -368,7 +368,7 @@ trento-server-runner-5cdc4995b6-f96vb     1/1     Running   1          42m</scre
     </procedure>
   </section>
 
-  <section>
+  <section xml:id="sec-trento-installing-trentoagent">
     <title>Installing &t.agent;s</title>
     <important>
       <title>Expect changes in the installation procedure</title>
@@ -483,7 +483,7 @@ Warning: Permanently added '<replaceable>TRENTO_AGENT_IP</replaceable>' (ECDSA) 
     </procedure>
   </section>
 
-  <section>
+  <section xml:id="sec-trento-webconsole">
     <title>Using &t.web;</title>
     <remark>toms 2021-12-13: this section is a bit too referential and needs
       more focus on the user. As discussed with Alberto, we keep it for
@@ -621,7 +621,7 @@ Warning: Permanently added '<replaceable>TRENTO_AGENT_IP</replaceable>' (ECDSA) 
       </itemizedlist>
     </section>
 
-    <section>
+    <section xml:id="sec-trento-show-pacemaker-clusters">
       <title>Showing &pace; clusters</title>
       <para> To display a list of the discovered &pace; clusters, click
         the <guimenu>&pace; Clusters</guimenu> entry on the left
@@ -787,7 +787,7 @@ Warning: Permanently added '<replaceable>TRENTO_AGENT_IP</replaceable>' (ECDSA) 
         </figure>-->
     </section>
 
-    <section>
+    <section xml:id="sec-trento-sap-systems-view">
       <title>&sap; Systems view</title>
       <para> Click the <guimenu>&sap; Systems</guimenu> entry in the left
         sidebar to get an overview of the registered &sap; Systems: </para>
@@ -852,7 +852,7 @@ Warning: Permanently added '<replaceable>TRENTO_AGENT_IP</replaceable>' (ECDSA) 
       </itemizedlist>
     </section>
 
-    <section>
+    <section xml:id="sec-trento-hana-db-view">
       <title>&hana; databases view</title>
       <para> To get an overview of registered &hana; databases, click the
         <guimenu>HANA databases</guimenu> entry in the left sidebar. </para>
@@ -910,7 +910,7 @@ Warning: Permanently added '<replaceable>TRENTO_AGENT_IP</replaceable>' (ECDSA) 
       </itemizedlist>
     </section>
 
-    <section>
+    <section xml:id="sec-trento-configuration-checks">
       <title>Configuration checks</title>
       <para> To get an overview of the configuration checks that Trento
         can manage click the <menuchoice>
@@ -947,7 +947,7 @@ Warning: Permanently added '<replaceable>TRENTO_AGENT_IP</replaceable>' (ECDSA) 
     </section>
   </section>
 
-  <section>
+  <section xml:id="sec-trento-updating-trentoserver">
     <title>Updating &t.server;</title>
     <para> To update the &t.server;, do the following: </para>
     <procedure>
@@ -975,7 +975,7 @@ Warning: Permanently added '<replaceable>TRENTO_AGENT_IP</replaceable>' (ECDSA) 
     </procedure>
   </section>
 
-  <section>
+  <section xml:id="sec-trento-updating-trentoagent">
     <title>Updating a &t.agent;</title>
     <para> To update the &t.agent;, do the following: </para>
     <procedure>
