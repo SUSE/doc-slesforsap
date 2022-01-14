@@ -7,6 +7,7 @@
     %entities;
 
   <!-- Trento specific entities -->
+  <!ENTITY trentopremium        "Trento Premium">
   <!ENTITY trentoadmin          "trentoadmin">
   <!ENTITY trentoserverip       "192.168.1.2">
   <!ENTITY trentoservername     "<replaceable
@@ -34,11 +35,11 @@ As agreed on https://confluence.suse.com/x/DAEcN on our Trento doc kick off
     xmlns="http://docbook.org/ns/docbook"
     xmlns:xi="http://www.w3.org/2001/XInclude"
     xmlns:xlink="http://www.w3.org/1999/xlink">
-  <title>Getting started with Trento</title>
+  <title>Getting started with &trentopremium;</title>
   <subtitle>&sles4sapreg;</subtitle>
   <info>
     <abstract>
-      <para> Trento is a an open cloud-native web console that aims to
+      <para> &trentopremium; is a an open cloud-native web console that aims to
                 help &sap; administrators to improve monitoring and checking of
                 &sap; Applications. </para>
     </abstract>
@@ -54,20 +55,19 @@ As agreed on https://confluence.suse.com/x/DAEcN on our Trento doc kick off
   </important>
 
   <section xml:id="sec-trento-what">
-    <title>What is Trento?</title>
+    <title>What is &trentopremium;?</title>
     <!--<para>
       Trento is a an open cloud-native web console aimed to help administrators to improve
             monitoring and checking of &sap; Applications.
         </para>-->
-    <para> Trento is a comprehensive monitoring solution consisting of two
-      main components, the &t.server; and the &t.agent;. Trento provides
-            the following features: </para>
+    <para>
+      &trentopremium; is the extended version of the Trento community project containing
+      additional checks. Apart from their naming, both are a comprehensive monitoring
+      solution consisting of two main components, the &t.server; and the &t.agent;.
+      Both Trento variants provide the following features:
+    </para>
     <!--
       from https://confluence.suse.com/x/uoOyN
-        * A simple agent which can run on SLES4SAP hosts which are used to operate SAP S/4HANA
-        * Proactive checks to ensure correct settings of SUSE solutions (e.g. SUSE HA solutions) for running SAP.
-        * Capabilities to discover and monitor the state of the hosts running SAP including all
-          information in the context of SAP systems and landscapes.
     -->
     <itemizedlist>
       <listitem>
@@ -279,6 +279,7 @@ As agreed on https://confluence.suse.com/x/DAEcN on our Trento doc kick off
 
   <section xml:id="sec-trento-installing-trentoserver">
     <title>Installing &t.server;</title>
+<!--    https://confluence.suse.com/display/SAP/Installing+Trento+Premium-->
     <important>
       <title>Expect changes in the installation procedure</title>
       <para>
@@ -293,69 +294,47 @@ As agreed on https://confluence.suse.com/x/DAEcN on our Trento doc kick off
         <para><replaceable>TRENTO_SERVER_HOSTNAME</replaceable>: the
           host name of the &t.server; host.</para>
       </listitem>
-      <!--<listitem>
-        <para>
-        <systemitem class="username">&trentoadmin;</systemitem>: the user name of the Trento
-        administrator. In our example, it is <systemitem class="username"
-        >&trentoadmin;</systemitem>. You can use any desired user name, but make sure you use it consistently.
+      <listitem>
+        <para><replaceable>PRIVATE_SSH_KEY</replaceable>: the absolute path to your SSH key.
         </para>
-        </listitem>-->
-      <!--<listitem>
-        <para><replaceable>TRENTO_AGENT_IP</replaceable>: local IP address of the &t.agent; host.</para>
-        </listitem>-->
+      </listitem>
     </itemizedlist>
-    <para> To install &t.server; on your &t.server; host proceed as follows: </para>
+    <para> To install Trento on your &t.server; host proceed as follows: </para>
+
     <procedure>
       <step>
         <para> Log on the &t.server; host as user <systemitem
-          class="username">&trentoadmin;</systemitem>. </para>
-      </step>
-      <step xml:id="st-trento-server-ssh">
-        <para> On the &t.server; host, create an SSH key for user
-          <systemitem class="username">&trentoadmin;</systemitem>
-          with no passphrase: </para>
-        <screen>&trentoserver.prompt;ssh-keygen -f ~/.ssh/id_rsa -t rsa -b 4096 -N ''</screen>
-      </step>
-      <step>
-        <para> Launch the installer script: </para>
-        <screen>&trentoserver.prompt;curl -sfL https://raw.githubusercontent.com/trento-project/trento/main/install-server.sh | bash</screen>
-      </step>
-      <step>
-        <para> Enter the absolute path to the private SSH key from <xref
-          linkend="st-trento-server-ssh" /> (normally
-          <filename>/home/&trentoadmin;/.ssh/id_rsa</filename>): </para>
-        <screen>Please provide the path of the runner private key: /home/&trentoadmin;/.ssh/id_rsa</screen>
-        <para> The runner service uses the private key to perform checks
-          in the agent hosts via SSH. The script installs the required
-          components. If the installation has been completed
-          correctly, the script displays the following message: </para>
-        <screen>&t.server; installed!</screen>
-      </step>
-      <step>
-        <para> Check whether the &t.server; is up and running: </para>
-        <screen>&trentoserver.prompt;sudo /usr/local/bin/kubectl get pods
-NAME                                      READY   STATUS    RESTARTS   AGE
-svclb-trento-server-web-collector-x2hmd   1/1     Running   0          42m
-trento-server-consul-server-0             1/1     Running   0          42m
-trento-server-consul-qv65d                1/1     Running   0          42m
-trento-server-postgresql-0                1/1     Running   0          42m
-trento-server-ara-77fb85b46d-mb756        1/1     Running   0          42m
-trento-server-web-df665479-rlghw          1/1     Running   2          42m
-trento-server-runner-5cdc4995b6-f96vb     1/1     Running   1          42m</screen>
-      </step>
-      <!-- alberto: hide for the time being until we figure out what the role of these ports really is.
-        <step>
-        <para>
-        To ensure your &t.agent;s are able to connect to the &t.server;,
-        check the network ports:
+          class="username">&trentoadmin;</systemitem>.
         </para>
-        <screen>&trentoserver.prompt;sudo /usr/local/bin/kubectl describe pod trento-server-web-df665479-rlghw | grep -i port    Ports:         8080/TCP, 8081/TCP
-        Host Ports:    0/TCP, 0/TCP
-        -\-db-port
-        -\-port
-        -\-collector-port</screen>
-        </step>
-      -->
+      </step>
+      <step>
+        <para>Install &k8s;, for example, K3s for a single server install:</para>
+        <stepalternatives>
+          <step>
+            <para>Installing as user &rootuser;</para>
+            <screen>&prompt.root;curl -sfL https://get.k3s.io | sh</screen>
+          </step>
+          <step>
+            <para>Installing as non-&rootuser; user:</para>
+            <screen>&prompt.user;curl -sfL https://get.k3s.io | sh -s - --write-kubeconfig-mode 644</screen>
+          </step>
+        </stepalternatives>
+      </step>
+      <step>
+        <para>Install Helm:</para>
+        <screen>&prompt.root;curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash</screen>
+      </step>
+      <step>
+        <para>Install the &t.server; container using Helm:</para>
+        <remark>toms 2022-01-14: root or not root?</remark>
+        <screen>HELM_EXPERIMENTAL_OCI=1 helm upgrade --install \
+   <replaceable>TRENTO_SERVER_HOSTNAME</replaceable> \
+   oci://registry.suse.com/trento/trento-server \
+   --version 0.2.5 \
+   --set trento-runner.image.tag=0.7.1 \
+   --set trento-web.image.tag=0.7.1 \
+   --set-file trento-runner.privateKey=<replaceable>PRIVATE_SSH_KEY</replaceable></screen>
+      </step>
       <step>
         <para> Log out the &t.server; host. </para>
       </step>
@@ -488,7 +467,14 @@ Warning: Permanently added '<replaceable>TRENTO_AGENT_IP</replaceable>' (ECDSA) 
     <remark>toms 2021-12-13: this section is a bit too referential and needs
       more focus on the user. As discussed with Alberto, we keep it for
       the time being and change it after the release. </remark>
-    <para> The left sidebar in the &t.web; contains the following entries: </para>
+    <para>
+      When you access the Trento web console for the first time, it asks
+      to accept the license. Click <guimenu>Accept</guimenu> to continue.
+      <remark>toms 2022-01-14: should we include the license page?</remark>
+    </para>
+    <para>
+      After you have accepted the license, Trento can be used.
+      The left sidebar in the &t.web; contains the following entries: </para>
     <itemizedlist>
       <listitem>
         <formalpara>
