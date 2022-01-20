@@ -1007,5 +1007,16 @@ Warning: Permanently added '<replaceable>TRENTO_AGENT_IP</replaceable>' (ECDSA) 
     </procedure>
   </section>
 
+  <section xml:id="sec-trento-more-information">
+    <title>More information</title>
+    <itemizedlist>
+      <listitem>
+        <para>Homepage: <link xlink:href="https://www.trento-project.io/"/></para>
+      </listitem>
+      <listitem>
+        <para>Trento project: <link xlink:href="https://github.com/trento-project/trento"/></para>
+      </listitem>
+    </itemizedlist>
+  </section>
   <!--<xi:include href="common_legal.xml"/>-->
 </article>
