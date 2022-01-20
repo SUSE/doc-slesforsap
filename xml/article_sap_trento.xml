@@ -282,7 +282,7 @@ As agreed on https://confluence.suse.com/x/DAEcN on our Trento doc kick off
       <title>Expect changes in the installation procedure</title>
       <para>
         The product is under active development. Expect changes in the described
-        installation procedure. RPM packages for Trento are in the works.
+        installation procedure.
       </para>
     </important>
 
@@ -351,7 +351,7 @@ As agreed on https://confluence.suse.com/x/DAEcN on our Trento doc kick off
       <title>Expect changes in the installation procedure</title>
       <para>
         The product is under active development. Expect changes in the described
-        installation procedure. RPM packages for Trento are in the works.
+        installation procedure.
       </para>
     </important>
 
@@ -423,8 +423,9 @@ Warning: Permanently added '<replaceable>TRENTO_AGENT_IP</replaceable>' (ECDSA) 
       <step>
         <para>
           Open the configuration file <filename>/etc/trento/agent.yml</filename>
-          and remove the comment (<literal>#</literal>) from the entries
-          <parameter>ssh-address</parameter> and <parameter>collector-host</parameter>.
+          and uncomment (<literal>#</literal>) the entries for
+          <parameter>ssh-address</parameter> and <parameter>collector-host</parameter>
+          and update the values appropriately.
         </para>
       </step>
       <step>
