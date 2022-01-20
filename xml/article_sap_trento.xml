@@ -85,13 +85,14 @@ As agreed on https://confluence.suse.com/x/DAEcN on our Trento doc kick off
     </itemizedlist>
 
     <para> The <emphasis role="strong">&t.server;</emphasis> is an
-      independent, cloud-native, distributed system and designed to run on
-            dedicated infrastructure resources. It provides a web front end. </para>
+      independent, cloud-native, distributed system and designed to run
+      in a &k8s; cluster.
+      The &t.server; interacts with users via a web front end.
+    </para>
     <para> The <emphasis role="strong">&t.agent;</emphasis> is a single
       background process (<systemitem>trento agent</systemitem>) running
-            on each host of the target infrastructure monitored by the user.
-            Except for third-party modules<!-- like Consul and ARA-->, all the
-            components are included in a single Trento binary. </para>
+      on each host of the SAP infrastructure that is monitored.
+    </para>
     <para> For Trento, &suse; collects telemetry data relevant for further
       product development. </para>
     <para> See <xref linkend="fig-trento-architecture" /> for additional
