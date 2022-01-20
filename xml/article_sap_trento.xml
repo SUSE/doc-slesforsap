@@ -59,7 +59,8 @@ As agreed on https://confluence.suse.com/x/DAEcN on our Trento doc kick off
     <!--<para>
       Trento is a an open cloud-native web console aimed to help administrators to improve
             monitoring and checking of &sap; Applications.
-        </para>-->
+        </para>
+    -->
     <para>
       &trentopremium; is the extended version of the Trento community project containing
       additional checks. Apart from their naming, both are a comprehensive monitoring
@@ -86,7 +87,7 @@ As agreed on https://confluence.suse.com/x/DAEcN on our Trento doc kick off
 
     <para> The <emphasis role="strong">&t.server;</emphasis> is an
       independent, cloud-native, distributed system and designed to run
-      in a &k8s; cluster.
+      on a &k8s; cluster.
       The &t.server; interacts with users via a web front end.
     </para>
     <para> The <emphasis role="strong">&t.agent;</emphasis> is a single
@@ -102,10 +103,6 @@ As agreed on https://confluence.suse.com/x/DAEcN on our Trento doc kick off
     -->
     <figure xml:id="fig-trento-architecture">
       <title>Architectural overview</title>
-      <!--
-        replace SAP Application Platform Cluster with
-        SAP NetWeaver Cluster
-      -->
       <mediaobject>
         <imageobject>
           <imagedata width="80%"
@@ -322,7 +319,7 @@ As agreed on https://confluence.suse.com/x/DAEcN on our Trento doc kick off
         </stepalternatives>
       </step>
       <step>
-        <para>Install Helm:</para>
+        <para>Install Helm as &rootuser;:</para>
         <screen>&prompt.root;curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash</screen>
       </step>
       <step>
@@ -379,12 +376,15 @@ As agreed on https://confluence.suse.com/x/DAEcN on our Trento doc kick off
       with the &t.server;, proceed as follows: </para>
     <procedure>
       <step>
-        <para> Add the public SSH key of the user <systemitem
+        <para>
+          On the &t.agent; host logged in as <systemitem
+          class="username">&trentoadmin;</systemitem>,
+          add the public SSH key of the user <systemitem
           class="username">&trentoadmin;</systemitem> generated on
           the &t.server; host to the file
-          <filename>~/.ssh/authorized_keys</filename> of user
-          &trentoadmin; on the &t.agent; host. This step is necessary
-          to enable the runner checks in the &t.agent; host via SSH.
+          <filename>~/.ssh/authorized_keys</filename>.
+          This step is necessary to enable the runner checks in the
+          &t.agent; host via SSH.
         </para>
       </step>
       <step>
@@ -406,35 +406,31 @@ As agreed on https://confluence.suse.com/x/DAEcN on our Trento doc kick off
 Are you sure you want to continue connecting (yes/no/[fingerprint])? <emphasis role="strong">yes</emphasis>
 Warning: Permanently added '<replaceable>TRENTO_AGENT_IP</replaceable>' (ECDSA) to the list of known hosts.</screen>
           </step>
+          <step>
+            <para>
+              Log out to go back to the &t.agent; host.
+            </para>
+          </step>
         </substeps>
       </step>
       <step>
-        <para> Install the &t.agent; software in the &t.agent; host and
-          register the agent with the &t.server;: </para>
-        <screen>&trentoagent.prompt;curl -sfL https://raw.githubusercontent.com/trento-project/trento/main/install-agent.sh | sudo bash -s - --agent-bind-ip=<replaceable>TRENTO_AGENT_IP</replaceable> --server-ip=<replaceable>TRENTO_SERVER_IP</replaceable></screen>
-        <!--
-          Installing trento-agent...
-          warning: Rebuilding outdated index databases
-          warning: Generating 18 missing index(es), please wait...
-          * Adding Trento repository: https://download.opensuse.org/repositories/devel:/sap:/trento/15.3/.
-          * Installing trento
-          * Generating trento-agent config...
-          Done.
-          Now you can start trento-agent with: systemctl start trento-agent
-          Please make sure the server is running before starting the agent.
-        -->
+        <para>
+          Install the package:
+        </para>
+        <screen>&trentoagent.prompt;sudo zypper ref
+&trentoagent.prompt;sudo zypper install trento-premium</screen>
       </step>
-      <!-- alberto: I don't think this is really necessary. Question for the dev team.
-        <step>
-        <para>On the current VM &trentoagentname;, add and refresh the OBS repository:</para>
-        <screen>&trentoagent.prompt;sudo zypper ar https://download.opensuse.org/repositories/devel:/sap:/trento:/factory/15.3/ trento_OBS
-        sudo zypper ref</screen>
-        </step>
-      -->
       <step>
-        <para>The installation script does not start the agent
-          automatically. Enable automatic start on boot with the
-          command <command>systemctl</command>:</para>
+        <para>
+          Open the configuration file <filename>/etc/trento/agent.yml</filename>
+          and remove the comment (<literal>#</literal>) from the entries
+          <parameter>ssh-address</parameter> and <parameter>collector-host</parameter>.
+        </para>
+      </step>
+      <step>
+        <para>
+          Start the &t.agent;:
+        </para>
         <screen>&trentoagent.prompt;sudo systemctl enable --now trento-agent</screen>
       </step>
       <step>
@@ -450,12 +446,6 @@ Warning: Permanently added '<replaceable>TRENTO_AGENT_IP</replaceable>' (ECDSA) 
              └─22220 /usr/bin/ruby.ruby2.5 /usr/sbin/SUSEConnect -s
 
 [...]</screen>
-        <remark>toms 2021-11-25: do we need to "enable the auto-update
-          feature of the extension agent and restarting the service"?
-          The login message teills us to execute as root: sed -i
-          s/AutoUpdate.Enabled=n/AutoUpdate.Enabled=y/
-          /etc/waagent.conf ; rcwaagent restart </remark>
-        <remark>toms 2021-11-25: </remark>
       </step>
       <step>
         <para> Repeat this procedure in all &t.agent; hosts. </para>
