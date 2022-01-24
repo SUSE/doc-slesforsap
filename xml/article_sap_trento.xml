@@ -514,7 +514,10 @@ Warning: Permanently added '<replaceable>TRENTO_AGENT_IP</replaceable>' (ECDSA) 
       </listitem>
       <listitem>
         <formalpara>
-          <title><guimenu>About</guimenu></title>
+          <title><menuchoice>
+            <guimenu>Settings</guimenu>
+            <guimenu>About</guimenu>
+          </menuchoice></title>
           <para>Shows the current Trento version, the link to the
             GitHub repository of Trento, the type of subscription
             and the number of registered &productname; hosts
@@ -590,17 +593,14 @@ Warning: Permanently added '<replaceable>TRENTO_AGENT_IP</replaceable>' (ECDSA) 
             &t.agent;. </para>
         </listitem>
         <listitem>
-          <para><guimenu>&sap; instances</guimenu> section: when a
-            &sap; instance runs on the hosts, it lists its different
-            processes providing for each one of them the following
-            information: process name, description, start time,
-            elapsed time (since start up), Pid and Status. </para>
+          <para><guimenu>&sap; instances</guimenu> section: lists the ID, SID,
+            type, the features, and instance number.</para>
         </listitem>
       </itemizedlist>
     </section>
 
     <section xml:id="sec-trento-show-pacemaker-clusters">
-      <title>Showing &pace; clusters</title>
+      <title>&pace; clusters</title>
       <para> To display a list of the discovered &pace; clusters, click
         the <guimenu>&pace; Clusters</guimenu> entry on the left
         sidebar. </para>
@@ -627,6 +627,10 @@ Warning: Permanently added '<replaceable>TRENTO_AGENT_IP</replaceable>' (ECDSA) 
             for more information. </para>
         </listitem>
         <listitem>
+          <para> A <guimenu>Filters</guimenu> section to filter clusters by
+            health status, cluster name, SID, type, or tags. </para>
+        </listitem>
+        <listitem>
           <para> A list of registered clusters with the following
             information for each one of them: status (based on
             configuration checks), cluster name, cluster ID, cluster
@@ -634,20 +638,17 @@ Warning: Permanently added '<replaceable>TRENTO_AGENT_IP</replaceable>' (ECDSA) 
             resources, and custom tags that can added/removed
             manually. </para>
         </listitem>
-        <listitem>
-          <para> The ability to filter clusters by health status,
-            name, SID, type, or tags. </para>
-        </listitem>
       </itemizedlist>
-      <para> Clicking on the name or ID of one of the clusters, opens the
-        <guimenu>&pace; Cluster details</guimenu> view in which we
+      <remark>No Settings menu anymore.</remark>
+      <para> Clicking on the name or ID of a &hana; scale-up cluster, opens the
+        <guimenu>&pace; Cluster details</guimenu> page in which we
         can find the following: </para>
       <itemizedlist xml:id="lst-trento-web-cluster-details">
         <title><guimenu>&pace; Cluster details</guimenu> view</title>
         <listitem>
           <para> A <guimenu>Settings</guimenu> button next to the
-            <guimenu>&pace; Cluster details</guimenu> page
-            header which will open the Cluster settings window:
+            <guimenu>&pace; Cluster details</guimenu> title which
+            will open the Cluster settings window:
             <xref
               linkend="fig-trento-web-pagemaker-cluster-settings"
             />. </para>
@@ -656,7 +657,7 @@ Warning: Permanently added '<replaceable>TRENTO_AGENT_IP</replaceable>' (ECDSA) 
               settings</guimenu></title>
             <mediaobject>
               <imageobject>
-                <imagedata width="50%"
+                <imagedata width="40%"
                   fileref="trento-web-pacemaker-cluster-settings.png"
                 />
               </imageobject>
@@ -751,18 +752,6 @@ Warning: Permanently added '<replaceable>TRENTO_AGENT_IP</replaceable>' (ECDSA) 
             configured SBD devices and their location. </para>
         </listitem>
       </itemizedlist>
-      <!--<para>
-        Clicking <guimenu>Settings</guimenu> button on the <guimenu>&pace; Cluster details</guimenu> page shows
-        <xref linkend="fig-trento-web-pagemaker-cluster-settings"/>.
-        </para>
-        <figure xml:id="fig-trento-web-pagemaker-cluster-settings">
-        <title>&pace; <guimenu>Cluster settings</guimenu></title>
-        <mediaobject>
-        <imageobject>
-        <imagedata width="50%" fileref="trento-web-pacemaker-cluster-settings.png"/>
-        </imageobject>
-        </mediaobject>
-        </figure>-->
     </section>
 
     <section xml:id="sec-trento-sap-systems-view">
