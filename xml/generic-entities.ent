@@ -49,11 +49,8 @@
 
 <!-- COMPANY -->
 
-<!ENTITY opensuse      "openSUSE">
-<!ENTITY opensusereg   "openSUSE&reg;">
 <!ENTITY suse          "SUSE">
 <!ENTITY suselinux     "&suse; Linux">
-
 
 
 <!-- SUSE PRODUCTS -->
@@ -132,16 +129,29 @@
 <!ENTITY sles4sapreg   "&slsreg; for &sap; Applications">
 <!ENTITY susemgrreg    "&suse;&reg; Manager">
 
+<!-- openSUSE VARIANTS -->
+
+<!ENTITY opensuse      "openSUSE">
+<!ENTITY osuse         "&opensuse;">
+<!ENTITY os            "&opensuse;">
+<!ENTITY opensusereg   "openSUSE&reg;">
+
+<!ENTITY leap          "&os; Leap">
+<!ENTITY tw            "&os; Tumbleweed">
+<!ENTITY kubic         "&os; Kubic">
+<!ENTITY osuse-micro   "&os; MicroOS">
+
+
 
 <!-- SUSE SERVICES -->
 
 <!ENTITY scc           "&suse; Customer Center">
 <!ENTITY sccreg        "&suse;&reg; Customer Center">
 <!ENTITY obs           "Open Build Service">
-<!ENTITY osbs          "openSUSE Build Service">
+<!ENTITY osbs          "&os; Build Service">
 <!ENTITY obsa          "OBS">
-<!ENTITY ph            "PackageHub">
-<!ENTITY soliddriver   "SUSE SolidDriver">
+<!ENTITY ph            "&suse; Package Hub">
+<!ENTITY soliddriver   "&suse; SolidDriver">
 
 
 
@@ -330,7 +340,7 @@
 <!ENTITY netteam        "Network Teaming">
 <!ENTITY openscap       "OpenSCAP">
 <!ENTITY pcidss         "Payment Card Industry Data Security Standard">
-<!ENTITY pcidssa        "PCI-DSS">
+<!ENTITY pcidssa        "PCI DSS">
 
 
 
