@@ -39,9 +39,11 @@ As agreed on https://confluence.suse.com/x/DAEcN on our Trento doc kick off
   <subtitle>&sles4sapreg;</subtitle>
   <info>
     <abstract>
-      <para> &trentopremium; is a an open cloud-native web console that aims to
-                help &sap; administrators to improve monitoring and checking of
-                &sap; Applications. </para>
+      <para>
+       &trentopremium; is an open cloud-native web console that aims to help
+       &sap; administrators to improve monitoring and checking of &sap;
+       Applications.
+      </para>
     </abstract>
     <xi:include href="common_copyright_gfdl.xml" />
     </info>
@@ -56,15 +58,10 @@ As agreed on https://confluence.suse.com/x/DAEcN on our Trento doc kick off
 
   <section xml:id="sec-trento-what">
     <title>What is &trentopremium;?</title>
-    <!--<para>
-      Trento is a an open cloud-native web console aimed to help administrators to improve
-            monitoring and checking of &sap; Applications.
-        </para>
-    -->
     <para>
       &trentopremium; is the extended version of the Trento community project containing
       additional checks. Apart from their naming, both are a comprehensive monitoring
-      solution consisting of two main components, the &t.server; and the &t.agent;.
+      solutions consisting of two main components, the &t.server; and the &t.agent;.
       Both Trento variants provide the following features:
     </para>
     <!--
@@ -239,7 +236,7 @@ As agreed on https://confluence.suse.com/x/DAEcN on our Trento doc kick off
         </listitem>
         <listitem>
           <para> The &t.server; must be reachable from the &sap;
-            admin's LAN via HTTP (port TCP/80). </para>
+            administrator's LAN via HTTP (port TCP/80). </para>
         </listitem>
       </itemizedlist>
     </section>
@@ -268,7 +265,7 @@ As agreed on https://confluence.suse.com/x/DAEcN on our Trento doc kick off
               will refer to it as <systemitem class="username"
                 >&trentoadmin;</systemitem>. You can use any
               desired user name, but make sure you use it
-              consistently accross the landscape. </para>
+              consistently across the landscape. </para>
           </formalpara>
         </listitem>
       </itemizedlist>
@@ -340,7 +337,7 @@ As agreed on https://confluence.suse.com/x/DAEcN on our Trento doc kick off
         <para> To verify that the &t.server; installation was
           successful, open the URL of the &t.web;
           (<uri>http://<replaceable>TRENTO_SERVER_HOSTNAME</replaceable></uri>)
-          from a workstation located in the &sap; admin's LAN. </para>
+          from a workstation located in the &sap; administrator's LAN. </para>
       </step>
     </procedure>
   </section>
@@ -549,8 +546,8 @@ Warning: Permanently added '<replaceable>TRENTO_AGENT_IP</replaceable>' (ECDSA) 
         </listitem>
         <listitem>
           <para> A list of registered hosts with the following info
-            for each one of them: Healh Status (Passing, Warning or
-            Critical), hostname, local IP address, cloud provider
+            for each one of them: Health Status (Passing, Warning or
+            Critical), host name, local IP address, cloud provider
             (when applicable), cluster name (when application),
             system ID (when applicable), the &t.agent;'s version and
             custom tags that you can add and remove manually.
@@ -568,7 +565,7 @@ Warning: Permanently added '<replaceable>TRENTO_AGENT_IP</replaceable>' (ECDSA) 
         <title>Host details view</title>
         <listitem>
           <para><guimenu>Hosts details</guimenu> section: it provides
-            the hostname, the &sap; System ID (when applicable); the
+            the host name, the &sap; System ID (when applicable); the
             cluster name (when applicable) and the &t.agent;
             version.</para>
         </listitem>
@@ -729,8 +726,8 @@ Warning: Permanently added '<replaceable>TRENTO_AGENT_IP</replaceable>' (ECDSA) 
           <para>A <guimenu>&pace; Site details</guimenu> section
             showing the different sites that are configured for this
             cluster. For each site, its name is displayed along with
-            the hostname, the local IP, the virtual IP and the role
-            of the corresponding node. Clicking on the hostname
+            the host name, the local IP, the virtual IP and the role
+            of the corresponding node. Clicking on the host name
             takes you to the corresponding <xref
               linkend="lst-trento-web-hosts-details" />. Clicking
             on the <guimenu>Details</guimenu> button to the right
@@ -801,18 +798,18 @@ Warning: Permanently added '<replaceable>TRENTO_AGENT_IP</replaceable>' (ECDSA) 
         <listitem>
           <para>
             <guimenu>The NetWeaver; instances layout</guimenu>: for
-            each instance, virtual hostname, instance number,
-            features (processes), HTTP and HTTPs ports, start
+            each instance, virtual host name, instance number,
+            features (processes), HTTP and HTTPS ports, start
             priority, and SAPControl status. </para>
         </listitem>
         <listitem>
           <para>
             <guimenu>The list of hosts where the different NetWeaver
-              instances are running</guimenu>, with the hostname,
+              instances are running</guimenu>, with the host name,
             the IP address, the cloud provider (when applicable),
             the cluster name (when applicable), the &sap; System ID,
             and the &t.agent; version for each listed host. When you
-            click the hostname, it shows you the details described
+            click the host name, it shows you the details described
             in <xref linkend="lst-trento-web-hosts-details" />.
           </para>
         </listitem>
@@ -859,7 +856,7 @@ Warning: Permanently added '<replaceable>TRENTO_AGENT_IP</replaceable>' (ECDSA) 
         <listitem>
           <para>
             <guimenu>Layout</guimenu> section: lists all related
-            &hana; instances with their corresposding hostname,
+            &hana; instances with their corresponding host name,
             instance number, features (processes), HTTP/HTTPS ports,
             start priorities, and SAPControl status. </para>
         </listitem>
@@ -867,7 +864,7 @@ Warning: Permanently added '<replaceable>TRENTO_AGENT_IP</replaceable>' (ECDSA) 
           <para>
             <guimenu>Hosts</guimenu> section: lists the hosts where
             all the related instances are running and for each host
-            it provides the hostname, the local IP address, the
+            it provides the host name, the local IP address, the
             cloud provider (when applicable), the cluster name (when
             applicable), the system ID, and the &t.agent; version. </para>
           <para> Clicking on a host name takes you to the
@@ -989,7 +986,7 @@ Warning: Permanently added '<replaceable>TRENTO_AGENT_IP</replaceable>' (ECDSA) 
               <guimenu>Agent version</guimenu> column. </para>
           </step>
           <step>
-            <para>Optionally, click the &t.agent; hostname and
+            <para>Optionally, click the &t.agent; host name and
               review the host status details.</para>
           </step>
         </substeps>
