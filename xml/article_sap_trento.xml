@@ -320,7 +320,16 @@ As agreed on https://confluence.suse.com/x/DAEcN on our Trento doc kick off
         <screen>&prompt.root;curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash</screen>
       </step>
       <step>
-        <para>Install the &t.server; container using Helm:</para>
+        <para>Export the <envar>KUBECONFIG</envar> environment variable for the
+          same user that installed K3s:
+        </para>
+        <screen>export KUBECONFIG=/etc/rancher/k3s/k3s.yaml</screen>
+      </step>
+      <step>
+        <para>
+          With the same user that installed K3s, install the &t.server; container
+          using Helm:
+        </para>
         <remark>toms 2022-01-14: root or not root?</remark>
         <screen>HELM_EXPERIMENTAL_OCI=1 helm upgrade --install \
    <replaceable>TRENTO_SERVER_HOSTNAME</replaceable> \
