@@ -330,13 +330,10 @@ As agreed on https://confluence.suse.com/x/DAEcN on our Trento doc kick off
           With the same user that installed K3s, install the &t.server; container
           using Helm:
         </para>
-        <remark>toms 2022-01-14: root or not root?</remark>
-        <screen>HELM_EXPERIMENTAL_OCI=1 helm upgrade --install \
-   <replaceable>TRENTO_SERVER_HOSTNAME</replaceable> \
+        <screen>HELM_EXPERIMENTAL_OCI=1 helm upgrade \
+   --install <replaceable>TRENTO_SERVER_HOSTNAME</replaceable> \
    oci://registry.suse.com/trento/trento-server \
-   --version 0.2.5 \
-   --set trento-runner.image.tag=0.7.1 \
-   --set trento-web.image.tag=0.7.1 \
+   --version 0.3.5 \
    --set-file trento-runner.privateKey=<replaceable>PRIVATE_SSH_KEY</replaceable></screen>
       </step>
       <step>
