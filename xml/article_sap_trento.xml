@@ -307,11 +307,11 @@ As agreed on https://confluence.suse.com/x/DAEcN on our Trento doc kick off
         <stepalternatives>
           <step>
             <para>Installing as user &rootuser;</para>
-            <screen>&prompt.root;curl -sfL https://get.k3s.io | sh</screen>
+            <screen>&prompt.root;curl -sfL https://get.k3s.io | INSTALL_K3S_SKIP_SELINUX_RPM=true sh</screen>
           </step>
           <step>
             <para>Installing as non-&rootuser; user:</para>
-            <screen>&prompt.user;curl -sfL https://get.k3s.io | sh -s - --write-kubeconfig-mode 644</screen>
+            <screen>&prompt.user;curl -sfL https://get.k3s.io | INSTALL_K3S_SKIP_SELINUX_RPM=true sh -s - --write-kubeconfig-mode 644</screen>
           </step>
         </stepalternatives>
       </step>
