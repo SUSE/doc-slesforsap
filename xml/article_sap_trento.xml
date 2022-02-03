@@ -380,8 +380,9 @@ As agreed on https://confluence.suse.com/x/DAEcN on our Trento doc kick off
     </itemizedlist>
     <para> To install the &t.agent; software on the host and register it
       with the &t.server;, proceed as follows: </para>
-    <procedure>
-      <step>
+    <procedure xml:id="pro-trento-installing-trentoagent">
+      <title>Installing &t.agent;s</title>
+      <step xml:id="step-trento-installing-trentoagent-sshkey">
         <para>
           On the &t.agent; host logged in as <systemitem
           class="username">&trentoadmin;</systemitem>,
@@ -393,7 +394,7 @@ As agreed on https://confluence.suse.com/x/DAEcN on our Trento doc kick off
           &t.agent; host via SSH.
         </para>
       </step>
-      <step>
+      <step xml:id="step-trento-installing-trentoagent-knownhosts">
         <para> Add the &t.agent; host to the list of known hosts on your
           &t.server; by logging in once via SSH as <systemitem
             class="username">&trentoadmin;</systemitem>: </para>
@@ -444,7 +445,7 @@ Warning: Permanently added '<replaceable>TRENTO_AGENT_IP</replaceable>' (ECDSA) 
         <para>Check the status of the &t.agent;:</para>
         <screen>&trentoagent.prompt;sudo systemctl status trento-agent
 ● trento-agent.service - &t.agent; service
-     Loaded: loaded (/usr/lib/systemd/system/trento-agent.service; disabled; vendor preset: disabled)
+     Loaded: loaded (/usr/lib/systemd/system/trento-agent.service; enabled; vendor preset: disabled)
      Active: active (running) since Wed 2021-11-24 17:37:46 UTC; 4s ago
    Main PID: 22055 (trento)
       Tasks: 10
@@ -928,13 +929,28 @@ Warning: Permanently added '<replaceable>TRENTO_AGENT_IP</replaceable>' (ECDSA) 
         <para> Ensure the &t.server; is running. </para>
       </step>
       <step>
-        <para> On the &t.server; host start the update: </para>
-        <screen>&trentoagentprompt;sudo curl -sfL https://raw.githubusercontent.com/trento-project/trento/main/install-server.sh | bash
+        <para>
+          Ensure that credentials for Kubernetes are set up correctly.
+          For example, if you run K3s, export the <envar>KUBECONFIG</envar>
+          environment variable:
+        </para>
+        <screen>export KUBECONFIG=/etc/rancher/k3s/k3s.yaml</screen>
+      </step>
+      <step>
+        <para>
+          With the same user that installed &t.server; initially, start the
+          update of the &t.server;:
+        </para>
+        <screen>HELM_EXPERIMENTAL_OCI=1 helm upgrade \
+   --install <replaceable>TRENTO_SERVER_HOSTNAME</replaceable> \
+   oci://registry.suse.com/trento/trento-server \
+   --version 0.3.5 \
+   --set-file trento-runner.privateKey=<replaceable>PRIVATE_SSH_KEY</replaceable>
         </screen>
       </step>
       <step>
         <para>Check the &t.server; processes:</para>
-        <screen>&trentoagentprompt;sudo kubectl get pod</screen>
+        <screen>kubectl get pod</screen>
       </step>
       <step>
         <para> Open the &t.web; URL
@@ -950,7 +966,16 @@ Warning: Permanently added '<replaceable>TRENTO_AGENT_IP</replaceable>' (ECDSA) 
 
   <section xml:id="sec-trento-updating-trentoagent">
     <title>Updating a &t.agent;</title>
-    <para> To update the &t.agent;, do the following: </para>
+    <para>
+      The following procedure expects that your &t.agent; has the SSH key and is
+      listed as known hosts on your &t.server; as explained
+      in <xref linkend="step-trento-installing-trentoagent-sshkey"/> and
+      <xref linkend="step-trento-installing-trentoagent-knownhosts"/> of
+      <xref linkend="pro-trento-installing-trentoagent"/>.
+    </para>
+    <para>
+      To update the &t.agent;, do the following:
+    </para>
     <procedure>
       <step>
         <para>Log in the &t.agent; host as the Trento admin user
@@ -962,45 +987,41 @@ Warning: Permanently added '<replaceable>TRENTO_AGENT_IP</replaceable>' (ECDSA) 
         <screen>&trentoagent.prompt;sudo systemctl stop trento-agent</screen>
       </step>
       <step>
-        <para>Confirm the &t.agent; is down:</para>
-        <screen>&trentoagent.prompt;sudo systemctl status trento-agent</screen>
+        <para>
+          Install the package:
+        </para>
+        <screen>&trentoagent.prompt;sudo zypper ref
+&trentoagent.prompt;sudo zypper install trento-premium</screen>
       </step>
       <step>
-        <para>Update &t.agent;, using the &t.agent; host local IP and
-          the &t.server; host local IP:</para>
-        <screen>&trentoagent.prompt;curl -sfL https://raw.githubusercontent.com/trento-project/trento/main/install-agent.sh | sudo bash -s - --agent-bind-ip=<replaceable>TRENTO_AGENT_IP</replaceable> --server-ip=<replaceable>TRENTO_SERVER_IP</replaceable></screen>
+        <para>
+          Restart the &t.agent;:
+        </para>
+        <screen>&trentoagent.prompt;sudo systemctl restart trento-agent</screen>
       </step>
       <step>
-        <para>Start the &t.agent;:</para>
-        <screen>&trentoagent.prompt;sudo systemctl enable --now trento-agent</screen>
+        <para>Check the status of the &t.agent;:</para>
+        <screen>&trentoagent.prompt;sudo systemctl status trento-agent
+● trento-agent.service - &t.agent; service
+     Loaded: loaded (/usr/lib/systemd/system/trento-agent.service; enabled; vendor preset: disabled)
+     Active: active (running) since Wed 2021-11-24 17:37:46 UTC; 4s ago
+   Main PID: 22055 (trento)
+      Tasks: 10
+     CGroup: /system.slice/trento-agent.service
+             ├─22055 /usr/bin/trento agent start --consul-config-dir=/srv/consul/consul.d
+             └─22220 /usr/bin/ruby.ruby2.5 /usr/sbin/SUSEConnect -s
+
+[...]</screen>
       </step>
       <step>
-        <para>Check the version on the &t.web;.</para>
-        <substeps>
-          <step>
-            <para>Open the &t.web; URL
-              <uri>http://<replaceable>TRENTO_SERVER_HOSTNAME</replaceable></uri>.</para>
-          </step>
-          <step>
-            <para> In the menu section, click the
-              <guimenu>Hosts</guimenu> entry. Use tags to
-              filter the list, if necessary. </para>
-          </step>
-          <step>
-            <para> Find the corresponding &t.agent; host name in the
-              list. </para>
-          </step>
-          <step>
-            <para> Check the version of the agent running in the
-              <guimenu>Agent version</guimenu> column. </para>
-          </step>
-          <step>
-            <para>Optionally, click the &t.agent; host name and
-              review the host status details.</para>
-          </step>
-        </substeps>
+        <para>Check the version on the &t.web; (URL
+              <uri>http://<replaceable>TRENTO_SERVER_HOSTNAME</replaceable></uri>).</para>
+      </step>
+      <step>
+        <para> Repeat this procedure in all &t.agent; hosts. </para>
       </step>
     </procedure>
+
   </section>
 
   <section xml:id="sec-trento-more-information">
