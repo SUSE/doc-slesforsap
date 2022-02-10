@@ -331,7 +331,7 @@ As agreed on https://confluence.suse.com/x/DAEcN on our Trento doc kick off
           using Helm:
         </para>
         <screen>HELM_EXPERIMENTAL_OCI=1 helm upgrade \
-   --install <replaceable>TRENTO_SERVER_HOSTNAME</replaceable> \
+   --install trento-server \
    oci://registry.suse.com/trento/trento-server \
    --version 0.3.5 \
    --set-file trento-runner.privateKey=<replaceable>PRIVATE_SSH_KEY</replaceable></screen>
@@ -939,7 +939,7 @@ Warning: Permanently added '<replaceable>TRENTO_AGENT_IP</replaceable>' (ECDSA) 
           update of the &t.server;:
         </para>
         <screen>HELM_EXPERIMENTAL_OCI=1 helm upgrade \
-   --install <replaceable>TRENTO_SERVER_HOSTNAME</replaceable> \
+   --install trento-server \
    oci://registry.suse.com/trento/trento-server \
    --version 0.3.5 \
    --set-file trento-runner.privateKey=<replaceable>PRIVATE_SSH_KEY</replaceable>
