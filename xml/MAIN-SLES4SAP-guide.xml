@@ -18,7 +18,7 @@
     <dm:bugtracker>
       <dm:url>https://bugzilla.suse.com/enter_bug.cgi</dm:url>
       <dm:component>Documentation</dm:component>
-      <dm:product>SUSE Linux Enterprise Server for SAP Applications 15 SP3</dm:product>
+      <dm:product>SUSE Linux Enterprise Server for SAP Applications 15 SP4</dm:product>
       <dm:assignee>thomas.schraitle@suse.com</dm:assignee>
     </dm:bugtracker>
     <dm:editurl>https://github.com/SUSE/doc-slesforsap/blob/main/xml/</dm:editurl>
