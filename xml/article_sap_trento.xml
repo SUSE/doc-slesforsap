@@ -8,7 +8,7 @@
 
   <!-- Trento specific entities -->
   <!ENTITY trentopremium        "Trento Premium">
-  <!ENTITY trentoadmin          "trentoadmin">
+  <!ENTITY trentoadmin          "trentoservice">
   <!ENTITY trentoserverip       "192.168.1.2">
   <!ENTITY trentoservername     "<replaceable
     xmlns='http://docbook.org/ns/docbook'>TRENTO_SERVER_HOSTNAME</replaceable>">
@@ -247,8 +247,7 @@ As agreed on https://confluence.suse.com/x/DAEcN on our Trento doc kick off
         <listitem>
           <formalpara>
             <title>&t.server;</title>
-            <para>Access to GitHub for the installation
-              script.</para>
+            <para>Access to &suse; registry for the deployment of &t.server; premium containers.</para>
           </formalpara>
         </listitem>
         <listitem>
@@ -259,9 +258,8 @@ As agreed on https://confluence.suse.com/x/DAEcN on our Trento doc kick off
         </listitem>
         <listitem>
           <formalpara>
-            <title>A Trento admin user</title>
-            <para> With administration privileges in the &t.server;
-              host and the &t.agent; hosts. In this example, we
+            <title>A Trento service user</title>
+            <para> With reading access on the pacemaker cluster configuration files in the &t.agent; hosts. In this example, we
               will refer to it as <systemitem class="username"
                 >&trentoadmin;</systemitem>. You can use any
               desired user name, but make sure you use it
@@ -290,7 +288,8 @@ As agreed on https://confluence.suse.com/x/DAEcN on our Trento doc kick off
           host name of the &t.server; host.</para>
       </listitem>
       <listitem>
-        <para><replaceable>PRIVATE_SSH_KEY</replaceable>: the absolute path to your SSH key.
+        <para><replaceable>PRIVATE_SSH_KEY</replaceable>: the absolute path to the private
+          SSH key that &t.server; will use to connect to the &t.agent; hosts.
         </para>
       </listitem>
     </itemizedlist>
@@ -298,8 +297,7 @@ As agreed on https://confluence.suse.com/x/DAEcN on our Trento doc kick off
 
     <procedure>
       <step>
-        <para> Log on the &t.server; host as user <systemitem
-          class="username">&trentoadmin;</systemitem>.
+        <para> Log on the &t.server; host.
         </para>
       </step>
       <step>
@@ -381,12 +379,10 @@ As agreed on https://confluence.suse.com/x/DAEcN on our Trento doc kick off
       <title>Installing &t.agent;s</title>
       <step xml:id="step-trento-installing-trentoagent-sshkey">
         <para>
-          On the &t.agent; host logged in as <systemitem
-          class="username">&trentoadmin;</systemitem>,
-          add the public SSH key of the user <systemitem
-          class="username">&trentoadmin;</systemitem> generated on
-          the &t.server; host to the file
-          <filename>~/.ssh/authorized_keys</filename>.
+          On the &t.agent; host, add the public SSH key used for the
+          installation of &t.server; to the <filename>~/.ssh/authorized_keys</filename>
+          file of the user <systemitem
+          class="username">&trentoadmin;</systemitem>.
           This step is necessary to enable the runner checks in the
           &t.agent; host via SSH.
         </para>
@@ -397,15 +393,15 @@ As agreed on https://confluence.suse.com/x/DAEcN on our Trento doc kick off
             class="username">&trentoadmin;</systemitem>: </para>
         <substeps>
           <step>
-            <para> Log in on the &t.server; host as <systemitem
-              class="username">&trentoadmin;</systemitem>.
+            <para> Log in on the &t.server; host.
             </para>
           </step>
           <step>
-            <para> Connect to the &t.agent; host using SSH and
+            <para> Connect to the &t.agent; host as <systemitem
+              class="username">&trentoadmin;</systemitem> using SSH and
               answer <literal>yes</literal> when asked whether to
               continue or not with the connection process: </para>
-            <screen>&trentoserver.prompt;ssh <replaceable>TRENTO_AGENT_IP</replaceable>
+            <screen>&prompt.user;ssh &trentoadmin;@<replaceable>TRENTO_AGENT_IP</replaceable>
 [...]
 Are you sure you want to continue connecting (yes/no/[fingerprint])? <emphasis role="strong">yes</emphasis>
 Warning: Permanently added '<replaceable>TRENTO_AGENT_IP</replaceable>' (ECDSA) to the list of known hosts.</screen>
@@ -421,8 +417,8 @@ Warning: Permanently added '<replaceable>TRENTO_AGENT_IP</replaceable>' (ECDSA) 
         <para>
           Install the package:
         </para>
-        <screen>&trentoagent.prompt;sudo zypper ref
-&trentoagent.prompt;sudo zypper install trento-premium</screen>
+        <screen>&prompt.user;sudo zypper ref
+&prompt.user;sudo zypper install trento-premium</screen>
       </step>
       <step>
         <para>
@@ -436,11 +432,11 @@ Warning: Permanently added '<replaceable>TRENTO_AGENT_IP</replaceable>' (ECDSA) 
         <para>
           Start the &t.agent;:
         </para>
-        <screen>&trentoagent.prompt;sudo systemctl enable --now trento-agent</screen>
+        <screen>&prompt.user;sudo systemctl enable --now trento-agent</screen>
       </step>
       <step>
         <para>Check the status of the &t.agent;:</para>
-        <screen>&trentoagent.prompt;sudo systemctl status trento-agent
+        <screen>&prompt.user;sudo systemctl status trento-agent
 ● trento-agent.service - &t.agent; service
      Loaded: loaded (/usr/lib/systemd/system/trento-agent.service; enabled; vendor preset: disabled)
      Active: active (running) since Wed 2021-11-24 17:37:46 UTC; 4s ago
@@ -975,30 +971,28 @@ Warning: Permanently added '<replaceable>TRENTO_AGENT_IP</replaceable>' (ECDSA) 
     </para>
     <procedure>
       <step>
-        <para>Log in the &t.agent; host as the Trento admin user
-          <systemitem class="username"
-            >&trentoadmin;</systemitem>.</para>
+        <para>Log in the &t.agent; host.</para>
       </step>
       <step>
         <para>Stop the &t.agent;:</para>
-        <screen>&trentoagent.prompt;sudo systemctl stop trento-agent</screen>
+        <screen>&prompt.user;sudo systemctl stop trento-agent</screen>
       </step>
       <step>
         <para>
           Install the package:
         </para>
-        <screen>&trentoagent.prompt;sudo zypper ref
-&trentoagent.prompt;sudo zypper install trento-premium</screen>
+        <screen>&prompt.user;sudo zypper ref
+&prompt.user;sudo zypper install trento-premium</screen>
       </step>
       <step>
         <para>
           Restart the &t.agent;:
         </para>
-        <screen>&trentoagent.prompt;sudo systemctl restart trento-agent</screen>
+        <screen>&prompt.user;sudo systemctl restart trento-agent</screen>
       </step>
       <step>
         <para>Check the status of the &t.agent;:</para>
-        <screen>&trentoagent.prompt;sudo systemctl status trento-agent
+        <screen>&prompt.user;sudo systemctl status trento-agent
 ● trento-agent.service - &t.agent; service
      Loaded: loaded (/usr/lib/systemd/system/trento-agent.service; enabled; vendor preset: disabled)
      Active: active (running) since Wed 2021-11-24 17:37:46 UTC; 4s ago
