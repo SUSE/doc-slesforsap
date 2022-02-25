@@ -247,7 +247,7 @@ As agreed on https://confluence.suse.com/x/DAEcN on our Trento doc kick off
         <listitem>
           <formalpara>
             <title>&t.server;</title>
-            <para>Access to SUSE registry for the deployment of Trento Server premium containers.</para>
+            <para>Access to &suse; registry for the deployment of &t.server; premium containers.</para>
           </formalpara>
         </listitem>
         <listitem>
@@ -288,7 +288,8 @@ As agreed on https://confluence.suse.com/x/DAEcN on our Trento doc kick off
           host name of the &t.server; host.</para>
       </listitem>
       <listitem>
-        <para><replaceable>PRIVATE_SSH_KEY</replaceable>: the absolute path to the private SSH key that Trento Server will use to connect to the Trento Agent hosts.
+        <para><replaceable>PRIVATE_SSH_KEY</replaceable>: the absolute path to the private
+          SSH key that &t.server; will use to connect to the &t.agent; hosts.
         </para>
       </listitem>
     </itemizedlist>
@@ -296,7 +297,7 @@ As agreed on https://confluence.suse.com/x/DAEcN on our Trento doc kick off
 
     <procedure>
       <step>
-        <para> Log on the &t.server; host</systemitem>.
+        <para> Log on the &t.server; host.
         </para>
       </step>
       <step>
