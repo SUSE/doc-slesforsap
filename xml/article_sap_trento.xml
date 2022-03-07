@@ -259,7 +259,7 @@ As agreed on https://confluence.suse.com/x/DAEcN on our Trento doc kick off
         <listitem>
           <formalpara>
             <title>A Trento service user</title>
-            <para> With reading access on the pacemaker cluster configuration files in the &t.agent; hosts. In this example, we
+            <para> Able to sudo to root without password in the &t.agent; hosts. In this example, we
               will refer to it as <systemitem class="username"
                 >&trentoadmin;</systemitem>. You can use any
               desired user name, but make sure you use it
