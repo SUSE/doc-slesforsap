@@ -30,10 +30,10 @@ HINT (toms) 2020-06-05:
         <dm:url>https://bugzilla.suse.com/enter_bug.cgi</dm:url>
         <dm:component>Documentation</dm:component>
         <dm:product
-          >SUSE Linux Enterprise Server for SAP Applications 15 SP2</dm:product>
-        <dm:assignee>thomas.schraitle@suse.com</dm:assignee>
+          >SUSE Linux Enterprise Server for SAP Applications 15 SP1</dm:product>
+        <dm:assignee>dmitri.popov@suse.com</dm:assignee>
       </dm:bugtracker>
-      <dm:editurl>https://github.com/SUSE/doc-slesforsap/blob/master/xml/</dm:editurl>
+      <dm:editurl>https://github.com/SUSE/doc-slesforsap/blob/maintenance/15_SP1/xml</dm:editurl>
       <dm:translation>no</dm:translation>
     </dm:docmanager>
     <xi:include href="common_copyright_gfdl.xml"/>
