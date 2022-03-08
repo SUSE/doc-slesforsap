@@ -31,7 +31,7 @@ HINT (toms) 2020-06-05:
         <dm:component>Documentation</dm:component>
         <dm:product
           >SUSE Linux Enterprise Server for SAP Applications 15 SP2</dm:product>
-        <dm:assignee>thomas.schraitle@suse.com</dm:assignee>
+        <dm:assignee>dmitri.popov@suse.com</dm:assignee>
       </dm:bugtracker>
       <dm:editurl>https://github.com/SUSE/doc-slesforsap/edit/maintenance/15_SP2/xml/</dm:editurl>
       <dm:translation>no</dm:translation>
