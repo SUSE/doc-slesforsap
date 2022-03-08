@@ -528,6 +528,41 @@ Warning: Permanently added '<replaceable>TRENTO_AGENT_IP</replaceable>' (ECDSA) 
     <para> The following subsections provides an overview of Trento's
       functionality. </para>
 
+    <section xml:id="sec-trento-web-home-page">
+      <title>Home page</title>
+      <para> The Home page allows you to determine at a glance the Health Status of your SAP environment. </para>
+      <figure>
+        <title>Hosts page</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata width="80%" fileref="<home_page_screenshot>" />
+          </imageobject>
+        </mediaobject>
+      </figure>
+      <para> The Global Health section on top shows a summary of the Health Status of the registered SAP systems. </para>
+      <para> The Health Status of a registered SAP system is the compound of its Health Status at four diferent layers, which are a reflection of the SAP architecture:</para>
+      <itemizedlist>
+        <listitem>
+          <para> Hosts: it collects the running status of the Trento Agent and the Node Exporter.
+          </para>
+        </listitem>
+        <listitem>
+          <para> Pacemaker Clusters: the status here is based on the running status of the cluster and the results of the configuration checks.
+          </para>
+        </listitem>
+        <listitem>
+          <para> Database: it collects the status of the HANA instances as returned by sapcontrol.
+          </para>
+        </listitem>
+	       <listitem>
+          <para> SAP instances: it summarizes the status of the ABAP instances as returned by sapcontrol.
+          </para>
+        </listitem>
+      </itemizedlist>
+      <para> A grey status is returned when either a component is not present or it is stopped (as returned by sapcontrol) or it is unknown (for instance if a command to determine the status fails).</para>
+      <para> Grey statuses are not counted in the calculation of the Global Health status.</para>
+    </section>
+   
     <section xml:id="sec-trento-web-hosts">
       <title>Hosts view</title>
       <para> To display the lists of registered hosts, click the
