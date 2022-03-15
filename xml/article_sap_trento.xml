@@ -187,8 +187,8 @@ As agreed on https://confluence.suse.com/x/DAEcN on our Trento doc kick off
       &t.agent;s. </para>
     <section xml:id="sec-trento-server-requirements">
       <title>&t.server; requirements</title>
-      <para> Running all the &t.server; components requires 2GB of RAM and
-        two CPU cores. </para>
+      <para> Running all the &t.server; components requires a minimum of 2GB of RAM, 
+       two CPU cores and 64GB of storage. </para>
       <para> While the &t.server; supports various usage scenarios,
         depending on the existing infrastructure, it's designed to be
         cloud-native and OS agnostic. As such, the default installation
