@@ -207,8 +207,7 @@ https://confluence.suse.com/x/8IEnGw
       </para>
       <step>
         <para>
-          Install the &salt; formulas with <command>zypper</command>.
-          Get the package name from the upstream GitHub repository.
+          Install the &salt; formulas using the <command>sudo zypper in saphanabootstrap-formula sapnwbootstrap-formula drbd-formula habootstrap-formula</command> command.
         </para>
       </step>
       <step>
@@ -256,11 +255,14 @@ https://confluence.suse.com/x/8IEnGw
       </step>
       <step>
         <para>
-          Copy example pillar files to the right directories:
+          Copy example pillar files to the appropriate directories:
         </para>
-        <screen>&prompt.sudo;<command>cp</command> -vi /usr/share/salt-formulas/metadata/hana/hana.sls /usr/share/salt-formulas/metadata/hana/cluster.sls /srv/pillar/hana
-&prompt.sudo;<command>cp</command> -vi /usr/share/salt-formulas/metadata/netweaver/netweaver.sls /usr/share/salt-formulas/metadata/hana/cluster.sls /srv/pillar/netweaver
-&prompt.sudo;<command>cp</command> -vi /usr/share/salt-formulas/metadata/drbd/drbd.sls /usr/share/salt-formulas/metadata/hana/cluster.sls /srv/pillar/drbd</screen>
+        <screen>&prompt.sudo;<command>cp</command> /usr/share/salt-formulas/metadata/hana/pillar.example /srv/pillar/hana/hana.sls
+&prompt.sudo;<command>cp</command> /usr/share/salt-formulas/states/netweaver/pillar.example /srv/pillar/netweaver/netweaver.sls
+&prompt.sudo;<command>cp</command> /usr/share/salt-formulas/metadata/drbd/pillar.example /srv/pillar/drdb/drdb.sls
+&prompt.sudo;<command>cp</command> /usr/share/salt-formulas/metadata/cluser/pillar.example /srv/pillar/hana
+&prompt.sudo;<command>cp</command> /usr/share/salt-formulas/metadata/cluser/pillar.example /srv/pillar/netweaver
+&prompt.sudo;<command>cp</command> /usr/share/salt-formulas/metadata/cluser/pillar.example /srv/pillar/drdb</screen>
       </step>
       <step>
         <para>
