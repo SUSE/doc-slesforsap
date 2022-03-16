@@ -59,19 +59,19 @@
     </listitem>
    </varlistentry>
    <varlistentry>
-    <term><filename>/etc/product.d/baseproduct</filename></term>
+    <term><filename>/etc/products.d/baseproduct</filename></term>
     <listitem>
      <para>
       A link to an XML file. The
       <filename class="directory"
-       >/etc/product.d/</filename> directory
+       >/etc/products.d/</filename> directory
       contains different <filename
         class="extension">.prod</filename>
       files.
      </para>
      <para>
       Depending on which products you have purchased and how you installed your
-      system, the link <filename>/etc/product.d/baseproduct</filename> can
+      system, the link <filename>/etc/products.d/baseproduct</filename> can
       point to a different <filename
         class="extension">.prod</filename>
       file, for example, <filename>sle-module-sap-applications.prod</filename>.
@@ -95,7 +95,7 @@
   <para>
    You can extract any information from the file
    <filename
-    >/etc/product.d/baseproduct</filename> either with the
+    >/etc/products.d/baseproduct</filename> either with the
    commands <command>grep</command> or <command>xmlstarlet</command> (both are
    available for your products). As XML is also text, use
    <command>grep</command> for <quote>simple searches</quote> when the format
