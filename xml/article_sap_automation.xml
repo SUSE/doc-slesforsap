@@ -256,24 +256,11 @@ https://confluence.suse.com/x/8IEnGw
       </step>
       <step>
         <para>
-          Download the examples from the upstream GitHub repository:
+          Copy example pillar files to the right directories:
         </para>
-        <screen>&prompt.user;<command>wget</command> -O hana.sls \
-  https://github.com/SUSE/saphanabootstrap-formula/raw/master/pillar.example
-&prompt.user;<command>wget</command> -O netweaver.sls \
-  https://github.com/SUSE/sapnwbootstrap-formula/raw/master/pillar.example
-&prompt.user;<command>wget</command> -O drbd.sls \
-  https://github.com/SUSE/drbd-formula/raw/master/pillar.example
-&prompt.user;<command>wget</command> -O cluster.sls \
-  https://github.com/SUSE/habootstrap-formula/raw/master/pillar.example</screen>
-      </step>
-      <step>
-        <para>
-          Copy all pillar files to the right directory:
-        </para>
-        <screen>&prompt.sudo;<command>cp</command> -vi hana.sls cluster.sls /srv/pillar/hana
-&prompt.sudo;<command>cp</command> -vi netweaver.sls cluster.sls /srv/pillar/netweaver
-&prompt.sudo;<command>cp</command> -vi drbd.sls cluster.sls /srv/pillar/drbd</screen>
+        <screen>&prompt.sudo;<command>cp</command> -vi /usr/share/salt-formulas/metadata/hana/hana.sls /usr/share/salt-formulas/metadata/hana/cluster.sls /srv/pillar/hana
+&prompt.sudo;<command>cp</command> -vi /usr/share/salt-formulas/metadata/netweaver/netweaver.sls /usr/share/salt-formulas/metadata/hana/cluster.sls /srv/pillar/netweaver
+&prompt.sudo;<command>cp</command> -vi /usr/share/salt-formulas/metadata/drbd/drbd.sls /usr/share/salt-formulas/metadata/hana/cluster.sls /srv/pillar/drbd</screen>
       </step>
       <step>
         <para>
