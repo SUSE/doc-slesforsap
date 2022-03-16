@@ -535,7 +535,7 @@ Warning: Permanently added '<replaceable>TRENTO_AGENT_IP</replaceable>' (ECDSA) 
         <title>Hosts page</title>
         <mediaobject>
           <imageobject>
-            <imagedata width="80%" fileref="<home_page_screenshot>" />
+            <imagedata width="80%" fileref="trento-web-home.png" />
           </imageobject>
         </mediaobject>
       </figure>
