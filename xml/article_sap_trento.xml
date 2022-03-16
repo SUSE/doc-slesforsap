@@ -528,6 +528,55 @@ Warning: Permanently added '<replaceable>TRENTO_AGENT_IP</replaceable>' (ECDSA) 
     <para> The following subsections provides an overview of Trento's
       functionality. </para>
 
+    <section xml:id="sec-trento-web-home-page">
+      <title>Home page</title>
+      <para> The home page allows you to determine at a glance the Health Status of your &sap; environment. </para>
+      <figure>
+        <title>Hosts page</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata width="80%" fileref="trento-web-home.png" />
+          </imageobject>
+        </mediaobject>
+      </figure>
+      <para>
+        The Global Health section on top shows a summary of the Health Status of the registered &sap; systems.
+      </para>
+      <para> The Health Status of a registered &sap; system is the compound of its Health Status at four
+        diferent layers, which are a reflection of the &sap; architecture:</para>
+      <itemizedlist>
+        <listitem>
+          <formalpara>
+            <title><guimenu>Hosts</guimenu>:</title>
+            <para>it collects the running status of the Trento Agent and the Node Exporter.</para>
+          </formalpara>
+        </listitem>
+        <listitem>
+          <formalpara>
+            <title><guimenu>&pace; Clusters</guimenu>:</title>
+            <para>the status here is based on the running status of the cluster and the results
+              of the configuration checks.</para>
+          </formalpara>
+        </listitem>
+        <listitem>
+          <formalpara>
+            <title><guimenu>Database</guimenu>:</title>
+            <para>it collects the status of the HANA instances as returned by <command>sapcontrol</command>.</para>
+          </formalpara>
+        </listitem>
+        <listitem>
+          <formalpara>
+            <title><guimenu>SAP instances</guimenu>:</title>
+            <para>it summarizes the status of the ABAP instances as returned by <command>sapcontrol</command>.</para>
+          </formalpara>
+        </listitem>
+      </itemizedlist>
+      <para> A grey status is returned when either a component is not present or it is stopped
+        (as returned by <command>sapcontrol</command>) or it is unknown (for instance if a command
+        to determine the status fails).</para>
+      <para> Grey statuses are not counted in the calculation of the Global Health status.</para>
+    </section>
+   
     <section xml:id="sec-trento-web-hosts">
       <title>Hosts view</title>
       <para> To display the lists of registered hosts, click the
