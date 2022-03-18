@@ -1064,6 +1064,49 @@ Warning: Permanently added '<replaceable>TRENTO_AGENT_IP</replaceable>' (ECDSA) 
 
   </section>
 
+   <section xml:id="sec-trento-uninstall-trentoserver">
+    <title>Uninstalling &t.server;</title>
+    <para> To uninstall &t.server;, do the following: </para>
+    <procedure>
+      <step>
+        <para>
+          Ensure that credentials for Kubernetes are set up correctly.
+          For example, if you run K3s, export the <envar>KUBECONFIG</envar>
+          environment variable:
+        </para>
+        <screen>export KUBECONFIG=/etc/rancher/k3s/k3s.yaml</screen>
+      </step>
+      <step>
+        <para>
+          With the same user that installed &t.server; run the following command:
+        </para>
+        <screen>helm uninstall trento-server</screen>
+      </step>
+    </procedure>
+  </section>
+
+  <section xml:id="sec-trento-uninstall-trentoagent">
+    <title>Uninstalling a &t.agent;</title>
+    <para>
+      To uninstall a &t.agent;, do the following:
+    </para>
+    <procedure>
+      <step>
+        <para>Log in the &t.agent; host.</para>
+      </step>
+      <step>
+        <para>Stop the &t.agent;:</para>
+        <screen>&prompt.user;sudo systemctl stop trento-agent</screen>
+      </step>
+      <step>
+        <para>
+          Remove the package:
+        </para>
+        <screen>&prompt.user;sudo zypper remove trento-premium</screen>
+      </step>
+    </procedure>
+  </section>
+ 
   <section xml:id="sec-trento-more-information">
     <title>More information</title>
     <itemizedlist>
