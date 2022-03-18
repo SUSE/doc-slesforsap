@@ -1080,8 +1080,7 @@ Warning: Permanently added '<replaceable>TRENTO_AGENT_IP</replaceable>' (ECDSA) 
         <para>
           With the same user that installed &t.server; run the following command:
         </para>
-        <screen>helm uninstall trento-server
-        </screen>
+        <screen>helm uninstall trento-server</screen>
       </step>
     </procedure>
   </section>
