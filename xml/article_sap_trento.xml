@@ -1066,7 +1066,7 @@ Warning: Permanently added '<replaceable>TRENTO_AGENT_IP</replaceable>' (ECDSA) 
 
    <section xml:id="sec-trento-uninstall-trentoserver">
     <title>Uninstalling &t.server;</title>
-    <para> To uninstall &t.server;, do the following: </para>
+    <para> To uninstall &t.server;, proceed as follows:</para>
     <procedure>
       <step>
         <para>
@@ -1078,7 +1078,7 @@ Warning: Permanently added '<replaceable>TRENTO_AGENT_IP</replaceable>' (ECDSA) 
       </step>
       <step>
         <para>
-          With the same user that installed &t.server; run the following command:
+          With the same user that installed &t.server;, run the following command:
         </para>
         <screen>helm uninstall trento-server</screen>
       </step>
@@ -1088,7 +1088,7 @@ Warning: Permanently added '<replaceable>TRENTO_AGENT_IP</replaceable>' (ECDSA) 
   <section xml:id="sec-trento-uninstall-trentoagent">
     <title>Uninstalling a &t.agent;</title>
     <para>
-      To uninstall a &t.agent;, do the following:
+      To uninstall a &t.agent;, perform the following steps:
     </para>
     <procedure>
       <step>
