@@ -299,10 +299,11 @@ As agreed on https://confluence.suse.com/x/DAEcN on our Trento doc kick off
       installation process. If you already have a &k8s; cluster in place and
       want to use it to run &t.server;, all you have to do is to install Helm
       (<xref linkend="st-install-helm"/>) and then run command in <xref linkend="st-install-helm"/>
-      to deploy the helm chart in your &k8s; cluster.
+      to deploy the Helm chart in your &k8s; cluster.
       If you don't have a &k8s; cluster or have one but don't want to use it for
-      Trento, you can deploy a small VM (see section 3.1 for minimum requirements
-      and follow steps 1 through 7 to get &t.server; up and running.
+      Trento, you can deploy a small VM (see section <xref linkend="sec-trento-server-requirements"/>
+      for minimum requirements and follow steps in <xref linkend="pro-trento-manually-installing"/>
+      to get &t.server; up and running.
     </para>
 
     <para>
