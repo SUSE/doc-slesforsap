@@ -304,12 +304,6 @@ As agreed on https://confluence.suse.com/x/DAEcN on our Trento doc kick off
       Trento, you can deploy a small VM (see section 3.1 for minimum requirements
       and follow steps 1 through 7 to get &t.server; up and running.
     </para>
-    <para>
-      The &t.server; is available as package <package>trento-premium</package> in your
-      respective &suse; repository. The package does not require &productname;.
-      This package is available for customers that do not have a K3s; in place and
-      want to deploy the server on K3s for &productname;.
-    </para>
 
     <para>
       The <package>trento-premium-server-installer</package> package
