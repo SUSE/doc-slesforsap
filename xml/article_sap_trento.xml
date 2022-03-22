@@ -293,9 +293,29 @@ As agreed on https://confluence.suse.com/x/DAEcN on our Trento doc kick off
         </para>
       </listitem>
     </itemizedlist>
-    <para> To install Trento on your &t.server; host proceed as follows: </para>
 
-    <procedure>
+    <para>
+      &t.server; premium is delivered as a Helm chart in order to facilitate its
+      installation process. If you already have a &k8s; cluster in place and
+      want to use it to run &t.server;, all you have to do is to install Helm
+      (<xref linkend="st-install-helm"/>) and then run command in <xref linkend="st-install-helm"/>
+      to deploy the Helm chart in your &k8s; cluster.
+      If you don't have a &k8s; cluster or have one but don't want to use it for
+      Trento, you can deploy a small VM (see section <xref linkend="sec-trento-server-requirements"/>
+      for minimum requirements and follow steps in <xref linkend="pro-trento-manually-installing"/>
+      to get &t.server; up and running.
+    </para>
+
+    <para>
+      The <package>trento-premium-server-installer</package> package
+      simplifies the installation and installs K3s and Helm for you.
+      It replaces the following manual steps.
+      In case you want to install Trento on your &t.server; host manually,
+      proceed as follows:
+    </para>
+
+    <procedure xml:id="pro-trento-manually-installing">
+      <title>Manually installing Trento on a &t.server; host</title>
       <step>
         <para> Log on the &t.server; host.
         </para>
@@ -313,7 +333,7 @@ As agreed on https://confluence.suse.com/x/DAEcN on our Trento doc kick off
           </step>
         </stepalternatives>
       </step>
-      <step>
+      <step xml:id="st-install-helm">
         <para>Install Helm as &rootuser;:</para>
         <screen>&prompt.root;curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash</screen>
       </step>
@@ -323,7 +343,7 @@ As agreed on https://confluence.suse.com/x/DAEcN on our Trento doc kick off
         </para>
         <screen>export KUBECONFIG=/etc/rancher/k3s/k3s.yaml</screen>
       </step>
-      <step>
+      <step xml:id="st-deploy-k3s">
         <para>
           With the same user that installed K3s, install the &t.server; container
           using Helm:
