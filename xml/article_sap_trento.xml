@@ -307,8 +307,10 @@ As agreed on https://confluence.suse.com/x/DAEcN on our Trento doc kick off
     </para>
 
     <para>
-      If you choose to deploy the VM with a registered SLES for SAP 15 distro, instead of executing <xref linkend="st-install-k3s"/> thru
-     <xref linkend="st-deploy-k3s"/>, you can install package <filename>trento-premium-server-installer</filename> and then execute script
+      If you choose to deploy the VM with a registered SLES for SAP 15 distro,
+      instead of executing <xref linkend="st-install-k3s"/> thru
+      <xref linkend="st-deploy-k3s"/>, you can install package
+      <filename>trento-premium-server-installer</filename> and then execute script
      <filename>install-trento-server</filename>: it will run those steps for you automatically.
     </para>
 
