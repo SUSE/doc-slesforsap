@@ -262,7 +262,7 @@ As agreed on https://confluence.suse.com/x/DAEcN on our Trento doc kick off
             <para> Able to sudo to root without password in the &t.agent; hosts. In this example, we
               will refer to it as <systemitem class="username"
                 >&trentoadmin;</systemitem>. You can use any
-              desired user name, but make sure you use it
+              desired user name, but we recommend you use it
               consistently across the landscape. </para>
           </formalpara>
         </listitem>
@@ -298,20 +298,20 @@ As agreed on https://confluence.suse.com/x/DAEcN on our Trento doc kick off
       &t.server; premium is delivered as a Helm chart in order to facilitate its
       installation process. If you already have a &k8s; cluster in place and
       want to use it to run &t.server;, all you have to do is to install Helm
-      (<xref linkend="st-install-helm"/>) and then run command in <xref linkend="st-install-helm"/>
+      (<xref linkend="st-install-helm"/>) and then run command in <xref linkend="st-deploy-k3s"/>
       to deploy the Helm chart in your &k8s; cluster.
       If you don't have a &k8s; cluster or have one but don't want to use it for
       Trento, you can deploy a small VM (see section <xref linkend="sec-trento-server-requirements"/>
-      for minimum requirements and follow steps in <xref linkend="pro-trento-manually-installing"/>
+      for minimum requirements) and follow steps in <xref linkend="pro-trento-manually-installing"/>
       to get &t.server; up and running.
     </para>
 
     <para>
-      The <package>trento-premium-server-installer</package> package
-      simplifies the installation and installs K3s and Helm for you.
-      It replaces the following manual steps.
-      In case you want to install Trento on your &t.server; host manually,
-      proceed as follows:
+      If you choose to deploy the VM with a registered SLES for SAP 15 distro,
+      instead of executing <xref linkend="st-install-k3s"/> thru
+      <xref linkend="st-deploy-k3s"/>, you can install package
+      <filename>trento-premium-server-installer</filename> and then execute script
+     <filename>install-trento-server</filename>: it will run those steps for you automatically.
     </para>
 
     <procedure xml:id="pro-trento-manually-installing">
@@ -320,7 +320,7 @@ As agreed on https://confluence.suse.com/x/DAEcN on our Trento doc kick off
         <para> Log on the &t.server; host.
         </para>
       </step>
-      <step>
+      <step xml:id="st-install-k3s">
         <para>Install &k8s;, for example, K3s for a single server install:</para>
         <stepalternatives>
           <step>
