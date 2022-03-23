@@ -930,7 +930,7 @@ MemoryLow=infinity</screen>
   </para>
  </sect1>
  <sect1 xml:id="sec-sap-systemd-wmp">
-  <title>Systems running only &systemd-based instances</title>
+  <title>Systems running only &systemd;-based instances</title>
 
   <note>
    <para>
