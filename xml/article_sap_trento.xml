@@ -636,10 +636,19 @@ Warning: Permanently added '<replaceable>TRENTO_AGENT_IP</replaceable>' (ECDSA) 
       <itemizedlist xml:id="lst-trento-web-hosts-details">
         <title>Host details view</title>
         <listitem>
-          <para><guimenu>Hosts details</guimenu> section: it provides
-            the host name, the &sap; System ID (when applicable); the
-            cluster name (when applicable) and the &t.agent;
-            version.</para>
+          <para><guimenu>Hosts details</guimenu> section: it shows a monitoring
+            dashboard to display CPU and memory usage for the specific host.
+            Additionally, the page provides the host name, the &sap;
+            System ID (when applicable); the cluster name (when applicable)
+            and the &t.agent; version.
+          </para>
+          <informalfigure>
+            <mediaobject>
+              <imageobject>
+                <imagedata width="60%" fileref="trento-web-hosts-dashboard-cpu-memory.png"/>
+              </imageobject>
+            </mediaobject>
+          </informalfigure>
         </listitem>
         <listitem>
           <para><guimenu>Cloud details</guimenu> section: when
