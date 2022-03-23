@@ -596,7 +596,7 @@ Warning: Permanently added '<replaceable>TRENTO_AGENT_IP</replaceable>' (ECDSA) 
         to determine the status fails).</para>
       <para> Grey statuses are not counted in the calculation of the Global Health status.</para>
     </section>
-   
+
     <section xml:id="sec-trento-web-hosts">
       <title>Hosts view</title>
       <para> To display the lists of registered hosts, click the
@@ -617,17 +617,17 @@ Warning: Permanently added '<replaceable>TRENTO_AGENT_IP</replaceable>' (ECDSA) 
           </para>
         </listitem>
         <listitem>
-          <para> A list of registered hosts with the following info
-            for each one of them: Health Status (Passing, Warning or
-            Critical), host name, local IP address, cloud provider
-            (when applicable), cluster name (when application),
-            system ID (when applicable), the &t.agent;'s version and
-            custom tags that you can add and remove manually.
-          </para>
+          <para> A <emphasis role="bold">list</emphasis> of registered hosts
+            with the following info for each one of them: Health Status
+            (Passing, Warning or Critical), host name and local IP address. If
+            applicable, it shows cloud provider, cluster name, and system ID.
+            Otherwise all fields are empty.
+            The row ends with the &t.agent;'s version and custom tags that you
+            can add and remove manually. </para>
         </listitem>
         <listitem>
-          <para> Ability to filter the list by health status, &sap;
-            System ID, or custom tags. </para>
+          <para> Ability to <emphasis role="bold">filter</emphasis> the list by
+            health status, &sap; System ID, or custom tags. </para>
         </listitem>
       </itemizedlist>
 
