@@ -841,10 +841,11 @@ ha0adm    3327 0::/SAP.slice/wmp-ra42489517eb846c282c57681e627a496.scope    saps
   <title>Systems running both &systemd;-based and regular SAP instances</title>
 
   <para>
-   With SAP kernel version 788, the SAP Start Service supports &systemd;. Such
-   a &systemd;-based instance comes with its own &systemd; service that the SAP
-   Start Service places into its own cgroup
-   (<systemitem class="service">SAP<replaceable>SID_NR</replaceable>.service</systemitem>)
+   With SAP kernel version 788 and certain specified patch levels of older
+   kernel releases (722, 753, 777, 781, 785), the SAP Start Service supports
+   &systemd;. Such a &systemd;-based instance comes with its own &systemd;
+   service that the SAP Start Service places into its own cgroup (<systemitem
+   class="service">SAP<replaceable>SID_NR</replaceable>.service</systemitem>)
    under <systemitem class="service">SAP.slice</systemitem>. This affects the
    &wmp; setup. For &systemd;-based SAP instances, the following instructions
    apply:
