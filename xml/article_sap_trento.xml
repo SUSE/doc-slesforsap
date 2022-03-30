@@ -551,7 +551,7 @@ Warning: Permanently added '<replaceable>TRENTO_AGENT_IP</replaceable>' (ECDSA) 
     <section xml:id="sec-trento-web-home-page">
       <title>Home page</title>
       <para> The home page allows you to determine at a glance the Health Status of your &sap; environment. </para>
-      <figure>
+      <figure xml:id="fig-trento-web-home">
         <title>Hosts page</title>
         <mediaobject>
           <imageobject>
@@ -1135,7 +1135,16 @@ Warning: Permanently added '<replaceable>TRENTO_AGENT_IP</replaceable>' (ECDSA) 
       </step>
     </procedure>
   </section>
- 
+
+  <section xml:id="sec-trento-feedback">
+    <title>Giving feedback</title>
+    <para>
+      On the right side of &t.server; console you will find the button <guimenu>Report feedback</guimenu>.
+      You can use it to provide feedback, rate the application, share what you liked and what can be improved.
+      For enterprise support requests, use the <link xlink:href="&sccurl;">&scc;</link>.
+    </para>
+  </section>
+
   <section xml:id="sec-trento-more-information">
     <title>More information</title>
     <itemizedlist>
