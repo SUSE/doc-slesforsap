@@ -1018,7 +1018,7 @@ Warning: Permanently added '<replaceable>TRENTO_AGENT_IP</replaceable>' (ECDSA) 
         <screen>HELM_EXPERIMENTAL_OCI=1 helm upgrade \
    --install trento-server \
    oci://registry.suse.com/trento/trento-server \
-   --version 0.4.3 \
+   --version 0.4.4 \
    --set-file trento-runner.privateKey=<replaceable>PRIVATE_SSH_KEY</replaceable>
         </screen>
               <para>
