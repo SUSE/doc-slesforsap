@@ -1022,7 +1022,7 @@ Warning: Permanently added '<replaceable>TRENTO_AGENT_IP</replaceable>' (ECDSA) 
    --set-file trento-runner.privateKey=<replaceable>PRIVATE_SSH_KEY</replaceable>
         </screen>
               <para>
-          Please note that the experimental flag is not needed as of helm version 3.8.0.
+          Note that the experimental flag is not needed as of Helm version 3.8.0.
         </para>
       </step>
       <step>
