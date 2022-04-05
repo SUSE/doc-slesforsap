@@ -84,18 +84,6 @@
      </listitem>
     </itemizedlist>
 
-    <figure xml:id="fig-install-media-bootmenu">
-     <title>Installation media boot menu</title>
-     <mediaobject>
-      <imageobject role="fo">
-       <imagedata fileref="s4s-install-media-boot-menu.png" width="73%" format="PNG"/>
-      </imageobject>
-      <imageobject role="html">
-       <imagedata fileref="s4s-install-media-boot-menu.png" width="73%" format="PNG"/>
-      </imageobject>
-     </mediaobject>
-    </figure>
-
     <para>
      While the initial operating system is starting, you can view boot messages
      by pressing <keycap function="escape"/>.
@@ -281,17 +269,6 @@
       product on the next page.
      </para>
     </important>
-    <figure xml:id="fig-install-reg-dialog">
-     <title>Registration</title>
-     <mediaobject>
-      <imageobject role="fo">
-       <imagedata fileref="s4s-install-registration.png" width="73%" format="PNG"/>
-      </imageobject>
-      <imageobject role="html">
-       <imagedata fileref="s4s-install-registration.png" width="73%" format="PNG"/>
-      </imageobject>
-     </mediaobject>
-    </figure>
    </step>
    <step>
     <para>
@@ -468,17 +445,6 @@
      To accept the proposed setup without changes, proceed with
      <guimenu>Next</guimenu>.
     </para>
-    <figure xml:id="fig-install-partition">
-     <title>Suggested partitioning</title>
-     <mediaobject>
-      <imageobject role="fo">
-       <imagedata fileref="s4s-install-partitioning.png" width="73%" format="PNG"/>
-      </imageobject>
-      <imageobject role="html">
-       <imagedata fileref="s4s-install-partitioning.png" width="73%" format="PNG"/>
-      </imageobject>
-     </mediaobject>
-    </figure>
    </step>
    <step>
     <para>
