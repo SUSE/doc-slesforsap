@@ -4,4 +4,5 @@ ROOTID=""
 PROFOS="sles"
 PROFCONDITION="noquick;suse-product"
 
-STYLEROOT="/usr/share/xml/docbook/stylesheet/suse2021-ns"
+STYLEROOT="/usr/share/xml/docbook/stylesheet/suse2022-ns"
+FALLBACK_STYLEROOT="/usr/share/xml/docbook/stylesheet/opensuse2021-ns"
