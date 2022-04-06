@@ -25,13 +25,12 @@
    <!-- Taken from doc-sle://security_firewall.xml -->
    <title>&firewalld; replaces &susefirewall;</title>
    <para>
-    &productname;&nbsp;15 GA introduces &firewalld; as the new default
-    software firewall, replacing &susefirewall;.
-    &susefirewall; has not been removed from &productname;&nbsp;15 GA
-    and is still part of the main repository, though not installed by default.
-    If you are upgrading from a release older than &productname; 15 GA,
-    &susefirewall; will be unchanged and you must manually upgrade to
-    &firewalld; (see &secguide;).
+    &productname;&nbsp;15 introduces &firewalld; as the new default software
+    firewall, replacing &susefirewall;. &susefirewall; has not been removed from
+    &productname;&nbsp;15 and is still part of the main repository, though
+    not installed by default. If you are upgrading from a release older than
+    &productname; 15, &susefirewall; will be unchanged and you must manually
+    upgrade to &firewalld; (see &secguide;).
    </para>
   </note>
   <para>
