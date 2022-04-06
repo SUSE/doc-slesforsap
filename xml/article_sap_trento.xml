@@ -476,6 +476,19 @@ Warning: Permanently added '<replaceable>TRENTO_AGENT_IP</replaceable>' (ECDSA) 
     </procedure>
   </section>
 
+  <section xml:id="sec-trento-login">
+    <title>Logging into &t.web;</title>
+    <para>To log in to the &t.web;, add your credentials.</para>
+    <figure>
+      <title>Login screen of &t.web;</title>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="trento-web-login.png" width="80%"/>
+        </imageobject>
+      </mediaobject>
+    </figure>
+  </section>
+
   <section xml:id="sec-trento-webconsole">
     <title>Using &t.web;</title>
     <remark>toms 2021-12-13: this section is a bit too referential and needs
