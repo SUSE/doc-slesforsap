@@ -58,6 +58,7 @@
 
 <!-- SLE -->
 <!ENTITY jeos                   "JeOS"><!-- Just enough OS -->
+<!ENTITY minvm                  "Minimal VM">
 <!ENTITY leanos                 "Unified Installer">
 <!ENTITY sle                    "&suse; Linux Enterprise">
 <!ENTITY sled                   "&sle; Desktop">
@@ -265,17 +266,20 @@ use &deng;! -->
 <!ENTITY chrony                 "<systemitem xmlns='http://docbook.org/ns/docbook' class='resource'>chrony</systemitem>">
 <!ENTITY chronyc                "<command xmlns='http://docbook.org/ns/docbook'>chronyc</command>">
 <!ENTITY gnome                  "GNOME">
-<!ENTITY grub                   "GRUB">
+<!ENTITY grub                   "GRUB&nbsp;2">
 <!ENTITY grub-efi               "GRUB&nbsp;2 for EFI">
 <!ENTITY kdump                  "Kdump">
 <!ENTITY kexec                  "Kexec">
 <!ENTITY kg                     "kGraft">
 <!ENTITY klp                    "Kernel Live Patching">
 <!ENTITY klpa                   "KLP">
+<!ENTITY ulp                    "userspace live patching">
+<!ENTITY ulpa                   "ULP">
 <!ENTITY kiwi                   "KIWI">
 <!ENTITY kprobes                "Kprobes">
 <!ENTITY krb                    "Kerberos">
 <!ENTITY kube                   "Kubernetes">
+<!ENTITY kubevirt               "KubeVirt">
 <!ENTITY libo                   "LibreOffice">
 <!ENTITY lvmcache               "<systemitem xmlns='http://docbook.org/ns/docbook' class='resource'>lvmcache</systemitem>">
 <!ENTITY nm                     "NetworkManager">
@@ -435,7 +439,7 @@ use &deng;! -->
 
 <!-- BOOK NAMES -->
 
-<!-- SUSE Linux Enterprise -->
+<!-- SLES/SLED/Leap -->
 <!ENTITY ayguide                "<citetitle xmlns='http://docbook.org/ns/docbook'>&ay; Guide</citetitle>">
 <!ENTITY deploy                 "<citetitle xmlns='http://docbook.org/ns/docbook'>Deployment Guide</citetitle>">
 <!ENTITY gnomeuser              "<citetitle xmlns='http://docbook.org/ns/docbook'>&gnome; User Guide</citetitle>">
@@ -451,8 +455,22 @@ use &deng;! -->
 <!ENTITY auditguide             "<citetitle xmlns='http://docbook.org/ns/docbook'>The Linux Audit Framework</citetitle>">
 <!ENTITY tuning                 "<citetitle xmlns='http://docbook.org/ns/docbook'>System Analysis and Tuning Guide</citetitle>">
 <!ENTITY secguide               "<citetitle xmlns='http://docbook.org/ns/docbook'>Security and Hardening Guide</citetitle>">
-<!ENTITY rmtguide               "<citetitle xmlns='http://docbook.org/ns/docbook'>Repository Management Tool Guide</citetitle>">
+<!ENTITY rmtguide               "<citetitle xmlns='http://docbook.org/ns/docbook'>&rmtool; Guide</citetitle>">
+<!ENTITY sle_rmt_guide_a        "<citetitle xmlns='http://docbook.org/ns/docbook'>&rmt; Guide</citetitle>">
 <!ENTITY upgrade_guide          "<citetitle xmlns='http://docbook.org/ns/docbook'>Upgrade Guide</citetitle>">
+<!ENTITY sle_vgpu_kvm_guide     "<citetitle xmlns='http://docbook.org/ns/docbook'>&nvidia; Virtual GPU for &kvm; Guests</citetitle>">
+<!ENTITY sle_virt_bp_guide      "<citetitle xmlns='http://docbook.org/ns/docbook'>Virtualization Best Practices</citetitle>">
+<!ENTITY sle_amd_sev_guide      "<citetitle xmlns='http://docbook.org/ns/docbook'>AMD Secure Encrypted Virtualization (AMD-SEV) Guide</citetitle>">
+<!ENTITY sle_minvm_guide        "<citetitle xmlns='http://docbook.org/ns/docbook'>&minvm; Quick Start</citetitle>">
+<!ENTITY sle_container_guide    "<citetitle xmlns='http://docbook.org/ns/docbook'>Container Guide</citetitle>">
+<!ENTITY sle_pcidss_guide       "<citetitle xmlns='http://docbook.org/ns/docbook'>&pcidss; (&pcidssa;) Guide</citetitle>">
+<!ENTITY sle_pcidss_guide_a     "<citetitle xmlns='http://docbook.org/ns/docbook'>&pcidssa; Guide</citetitle>">
+
+
+<!-- SLE Micro-specific -->
+<!ENTITY micro_podman_guide     "<citetitle xmlns='http://docbook.org/ns/docbook'>Podman Guide</citetitle>">
+<!ENTITY micro_upgrade_guide    "&upgrade_guide;">
+<!ENTITY micro_deploy_guide     "&deploy;">
 
 
 <!-- HA -->
@@ -530,3 +548,6 @@ use &deng;! -->
 <!ENTITY mgrinstguide           "<citetitle xmlns='http://docbook.org/ns/docbook'>Installation &amp; Troubleshooting Guide</citetitle>">
 <!ENTITY mgrproxyquick          "<citetitle xmlns='http://docbook.org/ns/docbook'>Proxy Quick Start</citetitle>">
 <!ENTITY mgrquick               "<citetitle xmlns='http://docbook.org/ns/docbook'>Quick Start</citetitle>">
+
+<!-- SLE, old guide names -->
+<!ENTITY sle_jeos_quick        "<citetitle xmlns='http://docbook.org/ns/docbook'>&jeos; Quick Start</citetitle>">
