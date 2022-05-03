@@ -809,25 +809,19 @@ Warning: Permanently added '<replaceable>TRENTO_AGENT_IP</replaceable>' (ECDSA) 
       <itemizedlist>
         <listitem>
           <para>
-            For a system Global Health status to be Passing, all components must be in green status.
+            For a system Global Health status to be Passing, all components must be in passing (green) status.
           </para>
         </listitem>
         <listitem>
           <para>
-            A system with at least one component in yellow status, but no components in grey or red status,
+            A system with at least one component in warning (yellow) status, but no components in critical (red) status,
             will be computed as Warning in the Global Health section.
           </para>
         </listitem>
         <listitem>
           <para>
-            A system with at least one component in critical status and no component in grey status, will be computed as Critical
+            A system with at least one component in critical (red) status, will be computed as Critical
             in the Global Health section.
-          </para>
-        </listitem>
-        <listitem>
-          <para>
-            A system with at least one component in grey status, will not compute towards the
-            Global Health status.
           </para>
         </listitem>
       </itemizedlist>
