@@ -4,7 +4,8 @@ MAIN="article_sap_trento.xml"
 PROFOS="sles"
 PROFCONDITION="noquick;suse-product"
 
-STYLEROOT="/usr/share/xml/docbook/stylesheet/suse2021-ns"
+STYLEROOT="/usr/share/xml/docbook/stylesheet/suse2022-ns"
+FALLBACK_STYLEROOT="/usr/share/xml/docbook/stylesheet/suse2022-ns"
 
 # toms 2021-12-21:
 # See openSUSE/suse-xsl#445
