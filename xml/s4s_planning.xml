@@ -87,12 +87,7 @@
       </listitem>
      </itemizedlist>
      <para>
-      For more information about &hana; TDI storage requirements, see:
-     </para>
-     <!-- FIXME! Long link is line-wrapped in terrible ways, so added new
-     para despite this being semantic nonsense. -->
-     <para>
-      <link xlink:href="https://www.sap.com/docs/download/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.pdf"/>
+      For more information about &hana; refer to <link xlink:href="https://help.sap.com/docs/SAP_HANA_PLATFORM"/> (the section <menuchoice><guimenu>Implement</guimenu><guimenu>SAP HANA Master Guide</guimenu><guimenu>SAP HANA Deployment Options </guimenu><guimenu>On-Premise Deployments</guimenu></menuchoice>).
      </para>
     </listitem>
    </varlistentry>
