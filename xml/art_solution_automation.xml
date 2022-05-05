@@ -250,8 +250,8 @@ https://confluence.suse.com/x/8IEnGw
       </listitem>
       <listitem>
         <para>
-          <link xlink:href="https://www.suse.com/media/white-paper/sap_hana_sr_cost_optimized_scenario_12_sp1.pdf"
-            >Setting up a SAP HANA SR Cost Optimized Infrastructure (SLES-SAP 12 SP1)</link>
+          <link xlink:href="https://documentation.suse.com/sbp/all/html/SLES4SAP-hana-sr-guide-CostOpt-12/index.html"
+            >Setting up a SAP HANA SR Cost Optimized Infrastructure (SLES-SAP 12 SP4)</link>
         </para>
       </listitem>
       <listitem>
@@ -327,11 +327,11 @@ https://confluence.suse.com/x/8IEnGw
           >&netweaver; &ha; Cluster 7.40 for the AWS Cloud - Setup Guide (Code 12)</link></para>
       </listitem>
       <listitem>
-        <para><link xlink:href="https://www.suse.com/media/white-paper/sap_netweaver_availability_cluster_740_setup_guide.pdf"
-          >&netweaver; &ha; Cluster 7.40 - Setup Guide (Code 12)</link></para>
+        <para><link xlink:href="https://documentation.suse.com/sbp/all/html/SAP_NW740_SLE12_SetupGuide/index.html"
+          >&netweaver; Enqueue Replication 1 &ha; Cluster 7.40 and 7.50 - Setup Guide (Code 12)</link></para>
       </listitem>
       <listitem>
-        <para><link xlink:href="https://www.suse.com/media/white-paper/sap_netweaver_availability_cluster_740_setup_guide.pdf"
+        <para><link xlink:href="https://documentation.suse.com/external-tree/en-us/sbp/all/sles-sap-12-netweaver-high-availability-simple-stack.pdf"
           >Simple Stack - &netweaver; &ha; on &sle; 12 (SP1 or newer)</link></para>
       </listitem>
       <listitem>
@@ -409,8 +409,8 @@ https://confluence.suse.com/x/8IEnGw
           >&hana; System Replication Scale-Up - Performance Optimized Scenario (Code 12)</link></para>
       </listitem>
       <listitem>
-        <para><link xlink:href="https://www.suse.com/media/white-paper/sap_hana_sr_cost_optimized_scenario_12_sp1.pdf"
-          >Setting up a &hana; SR Cost Optimized Infrastructure (&slsa; for SAP 12 SP1)</link></para>
+        <para><link xlink:href="https://documentation.suse.com/sbp/all/html/SLES4SAP-hana-sr-guide-CostOpt-12/index.html"
+          >Setting up a &hana; SR Cost Optimized Infrastructure (&slsa; for SAP 12 SP4)</link></para>
       </listitem>
       <listitem>
         <para><link xlink:href="https://documentation.suse.com/sbp/all/html/SLES4SAP-hana-sr-guide-PerfOpt-12_AWS/index.html"
