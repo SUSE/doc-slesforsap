@@ -182,10 +182,11 @@ As agreed on https://confluence.suse.com/x/DAEcN on our Trento doc kick off
                 2. </para>
             </listitem>
             <listitem>
-              <para> If you do not have &k8s; and you do not need
-                professional support, &suse; recommends using
-                K3s which can be installed on a single host.
-              </para>
+              <para> If you do not have &k8s; enterprise solution and you would
+                like to test Trento, an easy option could be &suse;'s K3s
+                project which provides a single node &k8s; cluster. Note, this
+                is not a recommended solution for a stable Trento production,
+                but a viable way to get started. </para>
             </listitem>
           </itemizedlist>
         </listitem>
