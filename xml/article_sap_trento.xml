@@ -53,11 +53,9 @@ As agreed on https://confluence.suse.com/x/DAEcN on our Trento doc kick off
     <title>Trento is an evolving product</title>
     <para>
       <remark>toms 2022-04-27: change 2</remark>
-      The product continues to be under active development but is available for any &suse;
-      customer with a registered &productname; 15 (SP1 or higher). Issues should be reported
-      through <link xlink:href="https://bugzilla.suse.com"/> under product
-      <productname>SUSE Linux Enterprise Server for SAP Applications 15 (SP1 or higher)</productname>
-       and component <productname>trento</productname>.
+      The product continues to be under active development, but is available for any &suse;
+      customer with a registered &productname; 15 (SP1 or higher).
+      Contact <link xlink:href="https://www.suse.com/support"/> for further assistence.
     </para>
   </important>
 
