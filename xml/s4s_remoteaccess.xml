@@ -90,6 +90,6 @@
   </procedure>
  <para>
   Find more information on using firewalld in
-  <link xlink:href="https://docs.suse.com/sles/15/single-html/SLES-security/#sec-security-firewall-firewalld"/>.
+  <link xlink:href="https://docs.suse.com/sles/15/html/SLES-all/cha-security-firewall.html#sec-security-firewall-firewalld"/>.
  </para>
  </chapter>
