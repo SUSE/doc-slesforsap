@@ -82,14 +82,37 @@
    </step>
    <step>
     <para>
-     When you are satisfied that new configuration is correct, make it permanent:
+     Make the new configuration permanent:
     </para>
     <screen>&prompt.root;<command>firewall-cmd</command> --runtime-to-permanent
 &prompt.root;<command>firewall-cmd</command> --reload</screen>
-   </step>
-  </procedure>
- <para>
-  Find more information on using firewalld in
+<para>
+  For more information on using firewalld, refer to
   <link xlink:href="https://docs.suse.com/sles/15/html/SLES-all/cha-security-firewall.html#sec-security-firewall-firewalld"/>.
  </para>
+   </step>
+   <step>
+    <para>
+     Nxt, set up <systemitem class="daemon">xrdp</systemitem>.
+    </para>
+    <para>
+     Install the package <package>xrdp</package>:
+    </para>
+    <screen>
+&prompt.root;<command>zypper install xrdp</command>
+    </screen>
+   </step>
+   <step>
+    <para>
+     Enable and start the <systemitem class="daemon">xrdp</systemitem> service:
+    </para>
+    <screen>
+&prompt.root;<command>systemctl enable xrdp</command>
+&prompt.root;<command>systemctl start xrdp</command>
+    </screen>
+    <para>
+     You can now connect to the machine.
+    </para>
+   </step>
+  </procedure>
  </chapter>
