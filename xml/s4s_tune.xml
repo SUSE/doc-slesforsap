@@ -160,7 +160,7 @@
      </para>
 <screen>&prompt.root;<command>saptune service enablestart</command></screen>
      <para>
-      To make sure that &sapconf; and &tuned; gets stopped and disabled too,
+      To make sure that &sapconf; and &tuned; are stopped and disabled too,
       run instead:
      </para>
      <screen>&prompt.root;<command>saptune service takeover</command></screen>
@@ -372,16 +372,16 @@ Do you really want to rename this Note (test) to the new name 'test2'? [y/n]: y<
   </sect2>
 
   <sect2 xml:id="sec-saptune-revert">
-   <title>Reverting a &sapnote;</title>
-   <para>To revert a &sapnote;, run:</para>
+   <title>Reverting an &sapnote;</title>
+   <para>To revert an &sapnote;, run:</para>
     <screen>&prompt.root;<command>saptune note revert <replaceable>NOTE</replaceable></command></screen>
-   <para>All parameters of this &sapnote; will be restored to their values at the time of apply.</para>
+   <para>All parameters of this &sapnote; will be restored to their values at the time of application.</para>
    <para>To revert anything, run:</para>
    <screen>&prompt.root;<command>saptune note revert all</command></screen>
   </sect2>
 
  <sect2 xml:id="sec-saptune-edit">
-  <title>Editing a &sapnote;</title>
+  <title>Editing an &sapnote;</title>
   <para>Each custom &sapnote; can be edited by:</para>
   <screen>&prompt.root;<command>saptune note edit <replaceable>NOTE</replaceable></command></screen>
  </sect2>
@@ -411,8 +411,8 @@ Do you really want to rename this Note (test) to the new name 'test2'? [y/n]: y<
  </sect2>
 
  <sect2 xml:id="sec-saptune-delete-solution">
-   <title>Deleting a &sapsol;</title>
-   <para>To delete a &sapsol;, run:</para>
+   <title>Deleting an &sapsol;</title>
+   <para>To delete an &sapsol;, run:</para>
   <screen>&prompt.root;<command>saptune solution delete myHANA</command>
 
 Solution to delete is a customer/vendor specific Solution.
@@ -442,8 +442,8 @@ Do you really want to delete this Solution 'myHANA'? [y/n]: y</screen>
  </sect2>
 
   <sect2 xml:id="sec-saptune-rename-solution">
-   <title>Renaming a &sapsol;</title>
-   <para>To rename a &sapsol;, run:</para>
+   <title>Renaming an &sapsol;</title>
+   <para>To rename an &sapsol;, run:</para>
    <screen>&prompt.root;<command>saptune solution rename myHANA myHANA2</command>
 
 Solution to rename is a customer/vendor specific Solution.
@@ -465,7 +465,7 @@ Do you really want to rename this Solution 'myHANA' to the new name 'myHANA2'? [
    <listitem>
     <para>
       If the &sapsol; is already applied, the command will be terminated
-      with the information, that the &sapsol; first needs to be reverted
+      with the information that the &sapsol; first needs to be reverted
       before it can be renamed.
     </para>
    </listitem>
@@ -473,17 +473,17 @@ Do you really want to rename this Solution 'myHANA' to the new name 'myHANA2'? [
   </sect2>
 
   <sect2 xml:id="sec-saptune-show-solution">
-   <title>Showing the configuration of a &sapsol;</title>
-   <para>To list the configuration of a &sapsol;, run:</para>
+   <title>Showing the configuration of an &sapsol;</title>
+   <para>To list the configuration of an &sapsol;, run:</para>
    <screen>&prompt.root;<command>saptune solution show <replaceable>SOLUTION</replaceable></command></screen>
   </sect2>
 
   <sect2 xml:id="sec-saptune-revert-solution">
-    <title>Reverting a &sapsol;</title>
-    <para>To revert a &sapsol;, run:</para>
+    <title>Reverting an &sapsol;</title>
+    <para>To revert an &sapsol;, run:</para>
     <screen>&prompt.root;<command>saptune solution revert <replaceable>SOLUTION</replaceable></command></screen>
     <para>
-     The &sapsol; must be applied. All &sapnote;s part of that &sapsol; which still are
+     The &sapsol; must be applied. All &sapnote;s parts of the &sapsol; which still are
      applied will be reverted.
     </para>
   </sect2>
@@ -496,9 +496,9 @@ Do you really want to rename this Solution 'myHANA' to the new name 'myHANA2'? [
 
   <sect2 xml:id="sec-saptune-list-solution">
    <title>Listing enabled/applied &sapsol;</title>
-   <para>To list enabled &sapsol;, run:</para>
+   <para>To list an enabled &sapsol;, run:</para>
    <screen>&prompt.root;<command>saptune solution enabled</command></screen>
-   <para>To list applied &sapsol;, run:</para>
+   <para>To list an applied &sapsol;, run:</para>
    <screen>&prompt.root;<command>saptune solution applied</command></screen>
    <para>
     If &sapnote;s from an applied &sapsol; have been reverted, the string <literal>(partial)</literal>
@@ -509,7 +509,7 @@ Do you really want to rename this Solution 'myHANA' to the new name 'myHANA2'? [
  
   <sect1 xml:id="sec-saptune-verify-and-troubleshooting">
    <title>Verification and troubleshooting</title>
-   <para>The see the current status of &saptune;, run:</para>
+   <para>To see the current status of &saptune;, run:</para>
    <screen>&prompt.root;<command>saptune status</command></screen>
    <para>The output contains:</para>
    <itemizedlist>
@@ -531,7 +531,7 @@ Do you really want to rename this Solution 'myHANA' to the new name 'myHANA2'? [
    </para>
    <screen>&prompt.root;<command>saptune_check</command></screen>
    <para>
-    The script does a deeper analysis, reports any problems and gives advice how
+    The script does a deeper analysis, reports any problems and gives advice on how
     to rectify them.
    </para>
   </sect1>
@@ -539,10 +539,10 @@ Do you really want to rename this Solution 'myHANA' to the new name 'myHANA2'? [
  <sect1 xml:id="sec-saptune-staging">
    <title>Staging</title>
    <para>
-    It is possible, that a new &saptune; package can contain both: binary changes (for
+    It is possible that a new &saptune; package can contain both binary changes (for
     example, bug fixes) and new or altered &sapnote;s and &sapsol;s.
     This can be unfavorable for some customers. Installation of bug fixes or new
-    features might be wanted, but altering the systems configuration at the same time
+    features might be wanted, but altering the system configuration at the same time
     might not.
    </para>
    <para>
@@ -558,7 +558,7 @@ Do you really want to rename this Solution 'myHANA' to the new name 'myHANA2'? [
    <para>Staging is disabled per default. To enable it, run:</para>
    <screen>&prompt.root;<command>saptune staging enable</command></screen>
    <para>From now on, &sapnote; and &sapsol; changes shipped by a &saptune;
-   package will put in the staging area. To view the staging area, run:</para>
+   package will be put in the staging area. To view the staging area, run:</para>
    <screen>&prompt.root;<command>saptune staging list</command></screen>
    <para>You can print a tabular overview of the differences of the &sapnote; and
    &sapsol; in the staging and the working area by running:</para>
@@ -569,12 +569,12 @@ Do you really want to rename this Solution 'myHANA' to the new name 'myHANA2'? [
    </para>
    <screen>&prompt.root;<command>saptune staging analysis [NOTE...|SOLUTION...|all]</command></screen>
    <para>
-    To releasea &sapnote; or a &sapsol; from the staging area, run:
+    To release an &sapnote; or an &sapsol; from the staging area, run:
    </para>
    <screen>&prompt.root;<command>saptune staging [--force|--dry-run] [NOTE..|SOLUTION...|all]</command></screen>
    <para>
     The previous command presents an analysis (see <command>saptune staging analysis</command>) and
-    do the release after asking for confirmation.
+    carries out the release after asking for confirmation.
    </para>
   </sect1>
 
