@@ -941,7 +941,7 @@ MemoryLow=infinity</screen>
   </note>
 
   <para>
-   A SAP system consisting of &systemd;-based instances can only rely on
+   An SAP system consisting of &systemd;-based instances can only rely on
    cgroup2 for memory protection.
   </para>
 
