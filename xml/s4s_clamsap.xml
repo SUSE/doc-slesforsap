@@ -17,9 +17,9 @@
    &productnumber; supports NW-VSI version 2.0.
   </para>
  <important>
-  <title>Avoid false positive reports for large files exeeding maximum file size</title>
+  <title>Avoid false positive reports for large files exceeding maximum file size</title>
   <remark>toms 2021-10-20: See https://www.suse.com/support/kb/doc/?id=000020324</remark>
-  <para> By default, &clamav; is not scanning files exeeding various limits like
+  <para> By default, &clamav; does not scan files exceeding various limits like
    file sizes, nesting level, or scan time. Such files are reported as "OK". The
    current default settings for the &clamav; virus scan engine in the
     <command>clamscan</command> commandline tool and the <systemitem
