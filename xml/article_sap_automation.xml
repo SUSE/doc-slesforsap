@@ -202,12 +202,30 @@ https://confluence.suse.com/x/8IEnGw
     <procedure xml:id="pro-sol-autom-hana-apply-salt-formulas">
       <title>Applying &salt; formulas</title>
       <para>
-        In this procedure, we show how to create a pillar structure for
-        a system with &hana;, &netweaver;, and with DRBD. All this uses &sles4sap;.
+        The following procedure demonstrates how to create a pillar structure for
+        a system with &hana;, &netweaver;, and with DRBD. This setup is based on &sles4sap;.
       </para>
       <step>
+      <para>
+        Install <package>salt-minion</package> package including dependencies using the
+        <command>zypper install salt-minion</command> command.
+      </para>
+      <para>
+        To install the package on &sle; 12, you must enable the Advanced System Management Module.
+      </para>
+      </step>
+      <step>
+      <para>
+        Make the correct version of &sap; media available on a share, as it is
+        required for running the formulas that install the &sap; software.
+        Ensure that the directories and files have correct permissions.
+      </para>
+      </step>
+      <step>
         <para>
-          Install the &salt; formulas using the <command>sudo zypper in saphanabootstrap-formula sapnwbootstrap-formula drbd-formula habootstrap-formula</command> command.
+          Install the &salt; formulas using the <command>sudo zypper in
+          saphanabootstrap-formula sapnwbootstrap-formula drbd-formula
+          habootstrap-formula</command> command.
         </para>
       </step>
       <step>
@@ -297,9 +315,16 @@ https://confluence.suse.com/x/8IEnGw
         </para>
       </step>
       <step>
+      <para>
+       Before proceeding to the next step, perform an environment check to
+       ensure that all the required users and groups exist and configured
+       correctly.
+      </para>
+      </step>
+      <step>
         <para>
-         Execute &salt; as shown in the following commands. Bear in mind,
-         these are just examples&mdash;&salt; supports more options.
+         Execute &salt; using the commands below. Keep in mind that these are
+         example commands: &salt; supports more options.
         </para>
         <stepalternatives>
           <step>
