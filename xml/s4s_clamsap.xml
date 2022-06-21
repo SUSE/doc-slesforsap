@@ -9,6 +9,12 @@
    title="Profiling step"?>
 <chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:lang="en" xml:id="cha-clamsap">
  <title>Protecting against malware with &clamsap;</title>
+ <info>
+  <dm:docmanager xmlns:dm="urn:x-suse:ns:docmanager">
+   <dm:bugtracker/>
+   <dm:translation>yes</dm:translation>
+  </dm:docmanager>
+ </info>
   <para>
    &clamsap; integrates the &clamav; anti-malware toolkit into &netweaver; and
    &sap; Mobile Platform applications. &clamsap; is a shared library that
