@@ -169,180 +169,6 @@ https://confluence.suse.com/x/8IEnGw
     </variablelist>
   </sect1>
 
-  <sect1 xml:id="sec-sol-autom-hana-using-salt-formulas">
-    <title>Using &salt; formulas</title>
-    <para>
-      &salt; formulas can be applied in two ways:
-    </para>
-    <itemizedlist>
-      <listitem>
-        <formalpara>
-          <title>&saltmaster; with &salt; client</title>
-          <para>
-            All steps in <xref linkend="pro-sol-autom-hana-apply-salt-formulas"/> must be
-            executed on the &saltmaster; machine.</para>
-        </formalpara>
-      </listitem>
-      <listitem>
-        <formalpara>
-          <title>&salt; client only</title>
-          <para>
-            All steps in <xref linkend="pro-sol-autom-hana-apply-salt-formulas"/> must be
-            executed in all of the &salt; clients where the formulas are going to be executed.
-          </para>
-        </formalpara>
-      </listitem>
-    </itemizedlist>
-
-    <para>
-      The following procedure is written in a general way to make it fit for all use cases.
-      You need some knowledge about &salt; and how to customize it to your needs.
-    </para>
-
-    <procedure xml:id="pro-sol-autom-hana-apply-salt-formulas">
-      <title>Applying &salt; formulas</title>
-      <para>
-        The following procedure demonstrates how to create a pillar structure for
-        a system with &hana;, &netweaver;, and with DRBD. This setup is based on &sles4sap;.
-      </para>
-      <step>
-      <para>
-        Install <package>salt-minion</package> package including dependencies using the
-        <command>zypper install salt-minion</command> command.
-      </para>
-      <para>
-        To install the package on &sle; 12, you must enable the Advanced System Management Module.
-      </para>
-      </step>
-      <step>
-      <para>
-        Make the correct version of &sap; media available on a share, as it is
-        required for running the formulas that install the &sap; software.
-        Ensure that the directories and files have correct permissions.
-      </para>
-      </step>
-      <step>
-        <para>
-          Install the &salt; formulas using the <command>sudo zypper in
-          saphanabootstrap-formula sapnwbootstrap-formula drbd-formula
-          habootstrap-formula</command> command.
-        </para>
-      </step>
-      <step>
-        <para>
-          Create the pillar files structure.
-        </para>
-        <para>
-          The pillar files work as configuration files for the &salt; formulas
-          and are intended as user input. To use the files, create a
-          <filename>top.sls</filename> file which references other files you
-          want to apply.
-        </para>
-        <substeps>
-          <step>
-            <para>
-              Create the directory <filename class="directory">/srv/pillar</filename>
-              and its subdirectories <filename class="directory">hana</filename>,
-              <filename class="directory">netweaver</filename>,
-              and <filename class="directory">drbd</filename>:
-            </para>
-            <screen>&prompt.root;<command>mkdir</command> --parents /srv/pillar/{hana,netweaver,drbd}</screen>
-            <para>
-              The directory names match with the names in the <filename>top.sls</filename>
-              file (see next step).
-            </para>
-          </step>
-          <step>
-            <para>
-              Create the file <filename>/srv/pillar/top.sls</filename> with the following content:
-            </para>
-            <screen language="sls">base:
-    'hana01,hana02':
-        - hana.hana
-        - hana.cluster
-
-    'netweaver01,netweaver02':
-        - netweaver.netweaver
-        - netweaver.cluster
-
-    'drbd01,drbd02':
-        - drbd.drbd
-        - drbd.cluster</screen>
-          </step>
-        </substeps>
-      </step>
-      <step>
-        <para>
-          Copy example pillar files to the appropriate directories:
-        </para>
-        <screen>&prompt.sudo;<command>cp</command> /usr/share/salt-formulas/metadata/hana/pillar.example /srv/pillar/hana/hana.sls
-&prompt.sudo;<command>cp</command> /usr/share/salt-formulas/states/netweaver/pillar.example /srv/pillar/netweaver/netweaver.sls
-&prompt.sudo;<command>cp</command> /usr/share/salt-formulas/metadata/drbd/pillar.example /srv/pillar/drdb/drdb.sls
-&prompt.sudo;<command>cp</command> /usr/share/salt-formulas/metadata/cluster/pillar.example /srv/pillar/hana
-&prompt.sudo;<command>cp</command> /usr/share/salt-formulas/metadata/cluster/pillar.example /srv/pillar/netweaver
-&prompt.sudo;<command>cp</command> /usr/share/salt-formulas/metadata/cluster/pillar.example /srv/pillar/drdb</screen>
-      </step>
-      <step>
-        <para>
-          Modify the content of the pillar files for each &salt; formula,
-          according to the configuration you need.
-        </para>
-        <para>
-          Notice that, in this example, we have three different
-          <filename>cluster.sls</filename> files. Each might have different HA cluster
-          requirements.
-        </para>
-      </step>
-      <step>
-        <para>
-          Create the file <filename>/srv/salt/top.sls</filename> with the following content:
-        </para>
-        <screen>base:
-    'hana01,hana02':
-        - hana
-        - cluster
-
-    'netweaver01,netweaver02':
-        - netweaver
-        - cluster
-
-    'drbd01,drbd02':
-        - drbd
-        - cluster</screen>
-        <para>
-          In the above example, folder part is removed, as we are pointing to the formulas with
-          their names.
-        </para>
-      </step>
-      <step>
-      <para>
-       Before proceeding to the next step, perform an environment check to
-       ensure that all the required users and groups exist and configured
-       correctly.
-      </para>
-      </step>
-      <step>
-        <para>
-         Execute &salt; using the commands below. Keep in mind that these are
-         example commands: &salt; supports more options.
-        </para>
-        <stepalternatives>
-          <step>
-            <para>If you use a &saltmaster; with &salt; clients, run:</para>
-            <screen>&prompt.root;<command>salt</command> '*' state.highstate</screen>
-          </step>
-          <step>
-            <para>If you use only a &salt; client, run:</para>
-            <screen>&prompt.root;<command>salt</command> --local state.highstate</screen>
-          </step>
-        </stepalternatives>
-        <para>
-          The command shows the result (green for everything is fine, red for errors).
-        </para>
-      </step>
-    </procedure>
-  </sect1>
-
   <sect1 xml:id="sec-sol-autom-hana-deploy">
     <title>&hana; automated deployment</title>
     <para>
@@ -565,6 +391,180 @@ https://confluence.suse.com/x/8IEnGw
       <!-- old: obs://network:ha-clustering:sap-deployments:devel -->
       <screen>zypper install drbd-formula habootstrap-formula</screen>
     </example>
+  </sect1>
+
+  <sect1 xml:id="sec-sol-autom-hana-using-salt-formulas">
+    <title>Using &salt; formulas</title>
+    <para>
+      &salt; formulas can be applied in two ways:
+    </para>
+    <itemizedlist>
+      <listitem>
+        <formalpara>
+          <title>&saltmaster; with &salt; client</title>
+          <para>
+            All steps in <xref linkend="pro-sol-autom-hana-apply-salt-formulas"/> must be
+            executed on the &saltmaster; machine.</para>
+        </formalpara>
+      </listitem>
+      <listitem>
+        <formalpara>
+          <title>&salt; client only</title>
+          <para>
+            All steps in <xref linkend="pro-sol-autom-hana-apply-salt-formulas"/> must be
+            executed in all of the &salt; clients where the formulas are going to be executed.
+          </para>
+        </formalpara>
+      </listitem>
+    </itemizedlist>
+
+    <para>
+      The following procedure is written in a general way to make it fit for all use cases.
+      You need some knowledge about &salt; and how to customize it to your needs.
+    </para>
+
+    <procedure xml:id="pro-sol-autom-hana-apply-salt-formulas">
+      <title>Applying &salt; formulas</title>
+      <para>
+        The following procedure demonstrates how to create a pillar structure for
+        a system with &hana;, &netweaver;, and with DRBD. This setup is based on &sles4sap;.
+      </para>
+      <step>
+      <para>
+        Install <package>salt-minion</package> package including dependencies using the
+        <command>zypper install salt-minion</command> command.
+      </para>
+      <para>
+        To install the package on &sle; 12, you must enable the Advanced System Management Module.
+      </para>
+      </step>
+      <step>
+      <para>
+        Make the correct version of &sap; media available on a share, as it is
+        required for running the formulas that install the &sap; software.
+        Ensure that the directories and files have correct permissions.
+      </para>
+      </step>
+      <step>
+        <para>
+          Install the &salt; formulas using the <command>sudo zypper in
+          saphanabootstrap-formula sapnwbootstrap-formula drbd-formula
+          habootstrap-formula</command> command.
+        </para>
+      </step>
+      <step>
+        <para>
+          Create the pillar files structure.
+        </para>
+        <para>
+          The pillar files work as configuration files for the &salt; formulas
+          and are intended as user input. To use the files, create a
+          <filename>top.sls</filename> file which references other files you
+          want to apply.
+        </para>
+        <substeps>
+          <step>
+            <para>
+              Create the directory <filename class="directory">/srv/pillar</filename>
+              and its subdirectories <filename class="directory">hana</filename>,
+              <filename class="directory">netweaver</filename>,
+              and <filename class="directory">drbd</filename>:
+            </para>
+            <screen>&prompt.root;<command>mkdir</command> --parents /srv/pillar/{hana,netweaver,drbd}</screen>
+            <para>
+              The directory names match with the names in the <filename>top.sls</filename>
+              file (see next step).
+            </para>
+          </step>
+          <step>
+            <para>
+              Create the file <filename>/srv/pillar/top.sls</filename> with the following content:
+            </para>
+            <screen language="sls">base:
+    'hana01,hana02':
+        - hana.hana
+        - hana.cluster
+
+    'netweaver01,netweaver02':
+        - netweaver.netweaver
+        - netweaver.cluster
+
+    'drbd01,drbd02':
+        - drbd.drbd
+        - drbd.cluster</screen>
+          </step>
+        </substeps>
+      </step>
+      <step>
+        <para>
+          Copy example pillar files to the appropriate directories:
+        </para>
+        <screen>&prompt.sudo;<command>cp</command> /usr/share/salt-formulas/metadata/hana/pillar.example /srv/pillar/hana/hana.sls
+&prompt.sudo;<command>cp</command> /usr/share/salt-formulas/states/netweaver/pillar.example /srv/pillar/netweaver/netweaver.sls
+&prompt.sudo;<command>cp</command> /usr/share/salt-formulas/metadata/drbd/pillar.example /srv/pillar/drdb/drdb.sls
+&prompt.sudo;<command>cp</command> /usr/share/salt-formulas/metadata/cluster/pillar.example /srv/pillar/hana
+&prompt.sudo;<command>cp</command> /usr/share/salt-formulas/metadata/cluster/pillar.example /srv/pillar/netweaver
+&prompt.sudo;<command>cp</command> /usr/share/salt-formulas/metadata/cluster/pillar.example /srv/pillar/drdb</screen>
+      </step>
+      <step>
+        <para>
+          Modify the content of the pillar files for each &salt; formula,
+          according to the configuration you need.
+        </para>
+        <para>
+          Notice that, in this example, we have three different
+          <filename>cluster.sls</filename> files. Each might have different HA cluster
+          requirements.
+        </para>
+      </step>
+      <step>
+        <para>
+          Create the file <filename>/srv/salt/top.sls</filename> with the following content:
+        </para>
+        <screen>base:
+    'hana01,hana02':
+        - hana
+        - cluster
+
+    'netweaver01,netweaver02':
+        - netweaver
+        - cluster
+
+    'drbd01,drbd02':
+        - drbd
+        - cluster</screen>
+        <para>
+          In the above example, folder part is removed, as we are pointing to the formulas with
+          their names.
+        </para>
+      </step>
+      <step>
+      <para>
+       Before proceeding to the next step, perform an environment check to
+       ensure that all the required users and groups exist and configured
+       correctly.
+      </para>
+      </step>
+      <step>
+        <para>
+         Execute &salt; using the commands below. Keep in mind that these are
+         example commands: &salt; supports more options.
+        </para>
+        <stepalternatives>
+          <step>
+            <para>If you use a &saltmaster; with &salt; clients, run:</para>
+            <screen>&prompt.root;<command>salt</command> '*' state.highstate</screen>
+          </step>
+          <step>
+            <para>If you use only a &salt; client, run:</para>
+            <screen>&prompt.root;<command>salt</command> --local state.highstate</screen>
+          </step>
+        </stepalternatives>
+        <para>
+          The command shows the result (green for everything is fine, red for errors).
+        </para>
+      </step>
+    </procedure>
   </sect1>
 
   <sect1 xml:id="sec-sol-autom-more">
