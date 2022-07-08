@@ -1389,7 +1389,7 @@ Warning: Permanently added '<replaceable>TRENTO_AGENT_IP</replaceable>' (ECDSA) 
           Install the package:
         </para>
         <screen>&prompt.user;sudo zypper ref
-&prompt.user;sudo zypper install trento-premium</screen>
+&prompt.user;sudo zypper install trento-agent</screen>
       </step>
       <step>
         <remark>toms 2022-04-27: change 34</remark>
