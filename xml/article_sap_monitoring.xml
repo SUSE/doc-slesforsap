@@ -172,8 +172,9 @@ Find installation instruction in the previous link.
   <sect1 xml:id="sec-sol-monit-ha-cluster-exp">
     <title>&ha; cluster exporter</title>
     <para>
-      Enables monitoring of Pacemaker, &corosync;, SBD, DRBD and other components of &ha; clusters.
-      Collects metrics to easily monitor cluster status and health.
+      Enables monitoring of Pacemaker, &corosync;, SBD, DRBD and other
+      components of &ha; clusters. Collects metrics to easily monitor cluster
+      status and health.
     </para>
     <formalpara>
       <title>Link:</title>
@@ -185,13 +186,12 @@ Find installation instruction in the previous link.
       <title>Export metrics in prometheus format</title>
       <listitem>
         <para>
-          Pacemaker cluster summary, nodes, and resource status
+          Pacemaker cluster summary, nodes and resources stats
         </para>
       </listitem>
       <listitem>
         <para>
-          Corosync ring errors and quorum votes.
-          Currently, only Corosync version&nbsp;2 is supported.
+          Corosync ring errors and quorum votes
         </para>
       </listitem>
       <listitem>
@@ -202,10 +202,16 @@ Find installation instruction in the previous link.
       <listitem>
         <para>
           DRBD resources and connections status.
-          Currently, only DRBD version&nbsp;9 is supported.
         </para>
       </listitem>
     </itemizedlist>
+    <sect2 xml:id="sec-sol-monit-ha-cluster-exp-install">
+      <title>Installation</title>
+      <para>
+        To install the &ha; cluster exporter on &sle;, run the <command>zypper
+        install prometheus-ha_cluster_exporter</command> command.
+      </para>
+    </sect2>
   </sect1>
 
   <sect1 xml:id="sec-sol-monit-sap-host-exp">
