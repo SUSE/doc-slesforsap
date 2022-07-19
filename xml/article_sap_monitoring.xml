@@ -212,6 +212,192 @@ Find installation instruction in the previous link.
         install prometheus-ha_cluster_exporter</command> command.
       </para>
     </sect2>
+    <sect3 xml:id="sec-sol-monit-ha-cluster-exp-systemd">
+      <title>Enabling &systemd; service</title>
+      <para>
+        The &ha; cluster exporter RPM packages comes with the
+        <literal>ha_cluster_exporter.service</literal> &systemd; service. To
+        enable and start it, use the following command:
+      </para>
+<screen>systemctl --now enable prometheus-ha_cluster_exporter</screen>
+    </sect3>
+    <sect2 xml:id="sec-sol-monit-ha-cluster-exp-use">
+    <title>Using &ha; cluster exporter</title>
+    <para>
+      You can run the exporter on any of the cluster nodes. Although it is not
+      strictly required, it is advisable to run the exporter on all nodes.
+    </para>
+    <para>
+      The generated metrics are stored in the <literal>/metrics</literal> path.
+      By default, the metrics can be accessed through the web interface on port 9664.
+    </para>
+<para>>
+Although the exporter can run outside an &ha; cluster node, it cannot export any
+metric it is not able to collect. In this case, the exporter displays a warning message.
+</para>
+    </sect2>
+    <sect2 xml:id="sec-sol-monit-ha-cluster-exp-configure">
+      <title>Configuring &ha; cluster exporter</title>
+      <para>
+        The provided default configuration is designed specifically for the
+        latest version of <phrase os="osuse">&opensuse;</phrase><phrase
+        os="sles;sled">&sle;</phrase>. If necessary, any of the supported
+        parameters can be modified either via command-line flags or via a
+        configuration file. Use the <command>ha_cluster_exporter
+        --help</command> command for more details on configuring parameters from
+        the command line. Refer to the
+        <filename>ha_cluster_exporter.yaml</filename> file for an example configuration.
+      </para>
+      <para>
+        It is also possible to specify CLI flags via the
+        <filename>/etc/sysconfig/prometheus-ha_cluster_exporter</filename> file.
+      </para>
+      <variablelist><title>General flags</title>
+      <varlistentry>
+      <term>
+        web.listen-address
+      </term>
+      <listitem>
+      <para>
+        Address to listen on for web interface and telemetry (default 9664).
+      </para>
+      </listitem>
+      </varlistentry>
+      <varlistentry>
+      <term>
+        web.telemetry-path
+      </term>
+      <listitem>
+      <para>
+        Directory for storing metrics data (default
+        <filename>/metrics</filename>).
+        </para>
+      </listitem>
+      </varlistentry>
+      <varlistentry>
+      <term>
+        web.config.file 
+      </term>
+      <listitem>
+      <para>
+        Path to a the web configuration file (default <filename>/etc/ha_cluster_exporter.web.yaml</filename>).
+      </para>
+      </listitem>
+      </varlistentry>
+      <varlistentry>
+      <term>
+        log.level
+      </term>
+      <listitem>
+      <para>
+        Logging verbosity (default <literal>info</literal>).
+      </para>
+      </listitem>
+      </varlistentry>
+      <varlistentry>
+      <term>
+        version
+      </term>
+      <listitem>
+      <para>
+        Print version information.
+      </para>
+      </listitem>
+      </varlistentry>
+      </variablelist>
+      <variablelist><title>Collector flags</title>
+      <varlistentry>
+      <term>
+        crm-mon-path
+      </term>
+      <listitem>
+      <para>
+        Path to the <filename>crm_mon</filename> executable (default <filename>/usr/sbin/crm_mon</filename>).
+      </para>
+      </listitem>
+      </varlistentry>
+      <varlistentry>
+      <term>
+        cibadmin-path
+      </term>
+      <listitem>
+      <para>
+        Path to the <filename>cibadmin</filename> executable (default <filename>/usr/sbin/cibadmin</filename>).
+      </para>
+      </listitem>
+      </varlistentry>
+      <varlistentry>
+      <term>
+        corosync-cfgtoolpath-path
+      </term>
+      <listitem>
+      <para>
+        Path to the <filename>corosync-cfgtool</filename> executable (default <filename>/usr/sbin/corosync-cfgtool</filename>).
+      </para>
+      </listitem>
+      </varlistentry>
+      <varlistentry>
+      <term>
+        corosync-quorumtool-path
+      </term>
+      <listitem>
+      <para>
+        Path to the <filename>corosync-quorumtool</filename> executable (default <filename>/usr/sbin/corosync-quorumtool</filename>).
+      </para>
+      </listitem>
+      </varlistentry>
+      <varlistentry>
+      <term>
+        sbd-path
+      </term>
+      <listitem>
+      <para>
+        Path to the <filename>sbd</filename> executable (default <filename>/usr/sbin/sbd</filename>).
+      </para>
+      </listitem>
+      </varlistentry>
+      <varlistentry>
+      <term>
+        sbd-config-path
+      </term>
+      <listitem>
+      <para>
+        Path to the sbd configuration (default <filename></etc/sysconfig/sbd/filename>).
+      </para>
+      </listitem>
+      </varlistentry>
+      <varlistentry>
+      <term>
+        drbdsetup-path
+      </term>
+      <listitem>
+      <para>
+        Path to the <filename>drbdsetup</filename> executable (default <filename>/sbin/drbdsetup</filename>).
+      </para>
+      </listitem>
+      </varlistentry>
+      <varlistentry>
+      <term>
+        drbdsplitbrain-path
+      </term>
+      <listitem>
+      <para>
+        Path to the <filename>drbd splitbrain</filename> hooks temporary files (default <filename>/var/run/drbd/splitbrain</filename>).
+      </para>
+      </listitem>
+      </varlistentry>
+      </variablelist>
+      </sect2>
+      <sect2 xml:id="sec-sol-monit-ha-cluster-exp-tls">
+        <title>TLS and basic authentication</title>
+        <para>
+          The &ha; cluster exporter supports TLS and basic authentication. To
+          use TLS or basic authentication, specify a configuration file using
+          the <option>--web.config.file</option> parameter. The format of the
+          file is described in <link
+          xlink:href="https://github.com/prometheus/exporter-toolkit/blob/master/docs/web-configuration.md"/>.
+        </para>
+      </sect2>
   </sect1>
 
   <sect1 xml:id="sec-sol-monit-sap-host-exp">
