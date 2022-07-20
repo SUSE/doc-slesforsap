@@ -456,6 +456,12 @@ As agreed on https://confluence.suse.com/x/DAEcN on our Trento doc kick off
           </listitem>
         </varlistentry>
         <varlistentry>
+          <term><replaceable>ALERTING_SENDER</replaceable></term>
+          <listitem>
+            <para>Sender email for alerting notifications.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
           <term><replaceable>ALERTING_RECIPIENT</replaceable></term>
           <listitem>
             <para>Recipient email for alerting notifications.</para>
@@ -474,6 +480,7 @@ As agreed on https://confluence.suse.com/x/DAEcN on our Trento doc kick off
    --set trento-web.alerting.smtpPort=<replaceable>SMTP_PORT</replaceable> \
    --set trento-web.alerting.smtpUser=<replaceable>SMTP_USER</replaceable> \
    --set trento-web.alerting.smtpPassword=<replaceable>SMTP_PASSWORD</replaceable> \
+   --set trento-web.alerting.sender=<replaceable>ALERTING_SENDER</replaceable> \
    --set trento-web.alerting.recipient=<replaceable>ALERTING_RECIPIENT</replaceable></screen>
     </section>
 
