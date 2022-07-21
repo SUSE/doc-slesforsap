@@ -732,6 +732,65 @@ metric it is not able to collect. In this case, the exporter displays a warning 
         </itemizedlist>
         </varlistentry>
         </variablelist>
+        <formalpara>
+          <title>SBD</title>
+          <para>
+            The SBD subsystems collect statistics of each device by parsing its configuration and the output of <command>sbd --dump</command>.
+          </para>
+       </formalpara>
+       <variablelist><title>SBD</title>
+       <varlistentry>
+       <term>
+        ha_cluster_sbd_devices
+       </term>
+       <listitem>
+       <para>
+        The SBD devices in the cluster, one line per device. The line is either
+        absent or has the value of 1.
+       </para>
+       </listitem>
+       <para>
+        Labels
+       </para>
+       <itemizedlist>
+       <listitem>
+       <para>
+        <literal>device</literal> the path of the SBD device
+       </para>
+       </listitem>
+       <listitem>
+       <para>
+        <literal>status</literal> Possible values: <literal>healthy</literal>,  <literal>unhealthy</literal>
+       </para>
+       </listitem>
+       </itemizedlist>
+       </varlistentry>
+       <varlistentry>
+       <term>
+        ha_cluster_sbd_timeouts
+       </term>
+       <listitem>
+       <para>
+        The SBD timeouts for each SBD device.
+       </para>
+       <para>
+        Labels
+       </para>
+       <itemizedlist>
+       <listitem>
+       <para>
+        <literal>device</literal> the path of the SBD device
+       </para>
+       </listitem>
+       <listitem>
+       <para>
+        <literal>type</literal> Possible values: <literal>watchdog</literal>, <literal>msgwait</literal>
+       </para>
+       </listitem>
+       </itemizedlist>
+       </listitem>
+       </varlistentry>
+       </variablelist>
       </sect2>
   </sect1>
 
