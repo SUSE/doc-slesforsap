@@ -608,6 +608,116 @@ metric it is not able to collect. In this case, the exporter displays a warning 
         </listitem>
         </varlistentry>
         </variablelist>
+        <variablelist><title>Corosync</title>
+        <varlistentry>
+        <term>
+          ha_cluster_corosync_member_votes
+        </term>
+        <listitem>
+        <para>
+          The number of votes each member node has contributed with to the current quorum
+        </para>
+        <para>
+          Labels
+        </para>
+        <itemizedlist>
+        <listitem>
+        <para>
+          <literal>node_id</literal> the internal corosync identifier associated with the node
+        </para>
+        </listitem>
+        <listitem>
+        <para>
+          <literal>node</literal> the name of the node (usually the hostname)
+        </para>
+        </listitem>
+        <listitem>
+        <para>
+          <literal>local</literal> indicates whether the node is local
+        </para>
+        </listitem>
+        </itemizedlist>
+        </listitem>
+        </varlistentry>
+        <varlistentry>
+        <term>
+          ha_cluster_corosync_quorate
+        </term>
+        <listitem>
+        <para>
+          Indicates whether the cluster is quorate. The value is either 1 or 0.
+        </para>
+        </listitem>
+        </varlistentry>
+        <varlistentry>
+        <term>
+          ha_cluster_corosync_quorum_votes
+        </term>
+        <listitem>
+        <para>
+          Cluster quorum votes (one line per type).
+        </para>
+        <para>
+          Labels
+        </para>
+        <itemizedlist>
+        <listitem>
+        <para>
+          <literal>type</literal> Possible values:
+          <literal>expected_votes</literal>,
+          <literal>highest_expected</literal>,
+          <literal>total_votes</literal>, <literal>quorum</literal>.
+        </para>
+        </listitem>
+        </itemizedlist>
+        </listitem>
+        </varlistentry>
+        <varlistentry>
+        <term>
+          ha_cluster_corosync_ring_errors
+        </term>
+        <listitem>
+        <para>
+          The total number of faulty Corosync rings.
+        </para>
+        </listitem>
+        </varlistentry>
+        <varlistentry>
+        <term>
+          ha_cluster_corosync_rings
+        </term>
+        <listitem>
+        <para>
+          The status of each Corosync ring. 1 is healthy, 0 is faulty.
+        </para>
+        </listitem>
+        <para>
+          Labels
+        </para>
+        <itemizedlist>
+        <listitem>
+        <para>
+          <literal>ring_id</literal> the internal Corosync ring identifier (usually corresponds to the first member node to join)
+        </para>
+        </listitem>
+        <listitem>
+        <para>
+          <literal>node_id</literal> the internal Corosync identifier of the local node
+        </para>
+        </listitem>
+        <listitem>
+        <para>
+          <literal>number</literal> the ring number
+        </para>
+        </listitem>
+        <listitem>
+        <para>
+          <literal>address</literal> the IP address locally linked to this ring
+        </para>
+        </listitem>
+        </itemizedlist>
+        </varlistentry>
+        </variablelist>
       </sect2>
   </sect1>
 
