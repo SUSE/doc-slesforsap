@@ -704,7 +704,6 @@ metric it is not able to collect. In this case, the exporter displays a warning 
         <para>
           The status of each Corosync ring. 1 is healthy, 0 is faulty.
         </para>
-        </listitem>
         <para>
           Labels
         </para>
@@ -730,6 +729,7 @@ metric it is not able to collect. In this case, the exporter displays a warning 
         </para>
         </listitem>
         </itemizedlist>
+      </listitem>
         </varlistentry>
         </variablelist>
         <formalpara>
@@ -748,7 +748,6 @@ metric it is not able to collect. In this case, the exporter displays a warning 
         The SBD devices in the cluster, one line per device. The line is either
         absent or has the value of 1.
        </para>
-       </listitem>
        <para>
         Labels
        </para>
@@ -764,6 +763,7 @@ metric it is not able to collect. In this case, the exporter displays a warning 
        </para>
        </listitem>
        </itemizedlist>
+      </listitem>
        </varlistentry>
        <varlistentry>
        <term>
@@ -807,7 +807,6 @@ metric it is not able to collect. In this case, the exporter displays a warning 
       The DRBD resource connections (one line per resource and per
       peer_node_id). The value is 1 or absent.
      </para>
-     </listitem>
      <para>
       Labels:
      </para>
@@ -846,6 +845,7 @@ metric it is not able to collect. In this case, the exporter displays a warning 
       The total number of lines for this metric is the cardinality of
       <literal>resource</literal> multiplied by the cardinality of <literal>peer_node_id</literal>.
      </para>
+    </listitem>
      </varlistentry>
      <varlistentry>
      <term>
@@ -1001,19 +1001,23 @@ metric it is not able to collect. In this case, the exporter displays a warning 
       <literal>volume</literal> The volume number
      </para>
      </listitem>
-     <literal>disk_state</literal> Possible values:
+     <listitem>
+      <para>
+        <literal>disk_state</literal> Possible values:
      <literal>attaching</literal>,
      <literal>failed</literal>, <literal>negotiating</literal>,
      <literal>inconsistent</literal>, <literal>outdated</literal>,
      <literal>outdated</literal>, <literal>unknown</literal>,
      <literal>consistent</literal>, <literal>uptodate</literal>
-     </itemizedlist>
+      </para>
      </listitem>
+     </itemizedlist>
      <para>
       The total number of lines for the metric is the cardinality of
       <literal>name</literal> multiplied by the cardinality of
       <literal>volume</literal>.
      </para>
+     </listitem>
      </varlistentry>
      <varlistentry>
      <term>
