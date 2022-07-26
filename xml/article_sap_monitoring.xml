@@ -1228,6 +1228,67 @@ metric it is not able to collect. In this case, the exporter displays a warning 
      </listitem>
      </varlistentry>
      </variablelist>
+     <formalpara>
+      <title>Scrape</title>
+      <para>
+        The scrape subsystem is a generic namespace dedicated to internal instrumentation of the exporter itself.
+      </para>
+   </formalpara>
+   <variablelist><title>Scrape</title>
+   <varlistentry>
+   <term>
+    ha_cluster_scrape_duration_seconds
+   </term>
+   <listitem>
+   <para>
+    The duration of a collector scrape in seconds.
+   </para>
+   <para>
+    Labels:
+   </para>
+   <itemizedlist>
+   <listitem>
+   <para>
+    <literal>collector</literal> collector names that correspond to the subsystem they collect metrics from
+   </para>
+   </listitem>
+   </itemizedlist>
+   <para>
+    Example:
+   </para>
+<screen># TYPE ha_cluster_scrape_duration_seconds gauge
+ha_cluster_scrape_duration_seconds{collector="pacemaker"} 1.234</screen>
+   </listitem>
+   </varlistentry>
+   <varlistentry>
+   <term>
+    ha_cluster_scrape_success
+   </term>
+   <listitem>
+   <para>
+    Indicates whether a collector succeeded. Collectors can fail gracefully, but
+    that does not prevent them from running. If certain metrics cannot be
+    scraped, the value of this metric is 0. In this case, the exporter logs for
+    more details.
+   </para>
+   <para>
+    Labels:
+   </para>
+   <itemizedlist>
+   <listitem>
+   <para>
+    <literal>collector</literal> collector names that correspond to the subsystem they collect metrics from
+   </para>
+   <para>
+    Example:
+   </para>
+<screen># TYPE ha_cluster_scrape_success gauge
+ha_cluster_scrape_success{collector="pacemaker"} 1</screen>
+   </listitem>
+   </itemizedlist>
+   </listitem>
+   </varlistentry>
+   </variablelist>
       </sect2>
   </sect1>
 
