@@ -211,7 +211,6 @@ Find installation instruction in the previous link.
         To install the &ha; cluster exporter on &sle;, run the <command>zypper
         install prometheus-ha_cluster_exporter</command> command.
       </para>
-    </sect2>
     <sect3 xml:id="sec-sol-monit-ha-cluster-exp-systemd">
       <title>Enabling &systemd; service</title>
       <para>
@@ -221,6 +220,7 @@ Find installation instruction in the previous link.
       </para>
 <screen>systemctl --now enable prometheus-ha_cluster_exporter</screen>
     </sect3>
+  </sect2>
     <sect2 xml:id="sec-sol-monit-ha-cluster-exp-use">
     <title>Using &ha; cluster exporter</title>
     <para>
@@ -362,7 +362,7 @@ metric it is not able to collect. In this case, the exporter displays a warning 
       </term>
       <listitem>
       <para>
-        Path to the sbd configuration (default <filename></etc/sysconfig/sbd/filename>).
+        Path to the sbd configuration (default <filename>/etc/sysconfig/sbd/</filename>).
       </para>
       </listitem>
       </varlistentry>
@@ -791,6 +791,443 @@ metric it is not able to collect. In this case, the exporter displays a warning 
        </listitem>
        </varlistentry>
        </variablelist>
+       <formalpara>
+        <title>DRBD</title>
+        <para>
+          The DRBD subsystems collect devices stats by parsing its configuration the JSON output of <package>drbdsetup</package>.
+        </para>
+     </formalpara>
+     <variablelist><title>DRBD</title>
+     <varlistentry>
+     <term>
+      ha_cluster_drbd_connections
+     </term>
+     <listitem>
+     <para>
+      The DRBD resource connections (one line per resource and per
+      peer_node_id). The value is 1 or absent.
+     </para>
+     </listitem>
+     <para>
+      Labels:
+     </para>
+     <itemizedlist>
+     <listitem>
+     <para>
+      <literal>resource</literal> The resource the connection is for
+     </para>
+     </listitem>
+     <listitem>
+     <para>
+      <literal>peer_node_id</literal> The id of the node this connection is for
+     </para>
+     </listitem>
+     <listitem>
+     <para>
+      <literal>peer_role</literal> Possible values: <literal>primary</literal>, <literal>secondary</literal><literal>unknown</literal>
+     </para>
+     </listitem>
+     <listitem>
+     <para>
+      <literal>volume</literal> The volume number
+     </para>
+     </listitem>
+     <listitem>
+     <para>
+      <literal>peer_disk_state</literal> Possible values
+      <literal>attaching</literal>, <literal>failed</literal>,
+      <literal>negotiating</literal>, <literal>inconsistent</literal>,
+      <literal>outdated</literal>, <literal>unknown</literal>,
+      <literal>consistent</literal>, <literal>uptodate</literal>
+     </para>
+     </listitem>
+     </itemizedlist>
+     <para>
+      The total number of lines for this metric is the cardinality of
+      <literal>resource</literal> multiplied by the cardinality of <literal>peer_node_id</literal>.
+     </para>
+     </varlistentry>
+     <varlistentry>
+     <term>
+      ha_cluster_drbd_connections_sync
+     </term>
+     <listitem>
+     <para>
+      The DRBD disk connections in sync percentage. Values are floating numbers between 0 and 100.00.
+     </para>
+     <para>
+      Labels:
+     </para>
+     <itemizedlist>
+     <listitem>
+     <para>
+      <literal>resource</literal> The resource the connection is for
+     </para>
+     </listitem>
+     <listitem>
+     <para>
+      <literal>peer_node_id</literal> The id of the node this connection is for
+     </para>
+     </listitem>
+     <listitem>
+     <para>
+      <literal>volume</literal> The volume number
+     </para>
+     </listitem>
+     </itemizedlist>
+     </listitem>
+     </varlistentry>
+     <varlistentry>
+     <term>
+      ha_cluster_drbd_connections_received
+     </term>
+     <listitem>
+     <para>
+      Volume of net data received from the partner via the network connection in
+      KiB (one line per per resource and per peer_node_id). The value is an integer
+      greater than or equal to 0.
+     </para>
+     <para>
+      Labels:
+     </para>
+     <itemizedlist>
+     <listitem>
+     <para>
+      <literal>resource</literal> The resource the connection is for
+     </para>
+     </listitem>
+     <listitem>
+     <para>
+      <literal>peer_node_id</literal> The id of the node this connection is for
+     </para>
+     </listitem>
+     <listitem>
+     <para>
+      <literal>volume</literal> The volume number
+     </para>
+     </listitem>
+     </itemizedlist>
+     </listitem>
+     </varlistentry>
+     <varlistentry>
+     <term>
+      ha_cluster_drbd_connections_pending
+     </term>
+     <listitem>
+     <para>
+      Number of requests sent to the partner that have not yet been received
+      (one line per per resource and per peer_node_id). The value is an integer
+      greater than or equal to 0.
+     </para>
+     <para>
+      Labels:
+     </para>
+     <itemizedlist>
+     <listitem>
+     <para>
+      <literal>resource</literal> The resource the connection is for
+     </para>
+     </listitem>
+     <listitem>
+     <para>
+      <literal>peer_node_id</literal> The id of the node this connection is for
+     </para>
+     </listitem>
+     <listitem>
+     <para>
+      <literal>volume</literal> The volume number
+     </para>
+     </listitem>
+     </itemizedlist>
+     </listitem>
+     </varlistentry>
+     <varlistentry>
+     <term>
+      ha_cluster_drbd_connections_unacked
+     </term>
+     <listitem>
+     <para>
+      Number of requests received by the partner but have not yet been
+      acknowledged (one line per resource and per peer_node_id). The value is an
+      integer greater than or equal to 0.
+     </para>
+     <para>
+      Labels:
+     </para>
+     <itemizedlist>
+     <listitem>
+     <para>
+      <literal>resource</literal> The resource the connection is for
+     </para>
+     </listitem>
+     <listitem>
+     <para>
+      <literal>peer_node_id</literal> The id of the node this connection is for
+     </para>
+     </listitem>
+     <listitem>
+     <para>
+      <literal>volume</literal> The volume number
+     </para>
+     </listitem>
+     </itemizedlist>
+     </listitem>
+     </varlistentry>
+     <varlistentry>
+     <term>
+      ha_cluster_drbd_resources
+     </term>
+     <listitem>
+     <para>
+      The DRBD resources (one line per name and per volume). The value is 1 or absent.
+     </para>
+     <para>
+      Labels:
+     </para>
+     <itemizedlist>
+     <listitem>
+     <para>
+      <literal>resource</literal> The name of the resource
+     </para>
+     </listitem>
+     <listitem>
+     <para>
+      <literal>role</literal> Possible values: <literal>primary</literal>,
+      <literal>secondary</literal>, <literal>unknown</literal>
+     </para>
+     </listitem>
+     <listitem>
+     <para>
+      <literal>volume</literal> The volume number
+     </para>
+     </listitem>
+     <literal>disk_state</literal> Possible values:
+     <literal>attaching</literal>,
+     <literal>failed</literal>, <literal>negotiating</literal>,
+     <literal>inconsistent</literal>, <literal>outdated</literal>,
+     <literal>outdated</literal>, <literal>unknown</literal>,
+     <literal>consistent</literal>, <literal>uptodate</literal>
+     </itemizedlist>
+     </listitem>
+     <para>
+      The total number of lines for the metric is the cardinality of
+      <literal>name</literal> multiplied by the cardinality of
+      <literal>volume</literal>.
+     </para>
+     </varlistentry>
+     <varlistentry>
+     <term>
+      ha_cluster_drbd_written
+     </term>
+     <listitem>
+     <para>
+      Amount of data in KiB written to the DRBD resource (one line per resource
+      and per volume) The value is an integer greater than or equal to 0.
+     </para>
+     <para>
+      Labels:
+     </para>
+     <itemizedlist>
+     <listitem>
+     <para>
+      <literal>resource</literal> The name of the resource
+     </para>
+     </listitem>
+     <listitem>
+     <para>
+      <literal>volume</literal> The volume number
+     </para>
+     </listitem>
+     </itemizedlist>
+     </listitem>
+     </varlistentry>
+     <varlistentry>
+     <term>
+      ha_cluster_drbd_read
+     </term>
+     <listitem>
+     <para>
+      Amount of data in KiB read from the DRBD resource (one line per resource
+      and per volume) The value is an integer greater than or equal to 0.
+     </para>
+     <para>
+      Labels:
+     </para>
+     <itemizedlist>
+     <listitem>
+     <para>
+      <literal>resource</literal> The name of the resource
+     </para>
+     </listitem>
+     <listitem>
+     <para>
+      <literal>volume</literal> The volume number
+     </para>
+     </listitem>
+     </itemizedlist>
+     </listitem>
+     </varlistentry>
+     <varlistentry>
+     <term>
+      ha_cluster_drbd_al_writes
+     </term>
+     <listitem>
+     <para>
+      Number of updates of the activity log area of the meta data (one line per
+      resource and per volume). The value is an integer greater than or equal to 0.
+     </para>
+     <para>
+      Labels:
+     </para>
+     <itemizedlist>
+     <listitem>
+     <para>
+      <literal>resource</literal> The name of the resource
+     </para>
+     </listitem>
+     <listitem>
+     <para>
+      <literal>volume</literal> The volume number
+     </para>
+     </listitem>
+     </itemizedlist>
+     </listitem>
+     </varlistentry>
+     <varlistentry>
+     <term>
+      ha_cluster_drbd_bm_writes
+     </term>
+     <listitem>
+     <para>
+      Number of updates of the bitmap area of the metadata (one line per
+      resource and per volume). The value is an integer greater than or equal to 0.
+     </para>
+    <para>
+     Labels:
+    </para>
+    <itemizedlist>
+    <listitem>
+    <para>
+     <literal>resource</literal> The name of the resource
+    </para>
+    </listitem>
+    <listitem>
+    <para>
+     <literal>volume</literal> The volume number
+    </para>
+    </listitem>
+    </itemizedlist>
+     </listitem>
+     </varlistentry>
+     <varlistentry>
+     <term>
+      ha_cluster_drbd_upper_pending
+     </term>
+     <listitem>
+     <para>
+      Number of block I/O requests forwarded to DRBD but not yet answered by
+      DRBD (one line per resource and per volume). The value is an integer greater than or
+      equal to 0.
+     </para>
+     <para>
+      Labels:
+     </para>
+     <itemizedlist>
+     <listitem>
+     <para>
+      <literal>resource</literal> The name of the resource
+     </para>
+     </listitem>
+     <listitem>
+     <para>
+      <literal>volume</literal> The volume number
+     </para>
+     </listitem>
+     </itemizedlist>
+     </listitem>
+     </varlistentry>
+     <varlistentry>
+     <term>
+      ha_cluster_drbd_lower_pending
+     </term>
+     <listitem>
+     <para>
+      Number of open requests to the local I/O sub-system issued by DRBD (one
+      line per resource and per volume). The value is an integer greater than or equal to
+      0.
+     </para>
+     <para>
+      Labels:
+     </para>
+     <itemizedlist>
+     <listitem>
+     <para>
+      <literal>resource</literal> The name of the resource
+     </para>
+     </listitem>
+     <listitem>
+     <para>
+      <literal>volume</literal> The volume number
+     </para>
+     </listitem>
+     </itemizedlist>
+     </listitem>
+     </varlistentry>
+     <varlistentry>
+     <term>
+      ha_cluster_drbd_quorum
+     </term>
+     <listitem>
+     <para>
+      Quorum status of the DRBD resource according to the configured quorum
+      policies (one line per resource and per volume). The value is 1 when
+      quorate, or 0 when inquorate.
+     </para>
+     <para>
+      Labels:
+     </para>
+     <itemizedlist>
+     <listitem>
+     <para>
+      <literal>resource</literal> The name of the resource
+     </para>
+     </listitem>
+     <listitem>
+     <para>
+      <literal>volume</literal> The volume number
+     </para>
+     </listitem>
+     </itemizedlist>
+     </listitem>
+     </varlistentry>
+     <varlistentry>
+     <term>
+      ha_cluster_drbd_split_brain
+     </term>
+     <listitem>
+     <para>
+      Signals when there is a split brain occurring per resource and
+      volume. The value is 1 or absent. To make this metric work you must setup
+      a DRBD custom split-brain handler.
+     </para>
+     <para>
+      Labels:
+     </para>
+     <itemizedlist>
+     <listitem>
+     <para>
+      <literal>resource</literal> The name of the resource
+     </para>
+     </listitem>
+     <listitem>
+     <para>
+      <literal>volume</literal> The volume number
+     </para>
+     </listitem>
+     </itemizedlist>
+     </listitem>
+     </varlistentry>
+     </variablelist>
       </sect2>
   </sect1>
 
