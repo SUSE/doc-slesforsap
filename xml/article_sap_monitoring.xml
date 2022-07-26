@@ -127,7 +127,7 @@ Further information:
       </para>
     </formalpara>
     <itemizedlist>
-      <title>Export metrics in prometheus format</title>
+      <title>Export metrics in the prometheus format</title>
       <listitem>
         <para>
           Memory metrics
@@ -183,7 +183,7 @@ Find installation instruction in the previous link.
       </para>
     </formalpara>
     <itemizedlist>
-      <title>Export metrics in prometheus format</title>
+      <title>Export metrics in the prometheus format</title>
       <listitem>
         <para>
           Pacemaker cluster summary, nodes and resources stats
@@ -231,7 +231,7 @@ Find installation instruction in the previous link.
       The generated metrics are stored in the <literal>/metrics</literal> path.
       By default, the metrics can be accessed through the web interface on port 9664.
     </para>
-<para>>
+<para>
 Although the exporter can run outside an &ha; cluster node, it cannot export any
 metric it is not able to collect. In this case, the exporter displays a warning message.
 </para>
@@ -441,26 +441,25 @@ metric it is not able to collect. In this case, the exporter displays a warning 
         <para>
           Resource location constraints.
         </para>
-        <para>Labels</para>
-        <itemizedlist>
+        <itemizedlist><title>Labels</title>
         <listitem>
         <para>
-          <literal>constraint</literal> a unique string identifier of the constraint
+          <literal>constraint</literal> A unique string identifier of the constraint
         </para>
         </listitem>
         <listitem>
         <para>
-          <literal>node</literal> the node the constraint applies to
+          <literal>node</literal> The node the constraint applies to
         </para>
         </listitem>
         <listitem>
         <para>
-          <literal>resource</literal> the resource the constraint applies to
+          <literal>resource</literal> The resource the constraint applies to
         </para>
         </listitem>
         <listitem>
         <para>
-          <literal>role</literal> the resource role the constraint applies to (if any)
+          <literal>role</literal> The resource role the constraint applies to (if any)
         </para>
         </listitem>
         </itemizedlist>
@@ -486,19 +485,15 @@ metric it is not able to collect. In this case, the exporter displays a warning 
           possible status of every node. 1 means the node is in the
           status specified by the status label, 0 means that it is not.
         </para>
-        <para>
-          Labels
-        </para>
-        <itemizedlist>
+        <itemizedlist><title>Labels</title>
         <listitem>
         <para>
-          <literal>node</literal> name of the node (usually the hostname)
+          <literal>node</literal> The name of the node (usually the hostname)
         </para>
         </listitem>
         <listitem>
         <para>
-          <literal>status</literal> one of the following options:
-          <literal>online</literal>,
+          <literal>status</literal> Possible values:
           <literal>standby</literal>, <literal>standby_onfail</literal>,
           <literal>maintenance</literal>,
           <literal>pending</literal>, <literal>unclean</literal>,
@@ -507,7 +502,7 @@ metric it is not able to collect. In this case, the exporter displays a warning 
         </listitem>
         <listitem>
         <para>
-          <literal>type</literal> one of the following options:
+          <literal>type</literal> Possible values:
           <literal>member</literal>, <literal>ping</literal>, <literal>remote</literal>
         </para>
         </listitem>
@@ -524,23 +519,20 @@ metric it is not able to collect. In this case, the exporter displays a warning 
           called node attributes that often leveraged by Resource Agents.
           The value of each line is always 1.
         </para>
-        <para>
-          Labels
-        </para>
-        <itemizedlist>
+        <itemizedlist><title>Labels</title>
         <listitem>
         <para>
-          <literal>node</literal> name of the node (usually the hostname)
+          <literal>node</literal> The name of the node (usually the hostname)
         </para>
         </listitem>
         <listitem>
         <para>
-          <literal>name</literal> name of the attribute
+          <literal>name</literal> The name of the attribute
         </para>
         </listitem>
         <listitem>
         <para>
-          <literal>value</literal> value of the attribute
+          <literal>value</literal> The value of the attribute
         </para>
         </listitem>
         </itemizedlist>
@@ -557,45 +549,42 @@ metric it is not able to collect. In this case, the exporter displays a warning 
           in the status specified by the status label, 0 means that it is
           not.
         </para>
-        <para>
-          Labels
-        </para>
-        <itemizedlist>
+        <itemizedlist><title>Labels</title>
         <listitem>
         <para>
-          <literal>agent</literal> the name of the resource agent for the
+          <literal>agent</literal> The name of the resource agent for the
           resource
         </para>
         </listitem>
         <listitem>
         <para>
-          <literal>clone</literal> the name of the clone this resource belongs
+          <literal>clone</literal> The name of the clone this resource belongs
           to (if any)
         </para>
         </listitem>
         <listitem>
         <para>
-          <literal>group</literal> the name of the group this resource belongs to, (if any)
+          <literal>group</literal> The name of the group this resource belongs to, (if any)
         </para>
         </listitem>
         <listitem>
         <para>
-          <literal>managed</literal> can be either true or false
+          <literal>managed</literal> Can be either <literal>true</literal> or <literal>false</literal>
         </para>
         </listitem>
         <listitem>
         <para>
-          <literal>node</literal> the name of the node hosting the resource
+          <literal>node</literal> The name of the node hosting the resource
         </para>
         </listitem>
         <listitem>
         <para>
-          <literal>resource</literal> the unique resource name
+          <literal>resource</literal> The unique resource name
         </para>
         </listitem>
         <listitem>
         <para>
-          <literal>role</literal> either one of 
+          <literal>role</literal> Possible values: 
           <literal>started</literal>, <literal>stopped</literal>,
           <literal>master</literal>, <literal>slave</literal> or one of
           <literal>starting</literal>, <literal>stopping</literal>,
@@ -631,23 +620,20 @@ metric it is not able to collect. In this case, the exporter displays a warning 
         <para>
           The number of votes each member node has contributed with to the current quorum
         </para>
-        <para>
-          Labels
-        </para>
-        <itemizedlist>
+        <itemizedlist><title>Labels</title>
         <listitem>
         <para>
-          <literal>node_id</literal> the internal corosync identifier associated with the node
+          <literal>node_id</literal> The internal corosync identifier associated with the node
         </para>
         </listitem>
         <listitem>
         <para>
-          <literal>node</literal> the name of the node (usually the hostname)
+          <literal>node</literal> The name of the node (usually the hostname)
         </para>
         </listitem>
         <listitem>
         <para>
-          <literal>local</literal> indicates whether the node is local
+          <literal>local</literal> Indicates whether the node is local
         </para>
         </listitem>
         </itemizedlist>
@@ -659,7 +645,7 @@ metric it is not able to collect. In this case, the exporter displays a warning 
         </term>
         <listitem>
         <para>
-          Indicates whether the cluster is quorate. The value is either 1 or 0.
+          Indicates whether the cluster is quorate. The value is either 1 or 0
         </para>
         </listitem>
         </varlistentry>
@@ -671,10 +657,7 @@ metric it is not able to collect. In this case, the exporter displays a warning 
         <para>
           Cluster quorum votes (one line per type).
         </para>
-        <para>
-          Labels
-        </para>
-        <itemizedlist>
+        <itemizedlist><title>Labels</title>
         <listitem>
         <para>
           <literal>type</literal> Possible values:
@@ -704,23 +687,20 @@ metric it is not able to collect. In this case, the exporter displays a warning 
         <para>
           The status of each Corosync ring. 1 is healthy, 0 is faulty.
         </para>
-        <para>
-          Labels
-        </para>
-        <itemizedlist>
+        <itemizedlist><title>Labels</title>
         <listitem>
         <para>
-          <literal>ring_id</literal> the internal Corosync ring identifier (usually corresponds to the first member node to join)
+          <literal>ring_id</literal> The internal Corosync ring identifier (usually corresponds to the first member node to join)
         </para>
         </listitem>
         <listitem>
         <para>
-          <literal>node_id</literal> the internal Corosync identifier of the local node
+          <literal>node_id</literal> The internal Corosync identifier of the local node
         </para>
         </listitem>
         <listitem>
         <para>
-          <literal>number</literal> the ring number
+          <literal>number</literal> The ring number
         </para>
         </listitem>
         <listitem>
@@ -748,13 +728,10 @@ metric it is not able to collect. In this case, the exporter displays a warning 
         The SBD devices in the cluster, one line per device. The line is either
         absent or has the value of 1.
        </para>
-       <para>
-        Labels
-       </para>
-       <itemizedlist>
+       <itemizedlist><title>Labels</title>
        <listitem>
        <para>
-        <literal>device</literal> the path of the SBD device
+        <literal>device</literal> The path of the SBD device
        </para>
        </listitem>
        <listitem>
@@ -773,13 +750,10 @@ metric it is not able to collect. In this case, the exporter displays a warning 
        <para>
         The SBD timeouts for each SBD device.
        </para>
-       <para>
-        Labels
-       </para>
-       <itemizedlist>
+       <itemizedlist><title>Labels</title>
        <listitem>
        <para>
-        <literal>device</literal> the path of the SBD device
+        <literal>device</literal> The path of the SBD device
        </para>
        </listitem>
        <listitem>
@@ -807,10 +781,7 @@ metric it is not able to collect. In this case, the exporter displays a warning 
       The DRBD resource connections (one line per resource and per
       peer_node_id). The value is 1 or absent.
      </para>
-     <para>
-      Labels:
-     </para>
-     <itemizedlist>
+     <itemizedlist><title>Labels</title>
      <listitem>
      <para>
       <literal>resource</literal> The resource the connection is for
@@ -855,10 +826,7 @@ metric it is not able to collect. In this case, the exporter displays a warning 
      <para>
       The DRBD disk connections in sync percentage. Values are floating numbers between 0 and 100.00.
      </para>
-     <para>
-      Labels:
-     </para>
-     <itemizedlist>
+     <itemizedlist><title>Labels</title>
      <listitem>
      <para>
       <literal>resource</literal> The resource the connection is for
@@ -887,10 +855,7 @@ metric it is not able to collect. In this case, the exporter displays a warning 
       KiB (one line per per resource and per peer_node_id). The value is an integer
       greater than or equal to 0.
      </para>
-     <para>
-      Labels:
-     </para>
-     <itemizedlist>
+     <itemizedlist><title>Labels</title>
      <listitem>
      <para>
       <literal>resource</literal> The resource the connection is for
@@ -919,10 +884,7 @@ metric it is not able to collect. In this case, the exporter displays a warning 
       (one line per per resource and per peer_node_id). The value is an integer
       greater than or equal to 0.
      </para>
-     <para>
-      Labels:
-     </para>
-     <itemizedlist>
+     <itemizedlist><title>Labels</title>
      <listitem>
      <para>
       <literal>resource</literal> The resource the connection is for
@@ -951,10 +913,7 @@ metric it is not able to collect. In this case, the exporter displays a warning 
       acknowledged (one line per resource and per peer_node_id). The value is an
       integer greater than or equal to 0.
      </para>
-     <para>
-      Labels:
-     </para>
-     <itemizedlist>
+     <itemizedlist><title>Labels</title>
      <listitem>
      <para>
       <literal>resource</literal> The resource the connection is for
@@ -981,10 +940,7 @@ metric it is not able to collect. In this case, the exporter displays a warning 
      <para>
       The DRBD resources (one line per name and per volume). The value is 1 or absent.
      </para>
-     <para>
-      Labels:
-     </para>
-     <itemizedlist>
+     <itemizedlist><title>Labels</title>
      <listitem>
      <para>
       <literal>resource</literal> The name of the resource
@@ -1028,10 +984,7 @@ metric it is not able to collect. In this case, the exporter displays a warning 
       Amount of data in KiB written to the DRBD resource (one line per resource
       and per volume) The value is an integer greater than or equal to 0.
      </para>
-     <para>
-      Labels:
-     </para>
-     <itemizedlist>
+     <itemizedlist><title>Labels</title>
      <listitem>
      <para>
       <literal>resource</literal> The name of the resource
@@ -1054,10 +1007,7 @@ metric it is not able to collect. In this case, the exporter displays a warning 
       Amount of data in KiB read from the DRBD resource (one line per resource
       and per volume) The value is an integer greater than or equal to 0.
      </para>
-     <para>
-      Labels:
-     </para>
-     <itemizedlist>
+     <itemizedlist><title>Labels</title>
      <listitem>
      <para>
       <literal>resource</literal> The name of the resource
@@ -1080,10 +1030,7 @@ metric it is not able to collect. In this case, the exporter displays a warning 
       Number of updates of the activity log area of the meta data (one line per
       resource and per volume). The value is an integer greater than or equal to 0.
      </para>
-     <para>
-      Labels:
-     </para>
-     <itemizedlist>
+     <itemizedlist><title>Labels</title>
      <listitem>
      <para>
       <literal>resource</literal> The name of the resource
@@ -1106,10 +1053,7 @@ metric it is not able to collect. In this case, the exporter displays a warning 
       Number of updates of the bitmap area of the metadata (one line per
       resource and per volume). The value is an integer greater than or equal to 0.
      </para>
-    <para>
-     Labels:
-    </para>
-    <itemizedlist>
+    <itemizedlist><title>Labels</title>
     <listitem>
     <para>
      <literal>resource</literal> The name of the resource
@@ -1133,10 +1077,7 @@ metric it is not able to collect. In this case, the exporter displays a warning 
       DRBD (one line per resource and per volume). The value is an integer greater than or
       equal to 0.
      </para>
-     <para>
-      Labels:
-     </para>
-     <itemizedlist>
+     <itemizedlist><title>Labels</title>
      <listitem>
      <para>
       <literal>resource</literal> The name of the resource
@@ -1160,10 +1101,7 @@ metric it is not able to collect. In this case, the exporter displays a warning 
       line per resource and per volume). The value is an integer greater than or equal to
       0.
      </para>
-     <para>
-      Labels:
-     </para>
-     <itemizedlist>
+     <itemizedlist><title>Labels</title>
      <listitem>
      <para>
       <literal>resource</literal> The name of the resource
@@ -1187,10 +1125,7 @@ metric it is not able to collect. In this case, the exporter displays a warning 
       policies (one line per resource and per volume). The value is 1 when
       quorate, or 0 when inquorate.
      </para>
-     <para>
-      Labels:
-     </para>
-     <itemizedlist>
+     <itemizedlist><title>Labels</title>
      <listitem>
      <para>
       <literal>resource</literal> The name of the resource
@@ -1214,10 +1149,7 @@ metric it is not able to collect. In this case, the exporter displays a warning 
       volume. The value is 1 or absent. To make this metric work you must setup
       a DRBD custom split-brain handler.
      </para>
-     <para>
-      Labels:
-     </para>
-     <itemizedlist>
+     <itemizedlist><title>Labels</title>
      <listitem>
      <para>
       <literal>resource</literal> The name of the resource
@@ -1247,10 +1179,7 @@ metric it is not able to collect. In this case, the exporter displays a warning 
    <para>
     The duration of a collector scrape in seconds.
    </para>
-   <para>
-    Labels:
-   </para>
-   <itemizedlist>
+   <itemizedlist><title>Labels</title>
    <listitem>
    <para>
     <literal>collector</literal> collector names that correspond to the subsystem they collect metrics from
@@ -1275,10 +1204,7 @@ ha_cluster_scrape_duration_seconds{collector="pacemaker"} 1.234</screen>
     scraped, the value of this metric is 0. In this case, the exporter logs for
     more details.
    </para>
-   <para>
-    Labels:
-   </para>
-   <itemizedlist>
+   <itemizedlist><title>Labels</title>
    <listitem>
    <para>
     <literal>collector</literal> collector names that correspond to the subsystem they collect metrics from
