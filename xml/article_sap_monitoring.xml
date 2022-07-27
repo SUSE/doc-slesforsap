@@ -1,1296 +1,1303 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="file:/usr/share/xml/geekodoc/rng/geekodoc5-flat.rnc"
    type="application/relax-ng-compact-syntax"?>
-
 <!DOCTYPE article
 [
   <!ENTITY % entities SYSTEM "generic-entities.ent">
     %entities;
 ]>
-
 <!--
 Further information:
-
 * SAP Monitoring will become easier and powerful using SLES for SAP
-  https://suse.com/c/coming-soon-sap-landscape-monitoring-on-sles-for-sap/
+https://suse.com/c/coming-soon-sap-landscape-monitoring-on-sles-for-sap/
 -->
-
 <article version="5.1" xml:lang="en" xml:id="article-sap-monitoring"
   xmlns="http://docbook.org/ns/docbook"
   xmlns:xi="http://www.w3.org/2001/XInclude"
   xmlns:xlink="http://www.w3.org/1999/xlink">
-   <title>&sap; Monitoring</title>
-  <subtitle>&sles4sapreg; · &sleha;</subtitle>
-   <info>
-     <abstract>
-       <para>
-         This article shows monitoring solutions for &sap; administrators
-         to efficiently monitor their &sap; systems.
-         The solutions that is described here works for &slsreg;&nbsp;12
-         SP3 to 15&nbsp;SP2.
-       </para>
-     </abstract>
-   </info>
+ <title>&sap; Monitoring</title>
+ <subtitle>&sles4sapreg; · &sleha;</subtitle>
+ <info>
+  <abstract>
+   <para>
+    This article shows monitoring solutions for &sap; administrators to
+    efficiently monitor their &sap; systems. The solutions that is described
+    here works for &slsreg;&nbsp;12 SP3 to 15&nbsp;SP2.
+   </para>
+  </abstract>
+ </info>
+ <sect1 xml:id="sec-sol-monit-concept-overview">
+  <title>Conceptual overview</title>
 
-  <sect1 xml:id="sec-sol-monit-concept-overview">
-    <title>Conceptual overview</title>
-    <para>
-      Starting from the idea of improving user experience, &suse; engineering worked
-      on how to monitor &ha; clusters that manage &sap; workloads (&hana; and &nw;).
-    </para>
-    <para>
-      The exporters shown here export their metrics which can be combined and
-      integrated with Prometheus and Grafana to produce complex dashboards.
-    </para>
-    <para>
-      &suse; supports Prometheus and Grafana through &suma; 4.0. Some Grafana
-      dashboards for &hana;, &s4h;, &netweaver;, and the cluster monitoring
-      are provided by &suse; via Grafana community dashboards.
-    </para>
-  </sect1>
+  <para>
+   Starting from the idea of improving user experience, &suse; engineering
+   worked on how to monitor &ha; clusters that manage &sap; workloads (&hana;
+   and &nw;).
+  </para>
 
-  <sect1 xml:id="sec-sol-monit-terms">
-    <title>Terminology</title>
-    <variablelist>
-      <varlistentry>
-        <term>Grafana</term>
-        <listitem>
-          <para>
-            An interactive visualization and analytics Web application.
-            It provides methods to visualize, explore,
-            and query your metrics, and trigger alerts.
-          </para>
-        </listitem>
-      </varlistentry>
-      <varlistentry>
-        <term>Prometheus</term>
-        <listitem>
-          <para>
-            A systems monitoring and alerting toolkit. It collects and evaluates
-            metrics, displays the result, and triggers possible alerts
-            when an observed condition is true.
-            Metrics can be collected from different targets at given intervals.
-          </para>
-        </listitem>
-      </varlistentry>
-    </variablelist>
-  </sect1>
+  <para>
+   The exporters shown here export their metrics which can be combined and
+   integrated with Prometheus and Grafana to produce complex dashboards.
+  </para>
 
-  <sect1 xml:id="sec-sol-autom-install-exporters">
-    <title>Installing exporters</title>
-    <para>
-      Installation of an exporter follows always the same pattern.
-      Execute the following steps:
-    </para>
+  <para>
+   &suse; supports Prometheus and Grafana through &suma; 4.0. Some Grafana
+   dashboards for &hana;, &s4h;, &netweaver;, and the cluster monitoring are
+   provided by &suse; via Grafana community dashboards.
+  </para>
+ </sect1>
+ <sect1 xml:id="sec-sol-monit-terms">
+  <title>Terminology</title>
 
-    <procedure>
-      <title>General way</title>
-      <step>
-        <para>Install the package. All package are available in &sles4sap;.</para>
-      </step>
-      <step performance="optional">
-        <para>
-          Copy the configuration file to <filename>/etc/<replaceable>EXPORTER_DIR</replaceable></filename>.
-          The exact folder name is different for each exporter.
-          This step depends on the exporter. If you skip this step, the default
-          configuration is used.
-        </para>
-      </step>
-      <step>
-        <para>
-          Start the daemon:
-        </para>
-        <screen>systemctl start <replaceable>NAME_OF_DAEMON</replaceable></screen>
-      </step>
-    </procedure>
-    <para>
-      The above procedure is automatically done by each of the &salt; formulas
-      described in <xref linkend="article-sap-automation"/>.
-    </para>
-  </sect1>
-
-  <sect1 xml:id="sec-sol-monit-hana-db-exp">
-    <title>&hana; database exporter</title>
-    <para>
-      Exports &hana; database metrics.
-      The exporter can to export the metrics from more than one database or tenant.
-      This <option>multi_tenant</option> option is enabled by default.
-    </para>
-    <formalpara>
-      <title>Package:</title>
-      <para><package>prometheus-hanadb_exporter</package></para>
-    </formalpara>
-    <formalpara>
-      <title>Link:</title>
-      <para>
-        <link xlink:href="https://github.com/SUSE/hanadb_exporter"/>.
-      </para>
-    </formalpara>
-    <itemizedlist>
-      <title>Export metrics in the prometheus format</title>
-      <listitem>
-        <para>
-          Memory metrics
-        </para>
-      </listitem>
-      <listitem>
-        <para>
-          CPU metrics
-        </para>
-      </listitem>
-      <listitem>
-        <para>
-          Disk usage metrics
-        </para>
-      </listitem>
-      <listitem>
-        <para>
-          I/O metrics
-        </para>
-      </listitem>
-      <listitem>
-        <para>
-          Network metrics
-        </para>
-      </listitem>
-      <listitem>
-        <para>
-          Top queries consuming time and memory
-        </para>
-      </listitem>
-      <listitem>
-        <para>
-          System replication metrics
-        </para>
-      </listitem>
-    </itemizedlist>
-    <para>
-Find installation instruction in the previous link.
-    </para>
-  </sect1>
-
-  <sect1 xml:id="sec-sol-monit-ha-cluster-exp">
-    <title>&ha; cluster exporter</title>
-    <para>
-      Enables monitoring of Pacemaker, &corosync;, SBD, DRBD and other
-      components of &ha; clusters. Collects metrics to easily monitor cluster
-      status and health.
-    </para>
-    <formalpara>
-      <title>Link:</title>
-      <para>
-        <link xlink:href="https://github.com/ClusterLabs/ha_cluster_exporter"/>.
-      </para>
-    </formalpara>
-    <itemizedlist>
-      <title>Export metrics in the prometheus format</title>
-      <listitem>
-        <para>
-          Pacemaker cluster summary, nodes and resources stats
-        </para>
-      </listitem>
-      <listitem>
-        <para>
-          Corosync ring errors and quorum votes
-        </para>
-      </listitem>
-      <listitem>
-        <para>
-          Health status of SBD devices.
-        </para>
-      </listitem>
-      <listitem>
-        <para>
-          DRBD resources and connections status.
-        </para>
-      </listitem>
-    </itemizedlist>
-    <sect2 xml:id="sec-sol-monit-ha-cluster-exp-install">
-      <title>Installation</title>
-      <para>
-        To install the &ha; cluster exporter on &sle;, run the <command>zypper
-        install prometheus-ha_cluster_exporter</command> command.
-      </para>
-    <sect3 xml:id="sec-sol-monit-ha-cluster-exp-systemd">
-      <title>Enabling &systemd; service</title>
-      <para>
-        The &ha; cluster exporter RPM packages comes with the
-        <literal>ha_cluster_exporter.service</literal> &systemd; service. To
-        enable and start it, use the following command:
-      </para>
-<screen>systemctl --now enable prometheus-ha_cluster_exporter</screen>
-    </sect3>
-  </sect2>
-    <sect2 xml:id="sec-sol-monit-ha-cluster-exp-use">
-    <title>Using &ha; cluster exporter</title>
-    <para>
-      You can run the exporter on any of the cluster nodes. Although it is not
-      strictly required, it is advisable to run the exporter on all nodes.
-    </para>
-    <para>
-      The generated metrics are stored in the <literal>/metrics</literal> path.
-      By default, the metrics can be accessed through the web interface on port 9664.
-    </para>
-<para>
-Although the exporter can run outside an &ha; cluster node, it cannot export any
-metric it is not able to collect. In this case, the exporter displays a warning message.
-</para>
-    </sect2>
-    <sect2 xml:id="sec-sol-monit-ha-cluster-exp-configure">
-      <title>Configuring &ha; cluster exporter</title>
-      <para>
-        The provided default configuration is designed specifically for the
-        latest version of <phrase os="osuse">&opensuse;</phrase><phrase
-        os="sles;sled">&sle;</phrase>. If necessary, any of the supported
-        parameters can be modified either via command-line flags or via a
-        configuration file. Use the <command>ha_cluster_exporter
-        --help</command> command for more details on configuring parameters from
-        the command line. Refer to the
-        <filename>ha_cluster_exporter.yaml</filename> file for an example configuration.
-      </para>
-      <para>
-        It is also possible to specify CLI flags via the
-        <filename>/etc/sysconfig/prometheus-ha_cluster_exporter</filename> file.
-      </para>
-      <variablelist><title>General flags</title>
-      <varlistentry>
-      <term>
-        web.listen-address
-      </term>
-      <listitem>
-      <para>
-        Address to listen on for web interface and telemetry (default 9664).
-      </para>
-      </listitem>
-      </varlistentry>
-      <varlistentry>
-      <term>
-        web.telemetry-path
-      </term>
-      <listitem>
-      <para>
-        Directory for storing metrics data (default
-        <filename>/metrics</filename>).
-        </para>
-      </listitem>
-      </varlistentry>
-      <varlistentry>
-      <term>
-        web.config.file 
-      </term>
-      <listitem>
-      <para>
-        Path to a the web configuration file (default <filename>/etc/ha_cluster_exporter.web.yaml</filename>).
-      </para>
-      </listitem>
-      </varlistentry>
-      <varlistentry>
-      <term>
-        log.level
-      </term>
-      <listitem>
-      <para>
-        Logging verbosity (default <literal>info</literal>).
-      </para>
-      </listitem>
-      </varlistentry>
-      <varlistentry>
-      <term>
-        version
-      </term>
-      <listitem>
-      <para>
-        Print version information.
-      </para>
-      </listitem>
-      </varlistentry>
-      </variablelist>
-      <variablelist><title>Collector flags</title>
-      <varlistentry>
-      <term>
-        crm-mon-path
-      </term>
-      <listitem>
-      <para>
-        Path to the <filename>crm_mon</filename> executable (default <filename>/usr/sbin/crm_mon</filename>).
-      </para>
-      </listitem>
-      </varlistentry>
-      <varlistentry>
-      <term>
-        cibadmin-path
-      </term>
-      <listitem>
-      <para>
-        Path to the <filename>cibadmin</filename> executable (default <filename>/usr/sbin/cibadmin</filename>).
-      </para>
-      </listitem>
-      </varlistentry>
-      <varlistentry>
-      <term>
-        corosync-cfgtoolpath-path
-      </term>
-      <listitem>
-      <para>
-        Path to the <filename>corosync-cfgtool</filename> executable (default <filename>/usr/sbin/corosync-cfgtool</filename>).
-      </para>
-      </listitem>
-      </varlistentry>
-      <varlistentry>
-      <term>
-        corosync-quorumtool-path
-      </term>
-      <listitem>
-      <para>
-        Path to the <filename>corosync-quorumtool</filename> executable (default <filename>/usr/sbin/corosync-quorumtool</filename>).
-      </para>
-      </listitem>
-      </varlistentry>
-      <varlistentry>
-      <term>
-        sbd-path
-      </term>
-      <listitem>
-      <para>
-        Path to the <filename>sbd</filename> executable (default <filename>/usr/sbin/sbd</filename>).
-      </para>
-      </listitem>
-      </varlistentry>
-      <varlistentry>
-      <term>
-        sbd-config-path
-      </term>
-      <listitem>
-      <para>
-        Path to the sbd configuration (default <filename>/etc/sysconfig/sbd/</filename>).
-      </para>
-      </listitem>
-      </varlistentry>
-      <varlistentry>
-      <term>
-        drbdsetup-path
-      </term>
-      <listitem>
-      <para>
-        Path to the <filename>drbdsetup</filename> executable (default <filename>/sbin/drbdsetup</filename>).
-      </para>
-      </listitem>
-      </varlistentry>
-      <varlistentry>
-      <term>
-        drbdsplitbrain-path
-      </term>
-      <listitem>
-      <para>
-        Path to the <filename>drbd splitbrain</filename> hooks temporary files (default <filename>/var/run/drbd/splitbrain</filename>).
-      </para>
-      </listitem>
-      </varlistentry>
-      </variablelist>
-      </sect2>
-      <sect2 xml:id="sec-sol-monit-ha-cluster-exp-tls">
-        <title>TLS and basic authentication</title>
-        <para>
-          The &ha; cluster exporter supports TLS and basic authentication. To
-          use TLS or basic authentication, specify a configuration file using
-          the <option>--web.config.file</option> parameter. The format of the
-          file is described in <link
-          xlink:href="https://github.com/prometheus/exporter-toolkit/blob/master/docs/web-configuration.md"/>.
-        </para>
-      </sect2>
-      <sect2 xml:id="sec-sol-monit-ha-cluster-exp-metrics">
-        <title>Metrics specification</title>
-        <para>
-          The following provides an overview of metrics generated by the &ha;
-        cluster exporter.
-        </para>
-        <formalpara>
-          <title>Pacemaker</title>
-          <para>
-            The Pacemaker subsystem collects an atomic snapshot of the &ha;
-            cluster directly from the XML CIB of Pacemaker using
-            <package>crm_mon</package>.
-          </para>
-       </formalpara>
-        <variablelist><title>Pacemaker</title>
-        <varlistentry>
-        <term>
-          ha_cluster_pacemaker_config_last_change
-        </term>
-        <listitem>
-        <para>
-          A Unix timestamp in seconds converted to a float, corresponding to the last time Pacemaker configuration changed.
-        </para>
-        </listitem>
-        </varlistentry>
-        <varlistentry>
-        <term>
-          ha_cluster_pacemaker_fail_count
-        </term>
-        <listitem>
-        <para>
-          The number of fail count per node and resource ID.
-        </para>
-        </listitem>
-        </varlistentry>
-        <varlistentry>
-        <term>
-          ha_cluster_pacemaker_location_constraints
-        </term>
-        <listitem>
-        <para>
-          Resource location constraints.
-        </para>
-        <itemizedlist><title>Labels</title>
-        <listitem>
-        <para>
-          <literal>constraint</literal> A unique string identifier of the constraint
-        </para>
-        </listitem>
-        <listitem>
-        <para>
-          <literal>node</literal> The node the constraint applies to
-        </para>
-        </listitem>
-        <listitem>
-        <para>
-          <literal>resource</literal> The resource the constraint applies to
-        </para>
-        </listitem>
-        <listitem>
-        <para>
-          <literal>role</literal> The resource role the constraint applies to (if any)
-        </para>
-        </listitem>
-        </itemizedlist>
-        </listitem>
-        </varlistentry>
-        <varlistentry>
-        <term>
-          ha_cluster_pacemaker_migration_threshold
-        </term>
-        <listitem>
-        <para>
-          The number of migration threshold pro node and resource ID set by a Pacemaker cluster.
-        </para>
-        </listitem>
-        </varlistentry>
-        <varlistentry>
-        <term>
-          ha_cluster_pacemaker_nodes
-        </term>
-        <listitem>
-        <para>
-          The status of each node in the cluster, with one line for each
-          possible status of every node. 1 means the node is in the
-          status specified by the status label, 0 means that it is not.
-        </para>
-        <itemizedlist><title>Labels</title>
-        <listitem>
-        <para>
-          <literal>node</literal> The name of the node (usually the hostname)
-        </para>
-        </listitem>
-        <listitem>
-        <para>
-          <literal>status</literal> Possible values:
-          <literal>standby</literal>, <literal>standby_onfail</literal>,
-          <literal>maintenance</literal>,
-          <literal>pending</literal>, <literal>unclean</literal>,
-          <literal>shutdown</literal>, <literal>expected_up</literal>, <literal>dc</literal>
-        </para>
-        </listitem>
-        <listitem>
-        <para>
-          <literal>type</literal> Possible values:
-          <literal>member</literal>, <literal>ping</literal>, <literal>remote</literal>
-        </para>
-        </listitem>
-        </itemizedlist>
-        </listitem>
-        </varlistentry>
-        <varlistentry>
-        <term>
-          ha_cluster_pacemaker_node_attributes
-        </term>
-        <listitem>
-        <para>
-          This metric exposes in its labels raw, opaque, cluster metadata,
-          called node attributes that often leveraged by Resource Agents.
-          The value of each line is always 1.
-        </para>
-        <itemizedlist><title>Labels</title>
-        <listitem>
-        <para>
-          <literal>node</literal> The name of the node (usually the hostname)
-        </para>
-        </listitem>
-        <listitem>
-        <para>
-          <literal>name</literal> The name of the attribute
-        </para>
-        </listitem>
-        <listitem>
-        <para>
-          <literal>value</literal> The value of the attribute
-        </para>
-        </listitem>
-        </itemizedlist>
-        </listitem>
-        </varlistentry>
-        <varlistentry>
-        <term>
-          ha_cluster_pacemaker_resources
-        </term>
-        <listitem>
-        <para>
-          The status of each resource in the cluster, with one line for each
-          possible status of each resource. 1 means the resource is
-          in the status specified by the status label, 0 means that it is
-          not.
-        </para>
-        <itemizedlist><title>Labels</title>
-        <listitem>
-        <para>
-          <literal>agent</literal> The name of the resource agent for the
-          resource
-        </para>
-        </listitem>
-        <listitem>
-        <para>
-          <literal>clone</literal> The name of the clone this resource belongs
-          to (if any)
-        </para>
-        </listitem>
-        <listitem>
-        <para>
-          <literal>group</literal> The name of the group this resource belongs to, (if any)
-        </para>
-        </listitem>
-        <listitem>
-        <para>
-          <literal>managed</literal> Can be either <literal>true</literal> or <literal>false</literal>
-        </para>
-        </listitem>
-        <listitem>
-        <para>
-          <literal>node</literal> The name of the node hosting the resource
-        </para>
-        </listitem>
-        <listitem>
-        <para>
-          <literal>resource</literal> The unique resource name
-        </para>
-        </listitem>
-        <listitem>
-        <para>
-          <literal>role</literal> Possible values: 
-          <literal>started</literal>, <literal>stopped</literal>,
-          <literal>master</literal>, <literal>slave</literal> or one of
-          <literal>starting</literal>, <literal>stopping</literal>,
-          <literal>migrating</literal>, <literal>promoting</literal>, <literal>demoting</literal>
-        </para>
-        </listitem>
-        </itemizedlist>
-        </listitem>
-        </varlistentry>
-        <varlistentry>
-        <term>
-          ha_cluster_pacemaker_stonith_enabled
-        </term>
-        <listitem>
-        <para>
-          Whether or not stonith is enabled in the cluster. The value is either 1 or 0.
-        </para>
-        </listitem>
-        </varlistentry>
-        </variablelist>
-        <formalpara>
-          <title>Corosync</title>
-          <para>
-            The Corosync subsystem collects cluster quorum votes and ring status by parsing the output of <package>corosync-quorumtool</package> and <package>corosync-cfgtool</package>.
-          </para>
-       </formalpara>
-        <variablelist><title>Corosync</title>
-        <varlistentry>
-        <term>
-          ha_cluster_corosync_member_votes
-        </term>
-        <listitem>
-        <para>
-          The number of votes each member node has contributed with to the current quorum
-        </para>
-        <itemizedlist><title>Labels</title>
-        <listitem>
-        <para>
-          <literal>node_id</literal> The internal corosync identifier associated with the node
-        </para>
-        </listitem>
-        <listitem>
-        <para>
-          <literal>node</literal> The name of the node (usually the hostname)
-        </para>
-        </listitem>
-        <listitem>
-        <para>
-          <literal>local</literal> Indicates whether the node is local
-        </para>
-        </listitem>
-        </itemizedlist>
-        </listitem>
-        </varlistentry>
-        <varlistentry>
-        <term>
-          ha_cluster_corosync_quorate
-        </term>
-        <listitem>
-        <para>
-          Indicates whether the cluster is quorate. The value is either 1 or 0
-        </para>
-        </listitem>
-        </varlistentry>
-        <varlistentry>
-        <term>
-          ha_cluster_corosync_quorum_votes
-        </term>
-        <listitem>
-        <para>
-          Cluster quorum votes (one line per type).
-        </para>
-        <itemizedlist><title>Labels</title>
-        <listitem>
-        <para>
-          <literal>type</literal> Possible values:
-          <literal>expected_votes</literal>,
-          <literal>highest_expected</literal>,
-          <literal>total_votes</literal>, <literal>quorum</literal>.
-        </para>
-        </listitem>
-        </itemizedlist>
-        </listitem>
-        </varlistentry>
-        <varlistentry>
-        <term>
-          ha_cluster_corosync_ring_errors
-        </term>
-        <listitem>
-        <para>
-          The total number of faulty Corosync rings.
-        </para>
-        </listitem>
-        </varlistentry>
-        <varlistentry>
-        <term>
-          ha_cluster_corosync_rings
-        </term>
-        <listitem>
-        <para>
-          The status of each Corosync ring. 1 is healthy, 0 is faulty.
-        </para>
-        <itemizedlist><title>Labels</title>
-        <listitem>
-        <para>
-          <literal>ring_id</literal> The internal Corosync ring identifier (usually corresponds to the first member node to join)
-        </para>
-        </listitem>
-        <listitem>
-        <para>
-          <literal>node_id</literal> The internal Corosync identifier of the local node
-        </para>
-        </listitem>
-        <listitem>
-        <para>
-          <literal>number</literal> The ring number
-        </para>
-        </listitem>
-        <listitem>
-        <para>
-          <literal>address</literal> the IP address locally linked to this ring
-        </para>
-        </listitem>
-        </itemizedlist>
-      </listitem>
-        </varlistentry>
-        </variablelist>
-        <formalpara>
-          <title>SBD</title>
-          <para>
-            The SBD subsystems collect statistics of each device by parsing its configuration and the output of <command>sbd --dump</command>.
-          </para>
-       </formalpara>
-       <variablelist><title>SBD</title>
-       <varlistentry>
-       <term>
-        ha_cluster_sbd_devices
-       </term>
-       <listitem>
-       <para>
-        The SBD devices in the cluster, one line per device. The line is either
-        absent or has the value of 1.
-       </para>
-       <itemizedlist><title>Labels</title>
-       <listitem>
-       <para>
-        <literal>device</literal> The path of the SBD device
-       </para>
-       </listitem>
-       <listitem>
-       <para>
-        <literal>status</literal> Possible values: <literal>healthy</literal>,  <literal>unhealthy</literal>
-       </para>
-       </listitem>
-       </itemizedlist>
-      </listitem>
-       </varlistentry>
-       <varlistentry>
-       <term>
-        ha_cluster_sbd_timeouts
-       </term>
-       <listitem>
-       <para>
-        The SBD timeouts for each SBD device.
-       </para>
-       <itemizedlist><title>Labels</title>
-       <listitem>
-       <para>
-        <literal>device</literal> The path of the SBD device
-       </para>
-       </listitem>
-       <listitem>
-       <para>
-        <literal>type</literal> Possible values: <literal>watchdog</literal>, <literal>msgwait</literal>
-       </para>
-       </listitem>
-       </itemizedlist>
-       </listitem>
-       </varlistentry>
-       </variablelist>
-       <formalpara>
-        <title>DRBD</title>
-        <para>
-          The DRBD subsystems collect devices stats by parsing its configuration the JSON output of <package>drbdsetup</package>.
-        </para>
-     </formalpara>
-     <variablelist><title>DRBD</title>
-     <varlistentry>
-     <term>
-      ha_cluster_drbd_connections
-     </term>
-     <listitem>
-     <para>
-      The DRBD resource connections (one line per resource and per
-      peer_node_id). The value is 1 or absent.
-     </para>
-     <itemizedlist><title>Labels</title>
-     <listitem>
-     <para>
-      <literal>resource</literal> The resource the connection is for
-     </para>
-     </listitem>
-     <listitem>
-     <para>
-      <literal>peer_node_id</literal> The id of the node this connection is for
-     </para>
-     </listitem>
-     <listitem>
-     <para>
-      <literal>peer_role</literal> Possible values: <literal>primary</literal>, <literal>secondary</literal><literal>unknown</literal>
-     </para>
-     </listitem>
-     <listitem>
-     <para>
-      <literal>volume</literal> The volume number
-     </para>
-     </listitem>
-     <listitem>
-     <para>
-      <literal>peer_disk_state</literal> Possible values
-      <literal>attaching</literal>, <literal>failed</literal>,
-      <literal>negotiating</literal>, <literal>inconsistent</literal>,
-      <literal>outdated</literal>, <literal>unknown</literal>,
-      <literal>consistent</literal>, <literal>uptodate</literal>
-     </para>
-     </listitem>
-     </itemizedlist>
-     <para>
-      The total number of lines for this metric is the cardinality of
-      <literal>resource</literal> multiplied by the cardinality of <literal>peer_node_id</literal>.
-     </para>
-    </listitem>
-     </varlistentry>
-     <varlistentry>
-     <term>
-      ha_cluster_drbd_connections_sync
-     </term>
-     <listitem>
-     <para>
-      The DRBD disk connections in sync percentage. Values are floating numbers between 0 and 100.00.
-     </para>
-     <itemizedlist><title>Labels</title>
-     <listitem>
-     <para>
-      <literal>resource</literal> The resource the connection is for
-     </para>
-     </listitem>
-     <listitem>
-     <para>
-      <literal>peer_node_id</literal> The id of the node this connection is for
-     </para>
-     </listitem>
-     <listitem>
-     <para>
-      <literal>volume</literal> The volume number
-     </para>
-     </listitem>
-     </itemizedlist>
-     </listitem>
-     </varlistentry>
-     <varlistentry>
-     <term>
-      ha_cluster_drbd_connections_received
-     </term>
-     <listitem>
-     <para>
-      Volume of net data received from the partner via the network connection in
-      KiB (one line per per resource and per peer_node_id). The value is an integer
-      greater than or equal to 0.
-     </para>
-     <itemizedlist><title>Labels</title>
-     <listitem>
-     <para>
-      <literal>resource</literal> The resource the connection is for
-     </para>
-     </listitem>
-     <listitem>
-     <para>
-      <literal>peer_node_id</literal> The id of the node this connection is for
-     </para>
-     </listitem>
-     <listitem>
-     <para>
-      <literal>volume</literal> The volume number
-     </para>
-     </listitem>
-     </itemizedlist>
-     </listitem>
-     </varlistentry>
-     <varlistentry>
-     <term>
-      ha_cluster_drbd_connections_pending
-     </term>
-     <listitem>
-     <para>
-      Number of requests sent to the partner that have not yet been received
-      (one line per per resource and per peer_node_id). The value is an integer
-      greater than or equal to 0.
-     </para>
-     <itemizedlist><title>Labels</title>
-     <listitem>
-     <para>
-      <literal>resource</literal> The resource the connection is for
-     </para>
-     </listitem>
-     <listitem>
-     <para>
-      <literal>peer_node_id</literal> The id of the node this connection is for
-     </para>
-     </listitem>
-     <listitem>
-     <para>
-      <literal>volume</literal> The volume number
-     </para>
-     </listitem>
-     </itemizedlist>
-     </listitem>
-     </varlistentry>
-     <varlistentry>
-     <term>
-      ha_cluster_drbd_connections_unacked
-     </term>
-     <listitem>
-     <para>
-      Number of requests received by the partner but have not yet been
-      acknowledged (one line per resource and per peer_node_id). The value is an
-      integer greater than or equal to 0.
-     </para>
-     <itemizedlist><title>Labels</title>
-     <listitem>
-     <para>
-      <literal>resource</literal> The resource the connection is for
-     </para>
-     </listitem>
-     <listitem>
-     <para>
-      <literal>peer_node_id</literal> The id of the node this connection is for
-     </para>
-     </listitem>
-     <listitem>
-     <para>
-      <literal>volume</literal> The volume number
-     </para>
-     </listitem>
-     </itemizedlist>
-     </listitem>
-     </varlistentry>
-     <varlistentry>
-     <term>
-      ha_cluster_drbd_resources
-     </term>
-     <listitem>
-     <para>
-      The DRBD resources (one line per name and per volume). The value is 1 or absent.
-     </para>
-     <itemizedlist><title>Labels</title>
-     <listitem>
-     <para>
-      <literal>resource</literal> The name of the resource
-     </para>
-     </listitem>
-     <listitem>
-     <para>
-      <literal>role</literal> Possible values: <literal>primary</literal>,
-      <literal>secondary</literal>, <literal>unknown</literal>
-     </para>
-     </listitem>
-     <listitem>
-     <para>
-      <literal>volume</literal> The volume number
-     </para>
-     </listitem>
-     <listitem>
-      <para>
-        <literal>disk_state</literal> Possible values:
-     <literal>attaching</literal>,
-     <literal>failed</literal>, <literal>negotiating</literal>,
-     <literal>inconsistent</literal>, <literal>outdated</literal>,
-     <literal>outdated</literal>, <literal>unknown</literal>,
-     <literal>consistent</literal>, <literal>uptodate</literal>
-      </para>
-     </listitem>
-     </itemizedlist>
-     <para>
-      The total number of lines for the metric is the cardinality of
-      <literal>name</literal> multiplied by the cardinality of
-      <literal>volume</literal>.
-     </para>
-     </listitem>
-     </varlistentry>
-     <varlistentry>
-     <term>
-      ha_cluster_drbd_written
-     </term>
-     <listitem>
-     <para>
-      Amount of data in KiB written to the DRBD resource (one line per resource
-      and per volume) The value is an integer greater than or equal to 0.
-     </para>
-     <itemizedlist><title>Labels</title>
-     <listitem>
-     <para>
-      <literal>resource</literal> The name of the resource
-     </para>
-     </listitem>
-     <listitem>
-     <para>
-      <literal>volume</literal> The volume number
-     </para>
-     </listitem>
-     </itemizedlist>
-     </listitem>
-     </varlistentry>
-     <varlistentry>
-     <term>
-      ha_cluster_drbd_read
-     </term>
-     <listitem>
-     <para>
-      Amount of data in KiB read from the DRBD resource (one line per resource
-      and per volume) The value is an integer greater than or equal to 0.
-     </para>
-     <itemizedlist><title>Labels</title>
-     <listitem>
-     <para>
-      <literal>resource</literal> The name of the resource
-     </para>
-     </listitem>
-     <listitem>
-     <para>
-      <literal>volume</literal> The volume number
-     </para>
-     </listitem>
-     </itemizedlist>
-     </listitem>
-     </varlistentry>
-     <varlistentry>
-     <term>
-      ha_cluster_drbd_al_writes
-     </term>
-     <listitem>
-     <para>
-      Number of updates of the activity log area of the meta data (one line per
-      resource and per volume). The value is an integer greater than or equal to 0.
-     </para>
-     <itemizedlist><title>Labels</title>
-     <listitem>
-     <para>
-      <literal>resource</literal> The name of the resource
-     </para>
-     </listitem>
-     <listitem>
-     <para>
-      <literal>volume</literal> The volume number
-     </para>
-     </listitem>
-     </itemizedlist>
-     </listitem>
-     </varlistentry>
-     <varlistentry>
-     <term>
-      ha_cluster_drbd_bm_writes
-     </term>
-     <listitem>
-     <para>
-      Number of updates of the bitmap area of the metadata (one line per
-      resource and per volume). The value is an integer greater than or equal to 0.
-     </para>
-    <itemizedlist><title>Labels</title>
-    <listitem>
-    <para>
-     <literal>resource</literal> The name of the resource
-    </para>
-    </listitem>
-    <listitem>
-    <para>
-     <literal>volume</literal> The volume number
-    </para>
-    </listitem>
-    </itemizedlist>
-     </listitem>
-     </varlistentry>
-     <varlistentry>
-     <term>
-      ha_cluster_drbd_upper_pending
-     </term>
-     <listitem>
-     <para>
-      Number of block I/O requests forwarded to DRBD but not yet answered by
-      DRBD (one line per resource and per volume). The value is an integer greater than or
-      equal to 0.
-     </para>
-     <itemizedlist><title>Labels</title>
-     <listitem>
-     <para>
-      <literal>resource</literal> The name of the resource
-     </para>
-     </listitem>
-     <listitem>
-     <para>
-      <literal>volume</literal> The volume number
-     </para>
-     </listitem>
-     </itemizedlist>
-     </listitem>
-     </varlistentry>
-     <varlistentry>
-     <term>
-      ha_cluster_drbd_lower_pending
-     </term>
-     <listitem>
-     <para>
-      Number of open requests to the local I/O sub-system issued by DRBD (one
-      line per resource and per volume). The value is an integer greater than or equal to
-      0.
-     </para>
-     <itemizedlist><title>Labels</title>
-     <listitem>
-     <para>
-      <literal>resource</literal> The name of the resource
-     </para>
-     </listitem>
-     <listitem>
-     <para>
-      <literal>volume</literal> The volume number
-     </para>
-     </listitem>
-     </itemizedlist>
-     </listitem>
-     </varlistentry>
-     <varlistentry>
-     <term>
-      ha_cluster_drbd_quorum
-     </term>
-     <listitem>
-     <para>
-      Quorum status of the DRBD resource according to the configured quorum
-      policies (one line per resource and per volume). The value is 1 when
-      quorate, or 0 when inquorate.
-     </para>
-     <itemizedlist><title>Labels</title>
-     <listitem>
-     <para>
-      <literal>resource</literal> The name of the resource
-     </para>
-     </listitem>
-     <listitem>
-     <para>
-      <literal>volume</literal> The volume number
-     </para>
-     </listitem>
-     </itemizedlist>
-     </listitem>
-     </varlistentry>
-     <varlistentry>
-     <term>
-      ha_cluster_drbd_split_brain
-     </term>
-     <listitem>
-     <para>
-      Signals when there is a split brain occurring per resource and
-      volume. The value is 1 or absent. To make this metric work you must setup
-      a DRBD custom split-brain handler.
-     </para>
-     <itemizedlist><title>Labels</title>
-     <listitem>
-     <para>
-      <literal>resource</literal> The name of the resource
-     </para>
-     </listitem>
-     <listitem>
-     <para>
-      <literal>volume</literal> The volume number
-     </para>
-     </listitem>
-     </itemizedlist>
-     </listitem>
-     </varlistentry>
-     </variablelist>
-     <formalpara>
-      <title>Scrape</title>
-      <para>
-        The scrape subsystem is a generic namespace dedicated to internal instrumentation of the exporter itself.
-      </para>
-   </formalpara>
-   <variablelist><title>Scrape</title>
+  <variablelist>
    <varlistentry>
-   <term>
-    ha_cluster_scrape_duration_seconds
-   </term>
-   <listitem>
+    <term>Grafana</term>
+    <listitem>
+     <para>
+      An interactive visualization and analytics Web application. It provides
+      methods to visualize, explore, and query your metrics, and trigger
+      alerts.
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term>Prometheus</term>
+    <listitem>
+     <para>
+      A systems monitoring and alerting toolkit. It collects and evaluates
+      metrics, displays the result, and triggers possible alerts when an
+      observed condition is true. Metrics can be collected from different
+      targets at given intervals.
+     </para>
+    </listitem>
+   </varlistentry>
+  </variablelist>
+ </sect1>
+ <sect1 xml:id="sec-sol-autom-install-exporters">
+  <title>Installing exporters</title>
+
+  <para>
+   Installation of an exporter follows always the same pattern. Execute the
+   following steps:
+  </para>
+
+  <procedure>
+   <title>General way</title>
+   <step>
+    <para>
+     Install the package. All package are available in &sles4sap;.
+    </para>
+   </step>
+   <step performance="optional">
+    <para>
+     Copy the configuration file to
+     <filename>/etc/<replaceable>EXPORTER_DIR</replaceable></filename>. The
+     exact folder name is different for each exporter. This step depends on the
+     exporter. If you skip this step, the default configuration is used.
+    </para>
+   </step>
+   <step>
+    <para>
+     Start the daemon:
+    </para>
+<screen>systemctl start <replaceable>NAME_OF_DAEMON</replaceable></screen>
+   </step>
+  </procedure>
+
+  <para>
+   The above procedure is automatically done by each of the &salt; formulas
+   described in <xref linkend="article-sap-automation"/>.
+  </para>
+ </sect1>
+ <sect1 xml:id="sec-sol-monit-hana-db-exp">
+  <title>&hana; database exporter</title>
+
+  <para>
+   Exports &hana; database metrics. The exporter can to export the metrics from
+   more than one database or tenant. This <option>multi_tenant</option> option
+   is enabled by default.
+  </para>
+
+  <formalpara>
+   <title>Package:</title>
    <para>
-    The duration of a collector scrape in seconds.
+    <package>prometheus-hanadb_exporter</package>
    </para>
-   <itemizedlist><title>Labels</title>
-   <listitem>
+  </formalpara>
+
+  <formalpara>
+   <title>Link:</title>
    <para>
-    <literal>collector</literal> collector names that correspond to the subsystem they collect metrics from
+    <link xlink:href="https://github.com/SUSE/hanadb_exporter"/>.
    </para>
+  </formalpara>
+
+  <itemizedlist>
+   <title>Export metrics in the prometheus format</title>
+   <listitem>
+    <para>
+     Memory metrics
+    </para>
    </listitem>
-   </itemizedlist>
+   <listitem>
+    <para>
+     CPU metrics
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     Disk usage metrics
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     I/O metrics
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     Network metrics
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     Top queries consuming time and memory
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     System replication metrics
+    </para>
+   </listitem>
+  </itemizedlist>
+
+  <para>
+   Find installation instruction in the previous link.
+  </para>
+ </sect1>
+ <sect1 xml:id="sec-sol-monit-ha-cluster-exp">
+  <title>&ha; cluster exporter</title>
+
+  <para>
+   Enables monitoring of Pacemaker, &corosync;, SBD, DRBD and other components
+   of &ha; clusters. Collects metrics to easily monitor cluster status and
+   health.
+  </para>
+
+  <formalpara>
+   <title>Link:</title>
    <para>
-    Example:
+    <link xlink:href="https://github.com/ClusterLabs/ha_cluster_exporter"/>.
    </para>
+  </formalpara>
+
+  <itemizedlist>
+   <title>Export metrics in the prometheus format</title>
+   <listitem>
+    <para>
+     Pacemaker cluster summary, nodes and resources stats
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     Corosync ring errors and quorum votes
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     Health status of SBD devices.
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     DRBD resources and connections status.
+    </para>
+   </listitem>
+  </itemizedlist>
+
+  <sect2 xml:id="sec-sol-monit-ha-cluster-exp-install">
+   <title>Installation</title>
+   <para>
+    To install the &ha; cluster exporter on &sle;, run the <command>zypper
+    install prometheus-ha_cluster_exporter</command> command.
+   </para>
+   <sect3 xml:id="sec-sol-monit-ha-cluster-exp-systemd">
+    <title>Enabling &systemd; service</title>
+    <para>
+     The &ha; cluster exporter RPM packages comes with the
+     <literal>ha_cluster_exporter.service</literal> &systemd; service. To
+     enable and start it, use the following command:
+    </para>
+<screen>systemctl --now enable prometheus-ha_cluster_exporter</screen>
+   </sect3>
+  </sect2>
+
+  <sect2 xml:id="sec-sol-monit-ha-cluster-exp-use">
+   <title>Using &ha; cluster exporter</title>
+   <para>
+    You can run the exporter on any of the cluster nodes. Although it is not
+    strictly required, it is advisable to run the exporter on all nodes.
+   </para>
+   <para>
+    The generated metrics are stored in the <literal>/metrics</literal> path.
+    By default, the metrics can be accessed through the web interface on port
+    9664.
+   </para>
+   <para>
+    Although the exporter can run outside an &ha; cluster node, it cannot
+    export any metric it is not able to collect. In this case, the exporter
+    displays a warning message.
+   </para>
+  </sect2>
+
+  <sect2 xml:id="sec-sol-monit-ha-cluster-exp-configure">
+   <title>Configuring &ha; cluster exporter</title>
+   <para>
+    The provided default configuration is designed specifically for the latest
+    version of
+    <phrase os="osuse">&opensuse;</phrase><phrase
+        os="sles;sled">&sle;</phrase>.
+    If necessary, any of the supported parameters can be modified either via
+    command-line flags or via a configuration file. Use the
+    <command>ha_cluster_exporter --help</command> command for more details on
+    configuring parameters from the command line. Refer to the
+    <filename>ha_cluster_exporter.yaml</filename> file for an example
+    configuration.
+   </para>
+   <para>
+    It is also possible to specify CLI flags via the
+    <filename>/etc/sysconfig/prometheus-ha_cluster_exporter</filename> file.
+   </para>
+   <variablelist>
+    <title>General flags</title>
+    <varlistentry>
+     <term>web.listen-address</term>
+     <listitem>
+      <para>
+       Address to listen on for web interface and telemetry (default 9664).
+      </para>
+     </listitem>
+    </varlistentry>
+    <varlistentry>
+     <term>web.telemetry-path</term>
+     <listitem>
+      <para>
+       Directory for storing metrics data (default
+       <filename>/metrics</filename>).
+      </para>
+     </listitem>
+    </varlistentry>
+    <varlistentry>
+     <term>web.config.file</term>
+     <listitem>
+      <para>
+       Path to a the web configuration file (default
+       <filename>/etc/ha_cluster_exporter.web.yaml</filename>).
+      </para>
+     </listitem>
+    </varlistentry>
+    <varlistentry>
+     <term>log.level</term>
+     <listitem>
+      <para>
+       Logging verbosity (default <literal>info</literal>).
+      </para>
+     </listitem>
+    </varlistentry>
+    <varlistentry>
+     <term>version</term>
+     <listitem>
+      <para>
+       Print version information.
+      </para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+   <variablelist>
+    <title>Collector flags</title>
+    <varlistentry>
+     <term>crm-mon-path</term>
+     <listitem>
+      <para>
+       Path to the <filename>crm_mon</filename> executable (default
+       <filename>/usr/sbin/crm_mon</filename>).
+      </para>
+     </listitem>
+    </varlistentry>
+    <varlistentry>
+     <term>cibadmin-path</term>
+     <listitem>
+      <para>
+       Path to the <filename>cibadmin</filename> executable (default
+       <filename>/usr/sbin/cibadmin</filename>).
+      </para>
+     </listitem>
+    </varlistentry>
+    <varlistentry>
+     <term>corosync-cfgtoolpath-path</term>
+     <listitem>
+      <para>
+       Path to the <filename>corosync-cfgtool</filename> executable (default
+       <filename>/usr/sbin/corosync-cfgtool</filename>).
+      </para>
+     </listitem>
+    </varlistentry>
+    <varlistentry>
+     <term>corosync-quorumtool-path</term>
+     <listitem>
+      <para>
+       Path to the <filename>corosync-quorumtool</filename> executable (default
+       <filename>/usr/sbin/corosync-quorumtool</filename>).
+      </para>
+     </listitem>
+    </varlistentry>
+    <varlistentry>
+     <term>sbd-path</term>
+     <listitem>
+      <para>
+       Path to the <filename>sbd</filename> executable (default
+       <filename>/usr/sbin/sbd</filename>).
+      </para>
+     </listitem>
+    </varlistentry>
+    <varlistentry>
+     <term>sbd-config-path</term>
+     <listitem>
+      <para>
+       Path to the sbd configuration (default
+       <filename>/etc/sysconfig/sbd/</filename>).
+      </para>
+     </listitem>
+    </varlistentry>
+    <varlistentry>
+     <term>drbdsetup-path</term>
+     <listitem>
+      <para>
+       Path to the <filename>drbdsetup</filename> executable (default
+       <filename>/sbin/drbdsetup</filename>).
+      </para>
+     </listitem>
+    </varlistentry>
+    <varlistentry>
+     <term>drbdsplitbrain-path</term>
+     <listitem>
+      <para>
+       Path to the <filename>drbd splitbrain</filename> hooks temporary files
+       (default <filename>/var/run/drbd/splitbrain</filename>).
+      </para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </sect2>
+
+  <sect2 xml:id="sec-sol-monit-ha-cluster-exp-tls">
+   <title>TLS and basic authentication</title>
+   <para>
+    The &ha; cluster exporter supports TLS and basic authentication. To use TLS
+    or basic authentication, specify a configuration file using the
+    <option>--web.config.file</option> parameter. The format of the file is
+    described in
+    <link
+          xlink:href="https://github.com/prometheus/exporter-toolkit/blob/master/docs/web-configuration.md"/>.
+   </para>
+  </sect2>
+
+  <sect2 xml:id="sec-sol-monit-ha-cluster-exp-metrics">
+   <title>Metrics specification</title>
+   <para>
+    The following provides an overview of metrics generated by the &ha; cluster
+    exporter.
+   </para>
+   <formalpara>
+    <title>Pacemaker</title>
+    <para>
+     The Pacemaker subsystem collects an atomic snapshot of the &ha; cluster
+     directly from the XML CIB of Pacemaker using <package>crm_mon</package>.
+    </para>
+   </formalpara>
+   <variablelist>
+    <title>Pacemaker</title>
+    <varlistentry>
+     <term>ha_cluster_pacemaker_config_last_change</term>
+     <listitem>
+      <para>
+       A Unix timestamp in seconds converted to a float, corresponding to the
+       last time Pacemaker configuration changed.
+      </para>
+     </listitem>
+    </varlistentry>
+    <varlistentry>
+     <term>ha_cluster_pacemaker_fail_count</term>
+     <listitem>
+      <para>
+       The number of fail count per node and resource ID.
+      </para>
+     </listitem>
+    </varlistentry>
+    <varlistentry>
+     <term>ha_cluster_pacemaker_location_constraints</term>
+     <listitem>
+      <para>
+       Resource location constraints.
+      </para>
+      <itemizedlist>
+       <title>Labels</title>
+       <listitem>
+        <para>
+         <literal>constraint</literal> A unique string identifier of the
+         constraint
+        </para>
+       </listitem>
+       <listitem>
+        <para>
+         <literal>node</literal> The node the constraint applies to
+        </para>
+       </listitem>
+       <listitem>
+        <para>
+         <literal>resource</literal> The resource the constraint applies to
+        </para>
+       </listitem>
+       <listitem>
+        <para>
+         <literal>role</literal> The resource role the constraint applies to
+         (if any)
+        </para>
+       </listitem>
+      </itemizedlist>
+     </listitem>
+    </varlistentry>
+    <varlistentry>
+     <term>ha_cluster_pacemaker_migration_threshold</term>
+     <listitem>
+      <para>
+       The number of migration threshold pro node and resource ID set by a
+       Pacemaker cluster.
+      </para>
+     </listitem>
+    </varlistentry>
+    <varlistentry>
+     <term>ha_cluster_pacemaker_nodes</term>
+     <listitem>
+      <para>
+       The status of each node in the cluster, with one line for each possible
+       status of every node. 1 means the node is in the status specified by the
+       status label, 0 means that it is not.
+      </para>
+      <itemizedlist>
+       <title>Labels</title>
+       <listitem>
+        <para>
+         <literal>node</literal> The name of the node (usually the hostname)
+        </para>
+       </listitem>
+       <listitem>
+        <para>
+         <literal>status</literal> Possible values: <literal>standby</literal>,
+         <literal>standby_onfail</literal>, <literal>maintenance</literal>,
+         <literal>pending</literal>, <literal>unclean</literal>,
+         <literal>shutdown</literal>, <literal>expected_up</literal>,
+         <literal>dc</literal>
+        </para>
+       </listitem>
+       <listitem>
+        <para>
+         <literal>type</literal> Possible values: <literal>member</literal>,
+         <literal>ping</literal>, <literal>remote</literal>
+        </para>
+       </listitem>
+      </itemizedlist>
+     </listitem>
+    </varlistentry>
+    <varlistentry>
+     <term>ha_cluster_pacemaker_node_attributes</term>
+     <listitem>
+      <para>
+       This metric exposes in its labels raw, opaque, cluster metadata, called
+       node attributes that often leveraged by Resource Agents. The value of
+       each line is always 1.
+      </para>
+      <itemizedlist>
+       <title>Labels</title>
+       <listitem>
+        <para>
+         <literal>node</literal> The name of the node (usually the hostname)
+        </para>
+       </listitem>
+       <listitem>
+        <para>
+         <literal>name</literal> The name of the attribute
+        </para>
+       </listitem>
+       <listitem>
+        <para>
+         <literal>value</literal> The value of the attribute
+        </para>
+       </listitem>
+      </itemizedlist>
+     </listitem>
+    </varlistentry>
+    <varlistentry>
+     <term>ha_cluster_pacemaker_resources</term>
+     <listitem>
+      <para>
+       The status of each resource in the cluster, with one line for each
+       possible status of each resource. 1 means the resource is in the status
+       specified by the status label, 0 means that it is not.
+      </para>
+      <itemizedlist>
+       <title>Labels</title>
+       <listitem>
+        <para>
+         <literal>agent</literal> The name of the resource agent for the
+         resource
+        </para>
+       </listitem>
+       <listitem>
+        <para>
+         <literal>clone</literal> The name of the clone this resource belongs
+         to (if any)
+        </para>
+       </listitem>
+       <listitem>
+        <para>
+         <literal>group</literal> The name of the group this resource belongs
+         to, (if any)
+        </para>
+       </listitem>
+       <listitem>
+        <para>
+         <literal>managed</literal> Can be either <literal>true</literal> or
+         <literal>false</literal>
+        </para>
+       </listitem>
+       <listitem>
+        <para>
+         <literal>node</literal> The name of the node hosting the resource
+        </para>
+       </listitem>
+       <listitem>
+        <para>
+         <literal>resource</literal> The unique resource name
+        </para>
+       </listitem>
+       <listitem>
+        <para>
+         <literal>role</literal> Possible values: <literal>started</literal>,
+         <literal>stopped</literal>, <literal>master</literal>,
+         <literal>slave</literal> or one of <literal>starting</literal>,
+         <literal>stopping</literal>, <literal>migrating</literal>,
+         <literal>promoting</literal>, <literal>demoting</literal>
+        </para>
+       </listitem>
+      </itemizedlist>
+     </listitem>
+    </varlistentry>
+    <varlistentry>
+     <term>ha_cluster_pacemaker_stonith_enabled</term>
+     <listitem>
+      <para>
+       Whether or not stonith is enabled in the cluster. The value is either 1
+       or 0.
+      </para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+   <formalpara>
+    <title>Corosync</title>
+    <para>
+     The Corosync subsystem collects cluster quorum votes and ring status by
+     parsing the output of <package>corosync-quorumtool</package> and
+     <package>corosync-cfgtool</package>.
+    </para>
+   </formalpara>
+   <variablelist>
+    <title>Corosync</title>
+    <varlistentry>
+     <term>ha_cluster_corosync_member_votes</term>
+     <listitem>
+      <para>
+       The number of votes each member node has contributed with to the current
+       quorum
+      </para>
+      <itemizedlist>
+       <title>Labels</title>
+       <listitem>
+        <para>
+         <literal>node_id</literal> The internal corosync identifier associated
+         with the node
+        </para>
+       </listitem>
+       <listitem>
+        <para>
+         <literal>node</literal> The name of the node (usually the hostname)
+        </para>
+       </listitem>
+       <listitem>
+        <para>
+         <literal>local</literal> Indicates whether the node is local
+        </para>
+       </listitem>
+      </itemizedlist>
+     </listitem>
+    </varlistentry>
+    <varlistentry>
+     <term>ha_cluster_corosync_quorate</term>
+     <listitem>
+      <para>
+       Indicates whether the cluster is quorate. The value is either 1 or 0
+      </para>
+     </listitem>
+    </varlistentry>
+    <varlistentry>
+     <term>ha_cluster_corosync_quorum_votes</term>
+     <listitem>
+      <para>
+       Cluster quorum votes (one line per type).
+      </para>
+      <itemizedlist>
+       <title>Labels</title>
+       <listitem>
+        <para>
+         <literal>type</literal> Possible values:
+         <literal>expected_votes</literal>,
+         <literal>highest_expected</literal>, <literal>total_votes</literal>,
+         <literal>quorum</literal>.
+        </para>
+       </listitem>
+      </itemizedlist>
+     </listitem>
+    </varlistentry>
+    <varlistentry>
+     <term>ha_cluster_corosync_ring_errors</term>
+     <listitem>
+      <para>
+       The total number of faulty Corosync rings.
+      </para>
+     </listitem>
+    </varlistentry>
+    <varlistentry>
+     <term>ha_cluster_corosync_rings</term>
+     <listitem>
+      <para>
+       The status of each Corosync ring. 1 is healthy, 0 is faulty.
+      </para>
+      <itemizedlist>
+       <title>Labels</title>
+       <listitem>
+        <para>
+         <literal>ring_id</literal> The internal Corosync ring identifier
+         (usually corresponds to the first member node to join)
+        </para>
+       </listitem>
+       <listitem>
+        <para>
+         <literal>node_id</literal> The internal Corosync identifier of the
+         local node
+        </para>
+       </listitem>
+       <listitem>
+        <para>
+         <literal>number</literal> The ring number
+        </para>
+       </listitem>
+       <listitem>
+        <para>
+         <literal>address</literal> the IP address locally linked to this ring
+        </para>
+       </listitem>
+      </itemizedlist>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+   <formalpara>
+    <title>SBD</title>
+    <para>
+     The SBD subsystems collect statistics of each device by parsing its
+     configuration and the output of <command>sbd --dump</command>.
+    </para>
+   </formalpara>
+   <variablelist>
+    <title>SBD</title>
+    <varlistentry>
+     <term>ha_cluster_sbd_devices</term>
+     <listitem>
+      <para>
+       The SBD devices in the cluster, one line per device. The line is either
+       absent or has the value of 1.
+      </para>
+      <itemizedlist>
+       <title>Labels</title>
+       <listitem>
+        <para>
+         <literal>device</literal> The path of the SBD device
+        </para>
+       </listitem>
+       <listitem>
+        <para>
+         <literal>status</literal> Possible values: <literal>healthy</literal>,
+         <literal>unhealthy</literal>
+        </para>
+       </listitem>
+      </itemizedlist>
+     </listitem>
+    </varlistentry>
+    <varlistentry>
+     <term>ha_cluster_sbd_timeouts</term>
+     <listitem>
+      <para>
+       The SBD timeouts for each SBD device.
+      </para>
+      <itemizedlist>
+       <title>Labels</title>
+       <listitem>
+        <para>
+         <literal>device</literal> The path of the SBD device
+        </para>
+       </listitem>
+       <listitem>
+        <para>
+         <literal>type</literal> Possible values: <literal>watchdog</literal>,
+         <literal>msgwait</literal>
+        </para>
+       </listitem>
+      </itemizedlist>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+   <formalpara>
+    <title>DRBD</title>
+    <para>
+     The DRBD subsystems collect devices stats by parsing its configuration the
+     JSON output of <package>drbdsetup</package>.
+    </para>
+   </formalpara>
+   <variablelist>
+    <title>DRBD</title>
+    <varlistentry>
+     <term>ha_cluster_drbd_connections</term>
+     <listitem>
+      <para>
+       The DRBD resource connections (one line per resource and per
+       peer_node_id). The value is 1 or absent.
+      </para>
+      <itemizedlist>
+       <title>Labels</title>
+       <listitem>
+        <para>
+         <literal>resource</literal> The resource the connection is for
+        </para>
+       </listitem>
+       <listitem>
+        <para>
+         <literal>peer_node_id</literal> The id of the node this connection is
+         for
+        </para>
+       </listitem>
+       <listitem>
+        <para>
+         <literal>peer_role</literal> Possible values:
+         <literal>primary</literal>,
+         <literal>secondary</literal><literal>unknown</literal>
+        </para>
+       </listitem>
+       <listitem>
+        <para>
+         <literal>volume</literal> The volume number
+        </para>
+       </listitem>
+       <listitem>
+        <para>
+         <literal>peer_disk_state</literal> Possible values
+         <literal>attaching</literal>, <literal>failed</literal>,
+         <literal>negotiating</literal>, <literal>inconsistent</literal>,
+         <literal>outdated</literal>, <literal>unknown</literal>,
+         <literal>consistent</literal>, <literal>uptodate</literal>
+        </para>
+       </listitem>
+      </itemizedlist>
+      <para>
+       The total number of lines for this metric is the cardinality of
+       <literal>resource</literal> multiplied by the cardinality of
+       <literal>peer_node_id</literal>.
+      </para>
+     </listitem>
+    </varlistentry>
+    <varlistentry>
+     <term>ha_cluster_drbd_connections_sync</term>
+     <listitem>
+      <para>
+       The DRBD disk connections in sync percentage. Values are floating
+       numbers between 0 and 100.00.
+      </para>
+      <itemizedlist>
+       <title>Labels</title>
+       <listitem>
+        <para>
+         <literal>resource</literal> The resource the connection is for
+        </para>
+       </listitem>
+       <listitem>
+        <para>
+         <literal>peer_node_id</literal> The id of the node this connection is
+         for
+        </para>
+       </listitem>
+       <listitem>
+        <para>
+         <literal>volume</literal> The volume number
+        </para>
+       </listitem>
+      </itemizedlist>
+     </listitem>
+    </varlistentry>
+    <varlistentry>
+     <term>ha_cluster_drbd_connections_received</term>
+     <listitem>
+      <para>
+       Volume of net data received from the partner via the network connection
+       in KiB (one line per per resource and per peer_node_id). The value is an
+       integer greater than or equal to 0.
+      </para>
+      <itemizedlist>
+       <title>Labels</title>
+       <listitem>
+        <para>
+         <literal>resource</literal> The resource the connection is for
+        </para>
+       </listitem>
+       <listitem>
+        <para>
+         <literal>peer_node_id</literal> The id of the node this connection is
+         for
+        </para>
+       </listitem>
+       <listitem>
+        <para>
+         <literal>volume</literal> The volume number
+        </para>
+       </listitem>
+      </itemizedlist>
+     </listitem>
+    </varlistentry>
+    <varlistentry>
+     <term>ha_cluster_drbd_connections_pending</term>
+     <listitem>
+      <para>
+       Number of requests sent to the partner that have not yet been received
+       (one line per per resource and per peer_node_id). The value is an
+       integer greater than or equal to 0.
+      </para>
+      <itemizedlist>
+       <title>Labels</title>
+       <listitem>
+        <para>
+         <literal>resource</literal> The resource the connection is for
+        </para>
+       </listitem>
+       <listitem>
+        <para>
+         <literal>peer_node_id</literal> The id of the node this connection is
+         for
+        </para>
+       </listitem>
+       <listitem>
+        <para>
+         <literal>volume</literal> The volume number
+        </para>
+       </listitem>
+      </itemizedlist>
+     </listitem>
+    </varlistentry>
+    <varlistentry>
+     <term>ha_cluster_drbd_connections_unacked</term>
+     <listitem>
+      <para>
+       Number of requests received by the partner but have not yet been
+       acknowledged (one line per resource and per peer_node_id). The value is
+       an integer greater than or equal to 0.
+      </para>
+      <itemizedlist>
+       <title>Labels</title>
+       <listitem>
+        <para>
+         <literal>resource</literal> The resource the connection is for
+        </para>
+       </listitem>
+       <listitem>
+        <para>
+         <literal>peer_node_id</literal> The id of the node this connection is
+         for
+        </para>
+       </listitem>
+       <listitem>
+        <para>
+         <literal>volume</literal> The volume number
+        </para>
+       </listitem>
+      </itemizedlist>
+     </listitem>
+    </varlistentry>
+    <varlistentry>
+     <term>ha_cluster_drbd_resources</term>
+     <listitem>
+      <para>
+       The DRBD resources (one line per name and per volume). The value is 1 or
+       absent.
+      </para>
+      <itemizedlist>
+       <title>Labels</title>
+       <listitem>
+        <para>
+         <literal>resource</literal> The name of the resource
+        </para>
+       </listitem>
+       <listitem>
+        <para>
+         <literal>role</literal> Possible values: <literal>primary</literal>,
+         <literal>secondary</literal>, <literal>unknown</literal>
+        </para>
+       </listitem>
+       <listitem>
+        <para>
+         <literal>volume</literal> The volume number
+        </para>
+       </listitem>
+       <listitem>
+        <para>
+         <literal>disk_state</literal> Possible values:
+         <literal>attaching</literal>, <literal>failed</literal>,
+         <literal>negotiating</literal>, <literal>inconsistent</literal>,
+         <literal>outdated</literal>, <literal>outdated</literal>,
+         <literal>unknown</literal>, <literal>consistent</literal>,
+         <literal>uptodate</literal>
+        </para>
+       </listitem>
+      </itemizedlist>
+      <para>
+       The total number of lines for the metric is the cardinality of
+       <literal>name</literal> multiplied by the cardinality of
+       <literal>volume</literal>.
+      </para>
+     </listitem>
+    </varlistentry>
+    <varlistentry>
+     <term>ha_cluster_drbd_written</term>
+     <listitem>
+      <para>
+       Amount of data in KiB written to the DRBD resource (one line per
+       resource and per volume) The value is an integer greater than or equal
+       to 0.
+      </para>
+      <itemizedlist>
+       <title>Labels</title>
+       <listitem>
+        <para>
+         <literal>resource</literal> The name of the resource
+        </para>
+       </listitem>
+       <listitem>
+        <para>
+         <literal>volume</literal> The volume number
+        </para>
+       </listitem>
+      </itemizedlist>
+     </listitem>
+    </varlistentry>
+    <varlistentry>
+     <term>ha_cluster_drbd_read</term>
+     <listitem>
+      <para>
+       Amount of data in KiB read from the DRBD resource (one line per resource
+       and per volume) The value is an integer greater than or equal to 0.
+      </para>
+      <itemizedlist>
+       <title>Labels</title>
+       <listitem>
+        <para>
+         <literal>resource</literal> The name of the resource
+        </para>
+       </listitem>
+       <listitem>
+        <para>
+         <literal>volume</literal> The volume number
+        </para>
+       </listitem>
+      </itemizedlist>
+     </listitem>
+    </varlistentry>
+    <varlistentry>
+     <term>ha_cluster_drbd_al_writes</term>
+     <listitem>
+      <para>
+       Number of updates of the activity log area of the meta data (one line
+       per resource and per volume). The value is an integer greater than or
+       equal to 0.
+      </para>
+      <itemizedlist>
+       <title>Labels</title>
+       <listitem>
+        <para>
+         <literal>resource</literal> The name of the resource
+        </para>
+       </listitem>
+       <listitem>
+        <para>
+         <literal>volume</literal> The volume number
+        </para>
+       </listitem>
+      </itemizedlist>
+     </listitem>
+    </varlistentry>
+    <varlistentry>
+     <term>ha_cluster_drbd_bm_writes</term>
+     <listitem>
+      <para>
+       Number of updates of the bitmap area of the metadata (one line per
+       resource and per volume). The value is an integer greater than or equal
+       to 0.
+      </para>
+      <itemizedlist>
+       <title>Labels</title>
+       <listitem>
+        <para>
+         <literal>resource</literal> The name of the resource
+        </para>
+       </listitem>
+       <listitem>
+        <para>
+         <literal>volume</literal> The volume number
+        </para>
+       </listitem>
+      </itemizedlist>
+     </listitem>
+    </varlistentry>
+    <varlistentry>
+     <term>ha_cluster_drbd_upper_pending</term>
+     <listitem>
+      <para>
+       Number of block I/O requests forwarded to DRBD but not yet answered by
+       DRBD (one line per resource and per volume). The value is an integer
+       greater than or equal to 0.
+      </para>
+      <itemizedlist>
+       <title>Labels</title>
+       <listitem>
+        <para>
+         <literal>resource</literal> The name of the resource
+        </para>
+       </listitem>
+       <listitem>
+        <para>
+         <literal>volume</literal> The volume number
+        </para>
+       </listitem>
+      </itemizedlist>
+     </listitem>
+    </varlistentry>
+    <varlistentry>
+     <term>ha_cluster_drbd_lower_pending</term>
+     <listitem>
+      <para>
+       Number of open requests to the local I/O sub-system issued by DRBD (one
+       line per resource and per volume). The value is an integer greater than
+       or equal to 0.
+      </para>
+      <itemizedlist>
+       <title>Labels</title>
+       <listitem>
+        <para>
+         <literal>resource</literal> The name of the resource
+        </para>
+       </listitem>
+       <listitem>
+        <para>
+         <literal>volume</literal> The volume number
+        </para>
+       </listitem>
+      </itemizedlist>
+     </listitem>
+    </varlistentry>
+    <varlistentry>
+     <term>ha_cluster_drbd_quorum</term>
+     <listitem>
+      <para>
+       Quorum status of the DRBD resource according to the configured quorum
+       policies (one line per resource and per volume). The value is 1 when
+       quorate, or 0 when inquorate.
+      </para>
+      <itemizedlist>
+       <title>Labels</title>
+       <listitem>
+        <para>
+         <literal>resource</literal> The name of the resource
+        </para>
+       </listitem>
+       <listitem>
+        <para>
+         <literal>volume</literal> The volume number
+        </para>
+       </listitem>
+      </itemizedlist>
+     </listitem>
+    </varlistentry>
+    <varlistentry>
+     <term>ha_cluster_drbd_split_brain</term>
+     <listitem>
+      <para>
+       Signals when there is a split brain occurring per resource and volume.
+       The value is 1 or absent. To make this metric work you must setup a DRBD
+       custom split-brain handler.
+      </para>
+      <itemizedlist>
+       <title>Labels</title>
+       <listitem>
+        <para>
+         <literal>resource</literal> The name of the resource
+        </para>
+       </listitem>
+       <listitem>
+        <para>
+         <literal>volume</literal> The volume number
+        </para>
+       </listitem>
+      </itemizedlist>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+   <formalpara>
+    <title>Scrape</title>
+    <para>
+     The scrape subsystem is a generic namespace dedicated to internal
+     instrumentation of the exporter itself.
+    </para>
+   </formalpara>
+   <variablelist>
+    <title>Scrape</title>
+    <varlistentry>
+     <term>ha_cluster_scrape_duration_seconds</term>
+     <listitem>
+      <para>
+       The duration of a collector scrape in seconds.
+      </para>
+      <itemizedlist>
+       <title>Labels</title>
+       <listitem>
+        <para>
+         <literal>collector</literal> collector names that correspond to the
+         subsystem they collect metrics from
+        </para>
+       </listitem>
+      </itemizedlist>
+      <para>
+       Example:
+      </para>
 <screen># TYPE ha_cluster_scrape_duration_seconds gauge
 ha_cluster_scrape_duration_seconds{collector="pacemaker"} 1.234</screen>
-   </listitem>
-   </varlistentry>
-   <varlistentry>
-   <term>
-    ha_cluster_scrape_success
-   </term>
-   <listitem>
-   <para>
-    Indicates whether a collector succeeded. Collectors can fail gracefully, but
-    that does not prevent them from running. If certain metrics cannot be
-    scraped, the value of this metric is 0. In this case, the exporter logs for
-    more details.
-   </para>
-   <itemizedlist><title>Labels</title>
-   <listitem>
-   <para>
-    <literal>collector</literal> collector names that correspond to the subsystem they collect metrics from
-   </para>
-   <para>
-    Example:
-   </para>
+     </listitem>
+    </varlistentry>
+    <varlistentry>
+     <term>ha_cluster_scrape_success</term>
+     <listitem>
+      <para>
+       Indicates whether a collector succeeded. Collectors can fail gracefully,
+       but that does not prevent them from running. If certain metrics cannot
+       be scraped, the value of this metric is 0. In this case, the exporter
+       logs for more details.
+      </para>
+      <itemizedlist>
+       <title>Labels</title>
+       <listitem>
+        <para>
+         <literal>collector</literal> collector names that correspond to the
+         subsystem they collect metrics from
+        </para>
+        <para>
+         Example:
+        </para>
 <screen># TYPE ha_cluster_scrape_success gauge
 ha_cluster_scrape_success{collector="pacemaker"} 1</screen>
-   </listitem>
-   </itemizedlist>
-   </listitem>
-   </varlistentry>
+       </listitem>
+      </itemizedlist>
+     </listitem>
+    </varlistentry>
    </variablelist>
-      </sect2>
-  </sect1>
+  </sect2>
+ </sect1>
+ <sect1 xml:id="sec-sol-monit-sap-host-exp">
+  <title>&sap; host exporter</title>
 
-  <sect1 xml:id="sec-sol-monit-sap-host-exp">
-    <title>&sap; host exporter</title>
+  <para>
+   Enables the monitoring of &netweaver;, &hana;, and other applications. The
+   gathered metrics are the data that can be obtained by running the
+   <command>sapcontrol</command> command.
+  </para>
+
+  <formalpara>
+   <title>Link:</title>
+   <para>
+    <link xlink:href="https://github.com/SUSE/sap_host_exporter"/>.
+   </para>
+  </formalpara>
+
+  <itemizedlist>
+   <title>Exports metrics (for &s4h;, &netweaver;, or &hana; hosts) in prometheus format</title>
+   <listitem>
     <para>
-      Enables the monitoring of &netweaver;, &hana;, and other applications.
-      The gathered metrics are the data that can be obtained by running the
-      <command>sapcontrol</command> command.
+     &sap; start service process list
     </para>
-    <formalpara>
-      <title>Link:</title>
-      <para>
-        <link xlink:href="https://github.com/SUSE/sap_host_exporter"/>.
-      </para>
-    </formalpara>
-    <itemizedlist>
-      <title>Exports metrics (for &s4h;, &netweaver;, or &hana; hosts) in prometheus format</title>
-      <listitem>
-        <para>
-          &sap; start service process list
-        </para>
-      </listitem>
-      <listitem>
-        <para>
-          &sap; enqueue server metrics
-        </para>
-      </listitem>
-      <listitem>
-        <para>
-          &sap; application server dispatcher metrics
-        </para>
-      </listitem>
-      <listitem>
-        <para>
-          &sap; internal alerts
-        </para>
-      </listitem>
-    </itemizedlist>
-  </sect1>
+   </listitem>
+   <listitem>
+    <para>
+     &sap; enqueue server metrics
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     &sap; application server dispatcher metrics
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     &sap; internal alerts
+    </para>
+   </listitem>
+  </itemizedlist>
+ </sect1>
+ <sect1 xml:id="sec-sol-monit-more">
+  <title>For more information</title>
 
-  <sect1 xml:id="sec-sol-monit-more">
-    <title>For more information</title>
-    <remark>toms 2020-06-10: Need to be reworked which one is useful and should be included</remark>
-    <itemizedlist>
-      <listitem>
-        <para>
-          <link xlink:href="https://documentation.suse.com/suma/4.0/"
+  <remark>toms 2020-06-10: Need to be reworked which one is useful and should be included</remark>
+
+  <itemizedlist>
+   <listitem>
+    <para>
+     <link xlink:href="https://documentation.suse.com/suma/4.0/"
             >&suma;</link>
-        </para>
-      </listitem>
-      <listitem>
-        <para>
-          <link xlink:href="https://grafana.com/grafana/dashboards?orderBy=name&amp;direction=asc"
-            >Grafana Dashboards</link>
-        </para>
-      </listitem>
-      <listitem>
-        <para>
-          Some <filename class="extension">.md</filename> files
-          are included in RPM packages. They contain documentation from
-          upstream sources. This can be helpful in isolated data centers without
-          Internet connection.
-        </para>
-      </listitem>
-      <listitem>
-        <para><link xlink:href="https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/suse-amp-microsoft-collaborates-to-provide-sap-monitoring/ba-p/1571926">&suse; &amp; Microsoft collaborates to provide SAP monitoring</link>
-        </para>
-      </listitem>
-    </itemizedlist>
-  </sect1>
-
-  <xi:include href="common_copyright_quick.xml"/>
-  <xi:include href="common_legal.xml"/>
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     <link xlink:href="https://grafana.com/grafana/dashboards?orderBy=name&amp;direction=asc"
+            >Grafana
+     Dashboards</link>
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     Some <filename class="extension">.md</filename> files are included in RPM
+     packages. They contain documentation from upstream sources. This can be
+     helpful in isolated data centers without Internet connection.
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     <link xlink:href="https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/suse-amp-microsoft-collaborates-to-provide-sap-monitoring/ba-p/1571926">&suse;
+     &amp; Microsoft collaborates to provide SAP monitoring</link>
+    </para>
+   </listitem>
+  </itemizedlist>
+ </sect1>
+ <xi:include href="common_copyright_quick.xml"/>
+ <xi:include href="common_legal.xml"/>
 </article>
