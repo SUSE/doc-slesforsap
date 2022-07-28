@@ -421,8 +421,8 @@ https://suse.com/c/coming-soon-sap-landscape-monitoring-on-sles-for-sap/
      <term>ha_cluster_pacemaker_config_last_change</term>
      <listitem>
       <para>
-       A Unix timestamp in seconds converted to a float, corresponding to the
-       last time Pacemaker configuration changed.
+       A Unix timestamp in seconds converted to a floating number, corresponding
+       to the last time Pacemaker configuration changed.
       </para>
      </listitem>
     </varlistentry>
@@ -430,7 +430,7 @@ https://suse.com/c/coming-soon-sap-landscape-monitoring-on-sles-for-sap/
      <term>ha_cluster_pacemaker_fail_count</term>
      <listitem>
       <para>
-       The number of fail count per node and resource ID.
+       The fail count per node and resource ID.
       </para>
      </listitem>
     </varlistentry>
@@ -471,7 +471,7 @@ https://suse.com/c/coming-soon-sap-landscape-monitoring-on-sles-for-sap/
      <term>ha_cluster_pacemaker_migration_threshold</term>
      <listitem>
       <para>
-       The number of migration threshold pro node and resource ID set by a
+       The number of migration threshold for each node and resource ID set by a
        Pacemaker cluster.
       </para>
      </listitem>
@@ -480,15 +480,15 @@ https://suse.com/c/coming-soon-sap-landscape-monitoring-on-sles-for-sap/
      <term>ha_cluster_pacemaker_nodes</term>
      <listitem>
       <para>
-       The status of each node in the cluster, with one line for each possible
-       status of every node. 1 means the node is in the status specified by the
-       status label, 0 means that it is not.
+       The status of each node in the cluster (one line for the status of every
+       node). 1 indicates the node is in the status specified by the status
+       label, 0 means it is not.
       </para>
       <itemizedlist>
        <title>Labels</title>
        <listitem>
         <para>
-         <literal>node</literal> The name of the node (usually the hostname)
+         <literal>node</literal> The name of the node (normally the hostname)
         </para>
        </listitem>
        <listitem>
@@ -521,7 +521,7 @@ https://suse.com/c/coming-soon-sap-landscape-monitoring-on-sles-for-sap/
        <title>Labels</title>
        <listitem>
         <para>
-         <literal>node</literal> The name of the node (usually the hostname)
+         <literal>node</literal> The name of the node (normally the hostname)
         </para>
        </listitem>
        <listitem>
@@ -541,8 +541,7 @@ https://suse.com/c/coming-soon-sap-landscape-monitoring-on-sles-for-sap/
      <term>ha_cluster_pacemaker_resources</term>
      <listitem>
       <para>
-       The status of each resource in the cluster, with one line for each
-       possible status of each resource. 1 means the resource is in the status
+       The status of each resource in the cluster (one line for the status of each resource). 1 means the resource is in the status
        specified by the status label, 0 means that it is not.
       </para>
       <itemizedlist>
@@ -617,8 +616,8 @@ https://suse.com/c/coming-soon-sap-landscape-monitoring-on-sles-for-sap/
      <term>ha_cluster_corosync_member_votes</term>
      <listitem>
       <para>
-       The number of votes each member node has contributed with to the current
-       quorum
+       The number of votes each member node has contributed to the current
+       quorum.
       </para>
       <itemizedlist>
        <title>Labels</title>
@@ -630,7 +629,7 @@ https://suse.com/c/coming-soon-sap-landscape-monitoring-on-sles-for-sap/
        </listitem>
        <listitem>
         <para>
-         <literal>node</literal> The name of the node (usually the hostname)
+         <literal>node</literal> The name of the node (normally the hostname)
         </para>
        </listitem>
        <listitem>
@@ -687,7 +686,7 @@ https://suse.com/c/coming-soon-sap-landscape-monitoring-on-sles-for-sap/
        <listitem>
         <para>
          <literal>ring_id</literal> The internal Corosync ring identifier
-         (usually corresponds to the first member node to join)
+         (normally corresponds to the first member node to join)
         </para>
        </listitem>
        <listitem>
@@ -723,7 +722,7 @@ https://suse.com/c/coming-soon-sap-landscape-monitoring-on-sles-for-sap/
      <term>ha_cluster_sbd_devices</term>
      <listitem>
       <para>
-       The SBD devices in the cluster, one line per device. The line is either
+       The SBD devices in the cluster (one line per device). The line is either
        absent or has the value of 1.
       </para>
       <itemizedlist>
@@ -768,8 +767,8 @@ https://suse.com/c/coming-soon-sap-landscape-monitoring-on-sles-for-sap/
    <formalpara>
     <title>DRBD</title>
     <para>
-     The DRBD subsystems collect devices stats by parsing its configuration the
-     JSON output of <package>drbdsetup</package>.
+     The DRBD subsystems collect devices statistics by parsing its configuration
+     the JSON output of <package>drbdsetup</package>.
     </para>
    </formalpara>
    <variablelist>
@@ -778,8 +777,10 @@ https://suse.com/c/coming-soon-sap-landscape-monitoring-on-sles-for-sap/
      <term>ha_cluster_drbd_connections</term>
      <listitem>
       <para>
-       The DRBD resource connections (one line per resource and per
-       peer_node_id). The value is 1 or absent.
+       The DRBD resource connections (one line per <literal>resource</literal>
+       and per
+       <literal>peer_node_id</literal>). The line is either absent or has the
+       value of 1.
       </para>
       <itemizedlist>
        <title>Labels</title>
@@ -856,7 +857,9 @@ https://suse.com/c/coming-soon-sap-landscape-monitoring-on-sles-for-sap/
      <listitem>
       <para>
        Volume of net data received from the partner via the network connection
-       in KiB (one line per per resource and per peer_node_id). The value is an
+       in KiB (one line per <literal>resource</literal>
+       and per
+       <literal>peer_node_id</literal>). The value is an
        integer greater than or equal to 0.
       </para>
       <itemizedlist>
@@ -885,7 +888,9 @@ https://suse.com/c/coming-soon-sap-landscape-monitoring-on-sles-for-sap/
      <listitem>
       <para>
        Number of requests sent to the partner that have not yet been received
-       (one line per per resource and per peer_node_id). The value is an
+       (one line per <literal>resource</literal>
+       and per
+       <literal>peer_node_id</literal>). The value is an
        integer greater than or equal to 0.
       </para>
       <itemizedlist>
@@ -914,7 +919,9 @@ https://suse.com/c/coming-soon-sap-landscape-monitoring-on-sles-for-sap/
      <listitem>
       <para>
        Number of requests received by the partner but have not yet been
-       acknowledged (one line per resource and per peer_node_id). The value is
+       acknowledged (one line per <literal>resource</literal>
+       and per
+       <literal>peer_node_id</literal>). The value is
        an integer greater than or equal to 0.
       </para>
       <itemizedlist>
@@ -942,8 +949,8 @@ https://suse.com/c/coming-soon-sap-landscape-monitoring-on-sles-for-sap/
      <term>ha_cluster_drbd_resources</term>
      <listitem>
       <para>
-       The DRBD resources (one line per name and per volume). The value is 1 or
-       absent.
+       The DRBD resources (one line per name and per volume). The line is either
+       absent or has the value of 1.
       </para>
       <itemizedlist>
        <title>Labels</title>
@@ -1146,8 +1153,8 @@ https://suse.com/c/coming-soon-sap-landscape-monitoring-on-sles-for-sap/
      <listitem>
       <para>
        Signals when there is a split brain occurring per resource and volume.
-       The value is 1 or absent. To make this metric work you must setup a DRBD
-       custom split-brain handler.
+       The line is either absent or has the value of 1. To make this metric work
+       you must setup a DRBD custom split-brain handler.
       </para>
       <itemizedlist>
        <title>Labels</title>
