@@ -767,8 +767,8 @@ https://suse.com/c/coming-soon-sap-landscape-monitoring-on-sles-for-sap/
    <formalpara>
     <title>DRBD</title>
     <para>
-     The DRBD subsystems collect devices statistics by parsing its configuration
-     the JSON output of <package>drbdsetup</package>.
+      The DRDB subsystem runs a special <command>drbdsetup</command> command to
+      get the current status of a DRDB cluster in the JSON format.
     </para>
    </formalpara>
    <variablelist>
