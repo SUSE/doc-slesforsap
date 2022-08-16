@@ -31,7 +31,7 @@ As agreed on https://confluence.suse.com/x/DAEcN on our Trento doc kick off
 
 -->
 
-<article xml:lang="en" xml:id="article-sap-trento" version="5.1" status="draft"
+<article xml:lang="en" xml:id="article-sap-trento" version="5.1" 
     xmlns="http://docbook.org/ns/docbook"
     xmlns:xi="http://www.w3.org/2001/XInclude"
     xmlns:xlink="http://www.w3.org/1999/xlink">
