@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" xml:base="s4s_planning.xml" version="5.0" xml:id="cha-plan">
+ <title>インストールの計画</title>
+ <info>
+  <dm:docmanager xmlns:dm="urn:x-suse:ns:docmanager">
+   <dm:bugtracker/>
+   <dm:translation>yes</dm:translation>
+  </dm:docmanager>
+ </info>
+ <para>
+  この章はインストールの計画に役立つため、注意してお読みください。要件を一覧表示しており、システムに関するデータを収集するのに役立ちます。
+ </para>
+ <sect1 xml:id="sec-hardware">
+  <title>ハードウェア要件</title>
+
+  <para>
+   このセクションでは、SUSE Linux Enterprise Server for SAP Applicationsのインストールの最低ハードウェア要件を一覧表示し、特定のSAPソフトウェアの想定されるハードウェア要件に関する基本的なガイダンスを示します。SAPソフトウェアのハードウェア要件の最新情報については、<link xlink:href="https://service.sap.com/sizing"/>にある公式サイジングガイドラインを参照してください。
+  </para>
+
+  <variablelist>
+   <varlistentry>
+    <term>サポートされているCPU</term>
+    <listitem>
+     <para>
+      Intel 64
+     </para>
+     <para>
+      IBM POWER 8 (PowerVM搭載)
+     </para>
+     <para>
+      IBM POWER 9 (PowerVM搭載)
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term>ハードディスク</term>
+    <listitem>
+     <para>
+      SUSE Linux Enterprise Server for SAP Applicationsには、システムボリュームに対して最低41GB(スワップなし)のハードディスク容量が必要です。それに加えて、スワップパーティション用に適切なハードディスク容量を予約します。
+     </para>
+     <para>
+      SAP NetWeaverなどのSAPアプリケーションをインストールするには、アプリケーションの<filename>/data</filename>パーティションのオペレーティングシステムに必要なスペースのほか、最低200GBの空きディスク容量が必要です。
+     </para>
+     <para>
+      SAP HANAをインストールするには、次のいずれかが必要です。
+     </para>
+     <itemizedlist>
+      <listitem>
+       <para>
+        SAP BusinessOne認定マシン
+       </para>
+      </listitem>
+      <listitem>
+       <para>
+        SAP HANA TDI (Tailored Datacenter Integration)の要件を満たす互換性のあるマシン。つまり、オペレーティングシステムに必要な容量のほか、次の空きディスク容量が必要です。
+       </para>
+       <itemizedlist>
+        <listitem>
+         <para>
+          パーティション<filename>/usr/sap</filename>用に52GBの空きディスク容量
+         </para>
+        </listitem>
+        <listitem>
+         <para>
+          SAP HANAデータ用の3つのパーティションの容量: <filename>/hana/data</filename> (RAMと同じサイズ)、<filename>/hana/log</filename> (RAMと同じサイズで最大512GB)、および<filename>/hana/shared</filename> (RAMと同じサイズで最大1TB)。
+         </para>
+        </listitem>
+       </itemizedlist>
+      </listitem>
+     </itemizedlist>
+     <para>
+      SAP HANAの詳細については、<link xlink:href="https://help.sap.com/docs/SAP_HANA_PLATFORM"/> (<menuchoice><guimenu>Implement (実装)</guimenu><guimenu>SAP HANA Master Guide (SAP HANAマスタガイド)</guimenu><guimenu>SAP HANA Deployment Options (SAP HANA展開オプション)</guimenu><guimenu>On-Premise Deployments (オンプレミス展開)</guimenu>
+</menuchoice>)を参照してください。
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term>RAM</term>
+    <listitem>
+     <para>
+      SUSE Linux Enterprise Serverオペレーティングシステムそれ自体には、CPUコアあたり最低1024MBの合計RAMまたは最低512MBのRAM(どちらか高いほうを選択)が必要です。
+     </para>
+     <para>
+      インストールするSAPソフトウェアには追加のRAMが必要です。
+     </para>
+     <para>
+      SAP HANAをインストールするには、マシンに最低24GBのRAMが必要です。
+     </para>
+    </listitem>
+   </varlistentry>
+  </variablelist>
+
+  <para>
+   SAP HANAのハードウェア設定に関する詳細については、『<citetitle>SAP Note 1944415: Hardware Configuration Guide and Software Installation Guide for SUSE Linux Enterprise Server with SAP HANA and SAP Business One</citetitle>』(<link xlink:href="https://launchpad.support.sap.com/#/notes/1944415"/>)を参照してください。
+  </para>
+
+  <para>
+   パーティショニングに関する詳細については、<xref linkend="sec-partition"/>を参照してください。
+  </para>
+ </sect1>
+ <sect1 xml:id="sec-download">
+  <title>インストールイメージ</title>
+
+  <para>
+   以前のSLE製品と異なり、SLE 15 SP4製品ライン全体を単一インストールメディアである<literal>SLE 15 SP4オンラインメディア1</literal>からインストールできます。ネットワークにアクセスまたは登録しないでインストールする場合は、<literal>SLE 15 SP4フルメディア1</literal>イメージをダウンロードします。両方のISOイメージは<link xlink:href="https://download.suse.com/"/>から入手できます。
+  </para>
+
+  <para>
+   物理DVDにイメージを書き込むか、リムーバブルフラッシュディスクにコピーします。ディスクのサイズが目的のイメージに対して十分であることを確認します。仮想マシンにインストールするときは、仮想DVD-ROMデバイスを使用します。
+  </para>
+
+  <tip>
+   <title>インストールメディアイメージをリムーバブルフラッシュディスクにコピーする</title>
+   <para>
+    次のコマンドを使用して、インストールイメージのコンテンツをリムーバブルフラッシュディスクにコピーします。
+   </para>
+<screen><prompt>&gt; </prompt><command>sudo</command> dd if=<replaceable>IMAGE</replaceable> of=<replaceable>FLASH_DISK</replaceable> bs=4M &amp;&amp; sync</screen>
+   <para>
+    <replaceable>IMAGE</replaceable>をインストールメディアイメージファイルへのパスに置き換えて、<replaceable>FLASH_DISK</replaceable>をフラッシュデバイスに置き換えます。
+   </para>
+  </tip>
+ </sect1>
+ <sect1 xml:id="sec-migration">
+  <title>オフラインマイグレーション</title>
+
+  <para>
+   SUSE Linux Enterprise Serverのマイグレーションパスは、SUSE Linux Enterprise Server for SAP Applicationsのマイグレーションパスと同じです。詳細については、<link xlink:href="https://documentation.suse.com/sles/html/SLES-all/cha-upgrade-paths.html"/>にある『<citetitle>アップグレードガイド</citetitle>』を参照してください。
+  </para>
+ </sect1>
+ 
+ <sect1 xml:id="sec-workflow-overview">
+  <title>インストールワークフローの概要</title>
+
+  <para>
+   SUSE Linux Enterprise Server for SAP Applicationsのインストールワークフローは、次のステップで構成されます。
+  </para>
+
+  <orderedlist>
+   <listitem>
+    <para>
+     オペレーティングシステム(SUSE Linux Enterprise Server)のインストール。<xref linkend="sec-install-workflow"/>を参照してください。
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     SAPインストールウィザード、パート1: すべての必要なSAPメディアをローカルディスクにコピーするか、使用する共有ストレージメディアを選択する。<xref linkend="sec-install-sap-product"/>、特に<xref linkend="st-copy-master" xrefstyle="select:title"/>を参照してください。
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     SAPインストールウィザード、パート2: ユーザにインタラクティブにクエリを実行して、実際のインストールのすべてのパラメータを収集する。<xref linkend="sec-install-sap-product"/>、特に<xref linkend="st-collect-parameter" xrefstyle="select:title"/>を参照してください。
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     SAPインストールウィザード、パート3: SAPインストーラを実行する。<xref linkend="sec-install-sap-product"/>、特に<xref linkend="st-sapinst" xrefstyle="select:title"/>を参照してください。
+    </para>
+   </listitem>
+  </orderedlist>
+
+  <para>
+   これらのステップのほとんどは各ステップ後すぐに実行する必要がないため、システムのインストール方法に柔軟性があります。これは、最初のステップとして単一のインストールを準備し、そこから続行できることを意味します。例:
+  </para>
+
+  <itemizedlist>
+   <listitem>
+    <para>
+     オペレーティングシステム(SUSE Linux Enterprise Server)のみをインストールします。
+    </para>
+    <para>
+     <emphasis>あるいは、</emphasis>
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     オペレーティングシステム(SUSE Linux Enterprise Server)をインストールし、SAPメディアをコピーして、SAPインストールパラメータを収集します。
+    </para>
+   </listitem>
+  </itemizedlist>
+
+  <para>
+   次に、ディスクイメージを作成して、それらを他のシステムにコピーし、SAPインストールパラメータを調整します。最後に、各マシンの個別のインストールを終了します。
+  </para>
+ </sect1>
+ <sect1 xml:id="sec-data">
+  <title>インストールに必要なデータ</title>
+
+  <variablelist>
+   <varlistentry>
+    <term>オペレーティングシステム</term>
+    <listitem>
+     <para>
+      SUSE Linux Enterprise Serverのインストールには、すべての物理サーバについて次のデータが必要です。
+     </para>
+     <itemizedlist>
+      <listitem>
+       <para>
+        ホスト名、ドメイン、IPアドレス、サブネットマスク、ドメイン検索リスト(DNS)、名前サーバのIP、ゲートウェイ用IPなどの、ネットワーク設定パラメータ
+       </para>
+      </listitem>
+      <listitem>
+       <para>
+        SUSE Linux Enterprise Serverインストール用の管理者(<systemitem>root</systemitem>)パスワード
+       </para>
+      </listitem>
+     </itemizedlist>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term>SAPアプリケーション</term>
+    <listitem>
+     <para>
+      SAPアプリケーションのインストールでは、通常、次のものを指定する必要があります。
+     </para>
+     <itemizedlist>
+      <listitem>
+       <para>
+        SAP SID
+       </para>
+      </listitem>
+      <listitem>
+       <para>
+        SAPインスタンス番号
+       </para>
+      </listitem>
+      <listitem>
+       <para>
+        SAPアプリケーションのパスワード
+       </para>
+      </listitem>
+     </itemizedlist>
+     <para>
+      インストールするSAPアプリケーションによって、T-Shirt Sizingや仮想ネットワーキング用のパラメータなど、より多くのパラメータが必要な場合があります。
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term>SAP HANAデータベース</term>
+    <listitem>
+     <para>
+      SAP HANAのインストールでは、次を指定する必要があります。
+     </para>
+     <itemizedlist>
+      <listitem>
+       <para>
+        SAP SID
+       </para>
+      </listitem>
+      <listitem>
+       <para>
+        SAPインスタンス番号
+       </para>
+      </listitem>
+      <listitem>
+       <para>
+        マルチテナントデータベースコンテナ(MDC)を有効にするかどうか。SAP HANAのマルチテナントサポートにより、1つのSAP HANAインストールとして実行される複数のデータベースを使用できます。(SAP HANA MDCを使用するには、SAP HANA Life Cycle Managerが必要です。)
+       </para>
+       <para>
+        シングルテナントインストールの場合は、<guimenu>いいえ</guimenu>を選択します。
+       </para>
+       <para>
+        1人の<systemitem class="username"><replaceable>SID</replaceable>adm</systemitem>ユーザによって管理するマルチテナントインスタンスの場合は、<guimenu>Yes with low isolation (低分離ではい)</guimenu>を選択します。
+       </para>
+       <para>
+        各データベースが独自の<systemitem class="username"><replaceable>SID</replaceable>adm</systemitem>ユーザを持つ管理対象のマルチテナントインスタンスの場合は、<guimenu>Yes with high isolation (高分離の場合は、はい)</guimenu>を選択します。
+       </para>
+      </listitem>
+      <listitem>
+       <para>
+        SAP HANAデータベースのパスワード
+       </para>
+      </listitem>
+     </itemizedlist>
+    </listitem>
+   </varlistentry>
+  </variablelist>
+
+  <para>
+   SAPソフトウェアの詳細については、<link xlink:href="https://help.sap.com"/>と<link xlink:href="https://support.sap.com"/>にあるSAPドキュメントを参照してください。
+  </para>
+ </sect1>
+ <xi:include href="s4s_partitioning.xml" parse="xml"/>
+</chapter>

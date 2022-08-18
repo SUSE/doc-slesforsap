@@ -1,0 +1,486 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" xml:base="s4s_installation.xml" version="5.0" xml:id="cha-install">
+ <title>オペレーティングシステムのインストール</title>
+ <info>
+  <dm:docmanager xmlns:dm="urn:x-suse:ns:docmanager">
+   <dm:bugtracker/>
+   <dm:translation>yes</dm:translation>
+  </dm:docmanager>
+ </info>
+ <para>
+  次のセクションでは、基本オペレーティングシステムのインストール手順について説明します。インストールワークフローを使用すると、ローカルインストールメディアを使用するか、ネットワークを介してインストールできます。または、AutoYaSTを使用してインストールできます。
+ </para>
+
+ <sect1 xml:id="sec-install-workflow">
+  <title>インストールワークフロー</title>
+
+  <para>
+   インストールワークフローは、SAPアプリケーション用に最適化された設定を使用したオペレーティングシステムのガイド付きインストールです。インストールワークフロー中に、SAPアプリケーションをインストールするかどうかを選択できます。その場合、SUSE Linux Enterprise Serverのインストールが完了したら、SAPインストールメディアを指定するように求められます。サードパーティの拡張機能をインストールするかどうかも選択できます。
+  </para>
+  <para>
+   このセクションは、ローカルメディアからインストールを開始することを前提としています。<phrase condition="noquick"> リモートメディアからインストールを開始する方法については、<xref linkend="sec-install-network"/>を参照してください。</phrase>
+  </para>
+  <para>
+   詳細については、<xref linkend="sec-workflow-overview"/>を参照してください。
+  </para>
+
+  <para>
+   このセクションでは、SUSE Linux Enterprise Server for SAP Applicationsオペレーティングシステムのインストールについて説明します。
+  </para>
+
+  <important>
+   <title>Oracleデータベースのインストール</title>
+   <para>
+    Oracleデータベースを後でインストールできるようにするには、まずSUSE Linux Enterprise Serverをインストールしてから、インストールをSUSE Linux Enterprise Server for SAP Applicationsに変換します。
+   </para>
+   <para>
+    これは、Oracleデータベースのインストーラで、特定のファイルが存在するかを照会するために必要です。これらのファイルのすべてがSLES-SAPインストールに含まれているわけではありません。
+   </para>
+   <para condition="noquick">
+    変換の詳細については、<xref linkend="sec-convert-sles"/>を参照してください。
+   </para>
+  </important>
+
+  <procedure xml:id="pro-workflow-start">
+   <title>OSインストールの開始</title>
+   <step>
+    <itemizedlist>
+     <listitem>
+      <para>
+       AMD64/Intel 64では、インストールメディアからブートします。ブートメニューから<guimenu>インストール</guimenu>を選択します。
+       
+       
+      </para>
+     </listitem>
+     <listitem>
+      <para>
+       POWERでは、SUSE Linux Enterprise Serverのドキュメントの手順に従ってください。<citetitle><citetitle>『導入ガイド』</citetitle>の<quote>インストールの準備</quote>パートの章、<quote>IBM POWERへのインストール</quote></citetitle>(<link xlink:href="https://documentation.suse.com/sles-15"/>)を参照してください。
+      </para>
+     </listitem>
+    </itemizedlist>
+
+    <para>
+     初期オペレーティングシステムの起動時に、<keycap function="escape"/>を押してブートメッセージを表示できます。このプロセスが完了したら、グラフィカルインストールワークフローが開始されます。最初のステップとして、インストールワークフローはそれ自体のアップデートを確認します。その後、インストールが開始できるようになります。
+    </para>
+   </step>
+
+   
+   
+
+   <step>
+    <para>
+     <guimenu>言語</guimenu>でデフォルトのシステム言語を選択します。
+    </para>
+    <figure xml:id="fig-install-license">
+     <title>言語、キーボード、および製品選択</title>
+     <mediaobject>
+      <imageobject role="fo">
+       <imagedata fileref="s4s-install-product.png" width="73%" format="PNG"/>
+      </imageobject>
+      <imageobject role="html">
+       <imagedata fileref="s4s-install-product.png" width="73%" format="PNG"/>
+      </imageobject>
+     </mediaobject>
+    </figure>
+   </step>
+   <step>
+    <para>
+     <guimenu>キーボードレイアウト</guimenu>で、適切なキーボードレイアウトを選択します。選択したレイアウトが物理キーボードに一致しているかどうかをテストするには、<guimenu>キーボードテスト</guimenu>テキストボックスを使用します。
+    </para>
+   </step>
+   <step>
+    <para>
+     SLE 15 SP4では、製品ライン全体に単一のインストールISOを提供します。したがって、このページでインストールする製品を選択する必要があります。
+    </para>
+    <para>
+     <guimenu>インストールする製品</guimenu>で、<guimenu>SUSE Linux Enterprise Server for SAP Applications 15 SP4</guimenu>を選択します。
+    </para>
+   </step>
+   <step>
+    <para>
+     使用許諾契約に目を通してください。同意する場合は、<guimenu>はい、ライセンス条項に同意します</guimenu>を選択します。<guimenu>次へ</guimenu>で続行します。
+    </para>
+    <para>
+     同意しない場合は、<menuchoice><guimenu>中止</guimenu>
+     <guimenu>インストールを中止</guimenu></menuchoice>でインストールをキャンセルします。
+    </para>
+   </step>
+   <step performance="optional">
+    <para>
+     DHCPを介した自動ネットワーク設定が失敗すると、<guimenu>ネットワーク設定</guimenu>画面が開きます。
+    </para>
+    <para>
+     代わりに<guimenu>登録</guimenu>画面が表示される場合は、ネットワーク接続が機能しています。ネットワーク設定を変更するには、<guimenu>ネットワーク設定</guimenu>をクリックします。
+    </para>
+    <para>
+     ネットワークを設定し終えたら、<guimenu>次へ</guimenu>で続行します。
+    </para>
+    <important>
+     <title>SAPで推奨するようにネットワークを設定する</title>
+     <para>
+      SAPで提供されているドキュメントどおりに、ネットワーク接続を設定してください。
+     </para>
+    </important>
+    <para>
+     ネットワーク設定については、<citetitle>
+      <citetitle>『管理ガイド』</citetitle>の<quote>ネットワークの基礎</quote>の章のセクション、<quote>YaSTによるネットワーク接続の設定</quote>
+     </citetitle>(<link xlink:href="https://documentation.suse.com/sles-15"/>)を参照してください。
+    </para>
+   </step>
+   <step>
+    <para>
+     <guimenu>登録</guimenu>画面で、<guimenu>電子メールアドレス</guimenu>と<guimenu>登録コード</guimenu>を入力します。登録が正常に完了しないと、製品アップデートとテクニカルサポートの資格が受け取れません。
+    </para>
+    <para>
+     <guimenu>次へ</guimenu>で続行します。
+    </para>
+    <important>
+     <title>このステップで登録</title>
+     <para>
+      インストールのこのステップでシステムを必ず登録してください。登録をしないと、最小限のSLEシステムしかインストールされず、アップデートの通知は受け取れません。
+     </para>
+     <para>
+      インストール中にネットワークにアクセスせずに完全な(ただしアップデートされていない) SLES-SAPシステムをインストールするには、<link xlink:href="https://download.suse.com"/>からのSLE 15 SP4パッケージISOイメージを使用してください。次に、このページで<guimenu>登録をスキップする</guimenu>を選択して、次のページでアドオン製品としてSLE 15 SP4パッケージISOイメージを選択します。
+     </para>
+    </important>
+   </step>
+   <step>
+    <para>
+     更新リポジトリを有効にするかどうか尋ねられたら、<guimenu>はい</guimenu>を選択します。
+    </para>
+   </step>
+   <step>
+    <para>
+     システムが正常に登録されたら、YaSTでSUSE Customer CenterからSUSE Linux Enterprise Server for SAP Applicationsで使用可能なモジュールが一覧表示されます。デフォルトでは、最も一般的なケースが選択されています。追加のモジュールを有効にするには、そのエントリを有効にします。
+    </para>
+    <note>
+     <title>リリースノート</title>
+     <para>
+      これ以降の手順では、<guimenu>リリースノート</guimenu>を選択することで、インストールプロセスのどの画面からでもリリースノートを参照できます。
+     </para>
+    </note>
+    <para>
+     <guimenu>次へ</guimenu>で続行します。
+    </para>
+   </step>
+   <step performance="optional">
+    <para><guimenu>アドオン製品</guimenu>ダイアログを使用して、SUSE Customer Centerで提供されていない他のソフトウェアソース(<quote>リポジトリ</quote>)をSUSE Linux Enterprise Server for SAP Applicationsに追加できます。このようなアドオン製品には、ご使用のシステム用のサードパーティの製品や、ドライバまたは追加ソフトウェアなどがあります。
+    </para>
+   </step>
+   <step>
+    <para>
+     <guimenu>システムの役割</guimenu>を選択します。システムの役割は、選択したシナリオに合わせてシステムを調整する事前定義済みの使用例です。SUSE Linux Enterprise Server for SAP Applicationsの場合、次のいずれかを選択できます。
+    </para>
+    <itemizedlist>
+     <listitem>
+      <para>
+       <guimenu>SAP アプリケーション向け SLES</guimenu>: デフォルト。ほとんどの状況に推奨されます。このシステムの役割には、次のプロパティが含まれています。
+      </para>
+      <itemizedlist>
+       <listitem>
+        <para>
+         SUSE Linux Enterprise Server for SAP Applicationsのインストールウィザードのサポート。
+        </para>
+       </listitem>
+       <listitem>
+        <para>
+         RDPアクセス(「<emphasis>リモートデスクトッププロトコル</emphasis>」)の有効化。
+        </para>
+       </listitem>
+       <listitem>
+        <para>
+         特別なパーティショニング推奨事項の提供。
+        </para>
+       </listitem>
+       
+      </itemizedlist>
+     </listitem>
+     <listitem>
+      <para>
+       <guimenu>GNOMEを利用するSLES</guimenu>: 固有なケースで必要になる場合があります。このインストールパスについては、このドキュメントでは説明していません。このインストールパスの詳細については、<citetitle>
+        <citetitle>『インストールクイックスタート』</citetitle>のセクション、<quote>SUSE Linux Enterprise Serverのインストール</quote>
+       </citetitle>(<link xlink:href="https://documentation.suse.com/sles-15"/>)を参照してください。
+      </para>
+     </listitem>
+    </itemizedlist>
+    <para>
+     固有の使用例(高可用性、テキストモード、最小、およびKVM/XEN仮想化ホスト)用に追加のシステムの役割を使用できます。
+    </para>
+    <para>
+     <guimenu>次へ</guimenu>で続行します。
+    </para>
+    <figure xml:id="fig-install-type">
+     <title>システムの役割</title>
+     <mediaobject>
+      <imageobject role="fo">
+       <imagedata fileref="s4s-install-installationtype.png" width="73%" format="PNG"/>
+      </imageobject>
+      <imageobject role="html">
+       <imagedata fileref="s4s-install-installationtype.png" width="73%" format="PNG"/>
+      </imageobject>
+     </mediaobject>
+    </figure>
+   </step>
+  </procedure>
+
+  
+
+  <procedure xml:id="pro-workflow-finish">
+   <title>OSインストールの完了</title>
+   <step>
+    <para>
+     次のオプションを有効にするかどうかを選択します。
+    </para>
+    <itemizedlist>
+     <listitem>
+      <para>
+       システムとともにSAPアプリケーションをインストールするには、<guimenu>オペレーティングシステムのインストール直後にSAP製品のインストールウイザードを起動する</guimenu>を有効にします。
+      </para>
+     </listitem>
+     <listitem>
+      <para>
+       このマシンへのRDPアクセス(リモートデスクトッププロトコル)を有効にするには、<guimenu>Enable RDP service and open port in firewall （RDPサービスを有効にして、ファイアウォールでポートを開く)</guimenu>を有効にします。
+      </para>
+      <para condition="noquick">
+       RDPを介した接続の詳細については、<xref linkend="cha-configure-rdp"/>を参照してください。
+      </para>
+     </listitem>
+    </itemizedlist>
+   </step>
+   <step>
+    <para>
+     ボリューム<literal>/dev/system/root</literal>と<literal>/dev/system/swap</literal>に対して提案されるパーティション設定を確認します。ボリューム<literal>/dev/system/data</literal>は<xref linkend="sec-partition"/>で説明されているように、後で作成されます。
+    </para>
+    <para condition="noquick">
+     適切な値が事前に選択されています。ただし、必要に応じて、パーティションレイアウトを変更します。次のオプションがあります。
+    </para>
+    <variablelist condition="noquick">
+     <varlistentry>
+      <term><guimenu>ガイド付き設定</guimenu></term>
+      <listitem>
+       <para>
+        入力に基づいて新しいパーティショニングの提案を作成します。
+       </para>
+      </listitem>
+     </varlistentry>
+     <varlistentry>
+      <term><guimenu>熟練者向けパーティション設定</guimenu></term>
+      <listitem>
+       <para>
+        <citetitle>『導入ガイド』の<quote>高度なディスクセットアップ</quote>の章のセクション、<quote>YaSTパーティショナの使用</quote></citetitle>(<link xlink:href="https://documentation.suse.com/sles-15"/>)で説明されている<guimenu>エキスパートパーティショナ</guimenu>を開きます。
+       </para>
+       <para>
+        SUSE Linux Enterprise Server for SAP Applicationsに固有のパーティショニングアドバイスについては、<xref linkend="sec-partition"/>を参照してください。
+       </para>
+      </listitem>
+     </varlistentry>
+    </variablelist>
+    <para>
+     提案されたセットアップを変更しないで受け入れるには、<guimenu>次へ</guimenu>で続行します。
+    </para>
+   </step>
+   <step>
+    <para>
+     システムで使用する時計とタイムゾーンを選択します。時刻を手動で調整したり、時刻同期用のNTPサーバを設定したりするには、<guimenu>その他の設定</guimenu>を選択します。詳細については、<citetitle><citetitle>『導入ガイド』</citetitle>の<quote>YaSTによるインストール</quote>の章のセクション、<quote>時計とタイムゾーン</quote></citetitle>(<link xlink:href="https://documentation.suse.com/sles-15"/>)を参照してください。
+    </para>
+    <para>
+     <guimenu>次へ</guimenu>で続行します。
+    </para>
+   </step>
+   <step>
+    <para>
+     システム管理者アカウント(<systemitem>root</systemitem>と呼ばれる)のパスワードを入力し、<guimenu>パスワードの確認</guimenu>でパスワードを繰り返します。<guimenu>キーボードレイアウトのテスト</guimenu>テキストボックスを使用して、すべての特殊文字が正しく表示されているか確認できます。
+    </para>
+    <para>
+     
+     SSHログインを介してパスワード不要認証を有効にする場合は、<guimenu>SSH公開鍵の取り込み</guimenu>を介して鍵を取り込むことができます。パスワードを介して<systemitem class="username">root</systemitem>ログインを完全に無効にする場合は、鍵のみをアップロードし、rootパスワードは指定しないでください。この場合、システム管理者としてのログインは、それぞれの鍵を使用したSSH経由でのみ可能です。
+    </para>
+    <para>
+     詳細については、<citetitle><citetitle>『導入ガイド』</citetitle>の<quote>YaSTによるインストール</quote>の章のセクション、<quote>システム管理者root向けパスワード</quote></citetitle>(<link xlink:href="https://documentation.suse.com/sles-15"/>)を参照してください。
+    </para>
+    <para>
+     <guimenu>次へ</guimenu>で続行します。
+    </para>
+    <important>
+     <title><systemitem>root</systemitem>のパスワードは、決して忘れないでください</title>
+     <para>
+      ユーザ<systemitem class="username">root</systemitem>には、すべての管理タスクを実行する権限があります。このパスワードがなければ、<systemitem class="username">root</systemitem>としてシステムにログインできません。ここに入力したパスワードを後で取得することはできません。
+     </para>
+    </important>
+   </step>
+   <step>
+    <para>
+     <guimenu>インストールの設定</guimenu>画面で、いくつかの提案されるインストール設定を確認し、必要に応じて変更できます。各設定は現在の設定とともに表示されます。設定の一部を変更するには、適切なヘッドライン、他の下線付きアイテムをクリックします。
+    </para>
+    <important condition="noquick">
+     <title>ファイアウォール設定</title>
+     <remark>
+      Still FIXME for SP2. - sknorr, 2016-08-09
+     </remark>
+     <para>
+      SLES-SAPのソフトウェアファイアウォールはデフォルトで有効になっています。ただし、多くの場合、SAP製品が開く必要のあるポートは自動的に開かれません。これは、必要なポートを手動で開くまで、ネットワークの問題が生じる可能性があることを意味します。
+     </para>
+     <para>
+      詳細については、<xref linkend="sec-configure-firewall"/>を参照してください。
+     </para>
+    </important>
+
+    <figure xml:id="fig-install-overview">
+     <title>インストール設定</title>
+     <mediaobject>
+      <imageobject role="fo">
+       <imagedata fileref="s4s-install-overview.png" width="73%" format="PNG"/>
+      </imageobject>
+      <imageobject role="html">
+       <imagedata fileref="s4s-install-overview.png" format="PNG"/>
+      </imageobject>
+     </mediaobject>
+    </figure>
+   </step>
+   <step>
+    <para>
+     必要なシステム設定を完了したら、<guimenu>インストール</guimenu>をクリックします。
+    </para>
+    <para condition="noquick">
+     ソフトウェアの選択によって、インストールプロセスを開始することを確認するよう求められる前に、さらにライセンス契約に同意する必要がある場合があります。
+    </para>
+    <warning>
+     <title>データの削除</title>
+     <para>
+      インストールプロセスが完全または部分的にディスク上の既存のデータを上書きします。
+     </para>
+    </warning>
+    <para>
+     インストールの確認ボックスで、<guimenu>インストール</guimenu>をクリックします。
+    </para>
+    <para>
+     オペレーティングシステムのインストールが完了したら、システムは自動的に再起動します。
+    </para>
+    <itemizedlist>
+     <listitem>
+      <para>
+       システムのインストール準備のみを選択した場合、システムはデスクトップログイン画面から起動します。
+      </para>
+     </listitem>
+     <listitem>
+      <para>
+       SAPアプリケーションを直ちにインストールすることを選択した場合、インストールは再起動後に続行します。<xref linkend="cha-install-sap"/>に進んでください。
+      </para>
+     </listitem>
+    </itemizedlist>
+   </step>
+  </procedure>
+ </sect1>
+
+ <sect1 condition="noquick" xml:id="sec-install-network">
+  <title>ネットワークからのSLES-SAPメディアの使用</title>
+
+  <remark>
+   FIXME: This section is not up-to-date SP2 does not ship with a sap.dud
+   anymore. - sknorr, 2016-09-02
+  </remark>
+
+  <para>
+   このセクションでは、ネットワークを介して提供されるインストールメディアからインストールする方法について簡単に説明します。これにより、たとえば、通常のSLESメディアを使用してSLES-SAPをインストールできます。
+  </para>
+
+  <procedure>
+   <step>
+    <para>
+     SUSE Linux Enterprise Server for SAP ApplicationsインストールメディアのコンテンツをWebサーバ(例: <literal>example.com</literal>)のディレクトリ<filename>/srv/www/htdocs/sap_repo</filename>にコピーします。
+    </para>
+   </step>
+   <step>
+    <para>
+     SLESインストールメディアからのブート
+    </para>
+   </step>
+   <step>
+    <para>
+     <keycap function="down"/>/<keycap function="up"/>キーを使用して、ブートメニューオプションのいずれかを選択します。次にコマンドラインに追加します。これを実行するには、下に一覧表示されるパラメータを指定します。
+    </para>
+    <itemizedlist>
+     <listitem>
+      <para>
+       ネットワークの使用を許可するには、<literal>ifcfg=*=dhcp</literal>を追加します(これがデフォルトです)。
+      </para>
+     </listitem>
+     <listitem>
+      <para>
+       パラメータ<literal>install=<replaceable>SERVER</replaceable>/<replaceable>DIRECTORY</replaceable></literal>を追加します。
+      </para>
+     </listitem>
+     
+    </itemizedlist>
+   </step>
+   <step>
+    <para>
+     <xref linkend="sec-install-workflow"/>の指示に従います。
+    </para>
+   </step>
+  </procedure>
+
+  <para>
+   詳細については、<citetitle><citetitle>『導入ガイド』</citetitle>の章、<quote>リモートインストール</quote></citetitle>) (<link xlink:href="https://documentation.suse.com/sles-15"/>)を参照してください。
+  </para>
+
+  <para>
+   SLESインストールメディアを使用してシステムを初期化する必要がないようにするため、PXEを介してネットワーク経由でブートできます。詳細については、<citetitle>『AutoYaSTガイド』の章、<quote>Booting via PXE over the Network</quote></citetitle> (<link xlink:href="https://documentation.suse.com/sles-15"/>)を参照してください。
+  </para>
+ </sect1>
+
+ <xi:include href="s4s_autoyast.xml" parse="xml"/>
+
+
+ <sect1 condition="noquick" xml:id="sec-convert-sles">
+  <title>SLESインストールのSLES-SAPインストールへの変換</title>
+  <para>
+   SUSE Linux Enterprise Server 15 SP4またはJeOS 15 SP4のインストールをSLES-SAPのインストールに変換するには、スクリプト<command>Migrate_SLES_to_SLES-for-SAP.sh</command>を使用します。スクリプトはシステムを正常に登録し、適切なリポジトリに登録します。
+  </para>
+  <para>
+   SLES-SAPの登録用の電子メールアドレスと登録コードがあることを確認します。
+  </para>
+  <procedure xml:id="pro-convert-sles">
+   <step>
+    <para>
+     パッケージ <package>migrate-sles-to-sles4sap</package>.
+    </para>
+   </step>
+   <step>
+    <para>
+     次のコマンドを実行します。
+    </para>
+    <screen><prompt role="root"># </prompt><command>Migrate_SLES_to_SLES-for-SAP.sh</command></screen>
+   </step>
+   <step>
+    <para>
+     マイグレーションを続行することを確認するように求められたら、<keycap>Y</keycap>を押して、<keycap function="enter"/>を押します。
+    </para>
+   </step>
+   <step>
+    <para>
+     求められたら、登録用の電子メールアドレスを入力し、<keycap function="enter"/>を押します。
+    </para>
+   </step>
+   <step>
+    <para>
+     求められたら、登録キーを入力し、<keycap function="enter"/>を押します。
+    </para>
+    <para>
+     スクリプトが完了するまで待ちます。その後、SUSE Linux Enterprise Server for SAP Applicationsソフトウェアリポジトリに登録され、<package>SLES_SAP-release</package>を優先して、パッケージ<package>SLES-release</package>は削除されます。
+    </para>
+   </step>
+  </procedure>
+
+  <important>
+   <title>スクリプトはデフォルトのSLES-SAPパッケージをインストールしない</title>
+   <para>
+    スクリプトはデフォルトのSLES-SAPインストールに含まれているすべてのパッケージをインストールするわけではありません。ただし、これらは自分で手動インストールできます。デフォルトのパッケージの選択をインストールするには、次のコマンドを使用します。
+   </para>
+    <screen>
+<prompt role="root"># </prompt><command>zypper in patterns-server-enterprise-sap_server</command>
+    </screen>
+  </important>
+ </sect1>
+
+</chapter>

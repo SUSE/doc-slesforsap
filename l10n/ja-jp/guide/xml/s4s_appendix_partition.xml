@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<appendix xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" xml:base="s4s_appendix_partition.xml" version="5.0" xml:id="app-autoyast-partition">
+ <title>AutoYaSTを使用したSAPシステムのパーティショニング</title>
+ <info>
+  <dm:docmanager xmlns:dm="urn:x-suse:ns:docmanager">
+   <dm:bugtracker/>
+   <dm:translation>yes</dm:translation>
+  </dm:docmanager>
+ </info>
+ <para>
+  SAPシステムのパーティショニングは、<filename>/usr/share/YaST2/include/sap-installation-wizard/</filename>ディレクトリのファイルによって制御されます。次のファイルを使用できます。
+ </para>
+ <itemizedlist>
+   <listitem>
+    <formalpara>
+     <title>SAP NetWeaverまたはSAP S/4HANAアプリケーションサーバのインストール</title>
+     <para>
+      <filename>base_partitioning.xml</filename>
+     </para>
+    </formalpara>
+   </listitem>
+   <listitem>
+    <formalpara>
+     <title>SAP HANAまたはSAP S/4HANAデータベースサーバのインストール</title>
+     <para>
+      <filename>hana_partitioning.xml</filename>
+     </para>
+    </formalpara>
+   </listitem>
+   <listitem>
+    <formalpara>
+     <title>SAP BusinessOne認定ハードウェアへのSAP HANAまたはSAP S/4HANAデータベースサーバのインストール</title>
+     <para>
+      ハードウェア固有のパーティショニングファイル
+     </para>
+    </formalpara>
+   </listitem>
+ </itemizedlist>
+ <para>
+  ファイルは、<filename>/etc/sap-installation-wizard.xml</filename>で定義されているように選択されます。ここでは、要素<tag>partitioning</tag>の内容が決定的に重要になります。
+ </para>
+ <para>
+  たとえば、インストールがHAまたは分散データベースに基づいている場合、パーティショニングは必要ありません。この場合、<tag>partitioning</tag>は<literal>NO</literal>に設定され、<filename>base_partitioning.xml</filename>ファイルが使用されます。
+ </para>
+
+ <note>
+  <title>
+   <filename>autoinst.xml</filename>はここでは使用できない
+  </title>
+  <para>
+   <filename>autoinst.xml</filename>は、オペレーティングシステムのインストールにのみ使用されます。SAPシステムのパーティショニングを制御することはできません。
+  </para>
+ </note>
+
+ 
+ 
+
+ <para>
+  パーティショニングを制御するファイルは、<tag>partitioning</tag>セクションのみを含むAutoYaST制御ファイルです。ただし、これらのファイルは、AutoYaST形式のいくつかの拡張機能を使用できます。
+ </para>
+
+ <itemizedlist>
+  <listitem>
+   <para>
+    <tag>partitioning_defined</tag>タグが<literal>true</literal>に設定される場合、パーティショニングはユーザの介入なしに実行されます。
+   </para>
+   <para>
+    デフォルトでは、これはSAP HANA用に認定されたシステム(Dell、Fujitsu、HP、IBM、またはLenovoなど)でSAP HANAファイルシステムを作成する場合にのみ使用されます。
+   </para>
+  </listitem>
+  <listitem>
+   <para>
+    パーティションごとに、<tag>size_min</tag>タグを指定できます。サイズ値は、<literal><replaceable>RAM</replaceable>*<replaceable>N</replaceable></literal>形式の文字列として指定できます。このようにして、パーティションの最小サイズを指定できます(使用可能なメモリ(<replaceable>RAM</replaceable>)のサイズの<replaceable>N</replaceable>倍）。
+   </para>
+  </listitem>
+ </itemizedlist>
+
+ <procedure xml:id="pro-partition-custom">
+  <title>カスタムSAPパーティショニングセットアップの作成</title>
+  <para>
+   次の手順は、TREXのパーティショニングセットアップの作成方法を示しています。ただし、他のアプリケーションのパーティショニングセットアップの作成も同様に機能します。
+  </para>
+  <step>
+   <para>
+    <filename>/usr/share/YaST2/include/sap-installation-wizard/</filename>で、新しいXMLファイルを作成します。たとえば、それに<filename>TREX_partitioning.xml</filename>という名前を付けます。
+   </para>
+  </step>
+  <step>
+   <para>
+    <filename>base_partitioning.xml</filename>のコンテンツを新しいファイルにコピーして、新しいファイルをニーズに合わせて調整します。
+   </para>
+  </step>
+  <step>
+   <para>
+    最後に、カスタムファイルを含むように、<filename>/etc/sap-installation-wizard.xml</filename>を調整します。<literal>TREX</literal>の<tag>listitem</tag>で、次の行を挿入します。
+   </para>
+   
+<screen>&lt;partitioning&gt;TREX_partitioning&lt;/partitioning&gt;</screen>
+  </step>
+ </procedure>
+
+ <important>
+  <title><filename>base_partitioning.xml</filename>は編集しない</title>
+  <para>
+   <filename>base_partitioning.xml</filename>は直接編集しないでください。次回のアップデートで、このファイルは上書きされます。
+  </para>
+ </important>
+
+ <para>
+  AutoYaSTを使用したパーティショニングの詳細については、<citetitle>『AutoYaSTガイド』の章の<quote>パーティショニング</quote></citetitle>(<link xlink:href="https://documentation.suse.com/sles-15"/>)を参照してください。
+ </para>
+</appendix>

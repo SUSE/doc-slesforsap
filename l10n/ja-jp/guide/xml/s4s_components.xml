@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sect1 xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" xml:base="s4s_components.xml" version="5.0" xml:id="sec-component">
+ <title>ソフトウェアコンポーネント</title>
+ <info>
+  <dm:docmanager xmlns:dm="urn:x-suse:ns:docmanager">
+   <dm:bugtracker/>
+   <dm:translation>yes</dm:translation>
+  </dm:docmanager>
+ </info>
+ <para>
+  <xref linkend="fig-offering"/>で示されているように、SUSE Linux Enterprise Server for SAP Applicationsは、SUSE Linux Enterprise Serverがベースとなっていますが、SUSE Linux Enterprise High Availability Extension、インストールワークフローなどのいくつかの追加のソフトウェアコンポーネントが含まれています。これらのソフトウェアコンポーネントについては、以降のセクションで簡単に説明します。
+ </para>
+
+ <sect2 xml:id="sec-component-sles">
+  <title>SUSE Linux Enterprise Server</title>
+  <para>
+   現在のリリースはSUSE Linux Enterprise Server 15 SP4をベースとしています。SUSE Linux Enterprise Serverは、物理環境と仮想環境の両方でミッションクリティカルなコンピューティングに対応する非常に相互運用性の高いプラットフォームです。
+  </para>
+ </sect2>
+
+ <sect2 xml:id="sec-component-sleha">
+  <title>SUSE Linux Enterprise High Availability Extension</title>
+  <para>
+   このコンポーネントは次のもので構成されます。
+  </para>
+
+  <itemizedlist>
+   <listitem>
+    <para>
+     ポリシー重視の柔軟なクラスタリング
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     クラスタ対応のファイルシステムとボリューム管理
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     継続的なデータレプリケーション
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     セットアップとインストール
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     管理ツール
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     リソースエージェント、SAPにも対応
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     仮想化対応
+    </para>
+   </listitem>
+  </itemizedlist>
+  <para>
+   SUSE Linux Enterprise High Availability Extensionには、特にSAPアプリケーションと作業するための次の2つのリソースエージェントが用意されています。
+  </para>
+  <itemizedlist>
+   <listitem>
+    <para>
+     <systemitem>SAPInstance</systemitem>: SAP製品のインスタンスを開始および停止できます。
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     <systemitem>SAPDatabase</systemitem>: SAPアプリケーションでサポートされているすべてのデータベース（SAP HANA、SAP MaxDB、SAP ASE、Oracle、Sybase、IBM DB2）を開始および停止できます。
+    </para>
+   </listitem>
+  </itemizedlist>
+  <para>
+   SUSE Linux Enterprise High Availability Extensionに関する詳細については、『<citetitle>管理ガイド</citetitle>』(<link xlink:href="https://documentation.suse.com/sle-ha-15"/>)、およびSUSE Linux Enterprise Server for SAP Applicationsリソースライブラリのホワイトペーパーおよびベストプラクティスガイド(<link xlink:href="https://www.suse.com/products/sles-for-sap/resource-library/"/>)を参照してください。
+  </para>
+ </sect2>
+
+ <sect2 xml:id="sec-hana-replicate">
+  <title>簡素化されたSAP HANAシステムレプリケーションのセットアップ</title>
+  <para>
+   SUSE Linux Enterprise Server for SAP Applicationsは、SUSE Linux Enterprise High Availability Extensionのコンポーネントおよび2つの追加のリソースエージェント(RA)を使用したSAP HANAシステムレプリケーションをサポートしています。また、SUSE Linux Enterprise Server for SAP Applicationsには、クラスタのセットアップを簡素化するYaSTウィザードが付属しています。
+  </para>
+  <sect3 xml:id="sec-hana-ra">
+   <title><systemitem>SAPHana</systemitem>リソースエージェント</title>
+
+
+   <para>
+    SUSEのこのリソースエージェントは、SAP HANAデータベースインスタンスでテイクオーバーが必要かどうかを確認することで、スケールアップシナリオをサポートします。純粋なSAPソリューションとは異なり、テイクオーバーは自動化できます。
+   </para>
+   <para>
+    これはマスタ/スレーブリソースとして設定されています。マスタは、プライマリモードで実行されているSAP HANAデータベースに対応し、スレーブは同期(セカンダリ)ステータスで動作するインスタンスに対応します。テイクオーバーの場合、セカンダリ(スレーブリソースインスタンス)を自動的に昇格して、新しいプライマリ(マスタリソースインスタンス)にすることができます。
+   </para>
+   <para>
+    このリソースエージェントは、次のスケールアップシナリオのシステムレプリケーションをサポートしています。
+   </para>
+   <itemizedlist>
+    <listitem>
+     <formalpara>
+      <title>パフォーマンス最適化シナリオ</title>
+      <para>
+       同じSUSE Linux Enterprise High Availability Extensionクラスタの2つのサーバ(AとB)。一方はプライマリ(A)、他方はセカンダリ(B)。プライマリサーバ(A)からのSAP HANAインスタンスはセカンダリサーバ(B)に同期的に複製されます。
+      </para>
+     </formalpara>
+    </listitem>
+    <listitem>
+     <formalpara>
+      <title>コスト最適化シナリオ</title>
+      <para>
+       AとBの基本的なセットアップは、「<emphasis>パフォーマンス最適化シナリオ</emphasis>」と同じです。ただし、セカンダリサーバ(B)は、開発またはQA用の追加のSAP HANAデータベースなどの、非生産的な目的にも使用されます。運用データベースは、ハードディスクなどの永続的メモリにのみ保存されます。テイクオーバーが必要な場合、テイクオーバーが処理される前に、非生産的なサーバは停止されます。生産的なデータベースのシステムリソースは、SAPフック呼び出しスクリプトを介して可能な限り迅速に増加します。
+      </para>
+     </formalpara>
+    </listitem>
+    <listitem>
+     <formalpara>
+      <title>チェーン/多層シナリオ</title>
+      <para>
+       3つのサーバ（A、B、およびC）。そのうちの2つは同じSUSE Linux Enterprise High Availability Extensionクラスタにあります(AおよびB)。3番目のサーバ(C)は、外部に配置されます。プライマリサーバ(A)のSAP HANAシステムはセカンダリサーバ(B)に同期的に複製されます。セカンダリサーバ(B)は、外部サーバ(C)に非同期的に複製されます。
+      </para>
+     </formalpara>
+     <para>
+      AからBへのテイクオーバーが発生する場合、BとCの間の接続はそのままです。ただし、Bは2つのサーバ(AとC)のソースになることはできません。これは<quote>スター</quote>トポロジであり、現在のSAP HANAバージョン(SPS11など)ではサポートされていないためです。
+     </para>
+     <para>
+      SAP HANAコマンドを使用して、すべき操作を手動で決定できます。
+     </para>
+     <itemizedlist>
+      <listitem>
+       <para>
+        BをAに接続できるように、BとCの間の接続を切断できます。
+       </para>
+      </listitem>
+      <listitem>
+       <para>
+        外部サイト(C)へのレプリケーションがローカルシステムレプリケーションより重要な場合、BとCの間の接続を保持できます。
+       </para>
+      </listitem>
+     </itemizedlist>
+    </listitem>
+   </itemizedlist>
+   <para>
+    すべてのシナリオで、SUSE Linux Enterprise Server for SAP Applicationsは、シングルテナントとマルチテナント(MDC)両方のSAP HANAデータベースをサポートしています。つまり、複数のSAPアプリケーションにサービスを提供するSAP HANAデータベースを使用できます。
+   </para>
+
+  </sect3>
+  <sect3 xml:id="sec-topology-ra">
+   <title><systemitem>SAPHanaTopology</systemitem>リソースエージェント</title>
+   <para>
+    クラスタの設定をできるだけ簡単にするため、SUSEでは<systemitem>SAPHanaTopology</systemitem>リソースエージェントを開発しました。このエージェントはSUSE Linux Enterprise High Availability Extensionクラスタのすべてのノード上で実行され、SAP HANAシステムレプリケーションのステータスと設定に関する情報を収集します。これは、通常の(ステートレス)クローンとして設計されています。
+   </para>
+  </sect3>
+  <sect3 xml:id="sec-hana-replicate-wizard">
+   <title>SAP HANAクラスタを設定するためのYaSTウィザード</title>
+   <para>
+    SUSE Linux Enterprise Server for SAP Applicationsには現在、ベストプラクティスに従って、このようなクラスタの初期セットアップを管理するYaSTウィザードが追加で付属しています。このウィザードは、パッケージ<package>yast2-sap-ha</package>の一部で、<guimenu>HA Setup for SAP Products (SAP製品のHAセットアップ)</guimenu>を介して、YaSTを使用して起動できます。
+   </para>
+   <para>
+    詳細については、<xref linkend="cha-cluster"/>を参照してください。
+   </para>
+  </sect3>
+  <sect3 xml:id="sec-hana-replicate-more">
+   <title>詳細の参照先</title>
+   <para>
+    詳細については、以下を参照してください。
+   </para>
+   <itemizedlist>
+    <listitem>
+     <para>
+      <link xlink:href="https://documentation.suse.com/sles-15"/>にある<citetitle>『管理ガイド』</citetitle>
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      <link xlink:href="https://www.suse.com/products/sles-for-sap/resource-library/"/>にあるリソースライブラリの「<emphasis>ベストプラクティス</emphasis>」特に、『<citetitle>Setting up a SAP HANA SR performance optimized infrastructure</citetitle>』および『<citetitle>Setting up a SAP HANA SR cost optimized infrastructure</citetitle>』
+     </para>
+    </listitem>
+   </itemizedlist>
+  </sect3>
+ </sect2>
+
+ <sect2 xml:id="sec-component-install">
+  <title>インストールワークフロー</title>
+  <para>
+   インストールワークフローは、SUSE Linux Enterprise ServerオペレーティングシステムとSAPアプリケーション両方のガイド付きインストールパスを提供します。詳細については、<xref linkend="sec-workflow-overview"/>を参照してください。
+  </para>
+  <para>
+   さらに、インストールワークフローは、補足メディアを使用して、サードパーティベンダーまたはお客様が拡張できます。補足メディアの作成方法の詳細については、<xref linkend="app-component-supplement"/>を参照してください。
+  </para>
+ </sect2>
+
+ <sect2 xml:id="sec-component-clamsap">
+  <title>ClamSAPを使用したマルウェア保護</title>
+  <para>
+   ClamSAPは、ClamAVマルウェア対策ツールキットをSAP NetWeaverおよびSAP Mobile Platformアプリケーションに統合し、クロスプラットフォーム脅威検出を可能にします。たとえば、ClamSAPを使用して、SAPアプリケーションがHTTPアップロードでの悪意のあるアップロードをスキャンできるようにします。
+  </para>
+  <para>
+   詳細については、<xref linkend="cha-clamsap"/>を参照してください。
+  </para>
+ </sect2>
+
+ <sect2 xml:id="sec-component-hana-secure">
+  <title>SAP HANAセキュリティ</title>
+  <para>
+   SUSE Linux Enterprise Server for SAP Applicationsには、安全性の高いSAP HANAインストールの設定に役立つ追加の機能が含まれています。
+  </para>
+  <sect3 xml:id="sec-component-firewall-hana">
+   <title>SAP HANAのファイアウォール</title>
+   <para>
+    SAP HANAのセキュリティ保護には、多数の追加のファイアウォールルールが必要な場合があります。SAP HANAのファイアウォールセットアップを簡素化するため、SUSE Linux Enterprise Server for SAP Applicationsには、事前設定されたルールを提供し、<systemitem class="daemon">firewalld</systemitem>と統合するパッケージ<package>HANA-Firewall</package>が含まれています。
+   </para>
+   <para>
+    詳細については、<xref linkend="sec-configure-firewall-hana"/>を参照してください。
+   </para>
+  </sect3>
+  <sect3 xml:id="sec-component-harden">
+   <title>SAP HANA用の強化ガイド</title>
+   <para>
+    ベースとなっているオペレーティングシステムを強化する方法については、SUSE Linux Enterprise Server for SAP Applicationsリソースライブラリ(<link xlink:href="https://www.suse.com/products/sles-for-sap/resource-library/"/>)を参照してください。そこで、『<citetitle>OS Security Hardening for SAP HANA</citetitle>』というドキュメントを見つけてください。
+   </para>
+   <remark>
+    Calling a Guide "software" is a bit of a stretch... But it is not really a
+    service either, unfortunately. If those are the only two categories we can
+    work with... - sknorr, 2016-02-11
+   </remark>
+  </sect3>
+ </sect2>
+
+ <sect2 xml:id="sec-component-manage-operation">
+  <title>簡素化された運用管理</title>
+  <para>
+   SUSE Linux Enterprise Server for SAP Applicationsは、簡素化された運用管理を可能にするいくつかの機能を組み合わせています。
+  </para>
+  <sect3 xml:id="sec-component-sapconf">
+   <title><command>saptune</command>を使用したシステムのチューニング</title>
+   <para>
+    システムチューニングアプリケーション<command>saptune</command>を使用すると、SAPがSAP S/4HANA、SAP NetWeaver、またはSAP HANA/SAP BusinessOneを使用するために推奨している、システムの自動的かつ包括的なチューニングが可能となります。これを行うために、<command>saptune</command>は、<systemitem class="daemon">tuned</systemitem>プロファイルを有効にします。以上により、使用しているハードウェアコンポーネントによって、使用可能なRAM容量などいくつかのカーネルパラメータをチューニングできます。
+   </para>
+   <para>
+    詳細については、<xref linkend="cha-tune"/>を参照してください。
+   </para>
+  </sect3>
+
+  <sect3 xml:id="sec-component-pattern">
+   <title>SAPアプリケーションの依存関係を提供するパターン</title>
+   <para>
+    SAPアプリケーションのソフトウェア依存関係の取り扱いを簡素化するため、SUSEでは、特定のアプリケーションに関連する依存関係RPMパッケージを組み合わせた複数のパターンを作成しました。
+   </para>
+   <itemizedlist>
+    <listitem>
+     <para>
+      <guimenu>SAP BusinessOneサーバベース</guimenu>
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      <guimenu>SAP HANAサーバベース</guimenu>
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      <guimenu>SAP NetWeaverサーバベース</guimenu>
+     </para>
+    </listitem>
+   </itemizedlist>
+   <important>
+    <title>パッケージがパターンから欠落している可能性がある</title>
+    <para>
+     ソフトウェアパターンのパッケージの選択は、SUSE Linux Enterprise Server for SAP Applicationsの特定のリリース(サービスパックまたはメジャーバージョン)の開発中に定義されます。このパッケージの選択は、この特定のリリースの有効期間にわたって維持されます。ご使用中のSUSE Linux Enterprise Server for SAP Applicationsのバージョンよりも後でリリースされたSAPアプリケーションで作業する場合、依存関係がパターンから欠落している場合があります。
+    </para>
+    <para>
+     SAPアプリケーションの依存関係に関する明確な情報については、SAPが提供するドキュメントを参照してください。
+    </para>
+   </important>
+  </sect3>
+  <sect3 xml:id="sec-component-clustertool">
+   <title><systemitem>ClusterTools2</systemitem></title>
+   <para>
+    <systemitem>ClusterTools2</systemitem>は、Corosync &amp; Pacemakerクラスタを設定および管理するのに役立つツールを提供します。これらの中には、可用性の高いシステムリソースを作成するのに役立つ<systemitem>wow</systemitem>、クラスタを管理できる<systemitem>ClusterService</systemitem>があります。
+   </para>
+   <para>
+    また、<systemitem>ClusterTools2</systemitem>では、通常のクラスタタスクを自動化するスクリプトを提供します。
+   </para>
+   <itemizedlist>
+    <listitem>
+     <para>
+      チェックを実行するスクリプト。たとえば、システムが<systemitem>pacemaker</systemitem>クラスタを作成するために正しく設定されているかどうかの確認に使用。
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      設定を簡素化するスクリプト。たとえば、Corosync設定の作成に使用。
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      システムを監視するスクリプトと、システム情報を表示または収集するスクリプト。たとえば、ログファイル内の既知のエラーパターンを見つけるために使用。
+     </para>
+    </listitem>
+   </itemizedlist>
+   <para>
+    詳細については、パッケージ <package>ClusterTools2</package>.に含まれている、各ツールのマニュアルページを参照してください。
+   </para>
+  </sect3>
+ </sect2>
+</sect1>
