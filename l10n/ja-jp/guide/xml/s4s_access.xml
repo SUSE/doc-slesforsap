@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" xml:base="s4s_access.xml" version="5.0" xml:id="cha-access">
+ <title>ファイアウォール</title>
+ <info>
+  <dm:docmanager xmlns:dm="urn:x-suse:ns:docmanager">
+   <dm:bugtracker/>
+   <dm:translation>yes</dm:translation>
+  </dm:docmanager>
+ </info>
+ <para>
+  この章では、ファイアウォールと暗号化を使用してシステムへのアクセスを制限する方法について説明し、システムにリモートで接続する方法に関する情報を提供します。
+ </para>
+
+ <sect1 xml:id="sec-configure-firewall">
+  <title><systemitem class="daemon">firewalld</systemitem>の構成</title>
+
+  <para>
+   デフォルトで、SUSE Linux Enterprise Server for SAP Applicationsのインストールワークフローにより、<systemitem class="daemon">firewalld</systemitem>が有効になっています。
+  </para>
+
+  <note>
+   
+   <title>SuSEfirewall2に代わる<systemitem class="daemon">firewalld</systemitem></title>
+   <para>
+    SUSE Linux Enterprise Server for SAP Applications 15 では、SuSEfirewall2に代わる、新しいデフォルトのソフトウェアファイアウォールとして、<systemitem class="daemon">firewalld</systemitem>が導入されています。SuSEfirewall2は、SUSE Linux Enterprise Server for SAP Applications 15 から削除されておらず、デフォルトでインストールされていないにもかかわらず、まだ主要リポジトリの一部になっています。SUSE Linux Enterprise Server for SAP Applications 15より古いリリースからアップグレードする場合、SuSEfirewall2は変更されないため、<systemitem class="daemon">firewalld</systemitem>に手動でアップグレードする必要があります(<citetitle>『Security and Hardening Guide』</citetitle>を参照)。
+   </para>
+  </note>
+  <para>
+   ファイアウォールは次のネットワークアクセスを許可するように手動で設定する必要があります。
+  </para>
+
+  <itemizedlist>
+   <listitem>
+    <para>
+     SAPアプリケーション
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     データベース(データベースベンダーのドキュメントを参照。SAP HANAの場合は、<xref linkend="sec-configure-firewall-hana"/>を参照)
+    </para>
+   </listitem>
+  </itemizedlist>
+  <para>
+   さらに、ポート<literal>1128</literal> (TCP)および<literal>1129</literal> (UDP)を開きます。
+  </para>
+
+  <para>
+   SAPアプリケーションでは、ファイアウォール内に多数のオープンポートとポート範囲が必要です。正確な番号は選択したインスタンスによって異なります。詳細については、SAPによって提供されるドキュメントを参照してください。
+  </para>
+ </sect1>
+
+ <sect1 xml:id="sec-configure-firewall-hana">
+  <title>HANA-Firewallの設定</title>
+
+  <para>
+   SAP HANAのファイアウォールの設定を簡素化するために、パッケージ <package>HANA-Firewall</package>.HANA-Firewallは、既存のSuSEfirewall2設定にルールセットを追加します。
+  </para>
+  <para>
+   HANA-Firewallは、次のパートで構成されます。
+  </para>
+  <itemizedlist>
+   <listitem>
+    <formalpara>
+     <title>YaSTモジュール<guimenu>SAP HANA Firewall (SAP HANAファイアウォール)</guimenu></title>
+     <para>
+      グラフィカルユーザインタフェースからSAP HANA用のファイアウォールを設定、適用、および元に戻すことができます。
+     </para>
+    </formalpara>
+   </listitem>
+   <listitem>
+    <formalpara>
+     <title>コマンドラインユーティリティ<systemitem>hana-firewall</systemitem></title>
+     <para>
+      SAP HANAのファイアウォールルールを含むXMLファイルを作成します。
+     </para>
+    </formalpara>
+    <para>
+     必要に応じて、YaSTを使用する代わりに、<filename>/etc/sysconfig/hana-firewall</filename>にある設定ファイルを使用してルールセットを設定できます。
+    </para>
+   </listitem>
+  </itemizedlist>
+
+  <important>
+   <title>SAP HANA MDCデータベース</title>
+   <para>
+    マルチテナントSAP HANA (MDC)データベースの場合、開く必要があるポート番号を自動的に判断することはまだできません。マルチテナントSAP HANAデータベースシステムで作業している場合は、YaSTを使用する前に、コマンドラインでスクリプトを実行して、新しいサービス定義を作成します。
+   </para>
+<screen><prompt role="root"># </prompt><command>cd /etc/hana-firewall.d</command>
+<prompt role="root"># </prompt><command>hana-firewall define-new-hana-service</command></screen>
+   <para>
+    ディレクトリ<filename>/etc/hana-firewall.d</filename>に切り替える必要があります。切り替えない場合、使用できない場所に新しいサービスのルールファイルが作成されます。
+   </para>
+   <para>
+    スクリプトがいくつかの質問をします。重要なことは、開く必要のあるTCPポートとUDPポートの範囲を尋ねることです。
+   </para>
+  </important>
+
+  <note>
+   <title>HANA-Firewallパッケージのインストール</title>
+   <para>
+    続行する前に、パッケージ<package>HANA-Firewall</package>と<package>yast2-hana-firewall</package>がインストールされていることを確認します。
+   </para>
+  </note>
+
+  <procedure>
+   <title>HANA-Firewallの使用</title>
+   <remark>toms 2019-05-28: This needs to be reworked. According
+   to Sören:
+   * There is no proposal step anymore [...] =&gt; fixed
+   * Allowing Remote Shell Access (SSH) is not part of HANA Firewall anymore. =&gt; fixed
+   * It is not possible to choose network interfaces anymore.
+     Also it is not called "Allowed Services". =&gt; comment
+   * Adding services have to be done via command line (hana-firewall
+     define-new-hana-service).
+   * There is no integration in YaST.
+   * The screenshot is wrong.
+   </remark>
+   <step>
+    <para>
+     ファイアウォールを設定するSAP HANAデータベースが正しくインストールされていることを確認します。
+    </para>
+   </step>
+   <step>
+    <para>
+     適切なYaSTモジュールを開くには、<menuchoice><guimenu>アプリケーション</guimenu><guimenu>YaST</guimenu>
+     </menuchoice>、<menuchoice><guimenu>セキュリティとユーザ</guimenu>
+     <guimenu>SAP HANA Firewall (SAP HANAファイアウォール)</guimenu></menuchoice>を選択します。
+    </para>
+   </step>
+   <step>
+    <para>
+     <guimenu>グローバルオプション</guimenu>で、<guimenu>ファイアウォールを有効にする</guimenu>を有効にします。さらに、<guimenu>Allow Remote Shell Access (SSH) (リモートシェルアクセス(SSH)を許可する)</guimenu>かどうかを決定します。
+    </para>
+   </step>
+   <step xml:id="st-hana-firewall-network">
+    <remark>toms 2019-06-12: this step needs to be removed/replaced?</remark>
+    <para>
+     <guimenu>Allowed Services on Network Interface (ネットワークインタフェース上の許可されたサービス)</guimenu>でネットワークインタフェースを選択します。
+    </para>
+   </step>
+   <step>
+    <para>
+     左側のリストボックスでネットワークサービスを選択し、<guimenu>→</guimenu>をクリックしてネットワークサービスを許可します。右側のリストボックスでサービスを選択し、<guimenu>←</guimenu>をクリックしてサービスを削除します。
+    </para>
+    <para>
+     事前設定されたサービス以外のサービスを追加するには、次の表記を使用します。
+    </para>
+<screen><replaceable>SERVICE_NAME</replaceable>:<replaceable>CIDR_NOTATION</replaceable></screen>
+    <para>
+     CIDR表記の詳細については、<link xlink:href="https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing"/>を参照してください。システムで使用可能なサービスを見つけるには、<command>getent services</command>を使用します。
+    </para>
+    <informalfigure>
+     <mediaobject>
+      <imageobject role="html">
+       <imagedata fileref="s4s-hana-firewall.png" format="PNG"/>
+      </imageobject>
+      <imageobject role="fo">
+       <imagedata fileref="s4s-hana-firewall.png" width="73%" format="PNG"/>
+      </imageobject>
+      <textobject role="description">
+       <phrase>HANA-Firewall screenshot</phrase>
+      </textobject>
+     </mediaobject>
+    </informalfigure>
+   </step>
+   <step>
+    <para>
+     すべてのネットワークインタフェースについて<xref linkend="st-hana-firewall-network"/>から繰り返します。
+    </para>
+   </step>
+   <step>
+    <para>
+     終了したら、<guimenu>OK</guimenu>をクリックします。
+    </para>
+    <para>
+     HANA-Firewallのファイアウォールルールがコンパイルされて適用されます。次に、サービス<systemitem>hana-firewall</systemitem>が再起動されます。
+    </para>
+   </step>
+   <step>
+    <para>
+     最後に、HANA-Firewallが正しく有効化されたかどうか確認します。
+    </para>
+<screen><prompt role="root"># </prompt><command>hana-firewall status</command>
+HANA firewall is active. Everything is OK.
+</screen>
+   </step>
+  </procedure>
+  <para>
+   詳細については、<command>hana-firewall</command>のマニュアルページを参照してください。
+  </para>
+ </sect1>
+
+ <sect1 xml:id="sec-configure-saprouter">
+  <title>SAProuterの統合</title>
+  <para>
+   SAPのSAProuterソフトウェアを使用すると、異なるSAPシステム間、またはSAPシステムと外部ネットワーク間でネットワークトラフィックをプロキシすることができます。SUSE Linux Enterprise Server for SAP ApplicationsはSAProuterを<systemitem class="daemon">systemd</systemitem>に統合できるようになりました。これは、SAProuterがオペレーティングシステムで適切に開始および停止され、<command>systemctl</command>を使用して制御できることを意味します。
+  </para>
+  <para>
+   この機能を使用するには、その前に、次のものがこの順序でインストールされていることを確認してください。
+  </para>
+  <itemizedlist>
+   <listitem>
+    <para>
+     SAProuterを含むSAPアプリケーション
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     <package>saprouter-systemd</package>としてパッケージ化されているSAProuter systemdの統合
+    </para>
+   </listitem>
+  </itemizedlist>
+  <para>
+   最初にインストールするアプリケーションの順序が間違っている場合は、<package>saprouter-systemd</package>を再インストールします。
+  </para>
+  <para>
+   <command>systemctl</command>を使用してSAProuterを制御するには、次を使用します。
+  </para>
+  <itemizedlist>
+   <listitem>
+    <para>
+     SAProuterサービスの有効化: <command>systemctl enable saprouter</command>
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     SAProuterサービスの開始: <command>systemctl start saprouter</command>
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     SAProuterサービスのステータスの表示: <command>systemctl status saprouter</command>
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     SAProuterサービスの停止: <command>systemctl stop saprouter</command>
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     SAProuterサービスの無効化: <command>systemctl disable saprouter</command>
+    </para>
+   </listitem>
+  </itemizedlist>
+ </sect1>
+
+</chapter>

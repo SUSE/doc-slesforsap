@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<appendix xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" xml:base="s4s_appendix_supplement.xml" version="5.0" xml:id="app-component-supplement">
+ <title>補足メディア</title>
+ <info>
+  <dm:docmanager xmlns:dm="urn:x-suse:ns:docmanager">
+   <dm:bugtracker/>
+   <dm:translation>yes</dm:translation>
+  </dm:docmanager>
+ </info>
+ <para>
+  補足メディアを使用して、パートナーやお客様は独自のタスクまたはワークフローをインストールウィザードに追加できます。
+ </para>
+
+ <para>
+  これは、AutoYaST XMLファイルの一部となるXMLファイルを追加することで実行されます。ワークフローに含めるため、このファイルを<filename>product.xml</filename>と呼ぶ必要があります。
+ </para>
+
+ <para>
+  これは、独自のRPMの追加、独自のスクリプトの実行、クラスタファイルシステムの設定、独自のダイアログやスクリプトの作成など、さまざまなタイプの追加に使用できます。
+ </para>
+
+ <sect1 xml:id="sec-component-supplement-productxml">
+  <title><filename>product.xml</filename></title>
+  <para>
+   <filename>product.xml</filename>ファイルは、通常のAutoYaST XMLファイルのように見えますが、いくつかの制限があります。
+  </para>
+  <para>
+   この制限が存在するのは、以前にインストールの第1ステージが実行されているため、第2ステージに関連するXMLの部分のみが実行されるためです。
+  </para>
+  <para>
+   2つのXMLファイル(<filename>autoyast.xml</filename>と<filename>product.xml</filename>)は、メディアが読み込まれた後でマージされ、追加のワークフローのため、ただちに<quote>新しい</quote>AutoYaST XMLファイルが生成されます。
+  </para>
+  <para>
+   次の領域またはセクションがマージされます。
+  </para>
+<screen>&lt;general&gt;
+  &lt;ask-list&gt;         <co xml:id="co-ay-general"/>
+  ...
+&lt;software&gt;           <co xml:id="co-ay-software"/>
+  &lt;post-packages&gt;
+  ...
+&lt;scripts&gt;
+  &lt;chroot-scripts&gt;   <co xml:id="co-ay-chroot"/>
+  &lt;post-scripts&gt;     <co xml:id="co-ay-post"/>
+  &lt;init-scripts&gt;     <co xml:id="co-ay-init"/>
+  ...</screen>
+  <calloutlist>
+   <callout arearefs="co-ay-general">
+    <para>
+     <xref linkend="sec-component-supplement-ask"/>を参照してください。
+    </para>
+   </callout>
+   <callout arearefs="co-ay-software">
+    <para>
+     <xref linkend="sec-component-supplement-rpm"/>を参照してください。
+    </para>
+   </callout>
+   <callout arearefs="co-ay-chroot">
+    <para>
+     パッケージのインストール後、最初のブート前
+    </para>
+   </callout>
+   <callout arearefs="co-ay-post">
+    <para>
+     インストール済みシステムの最初のブート中、サービスは実行されていません。
+    </para>
+   </callout>
+   <callout arearefs="co-ay-init">
+    <para>
+     インストール済みシステムの最初のブート中、すべてのサービスが稼働しています。
+    </para>
+   </callout>
+  </calloutlist>
+  <para>
+   他のすべてのセクションが置き換えられます。
+  </para>
+  <para>
+   カスタマイズオプションに関する詳細については、<citetitle>『AutoYaSTガイド』、<quote>設定およびインストールのオプション</quote>の章のセクション<quote>独自のユーザスクリプト</quote>
+   </citetitle>(<link xlink:href="https://documentation.suse.com/sles-15"/>)を参照してください。
+  </para>
+ </sect1>
+
+ <sect1 xml:id="sec-component-supplement-ask">
+  <title>独自のAutoYaST Askダイアログ</title>
+  <para>
+   AutoYaSTの<quote>Ask</quote>機能の詳細については、<citetitle>『AutoYaSTガイド』、<quote>設定およびインストールのオプション</quote>の章のセクション、<quote>インストール時のユーザへの値の確認</quote>
+   </citetitle>(<link xlink:href="https://documentation.suse.com/sles-15"/>)を参照してください。
+  </para>
+  <para>
+   補足メディアの場合、ダイアログを<literal>cont</literal>ステージ(<literal>&lt;stage&gt;cont&lt;/stage&gt;</literal>)内でのみ使用できます。つまり、ダイアログは最初の再起動後に実行されます。
+  </para>
+  <para>
+   ダイアログを含むファイルは、ベースAutoYaST XMLファイルとマージされます。
+  </para>
+  <para>
+   ベストプラクティスとして、ダイアログにダイアログ番号と要素番号がある必要があり、10の手順があることが最適です。これは、後で追加を含めるのに役立ち、決定に応じてダイアログまたは要素をジャンプするためのターゲットとして使用することができます。また、これはベースダイアログでも使用され、適切なダイアログ番号と要素番号を指定すると、ベースダイアログの間にダイアログを配置できます。
+  </para>
+  <para>
+   ファイルに質問に対する回答を保存して、後でスクリプトのいずれかで使用することができます。インストールウィザードはこのようなファイルを<filename>/tmp</filename>ディレクトリからメディアデータもコピーされるディレクトリにコピーするため、これにはプレフィックス<literal>/tmp/ay</literal>を使用する「<emphasis>必要がある</emphasis>」ことに注意してください。これが実行されるのは、次の補足メディアが同じダイアログまたは同じ回答ファイルを持つ可能性があり、ここに保存される値が上書きされるためです。
+  </para>
+  <para>
+   いくつかのオプションを使用した例を示します。
+  </para>
+<screen>&lt;?xml version="1.0"?&gt;
+&lt;!DOCTYPE profile&gt;
+&lt;profile xmlns="http://www.suse.com/1.0/yast2ns"
+         xmlns:config="http://www.suse.com/1.0/configns"&gt;
+&lt;general&gt;
+  &lt;ask-list config:type="list"&gt;
+      &lt;ask&gt;
+          &lt;stage&gt;cont&lt;/stage&gt;
+          &lt;dialog config:type="integer"&gt;20&lt;/dialog&gt;
+          &lt;element config:type="integer"&gt;10&lt;/element&gt;
+          &lt;question&gt;What is your name?&lt;/question&gt;
+          &lt;default&gt;Enter your name here&lt;/default&gt;
+          &lt;help&gt;Please enter your full name within the field&lt;/help&gt;
+          &lt;file&gt;/tmp/ay_q_my_name&lt;/file&gt;
+          &lt;script&gt;
+             &lt;filename&gt;my_name.sh&lt;/filename&gt;
+             &lt;rerun_on_error config:type="boolean"&gt;true&lt;/rerun_on_error&gt;
+             &lt;environment config:type="boolean"&gt;true&lt;/environment&gt;
+             &lt;source&gt;&lt;![CDATA[
+function check_name() {
+           local name=$1
+           LC_ALL=POSIX
+           [ -z "$name" ] &amp;&amp; echo "You need to provide a name." &amp;&amp; return 1
+           return 0
+}
+check_name "$VAL"
+]]&gt;
+             &lt;/source&gt;
+             &lt;debug config:type="boolean"&gt;false&lt;/debug&gt;
+             &lt;feedback config:type="boolean"&gt;true&lt;/feedback&gt;
+          &lt;/script&gt;
+      &lt;/ask&gt;
+  &lt;/ask-list&gt;
+&lt;/general&gt;
+&lt;/profile&gt;</screen>
+ </sect1>
+
+ <sect1 xml:id="sec-component-supplement-rpm">
+  <title>追加のパッケージをインストールする</title>
+  <para>
+   <filename>product.xml</filename>ファイル内にRPMパッケージをインストールすることもできます。これを行うため、第2ステージのインストールに<literal>&lt;post-packages&gt;</literal>要素を使用できます。
+  </para>
+  <para>
+   詳細については、<citetitle>『AutoYaSTガイド』、<quote>設定およびインストールのオプション</quote>の章のセクション、<quote>Installing Packages in Stage 2 (第2ステージでのパッケージのインストール)</quote>
+   </citetitle> (<link xlink:href="https://documentation.suse.com/sles-15"/>)を参照してください。次に一例を示します。
+  </para>
+<screen>...
+&lt;software&gt;
+ &lt;post-packages config:type="list"&gt;
+  &lt;package&gt;yast2-cim&lt;/package&gt;
+ &lt;/post-packages&gt;
+&lt;/software&gt;
+...</screen>
+ </sect1>
+
+ <sect1 xml:id="sec-supplement-directory">
+  <title>補足メディアのディレクトリ例</title>
+  <para>
+   補足メディアディレクトリの最小例には、<filename>product.xml</filename>と呼ばれるファイルのみが含まれます。
+  </para>
+  <remark>
+   Do we really need this section? - sknorr, 2016-01-12
+  </remark>
+ </sect1>
+</appendix>
