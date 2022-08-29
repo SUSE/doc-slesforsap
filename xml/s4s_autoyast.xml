@@ -7,7 +7,12 @@
 <sect1 xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink"
   xml:id="sec-autoyast">
  <title>Using an external &ay; profile</title>
-
+ <info>
+  <dm:docmanager xmlns:dm="urn:x-suse:ns:docmanager">
+   <dm:bugtracker/>
+   <dm:translation>yes</dm:translation>
+  </dm:docmanager>
+ </info>
  <para>
   For more information about installing with &ay;, see:
  </para>

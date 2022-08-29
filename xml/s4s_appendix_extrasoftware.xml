@@ -6,6 +6,12 @@
 ]>
 <appendix xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="app-additional-software">
  <title>Additional software for &s4sa;</title>
+ <info>
+  <dm:docmanager xmlns:dm="urn:x-suse:ns:docmanager">
+   <dm:bugtracker/>
+   <dm:translation>yes</dm:translation>
+  </dm:docmanager>
+ </info>
  <para>
   &s4s; makes it easy to install software that is not included with your
   subscription:
