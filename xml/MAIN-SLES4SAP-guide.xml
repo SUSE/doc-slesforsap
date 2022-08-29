@@ -22,7 +22,7 @@
       <dm:assignee>dmitri.popov@suse.com</dm:assignee>
     </dm:bugtracker>
     <dm:translation>no</dm:translation>
-    <dm:editurl>https://github.com/SUSE/doc-slesforsap/tree/maintenance/12_SP3/xml</dm:editurl>
+    <dm:editurl>https://github.com/SUSE/doc-slesforsap/blob/maintenance/12_SP5/xml</dm:editurl>
   </dm:docmanager>
   <xi:include href="common_copyright_gfdl.xml" parse="xml"/>
  </info>
