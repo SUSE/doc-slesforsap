@@ -22,6 +22,7 @@ https://documentation.suse.com/sles-sap/.
 | `maintenance/15_SP2`             | Maintenance branch for SLES-SAP 15 SP2
 | `maintenance/15_SP1`             | Maintenance branch for SLES-SAP 15 SP1
 | `maintenance/15_GA`              | Maintenance branch for SLES-SAP 15 GA
+| `maintenance/12_SP5`             | Maintenance branch for SLES-SAP 12 SP5
 | `maintenance/12_SP4`             | Maintenance branch for SLES-SAP 12 SP4
 | `maintenance/12_SP3`             | Maintenance branch for SLES-SAP 12 SP3
 | `maintenance/12_SP2`             | Maintenance branch for SLES-SAP 12 SP2
