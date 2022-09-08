@@ -724,6 +724,19 @@
 &prompt.root;<command>zypper in patterns-server-enterprise-sap_server</command>
     </screen>
   </important>
+  <warning>
+    <title>Migration script on public cloud</title>
+    <para>
+      On public cloud instances (pay-as-you-go instances in particular), billing
+      depends on internal mechanisms to identify the entitlement and to calculate
+      the actual consumption. This makes the migration script ineffective, as it
+      only performs migration of repositories inside the operating system.
+    </para>
+    <para>
+      To perform migration, you must follow image migration guidelines by your
+      cloud solution provider.
+    </para>
+    </warning>
  </sect1>
 
 </chapter>
