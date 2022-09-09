@@ -40,10 +40,10 @@ As agreed on https://confluence.suse.com/x/DAEcN on our Trento doc kick off
   <info>
     <abstract>
       <para>
-       <remark>toms 2022-04-27: change 1</remark>
        &trentopremium; is an open cloud-native web console that aims to help
        &sap; Basis consultants and administrators to monitor the entire OS stack of their
        &sap; environments, including HA features.
+       <tag class="attvalue"></tag>
       </para>
     </abstract>
     <xi:include href="common_copyright_gfdl.xml" />
@@ -52,7 +52,6 @@ As agreed on https://confluence.suse.com/x/DAEcN on our Trento doc kick off
   <important>
     <title>Trento is an evolving product</title>
     <para>
-      <remark>toms 2022-04-27: change 2</remark>
       The product continues to be under active development, but is available for any &suse;
       customer with a registered &productname; 15 (SP1 or higher).
       Contact <link xlink:href="https://www.suse.com/support"/> for further assistence.
@@ -62,7 +61,6 @@ As agreed on https://confluence.suse.com/x/DAEcN on our Trento doc kick off
   <section xml:id="sec-trento-what">
     <title>What is &trentopremium;?</title>
     <para>
-      <remark>toms 2022-04-27: change 3</remark>
       &trentopremium; is the extended version of the Trento community project containing
       additional checks. Apart from their naming, both are comprehensive monitoring solutions
       consisting of two main components, the &t.server; and the &t.agent;.
@@ -108,7 +106,6 @@ As agreed on https://confluence.suse.com/x/DAEcN on our Trento doc kick off
       on each host of the SAP infrastructure that is monitored.
     </para>
     <para>
-      <remark>toms 2022-04-27: change 4</remark>
       For &trentopremium;, &suse; collects telemetry data relevant for further
       product development. </para>
     <para> See <xref linkend="fig-trento-architecture" /> for additional
@@ -191,8 +188,6 @@ As agreed on https://confluence.suse.com/x/DAEcN on our Trento doc kick off
       </varlistentry>
     </variablelist>
 
-    <remark>toms 2021-12-09: what about the update strategy? aj: something
-      for next year. :) </remark>
   </section>
 
 <!--
@@ -240,7 +235,6 @@ As agreed on https://confluence.suse.com/x/DAEcN on our Trento doc kick off
     </section>
     <section xml:id="sec-trento-network-requirements">
       <title>Network requirements</title>
-      <remark>toms 2022-04-27: change 5</remark>
       <itemizedlist>
         <listitem>
           <para> The Trento component running &k8s; has
@@ -304,7 +298,6 @@ As agreed on https://confluence.suse.com/x/DAEcN on our Trento doc kick off
     </important>
 
     <para> The procedure uses the following placeholders: </para>
-    <remark>toms 2022-04-27: change 6</remark>
     <itemizedlist>
       <listitem>
         <para><replaceable>TRENTO_SERVER_HOSTNAME</replaceable>: the
@@ -377,7 +370,6 @@ As agreed on https://confluence.suse.com/x/DAEcN on our Trento doc kick off
           With the same user that installed K3s, install the &t.server; container
           using Helm:
         </para>
-        <remark>toms 2022-04-27: change 7</remark>
         <screen>HELM_EXPERIMENTAL_OCI=1 helm upgrade \
    --install trento-server oci://registry.suse.com/trento/trento-server \
    --set trento-web.adminUser.password=<replaceable>ADMIN_PASSWORD</replaceable> \
@@ -399,7 +391,6 @@ As agreed on https://confluence.suse.com/x/DAEcN on our Trento doc kick off
 
     <section xml:id="sec-trento-enabling-email-alerts">
       <title>Enabling email alerts</title>
-      <remark>toms 2022-04-27: change 8</remark>
       <para>
         Email alerting feature notifies the &sap; administrator about important changes
         in the &sap; Landscape being monitored/observed by Trento.
@@ -489,8 +480,7 @@ As agreed on https://confluence.suse.com/x/DAEcN on our Trento doc kick off
       <para> Ingress may be used to provide SSL termination for the web
         component of &t.server;. This would allow to encrypt the communication from
         the agent to the server, which is already secured by the corresponding
-        API key. It would<remark>toms 2022-04-28: why "would"? alberto because it's up to user to use HTTPS to access the console or not</remark>
-        also allow HTTPS access to the web console with trusted certificates.
+        API key. It would also allow HTTPS access to the web console with trusted certificates.
       </para>
       <para>
         Configuration must be done in the tls section of the <filename>values.yaml</filename>
@@ -517,7 +507,6 @@ As agreed on https://confluence.suse.com/x/DAEcN on our Trento doc kick off
     </important>
 
     <para>
-      <remark>toms 2022-04-27: change 9</remark>
       Before you can install a &t.agent; retrieve the API key of your &t.server;.
       Proceed as follows:
     </para>
@@ -531,7 +520,7 @@ As agreed on https://confluence.suse.com/x/DAEcN on our Trento doc kick off
         <informalfigure>
           <mediaobject>
             <imageobject>
-              <imagedata fileref="trento-web-login.png" width="40%"/>
+              <imagedata fileref="trento-web-login.png" width="30%"/>
             </imageobject>
           </mediaobject>
         </informalfigure>
@@ -623,7 +612,6 @@ Warning: Permanently added '<replaceable>TRENTO_AGENT_IP</replaceable>' (ECDSA) 
         </substeps>
       </step>
       <step>
-        <remark>toms 2022-04-27: change 10</remark>
         <para>
           Install the package:
         </para>
@@ -644,7 +632,6 @@ Warning: Permanently added '<replaceable>TRENTO_AGENT_IP</replaceable>' (ECDSA) 
           <listitem>
             <para><parameter>server-url</parameter>: URL for the &t.server;
               (<uri>http://<replaceable>TRENTO_SERVER_HOSTNAME</replaceable></uri>).
-              <remark>toms 2022-04-28: review #2, change 9</remark>
               If SSL termination has been enabled, you can encrypt the communication
               from the agent to the server by providing an HTTPS URL instead of an HTTP one.
               Refer to <xref linkend="sec-trento-enabling-ssl"/>.
@@ -691,12 +678,10 @@ Warning: Permanently added '<replaceable>TRENTO_AGENT_IP</replaceable>' (ECDSA) 
     <para>
       When you access the Trento web console for the first time, it asks
       to accept the license. Click <guimenu>Accept</guimenu> to continue.
-      <remark>toms 2022-01-14: should we include the license page?</remark>
     </para>
     <para>
       After you have accepted the license, Trento can be used.
       The left sidebar in the &t.web; contains the following entries: </para>
-    <remark>toms 2022-04-27: change 11</remark>
     <itemizedlist>
       <listitem>
         <formalpara>
@@ -764,8 +749,8 @@ Warning: Permanently added '<replaceable>TRENTO_AGENT_IP</replaceable>' (ECDSA) 
 
     <section xml:id="sec-trento-web-home-page">
       <title>Dashboard</title>
-      <para> The dashboard allows you to determine at a glance the Health Status of your &sap; environment. </para>
-      <remark>toms 2022-04-27: change 12</remark>
+      <para> The dashboard allows you to determine at a glance the Health Status of your &sap; environment.
+      </para>
       <figure xml:id="fig-trento-web-home">
         <title>Dashboard</title>
         <mediaobject>
@@ -807,7 +792,6 @@ Warning: Permanently added '<replaceable>TRENTO_AGENT_IP</replaceable>' (ECDSA) 
         </listitem>
       </itemizedlist>
       <para>
-        <remark>toms 2022-04-27: change 13</remark>
         A grey status is returned when either a component does not exist, or it is stopped
         (as returned by <command>sapcontrol</command>), or its status is unknown (for instance
         if a command to determine the status fails).
@@ -838,7 +822,6 @@ Warning: Permanently added '<replaceable>TRENTO_AGENT_IP</replaceable>' (ECDSA) 
       <title>Hosts view</title>
       <para> To display the lists of registered hosts, click the
         <guimenu>Hosts</guimenu> entry in the left sidebar. </para>
-      <remark>toms 2022-04-27: change 14</remark>
       <figure>
         <title>Hosts entry</title>
         <mediaobject>
@@ -855,7 +838,6 @@ Warning: Permanently added '<replaceable>TRENTO_AGENT_IP</replaceable>' (ECDSA) 
           </para>
         </listitem>
         <listitem>
-          <remark>toms 2022-04-27: change 15</remark>
           <para>
             A <replaceable role="bold">list</replaceable> of registered host
             with the following info for each
@@ -878,7 +860,6 @@ Warning: Permanently added '<replaceable>TRENTO_AGENT_IP</replaceable>' (ECDSA) 
       <itemizedlist xml:id="lst-trento-web-hosts-details">
         <title>Host details view</title>
         <listitem>
-          <remark>toms 2022-04-27: change 16</remark>
           <para><guimenu>Hosts details</guimenu> section:
             it shows the status of both the &t.agent; and the Node Exporter and
             provides the host name, the cluster name (when applicable) and the
@@ -914,7 +895,6 @@ Warning: Permanently added '<replaceable>TRENTO_AGENT_IP</replaceable>' (ECDSA) 
             start and end dates of the subscription. </para>
         </listitem>
         <listitem>
-          <remark>toms 2022-04-27: change 18</remark>
           <para><guimenu>&sap; instances</guimenu> section: lists the ID, SID,
             type, features, and instance number of any &sap; instance
             running on the host (&netweaver; or &hana;).</para>
@@ -924,16 +904,13 @@ Warning: Permanently added '<replaceable>TRENTO_AGENT_IP</replaceable>' (ECDSA) 
 
     <section xml:id="sec-trento-show-pacemaker-clusters">
       <title>Clusters</title>
-      <remark>toms 2022-04-27: change 19</remark>
       <para> To display a list of the discovered &pace; clusters, click
-        the <guimenu>&pace; Clusters</guimenu> entry on the left
+        the <guimenu>Clusters</guimenu> entry on the left
         sidebar. </para>
       <important>
-        <remark>toms 2022-04-27: change 20</remark>
         <para> Keep in mind that only &hana; scale-up clusters on Azure,
           AWS, or GCP are currently under consideration. </para>
       </important>
-      <remark>toms 2022-04-27: change 21</remark>
       <figure>
         <title>&pace; clusters</title>
         <mediaobject>
@@ -944,7 +921,6 @@ Warning: Permanently added '<replaceable>TRENTO_AGENT_IP</replaceable>' (ECDSA) 
         </mediaobject>
       </figure>
       <para> This view provides the following: </para>
-      <remark>toms 2022-04-27: change 22</remark>
       <itemizedlist>
         <listitem>
           <para> A <guimenu>Health</guimenu> section on top
@@ -966,7 +942,6 @@ Warning: Permanently added '<replaceable>TRENTO_AGENT_IP</replaceable>' (ECDSA) 
           </para>
         </listitem>
       </itemizedlist>
-      <remark>No Settings menu anymore.</remark>
       <para> Clicking on the name of a &hana; scale-up cluster, opens the
         corresponding <guimenu>Cluster details</guimenu> page in which we
         can find the following: </para>
@@ -979,7 +954,6 @@ Warning: Permanently added '<replaceable>TRENTO_AGENT_IP</replaceable>' (ECDSA) 
             <xref
               linkend="fig-trento-web-pagemaker-cluster-settings"
             />. </para>
-          <remark>toms 2022-04-28: review #2, change 1</remark>
           <figure xml:id="fig-trento-web-pagemaker-cluster-settings">
             <title><guimenu>Cluster settings</guimenu></title>
             <mediaobject>
@@ -994,7 +968,6 @@ Warning: Permanently added '<replaceable>TRENTO_AGENT_IP</replaceable>' (ECDSA) 
           <itemizedlist xml:id="lst-trento-web-pace-cluster-settings">
             <title><guimenu>Cluster settings</guimenu></title>
             <listitem>
-              <remark>toms 2022-04-28: review #2, change 2</remark>
               <para><guimenu>Connection settings</guimenu> tab: 
                 set the user that the &t.server; will use to connect
                 via SSH to the cluster nodes to perform the HA
@@ -1036,14 +1009,13 @@ Warning: Permanently added '<replaceable>TRENTO_AGENT_IP</replaceable>' (ECDSA) 
               <!-- still change 2 -->
             </listitem>
           </itemizedlist>
-          <para> <remark> alberto: from review #2, change 2 </remark>
+          <para>
             Whenever a change is made and saved in either tab, if any check is
             selected a button will show up allowing the user to start the check
             execution right away.
           </para>
         </listitem>
         <listitem>
-          <remark>toms 2022-04-28: review #2, change 3</remark>
           <para>
             Next to the Settings button there are two other buttons:
           </para>
@@ -1079,7 +1051,6 @@ Warning: Permanently added '<replaceable>TRENTO_AGENT_IP</replaceable>' (ECDSA) 
           </informalfigure>
         </listitem>
         <listitem>
-          <remark>toms 2022-04-28: review #2, change 5</remark>
           <para>
             When there are stopped resources in the cluster, a
             <guimenu>Stopped resources</guimenu> section listing
@@ -1087,7 +1058,6 @@ Warning: Permanently added '<replaceable>TRENTO_AGENT_IP</replaceable>' (ECDSA) 
           </para>
         </listitem>
         <listitem>
-          <remark>toms 2022-04-28: review #2, change 6</remark>
           <para>A <guimenu>&pace; Site details</guimenu> section
             showing the different sites that are configured for this
             cluster. For each site, its name is displayed along with
@@ -1119,7 +1089,6 @@ Warning: Permanently added '<replaceable>TRENTO_AGENT_IP</replaceable>' (ECDSA) 
       <title>&sap; Systems view</title>
       <para> Click the <guimenu>&sap; Systems</guimenu> entry in the left
         sidebar to get an overview of the registered &sap; Systems: </para>
-      <remark>toms 2022-04-27: change 23</remark>
       <figure>
         <title>&sap; Systems</title>
         <mediaobject>
@@ -1130,7 +1099,6 @@ Warning: Permanently added '<replaceable>TRENTO_AGENT_IP</replaceable>' (ECDSA) 
         </mediaobject>
       </figure>
       <para> This view provides the following: </para>
-      <remark>toms 2022-04-27: change 24</remark>
       <itemizedlist>
         <listitem>
           <para>
@@ -1180,7 +1148,6 @@ Warning: Permanently added '<replaceable>TRENTO_AGENT_IP</replaceable>' (ECDSA) 
             priority, and SAPControl status. </para>
         </listitem>
         <listitem>
-          <remark>toms 2022-04-27: change 25</remark>
           <para>
             <guimenu>The list of hosts where the different NetWeaver
               instances are running</guimenu>, with the host name,
@@ -1205,7 +1172,6 @@ Warning: Permanently added '<replaceable>TRENTO_AGENT_IP</replaceable>' (ECDSA) 
       <title>&hana; databases view</title>
       <para> To get an overview of registered &hana; databases, click the
         <guimenu>HANA databases</guimenu> entry in the left sidebar. </para>
-      <remark>toms 2022-04-27: change 26</remark>
       <figure>
         <title>HANA databases</title>
         <mediaobject>
@@ -1216,7 +1182,6 @@ Warning: Permanently added '<replaceable>TRENTO_AGENT_IP</replaceable>' (ECDSA) 
         </mediaobject>
       </figure>
       <para>This view provides the following:</para>
-      <remark>toms 2022-04-27: change 27</remark>
       <itemizedlist>
         <listitem>
           <para>A <guimenu>Health</guimenu> section on top with a summary
@@ -1244,7 +1209,6 @@ Warning: Permanently added '<replaceable>TRENTO_AGENT_IP</replaceable>' (ECDSA) 
       <para> Clicking on one of the <guimenu>SID</guimenu>s opens the
         <guimenu>HANA Databases</guimenu> detail view which shows
         the following: </para>
-      <remark>toms 2022-04-27: change 28</remark>
       <itemizedlist>
         <title><guimenu>HANA Database</guimenu> details view</title>
         <listitem>
@@ -1266,7 +1230,6 @@ Warning: Permanently added '<replaceable>TRENTO_AGENT_IP</replaceable>' (ECDSA) 
           </para>
         </listitem>
       </itemizedlist>
-      <remark>toms 2022-04-27: change 28</remark>
       <figure>
         <title>HANA Database details</title>
         <mediaobject>
@@ -1279,12 +1242,10 @@ Warning: Permanently added '<replaceable>TRENTO_AGENT_IP</replaceable>' (ECDSA) 
 
     <section xml:id="sec-trento-configuration-checks">
       <title>HA configuration checks</title>
-      <remark>toms 2022-04-27: change 29</remark>
       <para> To get an overview of the configuration checks that Trento
         can manage click the <guimenu>Checks catalog</guimenu>
         entry in the left sidebar.
       </para>
-      <remark>toms 2022-04-27: change 30</remark>
       <figure>
         <title><guimenu>Checks catalog</guimenu></title>
         <mediaobject>
@@ -1295,7 +1256,6 @@ Warning: Permanently added '<replaceable>TRENTO_AGENT_IP</replaceable>' (ECDSA) 
         </mediaobject>
       </figure>
       <para>
-        <remark>toms 2022-04-27: change 31</remark>
         The view allows you to select the platform which values you
         want to review: Azure, AWS, or GCP. For each platform, it shows
         the configuration checks that Trento can perform for the different
@@ -1325,7 +1285,6 @@ Warning: Permanently added '<replaceable>TRENTO_AGENT_IP</replaceable>' (ECDSA) 
         <para> Ensure the &t.server; is running. </para>
       </step>
       <step>
-        <remark>toms 2022-04-27: change 32</remark>
         <para>
           Ensure that credentials for &kube; are set up correctly.
           For example, if you installed K3s, export the <envar>KUBECONFIG</envar>
@@ -1399,7 +1358,6 @@ Warning: Permanently added '<replaceable>TRENTO_AGENT_IP</replaceable>' (ECDSA) 
 &prompt.user;sudo zypper install trento-agent</screen>
       </step>
       <step>
-        <remark>toms 2022-04-27: change 34</remark>
         <para>
           Ensure that entries <parameter>ssh-address</parameter>,
           <parameter>server-url</parameter>, and <parameter>api-key</parameter>
@@ -1456,7 +1414,6 @@ Warning: Permanently added '<replaceable>TRENTO_AGENT_IP</replaceable>' (ECDSA) 
    <section xml:id="sec-trento-uninstall-trentoserver">
     <title>Uninstalling &t.server;</title>
     <para> To uninstall &t.server;, proceed as follows:</para>
-     <remark>toms 2022-04-27: change 35</remark>
     <procedure>
       <step>
         <para>
@@ -1480,7 +1437,6 @@ Warning: Permanently added '<replaceable>TRENTO_AGENT_IP</replaceable>' (ECDSA) 
     <para>
       To uninstall a &t.agent;, perform the following steps:
     </para>
-    <remark>toms 2022-04-27: change 36</remark>
     <procedure>
       <step>
         <para>Log in the &t.agent; host.</para>
