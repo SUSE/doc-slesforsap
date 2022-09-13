@@ -665,14 +665,15 @@
   <procedure xml:id="pro-s4s-convert-sles">
    <step>
     <para>
-     Install the package <package>migrate-sles-to-sles4sap</package>.
+     Execute the following command to install the required packages:
     </para>
+    <screen>&prompt.root;<command>zypper in perl-XML-Twig migrate-sles-to-sles4sap</command></screen>
    </step>
    <step>
     <para>
      Execute the following command:
     </para>
-    <screen>&prompt.root;<command>Migrate_SLES_to_SLES-for-SAP-12.sh</command></screen>
+    <screen>&prompt.root;<command>Migrate_SLES_to_SLES-for-SAP.sh</command></screen>
    </step>
    <step>
     <para>
