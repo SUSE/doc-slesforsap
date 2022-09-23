@@ -40,7 +40,6 @@ As agreed on https://confluence.suse.com/x/DAEcN on our Trento doc kick off
   <info>
     <abstract>
       <para>
-       <remark>toms 2022-04-27: change 1</remark>
        &trentopremium; is an open cloud-native web console that aims to help
        &sap; Basis consultants and administrators to monitor the entire OS stack of their
        &sap; environments, including HA features.
@@ -52,7 +51,6 @@ As agreed on https://confluence.suse.com/x/DAEcN on our Trento doc kick off
   <important>
     <title>Trento is an evolving product</title>
     <para>
-      <remark>toms 2022-04-27: change 2</remark>
       The product continues to be under active development, but is available for any &suse;
       customer with a registered &productname; 15 (SP1 or higher).
       Contact <link xlink:href="https://www.suse.com/support"/> for further assistence.
@@ -62,7 +60,6 @@ As agreed on https://confluence.suse.com/x/DAEcN on our Trento doc kick off
   <section xml:id="sec-trento-what">
     <title>What is &trentopremium;?</title>
     <para>
-      <remark>toms 2022-04-27: change 3</remark>
       &trentopremium; is the extended version of the Trento community project containing
       additional checks. Apart from their naming, both are comprehensive monitoring solutions
       consisting of two main components, the &t.server; and the &t.agent;.
@@ -108,7 +105,6 @@ As agreed on https://confluence.suse.com/x/DAEcN on our Trento doc kick off
       on each host of the SAP infrastructure that is monitored.
     </para>
     <para>
-      <remark>toms 2022-04-27: change 4</remark>
       For &trentopremium;, &suse; collects telemetry data relevant for further
       product development. </para>
     <para> See <xref linkend="fig-trento-architecture" /> for additional
@@ -191,8 +187,6 @@ As agreed on https://confluence.suse.com/x/DAEcN on our Trento doc kick off
       </varlistentry>
     </variablelist>
 
-    <remark>toms 2021-12-09: what about the update strategy? aj: something
-      for next year. :) </remark>
   </section>
 
 <!--
@@ -240,7 +234,6 @@ As agreed on https://confluence.suse.com/x/DAEcN on our Trento doc kick off
     </section>
     <section xml:id="sec-trento-network-requirements">
       <title>Network requirements</title>
-      <remark>toms 2022-04-27: change 5</remark>
       <itemizedlist>
         <listitem>
           <para> The Trento component running &k8s; has
@@ -303,8 +296,7 @@ As agreed on https://confluence.suse.com/x/DAEcN on our Trento doc kick off
       </para>
     </important>
 
-    <para> The procedure uses the following placeholders: </para>
-    <remark>toms 2022-04-27: change 6</remark>
+    <para> The subsections uses the following placeholders: </para>
     <itemizedlist>
       <listitem>
         <para><replaceable>TRENTO_SERVER_HOSTNAME</replaceable>: the
@@ -323,34 +315,56 @@ As agreed on https://confluence.suse.com/x/DAEcN on our Trento doc kick off
       </listitem>
     </itemizedlist>
 
-    <para>
-      &t.server; premium is delivered as a Helm chart in order to facilitate its
+    <!--  -->
+    <section xml:id="sec-trento-install-trentoserver-on-existing-k8s-cluster">
+      <title>Installing &t.server; on an existing &k8s; cluster</title>
+      <para>
+        &t.server; premium is delivered as a Helm chart in order to facilitate its
       installation process. If you already have a &k8s; cluster in place and
-      want to use it to run &t.server;, all you have to do is to install Helm
-      (<xref linkend="st-install-helm"/>) and then run command in <xref linkend="st-deploy-k3s"/>
-      to deploy the Helm chart in your &k8s; cluster.
-      If you don't have a &k8s; cluster or have one but don't want to use it for
-      Trento, you can deploy a small VM (see section <xref linkend="sec-trento-server-requirements"/>
-      for minimum requirements) and follow steps in <xref linkend="pro-trento-manually-installing"/>
-      to get &t.server; up and running.
-    </para>
+      want to use it to run &t.server;, proceed as follows:
+      </para>
+      <procedure>
+        <step>
+          <para>Install Helm:</para>
+          <screen>curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash</screen>
+        </step>
+        <step>
+        <para>
+          Install the &t.server; helm chart using Helm:
+        </para>
+        <screen>HELM_EXPERIMENTAL_OCI=1 helm upgrade \
+   --install trento-server oci://registry.suse.com/trento/trento-server \
+   --set trento-web.adminUser.password=<replaceable>ADMIN_PASSWORD</replaceable> \
+   --set-file trento-runner.privateKey=<replaceable>PRIVATE_SSH_KEY</replaceable></screen>
+       <para>
+          Note that the experimental flag is not needed as of Helm version 3.8.0.
+        </para>
+      </step>
+        <step>
+          <para> To verify that the &t.server; installation was
+            successful, open the URL of the &t.web;
+            (<uri>http://<replaceable>TRENTO_SERVER_HOSTNAME</replaceable></uri>)
+            from a workstation located in the &sap; administrator's LAN. </para>
+        </step>
+      </procedure>
+    </section>
 
-    <para>
-      If you choose to deploy the VM with a registered SLES for SAP 15 distro,
-      instead of executing <xref linkend="st-install-k3s"/> thru
-      <xref linkend="st-deploy-k3s"/>, you can install package
-      <filename>trento-server-installer</filename> and then execute script
-     <filename>install-trento-server</filename>: it will run those steps for you automatically.
-    </para>
+    <section xml:id="sec-trento-install-trentoserver-on-k3s">
+      <title>Installing &t.server; on K3s</title>
+      <para> If you do not have a &k8s; cluster or have one but don't want to use
+        it for Trento, you can deploy a small VM (see section <xref
+          linkend="sec-trento-server-requirements" /> for minimum requirements)
+        and follow steps in <xref linkend="pro-trento-manually-installing" /> to
+        get &t.server; up and running. </para>
 
-    <procedure xml:id="pro-trento-manually-installing">
+      <procedure xml:id="pro-trento-manually-installing">
       <title>Manually installing Trento on a &t.server; host</title>
       <step>
         <para> Log on the &t.server; host.
         </para>
       </step>
       <step xml:id="st-install-k3s">
-        <para>Install &k8s;, for example, K3s for a single server install:</para>
+        <para>Install &k8s;:</para>
         <stepalternatives>
           <step>
             <para>Installing as user &rootuser;</para>
@@ -374,10 +388,9 @@ As agreed on https://confluence.suse.com/x/DAEcN on our Trento doc kick off
       </step>
       <step xml:id="st-deploy-k3s">
         <para>
-          With the same user that installed K3s, install the &t.server; container
+          With the same user that installed K3s, install the &t.server; helm chart
           using Helm:
         </para>
-        <remark>toms 2022-04-27: change 7</remark>
         <screen>HELM_EXPERIMENTAL_OCI=1 helm upgrade \
    --install trento-server oci://registry.suse.com/trento/trento-server \
    --set trento-web.adminUser.password=<replaceable>ADMIN_PASSWORD</replaceable> \
@@ -397,9 +410,41 @@ As agreed on https://confluence.suse.com/x/DAEcN on our Trento doc kick off
       </step>
     </procedure>
 
+    </section>
+
+    <section xml:id="sec-trento-install-trentoserver-on-sles-for-sap15">
+      <title>Installing &t.server; on K3s running on &productname; 15</title>
+      <para>
+        If you choose to deploy K3s on a VM with a registered &sles4sap;&nbsp;15 distro,
+        you can install the package <filename>trento-server-installer</filename> and
+        then execute script <filename>install-trento-server</filename>:
+        it will run <xref linkend="st-install-k3s"/> to
+        <xref linkend="st-deploy-k3s"/> in
+        <xref linkend="pro-trento-manually-installing"/> for you automatically.
+      </para>
+    </section>
+
+    <section xml:id="sec-trento-deploying-trento-on-selected-nodes">
+      <title>Deploying &t.server; on selected nodes</title>
+      <remark>toms 2022-09-09: </remark>
+      <para>
+        If you use a multi node &k8s; cluster, it is possible to deploy
+        &t.server; images on selected nodes by specifying the field
+        <parameter>nodeSelector</parameter> in the helm upgrade command,
+        with the following syntax:</para>
+      <screen>HELM_EXPERIMENTAL_OCI=1 helm upgrade \
+   --install trento-server oci://registry.suse.com/trento/trento-server \
+   --set trento-web.adminUser.password=<replaceable>ADMIN_PASSWORD</replaceable> \
+   --set-file trento-runner.privateKey=<replaceable>PRIVATE_SSH_KEY</replaceable>
+   --set prometheus.server.nodeSelector.<replaceable>LABEL</replaceable>=<replaceable>VALUE</replaceable> \
+   --set postgresql.primary.nodeSelector.<replaceable>LABEL</replaceable>=<replaceable>VALUE</replaceable> \
+   --set trento-web.nodeSelector.<replaceable>LABEL</replaceable>=<replaceable>VALUE</replaceable> \
+   --set trento-runner.nodeSelector.<replaceable>LABEL</replaceable>=<replaceable>VALUE</replaceable> \
+   --set grafana.nodeSelector.<replaceable>LABEL</replaceable>=<replaceable>VALUE</replaceable></screen>
+    </section>
+
     <section xml:id="sec-trento-enabling-email-alerts">
       <title>Enabling email alerts</title>
-      <remark>toms 2022-04-27: change 8</remark>
       <para>
         Email alerting feature notifies the &sap; administrator about important changes
         in the &sap; Landscape being monitored/observed by Trento.
@@ -489,8 +534,7 @@ As agreed on https://confluence.suse.com/x/DAEcN on our Trento doc kick off
       <para> Ingress may be used to provide SSL termination for the web
         component of &t.server;. This would allow to encrypt the communication from
         the agent to the server, which is already secured by the corresponding
-        API key. It would<remark>toms 2022-04-28: why "would"? alberto because it's up to user to use HTTPS to access the console or not</remark>
-        also allow HTTPS access to the web console with trusted certificates.
+        API key. It would also allow HTTPS access to the web console with trusted certificates.
       </para>
       <para>
         Configuration must be done in the tls section of the <filename>values.yaml</filename>
@@ -502,6 +546,10 @@ As agreed on https://confluence.suse.com/x/DAEcN on our Trento doc kick off
          />. Particularly, refer to section <link
           xlink:href="https://kubernetes.io/docs/concepts/services-networking/ingress/#tls"
          /> for details on the secret format in the YAML configuration file.
+      </para>
+      <para>
+        Additional steps required on the Agent side.
+        <remark>toms 2022-09-14: which steps?</remark>
       </para>
     </section>
   </section>
@@ -517,7 +565,6 @@ As agreed on https://confluence.suse.com/x/DAEcN on our Trento doc kick off
     </important>
 
     <para>
-      <remark>toms 2022-04-27: change 9</remark>
       Before you can install a &t.agent; retrieve the API key of your &t.server;.
       Proceed as follows:
     </para>
@@ -531,7 +578,7 @@ As agreed on https://confluence.suse.com/x/DAEcN on our Trento doc kick off
         <informalfigure>
           <mediaobject>
             <imageobject>
-              <imagedata fileref="trento-web-login.png" width="40%"/>
+              <imagedata fileref="trento-web-login.png" width="30%"/>
             </imageobject>
           </mediaobject>
         </informalfigure>
@@ -623,7 +670,6 @@ Warning: Permanently added '<replaceable>TRENTO_AGENT_IP</replaceable>' (ECDSA) 
         </substeps>
       </step>
       <step>
-        <remark>toms 2022-04-27: change 10</remark>
         <para>
           Install the package:
         </para>
@@ -642,18 +688,40 @@ Warning: Permanently added '<replaceable>TRENTO_AGENT_IP</replaceable>' (ECDSA) 
             <para><parameter>ssh-address</parameter>: local IP address</para>
           </listitem>
           <listitem>
-            <para><parameter>server-url</parameter>: URL for the &t.server;
-              (<uri>http://<replaceable>TRENTO_SERVER_HOSTNAME</replaceable></uri>).
-              <remark>toms 2022-04-28: review #2, change 9</remark>
-              If SSL termination has been enabled, you can encrypt the communication
-              from the agent to the server by providing an HTTPS URL instead of an HTTP one.
-              Refer to <xref linkend="sec-trento-enabling-ssl"/>.
+            <para><parameter>server-url</parameter>: URL for the Trento Server (<uri>http://TRENTO_SERVER_HOSTNAME</uri>).
             </para>
           </listitem>
           <listitem>
             <para>
               <parameter>api-key</parameter>: the API key retreived from the Web console.
             </para>
+          </listitem>
+        </itemizedlist>
+      </step>
+      <step>
+        <para>
+          If SSL termination has been enabled on the server side (refer to
+          <xref linkend="sec-trento-enabling-ssl"/>), you can encrypt the
+          communication from the agent to the server as follows</para>
+        <itemizedlist>
+          <listitem>
+            <para>Provide an HTTPS URL instead of an HTTP one.</para>
+          </listitem>
+          <listitem>
+            <para>Import the certificate from the CA that has issued your
+              &t.server; SSL certificate into the &t.agent; host as follows:</para>
+            <procedure>
+              <step>
+                <para>Copy the CA certificate in PEM format to <filename>/etc/pki/trust/anchors/</filename>.
+                If your CA certificate is in CRT format, convert it to PEM using <command>openssl</command>
+                  command as follows:
+                </para>
+                <screen><command>openssl</command> x509 -in mycert.crt -out mycert.pem -outform PEM</screen>
+              </step>
+              <step>
+                <para>Run the <command>update-ca-certificates</command> command.</para>
+              </step>
+            </procedure>
           </listitem>
         </itemizedlist>
       </step>
@@ -691,12 +759,10 @@ Warning: Permanently added '<replaceable>TRENTO_AGENT_IP</replaceable>' (ECDSA) 
     <para>
       When you access the Trento web console for the first time, it asks
       to accept the license. Click <guimenu>Accept</guimenu> to continue.
-      <remark>toms 2022-01-14: should we include the license page?</remark>
     </para>
     <para>
       After you have accepted the license, Trento can be used.
       The left sidebar in the &t.web; contains the following entries: </para>
-    <remark>toms 2022-04-27: change 11</remark>
     <itemizedlist>
       <listitem>
         <formalpara>
@@ -764,8 +830,8 @@ Warning: Permanently added '<replaceable>TRENTO_AGENT_IP</replaceable>' (ECDSA) 
 
     <section xml:id="sec-trento-web-home-page">
       <title>Dashboard</title>
-      <para> The dashboard allows you to determine at a glance the Health Status of your &sap; environment. </para>
-      <remark>toms 2022-04-27: change 12</remark>
+      <para> The dashboard allows you to determine at a glance the Health Status of your &sap; environment.
+      </para>
       <figure xml:id="fig-trento-web-home">
         <title>Dashboard</title>
         <mediaobject>
@@ -807,7 +873,6 @@ Warning: Permanently added '<replaceable>TRENTO_AGENT_IP</replaceable>' (ECDSA) 
         </listitem>
       </itemizedlist>
       <para>
-        <remark>toms 2022-04-27: change 13</remark>
         A grey status is returned when either a component does not exist, or it is stopped
         (as returned by <command>sapcontrol</command>), or its status is unknown (for instance
         if a command to determine the status fails).
@@ -838,7 +903,6 @@ Warning: Permanently added '<replaceable>TRENTO_AGENT_IP</replaceable>' (ECDSA) 
       <title>Hosts view</title>
       <para> To display the lists of registered hosts, click the
         <guimenu>Hosts</guimenu> entry in the left sidebar. </para>
-      <remark>toms 2022-04-27: change 14</remark>
       <figure>
         <title>Hosts entry</title>
         <mediaobject>
@@ -855,7 +919,6 @@ Warning: Permanently added '<replaceable>TRENTO_AGENT_IP</replaceable>' (ECDSA) 
           </para>
         </listitem>
         <listitem>
-          <remark>toms 2022-04-27: change 15</remark>
           <para>
             A <replaceable role="bold">list</replaceable> of registered host
             with the following info for each
@@ -878,7 +941,6 @@ Warning: Permanently added '<replaceable>TRENTO_AGENT_IP</replaceable>' (ECDSA) 
       <itemizedlist xml:id="lst-trento-web-hosts-details">
         <title>Host details view</title>
         <listitem>
-          <remark>toms 2022-04-27: change 16</remark>
           <para><guimenu>Hosts details</guimenu> section:
             it shows the status of both the &t.agent; and the Node Exporter and
             provides the host name, the cluster name (when applicable) and the
@@ -914,7 +976,6 @@ Warning: Permanently added '<replaceable>TRENTO_AGENT_IP</replaceable>' (ECDSA) 
             start and end dates of the subscription. </para>
         </listitem>
         <listitem>
-          <remark>toms 2022-04-27: change 18</remark>
           <para><guimenu>&sap; instances</guimenu> section: lists the ID, SID,
             type, features, and instance number of any &sap; instance
             running on the host (&netweaver; or &hana;).</para>
@@ -924,16 +985,13 @@ Warning: Permanently added '<replaceable>TRENTO_AGENT_IP</replaceable>' (ECDSA) 
 
     <section xml:id="sec-trento-show-pacemaker-clusters">
       <title>Clusters</title>
-      <remark>toms 2022-04-27: change 19</remark>
       <para> To display a list of the discovered &pace; clusters, click
-        the <guimenu>&pace; Clusters</guimenu> entry on the left
+        the <guimenu>Clusters</guimenu> entry on the left
         sidebar. </para>
       <important>
-        <remark>toms 2022-04-27: change 20</remark>
         <para> Keep in mind that only &hana; scale-up clusters on Azure,
           AWS, or GCP are currently under consideration. </para>
       </important>
-      <remark>toms 2022-04-27: change 21</remark>
       <figure>
         <title>&pace; clusters</title>
         <mediaobject>
@@ -944,7 +1002,6 @@ Warning: Permanently added '<replaceable>TRENTO_AGENT_IP</replaceable>' (ECDSA) 
         </mediaobject>
       </figure>
       <para> This view provides the following: </para>
-      <remark>toms 2022-04-27: change 22</remark>
       <itemizedlist>
         <listitem>
           <para> A <guimenu>Health</guimenu> section on top
@@ -966,7 +1023,6 @@ Warning: Permanently added '<replaceable>TRENTO_AGENT_IP</replaceable>' (ECDSA) 
           </para>
         </listitem>
       </itemizedlist>
-      <remark>No Settings menu anymore.</remark>
       <para> Clicking on the name of a &hana; scale-up cluster, opens the
         corresponding <guimenu>Cluster details</guimenu> page in which we
         can find the following: </para>
@@ -979,7 +1035,6 @@ Warning: Permanently added '<replaceable>TRENTO_AGENT_IP</replaceable>' (ECDSA) 
             <xref
               linkend="fig-trento-web-pagemaker-cluster-settings"
             />. </para>
-          <remark>toms 2022-04-28: review #2, change 1</remark>
           <figure xml:id="fig-trento-web-pagemaker-cluster-settings">
             <title><guimenu>Cluster settings</guimenu></title>
             <mediaobject>
@@ -994,7 +1049,6 @@ Warning: Permanently added '<replaceable>TRENTO_AGENT_IP</replaceable>' (ECDSA) 
           <itemizedlist xml:id="lst-trento-web-pace-cluster-settings">
             <title><guimenu>Cluster settings</guimenu></title>
             <listitem>
-              <remark>toms 2022-04-28: review #2, change 2</remark>
               <para><guimenu>Connection settings</guimenu> tab: 
                 set the user that the &t.server; will use to connect
                 via SSH to the cluster nodes to perform the HA
@@ -1036,14 +1090,13 @@ Warning: Permanently added '<replaceable>TRENTO_AGENT_IP</replaceable>' (ECDSA) 
               <!-- still change 2 -->
             </listitem>
           </itemizedlist>
-          <para> <remark> alberto: from review #2, change 2 </remark>
+          <para>
             Whenever a change is made and saved in either tab, if any check is
             selected a button will show up allowing the user to start the check
             execution right away.
           </para>
         </listitem>
         <listitem>
-          <remark>toms 2022-04-28: review #2, change 3</remark>
           <para>
             Next to the Settings button there are two other buttons:
           </para>
@@ -1079,7 +1132,6 @@ Warning: Permanently added '<replaceable>TRENTO_AGENT_IP</replaceable>' (ECDSA) 
           </informalfigure>
         </listitem>
         <listitem>
-          <remark>toms 2022-04-28: review #2, change 5</remark>
           <para>
             When there are stopped resources in the cluster, a
             <guimenu>Stopped resources</guimenu> section listing
@@ -1087,7 +1139,6 @@ Warning: Permanently added '<replaceable>TRENTO_AGENT_IP</replaceable>' (ECDSA) 
           </para>
         </listitem>
         <listitem>
-          <remark>toms 2022-04-28: review #2, change 6</remark>
           <para>A <guimenu>&pace; Site details</guimenu> section
             showing the different sites that are configured for this
             cluster. For each site, its name is displayed along with
@@ -1119,7 +1170,6 @@ Warning: Permanently added '<replaceable>TRENTO_AGENT_IP</replaceable>' (ECDSA) 
       <title>&sap; Systems view</title>
       <para> Click the <guimenu>&sap; Systems</guimenu> entry in the left
         sidebar to get an overview of the registered &sap; Systems: </para>
-      <remark>toms 2022-04-27: change 23</remark>
       <figure>
         <title>&sap; Systems</title>
         <mediaobject>
@@ -1130,7 +1180,6 @@ Warning: Permanently added '<replaceable>TRENTO_AGENT_IP</replaceable>' (ECDSA) 
         </mediaobject>
       </figure>
       <para> This view provides the following: </para>
-      <remark>toms 2022-04-27: change 24</remark>
       <itemizedlist>
         <listitem>
           <para>
@@ -1180,7 +1229,6 @@ Warning: Permanently added '<replaceable>TRENTO_AGENT_IP</replaceable>' (ECDSA) 
             priority, and SAPControl status. </para>
         </listitem>
         <listitem>
-          <remark>toms 2022-04-27: change 25</remark>
           <para>
             <guimenu>The list of hosts where the different NetWeaver
               instances are running</guimenu>, with the host name,
@@ -1205,7 +1253,6 @@ Warning: Permanently added '<replaceable>TRENTO_AGENT_IP</replaceable>' (ECDSA) 
       <title>&hana; databases view</title>
       <para> To get an overview of registered &hana; databases, click the
         <guimenu>HANA databases</guimenu> entry in the left sidebar. </para>
-      <remark>toms 2022-04-27: change 26</remark>
       <figure>
         <title>HANA databases</title>
         <mediaobject>
@@ -1216,7 +1263,6 @@ Warning: Permanently added '<replaceable>TRENTO_AGENT_IP</replaceable>' (ECDSA) 
         </mediaobject>
       </figure>
       <para>This view provides the following:</para>
-      <remark>toms 2022-04-27: change 27</remark>
       <itemizedlist>
         <listitem>
           <para>A <guimenu>Health</guimenu> section on top with a summary
@@ -1244,7 +1290,6 @@ Warning: Permanently added '<replaceable>TRENTO_AGENT_IP</replaceable>' (ECDSA) 
       <para> Clicking on one of the <guimenu>SID</guimenu>s opens the
         <guimenu>HANA Databases</guimenu> detail view which shows
         the following: </para>
-      <remark>toms 2022-04-27: change 28</remark>
       <itemizedlist>
         <title><guimenu>HANA Database</guimenu> details view</title>
         <listitem>
@@ -1266,7 +1311,6 @@ Warning: Permanently added '<replaceable>TRENTO_AGENT_IP</replaceable>' (ECDSA) 
           </para>
         </listitem>
       </itemizedlist>
-      <remark>toms 2022-04-27: change 28</remark>
       <figure>
         <title>HANA Database details</title>
         <mediaobject>
@@ -1279,12 +1323,10 @@ Warning: Permanently added '<replaceable>TRENTO_AGENT_IP</replaceable>' (ECDSA) 
 
     <section xml:id="sec-trento-configuration-checks">
       <title>HA configuration checks</title>
-      <remark>toms 2022-04-27: change 29</remark>
       <para> To get an overview of the configuration checks that Trento
         can manage click the <guimenu>Checks catalog</guimenu>
         entry in the left sidebar.
       </para>
-      <remark>toms 2022-04-27: change 30</remark>
       <figure>
         <title><guimenu>Checks catalog</guimenu></title>
         <mediaobject>
@@ -1295,7 +1337,6 @@ Warning: Permanently added '<replaceable>TRENTO_AGENT_IP</replaceable>' (ECDSA) 
         </mediaobject>
       </figure>
       <para>
-        <remark>toms 2022-04-27: change 31</remark>
         The view allows you to select the platform which values you
         want to review: Azure, AWS, or GCP. For each platform, it shows
         the configuration checks that Trento can perform for the different
@@ -1325,7 +1366,6 @@ Warning: Permanently added '<replaceable>TRENTO_AGENT_IP</replaceable>' (ECDSA) 
         <para> Ensure the &t.server; is running. </para>
       </step>
       <step>
-        <remark>toms 2022-04-27: change 32</remark>
         <para>
           Ensure that credentials for &kube; are set up correctly.
           For example, if you installed K3s, export the <envar>KUBECONFIG</envar>
@@ -1399,7 +1439,6 @@ Warning: Permanently added '<replaceable>TRENTO_AGENT_IP</replaceable>' (ECDSA) 
 &prompt.user;sudo zypper install trento-agent</screen>
       </step>
       <step>
-        <remark>toms 2022-04-27: change 34</remark>
         <para>
           Ensure that entries <parameter>ssh-address</parameter>,
           <parameter>server-url</parameter>, and <parameter>api-key</parameter>
@@ -1455,8 +1494,7 @@ Warning: Permanently added '<replaceable>TRENTO_AGENT_IP</replaceable>' (ECDSA) 
 
    <section xml:id="sec-trento-uninstall-trentoserver">
     <title>Uninstalling &t.server;</title>
-    <para> To uninstall &t.server;, proceed as follows:</para>
-     <remark>toms 2022-04-27: change 35</remark>
+    <para> To uninstall &t.server;, perform the following steps:</para>
     <procedure>
       <step>
         <para>
@@ -1480,7 +1518,6 @@ Warning: Permanently added '<replaceable>TRENTO_AGENT_IP</replaceable>' (ECDSA) 
     <para>
       To uninstall a &t.agent;, perform the following steps:
     </para>
-    <remark>toms 2022-04-27: change 36</remark>
     <procedure>
       <step>
         <para>Log in the &t.agent; host.</para>
@@ -1509,6 +1546,239 @@ Warning: Permanently added '<replaceable>TRENTO_AGENT_IP</replaceable>' (ECDSA) 
     </para>
   </section>
 -->
+
+  <section xml:id="sec-trento-problemanalysis">
+    <title>Problem Analysis</title>
+    <para>
+      This section covers some common problems and how to analyze them.
+    </para>
+
+    <section>
+      <title>&t.server;</title>
+      <para>To analyze issues within the application, we have two tools at our
+        disposal. They both help us collect information/data that might be
+        useful when troubleshooting/analyzing the issue.</para>
+
+      <section>
+        <title>Trento support plugin</title>
+        <para> The Trento Support Plugin automates the collection of relevant
+          runtime information. In order to use it proceed as follows: </para>
+        <procedure>
+          <step>
+            <para>Install the following packages:</para>
+            <screen>&prompt.root;<command>zypper install</command> jq python3-yq</screen>
+          </step>
+          <step>
+            <para>Download the Trento Support Plugin script:</para>
+            <screen>&prompt.root;<command>wget</command> https://raw.githubusercontent.com/trento-project/helm-charts/main/scripts/trento-support.sh</screen>
+          </step>
+          <step>
+            <para>Make the script executable:</para>
+            <screen>&prompt.root;<command>chmod</command> +x trento-support.sh</screen>
+          </step>
+          <step>
+            <para>Execute the script:</para>
+            <screen>&prompt.root;<command>./trento-support.sh</command> --output file.tgz --collect all</screen>
+          </step>
+          <step>
+            <para>Send the generated archive file to support for analysis.</para>
+          </step>
+        </procedure>
+      </section>
+
+      <section>
+        <title>Scenario dump</title>
+        <para>The scenario dump is a dump of the Trento database. It helps the core team
+          recreate a mock environment with the same status as the customer's.
+          To generate the dump proceed as follows:</para>
+        <procedure>
+          <step>
+            <para>Download the latest version of the dump script:</para>
+            <screen>&prompt.user;<command>wget</command> https://raw.githubusercontent.com/trento-project/web/main/hack/dump_scenario_from_k8.sh</screen>
+          </step>
+          <step>
+            <para>Make the script executable:</para>
+            <screen>&prompt.user;<command>chmod</command> +x dump_scenario_from_k8.sh</screen>
+          </step>
+          <step>
+            <para>Set the environment variable <envar>KUBECONFIG</envar> appropiately.</para>
+          </step>
+          <step>
+            <para>Generate the dump:</para>
+            <screen>&prompt.user;<command>./dump_scenario_from_k8s.sh</command> -n <replaceable>SCENARIO_NAME</replaceable> -p <replaceable>PATH</replaceable></screen>
+          </step>
+          <step>
+          <para>Go to <filename>/scenarios/</filename>, package all the JSON files and send
+            it to support for analysis.</para>
+          </step>
+        </procedure>
+      </section>
+    </section>
+
+    <section>
+      <title>&t.agent;</title>
+      <para>The first source to analyze issues with the &t.agent; is the &t.agent;
+        status, which can be retrieved as follows:</para>
+      <screen>&prompt.user;<command>sudo systemctl status</command> trento-agent</screen>
+      <para>If further analysis is required, it is convenient to activate
+        debug log level for the agent. A detailed log can be then retrieved from the journal:</para>
+      <procedure>
+        <step>
+          <para>Add parameter log-level with value debug to the
+            <filename>/etc/trento/agent.yaml</filename> configuration file.</para>
+          <screen>&prompt.user;<command>sudo vi</command> /etc/trento/agent.yaml</screen>
+        </step>
+        <step>
+          <para>Add the following entry:</para>
+          <screen>log-level: debug</screen>
+        </step>
+        <step>
+          <para>Restart the agent:</para>
+          <screen>&prompt.user;<command>sudo systemctl restart</command> trento-agent</screen>
+        </step>
+        <step>
+          <para>Retriebe the log from the journal:</para>
+          <screen>&prompt.user;<command>sudo journalctl</command> -u trento-agent</screen>
+        </step>
+      </procedure>
+    </section>
+
+    <section>
+      <title>Plaftorm</title>
+      <para />
+          <section>
+      <title>Platform independent</title>
+      <para />
+      <procedure>
+        <step>
+          <para>Set environment variable <envar>KUBECONFIG</envar> appropriately. When working with K3s:</para>
+          <screen>&prompt.user;<command>export KUBECONFIG</command>=/etc/rancher/k3s/k3s.yaml</screen>
+        </step>
+        <step>
+          <para>List pods running in K3s cluster and their status:</para>
+          <screen>&prompt.user;<command>kubectl get pods</command>
+Trento Server currently consists of five pods:
+trento-server-postgresql-*
+trento-server-grafana-*
+trento-server-prometheus-server-*
+trento-server-web-*
+trento-server-runner-*</screen>
+        </step>
+        <step>
+          <para>Retrieve details about one particular pod:</para>
+          <screen>&prompt.user;<command>kubectl pod</command> <replaceable>POD_NAME</replaceable></screen>
+        </step>
+        <step>
+          <para>Retrieve the log of one particular pod:</para>
+          <screen>&prompt.user;<command>kubectl log</command> <replaceable>POD_NAME</replaceable></screen>
+        </step>
+        <step>
+          <para>Follow the log of one particular pod:</para>
+          <screen>&prompt.user;<command>kubectl log</command> <replaceable>POD_NAME</replaceable> --follow</screen>
+        </step>
+      </procedure>
+    </section>
+
+    <section>
+      <title>Azure &k8s; Service (AKS)</title>
+      <para> When deploying Trento in AKS, sometimes the PostgreSQL pod does not
+        start: </para>
+      <screen>&prompt.root;<command>kubectl get pods</command>
+NAME                                              READY   STATUS                  RESTARTS        AGE
+[...]
+trento-server-postgresql-0                        0/1     CrashLoopBackOff        7 (4m55s ago)   16m
+trento-server-web-7bff89f9d8-qd4hp                0/1     Init:CrashLoopBackOff   8 (23s ago)     16m</screen>
+      <para> When you look into the logs of the PostgreSQL pod, you can see a
+        permission problem with the directory
+          <filename>/var/lib/postgresql/data/trento</filename>: </para>
+      <screen>&prompt.root;<command>kubectl logs</command> trento-server-postgresql-0
+[...] [7]FATAL:  data directory "/var/lib/postgresql/data/trento" has invalid permissions
+[...] [7]DETAIL:  Permissions should be u=rwx (0700) or u=rwx,g=rx (0750).</screen>
+      <para> When this happens, uninstall Trento and remove all Trento specific images cached
+        in AKS. Reinstall it like this: </para>
+      <procedure>
+        <step>
+          <para>Uninstall Trento on your server:</para>
+          <screen>&prompt.user;<command>helm uninstall</command> trento-server</screen>
+        </step>
+        <step>
+          <para>Remove cached Trento images from AKS. </para>
+          <substeps>
+                  <step>
+          <para>List your nodes:</para>
+          <screen>&prompt.user;<command>kubectl get nodes</command></screen>
+          <para>For each node where a Trento component is deployed, repeat the following steps.</para>
+        </step>
+            <step>
+              <para>Start a privileged container on your node and connect to
+                it:</para>
+              <screen>&prompt.root;<command>kubectl debug</command> node/<replaceable>NODE_NAME</replaceable> \
+  -it --image=mcr.microsoft.com/dotnet/runtime-deps:6.0</screen>
+            </step>
+            <step>
+              <para>Start an interactive session in the debugging container:</para>
+              <screen>&prompt.root;<command>chroot</command> /host</screen>
+            </step>
+            <step>
+              <para>Setup <command>crictl</command> on the debugging
+                container:</para>
+              <screen>&prompt.user;<command>curl</command> -sL \
+  https://github.com/kubernetes-sigs/cri-tools/releases/download/v1.23.0/crictl-v1.23.0-linux-amd64.tar.gz | \
+  tar xzf - -C /usr/local/bin
+&prompt.user;<command>export CONTAINER_RUNTIME_ENDPOINT=unix:///host/run/containerd/containerd.sock</command>
+&prompt.user;<command>IMAGE_SERVICE_ENDPOINT=unix:///host/run/containerd/containerd.sock</command></screen>
+            </step>
+            <step>
+              <para>Decide:</para>
+              <stepalternatives>
+                <step>
+                  <para>If the AKS cluster is a dedicated one, remove unused
+                    images on the node:</para>
+                  <screen>&prompt.user;<command>sudo crictl rmi</command> --prune</screen>
+                </step>
+                <step>
+                  <para>If the AKS cluster is a shared one, remove Trento
+                    specific images:</para>
+                  <screen>&prompt.user;<command>sudo crictl rmi</command> <replaceable>IMAGE_ID</replaceable></screen>
+                  <para>where <replaceable>IMAGE_ID</replaceable> is the image
+                    ID for each one of the following images:</para>
+                  <screen>docker.io/grafana/grafana
+quay.io/prometheus/prometheus
+registry.suse.com/trento/trento-db
+registry.suse.com/trento/trento-runner
+registry.suse.com/trento/trento-web</screen>
+                  <para>You can get the images IDs by running:</para>
+                  <screen>&prompt.user;<command>sudo crictl images</command></screen>
+                </step>
+              </stepalternatives>
+            </step>
+            <step>
+              <para>Exit the interactive container session and delete the pod
+                used for access with:</para>
+              <screen>&prompt.root;<command>kubectl delete pod</command> <replaceable>POD_NAME</replaceable></screen>
+            </step>
+          </substeps>
+        </step>
+        <step>
+          <para>In the Azure portal, access the AKS resource and delete the
+              <parameter>data-trento-server-postgresql-0</parameter> persistent
+            volume claim under <menuchoice>
+              <guimenu>Kubernetes resources</guimenu>
+              <guimenu>Storage</guimenu>
+            </menuchoice>.</para>
+        </step>
+        <step>
+          <para>Reinstall Trento: <remark>tom 2022-09-21: can we reference to
+              another section?</remark></para>
+          <screen>&prompt.root;<command>HELM_EXPERIMENTAL_OCI=1 helm upgrade</command> \
+  --install trento-server oci://registry.suse.com/trento/trento-server
+  --set trento-web.adminUser.password=<replaceable>MY_PASSWORD</replaceable> \
+  --set-file trento-runner.privateKey=<replaceable>FULL_PATH_TO_TRENTO_SSH_KEY</replaceable></screen>
+        </step>
+      </procedure>
+    </section>
+    </section>
+  </section>
 
   <section xml:id="sec-trento-more-information">
     <title>More information</title>
