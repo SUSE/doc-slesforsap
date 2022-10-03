@@ -356,6 +356,13 @@ As agreed on https://confluence.suse.com/x/DAEcN on our Trento doc kick off
           linkend="sec-trento-server-requirements" /> for minimum requirements)
         and follow steps in <xref linkend="pro-trento-manually-installing" /> to
         get &t.server; up and running. </para>
+     
+     <important>
+      <title>Deploying Trento on K3s</title>
+      <para>
+        Please note that SUSE does not recommend using Trento on K3s for production purposes.
+      </para>
+    </important>
 
       <procedure xml:id="pro-trento-manually-installing">
       <title>Manually installing Trento on a &t.server; host</title>
