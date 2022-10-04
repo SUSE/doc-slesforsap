@@ -252,7 +252,7 @@ As agreed on https://confluence.suse.com/x/DAEcN on our Trento doc kick off
         </listitem>
          <listitem>
           <para>
-            &t.server; must be able to reach the Node Exporter in the &t.agent;s hosts via (port TCP/9100).
+            &t.server; must be able to reach the Node Exporter in the &t.agent;s hosts (port TCP/9100).
           </para>
         </listitem>
         <listitem>
