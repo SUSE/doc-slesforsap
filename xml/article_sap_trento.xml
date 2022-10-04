@@ -360,7 +360,7 @@ As agreed on https://confluence.suse.com/x/DAEcN on our Trento doc kick off
      <important>
       <title>Deploying Trento on K3s</title>
       <para>
-        Please note that SUSE does not recommend using Trento on K3s for production purposes.
+        &suse; does not recommend using Trento on K3s for production purposes.
       </para>
     </important>
 
