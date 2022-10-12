@@ -175,10 +175,10 @@
      <title>Language, keyboard and product selection</title>
      <mediaobject>
       <imageobject role="fo">
-       <imagedata fileref="s4s-install-product.png" width="73%" format="PNG"/>
+       <imagedata fileref="s4s-install-product.png" width="73%"/>
       </imageobject>
       <imageobject role="html">
-       <imagedata fileref="s4s-install-product.png" width="73%" format="PNG"/>
+       <imagedata fileref="s4s-install-product.png" width="73%"/>
       </imageobject>
      </mediaobject>
     </figure>
@@ -362,10 +362,10 @@
      <title>System role</title>
      <mediaobject>
       <imageobject role="fo">
-       <imagedata fileref="s4s-install-installationtype.png" width="73%" format="PNG"/>
+       <imagedata fileref="s4s-install-installationtype.png" width="73%"/>
       </imageobject>
       <imageobject role="html">
-       <imagedata fileref="s4s-install-installationtype.png" width="73%" format="PNG"/>
+       <imagedata fileref="s4s-install-installationtype.png" width="73%"/>
       </imageobject>
      </mediaobject>
     </figure>
@@ -531,10 +531,10 @@
      <title>Installation settings</title>
      <mediaobject>
       <imageobject role="fo">
-       <imagedata fileref="s4s-install-overview.png" width="73%" format="PNG"/>
+       <imagedata fileref="s4s-install-overview.png" width="73%"/>
       </imageobject>
       <imageobject role="html">
-       <imagedata fileref="s4s-install-overview.png" format="PNG"/>
+       <imagedata fileref="s4s-install-overview.png"/>
       </imageobject>
      </mediaobject>
     </figure>

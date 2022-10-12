@@ -89,10 +89,10 @@ Active: active (running) since Tue 2017-04-11 10:33:03 UTC; 24h ago
     <informalfigure>
      <mediaobject>
       <imageobject role="html">
-       <imagedata fileref="sap-nw-scanner-group-display.jpg" format="JPG"/>
+       <imagedata fileref="sap-nw-scanner-group-display.jpg"/>
       </imageobject>
       <imageobject role="fo">
-       <imagedata fileref="sap-nw-scanner-group-display.jpg" width="85%" format="JPG"/>
+       <imagedata fileref="sap-nw-scanner-group-display.jpg" width="85%"/>
       </imageobject>
       <textobject role="description">
        <phrase>Edit View Scanner Group with editable table</phrase>
@@ -107,10 +107,10 @@ Active: active (running) since Tue 2017-04-11 10:33:03 UTC; 24h ago
        <phrase>ビューの変更</phrase>
       </textobject>
       <imageobject role="html">
-       <imagedata fileref="sap-nw-viewmode-icon.png" width="1em" format="PNG"/>
+       <imagedata fileref="sap-nw-viewmode-icon.png" width="1em"/>
       </imageobject>
       <imageobject role="fo">
-       <imagedata fileref="sap-nw-viewmode-icon.png" width="0.8em" format="PNG"/>
+       <imagedata fileref="sap-nw-viewmode-icon.png" width="0.8em"/>
       </imageobject>
      </inlinemediaobject>)ボタンをクリックします。
     </para>
@@ -131,10 +131,10 @@ Active: active (running) since Tue 2017-04-11 10:33:03 UTC; 24h ago
        <phrase>Edit View Scanner Group with editable table</phrase>
       </textobject>
       <imageobject role="html">
-       <imagedata fileref="sap-nw-scanner-group-change.jpg" format="JPG"/>
+       <imagedata fileref="sap-nw-scanner-group-change.jpg"/>
       </imageobject>
       <imageobject role="fo">
-       <imagedata fileref="sap-nw-scanner-group-change.jpg" width="85%" format="JPG"/>
+       <imagedata fileref="sap-nw-scanner-group-change.jpg" width="85%"/>
       </imageobject>
      </mediaobject>
     </informalfigure>
@@ -146,10 +146,10 @@ Active: active (running) since Tue 2017-04-11 10:33:03 UTC; 24h ago
        <phrase>保存</phrase>
       </textobject>
       <imageobject role="html">
-       <imagedata fileref="sap-nw-save-icon.png" width="1em" format="PNG"/>
+       <imagedata fileref="sap-nw-save-icon.png" width="1em"/>
       </imageobject>
       <imageobject role="fo">
-       <imagedata fileref="sap-nw-save-icon.png" width="0.8em" format="PNG"/>
+       <imagedata fileref="sap-nw-save-icon.png" width="0.8em"/>
       </imageobject>
      </inlinemediaobject>)ボタンをクリックします。
     </para>
@@ -172,10 +172,10 @@ Active: active (running) since Tue 2017-04-11 10:33:03 UTC; 24h ago
        <phrase>ビューの変更</phrase>
       </textobject>
       <imageobject role="html">
-       <imagedata fileref="sap-nw-viewmode-icon.png" width="1em" format="PNG"/>
+       <imagedata fileref="sap-nw-viewmode-icon.png" width="1em"/>
       </imageobject>
       <imageobject role="fo">
-       <imagedata fileref="sap-nw-viewmode-icon.png" width="0.8em" format="PNG"/>
+       <imagedata fileref="sap-nw-viewmode-icon.png" width="0.8em"/>
       </imageobject>
      </inlinemediaobject>)ボタンをクリックします。
     </para>
@@ -225,10 +225,10 @@ Active: active (running) since Tue 2017-04-11 10:33:03 UTC; 24h ago
        <phrase>Form New Entries: Details of Added Entries</phrase>
       </textobject>
       <imageobject role="html">
-       <imagedata fileref="sap-nw-scanner-definition-add.jpg" format="JPG"/>
+       <imagedata fileref="sap-nw-scanner-definition-add.jpg"/>
       </imageobject>
       <imageobject role="fo">
-       <imagedata fileref="sap-nw-scanner-definition-add.jpg" width="85%" format="JPG"/>
+       <imagedata fileref="sap-nw-scanner-definition-add.jpg" width="85%"/>
       </imageobject>
      </mediaobject>
     </informalfigure>
@@ -240,10 +240,10 @@ Active: active (running) since Tue 2017-04-11 10:33:03 UTC; 24h ago
        <phrase>保存</phrase>
       </textobject>
       <imageobject role="html">
-       <imagedata fileref="sap-nw-save-icon.png" width="1em" format="PNG"/>
+       <imagedata fileref="sap-nw-save-icon.png" width="1em"/>
       </imageobject>
       <imageobject role="fo">
-       <imagedata fileref="sap-nw-save-icon.png" width="0.8em" format="PNG"/>
+       <imagedata fileref="sap-nw-save-icon.png" width="0.8em"/>
       </imageobject>
      </inlinemediaobject>ボタンをクリックします。
     </para>
@@ -278,10 +278,10 @@ Active: active (running) since Tue 2017-04-11 10:33:03 UTC; 24h ago
        <phrase>ビューの変更</phrase>
       </textobject>
       <imageobject role="html">
-       <imagedata fileref="sap-nw-viewmode-icon.png" width="1em" format="PNG"/>
+       <imagedata fileref="sap-nw-viewmode-icon.png" width="1em"/>
       </imageobject>
       <imageobject role="fo">
-       <imagedata fileref="sap-nw-viewmode-icon.png" width="0.8em" format="PNG"/>
+       <imagedata fileref="sap-nw-viewmode-icon.png" width="0.8em"/>
       </imageobject>
      </inlinemediaobject>)ボタンをクリックします。
     </para>
@@ -328,10 +328,10 @@ Active: active (running) since Tue 2017-04-11 10:33:03 UTC; 24h ago
        <phrase>保存</phrase>
       </textobject>
       <imageobject role="html">
-       <imagedata fileref="sap-nw-save-icon.png" width="1em" format="PNG"/>
+       <imagedata fileref="sap-nw-save-icon.png" width="1em"/>
       </imageobject>
       <imageobject role="fo">
-       <imagedata fileref="sap-nw-save-icon.png" width="0.8em" format="PNG"/>
+       <imagedata fileref="sap-nw-save-icon.png" width="0.8em"/>
       </imageobject>
      </inlinemediaobject>)ボタンをクリックします。
     </para>
@@ -347,10 +347,10 @@ Active: active (running) since Tue 2017-04-11 10:33:03 UTC; 24h ago
    <title>ビュー<quote>ウィルススキャンプロバイダ定義</quote>を変更する</title>
    <mediaobject>
     <imageobject role="html">
-     <imagedata fileref="sap-nw-scanner-definition-change.jpg" format="JPG"/>
+     <imagedata fileref="sap-nw-scanner-definition-change.jpg"/>
     </imageobject>
     <imageobject role="fo">
-     <imagedata fileref="sap-nw-scanner-definition-change.jpg" width="85%" format="JPG"/>
+     <imagedata fileref="sap-nw-scanner-definition-change.jpg" width="85%"/>
     </imageobject>
    </mediaobject>
   </figure>
@@ -361,10 +361,10 @@ Active: active (running) since Tue 2017-04-11 10:33:03 UTC; 24h ago
    <title>ClamSAPデータの概要</title>
    <mediaobject>
     <imageobject role="html">
-     <imagedata fileref="sap-nw-scanner-summary.jpg" format="JPG"/>
+     <imagedata fileref="sap-nw-scanner-summary.jpg"/>
     </imageobject>
     <imageobject role="fo">
-     <imagedata fileref="sap-nw-scanner-summary.jpg" width="85%" format="JPG"/>
+     <imagedata fileref="sap-nw-scanner-summary.jpg" width="85%"/>
     </imageobject>
    </mediaobject>
   </figure>
