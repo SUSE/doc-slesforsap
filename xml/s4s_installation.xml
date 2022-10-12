@@ -88,10 +88,10 @@
      <title>DVD Boot Menu</title>
      <mediaobject>
       <imageobject role="fo">
-       <imagedata fileref="s4s-dvd-boot-menu.png" width="73%" format="PNG"/>
+       <imagedata fileref="s4s-dvd-boot-menu.png" width="73%"/>
       </imageobject>
       <imageobject role="html">
-       <imagedata fileref="s4s-dvd-boot-menu.png" width="73%" format="PNG"/>
+       <imagedata fileref="s4s-dvd-boot-menu.png" width="73%"/>
       </imageobject>
      </mediaobject>
     </figure>
@@ -187,10 +187,10 @@
      <title>Language, Keyboard and Product Selection</title>
      <mediaobject>
       <imageobject role="fo">
-       <imagedata fileref="s4s-install-product.png" width="73%" format="PNG"/>
+       <imagedata fileref="s4s-install-product.png" width="73%"/>
       </imageobject>
       <imageobject role="html">
-       <imagedata fileref="s4s-install-product.png" width="73%" format="PNG"/>
+       <imagedata fileref="s4s-install-product.png" width="73%"/>
       </imageobject>
      </mediaobject>
     </figure>
@@ -285,10 +285,10 @@
      <title>Registration</title>
      <mediaobject>
       <imageobject role="fo">
-       <imagedata fileref="s4s-install-registration.png" width="73%" format="PNG"/>
+       <imagedata fileref="s4s-install-registration.png" width="73%"/>
       </imageobject>
       <imageobject role="html">
-       <imagedata fileref="s4s-install-registration.png" width="73%" format="PNG"/>
+       <imagedata fileref="s4s-install-registration.png" width="73%"/>
       </imageobject>
      </mediaobject>
     </figure>
@@ -388,10 +388,10 @@
      <title>System Role</title>
      <mediaobject>
       <imageobject role="fo">
-       <imagedata fileref="s4s-install-installationtype.png" width="73%" format="PNG"/>
+       <imagedata fileref="s4s-install-installationtype.png" width="73%"/>
       </imageobject>
       <imageobject role="html">
-       <imagedata fileref="s4s-install-installationtype.png" width="73%" format="PNG"/>
+       <imagedata fileref="s4s-install-installationtype.png" width="73%"/>
       </imageobject>
      </mediaobject>
     </figure>
@@ -475,10 +475,10 @@
      <title>Suggested Partitioning</title>
      <mediaobject>
       <imageobject role="fo">
-       <imagedata fileref="s4s-install-partitioning.png" width="73%" format="PNG"/>
+       <imagedata fileref="s4s-install-partitioning.png" width="73%"/>
       </imageobject>
       <imageobject role="html">
-       <imagedata fileref="s4s-install-partitioning.png" width="73%" format="PNG"/>
+       <imagedata fileref="s4s-install-partitioning.png" width="73%"/>
       </imageobject>
      </mediaobject>
     </figure>
@@ -568,10 +568,10 @@
      <title>Installation Settings</title>
      <mediaobject>
       <imageobject role="fo">
-       <imagedata fileref="s4s-install-overview.png" width="73%" format="PNG"/>
+       <imagedata fileref="s4s-install-overview.png" width="73%"/>
       </imageobject>
       <imageobject role="html">
-       <imagedata fileref="s4s-install-overview.png" format="PNG"/>
+       <imagedata fileref="s4s-install-overview.png"/>
       </imageobject>
      </mediaobject>
     </figure>
