@@ -1,0 +1,915 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE appendix
+[
+  <!ENTITY % entities SYSTEM "entity-decl.ent">
+    %entities;
+]>
+<appendix xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="app-s4s-docupdate">
+ <title>Documentation Updates</title>
+
+ <para>
+  This section contains information about documentation content changes made
+  to the <citetitle>&productname; Guide</citetitle>.
+ </para>
+ <para>
+  This document was updated on the following dates:
+ </para>
+ <itemizedlist role="subtoc">
+  <listitem>
+   <para>
+    <xref linkend="app-s4s-docupdate-2018-04-25" xrefstyle="SectTitleOnPage"/>
+   </para>
+  </listitem>
+  <listitem>
+   <para>
+    <xref linkend="app-s4s-docupdate-2017-11-01" xrefstyle="SectTitleOnPage"/>
+   </para>
+  </listitem>
+  <listitem>
+   <para>
+    <xref linkend="app-s4s-docupdate-2017-09-07" xrefstyle="SectTitleOnPage"/>
+   </para>
+  </listitem>
+  <listitem>
+   <para>
+    <xref linkend="app-s4s-docupdate-2017-05-10" xrefstyle="SectTitleOnPage"/>
+   </para>
+  </listitem>
+  <listitem>
+   <para>
+    <xref linkend="app-s4s-docupdate-2016-12-07" xrefstyle="SectTitleOnPage"/>
+   </para>
+  </listitem>
+  <listitem>
+   <para>
+    <xref linkend="app-s4s-docupdate-2016-11-07" xrefstyle="SectTitleOnPage"/>
+   </para>
+  </listitem>
+  <listitem>
+   <para>
+    <xref linkend="app-s4s-docupdate-2016-03-23" xrefstyle="SectTitleOnPage"/>
+   </para>
+  </listitem>
+  <listitem>
+   <para>
+    <xref linkend="app-s4s-docupdate-2016-02-29" xrefstyle="SectTitleOnPage"/>
+   </para>
+  </listitem>
+  <listitem>
+   <para>
+    <xref linkend="app-s4s-docupdate-2016-02-15" xrefstyle="SectTitleOnPage"/>
+   </para>
+  </listitem>
+  <listitem>
+   <para>
+    <xref linkend="app-s4s-docupdate-2015-05-29" xrefstyle="SectTitleOnPage"/>
+   </para>
+  </listitem>
+  <listitem>
+   <para>
+    <xref linkend="app-s4s-docupdate-2015-04-29" xrefstyle="SectTitleOnPage"/>
+   </para>
+  </listitem>
+  <listitem>
+   <para>
+    <xref linkend="app-s4s-docupdate-2013-10-28" xrefstyle="SectTitleOnPage"/>
+   </para>
+  </listitem>
+ </itemizedlist>
+
+
+ <sect1 xml:id="app-s4s-docupdate-2018-04-25">
+  <title>April 25, 2018&mdash;&s4sa; 12 SP3 Documentation Update</title>
+
+  <para>
+   Updates were made to the following sections. The changes are explained
+   below.
+  </para>
+
+  <variablelist>
+   <varlistentry>
+    <term>
+     <xref linkend="sec-s4s-service" xrefstyle="SectTitleOnPage"/>
+    </term>
+    <listitem>
+     <para>
+      Fixed typo (bsc#1088879).
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term>
+     <xref linkend="sec-s4s-hana-cluster-wizard" xrefstyle="SectTitleOnPage"/>
+    </term>
+    <listitem>
+     <para>
+      Fixed misleading content: Other fencing types supported but not in YaST
+      (bsc#1086628).
+     </para>
+    </listitem>
+   </varlistentry>
+  </variablelist>
+ </sect1>
+
+
+ <sect1 xml:id="app-s4s-docupdate-2017-11-01">
+  <title>November 1, 2017&mdash;&s4sa; 12 SP3 Documentation Update</title>
+
+  <para>
+   Updates were made to the following sections. The changes are explained
+   below.
+  </para>
+
+  <variablelist>
+   <varlistentry>
+    <term>
+     <xref linkend="sec-s4s-repository" xrefstyle="SectTitleOnPage"/>
+    </term>
+    <listitem>
+     <para>
+      Added note about ESPOS updates via regular update repositories
+      (bsc#1062335).
+     </para>
+    </listitem>
+   </varlistentry>
+  </variablelist>
+ </sect1>
+
+ <sect1 xml:id="app-s4s-docupdate-2017-09-07">
+  <title>September 7, 2017&mdash;&s4sa; 12 SP3 FCS</title>
+
+  <para>
+   Updates were made to the following sections. The changes are explained
+   below.
+  </para>
+
+  <variablelist>
+   <varlistentry>
+    <term>
+     <xref linkend="cha-s4s-plan" xrefstyle="SectTitleOnPage"/>
+    </term>
+    <listitem>
+     <para>
+      Added link to &sap; help and support portals (documentation comment
+      #33499).
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term>
+     <xref linkend="cha-s4s-plan" xrefstyle="SectTitleOnPage"/>,
+     <xref linkend="cha-s4s-install-sap" xrefstyle="SectTitleOnPage"/>
+    </term>
+    <listitem>
+     <para>
+      Updated chapters with information about support for &hana; MDC and
+      &hana; TDI (FATE#322281, FATE#320408).
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term>
+     <xref linkend="sec-s4s-install-workflow" xrefstyle="SectTitleOnPage"/>
+    </term>
+    <listitem>
+     <para>
+      Updated section with reference to description of installation on
+      &power; in &slsa; documentation (FATE#320639).
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term>
+     <xref linkend="cha-s4s-configure-cryptctl" xrefstyle="SectTitleOnPage"/>
+    </term>
+    <listitem>
+     <para>
+      Updated chapter with information about support client certificates and
+      KMIP (FATE#322293, FATE#322979).
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term>
+     <xref linkend="sec-s4s-convert-sles" xrefstyle="SectTitleOnPage"/>
+    </term>
+    <listitem>
+     <para>
+      Added section about converting from &slsa; to &s4sa; (FATE#320636,
+      FATE#320568).
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term>
+     <xref linkend="cha-s4s-tune" xrefstyle="SectTitleOnPage"/>
+    </term>
+    <listitem>
+     <para>
+      Updated list of profiles integrated into &saptune; and &sapconf;
+      (FATE#320359). Created own section for &sapconf;.
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term>
+     <xref linkend="sec-s4s-configure-scrub-instance" xrefstyle="SectTitleOnPage"/>
+    </term>
+    <listitem>
+     <para>
+      Clarified usage of &cmcu; (DocComment#32698). Added information about
+      new configuration options (FATE#322066).
+     </para>
+    </listitem>
+   </varlistentry>
+  </variablelist>
+ </sect1>
+
+ <sect1 xml:id="app-s4s-docupdate-2017-05-10">
+  <title>May 10, 2017&mdash;&s4sa; 12 SP2 Documentation Update</title>
+
+  <para>
+   Updates were made to the following sections. The changes are explained
+   below.
+  </para>
+
+  <variablelist>
+   <varlistentry>
+    <term>
+     <xref linkend="sec-s4s-component" xrefstyle="SectTitleOnPage"/>
+    </term>
+    <listitem>
+     <para>
+      Added links to project Web sites (FATE#323178).
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term>
+     <xref linkend="sec-s4s-repository" xrefstyle="SectTitleOnPage"/>
+    </term>
+    <term>
+     <xref linkend="sec-s4s-service" xrefstyle="SectTitleOnPage"/>
+    </term>
+    <listitem>
+     <para>
+      Added information about repositories and support for extensions and
+      modules (bsc#1022275).
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term>
+     <xref linkend="sec-s4s-hana-cluster-wizard" xrefstyle="SectTitleOnPage"/>
+    </term>
+    <listitem>
+     <para>
+      <systemitem>softdog</systemitem> is supported but not recommended
+      (bsc#1022511).
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term>
+     <xref linkend="sec-saptune" xrefstyle="SectTitleOnPage"/>
+    </term>
+    <listitem>
+     <para>
+      Documented disabling
+      <command>saptune</command>/<command>sapconf</command> (FATE#322069).
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term>
+     <xref linkend="cha-clamsap" xrefstyle="SectTitleOnPage"/>
+    </term>
+    <listitem>
+     <para>
+      Added new chapter (FATE#322612).
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term>
+     <xref linkend="sec-s4s-packagehub" xrefstyle="SectTitleOnPage"/>
+    </term>
+    <listitem>
+     <para>
+      Added link to official usage instructions on the Web.
+     </para>
+    </listitem>
+   </varlistentry>
+  </variablelist>
+ </sect1>
+
+ <sect1 xml:id="app-s4s-docupdate-2016-12-07">
+  <title>December 07, 2016&mdash;&s4sa; 12 SP2 Documentation Update</title>
+
+  <para>
+   Updates were made to the following sections. The changes are explained
+   below.
+  </para>
+
+  <variablelist>
+   <varlistentry>
+    <term>
+      <xref linkend="sec-s4s-hardware" xrefstyle="SectTitleOnPage"/>
+    </term>
+    <listitem>
+     <para>
+      Clarified RAM requirements.
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term>
+      <xref linkend="cha-s4s-cluster" xrefstyle="SectTitleOnPage"/>
+    </term>
+    <listitem>
+     <para>
+      Added new chapter (FATE#319068).
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term>
+      <xref linkend="sec-s4s-configure-firewall-hana" xrefstyle="SectTitleOnPage"/>
+    </term>
+    <listitem>
+     <para>
+      Updated UI description (FATE#320376, FATE#320564).
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term>
+      <xref linkend="sec-s4s-configure-saprouter" xrefstyle="SectTitleOnPage"/>
+    </term>
+    <listitem>
+     <para>
+      Added new section (FATE#320566).
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term>
+      <xref linkend="app-s4s-additional-software" xrefstyle="SectTitleOnPage"/>
+    </term>
+    <listitem>
+     <para>
+      Added new appendix (FATE#320373).
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term>
+      <xref linkend="cha-s4s-tune" xrefstyle="SectTitleOnPage"/>
+    </term>
+    <term>
+      <xref linkend="cha-s4s-configure-cryptctl" xrefstyle="SectTitleOnPage"/>
+    </term>
+    <listitem>
+     <para>
+      Clarifications.
+     </para>
+    </listitem>
+   </varlistentry>
+  </variablelist>
+ </sect1>
+
+ <sect1 xml:id="app-s4s-docupdate-2016-11-07">
+  <title>November 07, 2016&mdash;&s4sa; 12 SP2 FCS</title>
+
+  <para>
+   Updates were made to the following sections. The changes are explained
+   below.
+  </para>
+
+  <variablelist>
+   <varlistentry>
+    <term>
+      <xref linkend="sec-s4s-component" xrefstyle="SectTitleOnPage"/>
+    </term>
+    <listitem>
+     <para>
+      Updated list of components.
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term>
+      <xref linkend="sec-s4s-repository" xrefstyle="SectTitleOnPage"/>
+    </term>
+    <listitem>
+     <para>
+      Added section (bsc#320632).
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term>
+      <xref linkend="cha-s4s-install" xrefstyle="SectTitleOnPage"/>,
+      <xref linkend="cha-s4s-install-sap" xrefstyle="SectTitleOnPage"/>
+    </term>
+    <listitem>
+     <para>
+      Updated chapters to match new installation wizards.
+      Added list of supported &sap; products (FATE#320454).
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term>
+      <xref linkend="sec-partition-command" xrefstyle="SectTitleOnPage"/>
+    </term>
+    <listitem>
+     <para>
+      Added section (bsc#929623).
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term>
+      <xref linkend="cha-s4s-tune" xrefstyle="SectTitleOnPage"/>,
+      <xref linkend="cha-s4s-access" xrefstyle="SectTitleOnPage"/>,
+      <xref linkend="cha-s4s-image" xrefstyle="SectTitleOnPage"/>,
+      <xref linkend="cha-s4s-trouble" xrefstyle="SectTitleOnPage"/>
+    </term>
+    <listitem>
+     <para>
+      Separated former chapter <citetitle>Configuration</citetitle> into
+      smaller chapters.
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term>
+      <xref linkend="sec-saptune" xrefstyle="SectTitleOnPage"/>
+    </term>
+    <listitem>
+     <para>
+      Updated section to refer to
+      <systemitem class="daemon">saptune</systemitem>
+      (FATE#320361, FATE#320362, FATE#320633).
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term>
+      <xref linkend="cha-s4s-configure-cryptctl" xrefstyle="SectTitleOnPage"/>
+    </term>
+    <listitem>
+     <para>
+      Added section (FATE#320367).
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term>
+      <xref linkend="cha-s4s-configure-rdp" xrefstyle="SectTitleOnPage"/>
+    </term>
+    <listitem>
+     <para>
+      Added section (FATE#320363).
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term>
+      <xref linkend="app-s4s-autoyast-partition" xrefstyle="SectTitleOnPage"/>
+    </term>
+    <listitem>
+     <para>
+      Moved parts of <xref linkend="sec-s4s-partition-sap"/> that related to
+      &ay; only to a new section.
+     </para>
+    </listitem>
+   </varlistentry>
+  </variablelist>
+ </sect1>
+
+ <sect1 xml:id="app-s4s-docupdate-2016-03-23">
+  <title>March 23, 2016</title>
+
+  <para>
+   Updates were made to the following sections. The changes are explained
+   below.
+  </para>
+
+  <variablelist>
+   <varlistentry>
+    <term>
+      <xref linkend="sec-s4s-hana-ra" xrefstyle="SectTitleOnPage"/>
+    </term>
+    <listitem>
+     <para>
+      Clarify wording.
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term>
+      <xref linkend="sec-s4s-autoyast" xrefstyle="SectTitleOnPage"/>
+    </term>
+    <listitem>
+     <para>
+      Clarify support status of &ay;
+      (<link xlink:href="https://bugzilla.suse.com/show_bug.cgi?id=969341"/>).
+     </para>
+    </listitem>
+   </varlistentry>
+  </variablelist>
+ </sect1>
+
+ <sect1 xml:id="app-s4s-docupdate-2016-02-29">
+  <title>February 29, 2016</title>
+
+  <para>
+   Updates were made to the following sections. The changes are explained
+   below.
+  </para>
+
+  <variablelist>
+   <varlistentry>
+    <term>
+      <xref linkend="sec-s4s-configure-scrub-instance" xrefstyle="SectTitleOnPage"/>
+    </term>
+    <listitem>
+     <para>
+      Add new section.
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term>
+      <xref linkend="sec-s4s-configure-kiwi" xrefstyle="SectTitleOnPage"/>
+    </term>
+    <listitem>
+     <para>
+      Add new section.
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term>
+      <xref linkend="sec-s4s-download" xrefstyle="SectTitleOnPage"/>
+    </term>
+    <listitem>
+     <para>
+      Clarify that only DVD 1 is necessary for installation
+      (doccomment#30069).
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term>
+      Other updates
+    </term>
+    <listitem>
+     <para>
+      Other corrections and small language updates.
+     </para>
+    </listitem>
+   </varlistentry>
+  </variablelist>
+ </sect1>
+
+ <sect1 xml:id="app-s4s-docupdate-2016-02-15">
+  <title>February 15, 2016</title>
+
+  <para>
+   Updates were made to the following sections. The changes are explained
+   below.
+  </para>
+
+  <variablelist>
+   <varlistentry>
+    <term>Updates to the Structure of the Guide
+    </term>
+    <listitem>
+     <para>
+      Improve organization of the guide by updating its structure.
+      <xref linkend="cha-s4s-plan" xrefstyle="SectTitleOnPage"/>,
+      <xref linkend="cha-s4s-install-sap" xrefstyle="SectTitleOnPage"/>,
+      <citetitle>Configuring &s4s;</citetitle>, and
+      <xref linkend="cha-s4s-serve-mediaset" xrefstyle="SectTitleOnPage"/> are now
+      chapters instead of sections.
+     </para>
+     <para>
+      <xref linkend="app-s4s-component-supplement" xrefstyle="SectTitleOnPage"/>
+      is now an appendix instead of section.
+     </para>
+     <para>
+      <xref linkend="sec-s4s-partition" xrefstyle="SectTitleOnPage"/>
+      is now a section within
+      <xref linkend="cha-s4s-plan" xrefstyle="SectTitleOnPage"/>
+      instead of a chapter.
+     </para>
+     <para>
+      Merge <xref linkend="sec-s4s-component" xrefstyle="SectTitleOnPage"/>
+      and <citetitle>Chapter 5, <quote>&sles4sap; Components</quote></citetitle>.
+     </para>
+     <para>
+      Move <xref linkend="sec-s4s-install-network" xrefstyle="SectTitleOnPage"/>
+      from <citetitle>Chapter 3,
+      <quote>Remote Installation from a Network Server</quote></citetitle>
+      to <xref linkend="cha-s4s-install" xrefstyle="SectTitleOnPage"/>.
+     </para>
+     <para>
+      Move <xref linkend="sec-s4s-data" xrefstyle="SectTitleOnPage"/>
+      from <xref linkend="cha-s4s-install" xrefstyle="SectTitleOnPage"/> to
+      <xref linkend="cha-s4s-plan" xrefstyle="SectTitleOnPage"/>.
+     </para>
+     <para>
+      Move certain information from
+      <xref linkend="sec-s4s-component-install" xrefstyle="SectTitleOnPage"/> to
+      <xref linkend="sec-s4s-workflow-overview" xrefstyle="SectTitleOnPage"/>.
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term><xref linkend="cha-s4s-about" xrefstyle="SectTitleOnPage"/></term>
+    <listitem>
+     <para>
+      Add figure.
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term><xref linkend="sec-s4s-hana-replicate" xrefstyle="SectTitleOnPage"/>
+    </term>
+    <listitem>
+     <para>
+      Add information on supported scenarios.
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term>
+      <xref linkend="sec-s4s-component-clamsap" xrefstyle="SectTitleOnPage"/>
+    </term>
+    <listitem>
+     <para>
+      Mention added support for NW-VSI 2.0.
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term>
+      <xref linkend="sec-s4s-component-hana-secure" xrefstyle="SectTitleOnPage"/>
+    </term>
+    <listitem>
+     <para>
+      Add new section.
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term>
+      <xref linkend="sec-s4s-component-manage-operation" xrefstyle="SectTitleOnPage"/>
+    </term>
+    <listitem>
+     <para>
+      Add new section.
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term>
+      <xref linkend="sec-s4s-install-workflow" xrefstyle="SectTitleOnPage"/>
+    </term>
+    <listitem>
+     <para>
+      Remove outdated installation options. Update Installation Workflow.
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term>
+      <xref linkend="sec-s4s-autoyast" xrefstyle="SectTitleOnPage"/>
+    </term>
+    <listitem>
+     <para>
+      Remove information that duplicated.
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term>
+      <xref linkend="cha-s4s-install-sap" xrefstyle="SectTitleOnPage"/>
+    </term>
+    <listitem>
+     <para>
+      Update Installation Workflow.
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term>
+      <xref linkend="sec-s4s-configure-firewall-hana" xrefstyle="SectTitleOnPage"/>
+    </term>
+    <listitem>
+     <para>
+      Add new section.
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term>
+      <xref linkend="sec-saptune" xrefstyle="SectTitleOnPage"/>
+    </term>
+    <listitem>
+     <para>
+      Add new section.
+     </para>
+    </listitem>
+   </varlistentry>
+  </variablelist>
+ </sect1>
+
+ <sect1 xml:id="app-s4s-docupdate-2015-05-29">
+  <title>May 29, 2015</title>
+
+  <para>
+   Updates were made to the following sections. The changes are explained
+   below.
+  </para>
+
+  <variablelist>
+   <varlistentry>
+    <term><xref linkend="sec-s4s-component" xrefstyle="SectTitleOnPage"/>
+    </term>
+    <listitem>
+     <para>
+      Add more information on &sleha;.
+     </para>
+     <para>
+      There are also White Papers about &sleha; and
+      &sles4sap;.
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term><xref linkend="cha-s4s-plan" xrefstyle="SectTitleOnPage"/>
+    </term>
+    <listitem>
+     <para>
+      Provide ISO image download URL.
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term>
+      <citetitle>Section 2.2, <quote>Booting the Installation Medium</quote></citetitle>
+    </term>
+    <listitem>
+     <para>
+      The package scope of the <guimenu>SLES for SAP Applications &mdash;
+      Installation</guimenu> is identical to a default &sls;
+      installation.
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term>
+      <citetitle>Section 2.3, <quote>SLES for SAP &mdash; Installation</quote></citetitle>
+    </term>
+    <listitem>
+     <para>
+      Add note about pre-selected packages in case of registration at this
+      stage of the installation.
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term>
+      <citetitle>Section 2.4.3.5, <quote>Registration</quote></citetitle>
+    </term>
+    <listitem>
+     <para>
+      Add note about pre-selected packages in case of registration at this
+      stage of the installation.
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term><xref linkend="cha-s4s-install-sap" xrefstyle="SectTitleOnPage"/>
+    </term>
+    <listitem>
+     <para>
+      Rewrite remote location specification.
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term><xref linkend="sec-s4s-partition" xrefstyle="SectTitleOnPage"/>
+    </term>
+    <listitem>
+     <para>
+      &hana; requires 2 GB of swap.
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term><xref linkend="sec-s4s-hana-replicate" xrefstyle="SectTitleOnPage"/>
+    </term>
+    <listitem>
+     <para>
+      Address &hana; System Replication
+      (<link xlink:href="https://bugzilla.suse.com/show_bug.cgi?id=929626"/>).
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term><xref linkend="sec-s4s-component-harden" xrefstyle="SectTitleOnPage"/>
+    </term>
+    <listitem>
+     <para>
+      New section
+      (<link xlink:href="https://bugzilla.suse.com/show_bug.cgi?id=929625"/>).
+     </para>
+    </listitem>
+   </varlistentry>
+  </variablelist>
+ </sect1>
+<!-- ============================================================ -->
+ <sect1 xml:id="app-s4s-docupdate-2015-04-29">
+  <title>April 29, 2015</title>
+
+  <para>
+   Updates were made to the following sections. The changes are explained
+   below.
+  </para>
+
+  <variablelist>
+   <varlistentry>
+    <term>General</term>
+    <listitem>
+     <para>
+      Replace &sls; 11 references with &sls; 12 everywhere, and
+      adjust the text according to the new installation flow.
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term><xref linkend="pre-s4s" xrefstyle="SectTitleOnPage"/>
+    </term>
+    <listitem>
+     <para>
+      Update feedback information.
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term><xref linkend="sec-s4s-autoyast" xrefstyle="SectTitleOnPage"/>
+    </term>
+    <listitem>
+     <para>
+      Add note about loading an external profile via HTTP
+      (<link xlink:href="https://bugzilla.suse.com/show_bug.cgi?id=925747"/>).
+     </para>
+    </listitem>
+   </varlistentry>
+  </variablelist>
+ </sect1>
+ <sect1 xml:id="app-s4s-docupdate-2013-10-28">
+  <title>October 28, 2013</title>
+
+  <para>
+   Updates were made to the following sections. The changes are explained
+   below.
+  </para>
+
+  <variablelist>
+   <varlistentry>
+    <term><xref linkend="cha-s4s-install" xrefstyle="SectTitleOnPage"/>
+    </term>
+    <listitem>
+     <para>
+      Update <quote>Hardware Requirements</quote>, <quote>Hard Disk</quote>
+      space, and adjust the following text accordingly.
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term><xref linkend="sec-s4s-partition" xrefstyle="SectTitleOnPage"/>
+    </term>
+    <listitem>
+     <para>
+      New chapter.
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term><xref linkend="app-s4s-docupdate" xrefstyle="SectTitleOnPage"/>
+    </term>
+    <listitem>
+     <para>
+      New appendix.
+     </para>
+    </listitem>
+   </varlistentry>
+  </variablelist>
+ </sect1>
+</appendix>

@@ -1,0 +1,1042 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="file:/usr/share/xml/geekodoc/rng/geekodoc5-flat.rnc"
+   type="application/relax-ng-compact-syntax"?>
+<!DOCTYPE article
+[
+  <!ENTITY % entities SYSTEM "generic-entities.ent">
+    %entities;
+
+  <!-- Trento specific entities -->
+  <!ENTITY trentoadmin          "trentoadmin">
+  <!ENTITY trentoserverip       "192.168.1.2">
+  <!ENTITY trentoservername     "<replaceable xmlns='http://docbook.org/ns/docbook'>TRENTO_SERVER_HOSTNAME</replaceable>">
+  <!ENTITY trentoagentname      "<replaceable xmlns='http://docbook.org/ns/docbook'>TRENTO_AGENT</replaceable>">
+  <!ENTITY trentoprompt         "&trentoadmin;@&trentoservername;:~>">
+  <!ENTITY trentoagentprompt    "&trentoadmin;@&trentoagentname;:~>">
+  <!ENTITY trentoserver.prompt  "<prompt xmlns='http://docbook.org/ns/docbook'>&trentoprompt; </prompt>">
+  <!ENTITY trentoagent.prompt   "<prompt xmlns='http://docbook.org/ns/docbook'>&trentoagentprompt; </prompt>">
+  <!ENTITY t.server             "Trento Server">
+  <!ENTITY t.agent              "Trento Agent">
+  <!ENTITY t.web                "Trento web console">
+  <!ENTITY k8s                  "Kubernetes">
+  <!ENTITY rancher.k8s.engine   "Rancher &k8s; Engine">
+]>
+
+<!--
+
+2021-11-18
+As agreed on https://confluence.suse.com/x/DAEcN on our Trento doc kick off
+
+-->
+
+<article xml:lang="en" xml:id="article-sap-trento" version="5.1"
+    status="draft"
+    xmlns="http://docbook.org/ns/docbook"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Monitoring &sap; systems with Trento</title>
+    <subtitle>&sles4sapreg;</subtitle>
+    <info>
+        <abstract>
+            <para>
+                Trento is a an open cloud-native web console that aims to help &sap; administrators to improve
+                monitoring and checking of &sap; Applications.
+            </para>
+        </abstract>
+    </info>
+
+    <important>
+        <title>Trento is an evolving product</title>
+        <para>
+            The product is under active development, and it currently supports only selected customers with the purpose of collecting their feedback. If you'd like to join the program, contact us at
+            <email>project-trento@suse.com</email>.
+        </para>
+    </important>
+
+    <section>
+        <title>What is Trento?</title>
+        <!--<para>
+            Trento is a an open cloud-native web console aimed to help administrators to improve
+            monitoring and checking of &sap; Applications.
+        </para>-->
+        <para>
+            Trento is a comprehensive monitoring solution consisting of two main components, the &t.server;
+            and the &t.agent;. Trento provides the following features:
+        </para>
+        <!--
+            from https://confluence.suse.com/x/uoOyN
+        * A simple agent which can run on SLES4SAP hosts which are used to operate SAP S/4HANA
+        * Proactive checks to ensure correct settings of SUSE solutions (e.g. SUSE HA solutions) for running SAP.
+        * Capabilities to discover and monitor the state of the hosts running SAP including all
+          information in the context of SAP systems and landscapes.
+        -->
+        <itemizedlist>
+            <listitem>
+                <para>A simplified web UI targeting &sap; admins.
+                </para>
+            </listitem>
+            <listitem>
+                <para>Automated discovery of &sap; Systems, &sap; Instances, and &hana; clusters.</para>
+            </listitem>
+            <listitem>
+                <para>Configuration validation for &hana; Scale-Up Performance-Optimized scenarios
+                    deployed on MS Azure cloud.</para>
+            </listitem>
+        </itemizedlist>
+
+        <para>
+            For Trento, &suse; collects telemetry data relevant for further product development.
+        </para>
+        <para>
+            The <emphasis role="strong">&t.server;</emphasis> is an independent, cloud-native, distributed
+            system and designed to run on dedicated infrastructure resources. It provides a web front end.
+        </para>
+        <para>
+            The <emphasis role="strong">&t.agent;</emphasis> is a single background process (<systemitem>trento agent</systemitem>) running
+            on each host of the target infrastructure monitored by the user.
+            Except for third-party modules<!-- like Consul and ARA-->, all the components
+            are included in a single Trento binary.
+        </para>
+        <para>
+            See <xref linkend="fig-trento-architecture"/> for additional details.
+        </para>
+        <!-- toms 2021-11-26: Do we have a vector graphic for this?
+        https://github.com/trento-project/trento/blob/main/docs/trento-architecture.svg.
+        -->
+        <figure xml:id="fig-trento-architecture">
+            <title>Architectural overview</title>
+            <!--
+                replace SAP Application Platform Cluster with
+                SAP NetWeaver Cluster
+            -->
+            <mediaobject>
+                <imageobject>
+                    <imagedata width="80%" fileref="trento-architecture-outline.png"/>
+                    <!-- Source: https://confluence.suse.com/display/SAP/Architecture -->
+                </imageobject>
+            </mediaobject>
+        </figure>
+    </section>
+
+    <section>
+        <title>Product lifecycle and update strategy</title>
+        <!--
+            Most ist taken from https://confluence.suse.com/x/uoOyN
+        -->
+        <para>The main components have different product lifecycles:</para>
+
+        <variablelist>
+            <varlistentry>
+                <term>&t.agent;</term>
+                <listitem>
+                    <formalpara>
+                        <title>Delivery mechanism:</title>
+                        <para>RPM package for &productname; 15&nbsp;SP1 and newer.</para>
+                    </formalpara>
+                    <formalpara>
+                        <title>Supported runtime:</title>
+                        <para>
+                            Supports &productname; 15&nbsp;SP1 and newer.
+                        </para>
+                    </formalpara>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term>&t.server;</term>
+                <listitem>
+                    <formalpara>
+                        <title>Delivery mechanism:</title>
+                        <para>
+                            A set of container images from the &suse; registry together with a
+                            Helm chart for easy installation.
+                        </para>
+                    </formalpara>
+                    <formalpara>
+                        <title>&k8s;:</title>
+                        <para>
+                            The &t.server; runs on any current Cloud Native Computing Foundation (CNCF)
+                            certified &k8s; distributions.
+                            Depending on your background and needs, &suse; support several usage scenarios:
+                        </para>
+                    </formalpara>
+                    <itemizedlist>
+                        <listitem>
+                            <para>
+                                If you already use a CNCF certified &k8s;, you can run the &t.server; in it.
+                            </para>
+                        </listitem>
+                        <listitem>
+                            <para>
+                                If you have no &k8s; and want enterprise support, &suse; recommends
+                                &suse; Rancher with &rancher.k8s.engine; (RKE) either version 1 or 2.
+                            </para>
+                        </listitem>
+                        <listitem>
+                            <para>
+                                If you do not have &k8s; and you do not need professional support,
+                                &suse; recommends to install K3s that can
+                                be installed on a single host.
+                            </para>
+                        </listitem>
+                    </itemizedlist>
+                </listitem>
+            </varlistentry>
+        </variablelist>
+
+        <remark>toms 2021-12-09: what about the update strategy?
+        aj: something for next year. :)
+        </remark>
+    </section>
+
+<!--
+ toms 2021-11-19:
+ Do we have specific terms which needs to be explained in a terminology section?
+ -->
+
+    <section xml:id="sec-trento-software-requirements">
+        <title>Requirements</title>
+        <para>
+            This section describes requirements for the &t.server; and its &t.agent;s.
+        </para>
+        <section>
+            <title>&t.server; requirements</title>
+            <para>
+                Running all the &t.server; components requires 2GB of RAM
+                and two CPU cores.
+            </para>
+            <para>
+                While the &t.server; supports various usage scenarios, depending on the existing
+                infrastructure, it's designed to be cloud-native and OS agnostic.
+                As such, the default installation method provisions a minimal, single node, K3S &k8s;
+                cluster for running its components in Linux containers.
+                The &t.server; can be installed on the following services:
+            </para>
+            <!--
+                toms 2021-12-06: taken from "Draft - Various Tidbits regarding Productization"
+                (https://confluence.suse.com/x/tgCnMg)
+            -->
+            <itemizedlist>
+                <listitem>
+                    <para>RKE1 (&rancher.k8s.engine; version 1)</para>
+                </listitem>
+                <listitem>
+                    <para>RKE2</para>
+                </listitem>
+                <listitem>
+                    <para>any other CNCF certified &k8s;</para>
+                </listitem>
+            </itemizedlist>
+        </section>
+        <section>
+            <title>&t.agent; requirements</title>
+            <para>
+                The resource footprint of the &t.agent; is designed to not impact the performance of the
+                host it runs on.
+            </para>
+            <para>
+            The &t.agent; component needs to interact with several low-level system components that are part of the &productname; distribution.
+            </para>
+        </section>
+        <section>
+            <title>Network requirements</title>
+            <para/>
+            <remark>toms 2021-12-02: which ports do we need?</remark>
+            <itemizedlist>
+                <listitem>
+                    <para>
+                        Ensure that the Trento component 
+                        running &k8s; has a network access to the &sap; landscape.
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>
+                        <remark>toms 2021-12-06: do we have UDP here too?</remark>
+                        The &t.server; needs to reach its &t.agent;s hosts at port TCP/22.
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>
+                        The &t.server; must be reachable from the user's LAN at port TCP/80.
+                    </para>
+                </listitem>
+            </itemizedlist>
+        </section>
+
+        <section>
+            <title>Installation pre-requisistes</title>
+            <itemizedlist>
+                <listitem>
+                    <formalpara>
+                        <title>&t.server;</title>
+                        <para>Access to GitHub for the installation script.</para>
+                    </formalpara>
+                </listitem>
+                <listitem>
+                    <formalpara>
+                        <title>&t.agent;s</title>
+                        <para>A registered &productname;.</para>
+                    </formalpara>
+                </listitem>
+                <listitem>
+                    <formalpara>
+                        <title>A Trento admin user</title>
+                        <para>
+                            With administration privileges in the &t.server; and the &t.agent; hosts.
+                        In this example, it is <systemitem class="username">&trentoadmin;</systemitem>. You can use any desired user name, but make sure you use it consistently.
+                        </para>
+                    </formalpara>
+                </listitem>
+            </itemizedlist>
+        </section>
+    </section>
+
+    <section>
+        <title>Installing &t.server;</title>
+        <para>
+            The procedure uses the following placeholders:
+        </para>
+        <itemizedlist>
+            <listitem>
+                <para><replaceable>TRENTO_SERVER_HOSTNAME</replaceable>: the host name of
+                    the &t.server; host.</para>
+            </listitem>
+            <listitem>
+                <para>
+                    <systemitem class="username">&trentoadmin;</systemitem>: the user name of the Trento
+                    administrator. In our example, it is <systemitem class="username"
+                        >&trentoadmin;</systemitem>. You can use any desired user name, but make sure you use it consistently.
+                </para>
+            </listitem>
+            <!--<listitem>
+                <para><replaceable>TRENTO_AGENT_IP</replaceable>: local IP address of the &t.agent; host.</para>
+            </listitem>-->
+        </itemizedlist>
+        <para>
+            To install Trento on your &t.server; proceed as follows:
+        </para>
+        <procedure>
+            <step>
+                <para>
+                    Log in to the &t.server; host as user <systemitem class="username">&trentoadmin;</systemitem>.
+                </para>
+            </step>
+            <step xml:id="st-trento-server-ssh">
+                <para>
+                    On the &t.server;, create an SSH key for user <systemitem class="username">&trentoadmin;</systemitem> with no passphrase:
+                </para>
+                <screen>&trentoserver.prompt;ssh-keygen -f ~/.ssh/id_rsa -t rsa -b 4096 -N ''</screen>
+            </step>
+            <step>
+                <para>
+                    Launch the installer script:
+                </para>
+                <screen>&trentoserver.prompt;curl -sfL https://raw.githubusercontent.com/trento-project/trento/main/install-server.sh | bash</screen>
+            </step>
+            <step>
+                <para>
+                    Enter the absolute path to the private SSH key from <xref linkend="st-trento-server-ssh"/> (normally
+                    <filename>/home/&trentoadmin;/.ssh/id_rsa</filename>):
+                </para>
+                <screen>Please provide the path of the runner private key: /home/&trentoadmin;/.ssh/id_rsa</screen>
+                <para>
+                    The runner service uses the private key to perform checks in the agent hosts via SSH.
+                    The script installs the required components.
+                    If the installation has been completed correctly, the script displays the following message:
+                </para>
+                <screen>&t.server; installed!</screen>
+            </step>
+            <step>
+                <para>
+                    Check whether the &t.server; is up and running:
+                </para>
+                <screen>&trentoserver.prompt;sudo /usr/local/bin/kubectl get pods
+NAME                                      READY   STATUS    RESTARTS   AGE
+svclb-trento-server-web-collector-x2hmd   1/1     Running   0          42m
+trento-server-consul-server-0             1/1     Running   0          42m
+trento-server-consul-qv65d                1/1     Running   0          42m
+trento-server-postgresql-0                1/1     Running   0          42m
+trento-server-ara-77fb85b46d-mb756        1/1     Running   0          42m
+trento-server-web-df665479-rlghw          1/1     Running   2          42m
+trento-server-runner-5cdc4995b6-f96vb     1/1     Running   1          42m</screen>
+            </step>
+            <!-- alberto: hide for the time being until we figure out what the role of these ports really is.
+            <step>
+                <para>
+                    To ensure your &t.agent;s are able to connect to the &t.server;,
+                    check the network ports:
+                </para>
+                <screen>&trentoserver.prompt;sudo /usr/local/bin/kubectl describe pod trento-server-web-df665479-rlghw | grep -i port    Ports:         8080/TCP, 8081/TCP
+    Host Ports:    0/TCP, 0/TCP
+      -\-db-port
+      -\-port
+      -\-collector-port</screen>
+            </step>
+            -->
+            <step>
+                <para>
+                    Log out from your &t.server;.
+                </para>
+            </step>
+            <!--
+            <step>
+                <para>
+                    On your workstation, download the &t.server; generated public SSH key
+                    and save it in your <filename>~/.ssh</filename> directory:
+                </para>
+                <screen>&prompt.user;scp -i ~/.ssh/id_rsa_cloud &trentoadmin;@&trentoservername;:/home/&trentoadmin;/.ssh/id_rsa.pub ~/.ssh/id_rsa_trento_server.pub</screen>
+                <para>
+                    You will need the Trento generated public SSH key for your &t.agent;s later.
+                </para>
+            </step>
+            -->
+            <step>
+                <para>
+                    To verify that the &t.server; installation was successful from a workstation,
+                    open the URL of the &t.web; (<uri>http://<replaceable>TRENTO_SERVER_HOSTNAME</replaceable></uri>)
+                </para>
+            </step>
+        </procedure>
+    </section>
+
+    <section>
+        <title>Installing &t.agent;s</title>
+        <para>
+            Repeat the following steps on each host to be monitored in your &sap; Environment.
+        </para>
+        <para>
+            The procedure uses the following placeholders:
+        </para>
+        <itemizedlist>
+            <listitem>
+                <para><replaceable>TRENTO_SERVER_IP</replaceable>: local IP address of
+                    the &t.server; host.</para>
+            </listitem>
+            <listitem>
+                <para><replaceable>TRENTO_AGENT_IP</replaceable>: local IP address of the &t.agent; host.</para>
+            </listitem>
+            <listitem>
+                <para><replaceable>TRENTO_AGENT</replaceable>: host name of the &t.agent; host.</para>
+            </listitem>
+            <listitem>
+                <para>
+                    <systemitem class="username">&trentoadmin;</systemitem>: the name of the Trento
+                    administrator. In this example, it is <systemitem class="username"
+                        >&trentoadmin;</systemitem>. You can use any desired name, but make sure you use it consistently.
+                </para>
+            </listitem>
+        </itemizedlist>
+        <para>
+            To install the &t.agent; software on the VM and register to
+            the &t.server;, do the following:
+        </para>
+        <procedure>
+            <step>
+                <para>
+                    To enable the runner checks in the &t.agent; host via SSH, add the public key of the user
+                    <systemitem class="username">&trentoadmin;</systemitem> generated on the &t.server;
+                    host to the SSH <filename>authorized_keys</filename> file of user &trentoadmin; on the
+                    &t.agent; host.
+                </para>
+            </step>
+            <step>
+                <para>
+                    Add the &t.agent; host to the list of known hosts on your &t.server;
+                    by logging in once via SSH.
+                </para>
+                <substeps>
+                    <step>
+                        <para> Log in to the &t.server; host as <systemitem class="username">&trentoadmin;</systemitem>. </para>
+                    </step>
+                    <step>
+                        <para>
+                            Connect to the &t.agent; host once using SSH and answer with
+                            <literal>yes</literal>. Confirm when prompted to add the host to the list of trusted hosts: </para>
+                        <screen>&trentoserver.prompt;ssh <replaceable>TRENTO_AGENT_IP</replaceable>
+[...]
+Are you sure you want to continue connecting (yes/no/[fingerprint])? <emphasis role="strong">yes</emphasis>
+Warning: Permanently added '<replaceable>TRENTO_AGENT_IP</replaceable>' (ECDSA) to the list of known hosts.</screen>
+                    </step>
+                </substeps>
+            </step>
+            <step>
+                <para>
+                    Install the &t.agent; software in the &t.agent; host and register the agent with the &t.server;:
+                </para>
+                <screen>&trentoagent.prompt;curl -sfL https://raw.githubusercontent.com/trento-project/trento/main/install-agent.sh | sudo bash -s - --agent-bind-ip=<replaceable>TRENTO_AGENT_IP</replaceable> --server-ip=<replaceable>TRENTO_SERVER_IP</replaceable></screen>
+                <!--
+                Installing trento-agent...
+                warning: Rebuilding outdated index databases
+                warning: Generating 18 missing index(es), please wait...
+                * Adding Trento repository: https://download.opensuse.org/repositories/devel:/sap:/trento/15.3/.
+                * Installing trento
+                * Generating trento-agent config...
+                Done.
+                Now you can start trento-agent with: systemctl start trento-agent
+                Please make sure the server is running before starting the agent.
+                -->
+           </step>
+           <!-- alberto: I don't think this is really necessary. Question for the dev team.
+           <step>
+                <para>On the current VM &trentoagentname;, add and refresh the OBS repository:</para>
+                <screen>&trentoagent.prompt;sudo zypper ar https://download.opensuse.org/repositories/devel:/sap:/trento:/factory/15.3/ trento_OBS
+sudo zypper ref</screen>
+           </step>
+           -->
+            <step>
+                <para>The installation script does not start the agent automatically.
+                    Enable automatic start on boot with the command
+                    <command>systemctl</command>:</para>
+                <screen>&trentoagent.prompt;sudo systemctl enable --now trento-agent</screen>
+            </step>
+            <step>
+                <para>Check the status of the &t.agent;:</para>
+                <screen>&trentoagent.prompt;sudo systemctl status trento-agent
+● trento-agent.service - &t.agent; service
+     Loaded: loaded (/usr/lib/systemd/system/trento-agent.service; disabled; vendor preset: disabled)
+     Active: active (running) since Wed 2021-11-24 17:37:46 UTC; 4s ago
+   Main PID: 22055 (trento)
+      Tasks: 10
+     CGroup: /system.slice/trento-agent.service
+             ├─22055 /usr/bin/trento agent start --consul-config-dir=/srv/consul/consul.d
+             └─22220 /usr/bin/ruby.ruby2.5 /usr/sbin/SUSEConnect -s
+
+[...]</screen>
+            <remark>toms 2021-11-25: do we need to "enable the auto-update feature
+                of the extension agent and restarting the service"?
+            The login message teills us to execute as root:
+            sed -i s/AutoUpdate.Enabled=n/AutoUpdate.Enabled=y/ /etc/waagent.conf ;
+            rcwaagent restart
+            </remark>
+            <remark>toms 2021-11-25: </remark>
+            </step>
+            <step>
+                <para>
+                    Repeat this procedure for all &t.agent;s.
+                </para>
+            </step>
+        </procedure>
+    </section>
+
+    <section>
+        <title>Using &t.web;</title>
+        <remark>toms 2021-12-13: this section is a bit too referential and needs more
+        focus on the user.
+        As discussed with Alberto, we keep it for the time being and change it after
+        the release.
+        </remark>
+        <para>
+            The left sidebar in the &t.web; contains the following entries:
+        </para>
+        <itemizedlist>
+            <listitem>
+                <formalpara>
+                    <title><guimenu>Home</guimenu></title>
+                    <para>
+                        Gives an overview of the Trento project.
+                    </para>
+                </formalpara>
+            </listitem>
+            <listitem>
+                <formalpara>
+                    <title><guimenu>Hosts</guimenu></title>
+                    <para>Lists the status of all discovered hosts running the &t.agent;.</para>
+                </formalpara>
+            </listitem>
+            <listitem>
+                <formalpara>
+                    <title><guimenu>&pace; Clusters</guimenu></title>
+                    <para>Lists the status of all discovered &pace; clusters.</para>
+                </formalpara>
+            </listitem>
+            <listitem>
+                <formalpara>
+                    <title><guimenu>&sap; Systems</guimenu></title>
+                    <para>Lists all discovered &sap; Systems identified by the corresponding system ID.
+                    </para>
+                </formalpara>
+            </listitem>
+            <listitem>
+                <formalpara>
+                    <title><guimenu>HANA Database</guimenu></title>
+                    <para>
+                        Lists all discovered &hana; databases.
+                    </para>
+                </formalpara>
+            </listitem>
+            <listitem>
+                <formalpara>
+                    <title><menuchoice>
+                        <guimenu>Settings</guimenu>
+                        <guimenu>Checks catalog</guimenu>
+                    </menuchoice></title>
+                    <para>Gives an overview of configuration validation for different components (&pace;, &corosync; SBD, etc.)</para>
+                </formalpara>
+            </listitem>
+            <listitem>
+                <formalpara>
+                    <title><guimenu>About</guimenu></title>
+                    <para>Shows the current Trento version, the GitHub repository of Trento, the subscription status, and the
+                    registered &productname; machines.</para>
+                </formalpara>
+            </listitem>
+        </itemizedlist>
+        <para>
+            The following subsection provides an overview of Trento's functionality.
+        </para>
+
+        <section xml:id="sec-trento-web-hosts">
+            <title>Displaying available hosts</title>
+            <para>
+                To show the <quote>health</quote> of your hosts, click the <guimenu>Hosts</guimenu> entry
+                on the left sidebar.
+            </para>
+            <figure>
+                <title>Hosts entry</title>
+                <mediaobject>
+                    <imageobject>
+                        <imagedata width="80%" fileref="trento-web-hosts.png"/>
+                    </imageobject>
+                </mediaobject>
+            </figure>
+            <para>
+                The page provides the following information.
+            </para>
+            <itemizedlist>
+                <listitem>
+                    <para>
+                        The health section at the top provides a general overview of the
+                        registered hosts along with the current status of each host.
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>Status of each host (passing, warning or critical).</para>
+                </listitem>
+                <listitem>
+                    <para>
+                        Host name, IP address, cloud provider, cluster name, the system ID (when applicable), the &t.agent;'s version,
+                        and optional tags you can add manually.
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>
+                        Filters the list by health status, &sap; system, or tags.
+                    </para>
+                </listitem>
+            </itemizedlist>
+
+            <para>
+                Clicking on a host name, opens the <guimenu>Host details</guimenu> view that show the following:
+            </para>
+            <itemizedlist xml:id="lst-trento-web-hosts-details">
+                <title>Host details view</title>
+                <listitem>
+                    <para><guimenu>Hosts details</guimenu>:
+                        lists the host name, the &sap; system cluster where this host belongs,
+                        and the &t.agent; version.</para>
+                </listitem>
+                <listitem>
+                    <para><guimenu>Cloud details</guimenu>:
+                        lists VM name, the resource group, the geographical location,
+                        the VM size, and other information.
+                    </para>
+                </listitem>
+                <listitem>
+                    <para><guimenu>&suse; subscription details</guimenu>:
+                        lists the identifier, the architecture, the version and type, the
+                        registration and subscription status as well as the start and end dates of the subscription.
+                    </para>
+                </listitem>
+                <listitem>
+                    <para><guimenu>Trento Agent status</guimenu>:
+                        shows the status and output of the current &t.agent;.
+                    </para>
+                </listitem>
+            </itemizedlist>
+        </section>
+
+        <section>
+            <title>Showing &pace; clusters</title>
+            <para>
+                To review the <quote>health</quote> of your &pace; clusters, click the <guimenu>&pace; Clusters</guimenu>
+                entry on the left sidebar.
+            </para>
+            <important>
+                <para>
+                    Keep in mind that only &hana; scale-up clusters
+                    are currently under consideration.
+                </para>
+            </important>
+            <figure>
+                <title>&pace; clusters</title>
+                <mediaobject>
+                    <imageobject>
+                        <imagedata width="80%" fileref="trento-web-pacemaker.png"/>
+                    </imageobject>
+                </mediaobject>
+            </figure>
+            <para>
+                The page provided the following information:
+            </para>
+            <itemizedlist>
+                <listitem>
+                    <para>
+                        The health section at top provides an overview of &pace; cluster
+                        status based on the selected configuration checks.
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>
+                        The cluster name, cluster ID, cluster type, SID, number of hosts, number of resources, and
+                        optional tags that you can add manually.
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>
+                         Filters the list by health status, cluster name, SID, cluster type, or tags.
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>Detailed view of &hana; clusters (see the next paragraph)</para>
+                </listitem>
+            </itemizedlist>
+            <para>
+                Clicking on one of the &hana; clusters, opens the <guimenu>&pace; Cluster details</guimenu>
+                view that displays the following:
+            </para>
+            <itemizedlist>
+                <title><guimenu>&pace; Cluster details</guimenu> view</title>
+                <listitem>
+                    <para>A general overview that includes the cluster name, cluster type,
+                    the HANA system replication mode, and other information.
+                    </para>
+                    <informalfigure>
+                        <mediaobject>
+                            <imageobject>
+                                <imagedata width="60%" fileref="trento-web-pagemaker-cluster-details-header.png"/>
+                            </imageobject>
+                        </mediaobject>
+                    </informalfigure>
+                </listitem>
+                <listitem>
+                    <para>On the right side, the <guimenu>Health</guimenu> of this &pace; cluster.
+                        To see detailed results, click the <guimenu>Show check results</guimenu>
+                        button. This view gives you a brief overview of passed and failed checks.
+                        The <guimenu>Health Details</guimenu> view can be shortend by
+                        <xref linkend="lst-trento-web-pace-cluster-settings"/>.
+                        There, you can select the tests to include in the view.
+                    </para>
+                    <informalfigure>
+                        <mediaobject>
+                            <imageobject>
+                                <imagedata width="20%" fileref="trento-web-pagemaker-cluster-details-health.png"/>
+                            </imageobject>
+                        </mediaobject>
+                    </informalfigure>
+                </listitem>
+                <listitem>
+                    <para>
+                        <guimenu>Stopped resources</guimenu>:
+                        lists all stopped resources on current &pace; cluster.
+                    </para>
+                </listitem>
+                <listitem>
+                    <para><guimenu>&pace; Site details</guimenu>:
+                    lists the host name, its IP address, if the host has a virtual IP, and its
+                    role.
+                    Clicking on the host name shows the details described in <xref
+                            linkend="lst-trento-web-hosts-details"/>.
+                    Clicking on the <guimenu>Details</guimenu> button gives you information
+                    about the assigned attributes of the hosts and the attached resources.
+                    </para>
+                    <informalfigure>
+                        <mediaobject>
+                            <imageobject>
+                                <imagedata width="60%" fileref="trento-web-pacemaker-cluster-site.png"/>
+                            </imageobject>
+                        </mediaobject>
+                    </informalfigure>
+                </listitem>
+                <listitem>
+                    <para><guimenu>SBD/Fencing</guimenu>:
+                        lists the SBD device and its location.
+                    </para>
+                </listitem>
+            </itemizedlist>
+            <para>
+               Clicking <guimenu>Settings</guimenu> button on the <guimenu>&pace; Cluster details</guimenu> page shows
+                <xref linkend="fig-trento-web-pagemaker-cluster-settings"/>.
+            </para>
+            <figure xml:id="fig-trento-web-pagemaker-cluster-settings">
+                <title>&pace; <guimenu>Cluster settings</guimenu></title>
+                <mediaobject>
+                    <imageobject>
+                        <imagedata width="50%" fileref="trento-web-pacemaker-cluster-settings.png"/>
+                    </imageobject>
+                </mediaobject>
+            </figure>
+            <para>
+                Using the dialog of <xref linkend="fig-trento-web-pagemaker-cluster-settings"/>
+                you can change the following settings:
+            </para>
+            <itemizedlist xml:id="lst-trento-web-pace-cluster-settings">
+                <title><guimenu>Cluster settings</guimenu></title>
+                <listitem>
+                    <para><guimenu>Connection settings</guimenu>:
+                        set the Trento administrator that is used to connect
+                        to your hosts. In this article, it is <systemitem
+                            class="username">&trentoadmin;</systemitem>.
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>
+                        <guimenu>Checks selection</guimenu>:
+                        select/deselect a complete category of a test (such as &corosync;,
+                        &pace; etc.) or individual tests.
+                    </para>
+                </listitem>
+            </itemizedlist>
+
+        </section>
+
+        <section>
+            <title>Showing &sap; Systems</title>
+            <para>
+                Click the <guimenu>&sap; Systems</guimenu> entry in the left sidebar to see an overview of the available &sap; Systems, 
+            </para>
+            <figure>
+                <title>&pace; clusters</title>
+                <mediaobject>
+                    <imageobject>
+                        <imagedata width="80%" fileref="trento-web-sapsystems.png"/>
+                    </imageobject>
+                </mediaobject>
+            </figure>
+            <para>
+                The page provides the following information:
+            </para>
+            <itemizedlist>
+                <listitem>
+                    <para>
+                        The SID, a description, assigned databases (RDBMS), tenant, DB IP address, and optional tags that you can manually set.
+                        Clicking the arrow icon left to the SID name lists instances that are part of the &sap; systems, including database instances.
+                        The view provides the following information: the SID, features (processes), instance number,
+                        the system replication role and the status, the cluster name (when applicable), and the corresponding host name.
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>
+                        Filters the list by SID and tags.
+                    </para>
+                </listitem>
+            </itemizedlist>
+
+            <para>
+                Clicking on a <guimenu>SID</guimenu> entry, opens the <guimenu>SAP Systems</guimenu>
+                details view that displays the following:
+            </para>
+            <itemizedlist>
+                <title>&sap; System details</title>
+                <listitem>
+                    <para>the <guimenu>Name</guimenu> and <guimenu>Type</guimenu> of this &sap; System.</para>
+                </listitem>
+                <listitem>
+                    <para>
+                        <guimenu>Layout</guimenu>:
+                        lists the host name, the instance, the available features, its HTTP port, its
+                        start priority, and the status.
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>
+                        <guimenu>Hosts</guimenu>:
+                        lists the host name, the IP address, the cloud provider, the cluster name, the &sap;
+                        System where it belongs, and the &t.agent; version.
+                        When you click the host name, it shows you the details described in <xref
+                            linkend="lst-trento-web-hosts-details"/>.
+                    </para>
+                </listitem>
+            </itemizedlist>
+        </section>
+
+        <section>
+            <title>Showing &hana; databases</title>
+            <para>
+                To get an overview of detected &hana; databases, click the <guimenu>HANA databases</guimenu>
+                entry in the left sidebar.
+            </para>
+            <figure>
+                <title>HANA databases</title>
+                <mediaobject>
+                    <imageobject>
+                        <imagedata width="80%" fileref="trento-web-sapsystems.png"/>
+                    </imageobject>
+                </mediaobject>
+            </figure>
+            <para>The page provides the following information:</para>
+            <itemizedlist>
+                <listitem>
+                    <para>
+                        Lists the SID, description, and tags.
+                        Clicking on the arrow icon left on the SID name displays a detailed view.
+                        The view shows the following information:
+                        SID, features, instance number, system replication (primary or secondary),
+                        cluster name, and host.
+                    </para>
+                </listitem>
+            </itemizedlist>
+            <para>
+                Clicking on one of the <guimenu>SID</guimenu>s opens <guimenu>HANA Databases</guimenu>
+                view that shows the following:
+            </para>
+            <itemizedlist>
+                <title><guimenu>HANA Database</guimenu> details view</title>
+                <listitem>
+                    <para>
+                        <guimenu>Layout</guimenu>:
+                        lists the host name, the instance, the features, its HTTP/HTTPS ports, its
+                        start priority, and the status.
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>
+                        <guimenu>Hosts</guimenu>:
+                        lists the host name, the IP address, the cloud provider, the cluster name, the &sap;
+                        System where it belongs, and the &t.agent; version.
+                    </para>
+                    <para>
+                        Click the host name to view the details described in <xref
+                            linkend="lst-trento-web-hosts-details"/>.
+                    </para>
+                </listitem>
+            </itemizedlist>
+        </section>
+
+        <section>
+            <title>Get recommendations for configuration components</title>
+            <para>
+                To get an overview of recommended configuration options, click the
+                <menuchoice>
+                    <guimenu>Settings</guimenu>
+                    <guimenu>Checks catalog</guimenu>
+                </menuchoice> entry on the left sidebar.
+            </para>
+            <figure>
+                <title><menuchoice>
+                    <guimenu>Settings</guimenu>
+                    <guimenu>Checks catalog</guimenu>
+                </menuchoice></title>
+                <mediaobject>
+                    <imageobject>
+                        <imagedata width="80%" fileref="trento-web-settings-catalogs.png"/>
+                    </imageobject>
+                </mediaobject>
+            </figure>
+            <para>
+                The page contains recommended configuration settings for
+                the different components of the clusters such as &corosync;, &pace;,
+                SBD, Azure Fence Agent, &hana; System Replication Resource Agent, OS and package version,
+                and misellaneous.
+            </para>
+            <para>
+                Every component has a list of test descriptions. Each test contains an ID,
+                the description and an info icon.
+                Clicking the info icon to view what is tested and how problems can
+                be avoided. Additional references also listed here.
+            </para>
+            <para>
+                To change the displayed list entries, configure the list in
+                <xref linkend="lst-trento-web-pace-cluster-settings"/>.
+            </para>
+        </section>
+    </section>
+
+    <section>
+        <title>Updating &t.server;</title>
+        <para>
+            To update the &t.server;, do the following:
+        </para>
+        <procedure>
+            <step>
+                <para>
+                    Ensure the &t.server; is running.
+                </para>
+            </step>
+            <step>
+                <para>
+                    On the &t.server; start the update:
+                </para>
+                <screen>&trentoagentprompt;sudo curl -sfL https://raw.githubusercontent.com/trento-project/trento/main/install-server.sh | bash
+                </screen>
+            </step>
+            <step>
+                <para>Check the &t.server; processes:</para>
+                <screen>&trentoagentprompt;sudo kubectl get pod</screen>
+            </step>
+            <step>
+                <para>
+                    Open the &t.web; URL <uri>http://<replaceable>TRENTO_URL</replaceable></uri>.
+                </para>
+            </step>
+            <step>
+                <para>
+                    To check the new version, hover the mouse pointer over the info button in the lower-left corner.
+                </para>
+            </step>
+        </procedure>
+    </section>
+
+    <section>
+        <title>Updating a &t.agent;</title>
+        <para>
+            To update the &t.agent;, do the following:
+        </para>
+        <procedure>
+            <step>
+                <para>Log in to the &t.agent; host as the Trento admin <systemitem
+                    class="username">&trentoadmin;</systemitem>.</para>
+            </step>
+            <step>
+                <para>Stop the &t.agent;:</para>
+                <screen>&trentoagent.prompt;sudo systemctl stop trento-agent</screen>
+            </step>
+            <step>
+                <para>Confirm the &t.agent; is down:</para>
+                <screen>&trentoagent.prompt;sudo systemctl status trento-agent</screen>
+            </step>
+            <step>
+                <para>Update &t.agent;, using the &t.agent; host local IP and the &t.server; IP:</para>
+                <screen>&trentoagent.prompt;curl -sfL https://raw.githubusercontent.com/trento-project/trento/main/install-agent.sh | sudo bash -s - --agent-bind-ip=<replaceable>TRENTO_AGENT_IP</replaceable> --server-ip=<replaceable>TRENTO_SERVER_IP</replaceable></screen>
+            </step>
+            <step>
+                <para>Start the &t.agent;:</para>
+                <screen>&trentoagent.prompt;sudo systemctl enable --now trento-agent</screen>
+            </step>
+            <step>
+                <para>Check the version on the &t.web;.</para>
+                <substeps>
+                    <step>
+                        <para>Open the &t.web; URL <uri>http://<replaceable>TRENTO_URL</replaceable></uri>.</para>
+                    </step>
+                    <step>
+                        <para>
+                            In the menu section, click the <guimenu>Hosts</guimenu> entry.
+                            Use tags to filter the list, if necessary.
+                        </para>
+                    </step>
+                    <step>
+                        <para>
+                            Find the respective &t.agent; host name in the list.
+                            </para>
+                    </step>
+                    <step>
+                        <para>
+                        Check the version of the agent running in the <guimenu>Agent version</guimenu> column.
+                        </para>
+                    </step>
+                    <step>
+                        <para>Optionally, click the &t.agent; hostname and review the host status details.</para>
+                    </step>
+                </substeps>
+            </step>
+        </procedure>
+    </section>
+</article>
