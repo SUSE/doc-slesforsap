@@ -183,10 +183,10 @@
      <title>SAPインストールマスタの場所</title>
      <mediaobject>
       <imageobject role="fo">
-       <imagedata fileref="s4s_sap_wizard_source.png" width="73%" format="PNG"/>
+       <imagedata fileref="s4s_sap_wizard_source.png" width="73%"/>
       </imageobject>
       <imageobject role="html">
-       <imagedata fileref="s4s_sap_wizard_source.png" width="73%" format="PNG"/>
+       <imagedata fileref="s4s_sap_wizard_source.png" width="73%"/>
       </imageobject>
      </mediaobject>
     </figure>
@@ -437,10 +437,10 @@
      <title>SAPインストールウィザード: 追加のインストールメディア</title>
      <mediaobject>
       <imageobject role="fo">
-       <imagedata fileref="s4s_sap_wizard_location_sapmedia.png" width="73%" format="PNG"/>
+       <imagedata fileref="s4s_sap_wizard_location_sapmedia.png" width="73%"/>
       </imageobject>
       <imageobject role="html">
-       <imagedata fileref="s4s_sap_wizard_location_sapmedia.png" width="73%" format="PNG"/>
+       <imagedata fileref="s4s_sap_wizard_location_sapmedia.png" width="73%"/>
       </imageobject>
      </mediaobject>
     </figure>
@@ -506,10 +506,10 @@
      <title>SAPインストールウィザード: インストールの種類とデータベース</title>
      <mediaobject>
       <imageobject role="fo">
-       <imagedata fileref="s4s_sap_wizard_mode_db.png" width="73%" format="PNG"/>
+       <imagedata fileref="s4s_sap_wizard_mode_db.png" width="73%"/>
       </imageobject>
       <imageobject role="html">
-       <imagedata fileref="s4s_sap_wizard_mode_db.png" width="73%" format="PNG"/>
+       <imagedata fileref="s4s_sap_wizard_mode_db.png" width="73%"/>
       </imageobject>
      </mediaobject>
     </figure>
@@ -533,10 +533,10 @@
      <title>SAPインストールウィザード: 製品の選択</title>
      <mediaobject>
       <imageobject role="fo">
-       <imagedata fileref="s4s_sap_wizard_available_products.png" width="73%" format="PNG"/>
+       <imagedata fileref="s4s_sap_wizard_available_products.png" width="73%"/>
       </imageobject>
       <imageobject role="html">
-       <imagedata fileref="s4s_sap_wizard_available_products.png" width="73%" format="PNG"/>
+       <imagedata fileref="s4s_sap_wizard_available_products.png" width="73%"/>
       </imageobject>
      </mediaobject>
     </figure>
@@ -609,10 +609,10 @@ SAP-NetWeaver-740-SR2-Installation-Export-CD-3-3</screen>
      <title>製品パラメータ</title>
      <mediaobject>
       <imageobject role="html">
-       <imagedata fileref="s4s_sap_wizard_product_param.png" format="PNG"/>
+       <imagedata fileref="s4s_sap_wizard_product_param.png"/>
       </imageobject>
       <imageobject role="fo">
-       <imagedata fileref="s4s_sap_wizard_product_param.png" width="73%" format="PNG"/>
+       <imagedata fileref="s4s_sap_wizard_product_param.png" width="73%"/>
       </imageobject>
       <textobject role="description">
        <phrase>製品パラメータを設定するダイアログ</phrase>
@@ -660,10 +660,10 @@ SAP-NetWeaver-740-SR2-Installation-Export-CD-3-3</screen>
      <title>SAPインストーラ: パラメータの定義</title>
      <mediaobject>
       <imageobject role="fo">
-       <imagedata fileref="s4s_sapinst_param.png" width="73%" format="PNG"/>
+       <imagedata fileref="s4s_sapinst_param.png" width="73%"/>
       </imageobject>
       <imageobject role="html">
-       <imagedata fileref="s4s_sapinst_param.png" width="73%" format="PNG"/>
+       <imagedata fileref="s4s_sapinst_param.png" width="73%"/>
       </imageobject>
      </mediaobject>
     </figure>

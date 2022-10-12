@@ -144,10 +144,10 @@
     <informalfigure>
      <mediaobject>
       <imageobject role="html">
-       <imagedata fileref="s4s-cluster-scenario.png" format="PNG"/>
+       <imagedata fileref="s4s-cluster-scenario.png"/>
       </imageobject>
       <imageobject role="fo">
-       <imagedata fileref="s4s-cluster-scenario.png" width="75%" format="PNG"/>
+       <imagedata fileref="s4s-cluster-scenario.png" width="75%"/>
       </imageobject>
       <textobject role="description">
        <phrase>レプリケーションシナリオの選択のスクリーンショット</phrase>
@@ -212,10 +212,10 @@
     <informalfigure>
      <mediaobject>
       <imageobject role="html">
-       <imagedata fileref="s4s-cluster-communication.png" format="PNG"/>
+       <imagedata fileref="s4s-cluster-communication.png"/>
       </imageobject>
       <imageobject role="fo">
-       <imagedata fileref="s4s-cluster-communication.png" width="75%" format="PNG"/>
+       <imagedata fileref="s4s-cluster-communication.png" width="75%"/>
       </imageobject>
       <textobject role="description">
        <phrase>通信層の設定のスクリーンショット</phrase>
@@ -445,10 +445,10 @@
      <title>SAP HANAのオプション(コスト最適化シナリオ)</title>
      <mediaobject>
       <imageobject role="html">
-       <imagedata fileref="s4s-cluster-hana-option.png" format="PNG"/>
+       <imagedata fileref="s4s-cluster-hana-option.png"/>
       </imageobject>
       <imageobject role="fo">
-       <imagedata fileref="s4s-cluster-hana-option.png" width="75%" format="PNG"/>
+       <imagedata fileref="s4s-cluster-hana-option.png" width="75%"/>
       </imageobject>
       <textobject role="description">
        <phrase>SAP HANAのオプション(コスト最適化シナリオ)のスクリーンショット</phrase>
