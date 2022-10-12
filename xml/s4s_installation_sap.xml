@@ -226,10 +226,10 @@
      <title>Location of &sap; installation master</title>
      <mediaobject>
       <imageobject role="fo">
-       <imagedata fileref="s4s_sap_wizard_source.png" width="73%" format="PNG"/>
+       <imagedata fileref="s4s_sap_wizard_source.png" width="73%"/>
       </imageobject>
       <imageobject role="html">
-       <imagedata fileref="s4s_sap_wizard_source.png" width="73%" format="PNG"/>
+       <imagedata fileref="s4s_sap_wizard_source.png" width="73%"/>
       </imageobject>
      </mediaobject>
     </figure>
@@ -519,10 +519,10 @@
      <title>&sapwiz;: additional &instmedia;</title>
      <mediaobject>
       <imageobject role="fo">
-       <imagedata fileref="s4s_sap_wizard_location_sapmedia.png" width="73%" format="PNG"/>
+       <imagedata fileref="s4s_sap_wizard_location_sapmedia.png" width="73%"/>
       </imageobject>
       <imageobject role="html">
-       <imagedata fileref="s4s_sap_wizard_location_sapmedia.png" width="73%" format="PNG"/>
+       <imagedata fileref="s4s_sap_wizard_location_sapmedia.png" width="73%"/>
       </imageobject>
      </mediaobject>
     </figure>
@@ -608,10 +608,10 @@
      <title>&sapwiz;: installation type and database</title>
      <mediaobject>
       <imageobject role="fo">
-       <imagedata fileref="s4s_sap_wizard_mode_db.png" width="73%" format="PNG"/>
+       <imagedata fileref="s4s_sap_wizard_mode_db.png" width="73%"/>
       </imageobject>
       <imageobject role="html">
-       <imagedata fileref="s4s_sap_wizard_mode_db.png" width="73%" format="PNG"/>
+       <imagedata fileref="s4s_sap_wizard_mode_db.png" width="73%"/>
       </imageobject>
      </mediaobject>
     </figure>
@@ -642,10 +642,10 @@
      <title>&sapwiz;: choose a product</title>
      <mediaobject>
       <imageobject role="fo">
-       <imagedata fileref="s4s_sap_wizard_available_products.png" width="73%" format="PNG"/>
+       <imagedata fileref="s4s_sap_wizard_available_products.png" width="73%"/>
       </imageobject>
       <imageobject role="html">
-       <imagedata fileref="s4s_sap_wizard_available_products.png" width="73%" format="PNG"/>
+       <imagedata fileref="s4s_sap_wizard_available_products.png" width="73%"/>
       </imageobject>
      </mediaobject>
     </figure>
@@ -746,10 +746,10 @@ SAP-NetWeaver-740-SR2-Installation-Export-CD-3-3</screen>
      <title>Product parameters</title>
      <mediaobject>
       <imageobject role="html">
-       <imagedata fileref="s4s_sap_wizard_product_param.png" format="PNG"/>
+       <imagedata fileref="s4s_sap_wizard_product_param.png"/>
       </imageobject>
       <imageobject role="fo">
-       <imagedata fileref="s4s_sap_wizard_product_param.png" width="73%" format="PNG"/>
+       <imagedata fileref="s4s_sap_wizard_product_param.png" width="73%"/>
       </imageobject>
       <textobject role="description">
        <phrase>Dialog to configure product parameters</phrase>
@@ -810,10 +810,10 @@ SAP-NetWeaver-740-SR2-Installation-Export-CD-3-3</screen>
      <title>&sapin;: defining parameters</title>
      <mediaobject>
       <imageobject role="fo">
-       <imagedata fileref="s4s_sapinst_param.png" width="73%" format="PNG"/>
+       <imagedata fileref="s4s_sapinst_param.png" width="73%"/>
       </imageobject>
       <imageobject role="html">
-       <imagedata fileref="s4s_sapinst_param.png" width="73%" format="PNG"/>
+       <imagedata fileref="s4s_sapinst_param.png" width="73%"/>
       </imageobject>
      </mediaobject>
     </figure>

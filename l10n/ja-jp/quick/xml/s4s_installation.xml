@@ -63,10 +63,10 @@
      <title>インストールメディアのブートメニュー</title>
      <mediaobject>
       <imageobject role="fo">
-       <imagedata fileref="s4s-install-media-boot-menu.png" width="73%" format="PNG"/>
+       <imagedata fileref="s4s-install-media-boot-menu.png" width="73%"/>
       </imageobject>
       <imageobject role="html">
-       <imagedata fileref="s4s-install-media-boot-menu.png" width="73%" format="PNG"/>
+       <imagedata fileref="s4s-install-media-boot-menu.png" width="73%"/>
       </imageobject>
      </mediaobject>
     </figure>
@@ -87,10 +87,10 @@
      <title>言語、キーボード、および製品選択</title>
      <mediaobject>
       <imageobject role="fo">
-       <imagedata fileref="s4s-install-product.png" width="73%" format="PNG"/>
+       <imagedata fileref="s4s-install-product.png" width="73%"/>
       </imageobject>
       <imageobject role="html">
-       <imagedata fileref="s4s-install-product.png" width="73%" format="PNG"/>
+       <imagedata fileref="s4s-install-product.png" width="73%"/>
       </imageobject>
      </mediaobject>
     </figure>
@@ -159,10 +159,10 @@
      <title>登録</title>
      <mediaobject>
       <imageobject role="fo">
-       <imagedata fileref="s4s-install-registration.png" width="73%" format="PNG"/>
+       <imagedata fileref="s4s-install-registration.png" width="73%"/>
       </imageobject>
       <imageobject role="html">
-       <imagedata fileref="s4s-install-registration.png" width="73%" format="PNG"/>
+       <imagedata fileref="s4s-install-registration.png" width="73%"/>
       </imageobject>
      </mediaobject>
     </figure>
@@ -236,10 +236,10 @@
      <title>システムの役割</title>
      <mediaobject>
       <imageobject role="fo">
-       <imagedata fileref="s4s-install-installationtype.png" width="73%" format="PNG"/>
+       <imagedata fileref="s4s-install-installationtype.png" width="73%"/>
       </imageobject>
       <imageobject role="html">
-       <imagedata fileref="s4s-install-installationtype.png" width="73%" format="PNG"/>
+       <imagedata fileref="s4s-install-installationtype.png" width="73%"/>
       </imageobject>
      </mediaobject>
     </figure>
@@ -281,10 +281,10 @@
      <title>パーティション設定の提案</title>
      <mediaobject>
       <imageobject role="fo">
-       <imagedata fileref="s4s-install-partitioning.png" width="73%" format="PNG"/>
+       <imagedata fileref="s4s-install-partitioning.png" width="73%"/>
       </imageobject>
       <imageobject role="html">
-       <imagedata fileref="s4s-install-partitioning.png" width="73%" format="PNG"/>
+       <imagedata fileref="s4s-install-partitioning.png" width="73%"/>
       </imageobject>
      </mediaobject>
     </figure>
@@ -328,10 +328,10 @@
      <title>インストール設定</title>
      <mediaobject>
       <imageobject role="fo">
-       <imagedata fileref="s4s-install-overview.png" width="73%" format="PNG"/>
+       <imagedata fileref="s4s-install-overview.png" width="73%"/>
       </imageobject>
       <imageobject role="html">
-       <imagedata fileref="s4s-install-overview.png" format="PNG"/>
+       <imagedata fileref="s4s-install-overview.png"/>
       </imageobject>
      </mediaobject>
     </figure>
