@@ -201,10 +201,10 @@
     <informalfigure>
      <mediaobject>
       <imageobject role="html">
-       <imagedata fileref="s4s-cluster-scenario.png" format="PNG"/>
+       <imagedata fileref="s4s-cluster-scenario.png"/>
       </imageobject>
       <imageobject role="fo">
-       <imagedata fileref="s4s-cluster-scenario.png" width="75%" format="PNG"/>
+       <imagedata fileref="s4s-cluster-scenario.png" width="75%"/>
       </imageobject>
       <textobject role="description">
        <phrase>Screenshot of replication scenario selection</phrase>
@@ -291,10 +291,10 @@
     <informalfigure>
      <mediaobject>
       <imageobject role="html">
-       <imagedata fileref="s4s-cluster-communication.png" format="PNG"/>
+       <imagedata fileref="s4s-cluster-communication.png"/>
       </imageobject>
       <imageobject role="fo">
-       <imagedata fileref="s4s-cluster-communication.png" width="75%" format="PNG"/>
+       <imagedata fileref="s4s-cluster-communication.png" width="75%"/>
       </imageobject>
       <textobject role="description">
        <phrase>Screenshot of communication layer configuration</phrase>
@@ -609,10 +609,10 @@
      <title>&hana; options (cost-optimized scenario)</title>
      <mediaobject>
       <imageobject role="html">
-       <imagedata fileref="s4s-cluster-hana-option.png" format="PNG"/>
+       <imagedata fileref="s4s-cluster-hana-option.png"/>
       </imageobject>
       <imageobject role="fo">
-       <imagedata fileref="s4s-cluster-hana-option.png" width="75%" format="PNG"/>
+       <imagedata fileref="s4s-cluster-hana-option.png" width="75%"/>
       </imageobject>
       <textobject role="description">
        <phrase>Screenshot of &hana; options (cost-optimized scenario)</phrase>
