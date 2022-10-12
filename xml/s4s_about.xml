@@ -51,10 +51,10 @@
   <title>Offerings of &sles4sap;</title>
   <mediaobject>
    <imageobject role="fo">
-    <imagedata fileref="s4s_overview.svg" width="85%" format="SVG"/>
+    <imagedata fileref="s4s_overview.svg" width="85%"/>
    </imageobject>
    <imageobject role="html">
-    <imagedata fileref="s4s_overview.png" width="85%" format="PNG"/>
+    <imagedata fileref="s4s_overview.png" width="85%"/>
    </imageobject>
   </mediaobject>
  </figure>
