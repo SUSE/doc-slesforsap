@@ -18,7 +18,7 @@
     <dm:bugtracker>
       <dm:url>https://bugzilla.suse.com/enter_bug.cgi</dm:url>
       <dm:component>Documentation</dm:component>
-      <dm:product>SUSE Linux Enterprise Server for SAP Applications 15 SP4</dm:product>
+      <dm:product>SUSE Linux Enterprise Server for SAP Applications 15 SP5</dm:product>
       <dm:assignee>dmitri.popov@suse.com</dm:assignee>
     </dm:bugtracker>
     <dm:editurl>https://github.com/SUSE/doc-slesforsap/blob/main/xml/</dm:editurl>
@@ -38,9 +38,9 @@
  <xi:include condition="noquick" href="s4s_tune_wmp.xml"/>
  <xi:include condition="noquick" href="s4s_access.xml" parse="xml"/>
  <!--'Encrypting Directories Using cryptctl' has been moved to the
- SLES Security Guide because the cryptctl package was moved from 
- the SAP application Module to the Base Application module in SLE15SP2, 
- so it is available to all SLE users (cschroder, 9 June 2020) 
+ SLES Security Guide because the cryptctl package was moved from
+ the SAP application Module to the Base Application module in SLE15SP2,
+ so it is available to all SLE users (cschroder, 9 June 2020)
  <xi:include condition="noquick" href="s4s_encrypt.xml" parse="xml"/>-->
  <xi:include condition="noquick" href="s4s_clamsap.xml" parse="xml"/>
  <xi:include condition="noquick" href="s4s_remoteaccess.xml" parse="xml"/>
