@@ -8,7 +8,7 @@
 <!ENTITY productnumber '&product-ga; &product-sp;'>
 
 <!-- PROJECT REPOSITORY URL -->
-<!ENTITY repourl "https://github.com/SUSE/doc-slesforsap">
+<!ENTITY repo-url "https://github.com/SUSE/doc-slesforsap">
 
 
 <!-- START YEAR OF COPYRIGHT -->
