@@ -19,6 +19,7 @@ https://confluence.suse.com/x/8IEnGw
   <title>&sap; Automation</title>
   <subtitle>&sles4sapreg; · &slereg; &hasi;</subtitle>
   <info>
+    <productname role="abbrev">&productnameshort;</productname>
     <abstract>
       <para>
         This article offers some automation solutions for &sap; administrators.
