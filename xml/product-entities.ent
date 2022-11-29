@@ -3,6 +3,7 @@
 
 <!-- PRODUCT NAME AND VERSIONS -->
 <!ENTITY productname   "&s4s;">
+<!ENTITY productnameshort "&sles4sapa;">
 <!ENTITY product-ga    '12'>
 <!ENTITY product-sp    'SP5'>
 <!ENTITY productnumber '&product-ga; &product-sp;'>
