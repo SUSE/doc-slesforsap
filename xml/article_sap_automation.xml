@@ -19,12 +19,13 @@ https://confluence.suse.com/x/8IEnGw
   <title>&sap; Automation</title>
   <subtitle>&sles4sapreg; · &slereg; &hasi;</subtitle>
   <info>
+    <productname role="abbrev">&productnameshort;</productname>
     <abstract>
       <para>
         This article offers some automation solutions for &sap; administrators.
         With &salt; formulas, it helps to efficiently configure &ha; and &sap; systems.
         The solutions that is described here works from &slsreg;&nbsp;12 SP3
-        and beyond. All packages are available in the &sles4sapa; module.
+        and beyond. All packages are available in the &productnameshort; module.
       </para>
     </abstract>
   </info>
