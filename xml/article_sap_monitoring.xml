@@ -19,9 +19,10 @@ Further information:
   xmlns="http://docbook.org/ns/docbook"
   xmlns:xi="http://www.w3.org/2001/XInclude"
   xmlns:xlink="http://www.w3.org/1999/xlink">
-   <title>&sap; Monitoring</title>
+  <title>&sap; Monitoring</title>
   <subtitle>&sles4sapreg; · &sleha;</subtitle>
    <info>
+    <productname role="abbrev">&productnameshort;</productname>
      <abstract>
        <para>
          This article shows monitoring solutions for &sap; administrators
