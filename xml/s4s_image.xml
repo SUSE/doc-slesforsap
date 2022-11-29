@@ -86,7 +86,7 @@
   <itemizedlist>
    <listitem>
     <para>
-     On the &kiwi; configuration for &sles4sapa;, see
+     On the &kiwi; configuration for &productnameshort;, see
      <filename>/usr/share/kiwi/image/SLES4SAP/README</filename>.
     </para>
    </listitem>
