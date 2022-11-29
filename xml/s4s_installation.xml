@@ -521,7 +521,7 @@
       Still FIXME for SP2. - sknorr, 2016-08-09
      </remark>
      <para>
-      The software firewall of &sles4sapa; is enabled by default.
+      The software firewall of &productnameshort; is enabled by default.
       However, often, the ports your &sap; product requires to be open
       are not opened automatically.
       This means that there may be network issues until you open the required
@@ -588,7 +588,7 @@
  </sect1>
 
  <sect1 condition="noquick" xml:id="sec-install-network">
-  <title>Using &sles4sapa; media from the network</title>
+  <title>Using &productnameshort; media from the network</title>
 
   <remark>
    FIXME: This section is not up-to-date SP2 does not ship with a sap.dud
@@ -598,7 +598,7 @@
   <para>
    This section provides a short description of how to install from an
    installation medium served over the network. This allows, for example,
-   using a regular &slsa; medium to install &sles4sapa;.
+   using a regular &slsa; medium to install &productnameshort;.
   </para>
 
   <procedure>
