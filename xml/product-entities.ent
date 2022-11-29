@@ -3,9 +3,11 @@
 
 <!-- PRODUCT NAME AND VERSIONS -->
 <!ENTITY productname   "&s4s;">
+<!ENTITY productnameshort "&sles4sapa;">
 <!ENTITY product-ga    '12'>
 <!ENTITY product-sp    'SP4'>
 <!ENTITY productnumber '&product-ga; &product-sp;'>
+
 
 <!-- PROJECT REPOSITORY URL -->
 <!ENTITY repo-url "https://github.com/SUSE/doc-slesforsap">
