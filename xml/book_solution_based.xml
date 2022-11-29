@@ -22,7 +22,7 @@ HINT (toms) 2020-06-05:
   <title>Solution Based Documentation</title>
   <info>
     <productname>&productname;</productname>
-    <productname role="abbrev">&sles4sapa;</productname>
+    <productname role="abbrev">&productnameshort;</productname>
     <productnumber>&productnumber;</productnumber>
     <date><?dbtimestamp format="B d, Y"?></date>
     <dm:docmanager xmlns:dm="urn:x-suse:ns:docmanager">
