@@ -18,6 +18,7 @@ https://suse.com/c/coming-soon-sap-landscape-monitoring-on-sles-for-sap/
  <title>&sap; Monitoring</title>
  <subtitle>&sles4sapreg; · &sleha;</subtitle>
  <info>
+  <productname role="abbrev">&productnameshort;</productname>
   <abstract>
    <para>
     This article shows monitoring solutions for &sap; administrators to
