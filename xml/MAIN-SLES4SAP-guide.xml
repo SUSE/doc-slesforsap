@@ -49,6 +49,7 @@
  <xi:include condition="noquick" href="s4s_appendix_extrasoftware.xml" parse="xml"/>
  <xi:include condition="noquick" href="s4s_appendix_partition.xml" parse="xml"/>
  <xi:include condition="noquick" href="s4s_appendix_supplement.xml" parse="xml"/>
+ <xi:include condition="noquick" href="s4s_appendix_win_cheatsheet.xml" parse="xml"/>
  <!-- This is 15 GA, no doc updates here. -->
  <!-- <xi:include condition="noquick" href="s4s_appendix_docupdates.xml" parse="xml"/> -->
  <xi:include href="common_legal.xml" parse="xml"/>
