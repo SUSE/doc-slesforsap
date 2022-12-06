@@ -16,20 +16,20 @@
  <sect1 xml:id="sec-manage-users">
   <title>Managing users</title>
   <para>
-    To manage users, launch &yast; and switch to <menuchoice><guimenu>User and Group Management</guimenu></menuchoice>. To use the ncurses version of &yast;, run the <command>sudo /sbin/yast2 users</command> command. For more information, refer to https://documentation.suse.com/sles/html/SLES-all/cha-yast-userman.html.
+    To manage users, launch &yast; and switch to <menuchoice><guimenu>User and Group Management</guimenu></menuchoice>. To use the ncurses version of &yast;, run the <command>sudo /sbin/yast2 users</command> command. For more information, refer to <link xlink:href="https://documentation.suse.com/sles/html/SLES-all/cha-yast-userman.html/"/>.
   </para>
  </sect1>
  <sect1 xml:id="sec-admin-privileges">
   <title>Assigning administrator privileges</title>
   <para>
-    On Linux, administrator privileges are defined the
+    On Linux, administrator privileges are defined in the
     <filename>/etc/sudoers</filename> file. You can use &yast; to manage
     administrator privileges. Install the required &yast; module using the
     <command>sudo zypper in yast2-sudo</command> command. Launch &yast; and
-    switch to <menuchoice><guimenu>Sudo</guimenu></menuchoice> section. To use
-    the ncurses version of &yast;, run the <command>sudo /sbin/yast2
+    switch to the <menuchoice><guimenu>Sudo</guimenu></menuchoice> section.
+    To use  the ncurses version of &yast;, run the <command>sudo /sbin/yast2
     sudo</command> command. For more information, see
-    https://documentation.suse.com/sles/single-html/SLES-administration/#cha-adm-sudo.
+    <link xlink:href="https://documentation.suse.com/sles/single-html/SLES-administration/#cha-adm-sudo/"/>.
   </para>
  </sect1>
  <sect1 xml:id="sec-manage-services">
@@ -37,7 +37,7 @@
   <para>
     Use the <menuchoice><guimenu>Services Manager</guimenu></menuchoice> module in &yast; to view and manage enabled services. To use
     the ncurses version of &yast;, run the <command>sudo /sbin/yast2 services-manager</command> command. For more information,
-    see https://documentation.suse.com/sles/single-html/SLES-administration/#cha-systemd.
+    see <link xlink:href="https://documentation.suse.com/sles/single-html/SLES-administration/#cha-systemd/"/>.
   </para>
   </sect1>
   <sect1 xml:id="sec-firewall">
@@ -50,7 +50,7 @@
       The firewall on &sle; allows setting rules for each interface
       independently. You can also enable masquerading, port forwarding and
       broadcasting in the firewall settings. For more information,
-      see https://documentation.suse.com/sles/html/SLES-all/cha-security-firewall.html.
+      see <link xlink:href="https://documentation.suse.com/sles/html/SLES-all/cha-security-firewall.html/"/>.
     </para>
  </sect1>
  <sect1 xml:id="sec-win-domain">
@@ -58,9 +58,9 @@
   <para>
     Install the <package>yast2-auth-client</package> package first. Then use the
     <menuchoice><guimenu>User Logon</guimenu></menuchoice> module to join a
-    Windows Domain. To use the ncurses version of &yast;, run the <command>sudo
+    Windows domain. To use the ncurses version of &yast;, run the <command>sudo
     /sbin/yast2 auth-client</command> command. For more information, see
-    https://documentation.suse.com/sles/html/SLES-all/cha-security-auth.html.
+    <link xlink:href="https://documentation.suse.com/sles/html/SLES-all/cha-security-auth.html/"/>.
   </para>
   </sect1>
   <sect1 xml:id="sec-partitions-storage">
@@ -72,12 +72,12 @@
     </para>
     <para>
       To avoid data loss, unmount partitions before modifying them! To unmount a
-      partition, open a terminal and run the <command>mount</command>. This
-      returns a list of entries in the following format: entries structured like
+      partition, open a terminal and run the <command>mount</command> command.
+      This returns a list of entries structured like
       this: <literal>DEVICE on MOUNT_POINT type FILE_SYSTEM_TYPE
       (FILE_SYSTEM_OPTIONS)</literal>. To unmount the desired partition, use the
       <command>sudo umount <replaceable>MOUNT_POINT</replaceable></command>
-      command with the appropriate mount point. For more information, see https://documentation.suse.com/sles/html/SLES-all/book-storage.html.
+      command with the appropriate mount point. For more information, see <link xlink:href="https://documentation.suse.com/sles/html/SLES-all/book-storage.html/"/>.
     </para>
     </sect1>
     <sect1 xml:id="sec-smb-share">
@@ -88,7 +88,7 @@
         Server</guimenu></menuchoice> module in &yast; to set up an SMB server.
         To use the ncurses version of &yast;, run the <command>sudo /sbin/yast2
         samba-server</command> command. For more information, see
-        https://documentation.suse.com/sles/15-SP4/html/SLES-all/cha-samba.html.
+        <link xlink:href="https://documentation.suse.com/sles/15-SP4/html/SLES-all/cha-samba.html/"/>.
       </para>
       </sect1>
 </appendix>
