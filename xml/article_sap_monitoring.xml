@@ -109,72 +109,458 @@ https://suse.com/c/coming-soon-sap-landscape-monitoring-on-sles-for-sap/
    described in <xref linkend="article-sap-automation"/>.
   </para>
  </sect1>
+
  <sect1 xml:id="sec-sol-monit-hana-db-exp">
   <title>&hana; database exporter</title>
-
   <para>
-   Exports &hana; database metrics. The exporter can to export the metrics from
-   more than one database or tenant. This <option>multi_tenant</option> option
-   is enabled by default.
+    Prometheus exporter written in Python, to export &sap; &hana; database
+    metrics. The project is based in the official prometheus exporter:
+    <link
+    xlink:href="https://github.com/prometheus/client_python">prometheus_client</link>.
   </para>
+  <para>
+    The exporter can export metrics from more than one
+    database and tenant if the <literal>multi_tenant</literal> option is
+    enabled in the configuration file (enabled by default).
+  </para>
+  <para>
+    The labels <literal>sid</literal> (system identifier),
+    <literal>insnr</literal> (instance number),
+    <literal>database_name</literal> (database name) and
+    <literal>host</literal> (machine hostname) are exported for all the metrics.
+  </para>
+  <sect2 xml:id="sec-sol-monit-hana-db-expprerequisites">
+    <title>Prerequisites</title>
+    <itemizedlist>
+      <listitem>
+        <para>
+          A running and reachable &sap; &hana; database (single or multi
+          container). It is recommended to run the exporter on the same machine
+          with the &hana; database. Ideally, each database should be monitored
+          by one exporter.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          One of the following &sap; &hana; connectors:
+        </para>
+        <itemizedlist>
+        <listitem>
+          <para>
+            <link xlink:href="https://help.sap.com/viewer/1efad1691c1f496b8b580064a6536c2d/Cloud/en-US/39eca89d94ca464ca52385ad50fc7dea.html"><literal>dbapi</literal>
+            (official &sap; connector)</link>
+          </para>
+        </listitem>
+        <listitem>
+        <para>
+            <link
+            xlink:href="https://github.com/SAP/PyHDB"><literal>pyhdb</literal>
+            (unofficial/open source)</link>
+          </para>
+        </listitem>
+        </itemizedlist>
+      </listitem>
+      <listitem>
+        <para>
+          Certain metrics are collected in the &hana; monitoring views by
+          the
+          <link
+          xlink:href="https://help.sap.com/saphelp_nwpi711/helpdata/en/21/98c443122744efae67c0352033691d/frameset.htm">SAP
+          Host agent</link>. To have access to all the monitoring metrics, make
+          sure that &sap; Host agent is installed and running.
+        </para>
+      </listitem>
+    </itemizedlist>
+  </sect2>
+  <sect2 xml:id="sec-sol-monit-hana-db-metrics-file">
+    <title>Metrics file</title>
+    <para>
+      The exporter relies on a metrics file to determine what metrics to export. When the metrics file uses the JSON format, you can use the options listed below.
+    </para>
 
-  <formalpara>
-   <title>Package:</title>
-   <para>
-    <package>prometheus-hanadb_exporter</package>
-   </para>
-  </formalpara>
-
-  <formalpara>
-   <title>Link:</title>
-   <para>
-    <link xlink:href="https://github.com/SUSE/hanadb_exporter"/>.
-   </para>
-  </formalpara>
-
-  <itemizedlist>
-   <title>Export metrics in the prometheus format</title>
-   <listitem>
+    <itemizedlist>
+    <listitem>
     <para>
-     Memory metrics
+      <literal>enabled</literal> (boolean, optional). Determines whether the query is executed or not. If set to <option>false</option>, the metrics for this query are not executed.
     </para>
-   </listitem>
-   <listitem>
+    </listitem>
+    <listitem>
     <para>
-     CPU metrics
+      <literal>hana_version_range</literal> (list, optional). The &sap; &hana; database versions range where the query is available (<literal>[1.0.0]</literal> by default). If the current database version is not within the specified range, the query is not executed. If the list has only one element, all versions beyond the specified value (including the defined one) are queried.
     </para>
-   </listitem>
-   <listitem>
+    </listitem>
+    <listitem>
     <para>
-     Disk usage metrics
+      <literal>metrics</literal> (list). A list of metrics for the query.
     </para>
-   </listitem>
-   <listitem>
+    </listitem>
+    <listitem>
     <para>
-     I/O metrics
+      <literal>name</literal> (string). A name for the exported metrics.
     </para>
-   </listitem>
-   <listitem>
+    </listitem>
+    <listitem>
     <para>
-     Network metrics
+      <literal>description</literal> (string). A description of the metrics.
     </para>
-   </listitem>
-   <listitem>
+    </listitem>
+    <listitem>
     <para>
-     Top queries consuming time and memory
+      <literal>labels</literal> (list). A list of labels used to split the
+      records.
     </para>
-   </listitem>
-   <listitem>
+    </listitem>
+    <listitem>
     <para>
-     System replication metrics
+      <literal>value</literal> (string). A name of the column for the exported value (must match with one of the columns of the query).
     </para>
-   </listitem>
+    </listitem>
+    <listitem>
+    <para>
+      <literal>unit</literal> (string). Used unit for the exported value (`mb` for example).
+    </para>
+    </listitem>
+    <listitem>
+    <para>
+      <literal>type</literal> (enum{gauge}). Defines the type of the exported metric (<literal>gauge</literal> is the only available option).
+    </para>
+    </listitem>
   </itemizedlist>
-
   <para>
-   Find installation instruction in the previous link.
+    Below is an example of a metric file:
   </para>
+<screen>{
+  "SELECT TOP 10 host, LPAD(port, 5) port, SUBSTRING(REPLACE_REGEXPR('\n' IN statement_string WITH ' ' OCCURRENCE ALL), 1,30) sql_string, statement_hash sql_hash, execution_count, total_execution_time + total_preparation_time total_elapsed_time FROM sys.m_sql_plan_cache ORDER BY total_elapsed_time, execution_count DESC;":
+  {
+    "enabled": true,
+    "hana_version_range": ["1.0"]
+    "metrics": [
+      {
+        "name": "hanadb_sql_top_time_consumers",
+        "description": "Top statements time consumers. Sum of the time consumed in all executions in Microseconds",
+        "labels": ["HOST", "PORT", "SQL_STRING", "SQL_HASH"],
+        "value": "TOTAL_ELAPSED_TIME",
+        "unit": "mu",
+        "type": "gauge"
+      },
+      {
+        "name": "hanadb_sql_top_time_consumers",
+        "description": "Top statements time consumers. Number of total executions of the SQL Statement",
+        "labels": ["HOST", "PORT", "SQL_STRING", "SQL_HASH"],
+        "value": "EXECUTION_COUNT",
+        "unit": "count",
+        "type": "gauge"
+      }
+    ]
+  }
+}
+</screen>
+</sect2>
+  <sect2 xml:id="sec-sol-monit-hana-db-install">
+    <title>Installing the &sap; &hana; database exporter</title>
+      <para>
+        Use the <command>zypper install prometheus-hanadb_exporter</command> command to install the exporter
+      </para>
+      <para>
+        You can find the latest development repositories at
+        <link xlink:href="https://build.opensuse.org/package/show/network:ha-clustering:sap-deployments:devel/prometheus-hanadb_exporter">SUSE's
+        Open Build Service</link>.
+      </para>
+      <para>
+        To install the exporter from the source code, make sure you have Git and Python 3 installed on your system. Run the following commands to install the exporter with the PyHDB &sap; &hana; connector:
+      </para>
+<screen>git clone https://github.com/SUSE/hanadb_exporter
+cd hanadb_exporter # project root folder
+virtualenv virt
+source virt/bin/activate
+pip install pyhdb
+pip install .
+</screen>
+</sect2>
+  <sect2 xml:id="sec-sol-monit-hana-db-config">
+    <title>Configuring the exporter</title>
+    <para>
+      Use the following example of the <filename>config.json</filename> configuration file as a starting point.
+    </para>
+<screen>{
+  "listen_address": "0.0.0.0",
+  "exposition_port": 9668,
+  "multi_tenant": true,
+  "timeout": 30,
+  "hana": {
+    "host": "localhost",
+    "port": 30013,
+    "user": "SYSTEM",
+    "password": "PASSWORD",
+    "ssl": false,
+    "ssl_validate_cert": false
+  },
+  "logging": {
+    "config_file": "./logging_config.ini",
+    "log_file": "hanadb_exporter.log"
+  }
+}</screen>
+<para>
+Below there is a list of key configuration options.
+</para>
+    <itemizedlist>
+      <listitem>
+        <para>
+          <literal>listen_address</literal> IP address of the prometheus exporter (0.0.0.0 by default).
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          <literal>exposition_port</literal> Port through which the
+          prometheus exporter is accessible (9968 by default).
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          <literal>multi_tenant</literal> Export the metrics from
+          other tenants. This requires a connection to the system database (port 30013).
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          <literal>timeout</literal> Timeout to connect to the database. The
+          app fails if connection is not established within the specified time
+          (even in daemon mode).
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          <literal>hana.host</literal> Address of the &sap; &hana; database.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          <literal>hana.port</literal>: Port through which  the &sap; &hana;
+          database is accessible.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          <literal>hana.userkey</literal> Stored user key (see <xref linkend="sec-sol-monit-hana-db-stored-key"/>). Use this option if you don't
+          want to store the password in the configuration file. The
+          <literal>userkey</literal> and
+          <literal>user/password</literal> are mutually exclusive. If both are
+          set, <literal>hana.userkey</literal> takes priority.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          <literal>hana.user</literal> Existing user with access
+          right to the &sap; &hana; database.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          <literal>hana.password</literal> Password of an existing
+          user.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          <literal>hana.ssl</literal> Enable SSL connection (<option>false</option> by default). Only available for the <literal>dbapi</literal>
+          connector.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          <literal>hana.ssl_validate_cert</literal> Enable SSL
+          certification validation. This option is required by &hana;
+          cloud. Only available for the <literal>dbapi</literal> connector.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          <literal>hana.aws_secret_name</literal> Secret name containing the
+          username and password (see <xref linkend="sec-sol-monit-hana-db-aws-secret"/>. Use this option when &sap; &hana; database is
+          stored on AWS. <literal>aws_secret_name</literal> and
+          <literal>user/password</literal> are mutually exclusive. If both are
+          set, <literal>aws_secret_name</literal> takes priority.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          <literal>logging.config_file</literal> Python logging
+          system configuration file (by default WARN and ERROR level
+          messages are sent to the syslog).
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          <literal>logging.log_file</literal>: Logging file
+          (<filename>/var/log/hanadb_exporter.log</filename> by default)
+        </para>
+      </listitem>
+    </itemizedlist>
+    <para>
+      The logging configuration file follows the
+      <link
+      xlink:href="https://docs.python.org/3/library/logging.config.html">Python standard
+      logging system style</link>.
+    </para>
+    <para>
+      Using the default
+      <link xlink:href="./logging_config.ini">configuration
+      file</link>, it will redirect the logs to the file assigned in
+      the <link xlink:href="./config.json.example">json configuration
+      file</link> and to the syslog (only logging level up to
+      WARNING).
+    </para>
+    </sect2>
+    <sect2 xml:id="sec-sol-monit-hana-db-stored-key">
+      <title>Using the stored user key</title>
+      <para>
+        Use this option if we want to keep the database
+        secure (you can use
+        <literal>user/password</literal> with the
+        <literal>SYSTEM</literal> user for development, as it is faster to set
+        up). To use the <literal>userkey</literal> option, the
+        <literal>dbapi</literal> must be installed (usually stored in
+        <filename>/hana/shared/PRD/hdbclient/hdbcli-N.N.N.tar.gz</filename>
+        and installable with <package>pip3</package>). The key is stored in the client itself. So if you want to use a different client, you must create a new stored user key for the user running Python
+        
+        It cannot be used with a
+        different client, as the key is stored in the client itself.
+        This will raise the
+        <literal>hdbcli.dbapi.Error: (-10104, 'Invalid value for KEY')</literal>
+        error. For that a new stored user key must be created with the
+        user that is running python. For that (please, notice that the
+        <literal>hdbclient</literal> is the same as the
+        <literal>dbapi</literal> python package):
+      </para>
+<screen>/hana/shared/PRD/hdbclient/hdbuserstore set <replaceable>USER_KEY</replaceable> host:30013@SYSTEMDB hanadb_exporter pass</screen>
+    </sect2>
+    <sect2 xml:id="sec-sol-monit-hana-db-aws-secret">
+      <title>Using AWS Secrets Manager</title>
+      <para>
+        Use the AWS Secrets Manager to store the login credentials outside the configuration file when &sap; &hana; database is stored on AWS EC2 instance.
+      </para>
+      <itemizedlist>
+        <listitem>
+          <para>
+            Create a JSON
+            <link xlink:href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/manage_create-basic-secret.html">secret</link> file that contains two key-value pair. The first pair contains the
+            <literal>username</literal> key and the actual database user as the value. The second pair has <literal>password</literal> key and the actual password as the value. For example:
+          </para>
+<screen>{
+"&quot;"username&quot;: &quot;<replaceable>DATABASE_USER</replaceable>&quot;,
+&quot;password&quot;: &quot;<replaceable>DATABASE_PASSWORD</replaceable>&quot;
+}
+</screen>
+<para>
+Use the actual secret as the secret name, and pass it in the configuration file
+as a value for <literal>aws_secret_name</literal> entry.
+</para>
+</listitem>
+        <listitem>
+          <para>
+            Configure read-only access from EC2 IAM role to the secret by
+            attaching a
+            <link
+            xlink:href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html">resource-based
+            policy</link> to the secret. For example:
+          </para>
+<screen>
+{
+&quot;Version&quot; : &quot;2012-10-17&quot;,
+&quot;Statement&quot; : [
+  {
+    &quot;Effect&quot;: &quot;Allow&quot;,
+    &quot;Principal&quot;: {&quot;AWS&quot;: &quot;arn:aws:iam::123456789012:role/EC2RoleToAccessSecrets&quot;},
+    &quot;Action&quot;: &quot;secretsmanager:GetSecretValue&quot;,
+    &quot;Resource&quot;: &quot;*&quot;,
+  }
+]
+}
+</screen>
+</listitem>
+</itemizedlist>
+      <para>
+        Tips and recommendations
+      </para>
+      <itemizedlist spacing="compact">
+        <listitem>
+          <para>
+            Set <literal>SYSTEMDB</literal> as the default database for the exporter to get the tenants data.
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            Do not use the stored user key created for the backup, because the key is created using the <literal>sidadm</literal> user.
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+          Instead of the <literal>SYSTEM</literal> user, use an account limited
+          to accessing  the monitoring tables only.
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+          In case you use a user account with the monitoring role, this user must exist in all the databases (<literal>SYSTEMDB</literal> and tenants).
+          </para>
+        </listitem>
+      </itemizedlist>
+    </sect2>
+    <sect2 xml:id="create-a-new-user-with-monitoring-role">
+      <title>Create a new user with the monitoring role</title>
+      <para>
+        Run the following commands to create a user with the monitoring roles
+        (the commands must be executed in all the databases):
+      </para>
+<screen>su - prdadm
+hdbsql -u SYSTEM -p pass -d SYSTEMDB #(PRD for the tenant in this example)
+CREATE USER HANADB_EXPORTER_USER PASSWORD MyExporterPassword NO FORCE_FIRST_PASSWORD_CHANGE;
+CREATE ROLE HANADB_EXPORTER_ROLE;
+GRANT MONITORING TO HANADB_EXPORTER_ROLE;
+GRANT HANADB_EXPORTER_ROLE TO HANADB_EXPORTER_USER;
+</screen>
+    </sect2>
+  <sect2 xml:id="running-the-exporter">
+    <title>Running the exporter</title>
+    <para>
+      Start the exporter with the <command>hanadb_exporter -c config.json -m metrics.json</command> command.</para>
+    <para>
+      If the <filename>config.json</filename> configuration file is stored
+      in the <literal>/etc/hanadb_exporter</literal> directory, the exporter can be started with the following command (note that the identifier matches with the <filename>config.json</filename> file without extension):
+    </para>
+<programlisting>hanadb_exporter --identifier config</programlisting>
+</sect2>
+    <sect2 xml:id="running-as-a-daemon">
+      <title>Running as a service</title>
+      <para>
+        To run the hanadb_exporter a 
+        <literal>systemd</literal> service, install the exporter using the RPM
+        package as described in
+        <xref linkend="sec-sol-monit-hana-db-install"/>.
+      </para>
+      <para>
+        Next, create the configuration file as
+        <filename>/etc/hanadb_exporter/my-exporter.json</filename>. You can use the example file above as a starting point (the example file is also available in the
+        <filename>/usr/etc/hanadb_exporter</filename> directory).
+      </para>
+      <para>
+        You can use the example <filename>/usr/etc/hanadb_exporter/metrics.json</filename> metrics file.
+      </para>
+      <para>
+        Adjust the default logging configuration file <filename>/usr/etc/hanadb_exporter/logging_config.ini</filename>.
+      </para>
+      <para>
+        Start the exporter as a daemon. Because there are
+        multiple hanadb_exporter instances running
+        on one machine, you need to specify the name of the created configuration file, for example:
+      </para>
+<screen>&prompt.root;systemctl start prometheus-hanadb_exporter@my-exporter
+&prompt.root;systemctl status prometheus-hanadb_exporter@my-exporter
+&prompt.root;systemctl enable prometheus-hanadb_exporter@my-exporter</screen>
+    </sect2>
  </sect1>
+
+
  <sect1 xml:id="sec-sol-monit-ha-cluster-exp">
   <title>&ha; cluster exporter</title>
 
