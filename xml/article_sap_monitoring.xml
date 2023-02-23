@@ -113,8 +113,8 @@ https://suse.com/c/coming-soon-sap-landscape-monitoring-on-sles-for-sap/
  <sect1 xml:id="sec-sol-monit-hana-db-exp">
   <title>&hana; database exporter</title>
   <para>
-    Prometheus exporter written in Python, to export &sap; &hana; database
-    metrics. The project is based in the official prometheus exporter:
+    Prometheus exporter written in Python, to export &hana; database
+    metrics. The project is based on the official Prometheus exporter:
     <link
     xlink:href="https://github.com/prometheus/client_python">prometheus_client</link>.
   </para>
@@ -134,7 +134,7 @@ https://suse.com/c/coming-soon-sap-landscape-monitoring-on-sles-for-sap/
     <itemizedlist>
       <listitem>
         <para>
-          A running and reachable &sap; &hana; database (single or multi
+          A running and reachable &hana; database (single or multi
           container). It is recommended to run the exporter on the same machine
           with the &hana; database. Ideally, each database should be monitored
           by one exporter.
@@ -142,7 +142,7 @@ https://suse.com/c/coming-soon-sap-landscape-monitoring-on-sles-for-sap/
       </listitem>
       <listitem>
         <para>
-          One of the following &sap; &hana; connectors:
+          One of the following &hana; connectors:
         </para>
         <itemizedlist>
         <listitem>
@@ -186,43 +186,43 @@ https://suse.com/c/coming-soon-sap-landscape-monitoring-on-sles-for-sap/
     </listitem>
     <listitem>
     <para>
-      <literal>hana_version_range</literal> (list, optional). The &sap; &hana; database versions range where the query is available (<literal>[1.0.0]</literal> by default). If the current database version is not within the specified range, the query is not executed. If the list has only one element, all versions beyond the specified value (including the defined one) are queried.
+      <literal>hana_version_range</literal> (list, optional). The &hana; database versions range where the query is available (<literal>[1.0.0]</literal> by default). If the current database version is not within the specified range, the query is not executed. If the list has only one element, all versions beyond the specified value (including the defined one) are queried.
     </para>
     </listitem>
     <listitem>
     <para>
-      <literal>metrics</literal> (list). A list of metrics for the query.
+      <literal>metrics</literal> (list) A list of metrics for the query.
     </para>
     </listitem>
     <listitem>
     <para>
-      <literal>name</literal> (string). A name for the exported metrics.
+      <literal>name</literal> (string) A name for the exported metrics.
     </para>
     </listitem>
     <listitem>
     <para>
-      <literal>description</literal> (string). A description of the metrics.
+      <literal>description</literal> (string) A description of the metrics.
     </para>
     </listitem>
     <listitem>
     <para>
-      <literal>labels</literal> (list). A list of labels used to split the
+      <literal>labels</literal> (list) A list of labels used to split the
       records.
     </para>
     </listitem>
     <listitem>
     <para>
-      <literal>value</literal> (string). A name of the column for the exported value (must match with one of the columns of the query).
+      <literal>value</literal> (string) A name of the column for the exported value (must match with one of the columns of the query).
     </para>
     </listitem>
     <listitem>
     <para>
-      <literal>unit</literal> (string). Used unit for the exported value (`mb` for example).
+      <literal>unit</literal> (string) Used unit for the exported value (`mb` for example).
     </para>
     </listitem>
     <listitem>
     <para>
-      <literal>type</literal> (enum{gauge}). Defines the type of the exported metric (<literal>gauge</literal> is the only available option).
+      <literal>type</literal> (enum{gauge}) Defines the type of the exported metric (<literal>gauge</literal> is the only available option).
     </para>
     </listitem>
   </itemizedlist>
@@ -257,7 +257,7 @@ https://suse.com/c/coming-soon-sap-landscape-monitoring-on-sles-for-sap/
 </screen>
 </sect2>
   <sect2 xml:id="sec-sol-monit-hana-db-install">
-    <title>Installing the &sap; &hana; database exporter</title>
+    <title>Installing the &hana; database exporter</title>
       <para>
         Use the <command>zypper install prometheus-hanadb_exporter</command> command to install the exporter
       </para>
@@ -267,7 +267,7 @@ https://suse.com/c/coming-soon-sap-landscape-monitoring-on-sles-for-sap/
         Open Build Service</link>.
       </para>
       <para>
-        To install the exporter from the source code, make sure you have Git and Python 3 installed on your system. Run the following commands to install the exporter with the PyHDB &sap; &hana; connector:
+        To install the exporter from the source code, make sure you have Git and Python 3 installed on your system. Run the following commands to install the exporter with the PyHDB &hana; connector:
       </para>
 <screen>git clone https://github.com/SUSE/hanadb_exporter
 cd hanadb_exporter # project root folder
@@ -330,12 +330,12 @@ Below there is a list of key configuration options.
       </listitem>
       <listitem>
         <para>
-          <literal>hana.host</literal> Address of the &sap; &hana; database.
+          <literal>hana.host</literal> Address of the &hana; database.
         </para>
       </listitem>
       <listitem>
         <para>
-          <literal>hana.port</literal>: Port through which  the &sap; &hana;
+          <literal>hana.port</literal>: Port through which  the &hana;
           database is accessible.
         </para>
       </listitem>
@@ -351,7 +351,7 @@ Below there is a list of key configuration options.
       <listitem>
         <para>
           <literal>hana.user</literal> Existing user with access
-          right to the &sap; &hana; database.
+          right to the &hana; database.
         </para>
       </listitem>
       <listitem>
@@ -376,7 +376,7 @@ Below there is a list of key configuration options.
       <listitem>
         <para>
           <literal>hana.aws_secret_name</literal> Secret name containing the
-          username and password (see <xref linkend="sec-sol-monit-hana-db-aws-secret"/>. Use this option when &sap; &hana; database is
+          username and password (see <xref linkend="sec-sol-monit-hana-db-aws-secret"/>. Use this option when &hana; database is
           stored on AWS. <literal>aws_secret_name</literal> and
           <literal>user/password</literal> are mutually exclusive. If both are
           set, <literal>aws_secret_name</literal> takes priority.
@@ -419,13 +419,13 @@ Below there is a list of key configuration options.
         <literal>user/password</literal> with the
         <literal>SYSTEM</literal> user for development, as it is faster to set
         up). To use the <literal>userkey</literal> option, the
-        <literal>dbapi</literal> must be installed (usually stored in
+        <literal>dbapi</literal> must be installed (normally stored in
         <filename>/hana/shared/PRD/hdbclient/hdbcli-N.N.N.tar.gz</filename>
-        and installable with <package>pip3</package>). The key is stored in the client itself. So if you want to use a different client, you must create a new stored user key for the user running Python
+        and installable with <package>pip3</package>). The key is stored in the client itself. To use a different client, you must create a new stored user key for the user running Python
         
         It cannot be used with a
         different client, as the key is stored in the client itself.
-        This will raise the
+        This raises the
         <literal>hdbcli.dbapi.Error: (-10104, 'Invalid value for KEY')</literal>
         error. For that a new stored user key must be created with the
         user that is running python. For that (please, notice that the
@@ -437,7 +437,7 @@ Below there is a list of key configuration options.
     <sect2 xml:id="sec-sol-monit-hana-db-aws-secret">
       <title>Using AWS Secrets Manager</title>
       <para>
-        Use the AWS Secrets Manager to store the login credentials outside the configuration file when &sap; &hana; database is stored on AWS EC2 instance.
+        Use the AWS Secrets Manager to store the login credentials outside the configuration file when &hana; database is stored on AWS EC2 instance.
       </para>
       <itemizedlist>
         <listitem>
@@ -480,7 +480,7 @@ as a value for <literal>aws_secret_name</literal> entry.
 </listitem>
 </itemizedlist>
       <para>
-        Tips and recommendations
+        Tips and recommendations:
       </para>
       <itemizedlist spacing="compact">
         <listitem>
