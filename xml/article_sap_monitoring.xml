@@ -421,7 +421,7 @@ Below there is a list of key configuration options.
         <literal>SYSTEM</literal> user for development, as it is faster to set
         up). To use the <literal>userkey</literal> option, the
         <literal>dbapi</literal> must be installed (normally stored in
-        <filename>/hana/shared/PRD/hdbclient/hdbcli-N.N.N.tar.gz</filename>
+        <filename>/hana/shared/<replaceable>SID</replaceable>/hdbclient/hdbcli-N.N.N.tar.gz</filename>
         and installable with <package>pip3</package>). The key is stored in the client itself. To use a different client, you must create a new stored user key for the user running Python
         
         It cannot be used with a
@@ -558,6 +558,28 @@ GRANT HANADB_EXPORTER_ROLE TO HANADB_EXPORTER_USER;
 <screen>&prompt.root;systemctl start prometheus-hanadb_exporter@my-exporter
 &prompt.root;systemctl status prometheus-hanadb_exporter@my-exporter
 &prompt.root;systemctl enable prometheus-hanadb_exporter@my-exporter</screen>
+<important xml:id="note-prometheus-server-config">
+<title>Configure the Prometheus server</title>
+<para>
+The exporter only exposes a port, without pushing the data to the Prometheus server. This means that the Prometheus server must be configured to periodically pull the data from the exporter. This is done by either adding the <literal>hanadb_exporter</literal> job to the Prometheus server configuration, or by adding <literal>hanadb_exporter</literal> to an existing job. For example:
+</para>
+<screen>- job_name: hana_db
+    static_configs:
+            - targets:
+              - "<replaceable>HOSTNAME</replaceable>:<replaceable>PORT</replaceable>"</screen>
+</important>
+<important xml:id="note-firewall-config">
+<title>Configure firewall</title>
+<para>
+Use the following command to open the port for <literal>hanadb_exporter</literal>.
+</para>
+<screen>&prompt.root;firewall-cmd --zone=<replaceable>ZONE</replaceable> --add-port=<replaceable>PORT</replaceable>/tcp --permanent
+&prompt.root;firewall-cmd --reload
+&prompt.root;firewall-cmd --list-all --zone=<replaceable>ZONE</replaceable></screen>
+<para>
+Replace <replaceable>ZONE</replaceable> with the actual interface used for the exporter, and <replaceable>PORT</replaceable> with the actual port number of <literal>hanadb_exporter</literal>(default is 9968).
+</para>
+</important>
     </sect2>
  </sect1>
 
@@ -639,6 +661,9 @@ GRANT HANADB_EXPORTER_ROLE TO HANADB_EXPORTER_USER;
 
   <sect2 xml:id="sec-sol-monit-ha-cluster-exp-configure">
    <title>Configuring &ha; cluster exporter</title>
+   <para>
+   Before you proceed, make sure that the Prometheus server and the firewall is configured as described in <xref linkend="note-prometheus-server-config"/> and <xref linkend="note-firewall-config"/>
+   </para>
    <para>
     The provided default configuration is designed specifically for the latest
     version of
