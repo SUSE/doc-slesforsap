@@ -113,13 +113,8 @@ https://suse.com/c/coming-soon-sap-landscape-monitoring-on-sles-for-sap/
  <sect1 xml:id="sec-sol-monit-hana-db-exp">
   <title>&hana; database exporter</title>
   <para>
-    Prometheus exporter written in Python, to export &hana; database
-    metrics. The project is based on the official Prometheus exporter:
-    <link
-    xlink:href="https://github.com/prometheus/client_python">prometheus_client</link>.
-  </para>
-  <para>
-    The exporter can export metrics from more than one
+    &hana; database exporter makes it possible to export &hana; database
+    metrics. The tool can export metrics from more than one
     database and tenant if the <literal>multi_tenant</literal> option is
     enabled in the configuration file (enabled by default).
   </para>
@@ -134,8 +129,7 @@ https://suse.com/c/coming-soon-sap-landscape-monitoring-on-sles-for-sap/
     <itemizedlist>
       <listitem>
         <para>
-          A running and reachable &hana; database (single or multi
-          container). It is recommended to run the exporter on the same machine
+          A running and reachable &hana; database (single or multi-container). It is recommended to run the exporter on the same machine
           with the &hana; database. Ideally, each database should be monitored
           by one exporter.
         </para>
@@ -167,7 +161,7 @@ https://suse.com/c/coming-soon-sap-landscape-monitoring-on-sles-for-sap/
           <link
           xlink:href="https://help.sap.com/saphelp_nwpi711/helpdata/en/21/98c443122744efae67c0352033691d/frameset.htm">SAP
           Host agent</link>. To have access to all the monitoring metrics, make
-          sure that &sap; Host agent is installed and running.
+          sure that the &sap; Host agent is installed and running.
         </para>
       </listitem>
     </itemizedlist>
@@ -227,7 +221,7 @@ https://suse.com/c/coming-soon-sap-landscape-monitoring-on-sles-for-sap/
     </listitem>
   </itemizedlist>
   <para>
-    Below is an example of a metric file:
+    Below is an example of a metrics file:
   </para>
 <screen>{
   "SELECT TOP 10 host, LPAD(port, 5) port, SUBSTRING(REPLACE_REGEXPR('\n' IN statement_string WITH ' ' OCCURRENCE ALL), 1,30) sql_string, statement_hash sql_hash, execution_count, total_execution_time + total_preparation_time total_elapsed_time FROM sys.m_sql_plan_cache ORDER BY total_elapsed_time, execution_count DESC;":
@@ -259,7 +253,7 @@ https://suse.com/c/coming-soon-sap-landscape-monitoring-on-sles-for-sap/
   <sect2 xml:id="sec-sol-monit-hana-db-install">
     <title>Installing the &hana; database exporter</title>
       <para>
-        Use the <command>zypper install prometheus-hanadb_exporter</command> command to install the exporter
+        Use the <command>zypper install prometheus-hanadb_exporter</command> command to install the exporter.
       </para>
       <para>
         You can find the latest development repositories at
@@ -301,18 +295,18 @@ pip install .
   }
 }</screen>
 <para>
-Below there is a list of key configuration options.
+Below is a list of key configuration options.
 </para>
     <itemizedlist>
       <listitem>
         <para>
-          <literal>listen_address</literal> IP address of the prometheus exporter (0.0.0.0 by default).
+          <literal>listen_address</literal> IP address of the Prometheus exporter (0.0.0.0 by default).
         </para>
       </listitem>
       <listitem>
         <para>
           <literal>exposition_port</literal> Port through which the
-          prometheus exporter is accessible (9968 by default).
+          Prometheus exporter is accessible (9968 by default).
         </para>
       </listitem>
       <listitem>
@@ -335,13 +329,13 @@ Below there is a list of key configuration options.
       </listitem>
       <listitem>
         <para>
-          <literal>hana.port</literal>: Port through which  the &hana;
+          <literal>hana.port</literal> Port through which  the &hana;
           database is accessible.
         </para>
       </listitem>
       <listitem>
         <para>
-          <literal>hana.userkey</literal> Stored user key (see <xref linkend="sec-sol-monit-hana-db-stored-key"/>). Use this option if you don't
+          <literal>hana.userkey</literal> Stored user key (see <xref linkend="sec-sol-monit-hana-db-stored-key"/>). Use this option if you do not
           want to store the password in the configuration file. The
           <literal>userkey</literal> and
           <literal>user/password</literal> are mutually exclusive. If both are
@@ -385,13 +379,13 @@ Below there is a list of key configuration options.
       <listitem>
         <para>
           <literal>logging.config_file</literal> Python logging
-          system configuration file (by default WARN and ERROR level
+          system configuration file (by default, WARN and ERROR level
           messages are sent to the syslog).
         </para>
       </listitem>
       <listitem>
         <para>
-          <literal>logging.log_file</literal>: Logging file
+          <literal>logging.log_file</literal> Logging file
           (<filename>/var/log/hanadb_exporter.log</filename> by default)
         </para>
       </listitem>
@@ -405,7 +399,7 @@ Below there is a list of key configuration options.
     <para>
       Using the default
       <link xlink:href="./logging_config.ini">configuration
-      file</link>, it will redirect the logs to the file assigned in
+      file</link>, redirects the logs to the file assigned in
       the <link xlink:href="./config.json.example">json configuration
       file</link> and to the syslog (only logging level up to
       WARNING).
@@ -414,37 +408,30 @@ Below there is a list of key configuration options.
     <sect2 xml:id="sec-sol-monit-hana-db-stored-key">
       <title>Using the stored user key</title>
       <para>
-        Use this option if we want to keep the database
+        Use this option to keep the database
         secure (you can use
         <literal>user/password</literal> with the
         <literal>SYSTEM</literal> user for development, as it is faster to set
         up). To use the <literal>userkey</literal> option, the
         <literal>dbapi</literal> must be installed (normally stored in
         <filename>/hana/shared/<replaceable>SID</replaceable>/hdbclient/hdbcli-N.N.N.tar.gz</filename>
-        and installable with <package>pip3</package>). The key is stored in the client itself. To use a different client, you must create a new stored user key for the user running Python
-        
-        It cannot be used with a
-        different client, as the key is stored in the client itself.
-        This raises the
-        <literal>hdbcli.dbapi.Error: (-10104, 'Invalid value for KEY')</literal>
-        error. For that a new stored user key must be created with the
-        user that is running python. For that (please, notice that the
+        and installable with <package>pip3</package>). The key is stored in the client itself. To use a different client, you must create a new stored user key for the user running Python. To do that, use the following command (note that the
         <literal>hdbclient</literal> is the same as the
-        <literal>dbapi</literal> python package):
-      </para>
+        <literal>dbapi</literal> Python package):
+        </para>
 <screen>/hana/shared/PRD/hdbclient/hdbuserstore set <replaceable>USER_KEY</replaceable> host:30013@SYSTEMDB hanadb_exporter pass</screen>
     </sect2>
     <sect2 xml:id="sec-sol-monit-hana-db-aws-secret">
       <title>Using AWS Secrets Manager</title>
       <para>
-        Use the AWS Secrets Manager to store the login credentials outside the configuration file when &hana; database is stored on AWS EC2 instance.
+        Use the AWS Secrets Manager to store the login credentials outside the configuration file when the &hana; database is stored on AWS EC2 instance.
       </para>
       <itemizedlist>
         <listitem>
           <para>
             Create a JSON
-            <link xlink:href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/manage_create-basic-secret.html">secret</link> file that contains two key-value pair. The first pair contains the
-            <literal>username</literal> key and the actual database user as the value. The second pair has <literal>password</literal> key and the actual password as the value. For example:
+            <link xlink:href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/manage_create-basic-secret.html">secret</link> file that contains two key-value pairs. The first pair contains the
+            <literal>username</literal> key and the actual database user as the value. The second pair has the <literal>password</literal> key and the actual password as the value. For example:
           </para>
 <screen>{
 "&quot;"username&quot;: &quot;<replaceable>DATABASE_USER</replaceable>&quot;,
@@ -453,7 +440,7 @@ Below there is a list of key configuration options.
 </screen>
 <para>
 Use the actual secret as the secret name, and pass it in the configuration file
-as a value for <literal>aws_secret_name</literal> entry.
+as a value for the <literal>aws_secret_name</literal> entry.
 </para>
 </listitem>
         <listitem>
@@ -533,7 +520,7 @@ GRANT HANADB_EXPORTER_ROLE TO HANADB_EXPORTER_USER;
     <sect2 xml:id="running-as-a-daemon">
       <title>Running as a service</title>
       <para>
-        To run the hanadb_exporter a 
+        To run the hanadb_exporter as 
         <literal>systemd</literal> service, install the exporter using the RPM
         package as described in
         <xref linkend="sec-sol-monit-hana-db-install"/>.
@@ -661,7 +648,7 @@ Replace <replaceable>ZONE</replaceable> with the actual interface used for the e
   <sect2 xml:id="sec-sol-monit-ha-cluster-exp-configure">
    <title>Configuring &ha; cluster exporter</title>
    <para>
-   Before you proceed, make sure that the Prometheus server and the firewall is configured as described in <xref linkend="note-prometheus-server-config"/> and <xref linkend="note-firewall-config"/>
+   Before you proceed, make sure that the Prometheus server and the firewall are configured as described in <xref linkend="note-prometheus-server-config"/> and <xref linkend="note-firewall-config"/>
    </para>
    <para>
     The provided default configuration is designed specifically for the latest
