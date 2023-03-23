@@ -157,8 +157,10 @@
   <title>Offline migration</title>
 
   <para>
-   The migration paths for &sls; are identical to those for &sles4sap;. Find
-   detailed information in the &upgrade_guide; at
+   The migration paths for &sles4sap; are identical to those for &sls; with
+   <productname>Enhanced Service Pack Overlay Support</productname> (ESPOS).
+   Find detailed information in the <citetitle>&sls;</citetitle>
+   &upgrade_guide; at
    <link
    xlink:href="&dsc-sles;/html/SLES-all/cha-upgrade-paths.html"/>.
   </para>
