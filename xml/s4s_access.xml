@@ -5,7 +5,7 @@
     %entities;
 ]>
 <chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="cha-access">
- <title>Firewalling</title>
+ <title>Configuring a firewall</title>
  <info>
   <dm:docmanager xmlns:dm="urn:x-suse:ns:docmanager">
    <dm:bugtracker/>
@@ -13,8 +13,8 @@
   </dm:docmanager>
  </info>
  <para>
-  This chapter presents information about restricting access to the system
-  using firewalling and encryption and gives information about connecting to
+  This chapter provides information about restricting access to the system
+  using a firewall and encryption and gives information about connecting to
   the system remotely.
  </para>
 
@@ -32,15 +32,15 @@
    <para>
     &productname;&nbsp;15 introduces &firewalld; as the new default software
     firewall, replacing &susefirewall;. &susefirewall; has not been removed from
-    &productname;&nbsp;15 and is still part of the main repository, though
+    &productname;&nbsp;15 and is still part of the main repository, but it is
     not installed by default. If you are upgrading from a release older than
     &productname; 15, &susefirewall; will be unchanged and you must manually
     upgrade to &firewalld; (see &secguide;).
    </para>
   </note>
   <para>
-   The firewall needs to be manually configured to allow network access
-   for the following:
+   The firewall must be manually configured to allow network access
+   for the following components:
   </para>
 
   <itemizedlist>
@@ -62,9 +62,9 @@
   </para>
 
   <para>
-   &sap; applications require many open ports and port ranges in the firewall.
-   The exact numbers depend on the selected instance. For more information,
-   see the documentation provided to you by &sap;.
+   &sap; applications require multiple open ports and port ranges in the
+   firewall. The exact numbers depend on the selected instance. For more
+   information, see the documentation provided to you by &sap;.
   </para>
  </sect1>
 
@@ -97,9 +97,8 @@
      </para>
     </formalpara>
     <para>
-     If you prefer, you can configure the rule sets using the
-     configuration file at <filename>/etc/sysconfig/hana-firewall</filename>
-     instead of using &yast;.
+     Instead of using &yast;, you can configure firewall rules using the
+     configuration file at <filename>/etc/sysconfig/hana-firewall</filename>.
     </para>
    </listitem>
   </itemizedlist>
@@ -107,23 +106,15 @@
   <important>
    <title>&hana; MDC databases</title>
    <para>
-    For multi-tenant &hana; (MDC) databases, determining the port numbers that
-    need to be opened is not yet possible automatically.
-    If you are working with a multi-tenant &hana; database system, before you
-    use &yast;, run a script on the command line to create a new
-    service definition:
+    For multi-tenant &hana; (MDC) databases, determining automatically the port
+    numbers that need to be opened is not yet possible. If you are working with
+    a multi-tenant &hana; database system, run a script to
+    create a new service definition before using &yast;:
    </para>
 <screen>&prompt.root;<command>cd /etc/hana-firewall.d</command>
 &prompt.root;<command>hana-firewall define-new-hana-service</command></screen>
    <para>
-    You need to switch to the directory
-    <filename>/etc/hana-firewall.d</filename>,
-    otherwise the rule file for the new service will be created in a place
-    where it cannot be used.
-   </para>
-   <para>
-    The script will ask several questions: Importantly, it will ask for
-    TCP and UDP port ranges that need to be opened.
+    The script prompts you to answer a series of questions, including TCP and UDP port ranges that need to be opened.
    </para>
   </important>
 
@@ -138,17 +129,6 @@
 
   <procedure>
    <title>Using &hana-fw;</title>
-   <remark>toms 2019-05-28: This needs to be reworked. According
-   to Sören:
-   * There is no proposal step anymore [...] => fixed
-   * Allowing Remote Shell Access (SSH) is not part of HANA Firewall anymore. => fixed
-   * It is not possible to choose network interfaces anymore.
-     Also it is not called "Allowed Services". => comment
-   * Adding services have to be done via command line (hana-firewall
-     define-new-hana-service).
-   * There is no integration in YaST.
-   * The screenshot is wrong.
-   </remark>
    <step>
     <para>
      Make sure the &hana; databases for which you want to configure the
@@ -160,28 +140,18 @@
      To open the appropriate &yast; module, select
      <menuchoice><guimenu>Applications</guimenu><guimenu>YaST</guimenu>
      </menuchoice>, <menuchoice><guimenu>Security and Users</guimenu>
-     <guimenu>SAP HANA Firewall</guimenu></menuchoice>.
+     <guimenu>Configure system firewall for SAP HANA</guimenu></menuchoice>.
     </para>
    </step>
    <step>
     <para>
      Under <guimenu>Global Options</guimenu>, activate
-     <guimenu>Enable Firewall</guimenu>. Additionally, decide whether to
-     <guimenu>Allow Remote Shell Access (SSH)</guimenu>.
-    </para>
-   </step>
-   <step xml:id="st-hana-firewall-network">
-    <remark>toms 2019-06-12: this step needs to be removed/replaced?</remark>
-    <para>
-     Choose a network interface under <guimenu>Allowed Services on Network
-     Interface</guimenu>.
+     <guimenu>Enable and reload firewalld</guimenu>.
     </para>
    </step>
    <step>
     <para>
-     Allow network services by selecting them in the list box on the left and
-     clicking <guimenu>→</guimenu>. Remove services by selecting them in the
-     list box on the right and clicking <guimenu>←</guimenu>.
+    Select the desired zone from the <guimenu>Zone</guimenu> drop-down list, and add the required services using the right arrow button.
     </para>
     <para>
      To add services other than the preconfigured ones, use the
@@ -193,25 +163,6 @@
      <link xlink:href="https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing"/>.
      To find out which services are available on your system, use
      <command>getent services</command>.
-    </para>
-    <informalfigure>
-     <mediaobject>
-      <imageobject role="html">
-       <imagedata fileref="s4s-hana-firewall.png"/>
-      </imageobject>
-      <imageobject role="fo">
-       <imagedata fileref="s4s-hana-firewall.png" width="73%"/>
-      </imageobject>
-      <textobject role="description">
-       <phrase>&hana-fw; screenshot</phrase>
-      </textobject>
-     </mediaobject>
-    </informalfigure>
-   </step>
-   <step>
-    <para>
-     Repeat from <xref linkend="st-hana-firewall-network"/> for all
-     network interfaces.
     </para>
    </step>
    <step>
