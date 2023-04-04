@@ -248,15 +248,12 @@
      <itemizedlist>
       <listitem>
        <para>
-        General explanation:
-        <citetitle>&deploy;, Part
-         <quote>Updating and Upgrading &sle;</quote>, Chapter <quote>Life Cycle
-          and Support</quote></citetitle> (&docaddress;)
+        Product Lifecycle Support Policies: <link xlink:href="https://www.suse.com/support/policy-products/"></link>
        </para>
       </listitem>
       <listitem>
        <para>
-        Exact dates: <link xlink:href="https://www.suse.com/lifecycle/"/>
+        Product Support Lifecycle Lifecycle Dates by Product: <link xlink:href="https://www.suse.com/lifecycle/"/>
        </para>
       </listitem>
      </itemizedlist>
