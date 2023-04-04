@@ -208,6 +208,4 @@
    For more information about &ph;, see <xref linkend="sec-s4s-packagehub"/>.
   </para>
  </sect1>
-
-  <xi:include condition="noquick" href="common_intro_support.xml"/>
 </chapter>
