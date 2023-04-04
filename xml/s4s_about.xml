@@ -237,9 +237,9 @@
       testing before a migration under less restrictive time constraints.
      </para>
      <para>
-      The last service pack of a &sles4sap; major release has a separate lifecyle
-      without ESPOS as there is no overlap to the next service pack. Instead, LTSS
-      is offerend for this last service pack at an additional cost.
+      The last service pack of a &sles4sap; major release has a separate
+      lifecycle without ESPOS as there is no overlap to the next service pack.
+      Instead, LTSS is offered for this last service pack at an additional cost.
      </para>
      <para>
       For more information, refer to the following resources:
@@ -252,7 +252,7 @@
       </listitem>
       <listitem>
        <para>
-        Product Support Lifecycle Lifecycle Dates by Product: <link xlink:href="https://www.suse.com/lifecycle/"/>
+        Lifecycle Dates by Product: <link xlink:href="https://www.suse.com/lifecycle/"/>
        </para>
       </listitem>
       <listitem>
@@ -285,9 +285,9 @@
    </varlistentry>
   </variablelist>
   <important>
-   <title>Life Cycle and Support for Modules and Extensions</title>
+   <title>Lifecycle and Support for Modules and Extensions</title>
    <para>
-    Modules and extensions have a different life cycle than &s4sa; and &suse;
+    Modules and extensions have a different lifecycle than &s4sa; and &suse;
     provides different support offerings for them:
    </para>
    <itemizedlist>
@@ -298,7 +298,7 @@
      <itemizedlist>
       <listitem>
        <formalpara>
-        <title>Life Cycle</title>
+        <title>Lifecycle</title>
         <para>
          Varies depending on the module.
         </para>
@@ -323,7 +323,7 @@
      <itemizedlist>
       <listitem>
        <formalpara>
-        <title>Life Cycle</title>
+        <title>Lifecycle</title>
         <para>
          Releases are usually coordinated with &productname;.
         </para>
@@ -348,7 +348,7 @@
      <itemizedlist>
       <listitem>
        <formalpara>
-        <title>Life Cycle</title>
+        <title>Lifecycle</title>
         <para>
          Releases are usually coordinated with &productname;.
         </para>
