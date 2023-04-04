@@ -237,9 +237,9 @@
       testing before a migration under less restrictive time constraints.
      </para>
      <para>
-      The last SP of a &sles4sap; major release has a separate lifecyle without
-      ESPOS as there is no overlap to the next service pack. Instead, LTSS is
-      offerend for this last service pack at an additional cost. With LTSS, you
+      The last service pack of a &sles4sap; major release has a separate lifecyle
+      without ESPOS as there is no overlap to the next service pack. Instead, LTSS
+      is offerend for this last service pack at an additional cost. With LTSS, you
       receive support for a particular service pack after the ESPOS period ends.
      </para>
      <itemizedlist>
