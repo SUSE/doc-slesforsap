@@ -387,11 +387,10 @@
     <listitem>
      <para>
       Subscriptions for &sles4sap; include Extended Service Pack Overlap
-      Support, which extends the overlap between the support periods of two
+      Support (ESPOS). It extends the overlap between the support periods of two
       consecutive service packs by three years. During this period, you
       receive support and all relevant maintenance updates under the terms of
-      Long Term Service Pack Support (LTSS). This feature is only available
-      with &sles4sap;.
+      Long Term Service Pack Support (LTSS).
      </para>
      <para>
       Extended Service Pack Overlap Support allows you to perform service pack
@@ -400,25 +399,27 @@
       testing before a migration under less restrictive time constraints.
      </para>
      <para>
-      At an additional cost, &suse; also offers Long Term Service Pack Support
-      (LTSS). With LTSS, you receive support for a particular service pack
-      after the ESPOS period ends. Since &sles4sap; includes one and a half
-      (1½) years of general support and three years of ESPOS for each service
-      pack, LTSS may only be offered for the last service pack. For more
-      information about the life cycle of &suse; products, see:
+      The last service pack of a &sles4sap; major release has a separate lifecyle
+      without ESPOS as there is no overlap to the next service pack. Instead, LTSS
+      is offerend for this last service pack at an additional cost.
+     </para>
+     <para>
+      For more information, refer to the following resources:
      </para>
      <itemizedlist>
       <listitem>
        <para>
-        General explanation:
-        <citetitle>&deploy;, Part
-        <quote>Updating and Upgrading &sle;</quote>, Chapter <quote>Life Cycle
-        and Support</quote></citetitle> (&docaddress;)
+        Product Lifecycle Support Policies: <link xlink:href="https://www.suse.com/support/policy-products/"></link>
        </para>
       </listitem>
       <listitem>
        <para>
-        Exact dates: <link xlink:href="https://www.suse.com/lifecycle/"/>
+        Product Support Lifecycle Lifecycle Dates by Product: <link xlink:href="https://www.suse.com/lifecycle/"/>
+       </para>
+      </listitem>
+      <listitem>
+       <para>
+        Long Term Service Pack Support: <link xlink:href="https://www.suse.com/products/long-term-service-pack-support/"></link>
        </para>
       </listitem>
      </itemizedlist>
@@ -430,17 +431,17 @@
     <listitem>
      <para>
       Subscriptions for &sles4sap; include &sls;
-      Priority Support for &sap; Applications, which offers technical support for
-      &sles4sap; directly from &sap;. The joint support infrastructure,
-      provided by support engineers from &suse; Technical Support and &sap;, is
+      Priority Support for &sap; Applications. It offers technical support for
+      &sles4sap; directly from &sap;. The joint support infrastructure is
+      provided by support engineers from &suse; Technical Support and &sap;. It is
       based upon &sap; Resolve and offers seamless communication
       with both &sap; and &suse;. This <quote>One Face to the Customer</quote>
       support model reduces complexity and lowers the total cost of ownership.
      </para>
      <para>
       For more information, see <citetitle>SAP Note 1056161: SUSE
-      Priority Support for SAP Applications</citetitle> (<link
-      xlink:href="&sapnoteaddress;1056161"/>).
+       Priority Support for SAP Applications</citetitle> (<link
+        xlink:href="&sapnoteaddress;1056161"/>).
      </para>
     </listitem>
    </varlistentry>
