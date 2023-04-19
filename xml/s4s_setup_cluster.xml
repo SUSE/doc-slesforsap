@@ -546,10 +546,8 @@
           tables</guimenu> will increase memory usage.
          </para>
          <para>
-          For information about the necessary global allocation limit, see
-          documentation provided to you by &sap; such as <citetitle>How to
-          Perform System Replication for SAP HANA</citetitle> at
-          <link xlink:href="https://archive.sap.com/documents/docs/DOC-47702"/>.
+          For information about the necessary global allocation limit, refer to
+          the documentation provided by &sap;.
          </para>
         </listitem>
        </itemizedlist>
