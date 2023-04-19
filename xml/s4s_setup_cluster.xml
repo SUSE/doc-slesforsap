@@ -146,14 +146,12 @@
    </listitem>
    <listitem>
     <para>
-     <emphasis>Cost-optimized scenario only:</emphasis> For the
-     non-production &hana; instance, you have created an &hana; Secure User
-     Store key <literal>QASSAPDBCTRL</literal> for monitoring purposes. For
-     more information, see <citetitle>SAP HANA SR Cost Optimized Scenario,
-     Chapter <quote>Installing the SAP HANA Databases on both cluster
-     nodes</quote>, Section <quote>Postinstallation configuration</quote>,
-     Section <quote>Install the non-productive SAP HANA database
-     (QAS)</quote></citetitle> at &reslibrary;.
+     <emphasis>Cost-optimized scenario only:</emphasis> For the non-production
+     &hana; instance, you have created an &hana; Secure User Store key
+     <literal>QASSAPDBCTRL</literal> for monitoring purposes. For more
+     information, refer to the <citetitle>SAP HANA System Replication Scale-Up -
+     Cost Optimized Scenario</citetitle> document at <link
+     xlink:href="https://documentation.suse.com/sles-sap/"></link>.
     </para>
    </listitem>
   </itemizedlist>
