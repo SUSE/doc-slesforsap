@@ -56,7 +56,7 @@
    <para>
     This is necessary because the installer for Oracle databases queries
     for the existence of certain files, not all of which are included in
-    an &s4sa; installation.
+    a &s4sa; installation.
    </para>
    <para condition="noquick">
     For more information about converting, see
@@ -478,7 +478,7 @@
       Taken from art_opensuse_install_quick.xml in
       sect3[@xml:id="sec-opensuse-installquick-root"]
      -->
-     In case you want to enable password-less authentication via SSH
+     If you want to enable passwordless authentication via SSH
      login, you can import a key via <guimenu>Import Public SSH
      Key</guimenu>. If you want to completely disable &rootuser; login via
      password, upload a key only and do not provide a root password. A login
@@ -668,7 +668,7 @@
 
 
  <sect1 condition="noquick" xml:id="sec-convert-sles">
-  <title>Converting an &slsa; installation to an &s4sa; installation</title>
+  <title>Converting an &slsa; installation to a &s4sa; installation</title>
   <para>
    To convert an installation of &sls; &productnumber; or &jeos;
    &productnumber; to an installation of &s4sa;, use the script
