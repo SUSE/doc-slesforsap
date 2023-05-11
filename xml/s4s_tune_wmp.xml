@@ -44,7 +44,7 @@
   <title>Architecture</title>
 
   <para>
-   WMP relies on three components:
+   WMP relies on two components:
   </para>
 
   <variablelist>
@@ -148,7 +148,6 @@
      <para>
       Stop all &sap; instances and the &sap; Host Agent.
      </para>
-<screen>&prompt.root;<command>systemctl</command> stop sapinit</screen>
      <para>
       The service can be enabled, but all &sap; processes need to be
       terminated.
@@ -198,10 +197,9 @@
       <varname>MemoryLow</varname>.
      </para>
      <para>
-      The <package>sapwmp</package> package includes the &systemd;
-      configuration <systemitem>SAP.slice</systemitem> which creates the cgroup
-      of the same name for the SAP instances. <varname>MemoryLow</varname> is
-      the &systemd; equivalent of the cgroup parameter
+      <systemitem>SAP.slice</systemitem> s the name of the cgroup which contains
+      the SAP processes. <varname>MemoryLow</varname> is the &systemd;
+      equivalent of the cgroup parameter
       <varname>memory.low</varname> mentioned in the introduction. The value
       for <varname>MemoryLow</varname> depends on the type of the &sap;
       application and the workload.
@@ -221,9 +219,7 @@
        <listitem>
         <para>
          For the Application Server, the sizing for the workload should
-         indicate the value for <varname>MemoryLow</varname>. The
-         <package>sapwmp</package> package contains a monitoring part which
-         can be useful to determine <varname>MemoryLow</varname>.
+         indicate the value for <varname>MemoryLow</varname>.
         </para>
        </listitem>
       </varlistentry>
@@ -317,38 +313,6 @@ MemoryLow=18487889920    &lt;- Should be your chosen value (always in bytes)!
    </procedure>
   </sect2>
  </sect1>
- <sect1 xml:id="sec-memory-protection-configuration">
-  <title>Configuring &wmp;</title>
-
-  <para>
-   To configure WMP, edit <filename>/etc/sapwmp.conf</filename>:
-  </para>
-
-<screen># NOTE: Local changes may be reverted after update of WMP package. Check for
-#      .rpmsave file to restore &amp; merge changes.
-
-## Description: Slice unit name where workload is put into
-## Type:        string
-## Default:     "SAP.slice"
-DEFAULT_SLICE="SAP.slice"
-
-## Description: Comma-separated list of command names to which capture is
-##              applied (matching against /proc/$PID/stat)
-## Type:        string
-## Default:     sapstart
-PARENT_COMMANDS=sapstart</screen>
-
-  <para>
-   After any change, restart all &sap; instances.
-  </para>
-
-  <warning>
-   <para>
-    Altering <filename>/etc/sapwmp.conf</filename> should not be necessary. Do
-    not do it until you know exactly what you are doing!
-   </para>
-  </warning>
- </sect1>
  <sect1 xml:id="sec-memory-protection-operation-change-the-value-of-memorylow">
   <title>Changing the value of MemoryLow</title>
 
@@ -377,107 +341,6 @@ PARENT_COMMANDS=sapstart</screen>
 <screen>&prompt.root;<command>systemctl</command> show -p MemoryCurrent SAP.slice</screen>
   </important>
   </sect1>
- <sect1 xml:id="sec-sap-systemd-wmp">
-  <title>Systems running only &systemd;-based instances</title>
-
-  <note>
-   <para>
-    SUSE's HA cluster solutions are supported for fully &systemd;-based SAP
-    systems.
-   </para>
-  </note>
-
-  <para>
-   An SAP system consisting of &systemd;-based instances can only rely on
-   cgroup2 for memory protection.
-  </para>
-
-  <para>
-   The instances are placed into a dedicated cgroup (default is
-   <systemitem class="service">SAP.slice</systemitem>) by the SAP Start
-   Service. Therefore it is only necessary to switch to the unified cgroup2
-   hierarchy and set <option>MemoryLow=</option> correctly.
-  </para>
-
-  <para>
-   To configure the memory protection for a system consisting of only
-   &systemd;-based SAP instances, perform the following steps:
-  </para>
-
-  <itemizedlist>
-   <listitem>
-    <para>
-     Stop all SAP instances and the SAP Host Agent.
-    </para>
-   </listitem>
-   <listitem>
-    <para>
-     Switch to the unified cgroup hierarchy, rewrite the boot loader (step 4
-     and 5 in <xref linkend="sec-memory-protection-setup-preparation" />).
-    </para>
-   </listitem>
-   <listitem>
-    <para>
-     Set <option>MemoryLow=</option> for
-     <systemitem class="service">SAP.slice</systemitem> (step 6 in
-     <xref linkend="sec-memory-protection-setup-preparation" />).
-    </para>
-   </listitem>
-   <listitem>
-    <para>
-     Set <option>MemoryLow=infinity</option> for
-     <systemitem class="service">saphostagent.service</systemitem> and for the
-     services of all SAP instances.
-    </para>
-   </listitem>
-   <listitem>
-    <para>
-     Reboot the system.
-    </para>
-   </listitem>
-  </itemizedlist>
-
-  <para>
-   The following example demonstrates a &systemd;-based environment. The SAP
-   Host Agent and all instances are in their cgroups under
-   <systemitem class="service">SAP.slice</systemitem>.
-   <option>MemoryLow=</option> for
-   <systemitem class="service">SAP.slice</systemitem> has been set as well as
-   <option>MemoryLow=infinity</option> for all the cgroups below.
-  </para>
-
-<screen>&prompt.user; systemd-cgls
-Control group /:
--.slice
-├─SAP.slice 
-│ ├─SAPNW1_00.service 
-│ │ ├─5522 sapstart pf=/usr/sap/NW1/SYS/profile/NW1_D00_systemdproj
-│ │ ├─7824 dw.sapNW1_D00 pf=/usr/sap/NW1/SYS/profile/NW1_D00_systemdproj
-│ │ ├─7825 ig.sapNW1_D00 -mode=profile pf=/usr/sap/NW1/SYS/profile/NW1_D00_systemdproj
-...
-│ ├─SAPNW1_01.service 
-│ │ ├─ 887 /usr/sap/NW1/ASCS01/exe/sapstartsrv pf=/usr/sap/NW1/SYS/profile/NW1_ASCS01_systemdproj
-│ │ ├─2838 sapstart pf=/usr/sap/NW1/SYS/profile/NW1_ASCS01_systemdproj
-│ │ ├─2895 ms.sapNW1_ASCS01 pf=/usr/sap/NW1/SYS/profile/NW1_ASCS01_systemdproj
-│ │ └─2896 en.sapNW1_ASCS01 pf=/usr/sap/NW1/SYS/profile/NW1_ASCS01_systemdproj
-│ └─saphostagent.service 
-│   ├─ 900 /usr/sap/hostctrl/exe/saphostexec pf=/usr/sap/hostctrl/exe/host_profile -nodaemon -trace
-│   ├─ 984 /usr/sap/hostctrl/exe/sapstartsrv pf=/usr/sap/hostctrl/exe/host_profile
-│   └─2428 /usr/sap/hostctrl/exe/saposcol -l -w60 pf=/usr/sap/hostctrl/exe/host_profile
-...
-
-&prompt.user; systemctl show -p MemoryLow SAP.slice
-MemoryLow=24584065024
-
-&prompt.user; systemctl show -p MemoryLow wmp-rece5b7fa372e4619a9623e120aa23a23.scope 
-MemoryLow=infinity
-
-&prompt.user; systemctl show -p MemoryLow SAPNW1_01.service 
-MemoryLow=infinity
-
-&prompt.user; systemctl show -p MemoryLow saphostagent.service 
-MemoryLow=infinity</screen>
- </sect1>
  <sect1 xml:id="sec-sapwmp-migrate">
   <title>Migration from &wmp; using <package>sapwmp</package> (SLES for &sles4sap; 15 SP4 and
   earlier)</title>
@@ -488,7 +351,7 @@ MemoryLow=infinity</screen>
     <title>Migration procedure</title>
     <step>
     <para>
-      Switch to a &systemd;-enabled &sap;. For more info, refer to <link
+      Switch to a &systemd;-enabled &sap; system. For more info, refer to <link
       xlink:href="https://launchpad.support.sap.com/%3C/mark%3E/notes/3189534">139184
       - Linux: systemd integration for sapstartsrv and SAP Host Agent and
       3189534 - Linux: systemd integration for sapstartsrv and SAP HANA</link>.
