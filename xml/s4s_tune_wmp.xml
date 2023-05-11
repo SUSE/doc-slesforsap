@@ -44,7 +44,7 @@
   <title>Architecture</title>
 
   <para>
-   WMP relies on two components:
+   &wmp; relies on two components:
   </para>
 
   <variablelist>
@@ -59,7 +59,7 @@
       situation.
      </para>
      <para>
-      WMP uses <parameter>memory.low</parameter> to prevent memory from SAP
+      &wmp; uses <parameter>memory.low</parameter> to prevent memory from SAP
       processes from being paged or swapped out to disk. Apart from the memory
       controller, cgroup1 controllers are still available, but are not mounted
       any more.
@@ -71,9 +71,7 @@
     <listitem>
      <para>
       &systemd; provides the infrastructure to create and maintain the cgroup
-      hierarchy and allows the configuration of cgroup parameters. WMP ships
-      &systemd; configuration files to allow easy configuration of
-      <parameter>memory.low</parameter> via &systemd; methods.
+      hierarchy and allows the configuration of cgroup parameters.
      </para>
     </listitem>
    </varlistentry>
@@ -83,7 +81,7 @@
   <title>Support for &wmp;</title>
 
   <para>
-   WMP is supported for &productname; &productnumber; on &x86-64; and &power;
+   &wmp; is supported for &productname; &productnumber; on &x86-64; and &power;
    for one or multiple &sap; systems on one host, such as App Server (&netweaver;, &s4h;). &suse; &ha; cluster solutions are supported.
   </para>
 
@@ -95,29 +93,29 @@
   </para>
 
   <important>
-   <title>Restrictions of WMP</title>
+   <title>Restrictions of &wmp;</title>
    <para>
-    Using WMP comes with benefits, but you should be aware of certain
+    Using &wmp; comes with benefits, but you should be aware of certain
     restrictions:
    </para>
    <itemizedlist>
     <listitem>
      <para>
-      WMP cannot protect against memory pressure inside the dedicated cgroup.
+      &wmp; cannot protect against memory pressure inside the dedicated cgroup.
      </para>
     </listitem>
     <listitem>
      <para>
-      WMP cannot protect &sap; systems or their instances from each other. All
+      &wmp; cannot protect &sap; systems or their instances from each other. All
       &sap; processes share the same memory limit. If you have multiple &sap;
-      systems (for example, &netweaver; and &s4h;), WMP cannot shield one &sap;
+      systems (for example, &netweaver; and &s4h;), &wmp; cannot shield one &sap;
       application from the other.
      </para>
     </listitem>
    </itemizedlist>
   </important>
   <para>
-    To use Workload Memory Protection, the &sap; system must use &systemd;.
+    To use &wmp;, the &sap; system must use &systemd;.
     Details about the &systemd; integration can be found in <link
     xlink:href="https://launchpad.support.sap.com/%3Cmark%3E/notes/3139184">SAP
     Notes: 139184 - Linux: systemd integration for sapstartsrv</link> and <link
@@ -170,7 +168,7 @@
       be provided.
      </para>
      <para>
-      The parameter <varname>swapaccount=1</varname> is not needed for WMP to
+      The parameter <varname>swapaccount=1</varname> is not needed for &wmp; to
       work, but it aids the analysis in support cases to show the amount of
       swapped out memory for each cgroup.
      </para>
@@ -197,8 +195,8 @@
       <varname>MemoryLow</varname>.
      </para>
      <para>
-      <systemitem>SAP.slice</systemitem> s the name of the cgroup which contains
-      the SAP processes. <varname>MemoryLow</varname> is the &systemd;
+      <systemitem>SAP.slice</systemitem> is the name of the cgroup that
+      contains the SAP processes. <varname>MemoryLow</varname> is the &systemd;
       equivalent of the cgroup parameter
       <varname>memory.low</varname> mentioned in the introduction. The value
       for <varname>MemoryLow</varname> depends on the type of the &sap;
