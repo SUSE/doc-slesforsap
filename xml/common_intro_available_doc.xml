@@ -42,8 +42,6 @@
       version of the documentation.
      </para>
     </note>
-   </listitem>
-   <listitem condition="quick">
     <para>
      This is an abridged version of the <citetitle>&sles4sap; Guide</citetitle>.
      For the latest version of the full <citetitle>&sles4sap; Guide</citetitle>,
