@@ -357,7 +357,7 @@ MemoryLow=18487889920    &lt;- Should be your chosen value (always in bytes)!
     </step>
     <step>
     <para>
-      Remove the lines calling <option>sapwmp-capture</option> from all instance profiles (for example: <command>Execute_20 = local /usr/lib/sapwmp/sapwmp-capture -a</command>. All &sap; services require restart after the change.
+      Remove the lines calling <option>sapwmp-capture</option> from all instance profiles (for example: <command>Execute_20 = local /usr/lib/sapwmp/sapwmp-capture -a</command>. All &sap; services require a restart after the change.
     </para>
     </step>
     <step>
