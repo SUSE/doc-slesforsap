@@ -238,7 +238,7 @@
      </para>
      <para>
       The last service pack of a &sles4sap; major release has a separate
-      lifecycle without ESPOS as there is no overlap to the next service pack.
+      lifecycle without ESPOS as there is no overlap with the next service pack.
       Instead, LTSS is offered for this last service pack at an additional cost.
      </para>
      <para>
@@ -287,7 +287,7 @@
   <important>
    <title>Lifecycle and Support for Modules and Extensions</title>
    <para>
-    Modules and extensions have a different lifecycle than &s4sa; and &suse;
+    Modules and extensions have a different lifecycle than &s4sa;, and &suse;
     provides different support offerings for them:
    </para>
    <itemizedlist>
