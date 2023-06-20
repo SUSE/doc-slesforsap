@@ -738,7 +738,7 @@
       only performs migration of repositories inside the operating system.
     </para>
     <para>
-      To perform migration, you must follow image migration guidelines by your
+      To perform migration, you must follow image migration guidelines with your
       cloud solution provider.
     </para>
     </warning>
