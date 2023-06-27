@@ -179,7 +179,7 @@
      </para>
 <screen>&prompt.sudo;<command>grub2-mkconfig</command> -o /boot/grub2/grub.cfg</screen>
      <para>
-      After reboot (which is perfromed later), the cgroup hierarchy is switched to v2
+      After reboot (which is performed later), the cgroup hierarchy is switched to v2
       (unified hierarchy) only.
      </para>
     </step>
