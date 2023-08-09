@@ -1,0 +1,620 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" xml:base="s4s_setup_cluster.xml" version="5.0" xml:id="cha-cluster">
+ <title>SAP HANAクラスタの設定</title>
+ <info>
+  <dm:docmanager xmlns:dm="urn:x-suse:ns:docmanager">
+   <dm:bugtracker/>
+   <dm:translation>yes</dm:translation>
+  </dm:docmanager>
+ </info>
+ <para>
+  YaSTウィザードを使用して、SAP HANAシステムレプリケーションを含むベストプラクティスに従って、SAP HANAまたはSAP S/4HANAデータベースサーバクラスタを設定することができます。セットアップオプションの概要は、<xref linkend="sec-hana-replicate"/>を参照してください。
+ </para>
+ <para>
+  管理者はSAP HANA-SRウィザードを使用して、通常はオンプレミス展開で、モジュールを無人で実行できるようになりました。さらに、AzureでSAP HANAクラスタを設定できるようになりました。YaSTモジュールはAzureで実行されている場合にこれを自動的に認識し、Pacemakerに必要な追加のリソースを設定します。
+ </para>
+
+ <para>
+  SUSE Linux Enterprise Server for SAP Applicationsリソースライブラリ(<link xlink:href="https://www.suse.com/products/sles-for-sap/resource-library/"/>)の次の「<emphasis>ベストプラクティス</emphasis>」には、セットアップ手順が記載されています。
+ </para>
+ <itemizedlist>
+  <listitem>
+   <formalpara>
+    <title>パフォーマンス最適化シナリオおよび多層/チェーンシナリオ:</title>
+    <para>
+     <citetitle>Setting up an SAP HANA SR Performance Optimized
+     Infrastructure</citetitle>
+    </para>
+   </formalpara>
+   <para>
+   </para>
+  </listitem>
+  <listitem>
+   <formalpara>
+    <title>コスト最適化シナリオ:</title>
+    <para>
+     <citetitle>Setting up an SAP HANA SR Cost Optimized
+     Infrastructure</citetitle>
+    </para>
+   </formalpara>
+  </listitem>
+ </itemizedlist>
+ <important>
+  <title>ウィザードは初期設定にのみ使用可能</title>
+  <para>
+   以下で説明するYaSTウィザードは、初期クラスタ設定にのみ使用できます。
+  </para>
+  <para>
+   クラスタを再設定するには、別のYaSTモジュール<guimenu>クラスタ</guimenu>(パッケージ <package>yast2-cluster</package>yastから使用可能)を使用します。その使用法の詳細については、<citetitle><citetitle>Administration Guide</citetitle>, Part
+   <quote>Installation, Setup and Upgrade</quote>, Chapter <quote>Using the
+   YaST Cluster Module</quote></citetitle>(<link xlink:href="https://documentation.suse.com/sle-ha-15"/>)を参照してください。
+  </para>
+ </important>
+
+ <sect1 xml:id="sec-hana-cluster-prerequisite">
+  <title>前提条件</title>
+  <para>
+   次の手順には前提条件があります。
+  </para>
+  <itemizedlist>
+   <listitem>
+    <para>
+     SAPインストールウィザードまたはSAP HANA Application Lifecycle Managementによって作成されたSAP HANAインストールを両方に備えている2台のマシン。両方のマシンが同じL2ネットワーク(サブネット)上にある必要があります。
+    </para>
+    <para>
+     多層/チェーンシナリオの場合、第3のマシンが他の場所にもある必要があります。
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     マシンは高可用性クラスタとしてまだ設定されていません。
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     <phrase role="productname">openSSH</phrase>は両方のマシン上で実行されており、ノードはSSHを介して相互接続されています。ただし、まだ実行されていない場合、ウィザードはSSHキー交換自体を実行します。
+    </para>
+    <para>
+     SSHに関する詳細については、<citetitle><citetitle>Security and Hardening Guide</citetitle>, Part
+     <quote>Network Security</quote>, Chapter <quote>SSH: Secure Network
+     Operations</quote></citetitle>(<link xlink:href="https://documentation.suse.com/sles-15"/>)を参照してください。
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     SBDの同じパス下の両方のノードで使用可能なディスクデバイス。ホストベースのRAID、cLVM2を使用したり、DRBDインスタンスに配置したりしないでください。デバイスは、100MBなどの小さなサイズにすることができます。
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     次のいずれかを作成しています。
+    </para>
+    <itemizedlist>
+     <listitem>
+      <para>
+       プライマリノードのSAP HANAセキュアユーザストアのキー
+      </para>
+     </listitem>
+     <listitem>
+      <para>
+       プライマリノードでのSAP HANAの初期バックアップ
+      </para>
+     </listitem>
+    </itemizedlist>
+   </listitem>
+   <listitem>
+    <para>
+     パッケージ<package>yast2-sap-ha</package>は、プライマリノードとセカンダリノードの両方にインストールされます。
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     HANA-Firewallは、関連するすべてのネットワークインタフェース上でルール<option>HANA_HIGH_AVAILABILITY</option>および<option>HANA_SYSTEM_REPLICATION</option>に基づいて両方のコンピュータに設定されます。
+    </para>
+    <para>
+     HANA-Firewallの設定方法については、<xref linkend="sec-configure-firewall-hana"/>を参照してください。
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     「<emphasis>コスト最適化シナリオのみ</emphasis>」: セカンダリノードには、2番目のSAP HANAがインストールされています。データベースは実行されている可能性がありますが、ウィザードによって自動的に停止されます。
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     「コスト最適化シナリオのみ」: 非運用環境のSAP HANAインスタンスの場合、モニタリング用にSAP HANAセキュアユーザストアキー<literal>QASSAPDBCTRL</literal>を作成しています。<emphasis></emphasis>詳細については、『<citetitle>SAP HANA System Replication Scale-Up -
+     Cost Optimized Scenario</citetitle>』ドキュメント(<link xlink:href="https://documentation.suse.com/sles-sap/"/>)を参照してください。
+    </para>
+   </listitem>
+  </itemizedlist>
+ </sect1>
+ <sect1 xml:id="sec-hana-cluster-wizard">
+  <title>セットアップ</title>
+  <procedure xml:id="pro-hana-cluster">
+   <para>
+    次の手順はプライマリノード(<quote>マスタ</quote>とも呼ばれる)で実行する必要があります。続行する前に、<xref linkend="sec-hana-cluster-prerequisite"/>に一覧表示されている前提条件が満たされていることを確認してください。
+   </para>
+   <step>
+    <para>
+     YaSTコントロールセンターを開きます。コントロールセンターで、<guimenu>高可用性</guimenu>カテゴリの<guimenu>HA Setup for SAP Products (SAP製品のHAセットアップ)</guimenu>をクリックします。
+    </para>
+   </step>
+   <step>
+    
+    
+    <para>
+     SAP HANAインスタンスが検出された場合は、スケールアップシナリオ<guimenu>Performance-optimized (パフォーマンス最適化)</guimenu>、<guimenu>Cost-optimized (コスト最適化)</guimenu>、または<guimenu>Chained (multi-tier) (チェーン(多層))</guimenu>から選択できます。これらのスケールアップシナリオについては、<xref linkend="sec-hana-replicate"/>を参照してください。
+    </para>
+    <para>
+     <guimenu>次へ</guimenu>で続行します。
+    </para>
+    <informalfigure>
+     <mediaobject>
+      <imageobject role="html">
+       <imagedata fileref="s4s-cluster-scenario.png"/>
+      </imageobject>
+      <imageobject role="fo">
+       <imagedata fileref="s4s-cluster-scenario.png" width="75%"/>
+      </imageobject>
+      <textobject role="description">
+       <phrase>Screenshot of replication scenario selection</phrase>
+      </textobject>
+     </mediaobject>
+    </informalfigure>
+   </step>
+   <step>
+    <para>
+     ウィザードのこのステップでは、選択したスケールアップシナリオの前提条件のリストが表示されます。これらの前提条件は、<xref linkend="sec-hana-cluster-prerequisite"/>に表示されるものと同じです。
+    </para>
+    <para>
+     <guimenu>次へ</guimenu>で続行します。
+    </para>
+   </step>
+   <step>
+    <para>
+     次のステップでは、クラスタの通信層を設定できます。
+    </para>
+    <itemizedlist>
+     <listitem>
+      <para>
+       クラスタの名前を入力します。
+      </para>
+     </listitem>
+     <listitem>
+      <para>
+       通常は、デフォルトの転送モード<guimenu>ユニキャスト</guimenu>が適切です。
+      </para>
+     </listitem>
+     <listitem>
+      <para>
+       <guimenu>Number of rings (リング数)</guimenu>では、通常は単一の通信リングで十分です。
+      </para>
+      <para>
+       冗長性を確保するため、多くの場合、複数の通信リングではなく、ネットワークインタフェースボンディングを使用する方が良いです。詳細については、<citetitle><citetitle>Administration Guide</citetitle>, Part <quote>Configuration and
+       Administration</quote>, Chapter <quote>Network Device
+       Bonding</quote></citetitle>(<link xlink:href="https://documentation.suse.com/sle-ha-15"/>)を参照してください。
+      </para>
+     </listitem>
+     <listitem>
+      <para>
+       通信リングのリストから、有効な各リングを設定します。これを行うには、<guimenu>選択したものの編集</guimenu>をクリックし、通信するためにネットワークマスク(<guimenu>IPアドレス</guimenu>)およびポート(<guimenu>ポート番号</guimenu>)を選択します。
+      </para>
+      <para>
+       <guimenu>OK</guimenu>をクリックして、作業を完了します。
+      </para>
+     </listitem>
+     <listitem>
+      <para>
+       さらに、HMAC/SHA1を使用して、設定同期サービスCsync2およびCorosyncセキュア認証を有効にするかどうかを決定します。
+      </para>
+      <para>
+       Csync2に関する詳細については、<citetitle><citetitle>Administration Guide</citetitle> Part <quote>Installation, Setup and
+       Upgrade</quote>, Chapter <quote>Using the YaST Cluster
+       Module</quote>, Section <quote>Transferring the Configuration to All
+       Nodes</quote></citetitle>(<link xlink:href="https://documentation.suse.com/sle-ha-15"/>)を参照してください。
+      </para>
+      <para>
+       Corosyncセキュア認証の詳細については、<citetitle><citetitle>Administration Guide</citetitle>, Part <quote>Installation, Setup and
+       Upgrade</quote>, Chapter <quote>Using the YaST Cluster
+       Module</quote>, Section <quote>Defining Authentication
+       Settings</quote></citetitle>(<link xlink:href="https://documentation.suse.com/sle-ha-15"/>)を参照してください。
+      </para>
+     </listitem>
+    </itemizedlist>
+    <para>
+     <guimenu>次へ</guimenu>で続行します。
+    </para>
+    <informalfigure>
+     <mediaobject>
+      <imageobject role="html">
+       <imagedata fileref="s4s-cluster-communication.png"/>
+      </imageobject>
+      <imageobject role="fo">
+       <imagedata fileref="s4s-cluster-communication.png" width="75%"/>
+      </imageobject>
+      <textobject role="description">
+       <phrase>Screenshot of communication layer configuration</phrase>
+      </textobject>
+     </mediaobject>
+    </informalfigure>
+   </step>
+   <step>
+    <para>
+     ウィザードでSSHを使用してセカンダリマシンに接続できるかどうかを確認します。可能な場合は、マシンへの<systemitem class="username">root</systemitem>パスワードを要求します。
+    </para>
+    <para>
+     <systemitem class="username">root</systemitem>パスワードを入力します。
+    </para>
+    <para>
+     次回プライマリマシンがセカンダリマシンに接続する必要がある場合、パスワードではなく、SSH証明書を使用して接続します。
+    </para>
+   </step>
+   <step>
+    <para>
+     両方のマシンに、ホスト名とIPアドレス(リングごと)を設定します。
+    </para>
+    <para>
+     ここで選択したホスト名は、SAP HANAで選択した仮想ホスト名とは独立しています。ただし、SAP HANAとの問題を避けるため、ホスト名にハイフン文字(<literal>-</literal>)を含めないでください。
+     
+     
+    </para>
+    <para>
+     これがSAP HANAの初期インストール中など、以前に実行されていない場合は、すべてのクラスタサーバのホスト名をファイル<filename>/etc/hosts</filename>に追加する必要があります。このため、<guimenu>/etc/hostsへの追記</guimenu>を有効にします。
+    </para>
+    <para>
+     <guimenu>次へ</guimenu>で続行します。
+    </para>
+   </step>
+   <step>
+    <para>
+     NTPがまだ設定されていない場合は、設定してください。これにより、時刻の違いによって2台のマシンで問題が発生することがなくなります。
+    </para>
+    <substeps>
+     <step>
+      <para>
+        <guimenu>Reconfigure (再設定)</guimenu>をクリックします。
+      </para>
+     </step>
+     <step>
+      <para>
+       <guimenu>一般設定</guimenu>タブで、<guimenu>Now and on Boot (今すぐとブート時)</guimenu>を有効にします。
+      </para>
+     </step>
+     <step>
+      <para>
+       <guimenu>追加</guimenu>をクリックして、タイムサーバを追加します。<guimenu>サーバ</guimenu>および<guimenu>次へ</guimenu>をクリックします。次に、クラスタ外のタイムサーバのIPアドレスを指定します。<guimenu>テスト</guimenu>をクリックして、サーバへの接続をテストします。
+      </para>
+      <para>
+       パブリックタイムサーバを使用するには、<menuchoice><guimenu>選択</guimenu>
+       <guimenu>公開サーバ</guimenu></menuchoice>をクリックして、タイムサーバを選択します。<guimenu>OK</guimenu>をクリックして、作業を完了します。
+      </para>
+      <para>
+       <guimenu>OK</guimenu>をクリックして、続行します。
+      </para>
+     </step>
+     <step>
+      <para>
+       <guimenu>セキュリティ設定</guimenu>タブで、<guimenu>ファイアウォールでポートを開く</guimenu>を有効にします。
+      </para>
+     </step>
+     <step>
+      <para>
+       <guimenu>次へ</guimenu>で続行します。
+      </para>
+     </step>
+    </substeps>
+   </step>
+   <step>
+    <para>
+     次のステップでは、フェンシングオプションを選択します。YaSTウィザードでは、フェンシングメカニズムSBD (<emphasis></emphasis>「STONITHブロックデバイス」)のみをサポートしています。スプリットブレイン状況を避けるため、SBDはクラスタの状態を保存するディスクデバイスを使用します。
+    </para>
+    <para>
+     選択したディスクは、クラスタのすべてのマシンから同じパスで使用できる必要があります。理想的には識別用に<guimenu>by-uuid</guimenu>または<guimenu>by-path</guimenu>のいずれかを使用します。
+    </para>
+    <para>
+     ディスクはホストベースのRAID、cLVM2を使用したり、DRBDインスタンスに配置したりしないでください。デバイスは、100MBなどの小さなサイズにすることができます。
+    </para>
+    <warning>
+     <title>デバイスのデータは失われる</title>
+     <para>
+      選択した1つ以上のSBDデバイスの全データが削除されます。
+     </para>
+    </warning>
+    <para>
+     使用するデバイスを定義するには、<guimenu>追加</guimenu>をクリックし、<guimenu>by-uuid</guimenu>などの識別方法を選択して、適切なデバイスを選択します。<guimenu>OK</guimenu>をクリックします。
+    </para>
+    <para>
+     追加のSBDコマンドラインパラメータを定義するには、それらを<guimenu>SBD options (SBDオプション)</guimenu>に追加します。
+    </para>
+    <para>
+     マシンが特に速く再起動する場合は、<guimenu>Delay SBD start (SBDの起動を遅くする)</guimenu>を有効にします。
+    </para>
+    <para>
+     フェンシングの詳細については、『<citetitle><citetitle>Administration Guide</citetitle></citetitle>』(<link xlink:href="https://documentation.suse.com/sle-ha-15"/>)を参照してください。
+    </para>
+    <para>
+     <guimenu>次へ</guimenu>で続行します。
+    </para>
+   </step>
+   <step>
+    <para>
+     次のページでは、SBDデーモン自体の障害から保護し、このような場合にマシンを強制的に再起動するウォッチドッグを設定できます。
+    </para>
+    <para>
+     また、YaSTを使用してすでに設定されているウォッチドッグと、現在ロードされている<command>lsmod</command>によって検出されたウォッチドッグも一覧表示します。
+    </para>
+    <para>
+     ウォッチドッグを設定するには、<guimenu>追加</guimenu>を使用します。次に、ハードウェアに適したウォッチドッグを選択し、<guimenu>OK</guimenu>をクリックしてダイアログを閉じます。
+    </para>
+    <para>
+     テストするには、ウォッチドッグ<literal>softdog</literal>を使用できます。ただし、<literal>softdog</literal>ではなく、運用環境でハードウェアウォッチドッグを使用することを強くお勧めします。ウォッチドッグの選択に関する詳細については、<citetitle><citetitle>Administration Guide</citetitle>, Part <quote>Storage and
+     Data Replication</quote>, Chapter
+     <quote>Storage Protection</quote>, Section
+     <quote>Conceptual Overview</quote>, Section <quote>Setting Up
+     Storage-based Protection</quote>, Section <quote>Setting up the
+     Watchdog</quote></citetitle>(<link xlink:href="https://documentation.suse.com/sle-ha-15"/>)を参照してください。
+    </para>
+    <para>
+     <guimenu>次へ</guimenu>で続行します。
+    </para>
+   </step>
+   <step>
+    <para>
+     SAP HANAのインストール用(1つ以上のインスタンスも可)パラメータを設定します。コスト最適化シナリオを選択している場合は、非運用SAP HANAインスタンスに関連した詳細を追加入力します。
+    </para>
+    <variablelist>
+     <varlistentry>
+      <term>運用SAP HANAインスタンス</term>
+      <listitem>
+       <itemizedlist>
+        <listitem>
+         <para>
+          <guimenu>システムID</guimenu>と<guimenu>インスタンス番号</guimenu>がSAP HANA設定のそれらと一致していることを確認します。
+         </para>
+        </listitem>
+        <listitem>
+         <para>
+          <guimenu>Replication mode (レプリケーションモード)</guimenu>と<guimenu>動作モード</guimenu>は通常、変更する必要はありません。
+         </para>
+         <para>
+          これらのパラメータの詳細については、SAPによって提供される、『<citetitle>HANA Administration Guide</citetitle>』を参照してください。
+         </para>
+        </listitem>
+        <listitem>
+         <para>
+          <guimenu>仮想IPアドレス</guimenu>で、プライマリSAP HANAインスタンスの仮想IPアドレスを指定します。<guimenu>Virtual IP Mask (仮想IPマスク)</guimenu>で、<guimenu>仮想IPアドレス</guimenu>に適用するサブネットマスクの長さをCIDR形式で設定します。
+         </para>
+        </listitem>
+        <listitem>
+         <para>
+          <guimenu>Prefer site takeover (サイトのテイクオーバーを優先)</guimenu>では、セカンダリインスタンスがプライマリインスタンスのジョブを自動的に引き継ぐ(<guimenu>true</guimenu>)かどうかを定義します。または、クラスタはプライマリマシンでSAP HANAを再起動します。
+         </para>
+        </listitem>
+        <listitem>
+         <para>
+          <guimenu>Automatic registration (自動登録)</guimenu>では、プライマリマシンとセカンダリマシンがテイクオーバー後に役割を切り替えるかどうかを決定します。
+         </para>
+        </listitem>
+        <listitem>
+         <para>
+          <guimenu>Site name 1 (サイト名1)</guimenu> と <guimenu>Site name 2 (サイト名2)</guimenu>の2台のノードで、運用SAP HANAインスタンスのサイト名を指定します。
+         </para>
+        </listitem>
+        <listitem>
+         <para>
+          データベースのバックアップを持つことが、SAP HANAレプリケーションを設定するための前提条件です。
+         </para>
+         <para>
+          以前にバックアップを作成したことがない場合は、<guimenu>Create initial backup (初期バックアップの作成)</guimenu>を有効にします。<guimenu>Backup settings (バックアップの設定)</guimenu>で、バックアップ用の<guimenu>ファイル名</guimenu>と<guimenu>Secure store key (セキュアストアキー)</guimenu>を設定します。プライマリノードのSAP HANAセキュアユーザストアのキーは、ウィザードの開始前に作成されている必要があります。
+         </para>
+         <para>
+          詳細については、SAPによって提供されるドキュメントを参照してください。
+         </para>
+        </listitem>
+        <listitem>
+         <para>
+          <emphasis></emphasis>「コスト最適化シナリオのみ」: <guimenu>Production system constraints (運用システムの制約)</guimenu>内で、SAP HANAの運用インスタンスがセカンダリノードで無効になっているときの動作方法を設定します。
+         </para>
+         <para>
+          <guimenu>Global allocation limit (グローバル割り当て制限)</guimenu>を設定すると、メモリ使用量を直接制限できます。<guimenu>Preload column tables (列テーブルのプリロード)</guimenu>を有効にすると、メモリ使用量が増加します。
+         </para>
+         <para>
+          必要なグローバル割り当て制限については、SAPが提供するドキュメントを参照してください。
+         </para>
+        </listitem>
+       </itemizedlist>
+      </listitem>
+     </varlistentry>
+     <varlistentry>
+      <term>「<emphasis></emphasis>コスト最適化シナリオのみ」: 非運用SAP HANAインスタンス</term>
+      <listitem>
+       <itemizedlist>
+        <listitem>
+         <para>
+          <guimenu>システムID</guimenu>と<guimenu>インスタンス番号</guimenu>が非運用SAP HANAインスタンスのそれらと一致していることを確認します。
+         </para>
+         <para>
+          これらのパラメータは、SAPインスタンスリソースエージェントを使用して、非運用SAP HANAインスタンスのステータスを監視できるようにするために必要です。
+         </para>
+        </listitem>
+        <listitem>
+         <para>
+          非運用インスタンスを停止し、運用インスタンスを開始して、運用システムにおける制約を削除するためのフックスクリプトを生成します。スクリプトはPython 2で記述され、後で必要に応じて変更できます。
+         </para>
+         <para>
+          <guimenu>フックスクリプト</guimenu>をクリックして、データベースの正しいユーザ名とパスワードを設定します。<guimenu>OK</guimenu>をクリックします。
+         </para>
+         <para>
+          これで、生成されたフックスクリプトの詳細を手動で確認し、変更できるようになりました。完了したら、<guimenu>OK</guimenu>をクリックして、フックスクリプトを<filename>/hana/shared/<replaceable>SID</replaceable>/srHook</filename>に保存します。
+         </para>
+         <warning>
+          <title>パスワードはプレーンテキストで保存される</title>
+          <para>
+           デフォルトで、フックスクリプトはプレーンテキストですべての資格情報を保存します。セキュリティを向上させるには、スクリプトを自分で変更してください。
+          </para>
+         </warning>
+        </listitem>
+       </itemizedlist>
+      </listitem>
+     </varlistentry>
+    </variablelist>
+    <para>
+     <guimenu>次へ</guimenu>で続行します。
+    </para>
+    <figure>
+     <title>SAP HANAのオプション(コスト最適化シナリオ)</title>
+     <mediaobject>
+      <imageobject role="html">
+       <imagedata fileref="s4s-cluster-hana-option.png"/>
+      </imageobject>
+      <imageobject role="fo">
+       <imagedata fileref="s4s-cluster-hana-option.png" width="75%"/>
+      </imageobject>
+      <textobject role="description">
+       <phrase>SAP HANAのオプション(コスト最適化シナリオ)のスクリーンショット</phrase>
+      </textobject>
+     </mediaobject>
+    </figure>
+   </step>
+   <step>
+    <para>
+     <guimenu>High-Availability Configuration Overview (高可用性設定の概要)</guimenu>ページで、セットアップが正しいことを確認します。
+    </para>
+    <para>
+     設定の詳細を変更するには、下線付き見出しのいずれかをクリックして、該当するウィザードページに戻ります。
+    </para>
+    <para>
+     <guimenu>インストール</guimenu>で続行します。
+    </para>
+   </step>
+   <step>
+    <para>
+     追加のソフトウェアをインストールするかどうかを尋ねられたら、<guimenu>インストール</guimenu>で確認します。
+    </para>
+   </step>
+   <step>
+    <para>
+     セットアップが完了した後で、クラスタセットアップのログを表示する画面が表示されます。
+    </para>
+    <para>
+     ダイアログを閉じるには、<guimenu>完了</guimenu>をクリックします。
+    </para>
+   </step>
+   <step>
+    <para>
+     「<emphasis>多層/チェーンシナリオのみ</emphasis>」: 運用SAP HANAインスタンスの管理ユーザアカウントを使用して、システムレプリケーション用にクラスタ外ノードを登録します。
+    </para>
+    <screen>
+<prompt><replaceable>SID</replaceable>adm &gt; </prompt><command>hdbnsutil</command> -sr_register --remoteHost=<replaceable>SECONDARY_HOST_NAME</replaceable> \
+--remoteInstance=<replaceable>INSTANCE_NUMBER</replaceable> --replicationMode=async \
+--name=<replaceable>SITE_NAME</replaceable>
+    </screen>
+   </step>
+  </procedure>
+ </sect1>
+ <sect1 xml:id="sec-hana-cluster-wizard-semiautomatic">
+  <title>SAP HANA-SRウィザードを使用した無人セットアップ</title>
+  <para>
+   無人セットアップでは、まず、HANAの手動インストールが必要です。その結果が、選択されたすべての設定オプションを含むファイルに保存されます。管理者がインストールを再現する必要がある場合は、このファイルを使用して、インストールを自動的に無人で実行できます。
+  </para>
+  <para>
+   そのファイルを使用するには、両方のノードで次の手順を実行します。
+  </para>
+  <procedure>
+   <step>
+    <para>
+     SAP HANAがインストールされている運用マシンで、<literal>sap_ha</literal> YaSTモジュールを実行して、設定ファイルを作成します。
+     <remark>toms 2019-05-29: add xref to manuel setup section.</remark>
+    </para>
+   </step>
+   <step>
+    <para>
+     最後の画面で、<guimenu>設定の保存</guimenu>ボタンをクリックします。
+    </para>
+   </step>
+   <step>
+    <para>実行する操作を決定します。</para>
+    <stepalternatives>
+     <step>
+      <para>
+       設定を確認するには、プライマリSAP HANAマシンに設定をアップロードして検証し、次のコマンドを実行します。
+      </para>
+      <screen><prompt role="root"># </prompt><command>yast2 sap_ha readconfig <replaceable>CONFIGURATION_FILE_PATH</replaceable></command></screen>
+      <para>確認画面でインストールを開始することができます。</para>
+     </step>
+     <step>
+      <para>
+       提供された設定ファイルに基づいてインストールを無人で開始するには、次のコマンドを実行します。
+      </para>
+      <screen><prompt role="root"># </prompt><command>yast2 sap_ha readconfig <replaceable>CONFIGURATION_FILE_PATH</replaceable> unattended</command></screen>
+     </step>
+    </stepalternatives>
+   </step>
+   <step>
+    <para>
+     提供された設定ファイルに基づいて、クラスタを無人でインポート、検証、インストールします。
+    </para>
+    <screen><prompt role="root"># </prompt><command>yast2 sap_ha readconfig <replaceable>CONFIGURATION_FILE_PATH</replaceable> unattended</command></screen>
+   </step>
+  </procedure>
+ </sect1>
+ <sect1 xml:id="sec-hawk">
+  <title>Hawkの使用</title>
+  <para>
+   ウィザードを使用してクラスタを設定した後で、<guimenu>HA Setup for SAP Products (SAP製品のHAセットアップ)</guimenu>ウィザードの最後の画面からHawkを直接開くことができます。
+  </para>
+  <para>
+   Hawkに再アクセスするには、ブラウザを開いて、URLとして、Hawk Webサービスを実行しているクラスタノードのIPアドレスまたはホスト名を入力します。または、<xref linkend="sec-hana-cluster-wizard"/>で設定した仮想IPアドレスを入力します。
+  </para>
+  <screen>https://<replaceable>HAWKSERVER</replaceable>:7630/</screen>
+  <para>
+   Hawkログイン画面で、次のログイン資格情報を使用します。
+  </para>
+  <itemizedlist>
+   <listitem>
+    <para>
+     <guimenu>ユーザ名</guimenu>: <systemitem class="username">hacluster</systemitem>
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     <guimenu>パスワード</guimenu>: <literal>linux</literal>
+    </para>
+   </listitem>
+  </itemizedlist>
+  <important>
+   <title>セキュリティ保護されたパスワード</title>
+   <para>
+    デフォルトのパスワードはできるだけ早くセキュリティ保護されたパスワードに変更します。
+   </para>
+   <screen><prompt role="root"># </prompt><command>passwd hacluster</command></screen>
+  </important>
+ </sect1>
+ <sect1 xml:id="sec-moreinfo">
+  <title>詳細の参照先</title>
+  <itemizedlist>
+   <listitem>
+    <formalpara>
+     <title>Hawk</title>
+     <para>
+      『<citetitle><citetitle>Administration Guide</citetitle></citetitle>』、「<citetitle>Configuration and Administration</citetitle>」パート、「<citetitle>Configuring and Managing Cluster Resources with
+   Hawk</citetitle>」の章(<link xlink:href="https://documentation.suse.com/sle-ha-15"/>)
+     </para>
+    </formalpara>
+   </listitem>
+   <listitem>
+    <formalpara>
+     <title>SAP HANAシステムレプリケーションのほぼゼロのダウンタイム</title>
+     <para><link xlink:href="https://help.sap.com/viewer/2c1988d620e04368aa4103bf26f17727/2.0.03/en-US/ee3fd9a0c2e74733a74e4ad140fde60b.html">Use SAP HANA System Replication for Near Zero Downtime Upgrades</link>ボタンをクリックします。
+     </para>
+    </formalpara>
+   </listitem>
+   <listitem>
+    <formalpara>
+     <title>PythonフックSAPHanaSRの実装</title>
+     <para><link xlink:href="https://documentation.suse.com/sbp/all/html/SLES4SAP-hana-sr-guide-PerfOpt-15/"/></para>
+    </formalpara>
+   </listitem>
+  </itemizedlist>
+ </sect1>
+</chapter>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sect1 xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" xml:base="s4s_autoyast.xml" xml:id="sec-autoyast">
+ <title>外部AutoYaSTプロファイルの使用</title>
+ <info>
+  <dm:docmanager xmlns:dm="urn:x-suse:ns:docmanager">
+   <dm:bugtracker/>
+   <dm:translation>yes</dm:translation>
+  </dm:docmanager>
+ </info>
+ <para>
+  AutoYaSTを使用したインストールの詳細については、次のガイドを参照してください。
+ </para>
+ <itemizedlist>
+  <listitem>
+   <para>
+    <citetitle><citetitle>Deployment Guide</citetitle>, Part <quote>Automated Installations</quote>,
+     Chapter <quote>Automated Installation</quote>
+    </citetitle>(<link xlink:href="https://documentation.suse.com/sles-15"/>)。
+   </para>
+  </listitem>
+  <listitem>
+   <para>
+    <citetitle>AutoYaST Guide</citetitle>(<link xlink:href="https://documentation.suse.com/sles-15"/>)。
+   </para>
+  </listitem>
+ </itemizedlist>
+
+ <para>
+  AutoYaSTを使用したSAPアプリケーションのパーティショニングに関する詳細については、<xref linkend="sec-partition"/>を参照してください。
+ </para>
+
+ <para>
+   SUSE ManagerサーバからSUSE Linux Enterprise Server for SAP Applicationsを展開する場合は、<citetitle>SUSE Manager <quote>Reference Manual</quote>, <quote>Systems</quote>, <quote>Autoinstallation</quote></citetitle>と<citetitle>SUSE Manager <quote>Advanced Topics</quote>, Chapter <quote>Minimalist AutoYaST Profile for Automated Installations and Useful Enhancements</quote></citetitle>(<link xlink:href="https://documentation.suse.com/suma"/>)を参照してください。
+ </para>
+ 
+</sect1>
