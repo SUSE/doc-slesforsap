@@ -27,18 +27,13 @@ https://suse.com/c/coming-soon-sap-landscape-monitoring-on-sles-for-sap/
    </para>
   </abstract>
  </info>
- <sect1 xml:id="sec-sol-monit-concept-overview">
-  <title>Conceptual overview</title>
+ <sect1 xml:id="sec-sol-monit-intro">
+  <title>Introduction</title>
 
   <para>
-   Starting from the idea of improving user experience, &suse; engineering
-   worked on how to monitor &ha; clusters that manage &sap; workloads (&hana;
-   and &nw;).
-  </para>
-
-  <para>
-   The exporters shown here export their metrics which can be combined and
-   integrated with Prometheus and Grafana to produce complex dashboards.
+   The exporters described here make it possible to export metrics that can be
+   combined and integrated with Prometheus and Grafana to produce advanced
+   dashboards.
   </para>
 
   <para>
@@ -65,10 +60,9 @@ https://suse.com/c/coming-soon-sap-landscape-monitoring-on-sles-for-sap/
     <term>Prometheus</term>
     <listitem>
      <para>
-      A systems monitoring and alerting toolkit. It collects and evaluates
-      metrics, displays the result, and triggers possible alerts when an
-      observed condition is true. Metrics can be collected from different
-      targets at given intervals.
+      A toolkit that collects and evaluates metrics, displays the result, and
+      triggers possible alerts when an observed condition occurs. Metrics can be
+      collected from different targets at specified intervals.
      </para>
     </listitem>
    </varlistentry>
@@ -78,12 +72,11 @@ https://suse.com/c/coming-soon-sap-landscape-monitoring-on-sles-for-sap/
   <title>Installing exporters</title>
 
   <para>
-   Installation of an exporter follows always the same pattern. Execute the
-   following steps:
+   Installation of an exporter follows the procedure below.
   </para>
 
   <procedure>
-   <title>General way</title>
+   <title>Exporter installation</title>
    <step>
     <para>
      Install the package. All package are available in &sles4sap;.
@@ -106,7 +99,7 @@ https://suse.com/c/coming-soon-sap-landscape-monitoring-on-sles-for-sap/
   </procedure>
 
   <para>
-   The above procedure is automatically done by each of the &salt; formulas
+   The above procedure is automatically performed by each of the &salt; formulas
    described in <xref linkend="article-sap-automation"/>.
   </para>
  </sect1>
@@ -212,7 +205,7 @@ https://suse.com/c/coming-soon-sap-landscape-monitoring-on-sles-for-sap/
     </listitem>
     <listitem>
     <para>
-      <literal>unit</literal> (string) Used unit for the exported value (`mb` for example).
+      <literal>unit</literal> (string) Used unit for the exported value (for example, `mb`).
     </para>
     </listitem>
     <listitem>
@@ -1671,7 +1664,7 @@ ha_cluster_scrape_success{collector="pacemaker"} 1</screen>
   </itemizedlist>
  </sect1>
  <sect1 xml:id="sec-sol-monit-more">
-  <title>For more information</title>
+  <title>More information</title>
 
   <remark>toms 2020-06-10: Need to be reworked which one is useful and should be included</remark>
 
