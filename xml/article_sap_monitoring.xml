@@ -1663,8 +1663,14 @@ ha_cluster_scrape_success{collector="pacemaker"} 1</screen>
    </listitem>
   </itemizedlist>
  </sect1>
+ <sect1 xml:id="sec-sol-monit-sap-host-exporter">
+  <title>&sap; Host Exporter</title>
+  <para>
+    &sap; Host Exporter is a &prometheus; exporter that enables monitoring of &sap; systems (&sap; NetWeaver applications).
+  </para>
+ </sect1>
  <sect1 xml:id="sec-sol-monit-more">
-  <title>More information</title>
+  <title>Additional information</title>
 
   <remark>toms 2020-06-10: Need to be reworked which one is useful and should be included</remark>
 
