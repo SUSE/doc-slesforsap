@@ -1668,6 +1668,28 @@ ha_cluster_scrape_success{collector="pacemaker"} 1</screen>
   <para>
     &sap; Host Exporter is a &prometheus; exporter that enables monitoring of &sap; systems (&sap; NetWeaver applications).
   </para>
+  <para>
+    It is a stateless exporter that pulls runtime data from the &sap; system
+    via the SAPControl Web interface on each HTTP request. Exported data
+    include start Service processes, Enqueue Server stats, and AS Dispatcher
+    work process queue stats.
+  </para>
+
+  <sect2 xml:id="sec-sol-monit-sap-host-exporter-install">
+    <title>Installation</title>
+    <para>
+      The exporter can e installed using the <package>RPM</package> from the <link xlink:href="https://build.opensuse.org/package/show/server:monitoring/prometheus-sap_host_exporter">Open Build Service</link>. To do this, use the following commands (replace <replaceable>VERSION</replaceable> with the exact version of the target system, for example: <literal>SLE_15_SP4</literal>):
+    </para>
+<screen>&prompt.root;zypper addrepo https://download.opensuse.org/repositories/server:/monitoring/<replaceable>VERSION</replaceable>/server:monitoring.repo
+&prompt.root;zypper install prometheus-sap_host_exporter</screen>
+<para>
+  Alternatively, you can compile and install the exporter from the source code:
+</para>
+<screen>&prompt.user;git clone https://github.com/SUSE/sap_host_exporter
+&prompt.user;cd sap_host_exporter
+&prompt.user;make
+&prompt.user;sudo make install</screen>
+  </sect2>
  </sect1>
  <sect1 xml:id="sec-sol-monit-more">
   <title>Additional information</title>
