@@ -1664,7 +1664,7 @@ ha_cluster_scrape_success{collector="pacemaker"} 1</screen>
   </itemizedlist>
  </sect1>
  <sect1 xml:id="sec-sol-monit-sap-host-exporter">
-  <title>&sap; Host Exporter</title>
+  <title>&sap; Host exporter</title>
   <para>
     &sap; Host Exporter is a &prometheus; exporter that enables monitoring of &sap; systems (&sap; NetWeaver applications).
   </para>
@@ -1689,6 +1689,28 @@ ha_cluster_scrape_success{collector="pacemaker"} 1</screen>
 &prompt.user;cd sap_host_exporter
 &prompt.user;make
 &prompt.user;sudo make install</screen>
+<note>
+  <para>
+    You can deploy a full &netweaver; cluster via Terraform using <link xlink:href="https://github.com/SUSE/ha-sap-terraform-deployments">&suse; automated &sap;/HA deployments</link>. This automatically installs and configures the exporter exporter and the entire &prometheus; monitoring stack.
+  </para>
+</note>
+  </sect2>
+  <sect2 xml:id="sec-sol-monit-sap-host-exporter-install">
+    <title>Using &sap; Host exporter</title>
+    <para>
+      You can run the exporter using the following command:
+    </para>
+<screen>./sap_host_exporter --sap-control-url <replaceable>SAP_HOST</replaceable>:<replaceable>SAP_CONTROL_PORT</replaceable></screen>
+
+<para>
+  While it is possible to use the exporter to pull data from a remote &sap; host, it is recommended to run the exporter locally on the target &sap; host, and then connect to the SAPControl Web service via Unix domain sockets:
+</para>
+
+<screen>./sap_host_exporter --sap-control-uds /tmp/.sapstream50013</screen>
+
+<para>
+By default, the exporter exposes the metrics in the <filename>/metrics</filename> path, on port 9680.
+    </para>
   </sect2>
  </sect1>
  <sect1 xml:id="sec-sol-monit-more">
