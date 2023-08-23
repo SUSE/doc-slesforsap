@@ -1675,13 +1675,28 @@ ha_cluster_scrape_success{collector="pacemaker"} 1</screen>
     work process queue stats.
   </para>
 
+  <important>
+    <title>Note about metrics</title>
+    <para>
+      The exporter does not export metrics that it cannot collect. However,  
+      as it is not important for the exporter which subsystems are present in the monitored target, failing to collect metrics is not considered a critical failure. Instead, when certain collectors fail to either register or perform collect cycles, a warning is added to the log. The <filename>metrics.md</filename> file that ships with the RPM package provides information about the exported metrics. The file is also available in the project's <link xlink:href="https://github.com/SUSE/sap_host_exporter">GitHub repository</link>.
+    </para>
+  </important>
+
   <sect2 xml:id="sec-sol-monit-sap-host-exporter-install">
     <title>Installation</title>
     <para>
-      The exporter can e installed using the <package>RPM</package> from the <link xlink:href="https://build.opensuse.org/package/show/server:monitoring/prometheus-sap_host_exporter">Open Build Service</link>. To do this, use the following commands (replace <replaceable>VERSION</replaceable> with the exact version of the target system, for example: <literal>SLE_15_SP4</literal>):
+      The exporter can be installed using the <package>RPM</package> from the <link xlink:href="https://build.opensuse.org/package/show/server:monitoring/prometheus-sap_host_exporter">Open Build Service</link>. To do this, use the following commands (replace <replaceable>VERSION</replaceable> with the exact version of the target system, for example: <literal>SLE_15_SP4</literal>):
     </para>
 <screen>&prompt.root;zypper addrepo https://download.opensuse.org/repositories/server:/monitoring/<replaceable>VERSION</replaceable>/server:monitoring.repo
 &prompt.root;zypper install prometheus-sap_host_exporter</screen>
+
+<para>
+  The RPM package ships with an accompanying &systemd; unit file that can enabled using the following command:
+</para>
+
+<screen>systemctl --now enable prometheus-sap_host_exporter</screen>
+
 <para>
   Alternatively, you can compile and install the exporter from the source code:
 </para>
@@ -1691,7 +1706,7 @@ ha_cluster_scrape_success{collector="pacemaker"} 1</screen>
 &prompt.user;sudo make install</screen>
 <note>
   <para>
-    You can deploy a full &netweaver; cluster via Terraform using <link xlink:href="https://github.com/SUSE/ha-sap-terraform-deployments">&suse; automated &sap;/HA deployments</link>. This automatically installs and configures the exporter exporter and the entire &prometheus; monitoring stack.
+    You can deploy a full &netweaver; cluster via Terraform using <link xlink:href="https://github.com/SUSE/ha-sap-terraform-deployments">&suse; automated &sap;/HA deployments</link>. This automatically installs and configures the exporter and the entire &prometheus; monitoring stack.
   </para>
 </note>
   </sect2>
@@ -1712,11 +1727,21 @@ ha_cluster_scrape_success{collector="pacemaker"} 1</screen>
 By default, the exporter exposes the metrics in the <filename>/metrics</filename> path, on port 9680.
     </para>
   </sect2>
+  <sect2 xml:id="sec-sol-monit-sap-host-exporter-install">
+    <title>Configuring &sap; Host exporter</title>
+    <para>
+      You can provide optional runtime parameters using command-line flags or via a configuration file. Run the <command>sap_host_exporter --help</command> to view the available flags.
+    </para>
+<para>
+The exporter expects to find the <filename>sap_host_exporter.yaml</filename>, <filename>sap_host_exporter.json</filename>, or <filename>sap_host_exporter.toml</filename> in the current working directory, the <filename>$HOME/.config</filename>, <filename>/etc</filename>, or <filename>/usr/etc</filename> directory. The first match has precedence, and the command-line flags have precedence over the confiuration file.
+</para>
+<para>
+  An example YAML configuration file ships with the RPM package. You can also find the example configuration file in the project's <link xlink:href="https://github.com/SUSE/sap_host_exporter">GitHub repository</link>.
+</para>
+  </sect2>
  </sect1>
  <sect1 xml:id="sec-sol-monit-more">
   <title>Additional information</title>
-
-  <remark>toms 2020-06-10: Need to be reworked which one is useful and should be included</remark>
 
   <itemizedlist>
    <listitem>
