@@ -1623,53 +1623,14 @@ ha_cluster_scrape_success{collector="pacemaker"} 1</screen>
    </variablelist>
   </sect2>
  </sect1>
- <sect1 xml:id="sec-sol-monit-sap-host-exp">
-  <title>&sap; host exporter</title>
 
-  <para>
-   Enables the monitoring of &netweaver;, &hana;, and other applications. The
-   gathered metrics are the data that can be obtained by running the
-   <command>sapcontrol</command> command.
-  </para>
-
-  <formalpara>
-   <title>Link:</title>
-   <para>
-    <link xlink:href="https://github.com/SUSE/sap_host_exporter"/>.
-   </para>
-  </formalpara>
-
-  <itemizedlist>
-   <title>Exports metrics (for &s4h;, &netweaver;, or &hana; hosts) in prometheus format</title>
-   <listitem>
-    <para>
-     &sap; start service process list
-    </para>
-   </listitem>
-   <listitem>
-    <para>
-     &sap; enqueue server metrics
-    </para>
-   </listitem>
-   <listitem>
-    <para>
-     &sap; application server dispatcher metrics
-    </para>
-   </listitem>
-   <listitem>
-    <para>
-     &sap; internal alerts
-    </para>
-   </listitem>
-  </itemizedlist>
- </sect1>
  <sect1 xml:id="sec-sol-monit-sap-host-exporter">
   <title>&sap; Host exporter</title>
   <para>
-    &sap; Host Exporter is a &prometheus; exporter that enables monitoring of &sap; systems (&sap; NetWeaver applications).
+    &sap; Host exporter is a &prometheus; exporter that enables monitoring of &sap; systems (&netweaver; applications).
   </para>
   <para>
-    It is a stateless exporter that pulls runtime data from the &sap; system
+    It is a stateless exporter that retreives runtime data from the &sap; system
     via the SAPControl Web interface on each HTTP request. Exported data
     include start Service processes, Enqueue Server stats, and AS Dispatcher
     work process queue stats.
@@ -1679,9 +1640,33 @@ ha_cluster_scrape_success{collector="pacemaker"} 1</screen>
     <title>Note about metrics</title>
     <para>
       The exporter does not export metrics that it cannot collect. However,  
-      as it is not important for the exporter which subsystems are present in the monitored target, failing to collect metrics is not considered a critical failure. Instead, when certain collectors fail to either register or perform collect cycles, a warning is added to the log. The <filename>metrics.md</filename> file that ships with the RPM package provides information about the exported metrics. The file is also available in the project's <link xlink:href="https://github.com/SUSE/sap_host_exporter">GitHub repository</link>.
+      as it is irrelevant for the exporter which subsystems are present in the monitored target, failing to collect metrics is not considered a critical failure. However, when certain collectors fail to either register or perform collect cycles, a warning is added to the log. The <filename>metrics.md</filename> file that ships with the RPM package provides information about the exported metrics. The file is also available in the project's <link xlink:href="https://github.com/SUSE/sap_host_exporter">GitHub repository</link>.
     </para>
   </important>
+
+  <itemizedlist>
+    <title>Exported metrics (for &s4h;, &netweaver;, or &hana; hosts)</title>
+    <listitem>
+     <para>
+      &sap; start service process list
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      &sap; enqueue server metrics
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      &sap; application server dispatcher metrics
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      &sap; internal alerts
+     </para>
+    </listitem>
+   </itemizedlist>
 
   <sect2 xml:id="sec-sol-monit-sap-host-exporter-install">
     <title>Installation</title>
@@ -1692,7 +1677,7 @@ ha_cluster_scrape_success{collector="pacemaker"} 1</screen>
 &prompt.root;zypper install prometheus-sap_host_exporter</screen>
 
 <para>
-  The RPM package ships with an accompanying &systemd; unit file that can enabled using the following command:
+  The RPM package ships with an accompanying &systemd; unit file that can beenabled using the following command:
 </para>
 
 <screen>systemctl --now enable prometheus-sap_host_exporter</screen>
@@ -1710,7 +1695,7 @@ ha_cluster_scrape_success{collector="pacemaker"} 1</screen>
   </para>
 </note>
   </sect2>
-  <sect2 xml:id="sec-sol-monit-sap-host-exporter-install">
+  <sect2 xml:id="sec-sol-monit-sap-host-exporter-use">
     <title>Using &sap; Host exporter</title>
     <para>
       You can run the exporter using the following command:
@@ -1718,7 +1703,7 @@ ha_cluster_scrape_success{collector="pacemaker"} 1</screen>
 <screen>./sap_host_exporter --sap-control-url <replaceable>SAP_HOST</replaceable>:<replaceable>SAP_CONTROL_PORT</replaceable></screen>
 
 <para>
-  While it is possible to use the exporter to pull data from a remote &sap; host, it is recommended to run the exporter locally on the target &sap; host, and then connect to the SAPControl Web service via Unix domain sockets:
+  While it is possible to use the exporter to retrieve data from a remote &sap; host, it is recommended to run the exporter locally on the target &sap; host, and then connect to the SAPControl Web service via Unix domain sockets:
 </para>
 
 <screen>./sap_host_exporter --sap-control-uds /tmp/.sapstream50013</screen>
@@ -1727,13 +1712,13 @@ ha_cluster_scrape_success{collector="pacemaker"} 1</screen>
 By default, the exporter exposes the metrics in the <filename>/metrics</filename> path, on port 9680.
     </para>
   </sect2>
-  <sect2 xml:id="sec-sol-monit-sap-host-exporter-install">
+  <sect2 xml:id="sec-sol-monit-sap-host-exporter-config">
     <title>Configuring &sap; Host exporter</title>
     <para>
       You can provide optional runtime parameters using command-line flags or via a configuration file. Run the <command>sap_host_exporter --help</command> to view the available flags.
     </para>
 <para>
-The exporter expects to find the <filename>sap_host_exporter.yaml</filename>, <filename>sap_host_exporter.json</filename>, or <filename>sap_host_exporter.toml</filename> in the current working directory, the <filename>$HOME/.config</filename>, <filename>/etc</filename>, or <filename>/usr/etc</filename> directory. The first match has precedence, and the command-line flags have precedence over the confiuration file.
+The exporter expects to find the <filename>sap_host_exporter.yaml</filename>, <filename>sap_host_exporter.json</filename>, or <filename>sap_host_exporter.toml</filename> file either in the current working directory, or in one of the following directories: <filename>$HOME/.config</filename>, <filename>/etc</filename>, <filename>/usr/etc</filename>. The first match has precedence, and the command-line flags have precedence over the confiuration file.
 </para>
 <para>
   An example YAML configuration file ships with the RPM package. You can also find the example configuration file in the project's <link xlink:href="https://github.com/SUSE/sap_host_exporter">GitHub repository</link>.
