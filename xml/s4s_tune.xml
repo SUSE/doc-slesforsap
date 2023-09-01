@@ -557,6 +557,43 @@ Do you really want to rename this Solution 'myHANA' to the new name 'myHANA2'? [
    </para>
   </sect1>
 
+  <sect1 xml:id="sec-saptune-machine-readable-output">
+    <title>Machine-readable output</title>
+    <para>
+      Starting with version 3.1, &saptune; supports machine-readable output (JSON) for the following commands:
+      </para>
+      <itemizedlist>
+        <listitem>
+          <para>
+            <command>saptune [daemon|service] status</command>
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            <command>saptune note list|verify|enabled|applied</command>
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            <command>saptune solution list|verify|enabled|applied</command>
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            <command>saptune status</command>
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            <command>saptune version</command>
+          </para>
+        </listitem>
+      </itemizedlist>
+    <para>
+      The machine-readable output makes it possible to integrate &saptune; into scripts and configuration management solutions.
+    </para>
+    </sect1>
+
  <sect1 xml:id="sec-saptune-staging">
    <title>Staging</title>
    <para>
@@ -573,7 +610,7 @@ Do you really want to rename this Solution 'myHANA' to the new name 'myHANA2'? [
     staging if staging is enabled.</para>
     <remark>toms 2021-10-14: What to do to avoid this?</remark>
    </important>
-   <para>Staging is disabled per default, and it can be enabled with the following command:</para>
+   <para>Staging is disabled by default, and it can be enabled with the following command:</para>
    <screen>&prompt.root;<command>saptune staging enable</command></screen>
    <para>From that point, &sapnote; and &sapsol; changes shipped by a &saptune;
    package are be put in the staging area. To view the staging area, run:</para>
