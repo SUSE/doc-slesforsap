@@ -41,7 +41,7 @@
      </para>
 <screen>&prompt.user;<command>saptune solution list</command></screen>
      <para>
-      &saptune; knows the following tuning solutions (groups of &sapnote;s):
+      &saptune; recognizes the following tuning solutions (groups of &sapnote;s):
      </para>
      <itemizedlist>
       <listitem>
@@ -80,9 +80,7 @@
        <formalpara>
         <title><literal>S4HANA-APPSERVER</literal></title>
         <para>
-         Solution for running &s4h; application servers
-<!--(identical to &netweaver; solution)-->
-         .
+         Solution for running &s4h; application servers.
         </para>
        </formalpara>
       </listitem>
@@ -91,9 +89,7 @@
         <title><literal>S4HANA-APP+DB</literal></title>
         <para>
          Solution for running both &s4h; application servers and &hana; on the
-         same host
-<!-- (identical to &netweaver; + &hana; solution)-->
-         .
+         same host.
         </para>
        </formalpara>
       </listitem>
@@ -101,9 +97,8 @@
        <formalpara>
         <title><literal>S4HANA-DBSERVER</literal></title>
         <para>
-         Solution for running the &hana; database of an &s4h; installation
+         Solution for running the &hana; database of an &s4h; installation.
 <!-- (identical to &hana; solution)-->
-         .
         </para>
        </formalpara>
       </listitem>
@@ -124,6 +119,14 @@
         </para>
        </formalpara>
       </listitem>
+      <listitem>
+        <formalpara>
+         <title><literal>NETWEAVER+MAXDB</literal></title>
+         <para>
+          Solution for running both &sap; application servers and MAXDB on the same host.
+         </para>
+        </formalpara>
+       </listitem>
      </itemizedlist>
      <para>
       Alternatively, you can tune the computer according to recommendations
@@ -148,16 +151,6 @@
 <screen>&prompt.root;<command>saptune note apply <replaceable>NOTE</replaceable></command></screen>
       </listitem>
      </itemizedlist>
-     <note>
-      <title>Combining optimizations</title>
-      <para>
-       You can combine solutions and notes. However, only one solution can be
-       active at a time. In rare cases, notes can have conflicting options or
-       parameters. To avoid conflicts, order your notes, keeping in mind that
-       the last note always overrides conflicting options or parameters of
-       previous notes.
-      </para>
-     </note>
     </step>
     <step>
      <para>
@@ -172,6 +165,21 @@
      <screen>&prompt.root;<command>saptune service takeover</command></screen>
     </step>
    </procedure>
+   <note>
+    <title>Combining optimizations</title>
+    <para>
+      It is possible to combine solutions and notes. However, only one solution can be active at a time. In rare cases, notes can have conflicting options or parameters. Arrange your notes carefully to avoid conflicts. The last note always takes priority over conflicting options or parameters of previous notes.
+    </para>
+   </note>
+   <note>
+    <title>Switching solutions</title>
+    <para>
+      Starting with &saptune; version 3.1, it is easier to switch to a different solution using the <command>saptune solution change <replaceable>NEW_SOLUTION</replaceable></command> command.
+    </para>
+    <para>
+      Keep in mind that internally the current solution is reverted first, and then the new solution is applied. If you have additional notes configured, the order is not preserved.
+    </para>
+   </note>
   </sect1>
 
  <sect1 xml:id="sec-saptune-disable">
@@ -253,8 +261,8 @@
   <sect2 xml:id="sec-saptune-delete">
    <title>Deleting an &sapnote;</title>
    <para>
-    This command allows deleting a created note, including the corresponding
-    override file if available:
+    The following command deletes a created note, including the corresponding
+    override file, if available:
    </para>
 <screen>&prompt.root;<command>saptune note delete test</command>
 Note to delete is a customer/vendor specific Note.
@@ -276,8 +284,8 @@ Do you really want to delete this Note (test2)? [y/n]: y</screen>
     </listitem>
     <listitem>
      <para>
-      If the note is already applied, the command will be terminated with the
-      information, that the note first needs to be reverted before it can be deleted.
+      If the note is already applied, the command is terminated with the
+      information that the note first needs to be reverted before it can be deleted.
      </para>
     </listitem>
    </itemizedlist>
@@ -287,7 +295,7 @@ Do you really want to delete this Note (test2)? [y/n]: y</screen>
    <title>Renaming an &sapnote;</title>
    <para>
     This command allows renaming a created note to a new name. If a
-    corresponding override file is available, this file will be renamed too:
+    corresponding override file is available, this file is renamed, too:
    </para>
 <screen>&prompt.root;<command>saptune note rename test test2</command>
 Note to rename is a customer/vendor specific Note.
@@ -308,8 +316,8 @@ Do you really want to rename this Note (test) to the new name 'test2'? [y/n]: y<
     </listitem>
     <listitem>
      <para>
-      If the note is already applied, the command will be terminated with the
-      information, that the note first needs to be reverted before it can be deleted.
+      If the note is already applied, the command is terminated with the
+      information that the note first needs to be reverted before it can be deleted.
      </para>
     </listitem>
    </itemizedlist>
@@ -355,7 +363,7 @@ Do you really want to rename this Note (test) to the new name 'test2'? [y/n]: y<
     </listitem>
     <listitem>
      <para>
-      Whether the current state is in accordance with the &sap; recommendation
+      Whether the current state follows the &sap; recommendation
      </para>
     </listitem>
    </itemizedlist>
@@ -364,25 +372,25 @@ Do you really want to rename this Note (test) to the new name 'test2'? [y/n]: y<
   <sect2 xml:id="sec-saptune-simulate">
    <title>Simulating the application of an &sapnote; or an &sapsol;</title>
    <para>
-    To show each parameter of a <literal>note</literal>, use:
+    To show each parameter of a <literal>note</literal>, use the following command:
    </para>
 <screen>&prompt.root;<command>saptune note simulate</command></screen>
    <para>
-    To show each parameter of a <literal>solution</literal>, use:
+    The command to show each parameter of a <literal>solution</literal> is as follows:
    </para>
 <screen>&prompt.root;<command>saptune solution simulate</command></screen>
    <para>
-    It lists the current system value and the expected values (default and
-    override).
+    The command lists the current system value and the expected values (default
+    and override).
    </para>
   </sect2>
 
   <sect2 xml:id="sec-saptune-revert">
    <title>Reverting an &sapnote;</title>
-   <para>To revert an &sapnote;, run:</para>
+   <para>To revert an &sapnote;, run the following command:</para>
     <screen>&prompt.root;<command>saptune note revert <replaceable>NOTE</replaceable></command></screen>
-   <para>All parameters of this &sapnote; will be restored to their values at the time of application.</para>
-   <para>To revert anything, run:</para>
+   <para>This restores all parameters of the &sapnote; to their values at the time of application.</para>
+   <para>To revert everything, use the following command:</para>
    <screen>&prompt.root;<command>saptune note revert all</command></screen>
   </sect2>
 
@@ -406,8 +414,7 @@ Do you really want to rename this Note (test) to the new name 'test2'? [y/n]: y<
  <sect1 xml:id="sec-saptune-sapsolution">
   <title>Managing &sapsol;s</title>
   <para>
-   In the following sections you will learn how to create, delete, and rename
-   &sapsol;s and much more.
+   This chapter explains how to work with &sapsol;s.
   </para>
   
  <sect2 xml:id="sec-saptune-create-solution">
@@ -417,8 +424,8 @@ Do you really want to rename this Note (test) to the new name 'test2'? [y/n]: y<
  </sect2>
 
  <sect2 xml:id="sec-saptune-delete-solution">
-   <title>Deleting an &sapsol;</title>
-   <para>To delete an &sapsol;, run:</para>
+   <title>Deleting  &sapsol;</title>
+   <para>To delete an &sapsol;, run the following command:</para>
   <screen>&prompt.root;<command>saptune solution delete myHANA</command>
 
 Solution to delete is a customer/vendor specific Solution.
@@ -429,7 +436,7 @@ Do you really want to delete this Solution 'myHANA'? [y/n]: y</screen>
   <itemizedlist>
    <listitem>
     <para>
-     A confirmation is needed to finish the action.
+     A confirmation is required to finish the action.
     </para>
    </listitem>
    <listitem>
@@ -439,8 +446,8 @@ Do you really want to delete this Solution 'myHANA'? [y/n]: y</screen>
    </listitem>
    <listitem>
     <para>
-      If the &sapsol; is already applied, the command will be terminated
-      with the information, that the &sapsol; first needs to be reverted
+      If the &sapsol; is already applied, the command is terminated
+      with the information that the &sapsol; first needs to be reverted
       before it can be deleted.
     </para>
    </listitem>
@@ -449,7 +456,7 @@ Do you really want to delete this Solution 'myHANA'? [y/n]: y</screen>
 
   <sect2 xml:id="sec-saptune-rename-solution">
    <title>Renaming an &sapsol;</title>
-   <para>To rename an &sapsol;, run:</para>
+   <para>To rename an &sapsol;, run the following command:</para>
    <screen>&prompt.root;<command>saptune solution rename myHANA myHANA2</command>
 
 Solution to rename is a customer/vendor specific Solution.
@@ -480,17 +487,16 @@ Do you really want to rename this Solution 'myHANA' to the new name 'myHANA2'? [
 
   <sect2 xml:id="sec-saptune-show-solution">
    <title>Showing the configuration of an &sapsol;</title>
-   <para>To list the configuration of an &sapsol;, run:</para>
+   <para>To list the configuration of an &sapsol;, run the following command:</para>
    <screen>&prompt.root;<command>saptune solution show <replaceable>SOLUTION</replaceable></command></screen>
   </sect2>
 
   <sect2 xml:id="sec-saptune-revert-solution">
     <title>Reverting an &sapsol;</title>
-    <para>To revert an &sapsol;, run:</para>
+    <para>To revert an &sapsol;, run the following command:</para>
     <screen>&prompt.root;<command>saptune solution revert <replaceable>SOLUTION</replaceable></command></screen>
     <para>
-     The &sapsol; must be applied. All &sapnote;s parts of the &sapsol; which still are
-     applied will be reverted.
+     The &sapsol; must be applied. This reverts all &sapnote;s parts of the &sapsol; that are still applied.
     </para>
   </sect2>
 
@@ -515,9 +521,9 @@ Do you really want to rename this Solution 'myHANA' to the new name 'myHANA2'? [
  
   <sect1 xml:id="sec-saptune-verify-and-troubleshooting">
    <title>Verification and troubleshooting</title>
-   <para>To see the current status of &saptune;, run:</para>
+   <para>To see the current status of &saptune;, run the following command:</para>
    <screen>&prompt.root;<command>saptune status</command></screen>
-   <para>The output contains:</para>
+   <para>The output contains the following:</para>
    <itemizedlist>
     <listitem>
      <para>status of the &saptune;, &sapconf;, and &tuned; service</para>
@@ -531,56 +537,96 @@ Do you really want to rename this Solution 'myHANA' to the new name 'myHANA2'? [
     <listitem>
      <para>details about staging</para>
     </listitem>
+    <listitem>
+      <para>status of systemd system state</para>
+    </listitem>
+    <listitem>
+      <para>virtualization environment (new in &saptune; version 3.1)</para>
+    </listitem>
+    <listitem>
+      <para>tuning compliance (new in &saptune; version 3.1)</para>
+    </listitem>
    </itemizedlist>
    <para>
-    In case of a problem, run:
-   </para>
-   <screen>&prompt.root;<command>saptune_check</command></screen>
-   <para>
-    The script does a deeper analysis, reports any problems and gives advice on how
-    to rectify them.
+    If a problem occurs, use the <command>saptune_check</command> command (in version 3.1, the command is <command>saptune check</command>) that runs checks, reports problems and offers advice on how to solve them.
    </para>
   </sect1>
+
+  <sect1 xml:id="sec-saptune-machine-readable-output">
+    <title>Machine-readable output</title>
+    <para>
+      Starting with version 3.1, &saptune; supports machine-readable output (JSON) for the following commands:
+      </para>
+      <itemizedlist>
+        <listitem>
+          <para>
+            <command>saptune [daemon|service] status</command>
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            <command>saptune note list|verify|enabled|applied</command>
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            <command>saptune solution list|verify|enabled|applied</command>
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            <command>saptune status</command>
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            <command>saptune version</command>
+          </para>
+        </listitem>
+      </itemizedlist>
+    <para>
+      The machine-readable output makes it possible to integrate &saptune; into scripts and configuration management solutions.
+    </para>
+    </sect1>
 
  <sect1 xml:id="sec-saptune-staging">
    <title>Staging</title>
    <para>
-    It is possible that a new &saptune; package can contain both binary changes (for
-    example, bug fixes) and new or altered &sapnote;s and &sapsol;s.
-    This can be unfavorable for some customers. Installation of bug fixes or new
-    features might be wanted, but altering the system configuration at the same time
-    might not.
+    It is possible that a new &saptune; package can contain both binary changes
+    (for example, bug fixes) and new or altered &sapnote;s and &sapsol;s. In certain situations, it is preferable to deploy bug fixes and new features while leaving modifications to the system configuration out.
    </para>
    <para>
-    With staging enabled, &sapnote; and &sapsol; changes shipped with a package
-    update are <emphasis>not</emphasis> active immediately. They are placed in a
-    staging area, which can be reviewed and released later.
+    With staging enabled, &sapnote; and &sapsol; changes in a package update are
+    <emphasis>not</emphasis> activated immediately. They are placed in a staging
+    area, which can be reviewed and released later.
    </para>
    <important>
-    <para>With the current implementation a package update will overwrite the
+    <para>With the current implementation, a package update overwrites the
     staging if staging is enabled.</para>
     <remark>toms 2021-10-14: What to do to avoid this?</remark>
    </important>
-   <para>Staging is disabled per default. To enable it, run:</para>
+   <para>Staging is disabled by default, and it can be enabled with the following command:</para>
    <screen>&prompt.root;<command>saptune staging enable</command></screen>
-   <para>From now on, &sapnote; and &sapsol; changes shipped by a &saptune;
-   package will be put in the staging area. To view the staging area, run:</para>
+   <para>From that point, &sapnote; and &sapsol; changes shipped by a &saptune;
+   package are put in the staging area. To view the staging area, run:</para>
    <screen>&prompt.root;<command>saptune staging list</command></screen>
-   <para>You can print a tabular overview of the differences of the &sapnote; and
-   &sapsol; in the staging and the working area by running:</para>
+   <para>You can print a tabular overview of the differences of the &sapnote;
+   and &sapsol; in the staging and working area with the following command:</para>
    <screen>&prompt.root;<command>saptune staging diff [NOTE...|SOLUTION...|all]</command></screen>
    <para>
-    After reviewing the differences you can do an analysis to see if a release has
-    potential issues or might require additional steps afterwards by running:
+    After reviewing the differences, you can perform an analysis to see if a
+    release has potential issues or requires additional steps. To do
+    this, run the following command:
    </para>
    <screen>&prompt.root;<command>saptune staging analysis [NOTE...|SOLUTION...|all]</command></screen>
    <para>
-    To release an &sapnote; or an &sapsol; from the staging area, run:
+    To release an &sapnote; or an &sapsol; from the staging area, use the command as follows:
    </para>
    <screen>&prompt.root;<command>saptune staging [--force|--dry-run] [NOTE..|SOLUTION...|all]</command></screen>
    <para>
-    The previous command presents an analysis (see <command>saptune staging analysis</command>) and
-    carries out the release after asking for confirmation.
+    The command presents an analysis (see <command>saptune staging
+    analysis</command>) and carries out the release after asking for
+    confirmation.
    </para>
   </sect1>
 
