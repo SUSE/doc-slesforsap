@@ -80,9 +80,7 @@
        <formalpara>
         <title><literal>S4HANA-APPSERVER</literal></title>
         <para>
-         Solution for running &s4h; application servers
-<!--(identical to &netweaver; solution)-->
-         .
+         Solution for running &s4h; application servers.
         </para>
        </formalpara>
       </listitem>
@@ -91,9 +89,7 @@
         <title><literal>S4HANA-APP+DB</literal></title>
         <para>
          Solution for running both &s4h; application servers and &hana; on the
-         same host
-<!-- (identical to &netweaver; + &hana; solution)-->
-         .
+         same host.
         </para>
        </formalpara>
       </listitem>
