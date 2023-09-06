@@ -548,7 +548,7 @@ Do you really want to rename this Solution 'myHANA' to the new name 'myHANA2'? [
     </listitem>
    </itemizedlist>
    <para>
-    If a problem occurs, use the <command>saptune_check</command> command (in version 3.1, the command is <command>saptune check</command>) that runs checks, reports problems and offers advice on how to solve them.
+    If a problem occurs, use the <command>saptune_check</command> command (in version 3.1, you can also use the command <command>saptune check</command>) that runs checks, reports problems and offers advice on how to solve them.
    </para>
   </sect1>
 
@@ -587,6 +587,50 @@ Do you really want to rename this Solution 'myHANA' to the new name 'myHANA2'? [
     <para>
       The machine-readable output makes it possible to integrate &saptune; into scripts and configuration management solutions.
     </para>
+    <para>
+      To generate JSON output, add <option>--format json</option> as the first option, for example:
+    </para>
+<screen>&prompt.user;saptune --format json note applied | jq
+{
+"$schema": "file:///usr/share/saptune/schemas/1.0/saptune_note_applied.schema.json",
+"publish time": "2023-08-29 17:05:45.627",
+"argv": "saptune --format json note applied",
+"pid": 1538,
+"command": "note applied",
+"exit code": 0,
+"result": {
+    "Notes applied": [
+    "941735",
+    "1771258",
+    "1980196",
+    "2578899",
+    "2684254",
+    "2382421",
+    "2534844",
+    "2993054",
+    "1656250"
+    ]
+},
+"messages": []
+}</screen>
+
+<para>
+  If a command does not yet support JSON output, the command fails with the <literal>result</literal> block set to <literal>"implemented": false</literal>:
+</para>
+<screen>[+]
+&prompt.user;saptune --format json staging status | jq
+{
+"$schema": "file:///usr/share/saptune/schemas/1.0/saptune_staging_status.schema.json",
+"publish time": "2023-08-29 17:08:16.708",
+"argv": "saptune --format json staging status",
+"pid": 1653,
+"command": "staging status",
+"exit code": 1,
+"result": {
+    "implemented": false
+},
+"messages": []
+}</screen>
     </sect1>
 
  <sect1 xml:id="sec-saptune-staging">
