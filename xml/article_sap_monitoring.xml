@@ -276,16 +276,16 @@ pip install .
   "multi_tenant": true,
   "timeout": 30,
   "hana": {
-    "host": "localhost",
+    "host": "<replaceable>HOSTNAME</replaceable>",
     "port": 30013,
     "user": "SYSTEM",
-    "password": "PASSWORD",
+    "password": "<replaceable>PASSWORD</replaceable>",
     "ssl": false,
     "ssl_validate_cert": false
   },
   "logging": {
-    "config_file": "./logging_config.ini",
-    "log_file": "hanadb_exporter.log"
+    "config_file": "<replaceable>PATH</replaceable>/logging_config.ini",
+    "log_file": "<replaceable>PATH</replaceable>/hanadb_exporter.log"
   }
 }</screen>
 <para>
@@ -318,7 +318,7 @@ Below is a list of key configuration options.
       </listitem>
       <listitem>
         <para>
-          <literal>hana.host</literal> Address of the &hana; database.
+          <literal>hana.host</literal> Hostname or IP address of the &hana; database host.
         </para>
       </listitem>
       <listitem>
@@ -387,16 +387,13 @@ Below is a list of key configuration options.
     <para>
       The logging configuration file follows the
       <link
-      xlink:href="https://docs.python.org/3/library/logging.config.html">Python standard
-      logging system style</link>.
+      xlink:href="https://docs.python.org/3/library/logging.config.html">Python
+      standard logging system style</link>.
     </para>
     <para>
-      Using the default
-      <link xlink:href="./logging_config.ini">configuration
-      file</link>, redirects the logs to the file assigned in
-      the <link xlink:href="./config.json.example">json configuration
-      file</link> and to the syslog (only logging level up to
-      WARNING).
+      Using the default configuration file, redirects the logs to the file
+      specified in the JSON configuration file and to the syslog (only logging
+      level up to WARNING).
     </para>
     </sect2>
     <sect2 xml:id="sec-sol-monit-hana-db-stored-key">
