@@ -1,0 +1,573 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" xml:base="s4s_tune.xml" version="5.0" xml:id="cha-tune">
+ <title><command>saptune</command>を使用したシステムのチューニング</title>
+ <info>
+  <dm:docmanager xmlns:dm="urn:x-suse:ns:docmanager">
+   <dm:bugtracker/>
+   <dm:translation>yes</dm:translation>
+  </dm:docmanager>
+ </info>
+ <para>
+  この章では、SUSE Linux Enterprise Server for SAP ApplicationsがSAPアプリケーションと最適に連携できるようにチューニングする方法について説明します。
+ </para>
+ <para>
+   <command>saptune</command>を使用すると、SAP NetWeaver、SAP HANA/SAP BusinessObjects、およびSAP S/4HANAアプリケーション用にシステムをチューニングできます。
+ </para>
+ <important>
+   <para>
+    この章では、<systemitem class="daemon">tuned</systemitem>を使用しなくなった<command>saptune</command>バージョン3について説明します。
+   </para>
+ </important>
+
+  <sect1 xml:id="sec-saptune-enable">
+   <title><command>saptune</command>の有効化</title>
+   <para>
+   <command>saptune</command>を有効にしてSAPアプリケーションをチューニングするには、次の手順を使用します。
+   </para>
+   <procedure xml:id="pro-tune">
+    <step>
+     <para>
+      システムをチューニングするには、まず、チューニングソリューションを見つけます。適切なソリューションを見つけるには、次のコマンドを使用します。
+     </para>
+<screen><prompt>&gt; </prompt><command>saptune solution list</command></screen>
+     <para>
+      <command>saptune</command>では、次のチューニングソリューション(SAPノートのグループ)を認識します。
+     </para>
+     <itemizedlist>
+      <listitem>
+       <formalpara>
+        <title><literal>BOBJ</literal></title>
+        <para>
+         SAP BusinessObjectsを実行するためのソリューション。
+        </para>
+       </formalpara>
+      </listitem>
+      <listitem>
+       <formalpara>
+        <title><literal>HANA</literal></title>
+        <para>
+         SAP HANAデータベースを実行するためのソリューション。
+        </para>
+       </formalpara>
+      </listitem>
+      <listitem>
+       <formalpara>
+        <title><literal>MAXDB</literal></title>
+        <para>
+         SAP MaxDBデータベースを実行するためのソリューション。
+        </para>
+       </formalpara>
+      </listitem>
+      <listitem>
+       <formalpara>
+        <title><literal>NETWEAVER</literal></title>
+        <para>
+         SAP NetWeaverアプリケーションサーバを実行するためのソリューション。
+        </para>
+       </formalpara>
+      </listitem>
+      <listitem>
+       <formalpara>
+        <title><literal>S4HANA-APPSERVER</literal></title>
+        <para>
+         SAP S/4HANAアプリケーションサーバを実行するためのソリューション。
+        </para>
+       </formalpara>
+      </listitem>
+      <listitem>
+       <formalpara>
+        <title><literal>S4HANA-APP+DB</literal></title>
+        <para>
+         SAP S/4HANAアプリケーションサーバとSAP HANAの両方を同じホスト上で実行するためのソリューション。
+        </para>
+       </formalpara>
+      </listitem>
+      <listitem>
+       <formalpara>
+        <title><literal>S4HANA-DBSERVER</literal></title>
+        <para>
+         SAP S/4HANAインストールのSAP HANAデータベースを実行するためのソリューション。
+        </para>
+       </formalpara>
+      </listitem>
+      <listitem>
+       <formalpara>
+        <title><literal>SAP-ASE</literal></title>
+        <para>
+         SAP Adaptive Server Enterpriseデータベースを実行するためのソリューション。
+        </para>
+       </formalpara>
+      </listitem>
+      <listitem>
+       <formalpara>
+        <title><literal>NETWEAVER+HANA</literal></title>
+        <para>
+         SAPアプリケーションサーバとSAP HANAの両方を同じホスト上で実行するためのソリューション。
+        </para>
+       </formalpara>
+      </listitem>
+     </itemizedlist>
+     <para>
+      または、特定のSAP Notesからの推奨事項に従って、コンピュータをチューニングできます。チューニングできるNotesのリストは次のコマンドを介して入手できます。
+     </para>
+<screen><prompt role="root"># </prompt><command>saptune note list</command></screen>
+    </step>
+    <step>
+     <itemizedlist>
+      <listitem>
+       <para>
+        事前設定されたソリューションを使用して<command>saptune</command>を設定するには、次のコマンドを使用します。
+       </para>
+<screen><prompt role="root"># </prompt><command>saptune solution apply <replaceable>SOLUTION</replaceable></command></screen>
+      </listitem>
+      <listitem>
+       <para>
+        特定のSAPノートの推奨事項に合わせて<command>saptune</command>を設定するには、次のコマンドを使用します。
+       </para>
+<screen><prompt role="root"># </prompt><command>saptune note apply <replaceable>NOTE</replaceable></command></screen>
+      </listitem>
+     </itemizedlist>
+     <note>
+      <title>最適化の組み合わせ</title>
+      <para>
+       ソリューションとノートを組み合わせることができます。ただし、一度にアクティブにできるのは1つのソリューションのみです。まれに、ノートでオプションまたはパラメータの競合が発生する可能性があります。競合を避けるには、最後のノートが常に以前のノートの競合するオプションまたはパラメータを上書きすることに注意してください。
+      </para>
+     </note>
+    </step>
+    <step>
+     <para>
+      <command>saptune</command>を開始し、ブート時に有効にするには、次のコマンドを実行してください。
+     </para>
+<screen><prompt role="root"># </prompt><command>saptune service enablestart</command></screen>
+     <para>
+      <literal>sapconf</literal>と<systemitem class="daemon">tuned</systemitem>が停止して無効になっていることを確認するには、代わりに次のコマンドを実行します。
+     </para>
+     <screen><prompt role="root"># </prompt><command>saptune service takeover</command></screen>
+    </step>
+   </procedure>
+  </sect1>
+
+ <sect1 xml:id="sec-saptune-disable">
+  <title><command>saptune</command>の無効化</title>
+  <para>
+   <command>saptune</command>を無効にして停止するには、次のコマンドを実行します。
+  </para>
+  <screen><prompt role="root"># </prompt><command>saptune service disablestop</command></screen>
+ </sect1>
+
+ <sect1 xml:id="sec-saptune-update">
+  <title><command>saptune</command>の更新</title>
+  <para>saptuneを新しいバージョンに更新するには、パッケージを更新するだけです。</para>
+  <para>
+   パッケージの更新にはSAPノートおよびSAPソリューションの更新が含まれる可能性があるため、<command>saptune service restart</command>を使用して<command>saptune</command>を再起動し、チューニングを再適用します。その後、すべての推奨事項がまだ満たされているかどうかを<command>saptune note verify</command>を使用して確認します。
+  </para>
+  <important>
+   <para>
+    <command>saptune</command>ツールは、<systemitem class="daemon">tuned</systemitem>を利用しなくなりました。<command>saptune</command> 3を設定するように<systemitem class="daemon">tuned</systemitem>を構成しても機能しません。<command>saptune</command> 3を起動および有効にするには、次の方法のいずれかを使用します。
+   </para>
+   <itemizedlist>
+    <listitem>
+     <screen>saptune service enablestart</screen>
+     <para>
+      <systemitem>saptune.service</systemitem>を有効にして起動します。
+     </para>
+    </listitem>
+    <listitem>
+     <screen>saptune service takeover</screen>
+     <para>
+      <systemitem>saptune.service</systemitem>を有効にして起動し、<literal>sapconf</literal>と<systemitem class="daemon">tuned</systemitem>を無効にします。
+     </para>
+    </listitem>
+    <listitem>
+     <screen>saptune daemon start</screen>
+     <para>非推奨。<command>saptune</command>サービスのテイクオーバーにリダイレクトされます。</para>
+    </listitem>
+   </itemizedlist>
+  </important>
+ </sect1>
+
+ <sect1 xml:id="sec-saptune-sapnotes">
+  <title>SAPノートの管理</title>
+  <para>
+   次のセクションでは、SAPノートの作成、削除、名前変更などの方法について学習します。
+  </para>
+  <sect2 xml:id="sec-saptune-customize">
+   <title>SAPノートのカスタマイズ</title>
+   <para>
+    すべてのSAPノートは次のコマンドを使用して自由に設定できます。
+    <remark>"customise" is (sadly) correct. - sknorr, 2019-07-19</remark>
+    <remark>toms 2021-10-15: according from Sören, it's the english spelling.
+    Inofficially, "customize" is also accepted. :)</remark>
+   </para>
+<screen><prompt role="root"># </prompt><command>saptune note customise <replaceable>NOTE</replaceable></command></screen>
+   <para>
+    このコマンドには、値の変更やパラメータの無効化が含まれています。
+   </para>
+  </sect2>
+
+  <sect2 xml:id="sec-saptune-create">
+   <title>新しいSAPノートの作成</title>
+   <para>
+    新しいSAPノートを次のコマンドを使用して作成できます。
+   </para>
+<screen><prompt role="root"># </prompt><command>saptune note create <replaceable>NOTE</replaceable></command></screen>
+   <para>
+    <command>saptune</command>のすべての機能が利用できます。
+   </para>
+  </sect2>
+
+  <sect2 xml:id="sec-saptune-delete">
+   <title>SAPノートの削除</title>
+   <para>
+    このコマンドを使用すると、作成されたノートを削除できます。対応する上書きファイルが利用可能な場合は、それも削除されます。
+   </para>
+<screen><prompt role="root"># </prompt><command>saptune note delete test</command>
+Note to delete is a customer/vendor specific Note.
+Do you really want to delete this Note (test2)? [y/n]: y</screen>
+   <para>
+    ノートはその時点では適用されない場合があります。次の点に注意してください。
+   </para>
+   <itemizedlist>
+    <listitem>
+     <para>
+      アクションを完了するには確認が必要です。
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      <command>saptune</command>で提供された内部SAPノートは削除できません。代わりに、利用可能な場合は、上書きファイルが削除されます。
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      ノートがすでに適用されている場合、コマンドは、ノートを削除する前に元に戻す必要があるという情報で終了します。
+     </para>
+    </listitem>
+   </itemizedlist>
+  </sect2>
+
+  <sect2 xml:id="sec-saptune-rename">
+   <title>SAPノートの名前の変更</title>
+   <para>
+    このコマンドを使用すると、作成されたノートを新しい名前に変更することができます。対応する上書きファイルが利用可能な場合は、このファイルの名前も変更されます。
+   </para>
+<screen><prompt role="root"># </prompt><command>saptune note rename test test2</command>
+Note to rename is a customer/vendor specific Note.
+Do you really want to rename this Note (test) to the new name 'test2'? [y/n]: y</screen>
+   <para>
+    ノートはその時点では適用されない場合があります。次の点に注意してください。
+   </para>
+   <itemizedlist>
+    <listitem>
+     <para>
+      アクションを完了するには確認が必要です。
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      <command>saptune</command>で提供された内部SAPノートの名前は変更できません。
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      ノートがすでに適用されている場合、コマンドは、ノートを削除する前に元に戻す必要があるという情報で終了します。
+     </para>
+    </listitem>
+   </itemizedlist>
+  </sect2>
+
+  <sect2 xml:id="sec-saptune-show">
+   <title>SAPノートの設定の表示</title>
+   <para>
+    ノート提供時の設定は、次のコマンドで一覧表示できます。
+   </para>
+<screen><prompt role="root"># </prompt><command>saptune note show <replaceable>NOTE</replaceable></command></screen>
+  </sect2>
+
+  <sect2 xml:id="sec-saptune-verify">
+   <title>SAPノートまたはSAPソリューションの確認</title>
+   <para>
+    コマンド<command>saptune note verify
+    <replaceable>NOTE</replaceable></command>および<command>saptune solution
+    verify <replaceable>SOLUTION</replaceable></command>は、アクティブまたはリクエストされた各ノートについて、次のデータを一覧表示します。
+   </para>
+   <itemizedlist>
+    <listitem>
+     <para>
+      パラメータ名
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      予想される値(デフォルト)
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      設定されたオーバーライド(<command>saptune
+      customise</command>を使用して作成)
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      現在のシステム値
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      現在の状態がSAP推奨事項に従っているかどうか
+     </para>
+    </listitem>
+   </itemizedlist>
+  </sect2>
+
+  <sect2 xml:id="sec-saptune-simulate">
+   <title>SAPノートまたはSAPソリューションの適用のシミュレート</title>
+   <para>
+    <literal>note</literal>の各パラメータを表示するには、次のコマンドを使用します。
+   </para>
+<screen><prompt role="root"># </prompt><command>saptune note simulate</command></screen>
+   <para>
+    <literal>solution</literal>の各パラメータを表示するには、次のコマンドを使用します。
+   </para>
+<screen><prompt role="root"># </prompt><command>saptune solution simulate</command></screen>
+   <para>
+    現在のシステム値と予想される値(デフォルトおよび上書き)を一覧表示します。
+   </para>
+  </sect2>
+
+  <sect2 xml:id="sec-saptune-revert">
+   <title>SAPノートを元に戻す</title>
+   <para>SAPノートを元に戻すには、次のコマンドを実行します。</para>
+    <screen><prompt role="root"># </prompt><command>saptune note revert <replaceable>NOTE</replaceable></command></screen>
+   <para>このSAPノートのすべてのパラメータは、適用時の値に復元されます。</para>
+   <para>すべてを元に戻すには、次のコマンドを実行します。</para>
+   <screen><prompt role="root"># </prompt><command>saptune note revert all</command></screen>
+  </sect2>
+
+ <sect2 xml:id="sec-saptune-edit">
+  <title>SAPノートの編集</title>
+  <para>各カスタムSAPノートは、次のコマンドで編集できます。</para>
+  <screen><prompt role="root"># </prompt><command>saptune note edit <replaceable>NOTE</replaceable></command></screen>
+ </sect2>
+
+  <sect2 xml:id="sec-saptune-list">
+   <title>有効化または適用されたすべてのSAPノートの一覧表示</title>
+   <para>
+    すべての有効化されたSAPノートを一覧表示するには、次のコマンドを実行します。
+   </para>
+   <screen><prompt role="root"># </prompt><command>saptune note enabled</command></screen>
+   <para>すべての適用されたSAPノートを一覧表示するには、次のコマンドを実行します。</para>
+   <screen><prompt role="root"># </prompt><command>saptune note applied</command></screen>
+  </sect2>
+ </sect1>
+ 
+ <sect1 xml:id="sec-saptune-sapsolution">
+  <title>SAPソリューションの管理</title>
+  <para>
+   次のセクションでは、SAPソリューションの作成、削除、名前変更などの方法について学習します。
+  </para>
+  
+ <sect2 xml:id="sec-saptune-create-solution">
+  <title>新しいSAPソリューションの作成</title>
+  <para>新しいSAPソリューションを作成するには、次のコマンドを実行します。</para>
+  <screen><prompt role="root"># </prompt><command>saptune solution create <replaceable>SOLUTION</replaceable></command></screen>
+ </sect2>
+
+ <sect2 xml:id="sec-saptune-delete-solution">
+   <title>SAPソリューションの削除</title>
+   <para>SAPソリューションを削除するには、次のコマンドを実行します。</para>
+  <screen><prompt role="root"># </prompt><command>saptune solution delete myHANA</command>
+
+Solution to delete is a customer/vendor specific Solution.
+Do you really want to delete this Solution 'myHANA'? [y/n]: y</screen>
+  <para>
+   SAPソリューションはその時点では適用されない場合があります。次の点に注意してください。
+  </para>
+  <itemizedlist>
+   <listitem>
+    <para>
+     アクションを完了するには確認が必要です。
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+      <command>saptune</command>で提供されたSAPソリューションは削除できません。
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+      SAPソリューションがすでに適用されている場合、コマンドは、SAPソリューションを削除する前に元に戻す必要があるという情報で終了します。
+    </para>
+   </listitem>
+  </itemizedlist>
+ </sect2>
+
+  <sect2 xml:id="sec-saptune-rename-solution">
+   <title>SAPソリューションの名前の変更</title>
+   <para>SAPソリューションの名前を変更するには、次のコマンドを実行します。</para>
+   <screen><prompt role="root"># </prompt><command>saptune solution rename myHANA myHANA2</command>
+
+Solution to rename is a customer/vendor specific Solution.
+Do you really want to rename this Solution 'myHANA' to the new name 'myHANA2'? [y/n]:</screen>
+  <para>
+   SAPソリューションはその時点では適用されない場合があります。次の点に注意してください。
+  </para>
+  <itemizedlist>
+   <listitem>
+    <para>
+     アクションを完了するには確認が必要です。
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+      <command>saptune</command>で提供されたSAPソリューションの名前は変更できません。
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+      SAPソリューションがすでに適用されている場合、コマンドは、SAPソリューションの名前を変更する前に元に戻す必要があるという情報で終了します。
+    </para>
+   </listitem>
+  </itemizedlist>
+  </sect2>
+
+  <sect2 xml:id="sec-saptune-show-solution">
+   <title>SAPソリューションの設定の表示</title>
+   <para>SAPソリューションの設定を一覧表示するには、次のコマンドを実行します。</para>
+   <screen><prompt role="root"># </prompt><command>saptune solution show <replaceable>SOLUTION</replaceable></command></screen>
+  </sect2>
+
+  <sect2 xml:id="sec-saptune-revert-solution">
+    <title>SAPソリューションを元に戻す</title>
+    <para>SAPソリューションを元に戻すには、次のコマンドを実行します。</para>
+    <screen><prompt role="root"># </prompt><command>saptune solution revert <replaceable>SOLUTION</replaceable></command></screen>
+    <para>
+     SAPソリューションを適用する必要があります。まだ適用されているSAPソリューションのすべてのSAPノートの部分が元に戻されます。
+    </para>
+  </sect2>
+
+  <sect2 xml:id="sec-saptune-edit-custom-solution">
+   <title>カスタムSAPソリューションの編集</title>
+   <para>カスタムSAPソリューションを編集するには、次のコマンドを実行します。</para>
+   <screen><prompt role="root"># </prompt><command>saptune solution edit <replaceable>SOLUTION</replaceable></command></screen>
+  </sect2>
+
+  <sect2 xml:id="sec-saptune-list-solution">
+   <title>有効化/適用されたSAPソリューションの一覧表示</title>
+   <para>有効化されたSAPソリューションを一覧表示するには、次のコマンドを実行します。</para>
+   <screen><prompt role="root"># </prompt><command>saptune solution enabled</command></screen>
+   <para>適用されたSAPソリューションを一覧表示するには、次のコマンドを実行します。</para>
+   <screen><prompt role="root"># </prompt><command>saptune solution applied</command></screen>
+   <para>
+    適用されたSAPソリューションのSAPノートが元に戻された場合、文字列<literal>(partial)</literal>がソリューション名に追加されています。
+   </para>
+  </sect2>
+ </sect1>
+ 
+  <sect1 xml:id="sec-saptune-verify-and-troubleshooting">
+   <title>検証とトラブルシューティング</title>
+   <para><command>saptune</command>の現在のステータスを表示するには、次のコマンドを実行します。</para>
+   <screen><prompt role="root"># </prompt><command>saptune status</command></screen>
+   <para>出力には次のものが含まれます。</para>
+   <itemizedlist>
+    <listitem>
+     <para><command>saptune</command>、<literal>sapconf</literal>、および<systemitem class="daemon">tuned</systemitem>サービスのステータス</para>
+    </listitem>
+    <listitem>
+     <para>パッケージおよび実行中の<command>saptune</command>のバージョン</para>
+    </listitem>
+    <listitem>
+     <para>設定されたSAPソリューションおよびSAPノートに関する詳細</para>
+    </listitem>
+    <listitem>
+     <para>ステージングに関する詳細</para>
+    </listitem>
+   </itemizedlist>
+   <para>
+    問題が発生した場合は、次のコマンドを実行します。
+   </para>
+   <screen><prompt role="root"># </prompt><command>saptune_check</command></screen>
+   <para>
+    スクリプトは、より詳細な分析を行い、問題を報告し、問題を修正する方法についてアドバイスします。
+   </para>
+  </sect1>
+
+ <sect1 xml:id="sec-saptune-staging">
+   <title>ステージング</title>
+   <para>
+    新しい<command>saptune</command>パッケージには、バイナリの変更(バグ修正など)と、新規または変更されたSAPノートおよびSAPソリューションの両方を含めることができます。これは、一部のお客様にとって好ましくない場合があります。バグ修正や新機能のインストールが必要な場合はありますが、同時にシステム設定を変更することは必要でない場合があります。
+   </para>
+   <para>
+    ステージングが有効になっている場合、パッケージの更新によって提供されたSAPノートおよびSAPソリューションの変更はすぐにはアクティブになりません。<emphasis></emphasis>これらはステージング領域に配置され、後でレビューおよびリリースできます。
+   </para>
+   <important>
+    <para>現在の実装では、ステージングが有効になっている場合、パッケージの更新によってステージングが上書きされます。</para>
+    <remark>toms 2021-10-14: What to do to avoid this?</remark>
+   </important>
+   <para>ステージングはデフォルトで無効になっています。ステージングを有効にするには、次のコマンドを実行します。</para>
+   <screen><prompt role="root"># </prompt><command>saptune staging enable</command></screen>
+   <para>今後、<command>saptune</command>パッケージで提供されるSAPノートおよびSAPソリューションの変更は、ステージング領域に配置されます。ステージング領域を表示するには、次のコマンドを実行します。</para>
+   <screen><prompt role="root"># </prompt><command>saptune staging list</command></screen>
+   <para>次のコマンドを実行することにより、ステージングおよび作業領域におけるSAPノートとSAPソリューションの違いについて表形式で概要を出力することができます。</para>
+   <screen><prompt role="root"># </prompt><command>saptune staging diff [NOTE...|SOLUTION...|all]</command></screen>
+   <para>
+    違いを確認したら、次のコマンドを実行して、リリースに潜在的な問題があるかどうか、または後で追加の手順が必要かどうかを確認するために分析を行うことができます。
+   </para>
+   <screen><prompt role="root"># </prompt><command>saptune staging analysis [NOTE...|SOLUTION...|all]</command></screen>
+   <para>
+    ステージング領域からSAPノートまたはSAPソリューションをリリースするには、次のコマンドを実行します。
+   </para>
+   <screen><prompt role="root"># </prompt><command>saptune staging [--force|--dry-run] [NOTE..|SOLUTION...|all]</command></screen>
+   <para>
+    前のコマンドでは、分析が表示され(<command>saptune staging analysis</command>を参照)、確認を求められた後にリリースが実行されます。
+   </para>
+  </sect1>
+
+ <sect1 xml:id="sec-sysctl">
+  <title><command>sysctl</command>を使用したカーネルパラメータの手動チューニング</title>
+
+  <para>
+   <command>saptune</command>を使用してカーネルパラメータをチューニングする際は、<command>sysctl</command>を使用して、カーネルパラメータを手動調整することもできます。また、saptuneを使用したカーネルパラメータのチューニングの代わりに、sysctlを使用して、カーネルパラメータを手動調整することもできます。ただし、<command>sysctl</command>を使用したこのような変更は、デフォルトでは再起動後も持続しません。再起動後も持続するようにするには、<command>sysctl</command>によって読み込まれた設定ファイルのいずれかにそれらを追加します。
+  </para>
+
+  <tip>
+   <title><command>sysctl</command>および<command>saptune</command></title>
+   <para>
+    SAPシステムに<command>sysctl</command>パラメータを設定する場合は、このような設定を管理する中心的なツールとして<command>saptune</command>を使用することを検討してください。
+   </para>
+  </tip>
+
+  <para>
+
+   <command>sysctl</command>に関する詳細については、<literal>sysctl(8)</literal>、<literal>sysctl.conf(5)</literal>、および<literal>sysctl.d(5)</literal>のマニュアルページを参照してください。
+  </para>
+ </sect1>
+
+ <sect1 xml:id="sec-saptune-more">
+  <title>詳細の参照先</title>
+  <para>
+   次のマニュアルページを参照してください。
+  </para>
+  <itemizedlist>
+   <listitem>
+    <para>
+     <command>man 8 saptune</command>
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     <command>man 8 saptune-migrate</command>
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     <command>man 8 saptune-note</command>
+    </para>
+   </listitem>
+  </itemizedlist>
+  <para>
+   プロジェクトホームページ(<link xlink:href="https://github.com/SUSE/saptune/"/>)も参照してください。
+  </para>
+ </sect1>
+</chapter>
