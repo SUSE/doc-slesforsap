@@ -220,22 +220,27 @@
     </term>
     <listitem>
      <para>
-      Subscriptions for &sles4sap; include Extended Service Pack Overlap
-      Support (ESPOS). It extends the overlap between the support periods of two
-      consecutive service packs by three years. During this period, you
-      receive support and all relevant maintenance updates under the terms of
-      Long Term Service Pack Support (LTSS).
+      Subscriptions for &sles4sap; include Extended Service Pack Overlap Support
+      (ESPOS). It extends the overlap between the support periods of two
+      consecutive service packs by three years. During this period, you receive
+      support and all relevant maintenance updates under the terms of Long Term
+      Service Pack Support (LTSS).
      </para>
      <para>
-      Extended Service Pack Overlap Support allows you to perform service pack
-      migrations within three and a half (3½) years instead of only six
-      months. This enables you to schedule migrations more easily and perform
-      testing before a migration under less restrictive time constraints.
+        Extended Service Pack Overlap Support allows you to perform service pack
+        migrations within three and a half years instead of only six months.
+        This enables you to schedule migrations more easily and perform testing
+        before a migration under less restrictive time constraints. At an
+        additional cost, SUSE also offers LTSS. With LTSS, you receive support
+        for a particular service pack after the ESPOS period ends. &sles4sap;
+        includes one and a half years of general support and three years of
+        ESPOS for each service pack.
      </para>
      <para>
-      The last service pack of a &sles4sap; major release has a separate lifecyle
-      without ESPOS as there is no overlap to the next service pack. Instead, LTSS
-      is offerend for this last service pack at an additional cost.
+        The last service pack in each &slea; family does not have ESPOS. Instead
+        of ESPOS, it includes a longer general support period. Because of that,
+        LTSS is available only for the last service pack. All other service
+        packs already include three years of ESPOS, which equals LTSS.
      </para>
      <para>
       For more information, refer to the following resources:
@@ -243,7 +248,7 @@
      <itemizedlist>
       <listitem>
        <para>
-        Product Lifecycle Support Policies: <link xlink:href="https://www.suse.com/support/policy-products/"></link>
+        Product Lifecycle Support Policies: <link xlink:href="https://www.suse.com/support/policy-products/#sap"></link>
        </para>
       </listitem>
       <listitem>
