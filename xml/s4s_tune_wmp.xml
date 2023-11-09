@@ -125,7 +125,7 @@
   </para>
   <important>
   <para>
-    Starting with sles4sap 15 SP5, the package <package>sapwmp</package> is
+    Starting with &sles4sap; 15 SP5, the package <package>sapwmp</package> is
     deprecated. For infomation about migration, see <xref linkend="sec-sapwmp-migrate" />.
   </para>
   </important>
