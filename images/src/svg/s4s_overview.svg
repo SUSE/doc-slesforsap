@@ -1,73 +1,438 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="700" height="500" version="1.2">
-  <path fill="#fff" d="M0 0h700v500H0z"/>
-  <path fill="#00b2e2" d="M16 15v2h8.03125v-2zm12.03125 0v2h8.03125v-2zm12.03125 0v2h8.03125v-2zm12.0625 0v2h8v-2zm12.03125 0v2h8v-2zm12.03125 0v2h8.03125v-2zm12.03125 0v2H96.25v-2zM100.25 15v2h8.03125v-2zm12.03125 0v2h8.03125v-2zm12.03125 0v2h8.03125v-2zm12.0625 0v2h8v-2zm12.03125 0v2h8.03125v-2zm12.03125 0v2h8.03125v-2zm12.03125 0v2H180.5v-2zM184.5 15v2h8.03125v-2zm12.03125 0v2h8.03125v-2zm300.90625 0v2h8.03125v-2zm12.03125 0v2H517.5v-2zM521.5 15v2h8.03125v-2zm12.0625 0v2h8v-2zm12.03125 0v2h8.03125v-2zm12.03125 0v2h8.03125v-2zm12.03125 0v2h8.03125v-2zm12.03125 0v2h8.03125v-2zm12.03125 0v2H601.75v-2zm12.0625 0v2h8v-2zm12.03125 0v2h8v-2zm12.03125 0v2h8.03125v-2zm12.03125 0v2h8.03125v-2zm12.03125 0v2h8.03125v-2zm12.03125 0v2h8.03125v-2zm12.03125 0v2H683v1h2v-2l-.40625-.8125L684 15zM15 17.1875v8h2v-8zM683 22v8.03125h2V22zM15 29.21875v8h2v-8zm668 4.84375v8h2v-8zM15 41.25v8.03125h2V41.25zm668 4.84375v8h2v-8zm-668 7.1875v8.03125h2v-8.03125zM683 58.125v8.03125h2V58.125zM15 65.3125v8.03125h2V65.3125zm668 4.84375v8.03125h2v-8.03125zm-668 7.1875V85.375h2v-8.03125zm668 4.84375v8.03125h2V82.1875zM15 89.375v8.03125h2V89.375zm668 4.84375V102.25h2v-8.03125zM15 101.4375v8h2v-8zm668 4.8125v8.03125h2V106.25zm-668 7.21875v8h2v-8zm668 4.84375v8h2v-8zM15 125.5v8.03125h2V125.5zm668 4.84375v8.03125h2v-8.03125zm-668 7.1875v8.03125h2v-8.03125zm668 4.84375v8.03125h2V142.375zm-668 7.1875v8.03125h2v-8.03125zm668 4.84375v8.03125h2v-8.03125zm-668 7.1875v8.03125h2v-8.03125zm668 4.84375v8.03125h2v-8.03125zM15 173.625v8.03125h2V173.625zm668 4.84375V186.5h2v-8.03125zM15 185.6875v8h2v-8zm668 4.84375v8h2v-8zm-668 7.1875V205.75h2v-8.03125zm668 4.84375v8h2v-8zM15 209.75v8.03125h2V209.75zm668 4.84375v8.03125h2v-8.03125zm-668 7.1875v8.03125h2v-8.03125zm668 4.84375v8.03125h2V226.625zm-668 7.1875v8.03125h2v-8.03125zm668 4.84375v8.03125h2v-8.03125zm-668 7.1875v8.03125h2v-8.03125zm668 4.84375v8.03125h2v-8.03125zm-668 7.21875v8h2v-8zm668 4.8125V270.75h2v-8.03125zM15 269.9375v8h2v-8zm668 4.84375v8h2v-8zm-668 7.1875V290h2v-8.03125zm668 4.84375v8.03125h2v-8.03125zM15 294v8.03125h2V294zm668 4.84375v8.03125h2v-8.03125zm-668 7.1875v8.03125h2v-8.03125zm668 4.84375v8.03125h2V310.875zm-668 7.1875v8.03125h2v-8.03125zm668 4.84375v8.03125h2v-8.03125zm-668 7.1875v8.03125h2v-8.03125zm668 4.84375v8.03125h2v-8.03125zm-668 7.21875v8h2v-8zM683 347v8h2v-8zm-668 7.1875v8.03125h2v-8.03125zm668 4.84375v8h2v-8zm-668 7.1875V374.25h2v-8.03125zm668 4.84375v8.03125h2v-8.03125zM15 378.25v8.03125h2V378.25zm668 4.84375v8.03125h2v-8.03125zm-668 7.1875v8.03125h2v-8.03125zm668 4.84375v8.03125h2V395.125zm-668 7.1875v8.03125h2v-8.03125zm668 4.84375v8.03125h2v-8.03125zM15 414.375v8h2v-8zm668 4.8125v8.03125h2v-8.03125zm-668 7.21875v8h2v-8zM683 431.25v8h2v-8zm-668 7.1875v8.03125h2v-8.03125zm668 4.84375v8.03125h2v-8.03125zm-668 7.1875V458.5h2v-8.03125zm668 4.84375v8.03125h2v-8.03125zM15 462.5v8.03125h2V462.5zm668 4.84375v8.03125h2v-8.03125zm-668 7.1875v8.03125h2v-8.03125zm668 4.84375v3.59375h-2.4375V485H684l.8125-.40625.1875-.625V479.375zm-664.40625 3.59375V485H26.625v-2.03125zm12.03125 0V485h8.03125v-2.03125zm12.03125 0V485h8.03125v-2.03125zm12.0625 0V485h8v-2.03125zm12.03125 0V485h8v-2.03125zm12.03125 0V485h8.03125v-2.03125zm12.03125 0V485h8.03125v-2.03125zm12.03125 0V485h8.03125v-2.03125zm12.03125 0V485h8.03125v-2.03125zm12.03125 0V485h8.03125v-2.03125zm12.0625 0V485h8v-2.03125zm12.03125 0V485h8.03125v-2.03125zm12.03125 0V485h8.03125v-2.03125zm12.03125 0V485h8.03125v-2.03125zm12.03125 0V485h8.03125v-2.03125zm12.03125 0V485H205v-2.03125zm300.90625 0V485h8.03125v-2.03125zm12.03125 0V485h8.03125v-2.03125zm12.03125 0V485h8.03125v-2.03125zm12.0625 0V485h8v-2.03125zm12.03125 0V485h8.03125v-2.03125zm12.03125 0V485H568.25v-2.03125zm12.03125 0V485h8.03125v-2.03125zm12.03125 0V485h8.03125v-2.03125zm12.03125 0V485h8.03125v-2.03125zm12.0625 0V485h8v-2.03125zm12.03125 0V485h8v-2.03125zm12.03125 0V485h8.03125v-2.03125zm12.03125 0V485H652.5v-2.03125zm12.03125 0V485h8.03125v-2.03125zm12.03125 0V485h8.03125v-2.03125z" style="text-indent:0;text-align:start;line-height:normal;text-transform:none;block-progression:tb;-inkscape-font-specification:Sans" color="#000" overflow="visible" font-family="Sans"/>
-  <text x="214.86406" y="22.19507" fill="#00b2e2" style="line-height:125%" font-size="39.99998" letter-spacing="66.10998" word-spacing="0" font-family="Sans">
-    <tspan x="214.86406" y="22.19507" style="-inkscape-font-specification:Open Sans" font-size="19.99999" letter-spacing="0" font-family="Open Sans">24×7 Priority Support for SAP</tspan>
-  </text>
-  <text x="214.86406" y="492.19507" fill="#00b2e2" style="line-height:125%" font-size="39.99998" letter-spacing="66.10998" word-spacing="0" font-family="Sans">
-    <tspan x="214.86406" y="492.19507" style="-inkscape-font-specification:Open Sans" font-size="19.99999" letter-spacing="0" font-family="Open Sans">24×7 Priority Support for SAP</tspan>
-  </text>
-  <path fill="#02d35f" d="M35 365h630v100H35zM35 255h310v100H35z"/>
-  <path fill="#00b2e2" d="M515 255h150v100H515zM355 145h150v100H355zM515 145h150v100H515zM35 145h150v100H35zM195 145h150v100H195zM35 35h630v100H35z"/>
-  <g fill="#00b2e2">
-    <path d="M504 258v96H358v2h148v-98z"/>
-    <path d="M355 255h148v98H355z"/>
-    <path d="M507 261v96H361v2h148v-98z"/>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="700"
+   height="500"
+   version="1.2"
+   id="svg116"
+   sodipodi:docname="s4s_overview.svg"
+   inkscape:version="1.0.1 (3bc2e813f5, 2020-09-07)">
+  <metadata
+     id="metadata122">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs120" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1621"
+     inkscape:window-height="1063"
+     id="namedview118"
+     showgrid="false"
+     inkscape:zoom="1.43"
+     inkscape:cx="350"
+     inkscape:cy="250"
+     inkscape:window-x="2634"
+     inkscape:window-y="233"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="g114" />
+  <path
+     fill="#fff"
+     d="M0 0h700v500H0z"
+     id="path2" />
+  <path
+     fill="#00b2e2"
+     d="M16 15v2h8.03125v-2zm12.03125 0v2h8.03125v-2zm12.03125 0v2h8.03125v-2zm12.0625 0v2h8v-2zm12.03125 0v2h8v-2zm12.03125 0v2h8.03125v-2zm12.03125 0v2H96.25v-2zM100.25 15v2h8.03125v-2zm12.03125 0v2h8.03125v-2zm12.03125 0v2h8.03125v-2zm12.0625 0v2h8v-2zm12.03125 0v2h8.03125v-2zm12.03125 0v2h8.03125v-2zm12.03125 0v2H180.5v-2zM184.5 15v2h8.03125v-2zm12.03125 0v2h8.03125v-2zm300.90625 0v2h8.03125v-2zm12.03125 0v2H517.5v-2zM521.5 15v2h8.03125v-2zm12.0625 0v2h8v-2zm12.03125 0v2h8.03125v-2zm12.03125 0v2h8.03125v-2zm12.03125 0v2h8.03125v-2zm12.03125 0v2h8.03125v-2zm12.03125 0v2H601.75v-2zm12.0625 0v2h8v-2zm12.03125 0v2h8v-2zm12.03125 0v2h8.03125v-2zm12.03125 0v2h8.03125v-2zm12.03125 0v2h8.03125v-2zm12.03125 0v2h8.03125v-2zm12.03125 0v2H683v1h2v-2l-.40625-.8125L684 15zM15 17.1875v8h2v-8zM683 22v8.03125h2V22zM15 29.21875v8h2v-8zm668 4.84375v8h2v-8zM15 41.25v8.03125h2V41.25zm668 4.84375v8h2v-8zm-668 7.1875v8.03125h2v-8.03125zM683 58.125v8.03125h2V58.125zM15 65.3125v8.03125h2V65.3125zm668 4.84375v8.03125h2v-8.03125zm-668 7.1875V85.375h2v-8.03125zm668 4.84375v8.03125h2V82.1875zM15 89.375v8.03125h2V89.375zm668 4.84375V102.25h2v-8.03125zM15 101.4375v8h2v-8zm668 4.8125v8.03125h2V106.25zm-668 7.21875v8h2v-8zm668 4.84375v8h2v-8zM15 125.5v8.03125h2V125.5zm668 4.84375v8.03125h2v-8.03125zm-668 7.1875v8.03125h2v-8.03125zm668 4.84375v8.03125h2V142.375zm-668 7.1875v8.03125h2v-8.03125zm668 4.84375v8.03125h2v-8.03125zm-668 7.1875v8.03125h2v-8.03125zm668 4.84375v8.03125h2v-8.03125zM15 173.625v8.03125h2V173.625zm668 4.84375V186.5h2v-8.03125zM15 185.6875v8h2v-8zm668 4.84375v8h2v-8zm-668 7.1875V205.75h2v-8.03125zm668 4.84375v8h2v-8zM15 209.75v8.03125h2V209.75zm668 4.84375v8.03125h2v-8.03125zm-668 7.1875v8.03125h2v-8.03125zm668 4.84375v8.03125h2V226.625zm-668 7.1875v8.03125h2v-8.03125zm668 4.84375v8.03125h2v-8.03125zm-668 7.1875v8.03125h2v-8.03125zm668 4.84375v8.03125h2v-8.03125zm-668 7.21875v8h2v-8zm668 4.8125V270.75h2v-8.03125zM15 269.9375v8h2v-8zm668 4.84375v8h2v-8zm-668 7.1875V290h2v-8.03125zm668 4.84375v8.03125h2v-8.03125zM15 294v8.03125h2V294zm668 4.84375v8.03125h2v-8.03125zm-668 7.1875v8.03125h2v-8.03125zm668 4.84375v8.03125h2V310.875zm-668 7.1875v8.03125h2v-8.03125zm668 4.84375v8.03125h2v-8.03125zm-668 7.1875v8.03125h2v-8.03125zm668 4.84375v8.03125h2v-8.03125zm-668 7.21875v8h2v-8zM683 347v8h2v-8zm-668 7.1875v8.03125h2v-8.03125zm668 4.84375v8h2v-8zm-668 7.1875V374.25h2v-8.03125zm668 4.84375v8.03125h2v-8.03125zM15 378.25v8.03125h2V378.25zm668 4.84375v8.03125h2v-8.03125zm-668 7.1875v8.03125h2v-8.03125zm668 4.84375v8.03125h2V395.125zm-668 7.1875v8.03125h2v-8.03125zm668 4.84375v8.03125h2v-8.03125zM15 414.375v8h2v-8zm668 4.8125v8.03125h2v-8.03125zm-668 7.21875v8h2v-8zM683 431.25v8h2v-8zm-668 7.1875v8.03125h2v-8.03125zm668 4.84375v8.03125h2v-8.03125zm-668 7.1875V458.5h2v-8.03125zm668 4.84375v8.03125h2v-8.03125zM15 462.5v8.03125h2V462.5zm668 4.84375v8.03125h2v-8.03125zm-668 7.1875v8.03125h2v-8.03125zm668 4.84375v3.59375h-2.4375V485H684l.8125-.40625.1875-.625V479.375zm-664.40625 3.59375V485H26.625v-2.03125zm12.03125 0V485h8.03125v-2.03125zm12.03125 0V485h8.03125v-2.03125zm12.0625 0V485h8v-2.03125zm12.03125 0V485h8v-2.03125zm12.03125 0V485h8.03125v-2.03125zm12.03125 0V485h8.03125v-2.03125zm12.03125 0V485h8.03125v-2.03125zm12.03125 0V485h8.03125v-2.03125zm12.03125 0V485h8.03125v-2.03125zm12.0625 0V485h8v-2.03125zm12.03125 0V485h8.03125v-2.03125zm12.03125 0V485h8.03125v-2.03125zm12.03125 0V485h8.03125v-2.03125zm12.03125 0V485h8.03125v-2.03125zm12.03125 0V485H205v-2.03125zm300.90625 0V485h8.03125v-2.03125zm12.03125 0V485h8.03125v-2.03125zm12.03125 0V485h8.03125v-2.03125zm12.0625 0V485h8v-2.03125zm12.03125 0V485h8.03125v-2.03125zm12.03125 0V485H568.25v-2.03125zm12.03125 0V485h8.03125v-2.03125zm12.03125 0V485h8.03125v-2.03125zm12.03125 0V485h8.03125v-2.03125zm12.0625 0V485h8v-2.03125zm12.03125 0V485h8v-2.03125zm12.03125 0V485h8.03125v-2.03125zm12.03125 0V485H652.5v-2.03125zm12.03125 0V485h8.03125v-2.03125zm12.03125 0V485h8.03125v-2.03125z"
+     style="text-indent:0;text-align:start;line-height:normal;text-transform:none;block-progression:tb;-inkscape-font-specification:Sans"
+     color="#000"
+     overflow="visible"
+     font-family="Sans"
+     id="path4" />
+  <text
+     x="214.86406"
+     y="22.19507"
+     fill="#00b2e2"
+     style="line-height:125%"
+     font-size="39.99998"
+     letter-spacing="66.10998"
+     word-spacing="0"
+     font-family="Sans"
+     id="text8"><tspan
+       x="214.86406"
+       y="22.19507"
+       style="-inkscape-font-specification:Open Sans"
+       font-size="19.99999"
+       letter-spacing="0"
+       font-family="Open Sans"
+       id="tspan6">24×7 Priority Support for SAP</tspan></text>
+  <text
+     x="214.86406"
+     y="492.19507"
+     fill="#00b2e2"
+     style="line-height:125%"
+     font-size="39.99998"
+     letter-spacing="66.10998"
+     word-spacing="0"
+     font-family="Sans"
+     id="text12"><tspan
+       x="214.86406"
+       y="492.19507"
+       style="-inkscape-font-specification:Open Sans"
+       font-size="19.99999"
+       letter-spacing="0"
+       font-family="Open Sans"
+       id="tspan10">24×7 Priority Support for SAP</tspan></text>
+  <path
+     fill="#02d35f"
+     d="M35 365h630v100H35zM35 255h310v100H35z"
+     id="path14" />
+  <path
+     fill="#00b2e2"
+     d="M515 255h150v100H515zM355 145h150v100H355zM515 145h150v100H515zM35 145h150v100H35zM195 145h150v100H195zM35 35h630v100H35z"
+     id="path16" />
+  <g
+     fill="#00b2e2"
+     id="g24">
+    <path
+       d="M504 258v96H358v2h148v-98z"
+       id="path18" />
+    <path
+       d="M355 255h148v98H355z"
+       id="path20" />
+    <path
+       d="M507 261v96H361v2h148v-98z"
+       id="path22" />
   </g>
-  <g fill="#fff" font-size="40" font-family="Sans" letter-spacing="0" word-spacing="0">
-    <text x="159.75586" y="80.19531" style="line-height:110.00000238%">
-      <tspan x="159.75586" y="80.19531" style="line-height:110.00000238%;-inkscape-font-specification:'Open Sans Semi-Bold'" font-weight="600" font-size="20" font-family="Open Sans">Extended Service Pack Overlap Support</tspan>
-    </text>
-    <text x="263.70703" y="101.15625" style="line-height:125%">
-      <tspan x="263.70703" y="101.15625" style="-inkscape-font-specification:Open Sans" font-size="16" font-family="Open Sans">18 Month Grace Period</tspan>
-    </text>
+  <g
+     fill="#fff"
+     font-size="40"
+     font-family="Sans"
+     letter-spacing="0"
+     word-spacing="0"
+     id="g34">
+    <text
+       x="159.75586"
+       y="80.19531"
+       style="line-height:110.00000238%"
+       id="text28"><tspan
+         x="159.75586"
+         y="80.19531"
+         style="line-height:110.00000238%;-inkscape-font-specification:'Open Sans Semi-Bold'"
+         font-weight="600"
+         font-size="20"
+         font-family="Open Sans"
+         id="tspan26">Extended Service Pack Overlap Support</tspan></text>
+    <text
+       x="263.70703"
+       y="101.15625"
+       style="line-height:125%"
+       id="text32"><tspan
+         x="263.70703"
+         y="101.15625"
+         style="-inkscape-font-specification:Open Sans"
+         font-size="16"
+         font-family="Open Sans"
+         id="tspan30">18 Month Grace Period</tspan></text>
   </g>
-  <text x="109.31641" y="189.19531" fill="#fff" style="text-align:center;line-height:110.00000238%" font-size="40" letter-spacing="0" word-spacing="0" text-anchor="middle" font-family="Sans">
-    <tspan x="109.31641" y="189.19531" style="text-align:center;line-height:110.00000238%;-inkscape-font-specification:Open Sans Semi-Bold" font-size="20" font-weight="600" font-family="Open Sans">HA Cluster</tspan><tspan x="109.31641" y="211.19531" style="text-align:center;line-height:110.00000238%;-inkscape-font-specification:Open Sans Semi-Bold" font-size="20" font-weight="600" font-family="Open Sans">Connector</tspan>
-  </text>
-  <text x="429.51172" y="188.83887" fill="#fff" style="text-align:center;line-height:110.00000238%" font-size="40" letter-spacing="0" word-spacing="0" text-anchor="middle" font-family="Sans">
-    <tspan x="429.51172" y="188.83887" style="text-align:center;line-height:110.00000238%;-inkscape-font-specification:Open Sans Semi-Bold" font-size="20" font-weight="600" font-family="Open Sans">SAP HANA</tspan><tspan x="429.51172" y="210.83887" style="text-align:center;line-height:110.00000238%;-inkscape-font-specification:Open Sans Semi-Bold" font-size="20" font-weight="600" font-family="Open Sans">Security</tspan>
-  </text>
-  <text x="588.10895" y="180.90961" fill="#fff" style="text-align:center;line-height:110.00000238%" font-size="40" letter-spacing="0" word-spacing="0" text-anchor="middle" font-family="Sans">
-    <tspan x="588.10895" y="180.90961" style="text-align:center;line-height:110.00000238%;-inkscape-font-specification:Open Sans Semi-Bold" font-size="20" font-weight="600" font-family="Open Sans">Simplified</tspan><tspan x="588.10895" y="202.90961" style="text-align:center;line-height:110.00000238%;-inkscape-font-specification:Open Sans Semi-Bold" font-size="20" font-weight="600" font-family="Open Sans">Operations</tspan><tspan x="588.10895" y="224.90961" style="text-align:center;line-height:110.00000238%;-inkscape-font-specification:Open Sans Semi-Bold" font-size="20" font-weight="600" font-family="Open Sans">Management</tspan>
-  </text>
-  <text x="430.22601" y="293.12457" fill="#fff" style="text-align:center;line-height:110.00000238%" font-size="40" letter-spacing="0" word-spacing="0" text-anchor="middle" font-family="Sans">
-    <tspan x="430.22601" y="293.12457" style="text-align:center;line-height:110.00000238%;-inkscape-font-specification:Open Sans Semi-Bold" font-size="20" font-weight="600" font-family="Open Sans">SAP HANA</tspan><tspan x="430.22601" y="315.12457" style="text-align:center;line-height:110.00000238%;-inkscape-font-specification:Open Sans Semi-Bold" font-size="20" font-weight="600" font-family="Open Sans">HA Resource</tspan><tspan x="430.22601" y="337.12457" style="text-align:center;line-height:110.00000238%;-inkscape-font-specification:Open Sans Semi-Bold" font-size="20" font-weight="600" font-family="Open Sans">Agents</tspan>
-  </text>
-  <text x="595.42096" y="937.26062" fill="#fff" style="text-align:center;line-height:110.00000238%" font-size="40" letter-spacing="0" word-spacing="0" text-anchor="middle" font-family="Sans">
-    <tspan x="595.42096" y="937.26062" style="text-align:center;line-height:110.00000238%;-inkscape-font-specification:Open Sans Semi-Bold" font-size="20" font-weight="600" font-family="Open Sans">High Availability for SAP NetWeaver &amp;SAP HANA</tspan>
-  </text>
-  <g fill="#fff" font-size="40" letter-spacing="0" word-spacing="0" font-family="Sans">
-    <text x="227.0752" y="190.19531" style="line-height:110.00000238%" transform="translate(0 -.127)">
-      <tspan x="227.0752" y="190.19531" style="line-height:110.00000238%;-inkscape-font-specification:Open Sans Semi-Bold" font-size="20" font-weight="600" font-family="Open Sans">Antivirus</tspan>
-    </text>
-    <text x="236.69141" y="211.15625" style="line-height:125%" transform="translate(0 -.127)">
-      <tspan x="236.69141" y="211.15625" style="-inkscape-font-specification:Open Sans" font-size="16" font-family="Open Sans">ClamSAP</tspan>
-    </text>
+  <text
+     x="109.31641"
+     y="189.19531"
+     fill="#fff"
+     style="text-align:center;line-height:110.00000238%"
+     font-size="40"
+     letter-spacing="0"
+     word-spacing="0"
+     text-anchor="middle"
+     font-family="Sans"
+     id="text40"><tspan
+       x="109.31641"
+       y="189.19531"
+       style="text-align:center;line-height:110.00000238%;-inkscape-font-specification:Open Sans Semi-Bold"
+       font-size="20"
+       font-weight="600"
+       font-family="Open Sans"
+       id="tspan36">HA Cluster</tspan><tspan
+       x="109.31641"
+       y="211.19531"
+       style="text-align:center;line-height:110.00000238%;-inkscape-font-specification:Open Sans Semi-Bold"
+       font-size="20"
+       font-weight="600"
+       font-family="Open Sans"
+       id="tspan38">Connector</tspan></text>
+  <text
+     x="429.51172"
+     y="188.83887"
+     fill="#fff"
+     style="text-align:center;line-height:110.00000238%"
+     font-size="40"
+     letter-spacing="0"
+     word-spacing="0"
+     text-anchor="middle"
+     font-family="Sans"
+     id="text46"><tspan
+       x="429.51172"
+       y="188.83887"
+       style="text-align:center;line-height:110.00000238%;-inkscape-font-specification:Open Sans Semi-Bold"
+       font-size="20"
+       font-weight="600"
+       font-family="Open Sans"
+       id="tspan42">SAP HANA</tspan><tspan
+       x="429.51172"
+       y="210.83887"
+       style="text-align:center;line-height:110.00000238%;-inkscape-font-specification:Open Sans Semi-Bold"
+       font-size="20"
+       font-weight="600"
+       font-family="Open Sans"
+       id="tspan44">Security</tspan></text>
+  <text
+     x="588.10895"
+     y="180.90961"
+     fill="#fff"
+     style="text-align:center;line-height:110.00000238%"
+     font-size="40"
+     letter-spacing="0"
+     word-spacing="0"
+     text-anchor="middle"
+     font-family="Sans"
+     id="text54"><tspan
+       x="588.10895"
+       y="180.90961"
+       style="text-align:center;line-height:110.00000238%;-inkscape-font-specification:Open Sans Semi-Bold"
+       font-size="20"
+       font-weight="600"
+       font-family="Open Sans"
+       id="tspan48">Simplified</tspan><tspan
+       x="588.10895"
+       y="202.90961"
+       style="text-align:center;line-height:110.00000238%;-inkscape-font-specification:Open Sans Semi-Bold"
+       font-size="20"
+       font-weight="600"
+       font-family="Open Sans"
+       id="tspan50">Operations</tspan><tspan
+       x="588.10895"
+       y="224.90961"
+       style="text-align:center;line-height:110.00000238%;-inkscape-font-specification:Open Sans Semi-Bold"
+       font-size="20"
+       font-weight="600"
+       font-family="Open Sans"
+       id="tspan52">Management</tspan></text>
+  <text
+     x="430.22601"
+     y="293.12457"
+     fill="#fff"
+     style="text-align:center;line-height:110.00000238%"
+     font-size="40"
+     letter-spacing="0"
+     word-spacing="0"
+     text-anchor="middle"
+     font-family="Sans"
+     id="text62"><tspan
+       x="430.22601"
+       y="293.12457"
+       style="text-align:center;line-height:110.00000238%;-inkscape-font-specification:Open Sans Semi-Bold"
+       font-size="20"
+       font-weight="600"
+       font-family="Open Sans"
+       id="tspan56">SAP HANA</tspan><tspan
+       x="430.22601"
+       y="315.12457"
+       style="text-align:center;line-height:110.00000238%;-inkscape-font-specification:Open Sans Semi-Bold"
+       font-size="20"
+       font-weight="600"
+       font-family="Open Sans"
+       id="tspan58">HA Resource</tspan><tspan
+       x="430.22601"
+       y="337.12457"
+       style="text-align:center;line-height:110.00000238%;-inkscape-font-specification:Open Sans Semi-Bold"
+       font-size="20"
+       font-weight="600"
+       font-family="Open Sans"
+       id="tspan60">Agents</tspan></text>
+  <text
+     x="595.42096"
+     y="937.26062"
+     fill="#fff"
+     style="text-align:center;line-height:110.00000238%"
+     font-size="40"
+     letter-spacing="0"
+     word-spacing="0"
+     text-anchor="middle"
+     font-family="Sans"
+     id="text66"><tspan
+       x="595.42096"
+       y="937.26062"
+       style="text-align:center;line-height:110.00000238%;-inkscape-font-specification:Open Sans Semi-Bold"
+       font-size="20"
+       font-weight="600"
+       font-family="Open Sans"
+       id="tspan64">High Availability for SAP NetWeaver &amp;SAP HANA</tspan></text>
+  <g
+     fill="#fff"
+     font-size="40"
+     letter-spacing="0"
+     word-spacing="0"
+     font-family="Sans"
+     id="g76">
+    <text
+       x="227.0752"
+       y="190.19531"
+       style="line-height:110.00000238%"
+       transform="translate(0 -.127)"
+       id="text70"><tspan
+         x="227.0752"
+         y="190.19531"
+         style="line-height:110.00000238%;-inkscape-font-specification:Open Sans Semi-Bold"
+         font-size="20"
+         font-weight="600"
+         font-family="Open Sans"
+         id="tspan68">Antivirus</tspan></text>
+    <text
+       x="236.69141"
+       y="211.15625"
+       style="line-height:125%"
+       transform="translate(0 -.127)"
+       id="text74"><tspan
+         x="236.69141"
+         y="211.15625"
+         style="-inkscape-font-specification:Open Sans"
+         font-size="16"
+         font-family="Open Sans"
+         id="tspan72">ClamSAP</tspan></text>
   </g>
-  <g fill="#fff" font-size="40" letter-spacing="0" word-spacing="0" text-anchor="middle" font-family="Sans">
-    <text x="589.83398" y="279.86133" style="text-align:center;line-height:110.00000238%">
-      <tspan x="589.83398" y="279.86133" style="text-align:center;line-height:110.00000238%;-inkscape-font-specification:Open Sans Semi-Bold" font-size="20" font-weight="600" font-family="Open Sans">Faster</tspan><tspan x="589.83398" y="301.86133" style="text-align:center;line-height:110.00000238%;-inkscape-font-specification:Open Sans Semi-Bold" font-size="20" font-weight="600" font-family="Open Sans">Installation</tspan>
-    </text>
-    <text x="589.85938" y="322.97229" style="text-align:center;line-height:110.00000238%">
-      <tspan x="589.85938" y="322.97229" style="text-align:center;line-height:110.00000238%;-inkscape-font-specification:Open Sans" font-size="16" font-family="Open Sans">Installation</tspan><tspan x="589.85938" y="340.57227" style="text-align:center;line-height:110.00000238%;-inkscape-font-specification:Open Sans" font-size="16" font-family="Open Sans">Workflow</tspan>
-    </text>
+  <g
+     fill="#fff"
+     font-size="40"
+     letter-spacing="0"
+     word-spacing="0"
+     text-anchor="middle"
+     font-family="Sans"
+     id="g90">
+    <text
+       x="589.83398"
+       y="279.86133"
+       style="text-align:center;line-height:110.00000238%"
+       id="text82"><tspan
+         x="589.83398"
+         y="279.86133"
+         style="text-align:center;line-height:110.00000238%;-inkscape-font-specification:Open Sans Semi-Bold"
+         font-size="20"
+         font-weight="600"
+         font-family="Open Sans"
+         id="tspan78">Faster</tspan><tspan
+         x="589.83398"
+         y="301.86133"
+         style="text-align:center;line-height:110.00000238%;-inkscape-font-specification:Open Sans Semi-Bold"
+         font-size="20"
+         font-weight="600"
+         font-family="Open Sans"
+         id="tspan80">Installation</tspan></text>
+    <text
+       x="589.85938"
+       y="322.97229"
+       style="text-align:center;line-height:110.00000238%"
+       id="text88"><tspan
+         x="589.85938"
+         y="322.97229"
+         style="text-align:center;line-height:110.00000238%;-inkscape-font-specification:Open Sans"
+         font-size="16"
+         font-family="Open Sans"
+         id="tspan84">Installation</tspan><tspan
+         x="589.85938"
+         y="340.57227"
+         style="text-align:center;line-height:110.00000238%;-inkscape-font-specification:Open Sans"
+         font-size="16"
+         font-family="Open Sans"
+         id="tspan86">Workflow</tspan></text>
   </g>
-  <g fill="#fff" font-size="40" letter-spacing="0" word-spacing="0" font-family="Sans">
-    <text x="318.34332" y="957.5575" style="text-align:center;line-height:110.00000238%" text-anchor="middle" transform="translate(31.496 -547.362)">
-      <tspan x="318.34332" y="957.5575" style="text-align:center;line-height:110.00000238%;-inkscape-font-specification:Open Sans Semi-Bold" font-size="20" font-weight="600" font-family="Open Sans">Reliable, Scalable and Secure Operating System</tspan>
-    </text>
-    <text x="210.38727" y="978.51843" style="line-height:125%" transform="translate(31.496 -547.362)">
-      <tspan x="210.38727" y="978.51843" style="-inkscape-font-specification:Open Sans" font-size="16" font-family="Open Sans">SUSE Linux Enterprise Server</tspan>
-    </text>
+  <g
+     fill="#fff"
+     font-size="40"
+     letter-spacing="0"
+     word-spacing="0"
+     font-family="Sans"
+     id="g100">
+    <text
+       x="318.34332"
+       y="957.5575"
+       style="text-align:center;line-height:110.00000238%"
+       text-anchor="middle"
+       transform="translate(31.496 -547.362)"
+       id="text94"><tspan
+         x="318.34332"
+         y="957.5575"
+         style="text-align:center;line-height:110.00000238%;-inkscape-font-specification:Open Sans Semi-Bold"
+         font-size="20"
+         font-weight="600"
+         font-family="Open Sans"
+         id="tspan92">Reliable, Scalable and Secure Operating System</tspan></text>
+    <text
+       x="210.38727"
+       y="978.51843"
+       style="line-height:125%"
+       transform="translate(31.496 -547.362)"
+       id="text98"><tspan
+         x="210.38727"
+         y="978.51843"
+         style="-inkscape-font-specification:Open Sans"
+         font-size="16"
+         font-family="Open Sans"
+         id="tspan96">SUSE Linux Enterprise Server</tspan></text>
   </g>
-  <g fill="#fff" font-size="40" letter-spacing="0" word-spacing="0" font-family="Sans">
-    <text x="189.51172" y="280.37402" style="text-align:center;line-height:110.00000238%" text-anchor="middle">
-      <tspan x="189.51172" y="280.37402" style="text-align:center;line-height:110.00000238%;-inkscape-font-specification:Open Sans Semi-Bold" font-size="20" font-weight="600" font-family="Open Sans">High Availability for</tspan><tspan x="189.51172" y="302.37402" style="text-align:center;line-height:110.00000238%;-inkscape-font-specification:Open Sans Semi-Bold" font-size="20" font-weight="600" font-family="Open Sans">SAP NetWeaver &amp; SAP HANA</tspan>
-    </text>
-    <text x="189.85938" y="323.48495" style="line-height:110.00000238%">
-      <tspan x="189.85938" y="323.48495" style="text-align:center;line-height:110.00000238%;-inkscape-font-specification:Open Sans" font-size="16" text-anchor="middle" font-family="Open Sans">SUSE Linux Enterprise</tspan><tspan x="189.85938" y="341.08496" style="text-align:center;line-height:110.00000238%;-inkscape-font-specification:Open Sans" font-size="16" text-anchor="middle" font-family="Open Sans">High Availability Extension</tspan>
-    </text>
+  <g
+     fill="#fff"
+     font-size="40"
+     letter-spacing="0"
+     word-spacing="0"
+     font-family="Sans"
+     id="g114">
+    <text
+       x="189.51172"
+       y="280.37402"
+       style="text-align:center;line-height:110.00000238%"
+       text-anchor="middle"
+       id="text106"><tspan
+         x="189.51172"
+         y="280.37402"
+         style="text-align:center;line-height:110.00000238%;-inkscape-font-specification:Open Sans Semi-Bold"
+         font-size="20"
+         font-weight="600"
+         font-family="Open Sans"
+         id="tspan102">High Availability for</tspan><tspan
+         x="189.51172"
+         y="302.37402"
+         style="text-align:center;line-height:110.00000238%;-inkscape-font-specification:Open Sans Semi-Bold"
+         font-size="20"
+         font-weight="600"
+         font-family="Open Sans"
+         id="tspan104">SAP NetWeaver &amp; SAP HANA</tspan></text>
+    <text
+       x="189.85938"
+       y="323.48495"
+       style="line-height:110%"
+       id="text112"><tspan
+         x="189.85938"
+         y="323.48495"
+         style="line-height:110%;-inkscape-font-specification:'Open Sans';text-align:center"
+         font-size="16px"
+         text-anchor="middle"
+         font-family="'Open Sans'"
+         id="tspan108">SUSE Linux Enterprise</tspan><tspan
+         x="189.85938"
+         y="341.08496"
+         style="line-height:110%;-inkscape-font-specification:'Open Sans';text-align:center"
+         font-size="16px"
+         text-anchor="middle"
+         font-family="'Open Sans'"
+         id="tspan110">High Availability</tspan></text>
   </g>
 </svg>
