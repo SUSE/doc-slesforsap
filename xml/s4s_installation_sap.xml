@@ -987,7 +987,6 @@ SAP-NetWeaver-740-SR2-Installation-Export-CD-3-3</screen>
       <sapMasterPW>]]><replaceable>PASSWORD</replaceable><![CDATA[</sapMasterPW>
       <sid>]]><replaceable>SID</replaceable><![CDATA[</sid>
       <sapInstNr>]]><replaceable>INSTANCE_NUMBER</replaceable><![CDATA[</sapInstNr>
-      <sapMDC>no</sapMDC>
     </product>
   </products>
 </sap-inst>
