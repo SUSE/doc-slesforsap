@@ -995,11 +995,6 @@ SAP-NetWeaver-740-SR2-Installation-Export-CD-3-3</screen>
    <itemizedlist>
     <listitem>
      <para>
-      The <tag>sapMDC</tag> element is only applicable to &hana;.
-     </para>
-    </listitem>
-    <listitem>
-     <para>
       The <tag>sapVirtHostname</tag> element must be specified for
       distributed or highly available installations.
      </para>
