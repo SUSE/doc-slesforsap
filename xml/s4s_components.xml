@@ -133,11 +133,11 @@
     with the pure &sap; solution, takeovers can be automated.
    </para>
    <para>
-    It is configured as a master/slave resource: The master assumes
+    It is configured as a parent/child resource: The parent assumes
     responsibility for the &hana; databases running in primary mode, whereas
-    the slave is responsible for instances that are operated in synchronous
-    (secondary) status. In case of a takeover, the secondary (slave resource
-    instance) can automatically be promoted to become the new primary (master
+    the child is responsible for instances that are operated in synchronous
+    (secondary) status. In case of a takeover, the secondary (child resource
+    instance) can automatically be promoted to become the new primary (parent
     resource instance).
    </para>
    <para>
