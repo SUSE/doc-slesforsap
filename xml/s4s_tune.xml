@@ -171,15 +171,6 @@
       It is possible to combine solutions and notes. However, only one solution can be active at a time. In rare cases, notes can have conflicting options or parameters. Arrange your notes carefully to avoid conflicts. The last note always takes priority over conflicting options or parameters of previous notes.
     </para>
    </note>
-   <note>
-    <title>Switching solutions</title>
-    <para>
-      Starting with &saptune; version 3.1, it is easier to switch to a different solution using the <command>saptune solution change <replaceable>NEW_SOLUTION</replaceable></command> command.
-    </para>
-    <para>
-      Keep in mind that internally the current solution is reverted first, and then the new solution is applied. If you have additional notes configured, the order is not preserved.
-    </para>
-   </note>
   </sect1>
 
  <sect1 xml:id="sec-saptune-disable">
@@ -489,6 +480,19 @@ Do you really want to rename this Solution 'myHANA' to the new name 'myHANA2'? [
    <title>Showing the configuration of an &sapsol;</title>
    <para>To list the configuration of an &sapsol;, run the following command:</para>
    <screen>&prompt.root;<command>saptune solution show <replaceable>SOLUTION</replaceable></command></screen>
+  </sect2>
+
+  <sect2 xml:id="sec-saptune-switch-solution">
+    <title>Switching to another &sap; Solution</title>
+    <para>
+      Starting with &saptune; version 3.1, it is easier to switch to a different solution using the <command>saptune solution change <replaceable>SOLUTION</replaceable></command> command.
+    </para>
+    <para>
+      Keep in mind that internally the current solution is reverted first, and then the new solution is applied. If you have additional notes configured, the order is not preserved.
+    </para>
+    <para>
+      If the same solution is already applied, no action is taken. Otherwise the current solution gets reverted and the new one applied. The command prompts for confirmation before making the change. This can be disabled by adding the <option>--force</option> option.
+    </para>
   </sect2>
 
   <sect2 xml:id="sec-saptune-revert-solution">
