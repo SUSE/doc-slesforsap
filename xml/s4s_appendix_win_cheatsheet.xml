@@ -88,7 +88,7 @@
         Server</guimenu></menuchoice> module in &yast; to set up an SMB server.
         To use the ncurses version of &yast;, run the <command>sudo /sbin/yast2
         samba-server</command> command. For more information, see
-        <link xlink:href="https://documentation.suse.com/sles/15-SP5/html/SLES-all/cha-samba.html"/>.
+        <link xlink:href="https://documentation.suse.com/sles/html/SLES-all/cha-samba.html/"/>.
       </para>
       </sect1>
 </appendix>
