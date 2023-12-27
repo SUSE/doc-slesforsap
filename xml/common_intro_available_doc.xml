@@ -27,13 +27,13 @@
   This manual contains links to additional documentation resources that are
   either available on the system or online.
  </para>
- 
+
  <variablelist>
   <varlistentry>
    <term>Online documentation</term>
    <listitem condition="noquick">
     <para>
-     Visit 
+     Visit
      <link xlink:href="https://documentation.suse.com/#sles-sap"/> for the
      latest version of this guide in different formats. You can find whitepapers
      and other resources in the &sles4sap; resource library: &reslibrary;.
@@ -68,6 +68,17 @@
       version of the documentation.
      </para>
     </note>
+   </listitem>
+  </varlistentry>
+  <varlistentry>
+   <term>&suse; Knowledgebase</term>
+   <!--based on 'Support Resources' listed at https://www.suse.com/support/kb/-->
+   <listitem>
+    <para>
+     If you have run into an issue, also check out the Technical Information
+     Documents (TIDs) that are available online at <link xlink:href="https://www.suse.com/support/kb/"/>.
+     Search the &suse; Knowledgebase for known solutions driven by customer need.
+     </para>
    </listitem>
   </varlistentry>
   <varlistentry>
