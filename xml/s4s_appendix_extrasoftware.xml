@@ -93,7 +93,7 @@
    product. The base product (key <varname>CPE_NAME</varname> and tag
    <tag class="starttag">cpeid</tag>) follow the
    <link
-    xlink:href="http://scap.nist.gov/specifications/cpe/"
+    xlink:href="https://scap.nist.gov/specifications/cpe/"
     >Common
    Platform Enumeration Specification</link>.
   </para>
