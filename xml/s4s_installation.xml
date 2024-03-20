@@ -611,7 +611,7 @@
    </step>
    <step>
     <para>
-     Boot from an &slsa; installation medium.
+     Boot from a &slsa; installation medium.
     </para>
    </step>
    <step>
@@ -656,7 +656,7 @@
   </para>
 
   <para>
-   To avoid having to use an &slsa; installation medium to initialize the
+   To avoid having to use a &slsa; installation medium to initialize the
    system, you can boot over the network via PXE.
    For details, see <citetitle>&ay; Guide,
    Chapter <quote>Booting via PXE over the Network</quote></citetitle>
@@ -668,7 +668,7 @@
 
 
  <sect1 condition="noquick" xml:id="sec-convert-sles">
-  <title>Converting an &slsa; installation to a &s4sa; installation</title>
+  <title>Converting a &slsa; installation to a &s4sa; installation</title>
   <para>
    To convert an installation of &sls; &productnumber; or &jeos;
    &productnumber; to an installation of &s4sa;, use the script
