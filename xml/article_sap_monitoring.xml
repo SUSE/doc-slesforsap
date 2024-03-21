@@ -14,11 +14,18 @@ https://suse.com/c/coming-soon-sap-landscape-monitoring-on-sles-for-sap/
 <article version="5.1" xml:lang="en" xml:id="article-sap-monitoring"
   xmlns="http://docbook.org/ns/docbook"
   xmlns:xi="http://www.w3.org/2001/XInclude"
-  xmlns:xlink="http://www.w3.org/1999/xlink">
+  xmlns:xlink="http://www.w3.org/1999/xlink"
+  xmlns:its="http://www.w3.org/2005/11/its">
  <title>&sap; Monitoring</title>
  <subtitle>&sles4sapreg; · &sleha;</subtitle>
  <info>
   <productname role="abbrev">&productnameshort;</productname>
+  <productnumber>&productnumber;</productnumber>
+  <date><?dbtimestamp format="B d, Y"?></date>
+  <meta name="task" its:translate="no">
+    <phrase>Monitoring</phrase>
+  </meta>
+  <meta name="series" its:translate="no">Product Documentation</meta>
   <abstract>
    <para>
     This article shows monitoring solutions for &sap; administrators to
