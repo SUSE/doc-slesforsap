@@ -15,11 +15,20 @@ https://confluence.suse.com/x/8IEnGw
 <article version="5.1" xml:lang="en" xml:id="art-sol-automation"
   xmlns="http://docbook.org/ns/docbook"
   xmlns:xi="http://www.w3.org/2001/XInclude"
-  xmlns:xlink="http://www.w3.org/1999/xlink">
+  xmlns:xlink="http://www.w3.org/1999/xlink"
+  xmlns:its="http://www.w3.org/2005/11/its">
   <title>&sap; Automation</title>
   <subtitle>&sles4sapreg; · &slereg; &hasi;</subtitle>
   <info>
     <productname role="abbrev">&productnameshort;</productname>
+    <productnumber>&productnumber;</productnumber>
+    <date><?dbtimestamp format="B d, Y"?></date>
+    <meta name="task" its:translate="no">
+      <phrase>Automation</phrase>
+      <phrase>High Availability</phrase>
+      <phrase>Configuration</phrase>
+    </meta>
+    <meta name="series" its:translate="no">Product Documentation</meta>
     <abstract>
       <para>
         This article offers some automation solutions for &sap; administrators.
