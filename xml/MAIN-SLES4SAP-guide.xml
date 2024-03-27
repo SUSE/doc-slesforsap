@@ -26,7 +26,7 @@
     <phrase>Tuning</phrase>
     <phrase>Security</phrase>
   </meta>
-  <meta name="series" its:translate="no">Product Documentation</meta>
+  <meta name="series" its:translate="no">Products &amp; Solutions</meta>
   <dm:docmanager xmlns:dm="urn:x-suse:ns:docmanager">
     <dm:bugtracker>
       <dm:url>https://bugzilla.suse.com/enter_bug.cgi</dm:url>
