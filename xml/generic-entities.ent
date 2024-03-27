@@ -210,18 +210,6 @@ use &deng;! -->
 
 <!-- URLS -->
 
-<!ENTITY dsc                    "https://documentation.suse.com">
-<!ENTITY dsc-sles               "&dsc;/sles">
-<!ENTITY dsc-sled               "&dsc;/sled">
-<!ENTITY dsc-ha                 "&dsc;/sle-ha">
-<!ENTITY dsc-sap                "&dsc;/sles-sap">
-<!ENTITY dsc-ses                "&dsc;/ses">
-<!ENTITY dsc-suma               "&dsc;/suma">
-<!ENTITY dsc-caasp              "&dsc;/suse-caasp">
-<!ENTITY dsc-cap                "&dsc;/suse-cap">
-<!ENTITY dsc-soc                "&dsc;/soc">
-
-
 <!ENTITY beta-www               "https://susedoc.github.io">
 
 <!ENTITY doo                    "https://doc.opensuse.org">
