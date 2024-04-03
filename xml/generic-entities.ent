@@ -81,14 +81,17 @@
 <!ENTITY bcia                   "&slea; BCI">
 <!ENTITY dinstaller             "Agama">
 
-<!-- ALP -->
-<!ENTITY alp                    "Adaptable Linux Platform">
-<!ENTITY alpshort               "ALP">
+<!-- ALP/SUSE Linux Framework One -->
+<!ENTITY slfo                   "&suselinux; Framework One">
+<!ENTITY slm                    "&suselinux; Micro">
+<!ENTITY slcc                   "&suselinux; Container Collection">
+<!ENTITY slcs                   "&suselinux; Container Solution">
 
 <!-- SLE HA -->
 
 <!ENTITY sleha                  "&sle; &ha;">
 <!ENTITY hageo                  "Geo Clustering for &sleha;">
+
 
 <!-- SUSE Manager -->
 <!ENTITY susemgr                "&suse; Manager">
@@ -207,25 +210,12 @@ use &deng;! -->
 
 
 <!-- URLS -->
+<!-- use stand-alone only, not as part of URLs, see Style Guide-->
 
 <!ENTITY dsc                    "https://documentation.suse.com">
-<!ENTITY dsc-sles               "&dsc;/sles">
-<!ENTITY dsc-sled               "&dsc;/sled">
-<!ENTITY dsc-ha                 "&dsc;/sle-ha">
-<!ENTITY dsc-sap                "&dsc;/sles-sap">
-<!ENTITY dsc-ses                "&dsc;/ses">
-<!ENTITY dsc-suma               "&dsc;/suma">
-<!ENTITY dsc-caasp              "&dsc;/suse-caasp">
-<!ENTITY dsc-cap                "&dsc;/suse-cap">
-<!ENTITY dsc-soc                "&dsc;/soc">
-
-
 <!ENTITY beta-www               "https://susedoc.github.io">
-
 <!ENTITY doo                    "https://doc.opensuse.org">
-
 <!ENTITY sc-rn                  "https://www.suse.com/releasenotes">
-
 <!ENTITY sccurl                 "https://scc.suse.com/">
 
 <!-- HARDWARE ARCHITECTURES AND PLATFORMS -->
@@ -271,6 +261,8 @@ use &deng;! -->
 <!ENTITY ad                     "Active Directory">
 <!ENTITY ada                    "AD">
 <!ENTITY aide                   "AIDE">
+<!ENTITY agama                  "Agama">
+<!ENTITY ansible                "Ansible">
 <!ENTITY ay                     "AutoYaST">
 <!ENTITY bcache                 "<systemitem xmlns='http://docbook.org/ns/docbook' class='resource'>bcache</systemitem>">
 <!ENTITY chrony                 "<systemitem xmlns='http://docbook.org/ns/docbook' class='resource'>chrony</systemitem>">
@@ -319,6 +311,10 @@ use &deng;! -->
 <!ENTITY yelp                   "Help">
 
 
+<!-- ALP/SUSE Linux Framework One -->
+<!ENTITY fuelignition-dld-site   "https://ignite.opensuse.org">
+<!ENTITY virt-scenario           "<command xmlns='http://docbook.org/ns/docbook'>virt-scenario</command>">
+
 
 <!-- HA -->
 
@@ -339,6 +335,10 @@ use &deng;! -->
 <!ENTITY ingress                "Ingress">
 <!ENTITY keepalived             "Keepalived">
 
+<!-- HPC -->
+
+<!ENTITY hpc                    "High Performance Computing">
+<!ENTITY hpcm                   "HPC module">
 
 
 <!-- SLES FOR SAP -->
@@ -357,6 +357,10 @@ use &deng;! -->
 <!ENTITY podman                 "Podman">
 <!ENTITY buildah                "Buildah">
 <!ENTITY k8s                    "Kubernetes">
+<!ENTITY bci                    "&slea; Base Container Image">
+<!ENTITY bcia                   "&slea; BCI">
+<!ENTITY netavark               "Netavark">
+<!ENTITY compose                "docker-compose">
 
 
 
@@ -507,6 +511,7 @@ use &deng;! -->
 <!ENTITY sle_container_guide    "Container Guide">
 <!ENTITY sle_pcidss_guide       "&pcidss; (&pcidssa;) Guide">
 <!ENTITY sle_pcidss_guide_a     "&pcidssa; Guide">
+<!ENTITY hpc_guide              "HPC Guide">
 
 
 <!-- SLE Micro-specific -->
