@@ -212,6 +212,7 @@ use &deng;! -->
 <!-- URLS -->
 <!-- use stand-alone only, not as part of URLs, see Style Guide-->
 
+<!ENTITY dsc                    "https://documentation.suse.com">
 <!ENTITY beta-www               "https://susedoc.github.io">
 <!ENTITY doo                    "https://doc.opensuse.org">
 <!ENTITY sc-rn                  "https://www.suse.com/releasenotes">
