@@ -15,7 +15,7 @@
   <productnumber>&productnumber;</productnumber>
   <meta name="title" condition="quick" its:translate="yes">Installation Quick Start</meta>
   <meta name="title" condition="noquick" its:translate="yes">Guide</meta>
-  <meta name="description" condition="quick" its:translate="yes">This document guides you through the installation of &sles4sap;.</meta>
+  <meta name="description" condition="quick" its:translate="yes">This document guides you through the installation of &productnameshort;.</meta>
   <meta name="description" condition="noquick" its:translate="yes">This document provides detailed information about how to install and customize &sles4sap;.</meta>
   <meta name="social-descr" condition="quick" its:translate="yes">A quick introduction to &sles4sapa; installation.</meta>
   <meta name="social-descr" condition="noquick" its:translate="yes">&sles4sapa; installation and customization.</meta>
