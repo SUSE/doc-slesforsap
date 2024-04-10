@@ -18,7 +18,7 @@
   <meta name="description" condition="quick" its:translate="yes">This document guides you through the installation of &productnameshort;.</meta>
   <meta name="description" condition="noquick" its:translate="yes">This document provides detailed information about how to install and customize &productnameshort;.</meta>
   <meta name="social-descr" condition="quick" its:translate="yes">A quick introduction to &productnameshort; installation.</meta>
-  <meta name="social-descr" condition="noquick" its:translate="yes">&sles4sapa; installation and customization.</meta>
+  <meta name="social-descr" condition="noquick" its:translate="yes">&productnameshort; installation and customization.</meta>
   <date><?dbtimestamp format="B d, Y"?></date>
   <revhistory xml:id="rh-book-s4s">
     <revision>
