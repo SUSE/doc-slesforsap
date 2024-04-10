@@ -8,7 +8,7 @@
    type="text/xml"
    title="Profiling step"?>
 <book xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:lang="en" xml:id="book-s4s" xmlns:its="http://www.w3.org/2005/11/its">
- <title><phrase condition="noquick">Guide</phrase><phrase condition="quick">Installation Quick Start</phrase></title>
+ <title><phrase condition="noquick">Guide</phrase><phrase condition="quick">&instquick;</phrase></title>
  <info>
   <productname>&productname;</productname>
   <productname role="abbrev">&productnameshort;</productname>
