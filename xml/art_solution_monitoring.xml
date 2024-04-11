@@ -30,6 +30,16 @@ Further information:
     <meta name="description" its:translate="yes">An introduction to monitoring solutions for &sap; administrators to efficiently monitor their &sap; systems.</meta>
     <meta name="social-descr" its:translate="yes">Monitoring solutions for &sap; administrators.</meta>
     <date><?dbtimestamp format="B d, Y"?></date>
+    <revhistory xml:id="rh-article-sol-monitoring">
+      <revision>
+        <date>2020-06-21</date>
+        <revdescription>
+          <para>
+            Updated for the initial release of &productname; &productnumber;.
+          </para>
+        </revdescription>
+      </revision>
+    </revhistory>
     <meta name="task" its:translate="yes">
       <phrase>Monitoring</phrase>
     </meta>
