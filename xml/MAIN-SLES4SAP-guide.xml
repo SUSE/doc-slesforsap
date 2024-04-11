@@ -7,12 +7,35 @@
 <?xml-stylesheet href="urn:x-suse:xslt:profiling:docbook50-profile.xsl"
    type="text/xml"
    title="Profiling step"?>
-<book xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:lang="en" xml:id="book-s4s">
+<book xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:its="http://www.w3.org/2005/11/its" version="5.0" xml:lang="en" xml:id="book-s4s">
  <title>Guide</title>
  <info>
   <productname>&productname;</productname>
   <productname role="abbrev">&productnameshort;</productname>
   <productnumber>&productnumber;</productnumber>
+  <meta name="title" its:translate="yes">Guide</meta>
+  <meta name="description" its:translate="yes">This document provides detailed information about how to install and customize &productnameshort;.</meta>
+  <meta name="social-descr" its:translate="yes">&productnameshort; installation and customization.</meta>
+  <date><?dbtimestamp format="B d, Y"?></date>
+  <revhistory xml:id="rh-book-s4s">
+    <revision>
+      <date>2019-12-09</date>
+      <revdescription>
+        <para>
+          Updated for the initial release of &productname; &productnumber;.
+        </para>
+      </revdescription>
+    </revision>
+  </revhistory>
+  <meta name="task" its:translate="yes">
+    <phrase>Installation</phrase>
+    <phrase>High Availability</phrase>
+    <phrase>Configuration</phrase>
+    <phrase>Clustering</phrase>
+    <phrase>Tuning</phrase>
+    <phrase>Security</phrase>
+  </meta>
+  <meta name="series" its:translate="no">Products &amp; Solutions</meta>
   <date><?dbtimestamp format="B d, Y"?></date>
   <dm:docmanager xmlns:dm="urn:x-suse:ns:docmanager">
     <dm:bugtracker>
