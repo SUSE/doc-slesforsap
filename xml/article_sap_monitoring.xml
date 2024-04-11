@@ -23,10 +23,14 @@ Further information:
  <title>&sap; Monitoring</title>
  <subtitle>&sles4sapreg; · &sleha;</subtitle>
  <info>
+  <productname>&productname;</productname>
   <productname role="abbrev">&productnameshort;</productname>
   <productnumber>&productnumber;</productnumber>
+  <meta name="title" its:translate="yes">&sap; Monitoring</meta>
+  <meta name="description" its:translate="yes">An introduction to monitoring solutions for &sap; administrators to efficiently monitor their &sap; systems.</meta>
+  <meta name="social-descr" its:translate="yes">Monitoring solutions for &sap; administrators.</meta>
   <date><?dbtimestamp format="B d, Y"?></date>
-  <meta name="task" its:translate="no">
+  <meta name="task" its:translate="yes">
     <phrase>Monitoring</phrase>
   </meta>
   <meta name="series" its:translate="no">Products &amp; Solutions</meta>
