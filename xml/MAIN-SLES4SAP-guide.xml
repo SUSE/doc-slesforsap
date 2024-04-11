@@ -20,6 +20,16 @@
   <meta name="social-descr" condition="quick" its:translate="yes">A quick introduction to &productnameshort; installation.</meta>
   <meta name="social-descr" condition="noquick" its:translate="yes">&productnameshort; installation and customization.</meta>
   <date><?dbtimestamp format="B d, Y"?></date>
+  <revhistory xml:id="rh-book-s4s">
+    <revision>
+      <date>2021-06-22</date>
+      <revdescription>
+        <para>
+          Updated for the initial release of &productname; &productnumber;.
+        </para>
+      </revdescription>
+    </revision>
+  </revhistory>
   <meta name="task" its:translate="yes" condition="quick">
     <phrase>Installation</phrase>
     <phrase>Upgrade</phrase>

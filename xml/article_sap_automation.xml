@@ -27,6 +27,16 @@ https://confluence.suse.com/x/8IEnGw
     <meta name="description" its:translate="yes">An introduction to automated solutions for &sap; administrators to efficiently configure &ha; and &sap; systems.</meta>
     <meta name="social-descr" its:translate="yes">Automated solutions for &sap; administrators.</meta>
     <date><?dbtimestamp format="B d, Y"?></date>
+    <revhistory xml:id="rh-article-sap-automation">
+      <revision>
+        <date>2021-06-22</date>
+        <revdescription>
+          <para>
+            Updated for the initial release of &productname; &productnumber;.
+          </para>
+        </revdescription>
+      </revision>
+    </revhistory>
     <meta name="task" its:translate="yes">
       <phrase>Automation</phrase>
       <phrase>High Availability</phrase>
