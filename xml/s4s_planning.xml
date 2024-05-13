@@ -91,7 +91,7 @@
       </listitem>
      </itemizedlist>
      <para>
-      For more information about &hana; refer to <link xlink:href="https://help.sap.com/docs/SAP_HANA_PLATFORM"/> (the section <menuchoice><guimenu>Implement</guimenu><guimenu>SAP HANA Master Guide</guimenu><guimenu>SAP HANA Deployment Options </guimenu><guimenu>On-Premise Deployments</guimenu>
+      For more information about &hana;, refer to <link xlink:href="https://help.sap.com/docs/SAP_HANA_PLATFORM"/> (the section <menuchoice><guimenu>Implement</guimenu><guimenu>SAP HANA Master Guide</guimenu><guimenu>SAP HANA Deployment Options </guimenu><guimenu>On-Premise Deployments</guimenu>
 </menuchoice>).
      </para>
     </listitem>
@@ -341,7 +341,7 @@
         Whether to enable Multitenant Database Containers (MDC). The
         multi-tenant support of &hana; allows having multiple databases that
         run as one &hana; installation. (To use &hana; MDC, you need &hana;
-        Life Cycle Manager.)
+        Lifecycle Manager.)
        </para>
        <para>
         For a single-tenant installation, choose <guimenu>No</guimenu>.

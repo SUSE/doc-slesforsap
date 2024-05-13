@@ -239,7 +239,7 @@
      </mediaobject>
     </figure>
     <para>
-     Select the appropriate option from the drop-down box.
+     Select the appropriate option from the drop-down list.
      In the text box, specify the path to your source according to the format
      given in the following table.
     </para>
@@ -414,7 +414,7 @@
      before or set up your
      system to be an installation server, you can also directly choose
      that server as the provider of the &instmaster;.
-     To do so, use the drop-down box below <guimenu>Choose an installation
+     To do so, use the drop-down list below <guimenu>Choose an installation
      master</guimenu>.
     </para>
    </step>
@@ -483,7 +483,7 @@
     <para>
      On the screen <guimenu>SAP Installation Wizard</guimenu>, provide
      the location of additional &instmedia; you want to install.
-     This can include an &sap; kernel, a database, and
+     This can include an &sap; kernel, a database and
      database exports.
     </para>
     <variablelist>
@@ -502,7 +502,7 @@
        <para>
         Do not copy additional &instmedia;. Choose this option
         if you do not need additional &instmedia; or to install
-        additional &instmedia; directly from their source, for example
+        additional &instmedia; directly from their source, for example,
         CDs/DVDs or flash disks.
        </para>
        <para>
@@ -564,7 +564,7 @@
       <listitem>
        <para>
         Engines that add functionality to a standard product: &sap; TREX,
-        &sap; Gateway, and Web Dispatcher.
+        &sap; Gateway and Web Dispatcher.
        </para>
        <!--
         "Engines" in plural: A bit of an inconsistency. Still just one at a
@@ -597,7 +597,7 @@
       <listitem>
        <para>
         Allows changing the various system properties such as the &sap; system
-        ID, database ID, instance number, or host name. This can be used to
+        ID, database ID, instance number or host name. This can be used to
         install the same product in a very similar configuration on different
         systems.
        </para>
@@ -624,7 +624,7 @@
    <step>
     <para>
      If you selected <guimenu>SAP Standard System</guimenu>,
-     <guimenu>Distributed System</guimenu>, or
+     <guimenu>Distributed System</guimenu> or
      <guimenu>SAP High-Availability System</guimenu>,
      additionally choose a back-end database under
      <guimenu>Back-end Databases</guimenu>.

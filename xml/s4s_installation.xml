@@ -225,9 +225,9 @@
      <guimenu>Network Settings</guimenu> will open.
     </para>
     <para>
-     If instead the screen <guimenu>Registration</guimenu> appears,
-     your network connection works. To change network settings anyway, click
-     <guimenu>Network Configuration</guimenu>.
+     However, if the <guimenu>Registration</guimenu> screen appears instead,
+     this indicates that your network connection works. To change network 
+     settings anyway, click <guimenu>Network Configuration</guimenu>.
     </para>
     <para>
      When you are finished configuring networking, proceed with
@@ -302,9 +302,9 @@
    <step performance="optional">
     <para>The <guimenu>Add On Product</guimenu> dialog allows you
      to add additional software sources (so-called
-     <quote>repositories</quote>) to &productname;, that are not provided
+     <quote>repositories</quote>) to &productname; that are not provided
      by the &scc;. Such add-on products may include third-party products,
-     drivers, or additional software for your system.
+     drivers or additional software for your system.
     </para>
    </step>
    <step>
