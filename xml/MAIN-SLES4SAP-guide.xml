@@ -32,14 +32,13 @@
   </revhistory>
   <meta name="task" its:translate="yes" condition="quick">
     <phrase>Installation</phrase>
-    <phrase>Upgrade</phrase>
+    <phrase>Upgrade &amp; Update</phrase>
   </meta>
   <meta name="task" its:translate="yes" condition="noquick">
     <phrase>Installation</phrase>
     <phrase>High Availability</phrase>
     <phrase>Configuration</phrase>
     <phrase>Clustering</phrase>
-    <phrase>Tuning</phrase>
     <phrase>Security</phrase>
   </meta>
   <meta name="series" its:translate="no">Products &amp; Solutions</meta>
