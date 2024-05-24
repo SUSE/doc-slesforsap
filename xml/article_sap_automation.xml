@@ -24,8 +24,8 @@ https://confluence.suse.com/x/8IEnGw
     <productname role="abbrev">&productnameshort;</productname>
     <productnumber>&productnumber;</productnumber>
     <meta name="title" its:translate="yes">&sap; Automation</meta>
-    <meta name="description" its:translate="yes">An introduction to automated solutions for &sap; administrators to efficiently configure &ha; and &sap; systems.</meta>
-    <meta name="social-descr" its:translate="yes">Automated solutions for &sap; administrators.</meta>
+    <meta name="description" its:translate="yes">How to use automation to efficiently configure &ha; and &sap; systems</meta>
+    <meta name="social-descr" its:translate="yes">Use automation for HA and &sap; system setup</meta>
     <date><?dbtimestamp format="B d, Y"?></date>
     <revhistory xml:id="rh-article-sap-automation">
       <revision>
@@ -251,7 +251,7 @@ https://confluence.suse.com/x/8IEnGw
       </listitem>
       <listitem>
         <para>
-          Cloud Service Provides (Azure, AWS, and GCP) automated adjustments for each provider 
+          Cloud Service Provides (Azure, AWS, and GCP) automated adjustments for each provider
           as best-practice.
         </para>
       </listitem>
@@ -399,7 +399,7 @@ https://confluence.suse.com/x/8IEnGw
     <title>High available NFS storage</title>
     <para>
       Use the &salt; formulas <package>drbd-formula</package> and
-      <package>habootstrap-formula</package> to create a highly available NFS storage cluster. 
+      <package>habootstrap-formula</package> to create a highly available NFS storage cluster.
     </para>
     <para>
       Use the formula <package>drbd-formula</package> for setting up and managing

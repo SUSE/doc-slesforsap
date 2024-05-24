@@ -23,8 +23,8 @@ https://suse.com/c/coming-soon-sap-landscape-monitoring-on-sles-for-sap/
   <productname role="abbrev">&productnameshort;</productname>
   <productnumber>&productnumber;</productnumber>
   <meta name="title" its:translate="yes">&sap; Monitoring</meta>
-  <meta name="description" its:translate="yes">An introduction to monitoring solutions for &sap; administrators to efficiently monitor their &sap; systems.</meta>
-  <meta name="social-descr" its:translate="yes">Monitoring solutions for &sap; administrators.</meta>
+  <meta name="description" its:translate="yes">How to use monitoring solutions to check on &sap; systems</meta>
+  <meta name="social-descr" its:translate="yes">Use monitoring solutions to check on &sap; systems</meta>
   <date><?dbtimestamp format="B d, Y"?></date>
   <revhistory xml:id="rh-article-sap-monitoring">
     <revision>
@@ -542,7 +542,7 @@ GRANT HANADB_EXPORTER_ROLE TO HANADB_EXPORTER_USER;
     <sect2 xml:id="running-as-a-daemon">
       <title>Running as a service</title>
       <para>
-        To run the hanadb_exporter as 
+        To run the hanadb_exporter as
         <literal>systemd</literal> service, install the exporter using the RPM
         package as described in
         <xref linkend="sec-sol-monit-hana-db-install"/>.
