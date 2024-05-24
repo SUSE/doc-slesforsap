@@ -27,8 +27,8 @@ Further information:
     <productname role="abbrev">&productnameshort;</productname>
     <productnumber>&productnumber;</productnumber>
     <meta name="title" its:translate="yes">&sap; Monitoring</meta>
-    <meta name="description" its:translate="yes">An introduction to monitoring solutions for &sap; administrators to efficiently monitor their &sap; systems.</meta>
-    <meta name="social-descr" its:translate="yes">Monitoring solutions for &sap; administrators.</meta>
+   <meta name="description" its:translate="yes">How to use monitoring solutions to check on &sap; systems</meta>
+   <meta name="social-descr" its:translate="yes">Use monitoring solutions to check on &sap; systems</meta>
     <date><?dbtimestamp format="B d, Y"?></date>
     <revhistory xml:id="rh-article-sol-monitoring">
       <revision>

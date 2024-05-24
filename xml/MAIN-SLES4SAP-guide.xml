@@ -15,10 +15,10 @@
   <productnumber>&productnumber;</productnumber>
   <meta name="title" condition="quick" its:translate="yes">Installation Quick Start</meta>
   <meta name="title" condition="noquick" its:translate="yes">Guide</meta>
-  <meta name="description" condition="quick" its:translate="yes">This document guides you through the installation of &productnameshort;.</meta>
-  <meta name="description" condition="noquick" its:translate="yes">This document provides detailed information about how to install and customize &productnameshort;.</meta>
-  <meta name="social-descr" condition="quick" its:translate="yes">A quick introduction to &productnameshort; installation.</meta>
-  <meta name="social-descr" condition="noquick" its:translate="yes">&productnameshort; installation and customization.</meta>
+  <meta name="description" condition="quick" its:translate="yes">How to install &productname;</meta>
+  <meta name="description" condition="noquick" its:translate="yes">How to install and customize &productname;</meta>
+  <meta name="social-descr" condition="quick" its:translate="yes">Install &productnameshort;</meta>
+  <meta name="social-descr" condition="noquick" its:translate="yes">Install and customize &productnameshort;</meta>
   <date><?dbtimestamp format="B d, Y"?></date>
   <revhistory xml:id="rh-book-s4s">
     <revision>
@@ -67,9 +67,9 @@
  <xi:include condition="noquick" href="s4s_tune_wmp.xml" parse="xml"/>
  <xi:include condition="noquick" href="s4s_access.xml" parse="xml"/>
  <!--'Encrypting Directories Using cryptctl' has been moved to the
- SLES Security Guide because the cryptctl package was moved from 
- the SAP application Module to the Base Application module in SLE15SP2, 
- so it is available to all SLE users (cschroder, 9 June 2020) 
+ SLES Security Guide because the cryptctl package was moved from
+ the SAP application Module to the Base Application module in SLE15SP2,
+ so it is available to all SLE users (cschroder, 9 June 2020)
  <xi:include condition="noquick" href="s4s_encrypt.xml" parse="xml"/>-->
  <xi:include condition="noquick" href="s4s_clamsap.xml" parse="xml"/>
  <xi:include condition="noquick" href="s4s_remoteaccess.xml" parse="xml"/>
