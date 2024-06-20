@@ -15,14 +15,13 @@ When opening a PR, check all versions of the documentation that your PR applies 
 
 - SLES-SAP 15
   - [ ] 15 next *(current `main`, no backport necessary)*
+  - [ ] 15 SP6
   - [ ] 15 SP5
   - [ ] 15 SP4
   - [ ] 15 SP3
   - [ ] 15 SP2
-  - [ ] 15 SP1
-- SLES-SAP 12
-  - [ ] 12 SP5
-  - [ ] 12 SP4
+ - SLES-SAP 12
+  - [ ] 12 SP5 
 
 ### PR reviewer only: Have all backports been applied?
 
