@@ -14,7 +14,7 @@
  </info>
  <para>
   As depicted in <xref linkend="fig-offering"/>, &sles4sap; is based on &sls;
-  but contains several additional software components such as &sleha;, and the
+  but contains several additional software components such as &sleha; and the
   installation workflow. These software components are briefly explained in the
   following sections.
  </para>
