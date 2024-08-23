@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" xml:base="s4s_image.xml" version="5.0" xml:id="cha-image">
+ <title>オペレーティングシステムイメージの作成</title>
+ <info>
+  <dm:docmanager xmlns:dm="urn:x-suse:ns:docmanager">
+   <dm:bugtracker/>
+   <dm:translation>yes</dm:translation>
+  </dm:docmanager>
+ </info>
+ <para>
+  SUSE Linux Enterprise Server for SAP Applicationsからカスタムオペレーティングシステムイメージを作成する複数の方法があります。推奨される方法は一般的にKIWI NGを使用する方法で、これはXML設定ファイルを取り込んでから、完全に自動的に実行します。
+ </para>
+ <para>
+  または、再使用する前に、クリーンアップされる既存のインストールからイメージを作成することもできます。
+ </para>
+
+ <sect1 xml:id="sec-configure-kiwi">
+  <title>KIWI NGでのイメージの作成</title>
+
+  <para>
+   KIWI NGは、新しい物理マシンまたは仮想マシンに簡単にコピー可能なオペレーティングシステムイメージを作成するツールです。このセクションでは、KIWI NGを使用したSLES for SAPのイメージの作成について説明します。
+  </para>
+  <para>
+   SUSE Linux Enterprise Server for SAP Applicationsは現在、パッケージ<systemitem>kiwi-template-sap</systemitem>のテンプレートを使用したKIWI NGによるイメージの作成をサポートしています。ただし、現在の実装では、次のような特定の制限があります。
+  </para>
+  <itemizedlist>
+   <listitem>
+    <para>
+     VMXディスクイメージの構築のみがサポートされています。他のイメージタイプの構築はサポートされていません。
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     Open Build Serviceにはすべての必要なパッケージが含まれているわけではないため、<filename>/tmp/SLES4SAP.iso</filename>にあるSUSE Linux Enterprise Server for SAP ApplicationsのISOイメージを指定する必要があります。
+    </para>
+   </listitem>
+  </itemizedlist>
+  <para>
+   基本的なイメージを構築するには、次の2つのコマンドを使用します。
+  </para>
+  <procedure>
+   <step>
+    <para>
+     ルートファイルシステムの構築:
+    </para>
+<screen><prompt role="root"># </prompt><command>kiwi</command> -p SLES4SAP --root fsroot</screen>
+   </step>
+   <step>
+    <para>
+     VMXイメージの構築:
+    </para>
+<screen><prompt role="root"># </prompt><command>kiwi</command> --create fsroot --type vmx -d build</screen>
+   </step>
+  </procedure>
+  <para>
+   SAPinstを使用したグラフィカルインストールを実行可能にするには、イメージのデフォルト設定で次の操作を有効にします。
+  </para>
+  <itemizedlist>
+   <listitem>
+    <para>
+     IceWMデスクトップのインストール
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     サービス<systemitem>xrdp</systemitem>が自動起動し、RDPを介してマシンに接続できるようにする詳細については、<xref linkend="cha-configure-rdp"/>を参照してください。
+    </para>
+   </listitem>
+  </itemizedlist>
+  <para>
+   KIWI NGおよびSLES for SAPの詳細については次の資料を参照してください。
+  </para>
+  <itemizedlist>
+   <listitem>
+    <para>
+     SLES for SAPのKIWI NGの設定については、『<filename>/usr/share/kiwi/image/SLES4SAP/README</filename>』を参照してください。
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     一般にKIWI NGについては、『<citetitle>openSUSE-KIWI Image System Cookbook</citetitle>』(<link xlink:href="https://doc.opensuse.org/projects/kiwi/doc/"/>)を参照してください。
+    </para>
+   </listitem>
+  </itemizedlist>
+ </sect1>
+
+ <sect1 xml:id="sec-configure-scrub-instance">
+  <title>インスタンスをマスタイメージとして使用する前にクリーンアップする</title>
+
+  <para>
+   初めからKIWI NGイメージを生成するのではなく、複数のシステムですでに設定されているマスタインスタンスのイメージを使用する方が適切な場合があります。たとえば、ご使用のイメージにKIWI NGを使用してインストールできない追加のソフトウェアや設定を含める必要がある場合などです。
+  </para>
+  <para>
+   ただし、通常、このようなイメージには、システムの他の部分と一緒にコピーしてはならない特定の設定データが含まれています。
+  </para>
+  <para>
+   手動でクリーンアップする必要がないようにするには、スクリプト<command>clone-master-clean-up</command> (同じ名前のパッケージから入手可能)を使用します。
+  </para>
+  <para>
+   これにより、次のデータが自動的に削除されます。
+  </para>
+  <itemizedlist>
+   <listitem>
+    <para>
+     スワップデバイス(ゼロワイプしてから、再度有効化)
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     SUSE登録情報とSUSEのリポジトリ、およびZypper ID
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     ユーザおよびホストのSSHキーとドメインおよびホスト名
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     生成された<systemitem>HANA-Firewall</systemitem>スクリプト(ただし設定自体は除く)
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     シェル履歴、メール、cronジョブ、一時ファイル(<filename>/tmp</filename>、<filename>/var/tmp</filename>)、ログファイル(<filename>/var/log</filename>)、ランダムシード、<systemitem class="daemon">systemd</systemitem>ジャーナル、<systemitem class="daemon">collectd</systemitem>統計、<command>postfix</command>設定、<filename>/root</filename>の一部
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     <filename>/var/cache</filename>、<filename>/var/crash</filename>、<filename>/var/lib/systemd/coredump</filename>
+    </para>
+   </listitem>
+  </itemizedlist>
+  <para>
+   また、次の設定がデフォルトに復元されます。
+  </para>
+  <itemizedlist>
+   <listitem>
+    <para>
+     DHCPおよびネットワーク設定を使用しないネットワークインタフェース(<filename>/etc/hostname</filename>、<filename>/etc/hosts</filename>、および<filename>/etc/resolv.conf</filename>)
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     <systemitem>sudo</systemitem>設定
+    </para>
+   </listitem>
+  </itemizedlist>
+  <para>
+   さらに、新しい<systemitem class="username">root</systemitem>パスワードを設定することを選択できます。<filename>/etc/fstab</filename>のUUIDベースのエントリは、デバイス文字列に置き換えられます。このスクリプトは、インストールワークフローの最初のブートセクションが元のインストールに使用されている場合は、次のブート時に再度実行されるようにします。
+  </para>
+  <sect2 xml:id="sec-configure-scrub-instance-configure">
+   <title><command>clone-master-clean-up</command>の構成</title>
+   <para>
+    <command>clone-master-clean-up</command>を実行する前に、次の方法でスクリプトを設定できます。
+   </para>
+   <itemizedlist>
+    <listitem>
+     <para>
+      特定のデータをクリーンアップしないようにスクリプトを設定するには、設定ファイル<filename>/etc/sysconfig/clone-master-clean-up</filename>を使用します。
+     </para>
+     <para>
+      このファイルには、使用可能なオプションの簡単な説明も記載されています。
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      追加のディレクトリまたはファイルをクリーンアップするようにスクリプトを設定するには、このようなディレクトリおよびファイルの絶対パスを含むリストを作成します。
+     </para>
+     <screen>
+/additional/file/to/delete.now
+/additional/directory/to/remove
+     </screen>
+     <para>
+      このリストを<filename>/var/adm/clone-master-clean-up/custom_remove</filename>として保存します。
+     </para>
+    </listitem>
+   </itemizedlist>
+  </sect2>
+  <sect2 xml:id="sec-configure-scrub-instance-use">
+   <title><command>clone-master-clean-up</command>の使用</title>
+   <para>
+    スクリプトを使用するには、次のコマンドを実行します。
+   </para>
+<screen><prompt role="root"># </prompt>clone-master-clean-up</screen>
+   <para>
+    次に、指示に従います。
+   </para>
+  </sect2>
+  <sect2 xml:id="sec-configure-scrub-instance-more">
+   <title>詳細の参照先</title>
+   <para>
+    次のソースでは<command>clone-master-clean-up</command>に関する追加情報を参照できます。
+   </para>
+   <itemizedlist>
+    <listitem>
+     <para>
+      詳細については、マニュアルページ<command>clone-master-clean-up</command>を参照してください。
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      追加で削除すると役立つ可能性のあるファイルおよびディレクトリについては、<filename>/var/adm/clone-master-clean-up/custom_remove.template</filename>を参照してください。
+     </para>
+    </listitem>
+    
+   </itemizedlist>
+  </sect2>
+ </sect1>
+
+</chapter>

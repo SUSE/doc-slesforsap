@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" xml:base="s4s_tune_wmp.xml" xml:id="cha-memory-protection" version="5.0">
+ <title>ワークロードメモリ保護のチューニング</title>
+ <info>
+  <dm:docmanager xmlns:dm="urn:x-suse:ns:docmanager">
+   <dm:bugtracker/>
+   <dm:translation>yes</dm:translation>
+  </dm:docmanager>
+ </info>
+ <para>
+  SAPアプリケーションを物理メモリに保持することは、パフォーマンスのために不可欠です。以前の製品バージョンでは、ページキャッシュ制限によって、ページキャッシュが増加してもディスクにスワップアウトできませんでした(SUSE Linux Enterprise Server for SAP Applications 11 SP1以降およびSUSE Linux Enterprise Server for SAP Applications 12)。SUSE Linux Enterprise Server for SAP Applications 15では、ページキャッシュ制限がより高度なワークロードメモリ保護に置き換えられました。
+ </para>
+ <para>
+  ワークロードメモリ保護は、SAPインスタンスを専用のcgroup (v2)に配置し、<varname>memory.low</varname>パラメータを用いて、物理メモリに保持するメモリ容量をカーネルに伝えます。これにより、ページキャッシュの増加を含む、そのcgroupの外側のあらゆる形態のメモリ負荷に対してこのcgroup内のプロセスが保護されます。ワークロードメモリ保護は、このcgroup内のメモリ負荷に対して保護することはできません。これは、1つのホスト上の「<emphasis>すべての</emphasis>」インスタンスのメモリをカバーします。
+ </para>
+ <para>
+  <varname>memory.low</varname>の値は、SAPインスタンスの種類およびワークロードによって異なるため、手動設定する必要があります。システムに過度の負荷がかかっている場合、Linuxカーネルは、<varname>memory.low</varname>の値を無視し、スワップやOOMキラーの呼び出しによってシステム全体を安定させようとします。
+ </para>
+ <para>
+  cgroupに関する詳細については、<link xlink:href="https://documentation.suse.com/sles-15/html/SLES-all/cha-tuning-cgroups.html"/>を参照してください。
+ </para>
+ <sect1 xml:id="sec-memory-protection-architecture">
+  <title>アーキテクチャ</title>
+
+  <para>
+   ワークロードメモリ保護は次の2つのコンポーネントに依存しています。
+  </para>
+
+  <variablelist>
+   <varlistentry>
+    <term>cgroup2メモリコントローラ(Linuxカーネル)</term>
+    <listitem>
+     <para>
+      cgroup2メモリコントローラパラメータ<parameter>memory.low</parameter>を使用すると、Linuxカーネルが物理メモリに保持するメモリ容量を定義できます。このメモリ容量は、システム全体が重大なメモリ状況にある場合を除いて、再利用プロセスから除外されます。
+     </para>
+     <para>
+      ワークロードメモリ保護は<parameter>memory.low</parameter>を使用して、SAPプロセスからのメモリがページングされたり、ディスクにスワップアウトされたりしないようにします。メモリコントローラを除いて、cgroup1コントローラは引き続き利用できますが、マウントされなくなりました。
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term><systemitem class="daemon">systemd</systemitem></term>
+    <listitem>
+     <para>
+      <systemitem class="daemon">systemd</systemitem>は、cgroupの階層を作成および維持するためのインフラストラクチャを提供し、cgroupパラメータの設定を可能にします。
+     </para>
+    </listitem>
+   </varlistentry>
+  </variablelist>
+ </sect1>
+ <sect1 xml:id="sec-memory-protection-support">
+  <title>ワークロードメモリ保護のサポート</title>
+
+  <para>
+   ワークロードメモリ保護は、Appサーバ(SAP NetWeaver、SAP S/4HANA)など、1つのホスト上の1つまたは複数のSAPシステムに対してAMD64/Intel 64およびPOWER上のSUSE Linux Enterprise Server for SAP Applications 15 SP6でサポートされています。SUSE High Availabilityクラスタソリューションがサポートされています。
+  </para>
+
+  <para>
+   ワークロードメモリ保護は、SAP HANA以外のデータベースには適用されません。開始メソッドによって、プロセスが専用のcgroup内部または外部で実行される場合があります。内部で実行される場合、<varname>memory.low</varname>を決定する際にメモリ消費量を考慮する必要があります。
+  </para>
+
+  <important>
+   <title>ワークロードメモリ保護の制限</title>
+   <para>
+    ワークロードメモリ保護の使用にはメリットがありますが、特定の制限に注意する必要があります。
+   </para>
+   <itemizedlist>
+    <listitem>
+     <para>
+      ワークロードメモリ保護は専用のcgroup内部のメモリ負荷に対して保護できません。
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      ワークロードメモリ保護はSAPシステムまたはそのインスタンスを相互に保護することはできません。すべてのSAPプロセスは同じメモリ制限を共有します。複数のSAPシステム(SAP NetWeaverやSAP S/4HANAなど)がある場合、ワークロードメモリ保護は、一方のSAPアプリケーションから他方のSAPアプリケーションを保護できません。
+     </para>
+    </listitem>
+   </itemizedlist>
+  </important>
+  <para>
+    ワークロードメモリ保護を使用する場合、SAPシステムは<systemitem class="daemon">systemd</systemitem>を使用する必要があります。<systemitem class="daemon">systemd</systemitem>統合の詳細については、<link xlink:href="https://launchpad.support.sap.com/%3Cmark%3E/notes/3139184">SAP
+    Notes: 139184 - Linux: systemd integration for sapstartsrv</link>および<link xlink:href="https://launchpad.support.sap.com/%3C/mark%3E/notes/3189534">SAP
+    Host Agent and 3189534 - Linux: systemd integration for sapstartsrv and SAP
+    HANA</link>を参照してください。
+  </para>
+  <important>
+  <para>
+    SUSE Linux Enterprise Server for SAP Applications 15 SP5以降、パッケージ<package>sapwmp</package>は廃止されました。マイグレーションについては、<xref linkend="sec-sapwmp-migrate"/>を参照してください。
+  </para>
+  </important>
+ </sect1>
+ <sect1 xml:id="sec-memory-protection-setup">
+  <title>ワークロードメモリ保護の設定</title>
+
+  <remark>toms 2020-09-28: Some introduction para is missing here.</remark>
+
+  <sect2 xml:id="sec-memory-protection-setup-preparation">
+   <title>ワークロードメモリ保護の準備</title>
+   <para>
+    SAPスタートサービスは、SAPインスタンスを専用の<literal>SAP.slice</literal> cgroupに配置します。ワークロードメモリ保護を使用するには、統合cgroup2階層に切り替え、<varname>MemoryLow=</varname>を正しく設定します。
+   </para>
+   <procedure>
+    <step>
+     <para>
+      すべてのSAPインスタンスおよびSAPホストエージェントを停止します。
+     </para>
+     <para>
+      サービスは有効にすることができますが、すべてのSAPプロセスを終了する必要があります。
+     </para>
+    </step>
+    <step>
+     <para>
+      次のように<filename>/etc/default/grub</filename>の<varname>GRUB_CMDLINE_LINUX_DEFAULT</varname>に追加することによって、<varname>systemd.unified_cgroup_hierarchy=true</varname>をカーネルコマンドラインに追加します。
+     </para>
+<screen>GRUB_CMDLINE_LINUX_DEFAULT="... systemd.unified_cgroup_hierarchy=true swapaccount=1"</screen>
+     <para>
+      この変更により、cgroup2コントローラのみが<filename>/sys/fs/cgroup</filename>にマウントされます。ただし、Cgroup1コントローラ(メモリコントローラを除く)は引き続き使用できます。cgroup1を使用するツールは、そのままでは機能せず、再設定が必要な場合があります。また、cgroup1に必要なマウント構造を提供する必要があります。
+     </para>
+     <para>
+      パラメータ<varname>swapaccount=1</varname>は、ワークロードメモリ保護が機能するために必要ではありませんが、サポートケースでの分析を支援し、cgroupごとのスワップアウトされたメモリ容量を示します。
+     </para>
+    </step>
+    <step>
+     <para>
+      GRUB2の設定を再書き込みします。
+     </para>
+<screen><prompt>&gt; </prompt><command>sudo</command> <command>grub2-mkconfig</command> -o /boot/grub2/grub.cfg</screen>
+     <para>
+      再起動後(後で実行される)、cgroup階層はv2 (統合階層)のみに切り替えられます。
+     </para>
+    </step>
+    <step xml:id="st-conf-memorylow-sap-slice">
+     <para>
+      <systemitem>SAP.slice</systemitem>用に<varname>MemoryLow</varname>を設定します。
+     </para>
+<screen><prompt>&gt; </prompt><command>sudo</command> <command>systemctl</command> set-property SAP.slice MemoryLow=...</screen>
+     <para>
+      このコマンドは、<filename>/etc/systemd/system.control/SAP.slice.d/</filename>にドロップインを作成し、<varname>MemoryLow</varname>を設定します。
+     </para>
+     <para>
+      <systemitem>SAP.slice</systemitem>は、SAPプロセスを含むcgroupの名前です。<varname>MemoryLow</varname>は、最初に述べたcgroupパラメータ<varname>memory.low</varname>と等価な<systemitem class="daemon">systemd</systemitem>です。<varname>MemoryLow</varname>の値は、SAPアプリケーションの種類とワークロードによって異なります。
+     </para>
+     <variablelist>
+      <varlistentry>
+       <term>SAP HANAの場合</term>
+       <listitem>
+        <para>
+         SAP HANAにはグローバル割り当て制限があるため、その値を直接使用できます。
+        </para>
+       </listitem>
+      </varlistentry>
+      <varlistentry>
+       <term>SAPアプリケーションサーバ(SAP NetWeaver、SAP S/4HANA)</term>
+       <listitem>
+        <para>
+         アプリケーションサーバの場合、ワークロードのサイジングは<varname>MemoryLow</varname>の値を示す必要があります。
+        </para>
+       </listitem>
+      </varlistentry>
+     </variablelist>
+     <para>
+      次の点に注意してください。
+     </para>
+     <itemizedlist>
+      <listitem>
+       <para>
+        1台のホスト上のすべてのSAPインスタンスは、<systemitem>SAP.slice</systemitem>内に存在します。<varname>MemoryLow</varname>は、そのホスト上の「すべての」インスタンスのメモリ容量をカバーする必要があります。<emphasis></emphasis>SAPシステムまたはそのインスタンスを相互に保護することはできません。
+       </para>
+      </listitem>
+      <listitem>
+       <para>
+        SAP HANA以外のデータベースを使用している場合、一部のデータベースプロセスが<systemitem>SAP.slice</systemitem>に含まれている可能性があります。<varname>MemoryLow</varname>値を決定する際には、これらのメモリ消費量を考慮する必要があります。
+       </para>
+      </listitem>
+      <listitem>
+       <para>
+        <varname>MemoryLow</varname>の値は、物理メモリの値に非常に近い値、またはこれらの値より大きな値にしないでください。システムサービスおよび追加でインストールされたソフトウェアもメモリを必要とします。SAPアプリケーションを犠牲にしてスワップを広範囲に使用しなければならない場合、システムが応答しなくなる可能性があります。
+       </para>
+      </listitem>
+     </itemizedlist>
+     <note>
+      <title><varname>MemoryLow</varname>値を正しく計算する</title>
+      <para>
+       <varname>MemoryLow</varname>は、メモリサイズをバイト単位で取得します。値の末尾にK、M、G、Tが付いている場合、指定されたメモリサイズはそれぞれ、キビバイト、メビバイト、ギビバイト、またはテビバイトとして解析されます(1000ではなく、1024をベースとしている場合は、<link xlink:href="https://en.wikipedia.org/wiki/Binary_prefix"/>を参照)。または、パーセンテージ値が指定される場合があります。この場合、システムにインストールされている物理メモリを基準として取得されます。
+      </para>
+      <para>
+       基礎となるcgroupメモリコントローラは、値をページサイズの倍数に切り上げます。混乱を避けるため、<varname>MemoryLow</varname>の値をページサイズの倍数に設定してください。
+      </para>
+     </note>
+    </step>
+   </procedure>
+   <para>
+    これでシステムが再起動する準備が整いました。
+   </para>
+  </sect2>
+
+  <sect2 xml:id="sec-memory-protection-reboot-and-verification">
+   <title>再起動と確認</title>
+   <remark>toms 2020-09-16: introduction of the procedure is missing.</remark>
+   <procedure>
+    <step>
+     <para>
+      システムを再起動します。
+     </para>
+    </step>
+    <step>
+     <para>
+      再起動後に、cgroups v2が実際に使用されていることを確認します。
+     </para>
+<screen><prompt role="root"># </prompt><command>grep</command>  cgroup /proc/mounts
+cgroup /sys/fs/cgroup cgroup2 rw,nosuid,nodev,noexec,relatime 0 0</screen>
+    </step>
+    <step>
+     <para>
+      低いメモリ値が設定されていることを確認します。
+     </para>
+<screen><prompt>&gt; </prompt><command>systemctl</command> show -p MemoryLow SAP.slice
+MemoryLow=18487889920    &lt;- Should be your chosen value (always in bytes)!
+
+# cat /sys/fs/cgroup/SAP.slice/memory.low
+18487889920    &lt;- Should be your chosen value!</screen>
+     <para>
+      変数<varname>MemoryLow</varname>は任意の値に設定できますが、変数の内容は常にページサイズの倍数です。これらの値にわずかに違いがあることに気づく場合には、このことに注意してください。
+     </para>
+    </step>
+   </procedure>
+  </sect2>
+ </sect1>
+ <sect1 xml:id="sec-memory-protection-operation-change-the-value-of-memorylow">
+  <title>MemoryLowの値の変更</title>
+
+  <para>
+   <varname>MemoryLow</varname>の値を変更するには、次のコマンドを実行します。
+  </para>
+
+<screen><prompt role="root"># </prompt><command>systemctl</command> set-property SAP.slice MemoryLow=...</screen>
+
+  <para>
+   変更はすぐに有効になります。
+  </para>
+
+  <para>
+   基礎となるcgroupメモリコントローラは、値をページサイズの倍数に切り上げます。混乱を避けるため、<varname>MemoryLow</varname>の値をページサイズの倍数に設定してください。
+  </para>
+
+  <important>
+   <title><varname>MemoryLow</varname>の値</title>
+   <para>
+    <varname>MemoryLow</varname>をすでに<systemitem>SAP.slice</systemitem>に割り当てられているメモリより小さい値に設定しないでください。確認するには、次のコマンドを実行します。
+   </para>
+<screen><prompt role="root"># </prompt><command>systemctl</command> show -p MemoryCurrent SAP.slice</screen>
+  </important>
+  </sect1>
+ <sect1 xml:id="sec-sapwmp-migrate">
+  <title><package>sapwmp</package>を使用したワークロードメモリ保護からのマイグレーション(SUSE Linux Enterprise Server for SAP Applications 15 SP4以前のSLES)</title>
+  <para>
+    サービスパックSP4以前からアップグレードしていて、<systemitem class="daemon">systemd</systemitem>対応のインスタンスにまだ切り替えていない場合、マイグレーションを実行する必要があります。
+    </para>
+    <procedure>
+    <title>マイグレーションの手順</title>
+    <step>
+    <para>
+      <systemitem class="daemon">systemd</systemitem>が有効なSAPシステムに切り替えます。詳細については、<link xlink:href="https://launchpad.support.sap.com/%3C/mark%3E/notes/3189534">139184
+      - Linux: systemd integration for sapstartsrv and SAP Host Agent and
+      3189534 - Linux: systemd integration for sapstartsrv and SAP HANA</link>を参照してください。
+    </para>
+    </step>
+    <step>
+    <para>
+      すべてのインスタンスプロファイルから<option>sapwmp-capture</option>を呼び出す行を削除します(例: <command>Execute_20 = local /usr/lib/sapwmp/sapwmp-capture -a</command>)。すべてのSAPサービスは、変更後に再起動する必要があります。
+    </para>
+    </step>
+    <step>
+    <para>
+      <option>MemoryLow=</option>を監視し、再調整します。<systemitem class="daemon">systemd</systemitem>対応のSAPホストエージェントには、<systemitem class="service">SAP.slice</systemitem>の下にcgroup (<systemitem class="service">saphostagent.service</systemitem>)が含まれるようになりました。これは保護の対象になっています。
+    </para>
+    <note>
+    <para>
+      <systemitem>cgroup2</systemitem>マウントにオプション<option>memory_recursiveprot</option>が設定されている場合(デフォルトで設定されています)、各SAPサービスまたはSAPホストエージェントサービスに<option>MemoryLow=infinity</option>を設定する必要はありません。これを確認するには、次のコマンドを実行します。
+    </para>
+      <screen><prompt>&gt; </prompt> mount | grep cgroup2
+      cgroup2 on /sys/fs/cgroup type cgroup2
+      (rw,nosuid,nodev,noexec,relatime,nsdelegate,memory_recursiveprot)</screen>
+    </note>
+    </step>
+    </procedure>
+  </sect1>
+</chapter>

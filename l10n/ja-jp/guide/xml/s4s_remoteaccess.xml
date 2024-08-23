@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" xml:base="s4s_remoteaccess.xml" version="5.0" xml:id="cha-configure-rdp">
+  <title>RDPを介した接続</title>
+ <info>
+  <dm:docmanager xmlns:dm="urn:x-suse:ns:docmanager">
+   <dm:bugtracker/>
+   <dm:translation>yes</dm:translation>
+  </dm:docmanager>
+ </info>
+  <para>
+   RDPオプションを有効にしてSLES for SAPをインストールした場合、またはKIWI NGイメージからインストールした場合、RDPはサービス<systemitem class="daemon">xrdp</systemitem>を介してマシンで有効になります。または、このセクションの終わりで説明するように、RDPを後で有効にすることもできます。
+  </para>
+  <para>
+   次のような、RDPをサポートする任意のソフトウェアを使用して接続できます。
+  </para>
+  <itemizedlist>
+   <listitem>
+    <formalpara>
+     <title>Linux:</title>
+     <para>
+      Vinagre (SUSE Linux Enterprise Desktop/SLE WEおよびopenSUSEで使用可能)またはRemmina (openSUSEで使用可能)
+     </para>
+    </formalpara>
+   </listitem>
+   <listitem>
+    <formalpara>
+     <title>Windows:</title>
+     <para>
+      リモートデスクトップ接続
+     </para>
+    </formalpara>
+   </listitem>
+  </itemizedlist>
+  <important>
+   <title>［接続パラメータ］</title>
+   <para>
+    次のパラメータで接続を設定してください。
+   </para>
+   <itemizedlist>
+    <listitem>
+     <formalpara>
+      <title>ポート:</title>
+      <para>
+       3389
+      </para>
+     </formalpara>
+    </listitem>
+    <listitem>
+     <formalpara>
+      <title>カラー設定:</title>
+      <para>
+       16ビットまたは24ビットのみ
+      </para>
+     </formalpara>
+    </listitem>
+   </itemizedlist>
+  </important>
+
+  <procedure xml:id="pro-enable-rdp">
+   <title>RDPの設定</title>
+   
+   <para>
+    インストール中にRDP接続を設定していない場合は、次の手順を使用して後で実行することもできます。
+   </para>
+   <step>
+    <para>
+     まず、ファイアウォールに必要な例外を作成し、関連するすべてのゾーンでポートTCP3389を開きます。たとえば、内部ネットワークが<literal>internal</literal>ゾーンを使用している場合は、次のコマンドを使用します。
+    </para>
+    <screen><prompt role="root"># </prompt><command>firewall-cmd</command> --zone=internal --add-port=3389/tcp</screen>
+    <para>
+     これは、新しい設定をテストするための一時的な割り当てです。複数のゾーンを変更する必要がある場合、各ゾーンを一度に1つずつ変更してテストします。
+    </para>
+   </step>
+   <step>
+    <para>
+     新しい設定を永続的にします。
+    </para>
+    <screen><prompt role="root"># </prompt><command>firewall-cmd</command> --runtime-to-permanent
+<prompt role="root"># </prompt><command>firewall-cmd</command> --reload</screen>
+<para>
+  ファイアウォールの使用の詳細については、<link xlink:href="https://docs.suse.com/sles/15/html/SLES-all/cha-security-firewall.html#sec-security-firewall-firewalld"/>を参照してください。
+ </para>
+   </step>
+   <step>
+    <para>
+     次に、<systemitem class="daemon">xrdp</systemitem>を設定します。
+    </para>
+    <para>
+     パッケージ<package>xrdp</package>をインストールします:
+    </para>
+    <screen>
+<prompt role="root"># </prompt><command>zypper install xrdp</command>
+    </screen>
+   </step>
+   <step>
+    <para>
+     <systemitem class="daemon">xrdp</systemitem>サービスを有効にして開始します。
+    </para>
+    <screen>
+<prompt role="root"># </prompt><command>systemctl enable xrdp</command>
+<prompt role="root"># </prompt><command>systemctl start xrdp</command>
+    </screen>
+    <para>
+     これでマシンに接続できるようになりました。
+    </para>
+   </step>
+  </procedure>
+ </chapter>

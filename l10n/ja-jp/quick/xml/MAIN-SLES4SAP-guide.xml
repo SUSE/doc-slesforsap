@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="urn:x-suse:xslt:profiling:docbook50-profile.xsl"
+   type="text/xml"
+   title="Profiling step"?>
+<book xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:its="http://www.w3.org/2005/11/its" xml:base="MAIN-SLES4SAP-guide.xml" version="5.0" xml:lang="ja" xml:id="book-s4s">
+ <title><phrase condition="quick">インストールクイックスタート</phrase></title>
+ <info>
+  <productname>SUSE Linux Enterprise Server for SAP Applications</productname>
+  <productname role="abbrev">SLES for SAP</productname>
+  <productnumber>15 SP6</productnumber>
+  <meta name="title" condition="quick" its:translate="yes">インストールクイックスタート</meta>
+  
+  <meta name="description" condition="quick" its:translate="yes">SUSE Linux Enterprise Server for SAP Applicationsをインストールする方法</meta>
+  
+  <meta name="social-descr" condition="quick" its:translate="yes">SLES for SAPのインストール</meta>
+  
+  <date><?dbtimestamp format="Y"?> 年 <?dbtimestamp format="B"?> 月 <?dbtimestamp format="d"?> 日
+</date>
+  <revhistory xml:id="rh-book-s4s">
+    <revision>
+      <date>2024-06-26</date>
+      <revdescription>
+        <para>
+          SUSE Linux Enterprise Server for SAP Applications 15 SP6の初期リリース用に更新されました。
+        </para>
+      </revdescription>
+    </revision>
+  </revhistory>
+  <meta name="task" its:translate="yes" condition="quick">
+    <phrase>インストール</phrase>
+    <phrase>アップグレードと更新</phrase>
+  </meta>
+  
+  <meta name="series" its:translate="no">製品とソリューション</meta>
+  <dm:docmanager xmlns:dm="urn:x-suse:ns:docmanager">
+    <dm:bugtracker>
+      <dm:url>https://bugzilla.suse.com/enter_bug.cgi</dm:url>
+      <dm:component>Documentation</dm:component>
+      <dm:product>SUSE Linux Enterprise Server for SAP Applications 15 SP6</dm:product>
+      <dm:assignee>dmitri.popov@suse.com</dm:assignee>
+    </dm:bugtracker>
+    <dm:editurl>https://github.com/SUSE/doc-slesforsap/blob/main/xml/</dm:editurl>
+    <dm:translation>yes</dm:translation>
+  </dm:docmanager>
+  <xi:include href="common_copyright_gfdl.xml" parse="xml"/>
+ </info>
+ <xi:include href="s4s_overview.xml" parse="xml"/>
+ <xi:include href="s4s_about.xml" parse="xml"/>
+ <xi:include href="s4s_planning.xml" parse="xml"/>
+ <xi:include href="s4s_installation.xml" parse="xml"/>
+ <xi:include href="s4s_installation_sap.xml" parse="xml"/>
+ <xi:include href="s4s_upgrade_sap_hana_cluster.xml"/>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <xi:include href="common_legal.xml" parse="xml"/>
+</book>

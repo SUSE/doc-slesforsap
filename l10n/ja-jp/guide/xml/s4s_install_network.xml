@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" xml:base="s4s_install_network.xml" version="5.0" xml:id="cha-serve-mediaset">
+ <title>SAPメディアセット用のインストールサーバの設定</title>
+ <info>
+  <dm:docmanager xmlns:dm="urn:x-suse:ns:docmanager">
+   <dm:bugtracker/>
+   <dm:translation>yes</dm:translation>
+  </dm:docmanager>
+ </info>
+ <para>
+  SAPインストールウィザードを使用すると、リモートサーバ(NFSやSMBなど)からSAPメディアセットをコピーできます。ただし、そこで提供されるオプションを使用すると、同時に製品をインストールする必要があります。さらに、組織で使用されるすべてのSAPメディアを単一のサーバにコピーすることはできません。
+ </para>
+ <para>
+  ただし、このようなサーバは自分で簡単に作成できます。たとえば、NFSサーバ上にSAPメディアを配置するには、次の手順に従います。
+ </para>
+
+ <procedure xml:id="pro-nfs-server">
+  <title>NFSサーバへのSAP製品インストールファイルの追加</title>
+  <step>
+   <para>
+    インストールサーバで、<filename>/srv/www/htdocs/sap_repo</filename>ディレクトリを作成します。
+   </para>
+  </step>
+  <step>
+   <para>
+    ファイル<filename>/etc/exports</filename>を開き、次の行を追加します。
+   </para>
+<screen>/srv/www/htdocs/sap_repo *(ro,no_root_squash,sync,no_subtree_check,insecure)</screen>
+   <important>
+    <title>実行可能な権限が表示される必要がある</title>
+    <para>
+     クライアントは実行可能なファイルを表示できる必要があります。表示できない場合、SUSEのSAPインストールウィザードで、SAPインストーラを実行できません。
+    </para>
+   </important>
+  </step>
+  <step>
+   <para>
+    <filename>/srv/www/htdocs/sap_repo</filename>で、所有しているすべてのSAPメディアのディレクトリを作成します。これらのディレクトリに名前を付け、後で特定できるようにします。たとえば、<filename>kernel</filename>、<filename>java</filename>、または<filename>hana</filename>のような名前を使用できます。
+   </para>
+  </step>
+  <step>
+   <para>
+    <command>cp -a</command>を使用して、各SAPメディアのコンテンツを対応するディレクトリにコピーします。
+   </para>
+   <important>
+    <title>コピーにWindows*オペレーティングシステムを使用しない</title>
+    <para>
+     NTFSのようなWindowsファイルシステムとの間でコピーする場合にWindowsオペレーティングシステムを使用すると、ファイルとディレクトリのパーミッション設定や大文字小文字の設定が壊れる可能性があります。
+    </para>
+   </important>
+  </step>
+ </procedure>
+
+ <para>
+  現在は、設定したNFSサーバからインストールできます。SAPインストールウィザードで、次のようにパスを指定します: <filename><replaceable>server_name</replaceable>/srv/www/htdocs/sap_repo</filename>。パスの指定の詳細については、<xref linkend="tab-sap-media-source"/>を参照してください。
+ </para>
+
+ <para>
+  NFSサーバを最初から設定する方法については、<citetitle>
+   Administration Guide,
+   Part <quote>Services</quote>,
+   Chapter <quote>Sharing File Systems with NFS</quote>,
+   Section <quote>Installing NFS Server</quote>
+  </citetitle>(<link xlink:href="https://documentation.suse.com/sles-15"/>)を参照してください。
+ </para>
+
+ <para>
+  NFSサーバからSUSE Linux Enterprise Serverをインストールする方法については、<citetitle>Deployment Guide, Chapter <quote>Remote Installation</quote>,
+  Section <quote>Setting Up an NFS Repository Manually</quote>
+  </citetitle>(<link xlink:href="https://documentation.suse.com/sles-15"/>)を参照してください。
+ </para>
+</chapter>
