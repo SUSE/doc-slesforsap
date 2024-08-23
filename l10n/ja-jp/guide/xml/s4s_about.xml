@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" xml:base="s4s_about.xml" version="5.0" xml:id="cha-about">
+<title>SUSE Linux Enterprise Server for SAP Applicationsとは</title>
+<info>
+ <abstract>
+  <para>
+   SUSE® Linux Enterprise Server for SAP Applicationsは、SAPユーザの特定のニーズに対処するソフトウェアとサービスのバンドルです。すべてのSAPソフトウェアソリューション用に最適化された唯一のオペレーティングシステムです。
+  </para>
+ </abstract>
+ <dm:docmanager xmlns:dm="urn:x-suse:ns:docmanager">
+  <dm:bugtracker/>
+  <dm:translation>yes</dm:translation>
+ </dm:docmanager>
+</info>
+
+ <para>
+  対象となる使用例は次のとおりです。
+ </para>
+
+ <itemizedlist>
+  <listitem>
+   <para>
+    UnixからLinuxへのマイグレーションおよびプラットフォーム変更
+   </para>
+  </listitem>
+  <listitem>
+   <para>
+    SAPアプライアンス
+   </para>
+  </listitem>
+  <listitem>
+   <para>
+    SAPクラウドの展開
+   </para>
+  </listitem>
+ </itemizedlist>
+
+ <para>
+  SUSE Linux Enterprise Server for SAP Applicationsは、ソフトウェアコンポーネントおよびサービス提供から構成されています。サービス提供については、次の各セクションで説明します。図<xref linkend="fig-offering" xrefstyle="select:title"/>は、SUSEのその他の製品でも使用できるソフトウェアコンポーネントおよびサービス(緑色)とSUSE Linux Enterprise Server for SAP Applicationsでのみ使用できるソフトウェアコンポーネントおよびサービス(青色)を示しています。
+ </para>
+
+ <figure xml:id="fig-offering">
+  <title>SUSE Linux Enterprise Server for SAP Applicationsのオファリング</title>
+  <mediaobject>
+   <imageobject role="fo">
+    <imagedata fileref="s4s_overview.svg" width="85%"/>
+   </imageobject>
+   <imageobject role="html">
+    <imagedata fileref="s4s_overview.png" width="85%"/>
+   </imageobject>
+  </mediaobject>
+ </figure>
+
+ 
+ <xi:include href="s4s_components.xml" parse="xml"/>
+
+ <sect1 condition="noquick" xml:id="sec-repository">
+  <title>ソフトウェアリポジトリのセットアップ</title>
+
+  <para>
+   SUSE Linux Enterpriseに基づくオペレーティングシステムに含まれるソフトウェアはRPMパッケージとして配布されます。このパッケージは、他のパッケージに依存する可能性のあるインストールパッケージの形式です。サーバまたはインストールメディアで、これらのパッケージはソフトウェアリポジトリ(<quote>チャネル</quote>と呼ばれる場合もある)に保存されます。
+  </para>
+  <remark>
+   FIXME: "variant" is maybe not a good word... - sknorr, 2016-06-17
+  </remark>
+  <para>
+   デフォルトで、SUSE Linux Enterprise Server for SAP Applicationsを実行しているコンピュータは、複数のリポジトリからパッケージを受信するように設定されています。各標準リポジトリには、最初に出荷されたときのソフトウェアの状態を示す<quote>プール</quote>バリアントがあります。<quote>プール</quote>バリアントのソフトウェアに対する最新の保守更新を含む<quote>更新</quote>バリアントもあります。
+  </para>
+  <para>
+   インストール中にシステムを登録した場合は、リポジトリセットアップに以下が含まれている必要があります。
+  </para>
+
+  <table xml:id="tab-repository">
+    <title>標準リポジトリ</title>
+    <tgroup cols="3">
+      <colspec colname="type"/>
+      <colspec colname="base"/>
+      <colspec colname="update"/>
+      <thead>
+        <row>
+          <entry>
+            <para>コンテンツ</para>
+          </entry>
+          <entry>
+            <para>ベースリポジトリ(<quote>プール</quote>)</para>
+          </entry>
+          <entry>
+            <para>更新リポジトリ</para>
+          </entry>
+        </row>
+      </thead>
+      <tbody>
+        <row>
+          <entry>
+            <para>
+              SUSE Linux Enterprise Serverのベースパッケージ
+            </para>
+          </entry>
+          <entry>
+            <para><literal>SLE-Module-Basesystem15-SP6-Pool</literal></para>
+          </entry>
+          <entry>
+            <para><literal>SLE-Module-Basesystem15-SP6-Updates</literal></para>
+          </entry>
+        </row>
+        <row>
+          <entry>
+            <para>
+              SUSE Linux Enterprise Serverの基本的なサーバ機能
+            </para>
+          </entry>
+          <entry>
+            <para><literal>SLE-Module-Server-Applications15-SP6-Pool</literal></para>
+          </entry>
+          <entry>
+            <para><literal>SLE-Module-Server-Applications15-SP6-Updates</literal></para>
+          </entry>
+        </row>
+        <row>
+          <entry>
+            <para>
+              SUSE Linux Enterprise Server for SAP Applicationsに固有のパッケージ
+            </para>
+          </entry>
+          <entry>
+            <para>
+              <literal>SLE-Module-SAP-Applications15-SP6-Pool</literal>
+            </para>
+          </entry>
+          <entry>
+            <para><literal>SLE-Module-SAP-Applications15-SP6-Updates</literal></para>
+          </entry>
+        </row>
+        <row>
+          <entry>
+            <para>
+              SUSE Linux Enterprise High Availabilityに固有のパッケージ
+            </para>
+          </entry>
+          <entry>
+            <para><literal>SLE-Product-HA15-SP6-Pool</literal></para>
+          </entry>
+          <entry>
+            <para><literal>SLE-Product-HA15-SP6-Updates</literal></para>
+          </entry>
+        </row>
+      </tbody>
+    </tgroup>
+  </table>
+  <para>
+   このセクションの表は、「デバッグ情報」および「ソース」リポジトリを示していません。これらも設定されていますが、デフォルトで無効になっています。<emphasis></emphasis><emphasis></emphasis>「<emphasis>デバッグ情報</emphasis>」リポジトリには、通常のパッケージをデバッグするために使用可能なパッケージが含まれています。「<emphasis>ソース</emphasis>」リポジトリには、パッケージのソースコードが含まれています。
+  </para>
+  <para>
+   インストール方法に応じて、インストールメディアである、<literal>SLE-15-SP6-SAP-15.6-0</literal>が表示される場合もあります。上記のすべてのベースソフトウェアリポジトリのパッケージが含まれています。
+  </para>
+  <para>
+   SUSE Linux Enterprise Server for SAP Applicationsには独自のリポジトリがあるため、SUSEは、SUSE Linux Enterprise Server for SAP Applications固有のパッケージおよびパッチを出荷できます。
+  </para>
+  <note>
+   <title>更新リポジトリで直接出荷されるESPOSの更新</title>
+   <para>
+    SUSE Linux Enterprise Server for SAP Applications 11とは異なり、Extended Service Pack Overlay Support (ESPOS)に関連する更新は、<literal>Update</literal>リポジトリから直接出荷されます。これは、設定される個別のESPOSリポジトリがないことを意味します。
+   </para>
+  </note>
+
+  <para>
+   標準リポジトリに加えて、インストール中または実行中のシステムからYaSTまたは<command>SUSEConnect</command>コマンドを使用してSLEのモジュールおよびSLEの拡張機能を有効にできます。
+  </para>
+  <para>
+   SUSE Linux Enterprise製品ラインで使用できるすべてのモジュールおよび拡張機能については、<link xlink:href="https://documentation.suse.com/sles-15/html/SLES-all/art-modules.html"/>を参照してください。
+  </para>
+  <para condition="noquick">
+   SUSE Package Hubの詳細については、<xref linkend="sec-packagehub"/>を参照してください。モジュールおよび拡張機能のライフサイクルおよびサポートについては、<xref linkend="sec-s4s-service"/>を参照してください。
+  </para>
+ </sect1>
+
+ <sect1 xml:id="sec-s4s-service">
+  <title>含まれるサービス</title>
+
+  <variablelist>
+   <varlistentry>
+    <term>「<emphasis>Extended Service Pack Overlap Support (ESPOS)</emphasis>」
+    </term>
+    <listitem>
+     <para>
+      SUSE Linux Enterprise Server for SAP Applicationsの購読には、Extended Service Pack Overlap Support (ESPOS)が含まれています。これにより、2つの連続するサービスパックのサポート期間の重複期間が3年延長されます。この期間中、長期サービスパックサポート(LTSS)の条項に従ってサポートおよび関連するすべての保守更新を受け取ります。
+     </para>
+     <para>
+        Extended Service Pack Overlap Supportの場合、6カ月のみではなく3年半以内にサービスパックのマイグレーションを実行できます。このため、マイグレーションを容易にスケジュールし、時間の制約が軽減された状況でマイグレーション前にテストを行うことができます。追加コストを支払うことでSUSEはLTSSも提供します。LTSSでは、ESPOS期間の終了後に特定のサービスパックのサポートを受けることができます。SUSE Linux Enterprise Server for SAP Applicationsには、1年半の一般的なサポートとそれぞれのサービスパックに対する3年間のESPOSが含まれています。
+     </para>
+     <para>
+        各SLEファミリの最後のサービスパックにはESPOSは含まれていません。これにはESPOSの代わりに一般的なより長期のサポート期間が含まれています。そのため、LTSSは最後のサービスパックに対してのみ使用できます。その他すべてのサービスパックには3年間のESPOSがすでに含まれています。これはLTSSと同じです。
+     </para>
+     <para>
+      詳細については、次のリソースを参照してください。
+     </para>
+     <itemizedlist>
+      <listitem>
+       <para>
+        製品ライフサイクルサポートポリシー: <link xlink:href="https://www.suse.com/support/policy-products/#sap"/>
+       </para>
+      </listitem>
+      <listitem>
+       <para>
+        製品別のライフサイクル日付: <link xlink:href="https://www.suse.com/lifecycle/"/>
+       </para>
+      </listitem>
+      <listitem>
+       <para>
+        長期サービスパックサポート: <link xlink:href="https://www.suse.com/products/long-term-service-pack-support/"/>
+       </para>
+      </listitem>
+     </itemizedlist>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term>「<emphasis>SUSE Linux Enterprise Server Priority Support for SAP Applications</emphasis>」
+    </term>
+    <listitem>
+     <para>
+      SUSE Linux Enterprise Server for SAP Applicationsの購読には、SUSE Linux Enterprise Server Priority Support for SAP Applicationsが含まれています。SAPから直接SUSE Linux Enterprise Server for SAP Applicationsのテクニカルサポートを提供します。SUSE Technical SupportおよびSAPのサポートエンジニアによってジョイントサポートインフラストラクチャが提供されます。これはSAP Resolveに基づき、SAPとSUSEの両方とのシームレス通信を提供します。この<quote>One Face to the Customer</quote>(お客様に対する一元窓口)サポートモデルによって、複雑さが軽減され、総所有コストが低減されます。
+     </para>
+     <para>
+      詳細については、『<citetitle>SAP Note 1056161: SUSE
+       Priority Support for SAP Applications</citetitle>』(<link xlink:href="https://launchpad.support.sap.com/#/notes/1056161"/>)を参照してください。
+     </para>
+    </listitem>
+   </varlistentry>
+  </variablelist>
+  <important>
+   <title>モジュールおよび拡張機能のライフサイクルおよびサポート</title>
+   <para>
+    モジュールおよび拡張機能のライフサイクルはSLES for SAPとは異なります。SUSEではモジュールおよび拡張機能に対して異なるサポートが提供されます。
+   </para>
+   <itemizedlist>
+    <listitem>
+     <para>
+      モジュール:
+     </para>
+     <itemizedlist>
+      <listitem>
+       <formalpara>
+        <title>ライフサイクル</title>
+        <para>
+         モジュールによって異なります。
+        </para>
+       </formalpara>
+      </listitem>
+      <listitem>
+       <formalpara>
+        <title>サポート</title>
+        <para>
+         最新のパッケージのみがサポートされます。サポートはSUSE Linux Enterprise Server for SAP Applicationsの購読に含まれています。追加の登録キーは必要ありません。
+        </para>
+       </formalpara>
+      </listitem>
+     </itemizedlist>
+    </listitem>
+    <listitem>
+     <para>
+      拡張機能
+     </para>
+     <itemizedlist>
+      <listitem>
+       <formalpara>
+        <title>ライフサイクル</title>
+        <para>
+         SUSE Linux Enterprise Server for SAP Applicationsとともに通常リリースが調整されます。
+        </para>
+       </formalpara>
+      </listitem>
+      <listitem>
+       <formalpara>
+        <title>サポート</title>
+        <para>
+         サポートは利用できますが、SUSE Linux Enterprise Server for SAP Applicationsの購読に含まれていません。追加の登録キーが必要です。
+        </para>
+       </formalpara>
+      </listitem>
+     </itemizedlist>
+    </listitem>
+    <listitem>
+     <para>
+      サポートされない拡張機能(SUSE Package HubおよびSUSE Software Development Kit)
+     </para>
+     <itemizedlist>
+      <listitem>
+       <formalpara>
+        <title>ライフサイクル</title>
+        <para>
+         SUSE Linux Enterprise Server for SAP Applicationsとともに通常リリースが調整されます。
+        </para>
+       </formalpara>
+      </listitem>
+      <listitem>
+       <formalpara>
+        <title>サポート</title>
+        <para>
+         セキュリティおよびパッケージングの問題の修正以外のサポートはありません。追加の登録キーは必要ありません。
+        </para>
+       </formalpara>
+      </listitem>
+     </itemizedlist>
+    </listitem>
+   </itemizedlist>
+  </important>
+ </sect1>
+</chapter>

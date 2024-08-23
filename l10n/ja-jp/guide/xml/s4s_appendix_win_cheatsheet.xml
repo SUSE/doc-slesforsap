@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<appendix xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" xml:base="s4s_appendix_win_cheatsheet.xml" version="5.0" xml:id="win-cheatsheet">
+ <title>Windows管理者のチートシート
+  </title>
+ <info>
+  <dm:docmanager xmlns:dm="urn:x-suse:ns:docmanager">
+   <dm:bugtracker/>
+   <dm:translation>yes</dm:translation>
+  </dm:docmanager>
+ </info>
+ <sect1 xml:id="sec-manage-users">
+  <title>ユーザの管理</title>
+  <para>
+    ユーザを管理するには、YaSTを起動し、<menuchoice><guimenu>ユーザとグループの管理</guimenu></menuchoice>に切り替えます。YaSTのncursesバージョンを使用するには、<command>sudo /sbin/yast2 users</command>コマンドを実行します。詳細については、<link xlink:href="https://documentation.suse.com/sles/html/SLES-all/cha-yast-userman.html/"/>を参照してください。
+  </para>
+ </sect1>
+ <sect1 xml:id="sec-admin-privileges">
+  <title>管理者特権の割り当て</title>
+  <para>
+    Linuxでは、管理者特権が<filename>/etc/sudoers</filename>ファイルで定義されます。YaSTを使用して管理者特権を管理できます。<command>sudo zypper in yast2-sudo</command>コマンドを使用して、必要なYaSTモジュールをインストールします。YaSTを起動し、<menuchoice><guimenu>Sudo</guimenu></menuchoice>セクションに切り替えます。YaSTのncursesバージョンを使用するには、<command>sudo /sbin/yast2
+    sudo</command>コマンドを実行します。詳細については、<link xlink:href="https://documentation.suse.com/sles/single-html/SLES-administration/#cha-adm-sudo/"/>を参照してください。
+  </para>
+ </sect1>
+ <sect1 xml:id="sec-manage-services">
+  <title>システムサービスの管理</title>
+  <para>
+    YaSTの<menuchoice><guimenu>サービスマネージャ</guimenu></menuchoice>モジュールを使用して有効なサービスを表示して管理します。YaSTのncursesバージョンを使用するには、<command>sudo /sbin/yast2 services-manager</command>コマンドを実行します。詳細については、<link xlink:href="https://documentation.suse.com/sles/single-html/SLES-administration/#cha-systemd/"/>を参照してください。
+  </para>
+  </sect1>
+  <sect1 xml:id="sec-firewall">
+    <title>ファイアウォール設定の管理</title>
+    <para>
+      YaSTの<menuchoice><guimenu>ファイアウォール</guimenu></menuchoice>モジュールを使用すると、ファイアウォールの設定を管理できます。YaSTのncursesバージョンを使用するには、<command>sudo /sbin/yast2 firewall</command>コマンドを実行します。
+    </para>
+    <para>
+      SUSE Linux Enterpriseのファイアウォールを使用すると、各インタフェースのルールを個別に設定できます。ファイアウォール設定で、マスカレード、ポート転送およびブロードキャストを有効にすることもできます。詳細については、<link xlink:href="https://documentation.suse.com/sles/html/SLES-all/cha-security-firewall.html/"/>を参照してください。
+    </para>
+ </sect1>
+ <sect1 xml:id="sec-win-domain">
+  <title>Windowsドメインへの参加(Active Directory/SMBファイル共有)</title>
+  <para>
+    まず、<package>yast2-auth-client</package>パッケージをインストールします。<menuchoice><guimenu>ユーザのログオン</guimenu></menuchoice>モジュールを使用して、Windowsドメインに参加します。YaSTのncursesバージョンを使用するには、<command>sudo
+    /sbin/yast2 auth-client</command>コマンドを実行します。詳細については、<link xlink:href="https://documentation.suse.com/sles/html/SLES-all/cha-security-auth.html/"/>を参照してください。
+  </para>
+  </sect1>
+  <sect1 xml:id="sec-partitions-storage">
+    <title>パーティションとストレージデバイスの管理</title>
+    <para>
+      YaSTの<menuchoice><guimenu>パーティション設定</guimenu></menuchoice>モジュールを使用して、パーティションレイアウトを表示または変更します。YaSTのncursesバージョンを使用するには、<command>sudo /sbin/yast2 disk</command>コマンドを実行します。
+    </para>
+    <para>
+      データ損失を回避するため、パーティションを変更する前にアンマウントしてください! パーティションをアンマウントするには、端末を開き、<command>mount</command>コマンドを実行します。これは、次のように構成されたエントリのリストを返します: <literal>DEVICE on MOUNT_POINT type FILE_SYSTEM_TYPE
+      (FILE_SYSTEM_OPTIONS)</literal>。目的のパーティションをアンマウントするには、適切なマウントポイントで<command>sudo umount <replaceable>MOUNT_POINT</replaceable></command>コマンドを使用します。詳細については、<link xlink:href="https://documentation.suse.com/sles/html/SLES-all/book-storage.html/"/>を参照してください。
+    </para>
+    </sect1>
+    <sect1 xml:id="sec-smb-share">
+      <title>Windows共有の作成</title>
+      <para>
+        Linuxでは、SambaはWindows共有を作成できるようにするSMBプロトコルを実装しています。YaSTの<menuchoice><guimenu>Sambaサーバ</guimenu></menuchoice>モジュールを使用して、SMBサーバを設定します。YaSTのncursesバージョンを使用するには、<command>sudo /sbin/yast2
+        samba-server</command>コマンドを実行します。詳細については、<link xlink:href="https://documentation.suse.com/sles/html/SLES-all/cha-samba.html/"/>を参照してください。
+      </para>
+      </sect1>
+</appendix>
