@@ -30,11 +30,11 @@
       </revdescription>
     </revision>
   </revhistory>
-  <meta name="task" its:translate="yes" condition="quick">
+  <meta name="task" its:translate="no" condition="quick">
     <phrase>Installation</phrase>
     <phrase>Upgrade &amp; Update</phrase>
   </meta>
-  <meta name="task" its:translate="yes" condition="noquick">
+  <meta name="task" its:translate="no" condition="noquick">
     <phrase>Installation</phrase>
     <phrase>High Availability</phrase>
     <phrase>Configuration</phrase>
