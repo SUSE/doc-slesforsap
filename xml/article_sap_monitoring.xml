@@ -36,7 +36,7 @@ https://suse.com/c/coming-soon-sap-landscape-monitoring-on-sles-for-sap/
       </revdescription>
     </revision>
   </revhistory>
-  <meta name="task" its:translate="yes">
+  <meta name="task" its:translate="no">
     <phrase>Monitoring</phrase>
   </meta>
   <meta name="series" its:translate="no">Products &amp; Solutions</meta>
