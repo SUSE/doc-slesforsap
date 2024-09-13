@@ -27,7 +27,7 @@
       </revdescription>
     </revision>
   </revhistory>
-  <meta name="task" its:translate="yes">
+  <meta name="task" its:translate="no">
     <phrase>Installation</phrase>
     <phrase>High Availability</phrase>
     <phrase>Configuration</phrase>
