@@ -26,12 +26,12 @@
       </revdescription>
     </revision>
   </revhistory>
-  <meta name="task" its:translate="yes" condition="quick">
-    <phrase>インストール</phrase>
-    <phrase>アップグレードと更新</phrase>
+  <meta name="task" its:translate="no" condition="quick">
+    <phrase>Installation</phrase>
+    <phrase>Upgrade &amp; Update</phrase>
   </meta>
   
-  <meta name="series" its:translate="no">製品とソリューション</meta>
+  <meta name="series" its:translate="no">Products &amp; Solutions</meta>
   <dm:docmanager xmlns:dm="urn:x-suse:ns:docmanager">
     <dm:bugtracker>
       <dm:url>https://bugzilla.suse.com/enter_bug.cgi</dm:url>
