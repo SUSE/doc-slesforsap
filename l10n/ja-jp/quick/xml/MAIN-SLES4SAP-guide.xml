@@ -26,9 +26,9 @@
       </revdescription>
     </revision>
   </revhistory>
-  <meta name="task" its:translate="yes" condition="quick">
-    <phrase>インストール</phrase>
-    <phrase>アップグレードと更新</phrase>
+  <meta name="task" its:translate="no" condition="quick">
+    <phrase>Installation</phrase>
+    <phrase>Upgrade &amp; Update</phrase>
   </meta>
   
   <meta name="series" its:translate="no">製品とソリューション</meta>
