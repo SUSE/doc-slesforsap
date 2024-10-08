@@ -5,7 +5,7 @@
 <!ENTITY productname   "&s4s;">
 <!ENTITY productnameshort "&sles4sapa;">
 <!ENTITY product-ga    '15'>
-<!ENTITY product-sp    '6'>
+<!ENTITY product-sp    '7'>
 <!ENTITY productnumber '&product-ga; SP&product-sp;'>
 
 
@@ -25,7 +25,7 @@
 <!ENTITY suma-docaddress "<link xmlns='http://docbook.org/ns/docbook' xmlns:xlink='http://www.w3.org/1999/xlink' xlink:href='https://documentation.suse.com/suma;'/>">
 <!ENTITY reslibrary     "<link xmlns='http://docbook.org/ns/docbook' xmlns:xlink='http://www.w3.org/1999/xlink' xlink:href='https://www.suse.com/products/sles-for-sap/resource-library/'/>">
 
-<!ENTITY rn-url "&sc-rn;/x86_64/SLE-SAP/15-SP6/">
+<!ENTITY rn-url "&sc-rn;/x86_64/SLE-SAP/15-SP7/">
 
 <!-- SAP-SPECIFIC ENTITIES -->
 
