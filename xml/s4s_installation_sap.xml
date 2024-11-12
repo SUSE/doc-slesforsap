@@ -945,7 +945,7 @@ SAP-NetWeaver-740-SR2-Installation-Export-CD-3-3</screen>
    If you do not want to use the &sapwiz;, you can also create the partitioning
    for &sap; applications directly from the command line. First, find the
    correct partitioning file in the directory
-   <filename>/usr/share/YaST2/include/sap-installation-wizard/</filename> or
+   <filename>/usr/share/YaST2/data/y2sap/</filename> or
    create your own partitioning file. For more information, see
    <xref linkend="sec-partition-sap"/>.
   </para>
