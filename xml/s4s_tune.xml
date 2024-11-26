@@ -21,7 +21,7 @@
    To install &saptune;, run the <command>zypper install saptune</command> command.
    </para>
    <para>
-   When installation is completed, enable and start the &saptune; service (see TK) and configure the tuning (see TK).
+   When installation is completed, enable and start the &saptune; service (see <xref linkend="sec-saptune-disable" />) and configure the tuning (see <xref linkend="sec-saptune-configure-tuning" />).
    </para>
    <para>
    To update &saptune; use the <command>zypper update saptune</command> command.
@@ -39,7 +39,7 @@
    To tune the system tuned after a reboot, enable and start the &saptune; service after installation. In most cases because sapconf already tunes your system, starting the &saptune; service fails. To solve the problem, run the following command:
    </para>
 
-<screen>saptune service takeover</screen>
+<screen>&prompt.root;<command>saptune service takeover</command></screen>
 
 <para>
 This command stops and disables the sapconf and tuned services, and then starts and enables the saptune service.
@@ -51,42 +51,125 @@ To disable and stop the saptune service, use the command below:
   <screen>&prompt.root;<command>saptune service disablestop</command></screen>
  </sect1>
 
- <sect1 xml:id="sec-saptune-update">
-  <title>Updating &saptune;</title>
-  <para>To update saptune to a new version, just update the package.</para>
+<sect1 xml:id="sec-saptune-configure-tuning">
+  <title>Configure the tuning</title>
   <para>
-   Since a package update can contain updates of &sapnote;s and &sapsol;s,
-   restart &saptune; with <command>saptune service restart</command> to re-apply
-   the tuning. Check afterwards with <command>saptune note verify</command>
-   if all recommendations are still met.
+  The easiest way to tune a system is to apply a Solution that matches your installed &sap; software. Solutions are a group of Notes that perform the actual tuning. To display all available Solutions and their Notes, run the following command:
   </para>
-  <important>
-   <para>
-    The &saptune; tool does not rely on &tuned; anymore.
-    Configuring &tuned; to set up &saptune;&nbsp;3 will not work.
-    To start and enable &saptune;&nbsp;3 use one of the following methods:
-   </para>
-   <itemizedlist>
-    <listitem>
-     <screen>saptune service enablestart</screen>
-     <para>
-      Enables and starts the <systemitem>saptune.service</systemitem>.
-     </para>
-    </listitem>
-    <listitem>
-     <screen>saptune service takeover</screen>
-     <para>
-      Enables and starts the <systemitem>saptune.service</systemitem> and also
-      disables &sapconf; as well as &tuned;.
-     </para>
-    </listitem>
-    <listitem>
-     <screen>saptune daemon start</screen>
-     <para>Deprecated. Gets redirected to &saptune; service takeover.</para>
-    </listitem>
-   </itemizedlist>
-  </important>
- </sect1>
+
+<screen>&prompt.root;<command>saptune solution list</command></screen>
+
+<para>
+&saptune; recognizes the following tuning solutions (groups of &sap; Notes):
+</para>
+
+<itemizedlist>
+<listitem>
+<para>
+BOBJ Solution for running &sap; BusinessObjects
+</para>
+</listitem>
+<listitem>
+<para>
+HANA Solution for running an &sap; HANA database
+</para>
+</listitem>
+<listitem>
+<para>
+MAXDB Solution for running an &sap; MaxDB database
+</para>
+</listitem>
+<listitem>
+<para>
+NETWEAVER Solution for running &sap; NetWeaver application servers
+</para>
+</listitem>
+<listitem>
+<para>
+S4HANA-APPSERVER Solution for running &sap; S/4HANA application servers
+</para>
+</listitem>
+<listitem>
+<para>
+S4HANA-APP+DB Solution for running both &sap; S/4HANA application servers and &sap; HANA on the same host
+</para>
+</listitem>
+<listitem>
+<para>
+S4HANA-DBSERVER Solution for running the $sap; HANA database of an &sap; S/4HANA installation
+</para>
+</listitem>
+<listitem>
+<para>
+S4HANA-DBSERVER Solution for running the &sap; HANA database of an &sap; S/4HANA installation
+</para>
+</listitem>
+<listitem>
+<para>
+SAP-ASE Solution for running an &sap; Adaptive Server Enterprise database
+</para>
+</listitem>
+<listitem>
+<para>
+NETWEAVER+HANA Solution for running both &sap; application servers and sap; HANA on the same host
+</para>
+</listitem>
+<listitem>
+<para>
+ NETWEAVER+MAXDB Solution for running both &sap; application servers and MAXDB on the same host
+</para>
+</listitem>
+</itemizedlist>
+
+<para>
+To apply a Solution, run the following command:
+</para>
+
+<screen>&prompt.root;<command>saptune solution apply <replaceable>SOLUTION</replaceable></command></screen>
+
+<para>
+Keep in mind that only one Solution can be applied at the time.
+</para>
+
+<para>
+To disable a Solution, use the command below:
+</para>
+
+<screen>&prompt.root;<command>saptune solution revert <replaceable>SOLUTION</replaceable></command></screen>
+
+<para>
+To switch to a different Solution, use the following command:
+</para>
+
+<screen>&prompt.root;<command>saptune solution change <replaceable>SOLUTION</replaceable></command></screen>
+
+<para>
+Alternatively, you can tune the computer according to recommendations from specific &sap; Notes. Use the <command>saptune note list</command> to view a list of notes that you can tune for.
+</para>
+
+<para>
+To apply a Note, run the following command:
+</para>
+
+<screen>&prompt.root;<command>saptune note apply <replaceable>NOTE</replaceable></command></screen>
+
+<para>
+Reverting a Note can be done as follows:
+</para>
+
+<screen>&prompt.root;<command>saptune note revert <replaceable>NOTE</replaceable></command></screen>
+
+<note>
+<title>Combining optimizations</title>
+<para>
+It is possible to combine Solutions and Notes by reverting Notes from an applied Solution or applying additional ones. However, only one solution can be active at a time. The &saptune; service restored the combination of Solution and Notes after a service restart or reboot.
+</para>
+
+<para>
+In rare cases, notes can have conflicting options or parameters. Arrange your notes carefully to avoid conflicts. The last note always takes priority over conflicting options or parameters of previous notes. In this situations, create your own Solution (link:[8.5.1 Creating a new SAP Solution]) or customize the applied Solution (link:[8.5.x Customizing a SAP Solution]).
+</para>
+</note>
+  </sect1>
 
  <sect1 xml:id="sec-saptune-sapnotes">
   <title>Managing &sapnote;s</title>
