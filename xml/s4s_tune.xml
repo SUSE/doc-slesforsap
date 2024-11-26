@@ -13,171 +13,47 @@
   </dm:docmanager>
  </info>
  <para>
-  This chapter presents information about tuning &productname; to work
+  This chapter provides information about tuning &productname; to work
   optimally with &sap; applications.
  </para>
  <para>
    Using &saptune;, you can tune a system for &netweaver;, &hana;/&bo;, and
    &s4h; applications.
  </para>
- <important>
-   <para>
-    This chapter describes &saptune; version 3 which does not use
-    &tuned; anymore.
-   </para>
- </important>
 
   <sect1 xml:id="sec-saptune-enable">
-   <title>Enabling &saptune;</title>
+   <title>Installing and updating &saptune;</title>
    <para>
-   To enable &saptune; to tune an &sap; application, use the following
-   procedure:
+   To install &saptune;, run the <command>zypper install saptune</command> command.
    </para>
-   <procedure xml:id="pro-tune">
-    <step>
-     <para>
-      To tune a system, first find a tuning solution. To find the appropriate
-      solution, use:
-     </para>
-<screen>&prompt.user;<command>saptune solution list</command></screen>
-     <para>
-      &saptune; recognizes the following tuning solutions (groups of &sapnote;s):
-     </para>
-     <itemizedlist>
-      <listitem>
-       <formalpara>
-        <title><literal>BOBJ</literal></title>
-        <para>
-         Solution for running &bo;.
-        </para>
-       </formalpara>
-      </listitem>
-      <listitem>
-       <formalpara>
-        <title><literal>HANA</literal></title>
-        <para>
-         Solution for running an &hana; database.
-        </para>
-       </formalpara>
-      </listitem>
-      <listitem>
-       <formalpara>
-        <title><literal>MAXDB</literal></title>
-        <para>
-         Solution for running an &sap; MaxDB database.
-        </para>
-       </formalpara>
-      </listitem>
-      <listitem>
-       <formalpara>
-        <title><literal>NETWEAVER</literal></title>
-        <para>
-         Solution for running &netweaver; application servers.
-        </para>
-       </formalpara>
-      </listitem>
-      <listitem>
-       <formalpara>
-        <title><literal>S4HANA-APPSERVER</literal></title>
-        <para>
-         Solution for running &s4h; application servers.
-        </para>
-       </formalpara>
-      </listitem>
-      <listitem>
-       <formalpara>
-        <title><literal>S4HANA-APP+DB</literal></title>
-        <para>
-         Solution for running both &s4h; application servers and &hana; on the
-         same host.
-        </para>
-       </formalpara>
-      </listitem>
-      <listitem>
-       <formalpara>
-        <title><literal>S4HANA-DBSERVER</literal></title>
-        <para>
-         Solution for running the &hana; database of an &s4h; installation.
-<!-- (identical to &hana; solution)-->
-        </para>
-       </formalpara>
-      </listitem>
-      <listitem>
-       <formalpara>
-        <title><literal>SAP-ASE</literal></title>
-        <para>
-         Solution for running an &ase; database.
-        </para>
-       </formalpara>
-      </listitem>
-      <listitem>
-       <formalpara>
-        <title><literal>NETWEAVER+HANA</literal></title>
-        <para>
-         Solution for running both &sap; application servers and &hana; on the
-         same host.
-        </para>
-       </formalpara>
-      </listitem>
-      <listitem>
-        <formalpara>
-         <title><literal>NETWEAVER+MAXDB</literal></title>
-         <para>
-          Solution for running both &sap; application servers and MAXDB on the same host.
-         </para>
-        </formalpara>
-       </listitem>
-     </itemizedlist>
-     <para>
-      Alternatively, you can tune the computer according to recommendations
-      from specific &sapnote;s. A list of notes that you can tune for is
-      available via:
-     </para>
-<screen>&prompt.root;<command>saptune note list</command></screen>
-    </step>
-    <step>
-     <itemizedlist>
-      <listitem>
-       <para>
-        To set up &saptune; with a preconfigured solution, use:
-       </para>
-<screen>&prompt.root;<command>saptune solution apply <replaceable>SOLUTION</replaceable></command></screen>
-      </listitem>
-      <listitem>
-       <para>
-        To set up &saptune; for the recommendations of a specific &sapnote;,
-        use:
-       </para>
-<screen>&prompt.root;<command>saptune note apply <replaceable>NOTE</replaceable></command></screen>
-      </listitem>
-     </itemizedlist>
-    </step>
-    <step>
-     <para>
-      To start &saptune; and enable it at boot, make sure to run the following
-      command:
-     </para>
-<screen>&prompt.root;<command>saptune service enablestart</command></screen>
-     <para>
-      To make sure that &sapconf; and &tuned; are stopped and disabled too,
-      run instead:
-     </para>
-     <screen>&prompt.root;<command>saptune service takeover</command></screen>
-    </step>
-   </procedure>
-   <note>
-    <title>Combining optimizations</title>
-    <para>
-      It is possible to combine solutions and notes. However, only one solution can be active at a time. In rare cases, notes can have conflicting options or parameters. Arrange your notes carefully to avoid conflicts. The last note always takes priority over conflicting options or parameters of previous notes.
-    </para>
-   </note>
+   <para>
+   When installation is completed, enable and start the &saptune; service (see TK) and configure the tuning (see TK).
+   </para>
+   <para>
+   To update &saptune; use the <command>zypper update saptune</command> command.
+   </para>
+   <important>
+   <para>
+   When installing and updating &saptune;, pay attention to zypper output to ensure that installation and updates are performed correctly. The output is also saved in <filename>/var/log/zypp/history</filename>.
+   </para>
+   </important>
   </sect1>
 
  <sect1 xml:id="sec-saptune-disable">
-  <title>Disabling &saptune;</title>
+  <title>Enabling and disabling &saptune;</title>
   <para>
-   To disable and stop &saptune;, run:
-  </para>
+   To tune the system tuned after a reboot, enable and start the &saptune; service after installation. In most cases because sapconf already tunes your system, starting the &saptune; service fails. To solve the problem, run the following command:
+   </para>
+
+<screen>saptune service takeover</screen>
+
+<para>
+This command stops and disables the sapconf and tuned services, and then starts and enables the saptune service.
+</para>
+
+<para>
+To disable and stop the saptune service, use the command below:
+</para>
   <screen>&prompt.root;<command>saptune service disablestop</command></screen>
  </sect1>
 
