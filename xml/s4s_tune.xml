@@ -96,7 +96,7 @@ S4HANA-APP+DB Solution for running both &sap; S/4HANA application servers and &s
 </listitem>
 <listitem>
 <para>
-S4HANA-DBSERVER Solution for running the $sap; HANA database of an &sap; S/4HANA installation
+S4HANA-DBSERVER Solution for running the &sap; HANA database of an &sap; S/4HANA installation
 </para>
 </listitem>
 <listitem>
@@ -166,7 +166,7 @@ It is possible to combine Solutions and Notes by reverting Notes from an applied
 </para>
 
 <para>
-In rare cases, notes can have conflicting options or parameters. Arrange your notes carefully to avoid conflicts. The last note always takes priority over conflicting options or parameters of previous notes. In this situations, create your own Solution (link:[8.5.1 Creating a new SAP Solution]) or customize the applied Solution (link:[8.5.x Customizing a SAP Solution]).
+In rare cases, notes can have conflicting options or parameters. Arrange your notes carefully to avoid conflicts. The last note always takes priority over conflicting options or parameters of previous notes. In this situation, create your own Solution (see <xref linkend="sec-saptune-create"/>) or customize the applied Solution (see <xref linkend="sec-saptune-customize"/>).
 </para>
 </note>
   </sect1>
@@ -186,14 +186,14 @@ In rare cases, notes can have conflicting options or parameters. Arrange your no
    </para>
 <screen>&prompt.root;<command>saptune note customise <replaceable>NOTE</replaceable></command></screen>
    <para>
-    The command opens the default  editor (defined in the environment variable <literal>EDITOR</literal>) with a copy of the Note configuration. Remove everything, except the parameters you want to change or disable as well as the header of the section the parameter belongs to.
+    The command opens the default editor (defined in the environment variable <literal>EDITOR</literal>) with a copy of the Note configuration. Remove everything, except the parameters you want to change or disable as well as the header of the section the parameter belongs to.
     </para>
     <para>
     To change or set the parameter value, change or add the value of the parameter. To disable a parameter, remove the value, but leave the parameter and the <literal>=</literal> character. &saptune; lists the parameter, but it does not change it or checks it for the compliance status.
 For more information, refer to the <literal>saptune-note(5)</literal> manpage.
    </para>
    <para>
-   This creates a <filename>/etc/saptune/override/<replaceable>NOTE</replaceable></filename>. It is possible to create the file elsewhere and place it in <filename>/etc/saptune/override/</filename>.
+   This creates a <filename>/etc/saptune/override/<replaceable>NOTE</replaceable></filename> file. It is possible to create the file elsewhere and place it in <filename>/etc/saptune/override/</filename>.
    </para>
    <para>
    Configuration sections can be conditional. This is called tagging. Refer to the <literal>saptune-note(5)</literal> for further information.
@@ -217,7 +217,6 @@ For more information, refer to the <literal>saptune-note(5)</literal> manpage.
     </para>
     <para>
     Configuration sections can be conditional. This is called tagging. Refer to the <literal>saptune-note(5)</literal> for further information.
-****
    </para>
   </sect2>
 
@@ -229,13 +228,8 @@ For more information, refer to the <literal>saptune-note(5)</literal> manpage.
 <screen>&prompt.root;<command>saptune note edit <replaceable>NOTE</replaceable></command></screen>
 
 <para>
-The command opens the default editor (<literal>EDITOR</literal>)) with the Note configuration. When you are done editing a Note, restart the &saptune; service to apply the changes.
+The command opens the default editor (<literal>EDITOR</literal>) with the Note configuration. When you are done editing a Note, restart the &saptune; service to apply the changes. Custom Notes can be customized like shipped Notes.
 </para>
-<note>
-<para>
-Custom Notes can be customized like shipped Notes.
-   </para>
-</note>
    </sect2>
 
   <sect2 xml:id="sec-saptune-delete">
@@ -275,7 +269,7 @@ Do you really want to delete this Note (test2)? [y/n]: y</screen>
    <title>Renaming an &sapnote;</title>
    <para>
     This command allows renaming a created note to a new name. If a
-    corresponding override file is available, this file is renamed, too:
+    corresponding override file is available, this file is renamed as well:
    </para>
 <screen>&prompt.root;<command>saptune note rename test test2</command>
 Note to rename is a customer/vendor specific Note.
@@ -323,7 +317,7 @@ For information about the output of the command and verifying the entire tuning 
   </sect2>
 
   <sect2 xml:id="sec-saptune-simulate">
-   <title>Simulating the application of an &sapnote;</title>
+   <title>Performing a dry run of an &sapnote;</title>
    <para>
     To show each parameter of a Note, use the following command:
     </para>
@@ -370,22 +364,67 @@ The <command>simulate</command> command is deprecated since version 3.1 and is r
   <para>
    This chapter explains how to work with &sapsol;s.
   </para>
+  <para>
+  A &sapsol; is a combination of &sapnote; configurations grouped together logically. A &sapsol; generally represents a &sap; product or combination. Applying &sapsol; effectively applies all &sapnote; configurations listed in it. How to list and set a &sapsol; is described in <xref linkend="sec-saptune-configure-tuning"/>.
+  </para>
+
+  <sect2 xml:id="sec-saptune-customize-solution">
+  <title>Customizing an &sapsol;</title>
+  <para>A &sapsol; can be customized using the following command:</para>
+  <screen>&prompt.root;<command>saptune solution customise <replaceable>SOLUTION</replaceable></command></screen>
+  <para>
+    The command opens the default editor (defined in the environment variable <literal>EDITOR</literal>) with a copy of the Solution configuration. Change the Note list for the architecture to your liking. For more informaion, refer to the <literal>saptune-note(5)</literal> manpage.
+    </para>
+    <para>
+    This creates an override file <filename>/etc/saptune/override/<replaceable>SOLUTION.sol</replaceable></filename>. It is possible to create the file elsewhere and place it in <filename>/etc/saptune/override/</filename>.
+    </para>
+    <para>
+    When you are done customizing a &sapsol;, restart the saptune service to apply the changes.
+    </para>
+ </sect2>
   
  <sect2 xml:id="sec-saptune-create-solution">
   <title>Creating a new &sapsol;</title>
-  <para>To create a new &sapsol;, run:</para>
-  <screen>&prompt.root;<command>saptune solution create <replaceable>SOLUTION</replaceable></command></screen>
+  <para>To create a new &sapsol;, run the following command:</para>
+<screen>&prompt.root;<command>saptune solution create <replaceable>SOLUTION</replaceable></command></screen>
+  <para>
+  The command opens the default editor (defined in the environment variable <literal>EDITOR</literal>) with a Solution configuration template. Fill in the template.
+  </para>
+  <para>
+  This creates a Solution configuration file <filename>/etc/saptune/extra/<replaceable>SOLUTION.sol</replaceable></filename>. It is possible to create the file elsewhere and place it in <filename>/etc/saptune/extra/</filename>.
+  </para>
+ </sect2>
+
+ <sect2 xml:id="sec-saptune-edit-solution">
+ <title>Editing a custom &sapsol;</title>
+ <para>
+ To edit a custom &sapsol; use the following command:
+ </para>
+
+<screen>&prompt.root;<command>saptune solution edit <replaceable>NOTE</replaceable></command></screen>
+
+<para>
+The command opens the default editor (defined in the environment variable <literal>EDITOR</literal>) with the Solution configuration.
+</para>
+<para>
+When you are done editing a &sapsol;, restart the saptune service to apply the changes.
+</para>
+<para>
+Custom Solution can be customized like shipped Solutions.
+ </para>
  </sect2>
 
  <sect2 xml:id="sec-saptune-delete-solution">
    <title>Deleting  &sapsol;</title>
-   <para>To delete an &sapsol;, run the following command:</para>
-  <screen>&prompt.root;<command>saptune solution delete myHANA</command>
+   <para>
+   The following command deletes a created Solution, including the corresponding override file or the override file of a shipped Solution, if available:
+   </para>
+<screen>&prompt.root;<command>saptune solution delete <replaceable>SOLUTION</replaceable></command>
 
 Solution to delete is a customer/vendor specific Solution.
 Do you really want to delete this Solution 'myHANA'? [y/n]: y</screen>
   <para>
-   The &sapsol; may not be applied at the time. Keep in mind the following points:
+   The &sapsol; may not be applied at the time. Keep in mind the following:
   </para>
   <itemizedlist>
    <listitem>
@@ -395,7 +434,7 @@ Do you really want to delete this Solution 'myHANA'? [y/n]: y</screen>
    </listitem>
    <listitem>
     <para>
-      &sapsol;s shipped by &saptune; cannot be deleted.
+      &sapsol;s shipped by &saptune; cannot be deleted. Only the override file is removed, if available.
     </para>
    </listitem>
    <listitem>
@@ -458,6 +497,36 @@ Do you really want to rename this Solution 'myHANA' to the new name 'myHANA2'? [
     </para>
   </sect2>
 
+  <sect2 xml:id="sec-saptune-verify-solution">
+  <title>Verifying an &sapsol;</title>
+  <para>
+  To verify the tuning of a Solution, use the following command:
+  </para>
+<screen>&prompt.root;<command>saptune solution verify <replaceable>SOLUTION</replaceable></command></screen>
+<para>
+For information about the output of the <command>verify</command> command and how to verify the entire tuning instead of a single Solution, refer to <xref linkend="sec-saptune-verify-and-troubleshooting"/>.
+</para>
+</sect2>
+
+<sect2 xml:id="sec-saptune-simulate-solution">
+<title>Performing a dry run of an SAP Solution</title>
+<para>
+To show all parameters of all Notes belonging to a Solution, use the following command:
+</para>
+<screen>&prompt.root;<command>saptune solution simulate <replaceable>SOLUTION</replaceable></command></screen>
+
+<para>
+The command lists the current system value and the expected values (default and override).
+</para>
+
+<note>
+<title>Deprecation notice</title>
+<para>
+The <command>simulate</command> command is deprecated since 3.1, and it is removed in all &saptune; versions in &sles4sap; 16. 
+</para>
+</note>
+</sect2>
+
   <sect2 xml:id="sec-saptune-revert-solution">
     <title>Reverting an &sapsol;</title>
     <para>To revert an &sapsol;, run the following command:</para>
@@ -482,6 +551,9 @@ Do you really want to rename this Solution 'myHANA' to the new name 'myHANA2'? [
    <para>
     If &sapnote;s from an applied &sapsol; have been reverted, the string <literal>(partial)</literal>
     has been added to the solution name.
+   </para>
+   <para>
+   Both commands are primarily meant for use in scripts.
    </para>
   </sect2>
  </sect1>
