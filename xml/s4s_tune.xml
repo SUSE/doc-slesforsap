@@ -27,7 +27,7 @@
    To install &saptune;, run the <command>zypper install saptune</command> command.
    </para>
    <para>
-   When installation is completed, enable and start the &saptune; service (see <xref linkend="sec-saptune-disable" />) and configure the tuning (see <xref linkend="sec-saptune-configure-tuning" />).
+   When installation is completed, enable and start the <literal>saptune</literal> service (see <xref linkend="sec-saptune-disable"/>) and configure the tuning (see <xref linkend="sec-saptune-configure-tuning"/>).
    </para>
    <para>
    To update &saptune; use the <command>zypper update saptune</command> command.
@@ -42,17 +42,17 @@
  <sect1 xml:id="sec-saptune-disable">
   <title>Enabling and disabling &saptune;</title>
   <para>
-   To tune the system tuned after a reboot, enable and start the &saptune; service after installation. In most cases because sapconf already tunes your system, starting the &saptune; service fails. To solve the problem, run the following command:
+   To tune the system tuned after a reboot, enable and start the <literal>saptune</literal> service after installation. In most cases, starting the <literal>saptune</literal> service fails, because <literal>sapconf</literal> already tunes the system. To solve the problem, run the following command:
    </para>
 
 <screen>&prompt.root;<command>saptune service takeover</command></screen>
 
 <para>
-This command stops and disables the sapconf and tuned services, and then starts and enables the saptune service.
+This command stops and disables the <literal>sapconf</literal> and <literal>tuned</literal> services, and then starts and enables the <literal>saptune</literal> service.
 </para>
 
 <para>
-To disable and stop the saptune service, use the command below:
+To disable and stop the <literal>saptune</literal> service, use the command below:
 </para>
   <screen>&prompt.root;<command>saptune service disablestop</command></screen>
  </sect1>
@@ -60,24 +60,24 @@ To disable and stop the saptune service, use the command below:
 <sect1 xml:id="sec-saptune-configure-tuning">
   <title>Configure the tuning</title>
   <para>
-  The easiest way to tune a system is to apply a Solution that matches your installed &sap; software. Solutions are a group of Notes that perform the actual tuning. To display all available Solutions and their Notes, run the following command:
+  The easiest way to tune a system is to apply a &sapsol; that matches your installed &sap; software. &sapsol;s are a group of &sapnote;s that perform the actual tuning. To display all available Solutions and their Notes, run the following command:
   </para>
 
 <screen>&prompt.root;<command>saptune solution list</command></screen>
 
 <para>
-&saptune; recognizes the following tuning solutions (groups of &sap; Notes):
+&saptune; recognizes the following tuning &sapsol;s:
 </para>
 
 <itemizedlist>
 <listitem>
 <para>
-BOBJ Solution for running &sap; BusinessObjects
+BOBJ Solution for running &bo;
 </para>
 </listitem>
 <listitem>
 <para>
-HANA Solution for running an &sap; HANA database
+HANA Solution for running an &hana; database
 </para>
 </listitem>
 <listitem>
@@ -87,37 +87,32 @@ MAXDB Solution for running an &sap; MaxDB database
 </listitem>
 <listitem>
 <para>
-NETWEAVER Solution for running &sap; NetWeaver application servers
+NETWEAVER Solution for running &netweaver; application servers
 </para>
 </listitem>
 <listitem>
 <para>
-S4HANA-APPSERVER Solution for running &sap; S/4HANA application servers
+S4HANA-APPSERVER Solution for running &s4ha;s
 </para>
 </listitem>
 <listitem>
 <para>
-S4HANA-APP+DB Solution for running both &sap; S/4HANA application servers and &sap; HANA on the same host
+S4HANA-APP+DB Solution for running both &sap; &s4ha;s and &hana; on the same host
 </para>
 </listitem>
 <listitem>
 <para>
-S4HANA-DBSERVER Solution for running the &sap; HANA database of an &sap; S/4HANA installation
+S4HANA-DBSERVER Solution for running the &hana; database of an &s4h; installation
 </para>
 </listitem>
 <listitem>
 <para>
-S4HANA-DBSERVER Solution for running the &sap; HANA database of an &sap; S/4HANA installation
+SAP-ASE Solution for running an &ase; database
 </para>
 </listitem>
 <listitem>
 <para>
-SAP-ASE Solution for running an &sap; Adaptive Server Enterprise database
-</para>
-</listitem>
-<listitem>
-<para>
-NETWEAVER+HANA Solution for running both &sap; application servers and sap; HANA on the same host
+NETWEAVER+HANA Solution for running both &sap; application servers and &hana; on the same host
 </para>
 </listitem>
 <listitem>
@@ -150,7 +145,7 @@ To switch to a different Solution, use the following command:
 <screen>&prompt.root;<command>saptune solution change <replaceable>SOLUTION</replaceable></command></screen>
 
 <para>
-Alternatively, you can tune the computer according to recommendations from specific &sap; Notes. Use the <command>saptune note list</command> to view a list of notes that you can tune for.
+Alternatively, you can tune the computer according to recommendations from specific &sapnote;s. Use the <command>saptune note list</command> to view a list of notes that you can tune for.
 </para>
 
 <para>
@@ -168,11 +163,11 @@ Reverting a Note can be done as follows:
 <note>
 <title>Combining optimizations</title>
 <para>
-It is possible to combine Solutions and Notes by reverting Notes from an applied Solution or applying additional ones. However, only one solution can be active at a time. The &saptune; service restored the combination of Solution and Notes after a service restart or reboot.
+It is possible to combine Solutions and Notes by reverting Notes from an applied Solution or applying additional ones. However, only one solution can be active at a time. The <literal>sptune</literal> service restores the combination of Solution and Notes after a service restart or reboot.
 </para>
 
 <para>
-In rare cases, notes can have conflicting options or parameters. Arrange your notes carefully to avoid conflicts. The last note always takes priority over conflicting options or parameters of previous notes. In this situation, create your own Solution (see <xref linkend="sec-saptune-create"/>) or customize the applied Solution (see <xref linkend="sec-saptune-customize"/>).
+In rare cases, Notes can have conflicting options or parameters. Arrange your Notes carefully to avoid conflicts. The last Note always takes priority over conflicting options or parameters of previous notes. In this situation, create your own Solution (see <xref linkend="sec-saptune-create"/>) or customize the applied Solution (see <xref linkend="sec-saptune-customize"/>).
 </para>
 </note>
   </sect1>
@@ -205,7 +200,7 @@ For more information, refer to the <literal>saptune-note(5)</literal> manpage.
    Configuration sections can be conditional. This is called tagging. Refer to the <literal>saptune-note(5)</literal> for further information.
    </para>
    <para>
-   When you are done customizing a Note, restart the &saptune; service to apply the changes.
+   When you are done customizing a Note, restart the <literal>saptune</literal> service to apply the changes.
    </para>
   </sect2>
 
@@ -216,7 +211,7 @@ For more information, refer to the <literal>saptune-note(5)</literal> manpage.
    </para>
 <screen>&prompt.root;<command>saptune note create <replaceable>NOTE</replaceable></command></screen>
    <para>
-    The command opens the default editor (defined in the environment variable <literal>EDITOR</literal>) with a Note configuration template. All features of &saptune; are available. For more information, refer to  the  <literal>saptune-note(5)</literal> manpage.
+    The command opens the default editor (defined in the environment variable <literal>EDITOR</literal>) with a Note configuration template. All features of &saptune; are available here. For more information, refer to  the  <literal>saptune-note(5)</literal> manpage.
     </para>
     <para>
     This creates a <filename>/etc/saptune/extra/<replaceable>NOTE.conf</replaceable></filename> Note configuration file. It is possible to create the file elsewhere and place it in <filename>/etc/saptune/extra/</filename>.
@@ -234,7 +229,7 @@ For more information, refer to the <literal>saptune-note(5)</literal> manpage.
 <screen>&prompt.root;<command>saptune note edit <replaceable>NOTE</replaceable></command></screen>
 
 <para>
-The command opens the default editor (<literal>EDITOR</literal>) with the Note configuration. When you are done editing a Note, restart the &saptune; service to apply the changes. Custom Notes can be customized like shipped Notes.
+The command opens the default editor (<literal>EDITOR</literal>) with the Note configuration. When you are done editing a Note, restart the <literal>saptune</literal> service to apply the changes. Custom Notes can be customized like shipped Notes.
 </para>
    </sect2>
 
@@ -264,7 +259,7 @@ Do you really want to delete this Note (test2)? [y/n]: y</screen>
     </listitem>
     <listitem>
      <para>
-      If the note is already applied, the command is terminated with the
+      If the Note is already applied, the command is terminated with the
       message that the note first needs to be reverted before it can be deleted.
      </para>
     </listitem>
@@ -274,14 +269,14 @@ Do you really want to delete this Note (test2)? [y/n]: y</screen>
   <sect2 xml:id="sec-saptune-rename">
    <title>Renaming an &sapnote;</title>
    <para>
-    This command allows renaming a created note to a new name. If a
+    This command allows renaming a created Note to a new name. If a
     corresponding override file is available, this file is renamed as well:
    </para>
 <screen>&prompt.root;<command>saptune note rename test test2</command>
 Note to rename is a customer/vendor specific Note.
 Do you really want to rename this Note (test) to the new name 'test2'? [y/n]: y</screen>
    <para>
-    The note may not be applied at the time. Keep in mind the following points:
+    The Note may not be applied at the time. Keep in mind the following points:
    </para>
    <itemizedlist>
     <listitem>
@@ -296,8 +291,8 @@ Do you really want to rename this Note (test) to the new name 'test2'? [y/n]: y<
     </listitem>
     <listitem>
      <para>
-      If the note is already applied, the command is terminated with the
-      information that the note first needs to be reverted before it can be deleted.
+      If the Note is already applied, the command is terminated with the
+      information that the Note first needs to be reverted before it can be deleted.
      </para>
     </listitem>
    </itemizedlist>
@@ -306,7 +301,7 @@ Do you really want to rename this Note (test) to the new name 'test2'? [y/n]: y<
   <sect2 xml:id="sec-saptune-show">
    <title>Showing the configuration of an &sapnote;</title>
    <para>
-    The configuration of a note can be listed using the following command:
+    The configuration of a Note can be listed using the following command:
    </para>
 <screen>&prompt.root;<command>saptune note show <replaceable>NOTE</replaceable></command></screen>
   </sect2>
@@ -354,10 +349,10 @@ The <command>simulate</command> command is deprecated since version 3.1 and is r
   <sect2 xml:id="sec-saptune-list">
    <title>Listing all enabled or applied &sapnote;s</title>
    <para>
-    To list all enabled &sapnote;s, run:
+    To list all enabled &sapnote;s, run the following command:
    </para>
    <screen>&prompt.root;<command>saptune note enabled</command></screen>
-   <para>To list all applied &sapnote;s, run:</para>
+   <para>To list all applied &sapnote;s, run the command below:</para>
    <screen>&prompt.root;<command>saptune note applied</command></screen>
    <para>
    Both commands are primarily meant for use in scripts.
@@ -371,7 +366,7 @@ The <command>simulate</command> command is deprecated since version 3.1 and is r
    This chapter explains how to work with &sapsol;s.
   </para>
   <para>
-  A &sapsol; is a combination of &sapnote; configurations grouped together logically. A &sapsol; generally represents a &sap; product or combination. Applying &sapsol; effectively applies all &sapnote; configurations listed in it. How to list and set a &sapsol; is described in <xref linkend="sec-saptune-configure-tuning"/>.
+  A &sapsol; is a combination of &sapnote; configurations grouped logically. A &sapsol; generally represents a &sap; product or combination. Applying &sapsol; effectively applies all &sapnote; configurations listed in it. How to list and set a &sapsol; is described in <xref linkend="sec-saptune-configure-tuning"/>.
   </para>
 
   <sect2 xml:id="sec-saptune-customize-solution">
