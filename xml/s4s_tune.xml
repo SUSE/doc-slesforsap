@@ -213,7 +213,7 @@ For more information, refer to the <literal>saptune-note(5)</literal> manpage.
     The command opens the default editor (defined in the environment variable <literal>EDITOR</literal>) with a Note configuration template. All features of &saptune; are available. For more information, refer to  the  <literal>saptune-note(5)</literal> manpage.
     </para>
     <para>
-    This creates a <filename>/etc/saptune/extra/<replaceable>NOTE.conf</replaceable></filename> Note configuration file. It is possible to create the file elsewhere and place it in <filename>/etc/saptune/override/</filename>.
+    This creates a <filename>/etc/saptune/extra/<replaceable>NOTE.conf</replaceable></filename> Note configuration file. It is possible to create the file elsewhere and place it in <filename>/etc/saptune/extra/</filename>.
     </para>
     <para>
     Configuration sections can be conditional. This is called tagging. Refer to the <literal>saptune-note(5)</literal> for further information.
@@ -417,9 +417,9 @@ Custom Solution can be customized like shipped Solutions.
  <sect2 xml:id="sec-saptune-delete-solution">
    <title>Deleting  &sapsol;</title>
    <para>
-   The following command deletes a created Solution, including the corresponding override file or the override file of a shipped Solution, if available:
+   The following command deletes a created Solution (in this example, myHANA), including the corresponding override file or the override file of a shipped Solution, if available:
    </para>
-<screen>&prompt.root;<command>saptune solution delete <replaceable>SOLUTION</replaceable></command>
+<screen>&prompt.root;<command>saptune solution delete myHANA</command>
 
 Solution to delete is a customer/vendor specific Solution.
 Do you really want to delete this Solution 'myHANA'? [y/n]: y</screen>
@@ -587,9 +587,6 @@ The <command>simulate</command> command is deprecated since 3.1, and it is remov
     </listitem>
    </itemizedlist>
    <para>
-    If a problem occurs, use the <command>saptune_check</command> command (in version 3.1, you can also use the command <command>saptune check</command>) that runs checks, reports problems and offers advice on how to solve them.
-   </para>
-   <para>
    To analyze your &saptune; installation, run:
    </para>
 
@@ -607,7 +604,7 @@ check for mandatory or obsolete configuration files
 </listitem>
 <listitem>
 <para>
-check for unusueed RPM
+check for RPM leftovers
 </para>
 </listitem>
 <listitem>
