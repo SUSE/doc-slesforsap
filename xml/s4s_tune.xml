@@ -42,7 +42,7 @@
  <sect1 xml:id="sec-saptune-disable">
   <title>Enabling and disabling &saptune;</title>
   <para>
-   To tune the system tuned after a reboot, enable and start the <literal>saptune</literal> service after installation. In most cases, starting the <literal>saptune</literal> service fails, because <literal>sapconf</literal> already tunes the system. To solve the problem, run the following command:
+   To tune the system after a reboot, enable and start the <literal>saptune</literal> service after installation. In most cases, starting the <literal>saptune</literal> service fails, because <literal>sapconf</literal> already tunes the system. To solve the problem, run the following command:
    </para>
 
 <screen>&prompt.root;<command>saptune service takeover</command></screen>
@@ -408,7 +408,7 @@ An &sapsol; is a combination of &sapnote; configurations grouped logically. It g
 The command opens the default editor (defined in the environment variable <literal>EDITOR</literal>) with the Solution configuration.
 </para>
 <para>
-When you are done editing a &sapsol;, restart the saptune service to apply the changes.
+When you are done editing an &sapsol;, restart the saptune service to apply the changes.
 </para>
 <para>
 Custom Solutions can be customized like shipped Solutions.
