@@ -30,7 +30,7 @@
    When installation is completed, enable and start the <literal>saptune</literal> service (see <xref linkend="sec-saptune-disable"/>) and configure the tuning (see <xref linkend="sec-saptune-configure-tuning"/>).
    </para>
    <para>
-   To update &saptune; use the <command>zypper update saptune</command> command.
+   To update &saptune;, use the <command>zypper update saptune</command> command.
    </para>
    <important>
    <para>
@@ -58,9 +58,9 @@ To disable and stop the <literal>saptune</literal> service, use the command belo
  </sect1>
 
 <sect1 xml:id="sec-saptune-configure-tuning">
-  <title>Configure the tuning</title>
+  <title>Configuring the tuning</title>
   <para>
-  The easiest way to tune a system is to apply a &sapsol; that matches your installed &sap; software. &sapsol;s are a group of &sapnote;s that perform the actual tuning. To display all available Solutions and their Notes, run the following command:
+  The easiest way to tune a system is to apply an &sapsol; that matches your installed &sap; software. &sapsol;s are a group of &sapnote;s that perform the actual tuning. To display all available Solutions and their Notes, run the following command:
   </para>
 
 <screen>&prompt.root;<command>saptune solution list</command></screen>
@@ -97,7 +97,7 @@ S4HANA-APPSERVER Solution for running &s4ha;s
 </listitem>
 <listitem>
 <para>
-S4HANA-APP+DB Solution for running both &sap; &s4ha;s and &hana; on the same host
+S4HANA-APP+DB Solution for running both &s4ha;s and &hana; on the same host
 </para>
 </listitem>
 <listitem>
@@ -163,7 +163,7 @@ Reverting a Note can be done as follows:
 <note>
 <title>Combining optimizations</title>
 <para>
-It is possible to combine Solutions and Notes by reverting Notes from an applied Solution or applying additional ones. However, only one solution can be active at a time. The <literal>sptune</literal> service restores the combination of Solution and Notes after a service restart or reboot.
+It is possible to combine Solutions and Notes by reverting Notes from an applied Solution or applying additional ones. However, only one solution can be active at a time. The <literal>saptune</literal> service restores the combination of Solution and Notes after a service restart or reboot.
 </para>
 
 <para>
@@ -178,7 +178,7 @@ In rare cases, Notes can have conflicting options or parameters. Arrange your No
    The following sections provide information on working with &sapnote;s.
   </para>
   <para>
-  A &sapnote; configuration contains the OS-specific part of the original &sapnote; as complete as possible. A parameter is disabled (it is present in the configuration, but without value) if it does not have a value recommendation, or if &saptune; cannot safely detect the conditions to set the correct value. To set a suitable value, read the corresponding &sapnote; and customize the Note (see <xref linkend="sec-saptune-customize"/>).
+An &sapnote; configuration contains the OS-specific part of the original &sapnote; as complete as possible. A parameter is disabled (it is present in the configuration, but without value) if it does not have a value recommendation, or if &saptune; cannot safely detect the conditions to set the correct value. To set a suitable value, read the corresponding &sapnote; and customize the Note (see <xref linkend="sec-saptune-customize"/>).
   </para>
   <sect2 xml:id="sec-saptune-customize">
    <title>Customizing an &sapnote;</title>
@@ -187,10 +187,10 @@ In rare cases, Notes can have conflicting options or parameters. Arrange your No
    </para>
 <screen>&prompt.root;<command>saptune note customise <replaceable>NOTE</replaceable></command></screen>
    <para>
-    The command opens the default editor (defined in the environment variable <literal>EDITOR</literal>) with a copy of the Note configuration. Remove everything, except the parameters you want to change or disable as well as the header of the section the parameter belongs to.
+    The command opens the default editor (defined in the environment variable <literal>EDITOR</literal>) with a copy of the Note configuration. Remove everything, except the parameters you want to change or disable, as well as the header of the section the parameter belongs to.
     </para>
     <para>
-    To change or set the parameter value, change or add the value of the parameter. To disable a parameter, remove the value, but leave the parameter and the <literal>=</literal> character. &saptune; lists the parameter, but it does not change it or checks it for the compliance status.
+    To change or set the parameter value, change or add the value of the parameter. To disable a parameter, remove the value, but leave the parameter and the <literal>=</literal> character. &saptune; lists the parameter, but it does not change it or check it for the compliance status.
 For more information, refer to the <literal>saptune-note(5)</literal> manpage.
    </para>
    <para>
@@ -366,21 +366,21 @@ The <command>simulate</command> command is deprecated since version 3.1 and is r
    This chapter explains how to work with &sapsol;s.
   </para>
   <para>
-  A &sapsol; is a combination of &sapnote; configurations grouped logically. A &sapsol; generally represents a &sap; product or combination. Applying &sapsol; effectively applies all &sapnote; configurations listed in it. How to list and set a &sapsol; is described in <xref linkend="sec-saptune-configure-tuning"/>.
+An &sapsol; is a combination of &sapnote; configurations grouped logically. It generally represents an &sap; product or combination. Applying an &sapsol; effectively applies all &sapnote; configurations listed in it. Instructions for listing and setting a solution are provided in <xref linkend="sec-saptune-configure-tuning"/>.
   </para>
 
   <sect2 xml:id="sec-saptune-customize-solution">
   <title>Customizing an &sapsol;</title>
-  <para>A &sapsol; can be customized using the following command:</para>
+  <para>An &sapsol; can be customized using the following command:</para>
   <screen>&prompt.root;<command>saptune solution customise <replaceable>SOLUTION</replaceable></command></screen>
   <para>
-    The command opens the default editor (defined in the environment variable <literal>EDITOR</literal>) with a copy of the Solution configuration. Change the Note list for the architecture to your liking. For more informaion, refer to the <literal>saptune-note(5)</literal> manpage.
+    The command opens the default editor (defined in the environment variable <literal>EDITOR</literal>) with a copy of the Solution configuration. Change the Note list for the architecture to your liking. For more information, refer to the <literal>saptune-note(5)</literal> manpage.
     </para>
     <para>
     This creates an override file <filename>/etc/saptune/override/<replaceable>SOLUTION.sol</replaceable></filename>. It is possible to create the file elsewhere and place it in <filename>/etc/saptune/override/</filename>.
     </para>
     <para>
-    When you are done customizing a &sapsol;, restart the saptune service to apply the changes.
+    When you are done customizing an &sapsol;, restart the <literal>saptune</literal> service to apply the changes.
     </para>
  </sect2>
   
@@ -399,7 +399,7 @@ The <command>simulate</command> command is deprecated since version 3.1 and is r
  <sect2 xml:id="sec-saptune-edit-solution">
  <title>Editing a custom &sapsol;</title>
  <para>
- To edit a custom &sapsol; use the following command:
+ To edit a custom &sapsol;, use the following command:
  </para>
 
 <screen>&prompt.root;<command>saptune solution edit <replaceable>NOTE</replaceable></command></screen>
@@ -411,7 +411,7 @@ The command opens the default editor (defined in the environment variable <liter
 When you are done editing a &sapsol;, restart the saptune service to apply the changes.
 </para>
 <para>
-Custom Solution can be customized like shipped Solutions.
+Custom Solutions can be customized like shipped Solutions.
  </para>
  </sect2>
 
@@ -615,7 +615,7 @@ check if the systemd system state is degraded and list failed units
 </listitem>
 <listitem>
 <para>
-check the status of the sapconf, saptune and tuned services.
+check the status of the sapconf, saptune and tuned services
 </para>
 </listitem>
 </itemizedlist>
@@ -634,7 +634,7 @@ The command does not check the tuning itself. To check the tuning, use the comma
 
 <note>
 <para>
-If <command>saptune note verify</command> is called without specifying a Note, it verifies all currently applied Notes. This allows you to verify your entire current tuning. As an alternsative, use the <command>saptune solution verify</command> command that can also verify all currently applied Notes.
+If <command>saptune note verify</command> is called without specifying a Note, it verifies all currently applied Notes. This allows you to verify your entire current tuning. As an alternative, use the <command>saptune solution verify</command> command that can also verify all currently applied Notes.
 </para>
 </note>
 
@@ -665,7 +665,7 @@ the value from an Override if one exists
 </listitem>
 <listitem>
 <para>
-the current systems value
+the current system value
 </para>
 </listitem>
 <listitem>
@@ -681,12 +681,12 @@ The last line contains the overall compliance status of the entire tuning.
 
 <note>
 <para>
-Some parameters of shipped Notes are disabled, meaning they have empty values in the "Expected" column. In such cases, the SAP Note does not contain a concrete recommendation or &saptune; can not detect the conditions for a recommendation. Read the SAP Note and set the value manually by customizing the Note (see <xref linkend="sec-saptune-customize"/>)
+Some parameters of shipped Notes are disabled, meaning they have empty values in the "Expected" column. In such cases, the SAP Note does not contain a concrete recommendation or &saptune; cannot detect the conditions for a recommendation. Read the SAP Note and set the value manually by customizing the Note (see <xref linkend="sec-saptune-customize"/>).
 </para>
 </note>
 
 <para>
-If parameters are not compliant, read the footnote if it exists. For some tunings equivalent parameters exist, for example:
+If parameters are not compliant, read the footnote if it exists. For some tunings, equivalent parameters exist, for example:
 </para>
 
 <itemizedlist>
@@ -713,7 +713,7 @@ If parameters are not compliant, read the footnote if it exists. For some tuning
 </itemizedlist>
 
 <para>
-A restart of the saptune service fixes the problems, except for non-compliant packages (parameter starts with <literal>rpm:</literal>) or GRUB entries (parameter starts with <literal>grub:</literal>). &saptune; does not install, uninstall or upgrade packages, and it never changes the bootloader.
+A restart of the <literal>saptune</literal> service fixes the problems, except for non-compliant packages (parameter starts with <literal>rpm:</literal>) or GRUB entries (parameter starts with <literal>grub:</literal>). &saptune; does not install, uninstall or upgrade packages, and it never changes the boot loader.
 </para>
 
 <para>
@@ -721,8 +721,7 @@ A typical problem is the sysctl parameters that are handled by &saptune; and sys
 </para>
 
 <para>
-Always investigate the cause for the changed tuning and fix it. If `saptune` shall not tune certain parameters you can revert the Note or just disable parameters via an Override (see <xref linkend="sec-saptune-customize"/>)
-****
+Always investigate the cause for the changed tuning and fix it. If &saptune; shall not tune certain parameters, you can revert the Note or just disable parameters via an Override (see <xref linkend="sec-saptune-customize"/>).
    </para>
   </sect1>
 
