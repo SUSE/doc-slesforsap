@@ -518,11 +518,22 @@ as a value for the <literal>aws_secret_name</literal> entry.
     <sect2 xml:id="create-a-new-user-with-monitoring-role">
       <title>Create a new user with the monitoring role</title>
       <para>
-        Run the following commands to create a user with the monitoring roles
-        (the commands must be executed in all the databases):
+        Run the following commands to create a user with the monitoring roles. These commands must be executed in all the databases that are monitored. This means that if <literal>multi_tenant</literal> option is used, the <literal>SYSTEMDB</literal> database and all the tenants must have this monitoring user created.
+        For example, in a <literal>multi_tenant</literal> environment with <literal>PRD</literal> tenant run the next commands:
       </para>
 <screen>su - prdadm
-hdbsql -u SYSTEM -p pass -d SYSTEMDB #(PRD for the tenant in this example)
+# SYSTEMDB database
+hdbsql -u SYSTEM -p pass -d SYSTEMDB
+CREATE USER HANADB_EXPORTER_USER PASSWORD MyExporterPassword NO FORCE_FIRST_PASSWORD_CHANGE;
+CREATE ROLE HANADB_EXPORTER_ROLE;
+GRANT MONITORING TO HANADB_EXPORTER_ROLE;
+GRANT HANADB_EXPORTER_ROLE TO HANADB_EXPORTER_USER;
+
+# Disconnect from SYSTEMDB database
+\q
+
+# PRD database
+hdbsql -u SYSTEM -p pass -d PRD
 CREATE USER HANADB_EXPORTER_USER PASSWORD MyExporterPassword NO FORCE_FIRST_PASSWORD_CHANGE;
 CREATE ROLE HANADB_EXPORTER_ROLE;
 GRANT MONITORING TO HANADB_EXPORTER_ROLE;
