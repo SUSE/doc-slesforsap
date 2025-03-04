@@ -349,11 +349,7 @@
   <sect3 xml:id="sec-s4s-component-sapconf">
    <title>System Tuning with &sapconf;</title>
    <para>
-    The system tuning application &sapconf; allows you to
-    automatically and comprehensively tune your system as recommended by
-    &sap; for use with &s4h;, &netweaver;, or &hana;/&b1;. This allow
-    tuning several kernel parameters, depending on the hardware components
-    you are using, such as the amount of available RAM.
+    The system tuning application <command>saptune</command> allows you to perform an automatic and comprehensive tuning of your system based on &sap; recommendations.
    </para>
    <para>
     For more information, see <xref linkend="cha-tune-sapconf"/>.
