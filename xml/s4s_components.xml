@@ -347,7 +347,7 @@
   </para>
 
   <sect3 xml:id="sec-s4s-component-sapconf">
-   <title>System Tuning with &sapconf;</title>
+   <title>System Tuning with &saptune;</title>
    <para>
     The system tuning application <command>saptune</command> allows you to perform an automatic and comprehensive tuning of your system based on &sap; recommendations.
    </para>
