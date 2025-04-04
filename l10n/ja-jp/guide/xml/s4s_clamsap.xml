@@ -11,7 +11,7 @@
   </dm:docmanager>
  </info>
   <para>
-   ClamSAPは、ClamAVアンチマルウェアツールキットをSAP NetWeaverおよびSAP Mobile Platformのアプリケーションに統合します。ClamSAPは、ClamAVとSAP NetWeaver Virus Scan Interface (NW-VSI)をリンクする共有ライブラリです。SUSE Linux Enterprise Server for SAP Applications 15 SP6に付属しているClamSAPのバージョンは、NW-VSIバージョン2.0をサポートしています。
+   ClamSAPは、ClamAVアンチマルウェアツールキットをSAP NetWeaverおよびSAP Mobile Platformのアプリケーションに統合します。ClamSAPは、ClamAVとSAP NetWeaver Virus Scan Interface (NW-VSI)をリンクする共有ライブラリです。SUSE Linux Enterprise Server for SAP applications 15 SP6に付属しているClamSAPのバージョンは、NW-VSIバージョン2.0をサポートしています。
   </para>
  <important>
   <title>最大ファイルサイズを超える大きなファイルについての誤検出レポートを回避する</title>

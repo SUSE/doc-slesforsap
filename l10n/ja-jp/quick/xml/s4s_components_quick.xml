@@ -8,7 +8,7 @@
   </dm:docmanager>
  </info>
  <para>
-  <xref linkend="fig-offering"/>で示されているように、SUSE Linux Enterprise Server for SAP Applicationsは、SUSE Linux Enterprise Serverをベースとしていますが、SUSE Linux Enterprise High Availabilityやインストールワークフローなどのいくつかの追加のソフトウェアコンポーネントが含まれています。これらのソフトウェアコンポーネントについて以下に簡単に説明します。
+  <xref linkend="fig-offering"/>で示されているように、SUSE Linux Enterprise Server for SAP applicationsは、SUSE Linux Enterprise Serverをベースとしていますが、SUSE Linux Enterprise High Availabilityやインストールワークフローなどのいくつかの追加のソフトウェアコンポーネントが含まれています。これらのソフトウェアコンポーネントについて以下に簡単に説明します。
  </para>
 
  <variablelist>
@@ -32,7 +32,7 @@
    <term>簡素化されたSAP HANAシステムレプリケーションのセットアップ</term>
    <listitem>
     <para>
-     SUSE Linux Enterprise Server for SAP Applicationsは、SUSE Linux Enterprise High Availabilityのコンポーネントと、SAP HANAスケールアップ、スケールアウト、およびトポロジ管理用の追加のリソースエージェントを使用したSAP HANAシステムレプリケーションをサポートしています。また、SUSE Linux Enterprise Server for SAP Applicationsには、クラスタのセットアップを簡素化するYaSTウィザードが付属しています。
+     SUSE Linux Enterprise Server for SAP applicationsは、SUSE Linux Enterprise High Availabilityのコンポーネントと、SAP HANAスケールアップ、スケールアウト、およびトポロジ管理用の追加のリソースエージェントを使用したSAP HANAシステムレプリケーションをサポートしています。また、SUSE Linux Enterprise Server for SAP applicationsには、クラスタのセットアップを簡素化するYaSTウィザードが付属しています。
     </para>
    </listitem>
   </varlistentry>
@@ -56,10 +56,10 @@
    <term>SAP HANAのファイアウォールおよびSAP HANA強化ガイド</term>
    <listitem>
     <para>
-     さらに、SUSE Linux Enterprise Server for SAP Applicationsには、<systemitem class="daemon">firewalld</systemitem>と統合されたパッケージ<systemitem>HANA-Firewall</systemitem>が用意されています。これにより、できるだけ簡単にSAP HANAをセキュリティ保護するための事前設定されたセットアップおよびルールが提供されます。
+     さらに、SUSE Linux Enterprise Server for SAP applicationsには、<systemitem class="daemon">firewalld</systemitem>と統合されたパッケージ<systemitem>HANA-Firewall</systemitem>が用意されています。これにより、できるだけ簡単にSAP HANAをセキュリティ保護するための事前設定されたセットアップおよびルールが提供されます。
     </para>
     <para>
-     ベースとなっているオペレーティングシステムを強化する方法については、SUSE Linux Enterprise Server for SAP Applicationsリソースライブラリ(<link xlink:href="https://www.suse.com/products/sles-for-sap/resource-library/"/>)を参照してください。そこで、ドキュメント『<citetitle>OS Security Hardening for SAP HANA</citetitle>』を検索してください。
+     ベースとなっているオペレーティングシステムを強化する方法については、SUSE Linux Enterprise Server for SAP applicationsリソースライブラリ(<link xlink:href="https://www.suse.com/products/sles-for-sap/resource-library/"/>)を参照してください。そこで、ドキュメント『<citetitle>OS Security Hardening for SAP HANA</citetitle>』を検索してください。
     </para>
    </listitem>
   </varlistentry>

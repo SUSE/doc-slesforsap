@@ -20,7 +20,7 @@
    <term>オンラインマニュアル</term>
    <listitem condition="noquick">
     <para>
-     さまざまな形式のこのガイドの最新バージョンについては、<link xlink:href="https://documentation.suse.com/#sles-sap"/>にアクセスしてください。ホワイトペーパーなどのリソースについては、SUSE Linux Enterprise Server for SAP Applicationsリソースライブラリ(<link xlink:href="https://www.suse.com/products/sles-for-sap/resource-library/"/>)を参照してください。
+     さまざまな形式のこのガイドの最新バージョンについては、<link xlink:href="https://documentation.suse.com/#sles-sap"/>にアクセスしてください。ホワイトペーパーなどのリソースについては、SUSE Linux Enterprise Server for SAP applicationsリソースライブラリ(<link xlink:href="https://www.suse.com/products/sles-for-sap/resource-library/"/>)を参照してください。
      </para>
     <para>
      他の製品のオンラインマニュアルは、<link xlink:href="https://documentation.suse.com/"/>で検索してください。</para>
