@@ -9,14 +9,14 @@
  </info>
 
  <para>
-  SUSE Linux Enterprise Server for SAP applicationsのサポートステートメントと、技術プレビューに関する概要を以下に示します。製品ライフサイクルの詳細については、<link xlink:href="https://www.suse.com/lifecycle"/>を参照してください。
+  SUSE Linux Enterprise Server for SAP Applicationsのサポートステートメントと、技術プレビューに関する概要を以下に示します。製品ライフサイクルの詳細については、<link xlink:href="https://www.suse.com/lifecycle"/>を参照してください。
  </para>
  <para>
   サポート資格をお持ちの場合、<link xlink:href="https://documentation.suse.com/sles-15/html/SLES-all/cha-adm-support.html"/>を参照して、サポートチケットの情報を収集する方法の詳細を確認してください。
  </para>
 
  <sect2>
-  <title>SUSE Linux Enterprise Server for SAP applicationsのサポートステートメント</title>
+  <title>SUSE Linux Enterprise Server for SAP Applicationsのサポートステートメント</title>
   <para>
    サポートを受けるには、SUSEの適切な購読が必要です。利用可能なサポートサービスを具体的に確認するには、<link xlink:href="https://www.suse.com/support/"/>にアクセスして製品を選択してください。
   </para>
@@ -50,7 +50,7 @@
    </varlistentry>
   </variablelist>
   <para>
-   契約されているお客様およびパートナーの場合、SUSE Linux Enterprise Server for SAP applicationsでは、次のものを除くすべてのパッケージに対してL3サポートを提供します。
+   契約されているお客様およびパートナーの場合、SUSE Linux Enterprise Server for SAP Applicationsでは、次のものを除くすべてのパッケージに対してL3サポートを提供します。
   </para>
   <itemizedlist>
    <listitem>
@@ -95,7 +95,7 @@
   <itemizedlist>
    <listitem>
     <para>
-     技術プレビューはまだ開発中です。したがって、機能が不完全であったり、不安定であったり、運用環境での使用には適していなかったりする場合があります。
+     技術プレビューはまだ開発中です。したがって、機能が不完全であったり、不安定であったり、運用環境での使用には適していなかったり<emphasis></emphasis>する場合があります。
     </para>
    </listitem>
    <listitem>

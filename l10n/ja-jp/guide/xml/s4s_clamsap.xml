@@ -11,7 +11,7 @@
   </dm:docmanager>
  </info>
   <para>
-   ClamSAPは、ClamAVマルウェア対策ツールキットをSAP NetWeaverおよびSAP Mobile Platformアプリケーションに統合します。ClamSAPは、ClamAVとSAP NetWeaver Virus Scan Interface (NW-VSI)の間をリンクする共有ライブラリです。SUSE Linux Enterprise Server for SAP applications 15 SP5に付属しているClamSAPのバージョンは、NW-VSIバージョン2.0をサポートしています。
+   ClamSAPは、ClamAVマルウェア対策ツールキットをSAP NetWeaverおよびSAP Mobile Platformアプリケーションに統合します。ClamSAPは、ClamAVとSAP NetWeaver Virus Scan Interface (NW-VSI)の間をリンクする共有ライブラリです。SUSE Linux Enterprise Server for SAP Applications 15 SP5に付属しているClamSAPのバージョンは、NW-VSIバージョン2.0をサポートしています。
   </para>
  <important>
   <title>最大ファイルサイズを超える大きなファイルについての誤検出レポートを回避する</title>
@@ -163,7 +163,7 @@ Active: active (running) since Tue 2017-04-11 10:33:03 UTC; 24h ago
    <step>
     <para>
      SAP NetWeaver GUIで、トランザクション<guimenu>VSCAN</guimenu>をコールします。
-
+     
     </para>
    </step>
    <step>
@@ -289,7 +289,8 @@ Active: active (running) since Tue 2017-04-11 10:33:03 UTC; 24h ago
     <para>
       チェックマークをクリックして、<guimenu>This table is cross-client (このテーブルはクロスクライアントです)</guimenu>というメッセージを確認します。テーブルが編集可能になりました。
     </para>
-    <informalfigure>
+    <figure xml:id="fig-clamsap-add-entry">
+     <title/>
      <mediaobject>
       <imageobject role="html">
        <imagedata fileref="sap-new-scanner-clamsap-add-entries.jpg" width="95%"/>
@@ -298,13 +299,14 @@ Active: active (running) since Tue 2017-04-11 10:33:03 UTC; 24h ago
        <imagedata fileref="sap-new-scanner-clamsap-add-entries.jpg" width="85%"/>
       </imageobject>
      </mediaobject>
-    </informalfigure>
+    </figure>
    </step>
    <step>
     <para>
      <guimenu>New Entries (新しいエントリ)</guimenu>をクリックし、<parameter>INITDRIVERDIRECTORY</parameter>を選択します。
     </para>
-    <informalfigure>
+    <figure xml:id="fig-clamsap-add-value">
+     <title/>
      <mediaobject>
       <imageobject role="html">
        <imagedata fileref="sap-new-scanner-clamsap-add-value.jpg" width="95%"/>
@@ -313,7 +315,7 @@ Active: active (running) since Tue 2017-04-11 10:33:03 UTC; 24h ago
        <imagedata fileref="sap-new-scanner-clamsap-add-value.jpg" width="85%"/>
       </imageobject>
      </mediaobject>
-    </informalfigure>
+    </figure>
    </step>
    <step>
     <para>
