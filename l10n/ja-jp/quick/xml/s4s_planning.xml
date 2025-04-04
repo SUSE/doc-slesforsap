@@ -14,7 +14,7 @@
   <title>ハードウェア要件</title>
 
   <para>
-   このセクションでは、SUSE Linux Enterprise Server for SAP Applicationsのインストールの最低ハードウェア要件を一覧表示し、特定のSAPソフトウェアの想定されるハードウェア要件に関する基本的なガイダンスを示します。SAPソフトウェアのハードウェア要件の最新情報については、<link xlink:href="https://service.sap.com/sizing"/>にある公式サイジングガイドラインを参照してください。
+   このセクションでは、SUSE Linux Enterprise Server for SAP applicationsのインストールの最低ハードウェア要件を一覧表示し、特定のSAPソフトウェアの想定されるハードウェア要件に関する基本的なガイダンスを示します。SAPソフトウェアのハードウェア要件の最新情報については、<link xlink:href="https://service.sap.com/sizing"/>にある公式サイジングガイドラインを参照してください。
   </para>
 
   <variablelist>
@@ -36,7 +36,7 @@
     <term>ハードディスク</term>
     <listitem>
      <para>
-      SUSE Linux Enterprise Server for SAP Applicationsには、システムボリュームに対して最低41GB(スワップなし)のハードディスク容量が必要です。それに加えて、スワップパーティション用に適切なハードディスク容量を予約します。
+      SUSE Linux Enterprise Server for SAP applicationsには、システムボリュームに対して最低41GB(スワップなし)のハードディスク容量が必要です。それに加えて、スワップパーティション用に適切なハードディスク容量を予約します。
      </para>
      <para>
       SAP NetWeaverなどのSAPアプリケーションをインストールするには、アプリケーションの<filename>/data</filename>パーティションのオペレーティングシステムに必要な容量のほか、最低200GBの空きディスク容量が必要です。
@@ -126,7 +126,7 @@
   <title>オフラインマイグレーション</title>
 
   <para>
-   SUSE Linux Enterprise Server for SAP Applicationsのマイグレーションパスは、SUSE Linux Enterprise Server with <productname>Enhanced Service Pack Overlay Support</productname> (ESPOS)のマイグレーションパスと同じです。詳細については、『<citetitle>SUSE Linux Enterprise Server</citetitle>
+   SUSE Linux Enterprise Server for SAP applicationsのマイグレーションパスは、SUSE Linux Enterprise Server with <productname>Enhanced Service Pack Overlay Support</productname> (ESPOS)のマイグレーションパスと同じです。詳細については、『<citetitle>SUSE Linux Enterprise Server</citetitle>
    <citetitle>Upgrade Guide</citetitle>』(<link xlink:href="https://documentation.suse.com/sles/html/SLES-all/cha-upgrade-paths.html"/>)を参照してください。
   </para>
  </sect1>
@@ -135,7 +135,7 @@
   <title>インストールワークフローの概要</title>
 
   <para>
-   SUSE Linux Enterprise Server for SAP Applicationsのインストールワークフローは、次のステップで構成されます。
+   SUSE Linux Enterprise Server for SAP applicationsのインストールワークフローは、次のステップで構成されます。
   </para>
 
   <orderedlist>

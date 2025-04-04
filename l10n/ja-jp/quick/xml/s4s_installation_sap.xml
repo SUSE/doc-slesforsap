@@ -10,9 +10,9 @@
  <para>
   このセクションでは、SAPから受け取ったSAPメディアセットのインストールについて説明します。
  </para>
- 
 
- 
+
+
 
  <sect1 xml:id="sec-install-sap-welcome">
   <title>最初のステップ</title>
@@ -80,7 +80,7 @@
        <para>
         SAP BusinessOne認定ハードウェア上にSAP HANAファイルシステムを作成します。
        </para>
-       
+
        <remark>
         Create a procedure for HANA fs creation? It just does stuff and you
         can't do much anyway. - sknorr, 2016-01-28
@@ -99,9 +99,9 @@
       </term>
       <listitem>
        <para>
-        SAPアプリケーションをインストールせず、SUSE Linux Enterprise Server for SAP Applicationsのログイン画面に進みます。
+        SAPアプリケーションをインストールせず、SUSE Linux Enterprise Server for SAP applicationsのログイン画面に進みます。
        </para>
-       
+
       </listitem>
      </varlistentry>
     </variablelist>
@@ -193,7 +193,7 @@
       <tbody>
        <row>
         <entry namest="option" nameend="format">
-         <emphasis role="strong"></emphasis>「ローカルソース」
+         「ローカルソース」
         </entry>
        </row>
        <row>
@@ -215,7 +215,7 @@
        </row>
        <row>
         <entry namest="option" nameend="format">
-         <emphasis role="strong"></emphasis>「リムーバブルソース」
+         「リムーバブルソース」
         </entry>
        </row>
        <row>
@@ -267,12 +267,12 @@
          <para>
           <filename><replaceable>//</replaceable></filename>
          </para>
-         
+
         </entry>
        </row>
        <row>
         <entry namest="option" nameend="format">
-         <emphasis role="strong"></emphasis>「リモートソース」
+         「リモートソース」
         </entry>
        </row>
        <row>
@@ -290,7 +290,7 @@
          <para>
           <filename><replaceable>server_name</replaceable><replaceable>/path/to/dir/on/device</replaceable></filename>
          </para>
-         
+
         </entry>
        </row>
        <row>
@@ -314,7 +314,7 @@
      </tgroup>
     </table>
 
-    
+
 
     <para>
      以前にインストールサーバからSAPアプリケーションをインストールしたことがある場合、またはシステムをインストールサーバとして設定している場合は、インストールマスタのプロバイダとしてそのサーバを直接選択することもできます。これを行うには、<guimenu>インストールマスタの選択</guimenu>の下のドロップダウンボックスを使用します。
@@ -333,7 +333,7 @@
        <para>
         このオプションを使用して、インストールパラメータを設定しますが、実際のインストールは実行しません。このオプションを使用すると、SAPインストーラ(SAPinst)は実際のSAP製品のインストールを実行しないで停止します。ただし、以降の手順はすべて適用されます。
        </para>
-       
+
       </listitem>
      </varlistentry>
      <varlistentry>
@@ -342,7 +342,7 @@
       </term>
       <listitem>
        <para>
-        このシステムを他のSUSE Linux Enterprise Server for SAP Applicationsシステムのインストールサーバとして設定します。このインストールサーバにコピーされるメディアは、NFSを介して提供され、サービスロケーションプロトコル(SLP)を介して検出できます。
+        このシステムを他のSUSE Linux Enterprise Server for SAP applicationsシステムのインストールサーバとして設定します。このインストールサーバにコピーされるメディアは、NFSを介して提供され、サービスロケーションプロトコル(SLP)を介して検出できます。
        </para>
       </listitem>
      </varlistentry>
@@ -436,7 +436,7 @@
        <para>
         標準製品に機能を追加するエンジン: SAP TREX、SAP Gateway、およびWeb Dispatcher。
        </para>
-       
+
       </listitem>
      </varlistentry>
      <varlistentry>
@@ -445,7 +445,7 @@
        <para>
         複数のサーバに分散されたSAPアプリケーション。
        </para>
-       
+
       </listitem>
      </varlistentry>
      <varlistentry>
@@ -462,7 +462,7 @@
        <para>
         SAPシステムID、データベースID、インスタンス番号、ホスト名など、さまざまなシステムプロパティを変更できます。これを使用して、同じ製品を異なるシステムに非常に類似した設定でインストールできます。
        </para>
-       
+
       </listitem>
      </varlistentry>
     </variablelist>
@@ -515,7 +515,7 @@
     <note>
      <title>補足メディア/サードパーティメディアと追加のソフトウェアリポジトリの違い</title>
      <para>
-      どちらのタイプの配信メカニズムでも、SUSE Linux Enterprise Server for SAP Applicationsメディアの一部でもなく、SAPのメディアセットの一部でもないソフトウェアをインストールできます。ただし、配信メカニズムは異なります。
+      どちらのタイプの配信メカニズムでも、SUSE Linux Enterprise Server for SAP applicationsメディアの一部でもなく、SAPのメディアセットの一部でもないソフトウェアをインストールできます。ただし、配信メカニズムは異なります。
      </para>
      <itemizedlist>
       <listitem>
@@ -530,7 +530,7 @@
       </listitem>
      </itemizedlist>
     </note>
-    
+
    </step>
    <step>
     <para>
@@ -588,7 +588,7 @@ SAP-NetWeaver-740-SR2-Installation-Export-CD-3-3</screen>
     </para>
    </step>
    <step>
-    
+
     <para>
      インストールを続行するか、または別のSAP製品をインストールする準備をするかを尋ねられます。別のSAP製品を準備することを選択する場合は、この手順の初めから開始します。
     </para>
@@ -636,7 +636,7 @@ SAP-NetWeaver-740-SR2-Installation-Export-CD-3-3</screen>
      <para>
       SAPアプリケーションのインストールが失敗する場合は、インストールログファイルを参照してください。これらのファイルは、<filename>/var/adm/autoinstall</filename>にあります。失敗したインストールは、名前が<filename>.err</filename>で終わるファイルに記録されます。
      </para>
-     
+
     </tip>
    </step>
    <step>
@@ -653,10 +653,10 @@ SAP-NetWeaver-740-SR2-Installation-Export-CD-3-3</screen>
   </procedure>
  </sect1>
 
- 
 
- 
 
- 
+
+
+
 
 </chapter>
