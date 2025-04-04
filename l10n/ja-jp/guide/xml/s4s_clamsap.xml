@@ -163,7 +163,7 @@ Active: active (running) since Tue 2017-04-11 10:33:03 UTC; 24h ago
    <step>
     <para>
      SAP NetWeaver GUIで、トランザクション<guimenu>VSCAN</guimenu>をコールします。
-     
+
     </para>
    </step>
    <step>
@@ -289,8 +289,7 @@ Active: active (running) since Tue 2017-04-11 10:33:03 UTC; 24h ago
     <para>
       チェックマークをクリックして、<guimenu>This table is cross-client (このテーブルはクロスクライアントです)</guimenu>というメッセージを確認します。テーブルが編集可能になりました。
     </para>
-    <figure xml:id="fig-clamsap-add-entry">
-     <title/>
+    <informalfigure>
      <mediaobject>
       <imageobject role="html">
        <imagedata fileref="sap-new-scanner-clamsap-add-entries.jpg" width="95%"/>
@@ -299,14 +298,13 @@ Active: active (running) since Tue 2017-04-11 10:33:03 UTC; 24h ago
        <imagedata fileref="sap-new-scanner-clamsap-add-entries.jpg" width="85%"/>
       </imageobject>
      </mediaobject>
-    </figure>
+    </informalfigure>
    </step>
    <step>
     <para>
      <guimenu>新しいエントリ</guimenu>をクリックして<parameter>INITDRIVERDIRECTORY</parameter>を選択します。
     </para>
-    <figure xml:id="fig-clamsap-add-value">
-     <title/>
+    <informalfigure>
      <mediaobject>
       <imageobject role="html">
        <imagedata fileref="sap-new-scanner-clamsap-add-value.jpg" width="95%"/>
@@ -315,7 +313,7 @@ Active: active (running) since Tue 2017-04-11 10:33:03 UTC; 24h ago
        <imagedata fileref="sap-new-scanner-clamsap-add-value.jpg" width="85%"/>
       </imageobject>
      </mediaobject>
-    </figure>
+    </informalfigure>
    </step>
    <step>
     <para>

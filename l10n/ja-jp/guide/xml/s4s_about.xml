@@ -51,7 +51,7 @@
   </mediaobject>
  </figure>
 
- 
+
  <xi:include href="s4s_components.xml" parse="xml"/>
 
  <sect1 condition="noquick" xml:id="sec-repository">
@@ -148,7 +148,7 @@
     </tgroup>
   </table>
   <para>
-   このセクションの表は、「デバッグ情報」および「ソース」リポジトリを示していません。これらも設定されていますが、デフォルトで無効になっています。<emphasis></emphasis><emphasis></emphasis>「<emphasis>デバッグ情報</emphasis>」リポジトリには、通常のパッケージをデバッグするために使用可能なパッケージが含まれています。「<emphasis>ソース</emphasis>」リポジトリには、パッケージのソースコードが含まれています。
+   このセクションの表は、「デバッグ情報」および「ソース」リポジトリを示していません。これらも設定されていますが、デフォルトで無効になっています。「<emphasis>デバッグ情報</emphasis>」リポジトリには、通常のパッケージをデバッグするために使用可能なパッケージが含まれています。「<emphasis>ソース</emphasis>」リポジトリには、パッケージのソースコードが含まれています。
   </para>
   <para>
    インストール方法に応じて、インストールメディアである、<literal>SLE-15-SP6-SAP-15.6-0</literal>が表示される場合もあります。上記のすべてのベースソフトウェアリポジトリのパッケージが含まれています。

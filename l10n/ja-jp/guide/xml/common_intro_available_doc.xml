@@ -31,11 +31,11 @@
      </para>
     </note>
    </listitem>
-   
+
   </varlistentry>
   <varlistentry>
    <term>SUSE Knowledgebase</term>
-   
+
    <listitem>
     <para>
      問題が発生した場合は、<link xlink:href="https://www.suse.com/support/kb/"/>でオンラインで入手できる技術情報文書(TID)を確認してください。SUSE Knowledgebaseを検索して、お客様のニーズに応じた既知のソリューションを見つけます。
@@ -57,7 +57,7 @@
        オフラインで使用するために、リリースノートはシステム上の<filename>/usr/share/doc/release-notes</filename>でも入手できます。個々のパッケージのマニュアルは、<filename>/usr/share/doc/packages</filename>で入手できます。
      </para>
      <para>
-       「マニュアルページ」には、多くのコマンドについても説明されています。<emphasis></emphasis>説明を表示するには、<command>man</command>コマンドに確認したいコマンドの名前を付加して実行してください。システムに<command>man</command>コマンドがインストールされていない場合は、<command>sudo zypper
+       「マニュアルページ」には、多くのコマンドについても説明されています。説明を表示するには、<command>man</command>コマンドに確認したいコマンドの名前を付加して実行してください。システムに<command>man</command>コマンドがインストールされていない場合は、<command>sudo zypper
        install man</command>コマンドでインストールします。
      </para>
    </listitem>

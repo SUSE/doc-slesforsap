@@ -370,13 +370,13 @@ Do you really want to rename this Note (test) to the new name 'test2'? [y/n]: y<
    <screen><prompt role="root"># </prompt><command>saptune note applied</command></screen>
   </sect2>
  </sect1>
- 
+
  <sect1 xml:id="sec-saptune-sapsolution">
   <title>SAPソリューションの管理</title>
   <para>
    この章では、SAPソリューションの操作を説明します。
   </para>
-  
+
  <sect2 xml:id="sec-saptune-create-solution">
   <title>新しいSAPソリューションの作成</title>
   <para>新しいSAPソリューションを作成するには、次のコマンドを実行します。</para>
@@ -486,7 +486,7 @@ Do you really want to rename this Solution 'myHANA' to the new name 'myHANA2'? [
    </para>
   </sect2>
  </sect1>
- 
+
   <sect1 xml:id="sec-saptune-verify-and-troubleshooting">
    <title>検証とトラブルシューティング</title>
    <para><command>saptune</command>の現在のステータスを表示するには、次のコマンドを実行します。</para>
@@ -607,7 +607,7 @@ Do you really want to rename this Solution 'myHANA' to the new name 'myHANA2'? [
     新しい<command>saptune</command>パッケージには、バイナリの変更(バグ修正など)と、新規または変更されたSAPノートおよびSAPソリューションの両方を含めることができます。特定の状況では、システム設定を変更せずにバグ修正や新機能を展開することが推奨されます。
    </para>
    <para>
-    ステージングが有効である場合、パッケージの更新におけるSAPノートおよびSAPソリューションの変更はすぐに有効には「なりません」。<emphasis></emphasis>これらはステージング領域に配置され、後で確認してリリースできます。
+    ステージングが有効である場合、パッケージの更新におけるSAPノートおよびSAPソリューションの変更はすぐに有効には「なりません」。これらはステージング領域に配置され、後で確認してリリースできます。
    </para>
    <important>
     <para>現在の実装では、ステージングが有効になっている場合、パッケージの更新によってステージングが上書きされます。</para>
