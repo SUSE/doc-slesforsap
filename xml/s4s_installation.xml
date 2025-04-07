@@ -314,7 +314,7 @@
        <para>
         To install a &slsa; system with &sap;-specific customization,
         choose
-        <guimenu>Proceed with standard SLES for SAP Applications
+        <guimenu>Proceed with standard SLES for SAP applications
         installation</guimenu>.
        </para>
       </formalpara>

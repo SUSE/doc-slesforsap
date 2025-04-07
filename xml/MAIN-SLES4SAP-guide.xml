@@ -40,7 +40,7 @@
     <dm:bugtracker>
       <dm:url>https://bugzilla.suse.com/enter_bug.cgi</dm:url>
       <dm:component>Documentation</dm:component>
-      <dm:product>SUSE Linux Enterprise Server for SAP Applications 12 SP5</dm:product>
+      <dm:product>SUSE Linux Enterprise Server for SAP applications 12 SP5</dm:product>
       <dm:assignee>dmitri.popov@suse.com</dm:assignee>
     </dm:bugtracker>
     <dm:translation>no</dm:translation>
