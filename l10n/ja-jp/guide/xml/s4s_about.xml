@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" xml:base="s4s_about.xml" version="5.0" xml:id="cha-about">
-<title>SUSE Linux Enterprise Server for SAP Applicationsとは</title>
+<title>SUSE Linux Enterprise Server for SAP applicationsとは</title>
 <info>
  <abstract>
   <para>
-   SUSE® Linux Enterprise Server for SAP Applicationsは、SAPユーザ固有のニーズに対応するソフトウェアとサービスのバンドルです。すべてのSAPソフトウェアソリューション用に最適化された唯一のオペレーティングシステムです。
+   SUSE® Linux Enterprise Server for SAP applicationsは、SAPユーザ固有のニーズに対応するソフトウェアとサービスのバンドルです。すべてのSAPソフトウェアソリューション用に最適化された唯一のオペレーティングシステムです。
   </para>
  </abstract>
  <dm:docmanager xmlns:dm="urn:x-suse:ns:docmanager">
@@ -36,11 +36,11 @@
  </itemizedlist>
 
  <para>
-  SUSE Linux Enterprise Server for SAP Applicationsは、以降のセクションで説明されるソフトウェアコンポーネントとサービスで構成されます。図<xref linkend="fig-offering" xrefstyle="select:title"/>は、SUSEの他の製品でも利用可能なソフトウェアコンポーネントとサービス(緑色)およびSUSE Linux Enterprise Server for SAP Applicationsでのみ利用可能なソフトウェアコンポーネントとサービス(青色)の概要を示しています。
+  SUSE Linux Enterprise Server for SAP applicationsは、以降のセクションで説明されるソフトウェアコンポーネントとサービスで構成されます。図<xref linkend="fig-offering" xrefstyle="select:title"/>は、SUSEの他の製品でも利用可能なソフトウェアコンポーネントとサービス(緑色)およびSUSE Linux Enterprise Server for SAP applicationsでのみ利用可能なソフトウェアコンポーネントとサービス(青色)の概要を示しています。
  </para>
 
  <figure xml:id="fig-offering">
-  <title>SUSE Linux Enterprise Server for SAP Applicationsのオファリング</title>
+  <title>SUSE Linux Enterprise Server for SAP applicationsのオファリング</title>
   <mediaobject>
    <imageobject role="fo">
     <imagedata fileref="s4s_overview.svg" width="85%"/>
@@ -64,7 +64,7 @@
    FIXME: "variant" is maybe not a good word... - sknorr, 2016-06-17
   </remark>
   <para>
-   デフォルトで、SUSE Linux Enterprise Server for SAP Applicationsを実行しているコンピュータは、複数のリポジトリからパッケージを受信するように設定されています。各標準リポジトリには、最初に出荷されたときのソフトウェアの状態を示す<quote>プール</quote>バリアントがあります。<quote>プール</quote>バリアントのソフトウェアに対する最新の保守更新を含む<quote>更新</quote>バリアントもあります。
+   デフォルトで、SUSE Linux Enterprise Server for SAP applicationsを実行しているコンピュータは、複数のリポジトリからパッケージを受信するように設定されています。各標準リポジトリには、最初に出荷されたときのソフトウェアの状態を示す<quote>プール</quote>バリアントがあります。<quote>プール</quote>バリアントのソフトウェアに対する最新の保守更新を含む<quote>更新</quote>バリアントもあります。
   </para>
   <para>
    インストール中にシステムを登録した場合は、リポジトリセットアップに以下が含まれている必要があります。
@@ -119,7 +119,7 @@
         <row>
           <entry>
             <para>
-              SUSE Linux Enterprise Server for SAP Applicationsに固有のパッケージ
+              SUSE Linux Enterprise Server for SAP applicationsに固有のパッケージ
             </para>
           </entry>
           <entry>
@@ -154,12 +154,12 @@
    インストール方法に応じて、インストールメディアである、<literal>SLE-15-SP4-SAP-15.4-0</literal>が表示される場合もあります。上記のすべてのベースソフトウェアリポジトリのパッケージが含まれています。
   </para>
   <para>
-   SUSE Linux Enterprise Server for SAP Applications用の独自のリポジトリがあるため、SUSEはSUSE Linux Enterprise Server for SAP Applicationsに固有のパッケージとパッチを出荷することができます。
+   SUSE Linux Enterprise Server for SAP applications用の独自のリポジトリがあるため、SUSEはSUSE Linux Enterprise Server for SAP applicationsに固有のパッケージとパッチを出荷することができます。
   </para>
   <note>
    <title>更新リポジトリで直接出荷されるESPOSの更新</title>
    <para>
-    SUSE Linux Enterprise Server for SAP Applications 11とは異なり、Extended Service Pack Overlay Support (ESPOS)に関連する更新は、<literal>更新</literal>リポジトリから直接出荷されます。これは、設定される個別のESPOSリポジトリがないことを意味します。
+    SUSE Linux Enterprise Server for SAP applications 11とは異なり、Extended Service Pack Overlay Support (ESPOS)に関連する更新は、<literal>更新</literal>リポジトリから直接出荷されます。これは、設定される個別のESPOSリポジトリがないことを意味します。
    </para>
   </note>
 

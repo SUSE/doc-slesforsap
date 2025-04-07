@@ -29,7 +29,7 @@
  </para>
 
  <para>
-   SUSE ManagerサーバからSUSE Linux Enterprise Server for SAP Applicationsを導入する場合は、<citetitle>SUSE Managerの<quote>Reference Manual</quote>の<quote>Systems</quote>、<quote>Autoinstallation</quote></citetitle>、および<citetitle>SUSE Managerの<quote>Advanced Topics</quote>の章、<quote>Minimalist AutoYaST Profile for Automated Installations and Useful Enhancements</quote></citetitle>(<link xlink:href="https://documentation.suse.com/suma"/>)を参照してください。
+   SUSE ManagerサーバからSUSE Linux Enterprise Server for SAP applicationsを導入する場合は、<citetitle>SUSE Managerの<quote>Reference Manual</quote>の<quote>Systems</quote>、<quote>Autoinstallation</quote></citetitle>、および<citetitle>SUSE Managerの<quote>Advanced Topics</quote>の章、<quote>Minimalist AutoYaST Profile for Automated Installations and Useful Enhancements</quote></citetitle>(<link xlink:href="https://documentation.suse.com/suma"/>)を参照してください。
  </para>
  
 </sect1>

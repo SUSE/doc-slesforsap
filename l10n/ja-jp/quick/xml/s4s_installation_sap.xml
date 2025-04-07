@@ -98,7 +98,7 @@
       </term>
       <listitem>
        <para>
-        SAPアプリケーションをインストールせず、SUSE Linux Enterprise Server for SAP Applicationsのログイン画面に進みます。
+        SAPアプリケーションをインストールせず、SUSE Linux Enterprise Server for SAP applicationsのログイン画面に進みます。
        </para>
        
       </listitem>
@@ -341,7 +341,7 @@
       </term>
       <listitem>
        <para>
-        このシステムを他のSUSE Linux Enterprise Server for SAP Applicationsシステムのインストールサーバとして設定します。このインストールサーバにコピーされるメディアは、NFSを介して提供され、サービスロケーションプロトコル(SLP)を介して検出できます。
+        このシステムを他のSUSE Linux Enterprise Server for SAP applicationsシステムのインストールサーバとして設定します。このインストールサーバにコピーされるメディアは、NFSを介して提供され、サービスロケーションプロトコル(SLP)を介して検出できます。
        </para>
       </listitem>
      </varlistentry>
@@ -514,7 +514,7 @@
     <note>
      <title>補足メディア/サードパーティメディアと追加のソフトウェアリポジトリの違い</title>
      <para>
-      どちらのタイプの配信メカニズムでも、SUSE Linux Enterprise Server for SAP Applicationsメディアの一部でもなく、SAPのメディアセットの一部でもないソフトウェアをインストールできます。ただし、配信メカニズムは異なります。
+      どちらのタイプの配信メカニズムでも、SUSE Linux Enterprise Server for SAP applicationsメディアの一部でもなく、SAPのメディアセットの一部でもないソフトウェアをインストールできます。ただし、配信メカニズムは異なります。
      </para>
      <itemizedlist>
       <listitem>
