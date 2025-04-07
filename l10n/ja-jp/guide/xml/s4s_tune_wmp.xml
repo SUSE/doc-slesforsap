@@ -8,7 +8,7 @@
   </dm:docmanager>
  </info>
  <para>
-  SAPアプリケーションを物理メモリに保持することは、パフォーマンスのために不可欠です。古い製品バージョンでは、ページキャッシュ制限により、ページキャッシュの増加によるディスクへのスワップアウトが防止されていました(SUSE Linux Enterprise Server for SAP Applications 11 SP1以降およびSUSELinux Enterprise Server for SAP Applications 12)。SUSE Linux Enterprise Server for SAP Applications 15では、ページキャッシュ制限がより高度なワークロードメモリ保護に置き換えられました。
+  SAPアプリケーションを物理メモリに保持することは、パフォーマンスのために不可欠です。古い製品バージョンでは、ページキャッシュ制限により、ページキャッシュの増加によるディスクへのスワップアウトが防止されていました(SUSE Linux Enterprise Server for SAP applications 11 SP1以降およびSUSELinux Enterprise Server for SAP applications 12)。SUSE Linux Enterprise Server for SAP applications 15では、ページキャッシュ制限がより高度なワークロードメモリ保護に置き換えられました。
  </para>
  <para>
   ワークロードメモリ保護は、SAPインスタンスを専用のcgroup (v2)に置き、<varname>memory.low</varname>パラメータによって、物理メモリに保持するメモリ容量をカーネルに伝えます。これにより、ページキャッシュの増加を含む、そのcgroupの外側のあらゆる形態のメモリ負荷に対してこのcgroup内のプロセスが保護されます。ワークロードメモリ保護は、このcgroup内のメモリ負荷に対して保護することはできません。これは、1つのホスト上の「<emphasis>すべての</emphasis>」インスタンスのメモリをカバーします。
@@ -52,7 +52,7 @@
   <title>ワークロードメモリ保護のサポート</title>
 
   <para>
-   ワークロードメモリ保護は、App Server (SAP NetWeaver、SAP S/4HANA)など1台のホスト上にある1台以上のSAPシステム用AMD64/Intel 64およびPOWER上のSUSE Linux Enterprise Server for SAP Applications 15 SP5でサポートされています。SUSE High Availabilityクラスタソリューションがサポートされています。
+   ワークロードメモリ保護は、App Server (SAP NetWeaver、SAP S/4HANA)など1台のホスト上にある1台以上のSAPシステム用AMD64/Intel 64およびPOWER上のSUSE Linux Enterprise Server for SAP applications 15 SP5でサポートされています。SUSE High Availabilityクラスタソリューションがサポートされています。
   </para>
 
   <para>
@@ -252,7 +252,7 @@ MemoryLow=18487889920    &lt;- Should be your chosen value (always in bytes)!
   </important>
   </sect1>
  <sect1 xml:id="sec-sapwmp-migrate">
-  <title><package>sapwmp</package>を使用したワークロードメモリ保護からのマイグレーション(SUSE Linux Enterprise Server for SAP Applications 15 SP4以前のSLES)</title>
+  <title><package>sapwmp</package>を使用したワークロードメモリ保護からのマイグレーション(SUSE Linux Enterprise Server for SAP applications 15 SP4以前のSLES)</title>
   <para>
     Service Pack SP4以前からアップグレードしていて、まだ<systemitem class="daemon">systemd</systemitem>が有効なインスタンスに切り替えていない場合は、マイグレーションを実行する必要があります。
     </para>

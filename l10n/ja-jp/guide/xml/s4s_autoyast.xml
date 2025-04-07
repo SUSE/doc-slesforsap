@@ -30,7 +30,7 @@
  </para>
 
  <para>
-   SUSE ManagerサーバからSUSE Linux Enterprise Server for SAP Applicationsを展開する場合は、<citetitle>SUSE Manager <quote>Reference Manual</quote>, <quote>Systems</quote>, <quote>Autoinstallation</quote></citetitle>と<citetitle>SUSE Manager <quote>Advanced Topics</quote>, Chapter <quote>Minimalist AutoYaST Profile for Automated Installations and Useful Enhancements</quote></citetitle>(<link xlink:href="https://documentation.suse.com/suma"/>)を参照してください。
+   SUSE ManagerサーバからSUSE Linux Enterprise Server for SAP applicationsを展開する場合は、<citetitle>SUSE Manager <quote>Reference Manual</quote>, <quote>Systems</quote>, <quote>Autoinstallation</quote></citetitle>と<citetitle>SUSE Manager <quote>Advanced Topics</quote>, Chapter <quote>Minimalist AutoYaST Profile for Automated Installations and Useful Enhancements</quote></citetitle>(<link xlink:href="https://documentation.suse.com/suma"/>)を参照してください。
  </para>
  
 </sect1>

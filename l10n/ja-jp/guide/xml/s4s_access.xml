@@ -15,14 +15,14 @@
   <title><systemitem class="daemon">firewalld</systemitem>の構成</title>
 
   <para>
-   デフォルトで、SUSE Linux Enterprise Server for SAP Applicationsのインストールワークフローにより、<systemitem class="daemon">firewalld</systemitem>が有効になっています。
+   デフォルトで、SUSE Linux Enterprise Server for SAP applicationsのインストールワークフローにより、<systemitem class="daemon">firewalld</systemitem>が有効になっています。
   </para>
 
   <note>
    
    <title>SuSEfirewall2に代わる<systemitem class="daemon">firewalld</systemitem></title>
    <para>
-    SUSE Linux Enterprise Server for SAP Applications 15 では、SuSEfirewall2に代わる、新しいデフォルトのソフトウェアファイアウォールとして、<systemitem class="daemon">firewalld</systemitem>が導入されています。SuSEfirewall2は、SUSE Linux Enterprise Server for SAP Applications 15から削除されておらず、デフォルトでインストールされていないにもかかわらず、まだ主要リポジトリの一部になっています。SUSE Linux Enterprise Server for SAP Applications 15より古いリリースからアップグレードする場合、SuSEfirewall2は変更されないため、<systemitem class="daemon">firewalld</systemitem>に手動でアップグレードする必要があります(『<citetitle>Security and Hardening Guide</citetitle>』を参照)。
+    SUSE Linux Enterprise Server for SAP applications 15 では、SuSEfirewall2に代わる、新しいデフォルトのソフトウェアファイアウォールとして、<systemitem class="daemon">firewalld</systemitem>が導入されています。SuSEfirewall2は、SUSE Linux Enterprise Server for SAP applications 15から削除されておらず、デフォルトでインストールされていないにもかかわらず、まだ主要リポジトリの一部になっています。SUSE Linux Enterprise Server for SAP applications 15より古いリリースからアップグレードする場合、SuSEfirewall2は変更されないため、<systemitem class="daemon">firewalld</systemitem>に手動でアップグレードする必要があります(『<citetitle>Security and Hardening Guide</citetitle>』を参照)。
    </para>
   </note>
   <para>
@@ -156,7 +156,7 @@ HANA firewall is active. Everything is OK.
  <sect1 xml:id="sec-configure-saprouter">
   <title>SAProuterの統合</title>
   <para>
-   SAPのSAProuterソフトウェアを使用すると、異なるSAPシステム間、またはSAPシステムと外部ネットワーク間でネットワークトラフィックをプロキシすることができます。SUSE Linux Enterprise Server for SAP ApplicationsはSAProuterを<systemitem class="daemon">systemd</systemitem>に統合できるようになりました。これは、SAProuterがオペレーティングシステムで適切に開始および停止され、<command>systemctl</command>を使用して制御できることを意味します。
+   SAPのSAProuterソフトウェアを使用すると、異なるSAPシステム間、またはSAPシステムと外部ネットワーク間でネットワークトラフィックをプロキシすることができます。SUSE Linux Enterprise Server for SAP applicationsはSAProuterを<systemitem class="daemon">systemd</systemitem>に統合できるようになりました。これは、SAProuterがオペレーティングシステムで適切に開始および停止され、<command>systemctl</command>を使用して制御できることを意味します。
   </para>
   <para>
    この機能を使用するには、その前に、次のものがこの順序でインストールされていることを確認してください。
