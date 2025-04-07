@@ -8,19 +8,19 @@
  </info>
 
  <para>
-  この章では、SUSE Linux Enterprise Server for SAP ApplicationsがSAPアプリケーションと最適に連携できるようにチューニングする方法について説明します。
+  この章では、SUSE Linux Enterprise Server for SAP applicationsがSAPアプリケーションと最適に連携できるようにチューニングする方法について説明します。
  </para>
  <para>
-   SUSE Linux Enterprise Server for SAP Applicationsでは、<command>sapconf</command>と<command>saptune</command>のいずれかを選択できます。ただし、<command>saptune</command>は、より多くの機能を提供する、より精巧なツールです。
+   SUSE Linux Enterprise Server for SAP applicationsでは、<command>sapconf</command>と<command>saptune</command>のいずれかを選択できます。ただし、<command>saptune</command>は、より多くの機能を提供する、より精巧なツールです。
   </para>
 
  <note>
    <title><command>sapconf</command>コマンドは削除されました</title>
    <para>
-    SUSE Linux Enterprise Server、およびSUSE Linux Enterprise Server for SAP Applications 11/12では、<command>sapconf</command>コマンドは同じ名前のパッケージに含まれていました。
+    SUSE Linux Enterprise Server、およびSUSE Linux Enterprise Server for SAP applications 11/12では、<command>sapconf</command>コマンドは同じ名前のパッケージに含まれていました。
   </para>
   <para>
-    SUSE Linux Enterprise ServerおよびSUSE Linux Enterprise Server for SAP Applications 15では、これが変更されました。コマンド<command>sapconf</command>は、
+    SUSE Linux Enterprise ServerおよびSUSE Linux Enterprise Server for SAP applications 15では、これが変更されました。コマンド<command>sapconf</command>は、
     <package>sapconf</package> パッケージから削除されました。このパッケージには、<systemitem class="daemon">systemd</systemitem>サービスのみが含まれています。<literal>sapconf</literal>コマンドラインツール、<literal>sapconf</literal>/<systemitem class="daemon">tuned</systemitem>プロファイル、<systemitem class="daemon">tuned</systemitem>は現在はありません。
    </para>
   </note>
@@ -28,7 +28,7 @@
  <sect1 xml:id="sec-sapconf-4">
   <title><literal>sapconf</literal> 4を使用したシステムのチューニング</title>
   <para>
-   パッケージ<systemitem>sapconf</systemitem>は、SUSE Linux Enterprise ServerおよびSUSE Linux Enterprise Server for SAP Applicationsで使用できます。このパッケージには、<systemitem>tuned</systemitem>プロファイル<literal>sapconf</literal>が含まれています。この単一のチューニングプロファイルは、次のタイプのSAPアプリケーション(SAP NetWeaver、SAP HANA、およびSAP HANAベースのアプリケーション)に推奨されるパラメータを設定します。
+   パッケージ<systemitem>sapconf</systemitem>は、SUSE Linux Enterprise ServerおよびSUSE Linux Enterprise Server for SAP applicationsで使用できます。このパッケージには、<systemitem>tuned</systemitem>プロファイル<literal>sapconf</literal>が含まれています。この単一のチューニングプロファイルは、次のタイプのSAPアプリケーション(SAP NetWeaver、SAP HANA、およびSAP HANAベースのアプリケーション)に推奨されるパラメータを設定します。
   </para>
 
   <variablelist xml:id="vl-tune-sapconf4-overview">
@@ -87,9 +87,9 @@
   </para>
 
   <note>
-   <title>SUSE Linux Enterprise ServerおよびSUSE Linux Enterprise Server for SAP Applications 15 SP2の統合プロファイル</title>
+   <title>SUSE Linux Enterprise ServerおよびSUSE Linux Enterprise Server for SAP applications 15 SP2の統合プロファイル</title>
    <para>
-    SUSE Linux Enterprise ServerおよびSUSE Linux Enterprise Server for SAP Applications 15以降では、単一の<systemitem class="daemon">tuned</systemitem>プロファイル<literal>sapconf</literal>のみが付属しています。これは、それより前のバージョンのSUSE Linux Enterprise Server for SAP Applicationsに付属していたプロファイル<literal>sap-hana</literal>/<literal>sap-netweaver</literal>と同等です。
+    SUSE Linux Enterprise ServerおよびSUSE Linux Enterprise Server for SAP applications 15以降では、単一の<systemitem class="daemon">tuned</systemitem>プロファイル<literal>sapconf</literal>のみが付属しています。これは、それより前のバージョンのSUSE Linux Enterprise Server for SAP applicationsに付属していたプロファイル<literal>sap-hana</literal>/<literal>sap-netweaver</literal>と同等です。
    </para>
   </note>
   <sect2 xml:id="sec-sapconf-4-enable">
@@ -335,7 +335,7 @@
  <sect1 xml:id="sec-sapconf-5">
   <title><literal>sapconf</literal> 5を使用したシステムのチューニング</title>
   <para>
-   パッケージ<systemitem>sapconf</systemitem>は、SUSE Linux Enterprise ServerおよびSUSE Linux Enterprise Server for SAP Applicationsで使用できます。これは、次のタイプのSAPアプリケーション(SAP NetWeaver、SAP HANA、およびSAP HANAベースのアプリケーション)に推奨されるパラメータを設定します
+   パッケージ<systemitem>sapconf</systemitem>は、SUSE Linux Enterprise ServerおよびSUSE Linux Enterprise Server for SAP applicationsで使用できます。これは、次のタイプのSAPアプリケーション(SAP NetWeaver、SAP HANA、およびSAP HANAベースのアプリケーション)に推奨されるパラメータを設定します
   </para>
 
   <variablelist>
@@ -382,9 +382,9 @@
   </para>
 
   <note>
-   <title>SUSE Linux Enterprise ServerおよびSUSE Linux Enterprise Server for SAP Applications 15 SP2にはプロファイルはありません</title>
+   <title>SUSE Linux Enterprise ServerおよびSUSE Linux Enterprise Server for SAP applications 15 SP2にはプロファイルはありません</title>
    <para>
-    SUSE Linux Enterprise ServerおよびSUSE Linux Enterprise Server for SAP Applications 15では、<literal>sapconf</literal>によるプロファイルのサポートは終了しています。
+    SUSE Linux Enterprise ServerおよびSUSE Linux Enterprise Server for SAP applications 15では、<literal>sapconf</literal>によるプロファイルのサポートは終了しています。
    </para>
   </note>
 

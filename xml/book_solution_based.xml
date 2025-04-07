@@ -30,7 +30,7 @@ HINT (toms) 2020-06-05:
         <dm:url>https://bugzilla.suse.com/enter_bug.cgi</dm:url>
         <dm:component>Documentation</dm:component>
         <dm:product
-          >SUSE Linux Enterprise Server for SAP Applications 15 SP2</dm:product>
+          >SUSE Linux Enterprise Server for SAP applications 15 SP2</dm:product>
         <dm:assignee>dmitri.popov@suse.com</dm:assignee>
       </dm:bugtracker>
       <dm:editurl>https://github.com/SUSE/doc-slesforsap/edit/maintenance/15_SP2/xml/</dm:editurl>

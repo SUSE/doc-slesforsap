@@ -8,13 +8,13 @@
  </info>
 
  <para>
-  SUSE製品が異なれば、製品のライフサイクルも異なります。SUSE Linux Enterprise Server for SAP Applicationsの正確なライフサイクル日付を確認するには、<link xlink:href="https://www.suse.com/lifecycle/"/>を参照してください。
+  SUSE製品が異なれば、製品のライフサイクルも異なります。SUSE Linux Enterprise Server for SAP applicationsの正確なライフサイクル日付を確認するには、<link xlink:href="https://www.suse.com/lifecycle/"/>を参照してください。
  </para>
 
  <xi:include href="common_intro_cycle.xml"/>
 
  <sect2>
-  <title>SUSE Linux Enterprise Server for SAP Applicationsのサポートステートメント</title>
+  <title>SUSE Linux Enterprise Server for SAP applicationsのサポートステートメント</title>
   <para>
    サポートを受けるには、SUSEの適切な購読が必要です。利用可能な特定のサポートサービスを確認するには、<link xlink:href="https://www.suse.com/support/"/>にアクセスして製品を選択してください。
   </para>
@@ -48,7 +48,7 @@
    </varlistentry>
   </variablelist>
   <para>
-   契約されているお客様およびパートナーの場合、SUSE Linux Enterprise Server for SAP Applicationsでは、次のものを除くすべてのパッケージに対してL3サポートを提供します。
+   契約されているお客様およびパートナーの場合、SUSE Linux Enterprise Server for SAP applicationsでは、次のものを除くすべてのパッケージに対してL3サポートを提供します。
   </para>
   <itemizedlist>
    <listitem>

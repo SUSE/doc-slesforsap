@@ -8,7 +8,7 @@
  </info>
 
  <para>
-  SUSE Linux Enterprise Server for SAP Applicationsからカスタムオペレーティングシステムイメージを作成する複数の方法があります。推奨される方法は一般的にKIWIを使用する方法で、これはXML設定ファイルを取り込んでから、完全に自動的に実行します。
+  SUSE Linux Enterprise Server for SAP applicationsからカスタムオペレーティングシステムイメージを作成する複数の方法があります。推奨される方法は一般的にKIWIを使用する方法で、これはXML設定ファイルを取り込んでから、完全に自動的に実行します。
  </para>
  <para>
   または、再使用する前に、クリーンアップされる既存のインストールからイメージを作成することもできます。
@@ -21,7 +21,7 @@
    KIWIは、新しい物理マシンまたは仮想マシンに簡単にコピー可能なオペレーティングシステムイメージを作成するツールです。このセクションでは、KIWIを使用したSLES-SAPイメージの作成について説明します。
   </para>
   <para>
-   SUSE Linux Enterprise Server for SAP Applicationsは現在、パッケージ<systemitem>kiwi-template-sap</systemitem>のテンプレートを使用したKIWIによるイメージの作成をサポートしています。ただし、現在の実装では、次のような特定の制限があります。
+   SUSE Linux Enterprise Server for SAP applicationsは現在、パッケージ<systemitem>kiwi-template-sap</systemitem>のテンプレートを使用したKIWIによるイメージの作成をサポートしています。ただし、現在の実装では、次のような特定の制限があります。
   </para>
   <itemizedlist>
    <listitem>
@@ -31,7 +31,7 @@
    </listitem>
    <listitem>
     <para>
-     Open Build Serviceにはすべての必要なパッケージが含まれているわけではないため、<filename>/tmp/SLES4SAP.iso</filename>にあるSUSE Linux Enterprise Server for SAP ApplicationsのISOイメージを指定する必要があります。
+     Open Build Serviceにはすべての必要なパッケージが含まれているわけではないため、<filename>/tmp/SLES4SAP.iso</filename>にあるSUSE Linux Enterprise Server for SAP applicationsのISOイメージを指定する必要があります。
     </para>
    </listitem>
   </itemizedlist>

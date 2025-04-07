@@ -26,13 +26,13 @@
   </para>
 
   <para>
-   このセクションでは、SUSE Linux Enterprise Server for SAP Applicationsオペレーティングシステムのインストールについて説明します。
+   このセクションでは、SUSE Linux Enterprise Server for SAP applicationsオペレーティングシステムのインストールについて説明します。
   </para>
 
   <important>
    <title>Oracleデータベースのインストール</title>
    <para>
-    Oracleデータベースを後でインストールできるようにするには、まずSUSE Linux Enterprise Serverをインストールしてから、インストールをSUSE Linux Enterprise Server for SAP Applicationsに変換します。
+    Oracleデータベースを後でインストールできるようにするには、まずSUSE Linux Enterprise Serverをインストールしてから、インストールをSUSE Linux Enterprise Server for SAP applicationsに変換します。
    </para>
    <para>
     これは、Oracleデータベースのインストーラが特定のファイルが存在するか照会するために必要です。これらのファイルのすべてがSLES-SAPインストールに含まれているわけではありません。
@@ -104,7 +104,7 @@
      SLE 15 SP2では、製品ライン全体に単一のインストールISOを提供します。したがって、このページでインストールする製品を選択する必要があります。
     </para>
     <para>
-     <guimenu>インストールする製品</guimenu>で、<guimenu>SUSE Linux Enterprise Server for SAP Applications 15 SP2</guimenu>を選択します。
+     <guimenu>インストールする製品</guimenu>で、<guimenu>SUSE Linux Enterprise Server for SAP applications 15 SP2</guimenu>を選択します。
     </para>
    </step>
    <step>
@@ -173,7 +173,7 @@
    </step>
    <step>
     <para>
-     システムが正常に登録されたら、YaSTでSUSE Customer CenterからSUSE Linux Enterprise Server for SAP Applicationsで使用可能なモジュールが一覧表示されます。デフォルトでは、最も一般的なケースが選択されています。追加のモジュールを有効にするには、そのエントリを有効にします。
+     システムが正常に登録されたら、YaSTでSUSE Customer CenterからSUSE Linux Enterprise Server for SAP applicationsで使用可能なモジュールが一覧表示されます。デフォルトでは、最も一般的なケースが選択されています。追加のモジュールを有効にするには、そのエントリを有効にします。
     </para>
     <note>
      <title>リリースノート</title>
@@ -186,22 +186,22 @@
     </para>
    </step>
    <step performance="optional">
-    <para><guimenu>アドオン製品</guimenu>ダイアログを使用して、SUSE Customer Centerで提供されていない他のソフトウェアソース(<quote>リポジトリ</quote>)をSUSE Linux Enterprise Server for SAP Applicationsに追加できます。このようなアドオン製品には、ご使用のシステム用のサードパーティの製品や、ドライバまたは追加ソフトウェアなどがあります。
+    <para><guimenu>アドオン製品</guimenu>ダイアログを使用して、SUSE Customer Centerで提供されていない他のソフトウェアソース(<quote>リポジトリ</quote>)をSUSE Linux Enterprise Server for SAP applicationsに追加できます。このようなアドオン製品には、ご使用のシステム用のサードパーティの製品や、ドライバまたは追加ソフトウェアなどがあります。
     </para>
    </step>
    <step>
     <para>
-     <guimenu>システムの役割</guimenu>を選択します。システムの役割は、選択したシナリオに合わせてシステムを調整する事前定義済みのユースケースです。SUSE Linux Enterprise Server for SAP Applicationsの場合、次のいずれかを選択できます。
+     <guimenu>システムの役割</guimenu>を選択します。システムの役割は、選択したシナリオに合わせてシステムを調整する事前定義済みのユースケースです。SUSE Linux Enterprise Server for SAP applicationsの場合、次のいずれかを選択できます。
     </para>
     <itemizedlist>
      <listitem>
       <para>
-       <guimenu>SLES for SAP Applications</guimenu>: デフォルト。ほとんどの場合に推奨されます。このシステムの役割には、次のプロパティが含まれています。
+       <guimenu>SLES for SAP applications</guimenu>: デフォルト。ほとんどの場合に推奨されます。このシステムの役割には、次のプロパティが含まれています。
       </para>
       <itemizedlist>
        <listitem>
         <para>
-         SUSE Linux Enterprise Server for SAP Applicationsのインストールウィザードのサポート。
+         SUSE Linux Enterprise Server for SAP applicationsのインストールウィザードのサポート。
         </para>
        </listitem>
        <listitem>

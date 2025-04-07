@@ -8,7 +8,7 @@
  </info>
 
     <para>
-        SAPアプリケーションを物理メモリに保持することは、パフォーマンスのために不可欠です。SUSE Linux Enterprise Server for SAP Applications 11 SP1以降およびSUSE Linux Enterprise Server for SAP Applications 12では、ページキャッシュ制限により、ページキャッシュの増加によるディスクへのスワップアウトを防止していました。SUSE Linux Enterprise Server for SAP Applications 15では、ページキャッシュ制限がより高度なワークロードメモリ保護に置き換えられました。
+        SAPアプリケーションを物理メモリに保持することは、パフォーマンスのために不可欠です。SUSE Linux Enterprise Server for SAP applications 11 SP1以降およびSUSE Linux Enterprise Server for SAP applications 12では、ページキャッシュ制限により、ページキャッシュの増加によるディスクへのスワップアウトを防止していました。SUSE Linux Enterprise Server for SAP applications 15では、ページキャッシュ制限がより高度なワークロードメモリ保護に置き換えられました。
     </para>
     <para>
         ワークロードメモリ保護は、SAPインスタンスを専用のcgroup (v2)に置き、<varname>memory.low</varname>パラメータによって、物理メモリに保持するメモリ容量をカーネルに伝えます。これにより、ページキャッシュの増加を含む、そのcgroupの外側のあらゆる形態のメモリ負荷に対してこのcgroup内のプロセスが保護されます。ワークロードメモリ保護は、このcgroup内のメモリ負荷に対して保護することはできません。これは、1つのホスト上の「<emphasis>すべての</emphasis>」インスタンスのメモリをカバーします。
@@ -64,7 +64,7 @@
                 <para>App Server (SAP NetWeaver、SAP S/4HANA)や</para>
             </listitem>
             <listitem>
-                <para>SAP HANA 1.0/2.0など1台のホスト上にある1台以上のSAPシステム用Intel 64/AMD64上のSUSE Linux Enterprise Server for SAP Applications 15 SP2でサポートされています。</para>
+                <para>SAP HANA 1.0/2.0など1台のホスト上にある1台以上のSAPシステム用Intel 64/AMD64上のSUSE Linux Enterprise Server for SAP applications 15 SP2でサポートされています。</para>
             </listitem>
         </itemizedlist>
 

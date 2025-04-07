@@ -16,7 +16,7 @@
    SAP HANAの公式ドキュメントでは、いわゆる<emphasis/>「ニアゼロダウンタイムアップグレードプロセス」について説明しています。YaSTモジュールは、このプロセスに基づいており、SUSEクラスタに関連する手順の一部を処理します。すべての手順が自動的に実行できるわけではありません。一部の手順は、SAP HANA管理者が手動で実行する必要があります。YaSTモジュールはプロセス中に通知します。
   </para>
   <para>
-   このYaSTモジュールは <emphasis>SUSE Linux Enterprise Server for SAP Applications 12 SP3</emphasis>
+   このYaSTモジュールは <emphasis>SUSE Linux Enterprise Server for SAP applications 12 SP3</emphasis>
    以降の<package>yast2-sap-ha</package>パッケージで利用可能です。現在、このウィザードは「SAP HANA Scale-up Performance Optimized (SAP HANAスケールアップパフォーマンス最適化)」シナリオに対応するためにのみ準備されています。
   </para>
   <para>アップグレードは次のタスクをカバーします。</para>

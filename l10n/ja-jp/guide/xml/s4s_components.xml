@@ -8,7 +8,7 @@
  </info>
 
  <para>
-  <xref linkend="fig-offering"/>で示されているように、SUSE Linux Enterprise Server for SAP Applicationsは、SUSE Linux Enterprise Serverがベースとなっていますが、SUSE Linux Enterprise High Availability Extension、インストールワークフローなどのいくつかの追加のソフトウェアコンポーネントが含まれています。これらのソフトウェアコンポーネントについては、以降のセクションで簡単に説明します。
+  <xref linkend="fig-offering"/>で示されているように、SUSE Linux Enterprise Server for SAP applicationsは、SUSE Linux Enterprise Serverがベースとなっていますが、SUSE Linux Enterprise High Availability Extension、インストールワークフローなどのいくつかの追加のソフトウェアコンポーネントが含まれています。これらのソフトウェアコンポーネントについては、以降のセクションで簡単に説明します。
  </para>
 
  <sect2 xml:id="sec-component-sles">
@@ -78,7 +78,7 @@
   </itemizedlist>
 
   <para>
-   SUSE Linux Enterprise High Availability Extensionに関する詳細については、『<citetitle>管理ガイド</citetitle>』(<link xlink:href="https://documentation.suse.com/sle-ha-15"/>)、およびSUSE Linux Enterprise Server for SAP Applicationsリソースライブラリのホワイトペーパーおよびベストプラクティスガイド(<link xlink:href="https://www.suse.com/products/sles-for-sap/resource-library/"/>)を参照してください。
+   SUSE Linux Enterprise High Availability Extensionに関する詳細については、『<citetitle>管理ガイド</citetitle>』(<link xlink:href="https://documentation.suse.com/sle-ha-15"/>)、およびSUSE Linux Enterprise Server for SAP applicationsリソースライブラリのホワイトペーパーおよびベストプラクティスガイド(<link xlink:href="https://www.suse.com/products/sles-for-sap/resource-library/"/>)を参照してください。
   </para>
  </sect2>
 
@@ -86,7 +86,7 @@
   <title>簡素化されたSAP HANAシステムレプリケーションのセットアップ</title>
 
   <para>
-   SUSE Linux Enterprise Server for SAP Applicationsは、SUSE Linux Enterprise High Availability Extensionのコンポーネントおよび2つの追加のリソースエージェント(RA)を使用したSAP HANAシステムレプリケーションをサポートしています。また、SUSE Linux Enterprise Server for SAP Applicationsには、クラスタのセットアップを簡素化するYaSTウィザードが付属しています。
+   SUSE Linux Enterprise Server for SAP applicationsは、SUSE Linux Enterprise High Availability Extensionのコンポーネントおよび2つの追加のリソースエージェント(RA)を使用したSAP HANAシステムレプリケーションをサポートしています。また、SUSE Linux Enterprise Server for SAP applicationsには、クラスタのセットアップを簡素化するYaSTウィザードが付属しています。
   </para>
 
   <sect3 xml:id="sec-hana-ra">
@@ -148,7 +148,7 @@
     </listitem>
    </itemizedlist>
    <para>
-    すべてのシナリオで、SUSE Linux Enterprise Server for SAP Applicationsは、シングルテナントとマルチテナント(MDC)両方のSAP HANAデータベースをサポートしています。つまり、複数のSAPアプリケーションにサービスを提供するSAP HANAデータベースを使用できます。
+    すべてのシナリオで、SUSE Linux Enterprise Server for SAP applicationsは、シングルテナントとマルチテナント(MDC)両方のSAP HANAデータベースをサポートしています。つまり、複数のSAPアプリケーションにサービスを提供するSAP HANAデータベースを使用できます。
    </para>
    
   </sect3>
@@ -161,7 +161,7 @@
   <sect3 xml:id="sec-hana-replicate-wizard">
    <title>SAP HANAクラスタを設定するためのYaSTウィザード</title>
    <para>
-    SUSE Linux Enterprise Server for SAP Applicationsには現在、ベストプラクティスに従って、このようなクラスタの初期セットアップを管理するYaSTウィザードが追加で付属しています。ウィザードはパッケージ <package>yast2-sap-haの一部で、</package> <guimenu>HA Setup for SAP Products (SAP製品のHAセットアップ)</guimenu>を介して、YaSTを使用して起動できます。
+    SUSE Linux Enterprise Server for SAP applicationsには現在、ベストプラクティスに従って、このようなクラスタの初期セットアップを管理するYaSTウィザードが追加で付属しています。ウィザードはパッケージ <package>yast2-sap-haの一部で、</package> <guimenu>HA Setup for SAP Products (SAP製品のHAセットアップ)</guimenu>を介して、YaSTを使用して起動できます。
    </para>
    <para>
     詳細については、<xref linkend="cha-cluster"/>を参照してください。
@@ -210,13 +210,13 @@
  <sect2 xml:id="sec-component-hana-secure">
   <title>SAP HANAセキュリティ</title>
   <para>
-   SUSE Linux Enterprise Server for SAP Applicationsには、安全性の高いSAP HANAインストールの設定に役立つ追加の機能が含まれています。
+   SUSE Linux Enterprise Server for SAP applicationsには、安全性の高いSAP HANAインストールの設定に役立つ追加の機能が含まれています。
   </para>
 
   <sect3 xml:id="sec-component-firewall-hana">
    <title>SAP HANAのファイアウォール</title>
    <para>
-    SAP HANAのセキュリティ保護には、多数の追加のファイアウォールルールが必要な場合があります。SAP HANAのファイアウォール設定を簡素化するため、SUSE Linux Enterprise Server for SAP Applicationsには、事前設定済みのルールを提供し、SuSEfirewall2と統合するパッケージ <package>HANA-Firewall</package> が含まれています。
+    SAP HANAのセキュリティ保護には、多数の追加のファイアウォールルールが必要な場合があります。SAP HANAのファイアウォール設定を簡素化するため、SUSE Linux Enterprise Server for SAP applicationsには、事前設定済みのルールを提供し、SuSEfirewall2と統合するパッケージ <package>HANA-Firewall</package> が含まれています。
    </para>
    <para>
     詳細については、<xref linkend="sec-configure-firewall-hana"/>を参照してください。
@@ -226,7 +226,7 @@
   <sect3 xml:id="sec-component-harden">
    <title>SAP HANA用の強化ガイド</title>
    <para>
-    ベースとなっているオペレーティングシステムを強化する方法については、SUSE Linux Enterprise Server for SAP Applicationsリソースライブラリ(<link xlink:href="https://www.suse.com/products/sles-for-sap/resource-library/"/>)を参照してください。そこで、『<citetitle>OS Security Hardening for SAP HANA</citetitle>』というドキュメントを見つけてください。
+    ベースとなっているオペレーティングシステムを強化する方法については、SUSE Linux Enterprise Server for SAP applicationsリソースライブラリ(<link xlink:href="https://www.suse.com/products/sles-for-sap/resource-library/"/>)を参照してください。そこで、『<citetitle>OS Security Hardening for SAP HANA</citetitle>』というドキュメントを見つけてください。
    </para>
    <remark>
     Calling a Guide "software" is a bit of a stretch... But it is not really a
@@ -239,7 +239,7 @@
  <sect2 xml:id="sec-component-manage-operation">
   <title>簡素化された運用管理</title>
   <para>
-    SUSE Linux Enterprise Server for SAP Applicationsは、簡素化された運用管理を可能にするいくつかの機能を組み合わせています。
+    SUSE Linux Enterprise Server for SAP applicationsは、簡素化された運用管理を可能にするいくつかの機能を組み合わせています。
   </para>
 
   <sect3 xml:id="sec-component-sapconf">
@@ -281,7 +281,7 @@
      パッケージがパターンから欠落している可能性がある
     </title>
     <para>
-     ソフトウェアパターンのパッケージの選択は、SUSE Linux Enterprise Server for SAP Applicationsの特定のリリース(サービスパックまたはメジャーバージョン)の開発中に定義されます。このパッケージの選択は、この特定のリリースの有効期間にわたって維持されます。ご使用中のSUSE Linux Enterprise Server for SAP Applicationsのバージョンよりも後でリリースされたSAPアプリケーションで作業する場合、依存関係がパターンから欠落している場合があります。
+     ソフトウェアパターンのパッケージの選択は、SUSE Linux Enterprise Server for SAP applicationsの特定のリリース(サービスパックまたはメジャーバージョン)の開発中に定義されます。このパッケージの選択は、この特定のリリースの有効期間にわたって維持されます。ご使用中のSUSE Linux Enterprise Server for SAP applicationsのバージョンよりも後でリリースされたSAPアプリケーションで作業する場合、依存関係がパターンから欠落している場合があります。
     </para>
     <para>
      SAPアプリケーションの依存関係に関する明確な情報については、SAPが提供するドキュメントを参照してください。

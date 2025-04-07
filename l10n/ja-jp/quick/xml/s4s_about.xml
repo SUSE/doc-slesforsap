@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" xml:base="s4s_about.xml" version="5.0" xml:id="cha-about">
-<title>SUSE Linux Enterprise Server for SAP Applicationsとは</title>
+<title>SUSE Linux Enterprise Server for SAP applicationsとは</title>
 <info>
  <abstract>
   <para>
-   SUSE® Linux Enterprise Server for SAP Applicationsは、SAPユーザの固有のニーズに対応するソフトウェアとサービスのバンドルです。すべてのSAPソフトウェアソリューション用に最適化された唯一のオペレーティングシステムです。
+   SUSE® Linux Enterprise Server for SAP applicationsは、SAPユーザの固有のニーズに対応するソフトウェアとサービスのバンドルです。すべてのSAPソフトウェアソリューション用に最適化された唯一のオペレーティングシステムです。
   </para>
  </abstract>
   <dm:docmanager xmlns:dm="urn:x-suse:ns:docmanager">
@@ -35,11 +35,11 @@
  </itemizedlist>
 
  <para>
-  SUSE Linux Enterprise Server for SAP Applicationsは、以降のセクションで説明される、ソフトウェアコンポーネントとサービスオファリングで構成されます。図<xref linkend="fig-offering" xrefstyle="select:title"/>は、SUSEの他の製品(緑色)でも利用可能なソフトウェアコンポーネントとサービス、およびSUSE Linux Enterprise Server for SAP Applications (青色)でのみ利用可能なソフトウェアコンポーネントとサービスの概要を示しています。
+  SUSE Linux Enterprise Server for SAP applicationsは、以降のセクションで説明される、ソフトウェアコンポーネントとサービスオファリングで構成されます。図<xref linkend="fig-offering" xrefstyle="select:title"/>は、SUSEの他の製品(緑色)でも利用可能なソフトウェアコンポーネントとサービス、およびSUSE Linux Enterprise Server for SAP applications (青色)でのみ利用可能なソフトウェアコンポーネントとサービスの概要を示しています。
  </para>
 
  <figure xml:id="fig-offering">
-  <title>SUSE Linux Enterprise Server for SAP Applicationsのオファリング</title>
+  <title>SUSE Linux Enterprise Server for SAP applicationsのオファリング</title>
   <mediaobject>
    <imageobject role="fo">
     <imagedata fileref="s4s_overview.svg" width="85%"/>

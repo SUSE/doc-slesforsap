@@ -8,7 +8,7 @@
  </info>
 
  <para>
-  SUSE Linux Enterprise Server for SAP Applicationsでは、購読に含まれていないソフトウェアを簡単にインストールできます。
+  SUSE Linux Enterprise Server for SAP applicationsでは、購読に含まれていないソフトウェアを簡単にインストールできます。
  </para>
  <itemizedlist>
   <listitem>
@@ -29,7 +29,7 @@
  </itemizedlist>
 
  <sect1 xml:base="sec-identifying-sap">
-  <title>SUSE Linux Enterprise Server for SAP Applicationsの基本製品の特定</title>
+  <title>SUSE Linux Enterprise Server for SAP applicationsの基本製品の特定</title>
   <para>
    SUSE製品を特定し、区別するには、以下のファイルのいずれかを使用します。
   </para>
@@ -81,7 +81,7 @@
   <screen><prompt>tux &gt; </prompt><command>xmlstarlet</command> sel -T -t -v "/product/cpeid" /etc/products.d/baseproduct
 cpe:/o:suse:sle-module-sap-applications:<replaceable>RELEASE</replaceable>:sp<replaceable>SP_NUMBER</replaceable></screen>
   <para>
-   (<command>grep</command>では難しい)より高度な検索では、他の製品に必要なすべての依存関係を一覧表示します。<filename>basename</filename>が<filename>sle-module-sap-applications.prod</filename>を指していると仮定して、次のコマンドは、SUSE Linux Enterprise Server for SAP Applicationsに必要なすべての製品依存関係を出力します。
+   (<command>grep</command>では難しい)より高度な検索では、他の製品に必要なすべての依存関係を一覧表示します。<filename>basename</filename>が<filename>sle-module-sap-applications.prod</filename>を指していると仮定して、次のコマンドは、SUSE Linux Enterprise Server for SAP applicationsに必要なすべての製品依存関係を出力します。
   </para>
   <screen>&gt;<prompt>tux &gt; </prompt><command>xmlstarlet</command> sel -T -t -v "/product/productdependency[@relationship='requires']/@name" /etc/products.d/baseproduct
 SUSE_SLE
