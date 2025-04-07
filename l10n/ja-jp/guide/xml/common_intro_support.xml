@@ -7,7 +7,7 @@
    <dm:translation>yes</dm:translation>
   </dm:docmanager>
  </info>
- 
+
  <para>
   SUSE製品が異なれば、製品のライフサイクルも異なります。SUSE Linux Enterprise Server for SAP applicationsの正確なライフサイクル日付を確認するには、<link xlink:href="https://www.suse.com/lifecycle/"/>を参照してください。
  </para>
@@ -69,7 +69,7 @@
    </listitem>
    <listitem os="sles">
     <para>
-     モジュール「Workstation Extension」の一部として出荷される一部のパッケージは、L2サポートのみです。<emphasis/>
+     モジュール「Workstation Extension」の一部として出荷される一部のパッケージは、L2サポートのみです。
     </para>
    </listitem>
    <listitem>
@@ -94,12 +94,12 @@
   <itemizedlist>
    <listitem>
     <para>
-     技術プレビューはまだ開発中です。したがって、機能が不完全であったり、不安定であったり、何らかの理由で運用環境での使用には適していなかったり<emphasis/>する場合があります。
+     技術プレビューはまだ開発中です。したがって、機能が不完全であったり、不安定であったり、何らかの理由で運用環境での使用には適していなかったりする場合があります。
     </para>
    </listitem>
    <listitem>
     <para>
-     技術プレビューにはサポートが提供されません<emphasis/>。
+     技術プレビューにはサポートが提供されません。
     </para>
    </listitem>
    <listitem>

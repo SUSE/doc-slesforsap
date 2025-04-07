@@ -4,13 +4,13 @@
    title="Profiling step"?>
 <chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" xml:base="s4s_clamsap.xml" version="5.0" xml:lang="ja" xml:id="cha-clamsap">
  <title>ClamSAPを使用したマルウェアに対する保護</title>
- 
+
  <info>
   <dm:docmanager xmlns:dm="urn:x-suse:ns:docmanager">
    <dm:translation>yes</dm:translation>
   </dm:docmanager>
  </info>
- 
+
   <para>
    ClamSAPは、ClamAVマルウェア対策ツールキットをSAP NetWeaverおよびSAP Mobile Platformアプリケーションに統合します。ClamSAPは、ClamAVとSAP NetWeaver Virus Scan Interface (NW-VSI)の間をリンクする共有ライブラリです。SUSE Linux Enterprise Server for SAP applications 15 SP3に付属しているClamSAPのバージョンは、NW-VSIバージョン2.0をサポートしています。
   </para>
@@ -137,7 +137,7 @@ Active: active (running) since Tue 2017-04-11 10:33:03 UTC; 24h ago
    <step>
     <para>
      SAP NetWeaver GUIで、トランザクション<guimenu>VSCAN</guimenu>をコールします。
-     
+
     </para>
    </step>
    <step>
@@ -263,8 +263,7 @@ Active: active (running) since Tue 2017-04-11 10:33:03 UTC; 24h ago
     <para>
       チェックマークをクリックして、<guimenu>This table is cross-client (このテーブルはクロスクライアントです)</guimenu>というメッセージを確認します。テーブルが編集可能になりました。
     </para>
-    <figure xml:id="fig-clamsap-add-entry">
-     <title/>
+    <informalfigure>
      <mediaobject>
       <imageobject role="html">
        <imagedata fileref="sap-new-scanner-clamsap-add-entries.jpg" width="95%"/>
@@ -273,14 +272,13 @@ Active: active (running) since Tue 2017-04-11 10:33:03 UTC; 24h ago
        <imagedata fileref="sap-new-scanner-clamsap-add-entries.jpg" width="85%"/>
       </imageobject>
      </mediaobject>
-    </figure>
+    </informalfigure>
    </step>
    <step>
     <para>
      <guimenu>New Entries (新しいエントリ)</guimenu>をクリックし、<parameter>INITDRIVERDIRECTORY</parameter>を選択します。
     </para>
-    <figure xml:id="fig-clamsap-add-value">
-     <title/>
+    <informalfigure>
      <mediaobject>
       <imageobject role="html">
        <imagedata fileref="sap-new-scanner-clamsap-add-value.jpg" width="95%"/>
@@ -289,7 +287,7 @@ Active: active (running) since Tue 2017-04-11 10:33:03 UTC; 24h ago
        <imagedata fileref="sap-new-scanner-clamsap-add-value.jpg" width="85%"/>
       </imageobject>
      </mediaobject>
-    </figure>
+    </informalfigure>
    </step>
    <step>
     <para>

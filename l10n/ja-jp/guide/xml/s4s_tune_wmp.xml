@@ -7,7 +7,7 @@
    <dm:translation>yes</dm:translation>
   </dm:docmanager>
  </info>
- 
+
  <para>
   SAPアプリケーションを物理メモリに保持することは、パフォーマンスのために不可欠です。古い製品バージョンでは、ページキャッシュ制限により、ページキャッシュの増加によるディスクへのスワップアウトが防止されていました(SUSE Linux Enterprise Server for SAP applications 11 SP1以降およびSUSELinux Enterprise Server for SAP applications 12)。SUSE Linux Enterprise Server for SAP applications 15では、ページキャッシュ制限がより高度なワークロードメモリ保護に置き換えられました。
  </para>
@@ -140,7 +140,7 @@
        パッケージ<package>sapwmp</package>を削除し、まずSAPソフトウェアをインストールしてから、再度<package>sapwmp</package>をインストールします。
       </para>
       <para>
-       別の方法として、SAPソフトウェアをインストールした「<emphasis/>後で」次のコマンドを使用して、所有権と許可を修正できます。
+       別の方法として、SAPソフトウェアをインストールした「後で」次のコマンドを使用して、所有権と許可を修正できます。
       </para>
 <screen><prompt>tux &gt; </prompt><command>sudo</command> <command>chgrp</command> sapsys /usr/lib/sapwmp/sapwmp-capture &amp;&amp; \
 chmod +s /usr/lib/sapwmp/sapwmp-capture</screen>
@@ -249,7 +249,7 @@ chmod +s /usr/lib/sapwmp/sapwmp-capture</screen>
      <important>
       <title>インスタンスプロファイルの編集</title>
       <para>
-       SAP GUI (トランザクションRZ11)によって管理するためにデータベースにプロファイルをインポートしていない場合「<emphasis role="strong"/>にのみ」インスタンスプロファイルを直接編集します。これらのプロファイルをインポートしている場合は、SAP GUIを使用して、行を追加してください。ファイルシステムにあるプロファイルファイルは上書きされ、手動の変更は失われます。
+       SAP GUI (トランザクションRZ11)によって管理するためにデータベースにプロファイルをインポートしていない場合「にのみ」インスタンスプロファイルを直接編集します。これらのプロファイルをインポートしている場合は、SAP GUIを使用して、行を追加してください。ファイルシステムにあるプロファイルファイルは上書きされ、手動の変更は失われます。
       </para>
      </important>
     </step>
@@ -475,7 +475,7 @@ EOF
 
 # systemctl daemon-reload</screen>
   <para>
-   <emphasis/>(以前の定義されたOnCalendar=設定を削除するには、最初のOnCalendar=行が重要です。)
+   (以前の定義されたOnCalendar=設定を削除するには、最初のOnCalendar=行が重要です。)
   </para>
   <para>
    メモリ消費量を確認するには、システムログで<literal>wmp_memory_current</literal>で書き込まれた行を確認します。
@@ -612,7 +612,7 @@ ha0adm    3327 0::/SAP.slice/wmp-ra42489517eb846c282c57681e627a496.scope    saps
     <important>
      <title>プロファイルの直接編集について</title>
      <para>
-      SAP GUI (トランザクションRZ11)によって管理するためにデータベースにプロファイルをインポートしていない場合「<emphasis role="strong"/>にのみ」インスタンスプロファイルを直接編集します。これらのプロファイルをインポートしている場合は、SAP GUIを使用して、行を追加してください。ファイルシステムにあるプロファイルファイルは上書きされ、手動の変更は失われます。
+      SAP GUI (トランザクションRZ11)によって管理するためにデータベースにプロファイルをインポートしていない場合「にのみ」インスタンスプロファイルを直接編集します。これらのプロファイルをインポートしている場合は、SAP GUIを使用して、行を追加してください。ファイルシステムにあるプロファイルファイルは上書きされ、手動の変更は失われます。
      </para>
     </important>
    </step>

@@ -7,7 +7,7 @@
    <dm:translation>yes</dm:translation>
   </dm:docmanager>
  </info>
- 
+
  <para>
   このセクションでは、SAPから受け取ったSAPメディアセットのインストールについて説明します。
  </para>
@@ -108,7 +108,7 @@
        <para>
         SAP BusinessOne認定ハードウェア上にSAP HANAファイルシステムを作成します。
        </para>
-       
+
        <remark>
         Create a procedure for HANA fs creation? It just does stuff and you
         can't do much anyway. - sknorr, 2016-01-28
@@ -129,7 +129,7 @@
        <para>
         SAPアプリケーションをインストールせず、SUSE Linux Enterprise Server for SAP applicationsのログイン画面に進みます。
        </para>
-       
+
       </listitem>
      </varlistentry>
     </variablelist>
@@ -221,7 +221,7 @@
       <tbody>
        <row>
         <entry namest="option" nameend="format">
-         <emphasis role="strong"/>「ローカルソース」
+         「ローカルソース」
         </entry>
        </row>
        <row>
@@ -243,7 +243,7 @@
        </row>
        <row>
         <entry namest="option" nameend="format">
-         <emphasis role="strong"/>「リムーバブルソース」
+         「リムーバブルソース」
         </entry>
        </row>
        <row>
@@ -295,12 +295,12 @@
          <para>
           <filename><replaceable>//</replaceable></filename>
          </para>
-         
+
         </entry>
        </row>
        <row>
         <entry namest="option" nameend="format">
-         <emphasis role="strong"/>「リモートソース」
+         「リモートソース」
         </entry>
        </row>
        <row>
@@ -318,7 +318,7 @@
          <para>
           <filename><replaceable>server_name</replaceable><replaceable>/path/to/dir/on/device</replaceable></filename>
          </para>
-         
+
         </entry>
        </row>
        <row>
@@ -471,7 +471,7 @@
        <para>
         標準製品に機能を追加するエンジン: SAP TREX、SAP Gateway、およびWeb Dispatcher。
        </para>
-       
+
       </listitem>
      </varlistentry>
      <varlistentry>
@@ -480,7 +480,7 @@
        <para>
         複数のサーバに分散されたSAPアプリケーション。
        </para>
-       
+
       </listitem>
      </varlistentry>
      <varlistentry>
@@ -497,7 +497,7 @@
        <para>
         SAPシステムID、データベースID、インスタンス番号、ホスト名など、さまざまなシステムプロパティを変更できます。これを使用して、同じ製品を異なるシステムに非常に類似した設定でインストールできます。
        </para>
-       
+
       </listitem>
      </varlistentry>
     </variablelist>
@@ -623,7 +623,7 @@ SAP-NetWeaver-740-SR2-Installation-Export-CD-3-3</screen>
     </para>
    </step>
    <step>
-    
+
     <para>
      インストールを続行するか、または別のSAP製品をインストールする準備をするかを尋ねられます。別のSAP製品を準備することを選択する場合は、この手順の初めから開始します。
     </para>
