@@ -146,7 +146,7 @@
        パッケージ<package>sapwmp</package>を削除し、まずSAPソフトウェアをインストールしてから、再度<package>sapwmp</package>をインストールします。
       </para>
       <para>
-       別の方法として、SAPソフトウェアをインストールした「<emphasis/>後で」次のコマンドを使用して、所有権と許可を修正できます。
+       別の方法として、SAPソフトウェアをインストールした「後で」次のコマンドを使用して、所有権と許可を修正できます。
       </para>
 <screen><prompt>&gt; </prompt><command>sudo</command> <command>chgrp</command> sapsys /usr/lib/sapwmp/sapwmp-capture &amp;&amp; \
 chmod +s /usr/lib/sapwmp/sapwmp-capture</screen>
@@ -255,7 +255,7 @@ chmod +s /usr/lib/sapwmp/sapwmp-capture</screen>
      <important>
       <title>インスタンスプロファイルの編集</title>
       <para>
-       SAP GUI (トランザクションRZ11)によって管理するためにデータベースにプロファイルをインポートしていない場合「<emphasis role="strong"/>にのみ」インスタンスプロファイルを直接編集します。これらのプロファイルをインポートしている場合は、SAP GUIを使用して、行を追加してください。ファイルシステムにあるプロファイルファイルは上書きされ、手動の変更は失われます。
+       SAP GUI (トランザクションRZ11)によって管理するためにデータベースにプロファイルをインポートしていない場合「にのみ」インスタンスプロファイルを直接編集します。これらのプロファイルをインポートしている場合は、SAP GUIを使用して、行を追加してください。ファイルシステムにあるプロファイルファイルは上書きされ、手動の変更は失われます。
       </para>
      </important>
     </step>
@@ -498,7 +498,7 @@ EOF
 # systemctl daemon-reload</screen>
 
   <para>
-   <emphasis/>(以前の定義されたOnCalendar=設定を削除するには、最初のOnCalendar=行が重要です。)
+   (以前の定義されたOnCalendar=設定を削除するには、最初のOnCalendar=行が重要です。)
   </para>
 
   <para>
@@ -652,7 +652,7 @@ ha0adm    3327 0::/SAP.slice/wmp-ra42489517eb846c282c57681e627a496.scope    saps
     <important>
      <title>プロファイルの直接編集について</title>
      <para>
-      SAP GUI (トランザクションRZ11)によって管理するためにデータベースにプロファイルをインポートしていない場合「<emphasis role="strong"/>にのみ」インスタンスプロファイルを直接編集します。これらのプロファイルをインポートしている場合は、SAP GUIを使用して、行を追加してください。ファイルシステムにあるプロファイルファイルは上書きされ、手動の変更は失われます。
+      SAP GUI (トランザクションRZ11)によって管理するためにデータベースにプロファイルをインポートしていない場合「にのみ」インスタンスプロファイルを直接編集します。これらのプロファイルをインポートしている場合は、SAP GUIを使用して、行を追加してください。ファイルシステムにあるプロファイルファイルは上書きされ、手動の変更は失われます。
      </para>
     </important>
    </step>
@@ -697,17 +697,17 @@ ha0adm    3327 0::/SAP.slice/wmp-ra42489517eb846c282c57681e627a496.scope    saps
 <screen><prompt>&gt; </prompt> systemd-cgls
 Control group /:
 -.slice
-├─SAP.slice 
-│ ├─SAPNW1_01.service 
+├─SAP.slice
+│ ├─SAPNW1_01.service
 │ │ ├─ 887 /usr/sap/NW1/ASCS01/exe/sapstartsrv pf=/usr/sap/NW1/SYS/profile/NW1_ASCS01_systemdproj
 │ │ ├─2838 sapstart pf=/usr/sap/NW1/SYS/profile/NW1_ASCS01_systemdproj
 │ │ ├─2895 ms.sapNW1_ASCS01 pf=/usr/sap/NW1/SYS/profile/NW1_ASCS01_systemdproj
 │ │ └─2896 en.sapNW1_ASCS01 pf=/usr/sap/NW1/SYS/profile/NW1_ASCS01_systemdproj
-│ ├─saphostagent.service 
+│ ├─saphostagent.service
 │ │ ├─ 900 /usr/sap/hostctrl/exe/saphostexec pf=/usr/sap/hostctrl/exe/host_profile -nodaemon -trace
 │ │ ├─ 984 /usr/sap/hostctrl/exe/sapstartsrv pf=/usr/sap/hostctrl/exe/host_profile
 │ │ └─2428 /usr/sap/hostctrl/exe/saposcol -l -w60 pf=/usr/sap/hostctrl/exe/host_profile
-│ └─wmp-rece5b7fa372e4619a9623e120aa23a23.scope 
+│ └─wmp-rece5b7fa372e4619a9623e120aa23a23.scope
 │   ├─5522 sapstart pf=/usr/sap/NW1/SYS/profile/NW1_D00_systemdproj
 │   ├─7824 dw.sapNW1_D00 pf=/usr/sap/NW1/SYS/profile/NW1_D00_systemdproj
 │   ├─7825 ig.sapNW1_D00 -mode=profile pf=/usr/sap/NW1/SYS/profile/NW1_D00_systemdproj
@@ -716,13 +716,13 @@ Control group /:
 <prompt>&gt; </prompt> systemctl show -p MemoryLow SAP.slice
 MemoryLow=24584065024
 
-<prompt>&gt; </prompt> systemctl show -p MemoryLow wmp-rece5b7fa372e4619a9623e120aa23a23.scope 
+<prompt>&gt; </prompt> systemctl show -p MemoryLow wmp-rece5b7fa372e4619a9623e120aa23a23.scope
 MemoryLow=infinity
 
-<prompt>&gt; </prompt> systemctl show -p MemoryLow SAPNW1_01.service 
+<prompt>&gt; </prompt> systemctl show -p MemoryLow SAPNW1_01.service
 MemoryLow=infinity
 
-<prompt>&gt; </prompt> systemctl show -p MemoryLow saphostagent.service 
+<prompt>&gt; </prompt> systemctl show -p MemoryLow saphostagent.service
 MemoryLow=infinity</screen>
 
   <para>
@@ -789,18 +789,18 @@ MemoryLow=infinity</screen>
 <screen><prompt>&gt; </prompt> systemd-cgls
 Control group /:
 -.slice
-├─SAP.slice 
-│ ├─SAPNW1_00.service 
+├─SAP.slice
+│ ├─SAPNW1_00.service
 │ │ ├─5522 sapstart pf=/usr/sap/NW1/SYS/profile/NW1_D00_systemdproj
 │ │ ├─7824 dw.sapNW1_D00 pf=/usr/sap/NW1/SYS/profile/NW1_D00_systemdproj
 │ │ ├─7825 ig.sapNW1_D00 -mode=profile pf=/usr/sap/NW1/SYS/profile/NW1_D00_systemdproj
 ...
-│ ├─SAPNW1_01.service 
+│ ├─SAPNW1_01.service
 │ │ ├─ 887 /usr/sap/NW1/ASCS01/exe/sapstartsrv pf=/usr/sap/NW1/SYS/profile/NW1_ASCS01_systemdproj
 │ │ ├─2838 sapstart pf=/usr/sap/NW1/SYS/profile/NW1_ASCS01_systemdproj
 │ │ ├─2895 ms.sapNW1_ASCS01 pf=/usr/sap/NW1/SYS/profile/NW1_ASCS01_systemdproj
 │ │ └─2896 en.sapNW1_ASCS01 pf=/usr/sap/NW1/SYS/profile/NW1_ASCS01_systemdproj
-│ └─saphostagent.service 
+│ └─saphostagent.service
 │   ├─ 900 /usr/sap/hostctrl/exe/saphostexec pf=/usr/sap/hostctrl/exe/host_profile -nodaemon -trace
 │   ├─ 984 /usr/sap/hostctrl/exe/sapstartsrv pf=/usr/sap/hostctrl/exe/host_profile
 │   └─2428 /usr/sap/hostctrl/exe/saposcol -l -w60 pf=/usr/sap/hostctrl/exe/host_profile
@@ -809,13 +809,13 @@ Control group /:
 <prompt>&gt; </prompt> systemctl show -p MemoryLow SAP.slice
 MemoryLow=24584065024
 
-<prompt>&gt; </prompt> systemctl show -p MemoryLow wmp-rece5b7fa372e4619a9623e120aa23a23.scope 
+<prompt>&gt; </prompt> systemctl show -p MemoryLow wmp-rece5b7fa372e4619a9623e120aa23a23.scope
 MemoryLow=infinity
 
-<prompt>&gt; </prompt> systemctl show -p MemoryLow SAPNW1_01.service 
+<prompt>&gt; </prompt> systemctl show -p MemoryLow SAPNW1_01.service
 MemoryLow=infinity
 
-<prompt>&gt; </prompt> systemctl show -p MemoryLow saphostagent.service 
+<prompt>&gt; </prompt> systemctl show -p MemoryLow saphostagent.service
 MemoryLow=infinity</screen>
  </sect1>
 </chapter>
