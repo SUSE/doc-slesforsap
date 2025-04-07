@@ -26,13 +26,13 @@
   </para>
 
   <para>
-   このセクションでは、SUSE Linux Enterprise Server for SAP Applicationsオペレーティングシステムのインストールについて説明します。
+   このセクションでは、SUSE Linux Enterprise Server for SAP applicationsオペレーティングシステムのインストールについて説明します。
   </para>
 
   <important>
    <title>Oracleデータベースのインストール</title>
    <para>
-    Oracleデータベースを後でインストールできるようにするには、まずSUSE Linux Enterprise Serverをインストールしてから、インストールをSUSE Linux Enterprise Server for SAP Applicationsに変換します。
+    Oracleデータベースを後でインストールできるようにするには、まずSUSE Linux Enterprise Serverをインストールしてから、インストールをSUSE Linux Enterprise Server for SAP applicationsに変換します。
    </para>
    <para>
     これは、Oracleデータベースのインストーラで、特定のファイルが存在するかを照会するために必要です。これらのファイルのすべてがSLES-SAPインストールに含まれているわけではありません。
@@ -106,7 +106,7 @@
      SLE 15 SP3では、製品ライン全体に単一のインストールISOを提供します。したがって、このページでインストールする製品を選択する必要があります。
     </para>
     <para>
-     <guimenu>インストールする製品</guimenu>で、<guimenu>SUSE Linux Enterprise Server for SAP Applications 15 SP3</guimenu>を選択します。
+     <guimenu>インストールする製品</guimenu>で、<guimenu>SUSE Linux Enterprise Server for SAP applications 15 SP3</guimenu>を選択します。
     </para>
    </step>
    <step>
@@ -175,7 +175,7 @@
    </step>
    <step>
     <para>
-     システムが正常に登録されたら、YaSTでSUSE Customer CenterからSUSE Linux Enterprise Server for SAP Applicationsで使用可能なモジュールが一覧表示されます。デフォルトでは、最も一般的なケースが選択されています。追加のモジュールを有効にするには、そのエントリを有効にします。
+     システムが正常に登録されたら、YaSTでSUSE Customer CenterからSUSE Linux Enterprise Server for SAP applicationsで使用可能なモジュールが一覧表示されます。デフォルトでは、最も一般的なケースが選択されています。追加のモジュールを有効にするには、そのエントリを有効にします。
     </para>
     <note>
      <title>リリースノート</title>
@@ -188,12 +188,12 @@
     </para>
    </step>
    <step performance="optional">
-    <para><guimenu>アドオン製品</guimenu>ダイアログを使用して、SUSE Customer Centerで提供されていない他のソフトウェアソース(<quote>リポジトリ</quote>)をSUSE Linux Enterprise Server for SAP Applicationsに追加できます。このようなアドオン製品には、ご使用のシステム用のサードパーティの製品や、ドライバまたは追加ソフトウェアなどがあります。
+    <para><guimenu>アドオン製品</guimenu>ダイアログを使用して、SUSE Customer Centerで提供されていない他のソフトウェアソース(<quote>リポジトリ</quote>)をSUSE Linux Enterprise Server for SAP applicationsに追加できます。このようなアドオン製品には、ご使用のシステム用のサードパーティの製品や、ドライバまたは追加ソフトウェアなどがあります。
     </para>
    </step>
    <step>
     <para>
-     <guimenu>システムの役割</guimenu>を選択します。システムの役割は、選択したシナリオに合わせてシステムを調整する事前定義済みの使用例です。SUSE Linux Enterprise Server for SAP Applicationsの場合、次のいずれかを選択できます。
+     <guimenu>システムの役割</guimenu>を選択します。システムの役割は、選択したシナリオに合わせてシステムを調整する事前定義済みの使用例です。SUSE Linux Enterprise Server for SAP applicationsの場合、次のいずれかを選択できます。
     </para>
     <itemizedlist>
      <listitem>
@@ -203,7 +203,7 @@
       <itemizedlist>
        <listitem>
         <para>
-         SUSE Linux Enterprise Server for SAP Applicationsのインストールウィザードのサポート。
+         SUSE Linux Enterprise Server for SAP applicationsのインストールウィザードのサポート。
         </para>
        </listitem>
        <listitem>
@@ -294,7 +294,7 @@
         <citetitle>『導入ガイド』の<quote>高度なディスクセットアップ</quote>の章のセクション、<quote>YaSTパーティショナの使用</quote></citetitle>(<link xlink:href="https://documentation.suse.com/sles-15"/>)で説明されている<guimenu>エキスパートパーティショナ</guimenu>を開きます。
        </para>
        <para>
-        SUSE Linux Enterprise Server for SAP Applicationsに固有のパーティショニングアドバイスについては、<xref linkend="sec-partition"/>を参照してください。
+        SUSE Linux Enterprise Server for SAP applicationsに固有のパーティショニングアドバイスについては、<xref linkend="sec-partition"/>を参照してください。
        </para>
       </listitem>
      </varlistentry>
@@ -422,7 +422,7 @@
   <procedure>
    <step>
     <para>
-     SUSE Linux Enterprise Server for SAP ApplicationsインストールメディアのコンテンツをWebサーバ(例: <literal>example.com</literal>)のディレクトリ<filename>/srv/www/htdocs/sap_repo</filename>にコピーします。
+     SUSE Linux Enterprise Server for SAP applicationsインストールメディアのコンテンツをWebサーバ(例: <literal>example.com</literal>)のディレクトリ<filename>/srv/www/htdocs/sap_repo</filename>にコピーします。
     </para>
    </step>
    <step>
@@ -502,7 +502,7 @@
      求められたら、登録キーを入力し、<keycap function="enter"/>を押します。
     </para>
     <para>
-     スクリプトが完了するまで待ちます。その後、SUSE Linux Enterprise Server for SAP Applicationsソフトウェアリポジトリに登録され、<package>SLES_SAP-release</package>を優先して、パッケージ<package>SLES-release</package>は削除されます。
+     スクリプトが完了するまで待ちます。その後、SUSE Linux Enterprise Server for SAP applicationsソフトウェアリポジトリに登録され、<package>SLES_SAP-release</package>を優先して、パッケージ<package>SLES-release</package>は削除されます。
     </para>
    </step>
   </procedure>

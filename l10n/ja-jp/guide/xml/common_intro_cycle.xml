@@ -12,13 +12,13 @@
    </term>
    <listitem>
     <para>
-     SUSE Linux Enterprise Server for SAP Applicationsの購読には、ESPOSが含まれています。これにより、2つの連続するサービスパックのサポート期間の重複期間が3年延長されます。この期間中、Long Term Service Pack Support (LTSS)の条件に基づいてサポートとすべての関連する保守の更新を受けることができます。この機能は、SUSE Linux Enterprise Server for SAP Applicationsでのみ使用可能です。
+     SUSE Linux Enterprise Server for SAP applicationsの購読には、ESPOSが含まれています。これにより、2つの連続するサービスパックのサポート期間の重複期間が3年延長されます。この期間中、Long Term Service Pack Support (LTSS)の条件に基づいてサポートとすべての関連する保守の更新を受けることができます。この機能は、SUSE Linux Enterprise Server for SAP applicationsでのみ使用可能です。
     </para>
     <para>
      ESPOSを使用すると、わずか6カ月ではなく3年半以内にサービスパックのマイグレーションを実行できます。これにより、マイグレーションをより簡単にスケジュールし、制限の少ない時間制約下でマイグレーション前にテストを実行できます。
     </para>
     <para>
-     追加コストで、SUSEではLTSSも提供します。LTSSでは、ESPOS期間の終了後に特定のサービスパックのサポートを受けることができます。SUSE Linux Enterprise Server for SAP Applicationsにはサービスパックごとに1年半の一般的なサポートと3年のESPOSが含まれるため、LTSSは最後のサービスパックにのみ提供される場合があります。SUSE製品のライフサイクルの詳細については、以下を参照してください。
+     追加コストで、SUSEではLTSSも提供します。LTSSでは、ESPOS期間の終了後に特定のサービスパックのサポートを受けることができます。SUSE Linux Enterprise Server for SAP applicationsにはサービスパックごとに1年半の一般的なサポートと3年のESPOSが含まれるため、LTSSは最後のサービスパックにのみ提供される場合があります。SUSE製品のライフサイクルの詳細については、以下を参照してください。
     </para>
     <itemizedlist>
      <listitem>
@@ -35,14 +35,14 @@
    </listitem>
   </varlistentry>
   <varlistentry>
-   <term>「<emphasis>SUSE Linux Enterprise Server Priority Support for SAP Applications</emphasis>」
+   <term>「<emphasis>SUSE Linux Enterprise Server Priority Support for SAP applications</emphasis>」
    </term>
    <listitem>
     <para>
-     SUSE Linux Enterprise Server for SAP Applicationsの購読には、SUSE Linux Enterprise Server Priority Support for SAP Applicationsが含まれ、SAPから直接SUSE Linux Enterprise Server for SAP Applicationsのテクニカルサポートが提供されます。SUSEテクニカルサポートとSAPのサポートエンジニアが提供する共同サポートインフラストラクチャは、SAP Resolveに基づいており、SAPとSUSEの両方とのシームレスな通信を提供します。この<quote>One Face to the Customer</quote>サポートモデルは、複雑さを軽減し、総所有コストを削減します。
+     SUSE Linux Enterprise Server for SAP applicationsの購読には、SUSE Linux Enterprise Server Priority Support for SAP applicationsが含まれ、SAPから直接SUSE Linux Enterprise Server for SAP applicationsのテクニカルサポートが提供されます。SUSEテクニカルサポートとSAPのサポートエンジニアが提供する共同サポートインフラストラクチャは、SAP Resolveに基づいており、SAPとSUSEの両方とのシームレスな通信を提供します。この<quote>One Face to the Customer</quote>サポートモデルは、複雑さを軽減し、総所有コストを削減します。
     </para>
     <para>
-     詳細については、『<citetitle>SAP Note 1056161: SUSE Priority Support for SAP Applications</citetitle>』(<link xlink:href="https://launchpad.support.sap.com/#/notes/1056161"/>)を参照してください。
+     詳細については、『<citetitle>SAP Note 1056161: SUSE Priority Support for SAP applications</citetitle>』(<link xlink:href="https://launchpad.support.sap.com/#/notes/1056161"/>)を参照してください。
     </para>
    </listitem>
   </varlistentry>
@@ -70,7 +70,7 @@
       <formalpara>
        <title>サポート</title>
        <para>
-        最新のパッケージのみがサポートされます。サポートはSUSE Linux Enterprise Server for SAP Applicationsの購読に含まれています。追加の登録キーは必要ありません。
+        最新のパッケージのみがサポートされます。サポートはSUSE Linux Enterprise Server for SAP applicationsの購読に含まれています。追加の登録キーは必要ありません。
        </para>
       </formalpara>
      </listitem>
@@ -85,7 +85,7 @@
       <formalpara>
        <title>ライフサイクル</title>
        <para>
-        SUSE Linux Enterprise Server for SAP Applicationsとともに通常リリースが調整されます。
+        SUSE Linux Enterprise Server for SAP applicationsとともに通常リリースが調整されます。
        </para>
       </formalpara>
      </listitem>
@@ -93,7 +93,7 @@
       <formalpara>
        <title>サポート</title>
        <para>
-        サポートは利用できますが、SUSE Linux Enterprise Server for SAP Applicationsの購読に含まれていません。追加の登録キーが必要です。
+        サポートは利用できますが、SUSE Linux Enterprise Server for SAP applicationsの購読に含まれていません。追加の登録キーが必要です。
        </para>
       </formalpara>
      </listitem>
@@ -108,7 +108,7 @@
       <formalpara>
        <title>ライフサイクル</title>
        <para>
-        SUSE Linux Enterprise Server for SAP Applicationsとともに通常リリースが調整されます。
+        SUSE Linux Enterprise Server for SAP applicationsとともに通常リリースが調整されます。
        </para>
       </formalpara>
      </listitem>

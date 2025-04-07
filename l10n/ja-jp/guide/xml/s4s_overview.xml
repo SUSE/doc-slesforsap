@@ -9,11 +9,11 @@
  </info>
  
  <para>
-  SUSE® Linux Enterprise Server for SAP Applicationsは、SAPのソフトウェア開発のための参照プラットフォームです。SAPアプリケーション用に最適化されています。<phrase condition="noquick">このドキュメントでは、SUSE Linux Enterprise Server for SAP Applicationsのインストールとカスタマイズについて詳細に説明します。</phrase>
+  SUSE® Linux Enterprise Server for SAP applicationsは、SAPのソフトウェア開発のための参照プラットフォームです。SAPアプリケーション用に最適化されています。<phrase condition="noquick">このドキュメントでは、SUSE Linux Enterprise Server for SAP applicationsのインストールとカスタマイズについて詳細に説明します。</phrase>
   
  </para>
  <para>
-  SUSE Linux Enterprise High Availability Extensionは、SUSE Linux Enterprise Server for SAP Applicationsの一部でもあります。
+  SUSE Linux Enterprise High Availability Extensionは、SUSE Linux Enterprise Server for SAP applicationsの一部でもあります。
  </para>
 
  <xi:include href="common_intro_available_doc.xml"/>

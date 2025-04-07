@@ -12,7 +12,7 @@
  </info>
  
   <para>
-   ClamSAPは、ClamAVマルウェア対策ツールキットをSAP NetWeaverおよびSAP Mobile Platformアプリケーションに統合します。ClamSAPは、ClamAVとSAP NetWeaver Virus Scan Interface (NW-VSI)の間をリンクする共有ライブラリです。SUSE Linux Enterprise Server for SAP Applications 15 SP3に付属しているClamSAPのバージョンは、NW-VSIバージョン2.0をサポートしています。
+   ClamSAPは、ClamAVマルウェア対策ツールキットをSAP NetWeaverおよびSAP Mobile Platformアプリケーションに統合します。ClamSAPは、ClamAVとSAP NetWeaver Virus Scan Interface (NW-VSI)の間をリンクする共有ライブラリです。SUSE Linux Enterprise Server for SAP applications 15 SP3に付属しているClamSAPのバージョンは、NW-VSIバージョン2.0をサポートしています。
   </para>
  <sect1 xml:id="sec-clamsap-install">
   <title>ClamSAPのインストール</title>

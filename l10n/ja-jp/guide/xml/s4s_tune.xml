@@ -9,7 +9,7 @@
  </info>
  
  <para>
-  この章では、SUSE Linux Enterprise Server for SAP ApplicationsがSAPアプリケーションと最適に連携できるようにチューニングする方法について説明します。
+  この章では、SUSE Linux Enterprise Server for SAP applicationsがSAPアプリケーションと最適に連携できるようにチューニングする方法について説明します。
  </para>
  <sect1 xml:id="sec-saptune">
   <title><command>saptune</command>を使用したシステムのチューニング</title>

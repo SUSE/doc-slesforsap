@@ -5,7 +5,7 @@
 <book xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" xml:base="MAIN-SLES4SAP-guide.xml" version="5.0" xml:lang="ja" xml:id="book-s4s" xmlns:its="http://www.w3.org/2005/11/its">
  <title><phrase condition="quick">インストールクイックスタート</phrase></title>
  <info>
-  <productname>SUSE Linux Enterprise Server for SAP Applications</productname>
+  <productname>SUSE Linux Enterprise Server for SAP applications</productname>
   <productname role="abbrev">SLES-SAP</productname>
   <productnumber>15 SP3</productnumber>
   <date><?dbtimestamp format="Y"?>
@@ -17,13 +17,13 @@
     <dm:bugtracker>
       <dm:url>https://bugzilla.suse.com/enter_bug.cgi</dm:url>
       <dm:component>Documentation</dm:component>
-      <dm:product>SUSE Linux Enterprise Server for SAP Applications 15 SP3</dm:product>
+      <dm:product>SUSE Linux Enterprise Server for SAP applications 15 SP3</dm:product>
       <dm:assignee>thomas.schraitle@suse.com</dm:assignee>
     </dm:bugtracker>
     <dm:translation>yes</dm:translation>
   </dm:docmanager>
   <meta name="title" condition="quick" its:translate="yes">インストールクイックスタート</meta>
-  <meta name="description" condition="quick" its:translate="yes">SUSE Linux Enterprise Server for SAP Applicationsをインストールする方法</meta>
+  <meta name="description" condition="quick" its:translate="yes">SUSE Linux Enterprise Server for SAP applicationsをインストールする方法</meta>
   <meta name="social-descr" condition="quick" its:translate="yes">SLES for SAPのインストール</meta>
   <meta name="task" its:translate="no" condition="quick">
     <phrase>Installation</phrase>
@@ -35,7 +35,7 @@
       <date>2021-06-22</date>
       <revdescription>
         <para>
-          SUSE Linux Enterprise Server for SAP Applications 15 SP3の初期リリース用に更新されました。
+          SUSE Linux Enterprise Server for SAP applications 15 SP3の初期リリース用に更新されました。
         </para>
       </revdescription>
     </revision>
