@@ -14,7 +14,7 @@
  <para>
   このマニュアルには、システムまたはオンラインで利用できる追加のドキュメントリソースへのリンクが含まれています。
  </para>
- 
+
  <variablelist>
   <varlistentry>
    <term>オンラインマニュアル</term>
@@ -31,7 +31,7 @@
      </para>
     </note>
    </listitem>
-   
+
   </varlistentry>
   <varlistentry>
    <term>リリースノート</term>
@@ -45,7 +45,7 @@
    <term>オフラインマニュアル</term>
    <listitem>
     <para>
-     オフラインで利用するには、システムの<filename>/usr/share/doc</filename>にインストールされたマニュアルを確認してください。多くのコマンドは、付属の「マニュアルページ」に記載されています。<emphasis></emphasis>説明を表示するには<command>man</command>コマンドに確認したいコマンドの名前を付加して実行してください。システムに<command>man</command>コマンドがインストールされていない場合は、<command>sudo zypper install man</command>コマンドでインストールします。
+     オフラインで利用するには、システムの<filename>/usr/share/doc</filename>にインストールされたマニュアルを確認してください。多くのコマンドは、付属の「マニュアルページ」に記載されています。説明を表示するには<command>man</command>コマンドに確認したいコマンドの名前を付加して実行してください。システムに<command>man</command>コマンドがインストールされていない場合は、<command>sudo zypper install man</command>コマンドでインストールします。
     </para>
    </listitem>
   </varlistentry>

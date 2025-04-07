@@ -164,7 +164,7 @@
      <itemizedlist>
       <listitem>
        <para>
-        1台のホスト上のすべてのSAPインスタンスは、<systemitem>SAP.slice</systemitem>内に存在します。<varname>MemoryLow</varname>は、そのホスト上の「すべての」インスタンスのメモリ容量をカバーする必要があります。<emphasis></emphasis>SAPシステムまたはそのインスタンスを相互に保護することはできません。
+        1台のホスト上のすべてのSAPインスタンスは、<systemitem>SAP.slice</systemitem>内に存在します。<varname>MemoryLow</varname>は、そのホスト上の「すべての」インスタンスのメモリ容量をカバーする必要があります。SAPシステムまたはそのインスタンスを相互に保護することはできません。
        </para>
       </listitem>
       <listitem>
