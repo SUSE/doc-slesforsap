@@ -70,7 +70,7 @@
      <para>
       SAP HANA TDIストレージ要件の詳細については、以下を参照してください。
      </para>
-     
+
      <para>
       <link xlink:href="https://www.sap.com/docs/download/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.pdf"/>
      </para>
@@ -124,11 +124,11 @@
  <sect1 xml:id="sec-migration">
   <title>オフラインマイグレーション</title>
   <para>
-   SUSE Linux Enterprise Serverのマイグレーションパスは、SUSE Linux Enterprise Server for SAP applicationsのマイグレーションパスと同じです。詳細については、<link xlink:href="https://documentation.suse.com/sles/html/SLES-all/cha-upgrade-paths.html"/>にある<emphasis/>『アップグレードガイド』を参照してください。
+   SUSE Linux Enterprise Serverのマイグレーションパスは、SUSE Linux Enterprise Server for SAP applicationsのマイグレーションパスと同じです。詳細については、<link xlink:href="https://documentation.suse.com/sles/html/SLES-all/cha-upgrade-paths.html"/>にある『アップグレードガイド』を参照してください。
   </para>
  </sect1>
 
- 
+
 
  <sect1 xml:id="sec-workflow-overview">
   <title>インストールワークフローの概要</title>

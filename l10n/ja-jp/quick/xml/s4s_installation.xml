@@ -19,7 +19,7 @@
   </para>
   <para>
    このセクションでは、ローカルメディアからインストールを開始することを前提としています。
-   
+
   </para>
   <para>
    詳細については、<xref linkend="sec-workflow-overview"/>を参照してください。
@@ -37,7 +37,7 @@
    <para>
     これは、Oracleデータベースのインストーラが特定のファイルが存在するか照会するために必要です。これらのファイルのすべてがSLES-SAPインストールに含まれているわけではありません。
    </para>
-   
+
   </important>
 
   <procedure xml:id="pro-workflow-start">
@@ -47,8 +47,8 @@
      <listitem>
       <para>
        Intel 64/AMD64では、インストールメディアからブートします。ブートメニューから<guimenu>インストール</guimenu>を選択します。
-       
-       
+
+
       </para>
      </listitem>
      <listitem>
@@ -75,8 +75,8 @@
     </para>
    </step>
 
-   
-   
+
+
 
    <step>
     <para>
@@ -206,7 +206,7 @@
        </listitem>
        <listitem>
         <para>
-         RDPアクセス(「リモートデスクトッププロトコル」<emphasis/>)の有効化。
+         RDPアクセス(「リモートデスクトッププロトコル」の有効化。
         </para>
        </listitem>
        <listitem>
@@ -214,7 +214,7 @@
          特別なパーティショニング推奨事項の提供。
         </para>
        </listitem>
-       
+
       </itemizedlist>
      </listitem>
      <listitem>
@@ -245,7 +245,7 @@
    </step>
   </procedure>
 
-  
+
 
   <procedure xml:id="pro-workflow-finish">
    <title>OSインストールの完了</title>
@@ -263,7 +263,7 @@
       <para>
        このマシンへのRDPアクセス(リモートデスクトッププロトコル)を有効にするには、<guimenu>リモートデスクトッププロトコル (RDP) サービスを有効にし、ファイアウオールでポートを開く</guimenu>を有効にします。
       </para>
-      
+
      </listitem>
     </itemizedlist>
    </step>
@@ -271,8 +271,8 @@
     <para>
      ボリューム<literal>/dev/system/root</literal>と<literal>/dev/system/swap</literal>に対して提案されるパーティション設定を確認します。ボリューム<literal>/dev/system/data</literal>は<xref linkend="sec-partition"/>で説明されているように、後で作成されます。
     </para>
-    
-    
+
+
     <para>
      提案される設定を変更せずに受け入れるには、<guimenu>次へ</guimenu>で続行します。
     </para>
@@ -301,7 +301,7 @@
      システム管理者アカウント(<systemitem>root</systemitem>と呼ばれる)のパスワードを入力し、<guimenu>パスワードの確認</guimenu>でパスワードを繰り返します。<guimenu>キーボードレイアウトのテスト</guimenu>テキストボックスを使用して、すべての特殊文字が正しく表示されているか確認できます。
     </para>
     <para>
-     
+
      SSHログインを介してパスワードなし認証を有効にする場合は、<guimenu>SSH公開鍵の取り込み</guimenu>を介して鍵をインポートできます。パスワードを介して<systemitem class="username">root</systemitem>ログインを完全に無効にする場合は、鍵のみをアップロードし、rootパスワードは指定しないでください。この場合、システム管理者としてのログインは、それぞれの鍵を使用したSSH経由でのみ可能です。
     </para>
     <para>
@@ -321,7 +321,7 @@
     <para>
      <guimenu>インストールの設定</guimenu>画面で、いくつかの提案されるインストール設定を確認し、必要に応じて変更できます。各設定は現在の設定とともに表示されます。設定の一部を変更するには、適切なヘッドライン、他の下線付きアイテムをクリックします。
     </para>
-    
+
 
     <figure xml:id="fig-install-overview">
      <title>インストールの設定</title>
@@ -339,7 +339,7 @@
     <para>
      必要なシステム設定を完了したら、<guimenu>インストール</guimenu>をクリックします。
     </para>
-    
+
     <warning>
      <title>データの削除</title>
      <para>
@@ -368,11 +368,11 @@
   </procedure>
  </sect1>
 
- 
-
- 
 
 
- 
+
+
+
+
 
 </chapter>

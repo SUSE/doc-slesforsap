@@ -133,8 +133,8 @@
     </para>
    </step>
    <step>
-    
-    
+
+
     <para>
      SAP HANAインスタンスが検出された場合は、スケールアップシナリオ<guimenu>Performance-optimized (パフォーマンス最適化)</guimenu>、<guimenu>Cost-optimized (コスト最適化)</guimenu>、または<guimenu>Chained (multi-tier) (チェーン(多層))</guimenu>から選択できます。これらのスケールアップシナリオについては、<xref linkend="sec-hana-replicate"/>を参照してください。
     </para>
@@ -240,8 +240,8 @@
     </para>
     <para>
      ここで選択したホスト名は、SAP HANAで選択した仮想ホスト名とは独立しています。ただし、SAP HANAとの問題を避けるため、ホスト名にハイフン文字(<literal>-</literal>)を含めないでください。
-     
-     
+
+
     </para>
     <para>
      これがSAP HANAの初期インストール中など、以前に実行されていない場合は、すべてのクラスタサーバのホスト名をファイル<filename>/etc/hosts</filename>に追加する必要があります。このため、<guimenu>/etc/hostsへの追記</guimenu>を有効にします。
@@ -291,7 +291,7 @@
    </step>
    <step>
     <para>
-     次のステップでは、フェンシングオプションを選択します。YaSTウィザードでは、フェンシングメカニズムSBD (<emphasis/>「STONITHブロックデバイス」)のみをサポートしています。スプリットブレイン状況を避けるため、SBDはクラスタの状態を保存するディスクデバイスを使用します。
+     次のステップでは、フェンシングオプションを選択します。YaSTウィザードでは、フェンシングメカニズムSBD (「STONITHブロックデバイス」)のみをサポートしています。スプリットブレイン状況を避けるため、SBDはクラスタの状態を保存するディスクデバイスを使用します。
     </para>
     <para>
      選択したディスクは、クラスタのすべてのマシンから同じパスで使用できる必要があります。理想的には識別用に<guimenu>by-uuid</guimenu>または<guimenu>by-path</guimenu>のいずれかを使用します。
@@ -393,7 +393,7 @@
         </listitem>
         <listitem>
          <para>
-          <emphasis/>「コスト最適化シナリオのみ」: <guimenu>Production system constraints (運用システムの制約)</guimenu>内で、SAP HANAの運用インスタンスがセカンダリノードで無効になっているときの動作方法を設定します。
+          「コスト最適化シナリオのみ」: <guimenu>Production system constraints (運用システムの制約)</guimenu>内で、SAP HANAの運用インスタンスがセカンダリノードで無効になっているときの動作方法を設定します。
          </para>
          <para>
           <guimenu>Global allocation limit (グローバル割り当て制限)</guimenu>を設定すると、メモリ使用量を直接制限できます。<guimenu>Preload column tables (列テーブルのプリロード)</guimenu>を有効にすると、メモリ使用量が増加します。
