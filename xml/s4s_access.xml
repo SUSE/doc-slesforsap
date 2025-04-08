@@ -304,4 +304,69 @@ HANA firewall is active. Everything is OK.
   </itemizedlist>
  </sect1>
 
+ <sect1 xml:id="sec-secure-dns">
+  <title>Securing DNS</title>
+  <para>
+    On Linux systems, most applications rely on the glibc POSIX style APIs to perform hostname resolution. Internally, glibc uses a "Name Service Switch" (NSS) framework to delegate these resolution requests to different configured tools. The configuration for NSS is located in the <filename>/etc/nsswitch.conf</filename> file. Several built-in types for hostname resolution are available:
+  </para>
+  <itemizedlist>
+  <listitem>
+  <para>
+    files: This method uses the <filename>/etc/hosts</filename> file that contains static mappings of hostnames to IP addresses
+  </para>
+  </listitem>
+  <listitem>
+  <para>
+    dns: This option utilizes the glibc's built-in DNS resolver, which is configured via the <filename>/etc/resolv.conf</filename> file.
+  </para>
+  </listitem>
+  </itemizedlist>
+
+  <para>
+    To address the security vulnerabilities inherent in the traditional DNS protocol, several protocol-level solutions have been developed.
+  </para>
+
+  <para>
+    The DNS over TLS and DNS over HTTPS methods aim to enhance security by transmitting DNS queries over encrypted TLS connections, either directly (DoT) or embedded within HTTPS (DoH).
+  </para>
+  <para>
+    The DNSSEC involves cryptographically signing DNS queries and verifying these signatures upon receiving responses. For DNSSEC to function correctly, all DNS servers involved in the resolution process must be configured to support it.
+  </para>
+  <para>
+    Several implementations are available on Linux to facilitate secure DNS resolution.
+  </para>
+  <para>
+    The systemd <literal>resolved</literal> component provides secure DNS resolution services. The systemd <literal>resolved nameservice</literal> plugin supports integration with the glibc Name Service Switch (NSS) framework. <literal>resolved</literal> is part of the <package>systemd-network</package> package available on PackageHub.
+  </para>
+  <para>
+    To configure <literal>resolved</literal> add <literal>resolve</literal> to the <literal>hosts</literal> line in the <filename>/etc/nsswitch.conf</filename> file as follows:
+  </para>
+<screen>hosts:          mymachines resolve [!UNAVAIL=return] files myhostname dns</screen>
+  <para>
+    It is possible to use <literal>resolved</literal> as a local resolver by directing DNS queries to <literal>localhost:dns</literal>.
+  </para>
+  <para>
+    Use the following command to enable and start the <literal>resolved</literal> service:
+  </para>
+<screen>&prompt.root;systemctl enable systemd-resolved.service
+  &prompt.root;systemctl start systemd-resolved.service</screen>
+  <para>
+    Configuring <literal>resolved</literal> for secure DNS is done via  the <filename>resolved.conf</filename> configuration file in the <filename>/etc/systemd/resolved.conf.d/</filename> directory.
+  </para>
+  <para>
+    For DNSSEC, the configuration is as follows:
+  </para>
+<screen>
+[Resolve]
+# Add your local resolvers below:
+DNS=192.168.178.1
+DNSSEC=on
+</screen>
+<para>
+  Another approach is to secure DNS through the Unbound name server that can act as a DNS forwarder, capable of translating regular DNS queries into secure DNS protocols. To use Unbound, it is typically set up locally, and then the <filename>/etc/resolv.conf</filename> file is configured to point to the local Unbound instance.
+</para>
+<para>
+  In SUSE's default configuration, Unbound performs DNSSEC verification by default. The <literal>unbound-anchor</literal> service is responsible for obtaining the standard ISC root key.
+</para>
+  </sect1>
 </chapter>
