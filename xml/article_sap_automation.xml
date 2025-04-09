@@ -351,14 +351,6 @@ https://confluence.suse.com/x/8IEnGw
           >&netweaver; &ha; Cluster 7.40 for the AWS Cloud - Setup Guide (Code 12)</link></para>
       </listitem>
       <listitem>
-        <para><link xlink:href="https://documentation.suse.com/sbp/all/pdf/SAP_NW740_SLE12_SetupGuide_color_en.pdf"
-          >&netweaver; &ha; Cluster 7.40 - Setup Guide (Code 12)</link></para>
-      </listitem>
-      <listitem>
-        <para><link xlink:href="https://documentation.suse.com/sbp/all/pdf/SAP_NW740_SLE12_SetupGuide_color_en.pdf"
-          >Simple Stack - &netweaver; &ha; on &sle; 12 (SP1 or newer)</link></para>
-      </listitem>
-      <listitem>
         <para><link xlink:href="https://documentation.suse.com/sbp/all/html/SAP_S4HA10_SetupGuide-SLE12/index.html"
           >&s4h; - Enqueue Replication 2 &ha; Cluster - Setup Guide</link></para>
       </listitem>
