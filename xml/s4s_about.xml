@@ -202,7 +202,7 @@
   <para>
    For information about all modules and extensions available for the &sle;
    product line, see
-   <link xlink:href="https://documentation.suse.com/sles-15/html/SLES-all/art-modules.html"/>.
+   <link xlink:href="https://documentation.suse.com/sles/html/SLES-all/article-modules.html"/>.
   </para>
   <para condition="noquick">
    For more information about &ph;, see <xref linkend="sec-packagehub"/>.
