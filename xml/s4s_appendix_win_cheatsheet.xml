@@ -50,7 +50,7 @@
       The firewall on &sle; allows setting rules for each interface
       independently. You can also enable masquerading, port forwarding and
       broadcasting in the firewall settings. For more information,
-      see <link xlink:href="https://documentation.suse.com/sles/html/SLES-all/cha-security-firewall.html/"/>.
+      see <link xlink:href="https://documentation.suse.com/sles/html/SLES-all/cha-security-firewall.html"/>.
     </para>
  </sect1>
  <sect1 xml:id="sec-win-domain">
@@ -60,7 +60,7 @@
     <menuchoice><guimenu>User Logon</guimenu></menuchoice> module to join a
     Windows domain. To use the ncurses version of &yast;, run the <command>sudo
     /sbin/yast2 auth-client</command> command. For more information, see
-    <link xlink:href="https://documentation.suse.com/sles/html/SLES-all/cha-security-auth.html/"/>.
+    <link xlink:href="https://documentation.suse.com/sles/html/SLES-all/cha-security-auth.html"/>.
   </para>
   </sect1>
   <sect1 xml:id="sec-partitions-storage">
@@ -88,7 +88,7 @@
         Server</guimenu></menuchoice> module in &yast; to set up an SMB server.
         To use the ncurses version of &yast;, run the <command>sudo /sbin/yast2
         samba-server</command> command. For more information, see
-        <link xlink:href="https://documentation.suse.com/sles/15-SP4/html/SLES-all/cha-samba.html/"/>.
+        <link xlink:href="https://documentation.suse.com/sles/html/SLES-all/cha-samba.html"/>.
       </para>
       </sect1>
 </appendix>
