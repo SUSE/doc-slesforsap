@@ -327,22 +327,9 @@ Sapconf will not work properly!</screen>
    </listitem>
    </itemizedlist>
    <para>
-    Also see the blog series detailing the updated version of &sapconf; at:
-   </para>
-   <itemizedlist>
-    <listitem>
-     <formalpara>
-      <title>A new sapconf is available:</title>
-      <para><link xlink:href="https://www.suse.com/c/a-new-sapconf-is-available/"/></para>
-     </formalpara>
-    </listitem>
-    <listitem>
-     <formalpara>
-      <title>A way to prepare a SLES system for SAP workload - Part 1:</title>
-      <para><link xlink:href="https://www.suse.com/c/sapconf-a-way-to-prepare-a-sles-system-for-sap-workload-part-1/"/></para>
-     </formalpara>
-    </listitem>
-   </itemizedlist>
+    Also see the blog article <link xlink:href="https://www.suse.com/c/sapconf-a-way-to-prepare-a-sles-system-for-sap-workload-part-1/">A way to prepare a SLES system for SAP workload - Part 1</link>
+    </para>
+
   </sect1>
 
 </chapter>
