@@ -77,7 +77,7 @@
       this: <literal>DEVICE on MOUNT_POINT type FILE_SYSTEM_TYPE
       (FILE_SYSTEM_OPTIONS)</literal>. To unmount the desired partition, use the
       <command>sudo umount <replaceable>MOUNT_POINT</replaceable></command>
-      command with the appropriate mount point. For more information, see <link xlink:href="https://documentation.suse.com/sles/html/SLES-all/book-storage.html/"/>.
+      command with the appropriate mount point. For more information, see <link xlink:href="https://documentation.suse.com/sles/html/SLES-all/book-storage.html"/>.
     </para>
     </sect1>
     <sect1 xml:id="sec-smb-share">
