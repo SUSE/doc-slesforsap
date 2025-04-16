@@ -307,12 +307,12 @@ HANA firewall is active. Everything is OK.
  <sect1 xml:id="sec-secure-dns">
   <title>Securing DNS</title>
   <para>
-    On Linux systems, most applications rely on the glibc POSIX style APIs to perform hostname resolution. Internally, glibc uses a "Name Service Switch" (NSS) framework to delegate these resolution requests to different configured tools. The configuration for NSS is located in the <filename>/etc/nsswitch.conf</filename> file. Several built-in types for hostname resolution are available:
+    On Linux systems, most applications rely on the glibc POSIX style APIs to perform host name resolution. Internally, glibc uses a "Name Service Switch" (NSS) framework to delegate these resolution requests to different configured tools. The configuration for NSS is located in the <filename>/etc/nsswitch.conf</filename> file. Several built-in types for host name resolution are available:
   </para>
   <itemizedlist>
   <listitem>
   <para>
-    files: This method uses the <filename>/etc/hosts</filename> file that contains static mappings of hostnames to IP addresses
+    files: This method uses the <filename>/etc/hosts</filename> file that contains static mappings of host names to IP addresses.
   </para>
   </listitem>
   <listitem>
@@ -336,7 +336,7 @@ HANA firewall is active. Everything is OK.
     Several implementations are available on Linux to facilitate secure DNS resolution.
   </para>
   <para>
-    The systemd <literal>resolved</literal> component provides secure DNS resolution services. The systemd <literal>resolved nameservice</literal> plugin supports integration with the glibc Name Service Switch (NSS) framework. <literal>resolved</literal> is part of the <package>systemd-network</package> package available on PackageHub.
+    The systemd <literal>resolved</literal> component provides secure DNS resolution services. The systemd <literal>resolved nameservice</literal> plug-in supports integration with the glibc Name Service Switch (NSS) framework. <literal>resolved</literal> is part of the <package>systemd-network</package> package available on PackageHub.
   </para>
   <para>
     To configure <literal>resolved</literal> add <literal>resolve</literal> to the <literal>hosts</literal> line in the <filename>/etc/nsswitch.conf</filename> file as follows:
