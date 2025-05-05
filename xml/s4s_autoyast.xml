@@ -37,8 +37,8 @@
  </para>
 
  <para>
-   If you plan to deploy &sles4sap; from a &suma; server, refer to
-   <citetitle>&suma; <quote>Reference Manual</quote>, <quote>Systems</quote>, <quote>Autoinstallation</quote></citetitle> and <citetitle>&suma; <quote>Advanced Topics</quote>, Chapter <quote>Minimalist &ay; Profile for Automated Installations and Useful Enhancements</quote></citetitle> (&suma-docaddress;).
+   If you plan to deploy &sles4sap; from a &smlm; server, refer to
+   <citetitle>&smlm; <quote>&mgrrefguide;</quote>, <quote>Systems</quote>, <quote>Autoinstallation</quote></citetitle> and <citetitle>&suma; <quote>Advanced Topics</quote>, Chapter <quote>Minimalist &ay; Profile for Automated Installations and Useful Enhancements</quote></citetitle> (&suma-docaddress;).
  </para>
  
 </sect1>

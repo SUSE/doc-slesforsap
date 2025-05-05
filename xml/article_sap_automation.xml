@@ -66,7 +66,7 @@ https://confluence.suse.com/x/8IEnGw
     <para>
       &suse; works in the overall project on additional parts that cover
       infrastructure aspects (like machines, network, disk formats, mount
-      points) that need to be performed with &suma;, &ay;, or Terraform
+      points) that need to be performed with &smlm;, &ay;, or Terraform
       and are not shipped as part of &productname;.
       These parts of the project available via &suse; GitHub repositories are
       published as-is and supported by the open source community. For more
