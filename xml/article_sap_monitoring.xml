@@ -271,20 +271,18 @@ https://suse.com/c/coming-soon-sap-landscape-monitoring-on-sles-for-sap/
         Use the <command>zypper install prometheus-hanadb_exporter</command> command to install the exporter.
       </para>
       <para>
-        You can find the latest development repositories at
-        <link xlink:href="https://build.opensuse.org/package/show/network:ha-clustering:sap-deployments:devel/prometheus-hanadb_exporter">SUSE's
-        Open Build Service</link>.
+        If userkey authentication is required, install the  hdbcli and pyhdb PIP packages manually, and deploy userkey into the <filename>prometheus</filename> home directory as follows:
       </para>
-      <para>
-        To install the exporter from the source code, make sure you have Git and Python 3 installed on your system. Run the following commands to install the exporter with the PyHDB &hana; connector:
-      </para>
-<screen>git clone https://github.com/SUSE/hanadb_exporter
-cd hanadb_exporter # project root folder
-virtualenv virt
-source virt/bin/activate
-pip install pyhdb
-pip install .
-</screen>
+<screen>install -d -o prometheus -g prometheus -m 0700 ~prometheus/.hdb
+touch ~prometheus/hdbuserstore
+mount --rbind /hana/shared/*/exe/linux*/HDB_*/hdbuserstore ~prometheus/hdbuserstore
+su -s /bin/sh prometheus -c "/var/lib/prometheus/hdbuserstore -i SET <replaceable>USERKEY</replaceable> localhost:3<replaceable>INSTANCE</replaceable>13@SYSTEMDB <replaceable>USER</replaceable>"
+rm -i ~prometheus/hdbuserstore
+install -d -o prometheus -g prometheus -m 0755 ~prometheus/hanadb_exporter
+su -s /bin/sh prometheus -c "pip install -t /var/lib/prometheus/hanadb_exporter pyhdb"
+su -s /bin/sh prometheus -c "pip install -t /var/lib/prometheus/hanadb_exporter /usr/sap/hdbclient/hdbcli-*.*.*.tar.gz"
+umount ~prometheus/hdbuserstore
+rm ~prometheus/hdbuserstore</screen>
 </sect2>
   <sect2 xml:id="sec-sol-monit-hana-db-config">
     <title>Configuring the exporter</title>
