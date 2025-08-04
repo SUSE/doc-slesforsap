@@ -1,18 +1,26 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE appendix
-[
+<?xml version="1.0"?>
+<!DOCTYPE appendix [
   <!ENTITY % entities SYSTEM "generic-entities.ent">
-    %entities;
+  %entities;
 ]>
+
 <appendix xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="win-cheatsheet">
  <title>Cheat sheet for Windows administrators
   </title>
- <info>
+ <info xmlns:d="http://docbook.org/ns/docbook">
   <dm:docmanager xmlns:dm="urn:x-suse:ns:docmanager">
    <dm:bugtracker/>
    <dm:translation>yes</dm:translation>
   </dm:docmanager>
- </info>
+ <revhistory xml:id="rh-win-cheatsheet">
+   <revision>
+     <date>2025-04-09</date>
+     <revdescription>
+       <para/>
+     </revdescription>
+   </revision>
+ </revhistory>
+</info>
  <sect1 xml:id="sec-manage-users">
   <title>Managing users</title>
   <para>

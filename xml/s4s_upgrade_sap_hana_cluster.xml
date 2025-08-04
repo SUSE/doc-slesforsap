@@ -1,15 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE chapter
-[
+<?xml version="1.0"?>
+<!DOCTYPE chapter [
   <!ENTITY % entities SYSTEM "generic-entities.ent">
-   %entities;
+  %entities;
 ]>
-<chapter version="5.0" xml:id="cha-upgrade-sap-hana-cluster"
- xmlns="http://docbook.org/ns/docbook"
- xmlns:xi="http://www.w3.org/2001/XInclude"
- xmlns:xlink="http://www.w3.org/1999/xlink">
+
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="cha-upgrade-sap-hana-cluster">
  <title>Upgrading an &hana; cluster</title>
- <info>
+ <info xmlns:d="http://docbook.org/ns/docbook">
   <dm:docmanager xmlns:dm="urn:x-suse:ns:docmanager">
    <dm:bugtracker/>
    <dm:translation>yes</dm:translation>
@@ -22,7 +19,15 @@
     maintenance procedures.
    </para>
   </abstract>
- </info>
+ <revhistory xml:id="rh-cha-upgrade-sap-hana-cluster">
+   <revision>
+     <date>2024-05-13</date>
+     <revdescription>
+       <para/>
+     </revdescription>
+   </revision>
+ </revhistory>
+</info>
 
   <para>
    The official &hana; documentation describes the so-called <emphasis>Near
@@ -213,8 +218,7 @@
   </procedure>
 
   <para>
-   Refer to the &suse; blog post <link xlink:href=
-   "https://www.suse.com/c/how-to-upgrade-your-suse-sap-hana-cluster-in-an-easy-way/"/>
+   Refer to the &suse; blog post <link xlink:href="https://www.suse.com/c/how-to-upgrade-your-suse-sap-hana-cluster-in-an-easy-way/"/>
    for further information.
   </para>
  </sect1>
