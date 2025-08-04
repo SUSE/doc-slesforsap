@@ -1,12 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="file:/usr/share/xml/geekodoc/rng/geekodoc5-flat.rnc" type="application/relax-ng-compact-syntax"?>
-<!DOCTYPE book
-[
+<?xml version="1.0"?>
+<!DOCTYPE book [
   <!ENTITY % entities SYSTEM "generic-entities.ent">
-    %entities;
+  %entities;
 ]>
 
-<!--
+<?xml-model href="file:/usr/share/xml/geekodoc/rng/geekodoc5-flat.rnc" type="application/relax-ng-compact-syntax"?><!--
 HINT (toms) 2020-06-05:
 
 * SAP Automation and Monitoring Documentation - SLES for SAP
@@ -14,13 +12,9 @@ HINT (toms) 2020-06-05:
 *
   https://suse.com/c/coming-soon-sap-landscape-monitoring-on-sles-for-sap/
 -->
-
-<book version="5.1-subset GeekoDoc-1.0.2.1" xml:lang="en"
-  xmlns="http://docbook.org/ns/docbook"
-  xmlns:xi="http://www.w3.org/2001/XInclude"
-  xmlns:xlink="http://www.w3.org/1999/xlink">
+<book xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.1-subset GeekoDoc-1.0.2.1" xml:lang="en">
   <title>Solution-Based Documentation</title>
-  <info>
+  <info xmlns:d="http://docbook.org/ns/docbook">
     <productname>&productname;</productname>
     <productname role="abbrev">&productnameshort;</productname>
     <productnumber>&productnumber;</productnumber>
@@ -29,15 +23,22 @@ HINT (toms) 2020-06-05:
       <dm:bugtracker>
         <dm:url>https://bugzilla.suse.com/enter_bug.cgi</dm:url>
         <dm:component>Documentation</dm:component>
-        <dm:product
-          >SUSE Linux Enterprise Server for SAP applications 15 SP4</dm:product>
+        <dm:product>SUSE Linux Enterprise Server for SAP applications 15 SP4</dm:product>
         <dm:assignee>dmitri.popov@suse.com</dm:assignee>
       </dm:bugtracker>
       <dm:editurl>https://github.com/SUSE/doc-slesforsap/blob/main/xml/</dm:editurl>
       <dm:translation>no</dm:translation>
     </dm:docmanager>
     <xi:include href="common_copyright_gfdl.xml"/>
-  </info>
+  <revhistory>
+   <revision>
+     <date>2025-04-07</date>
+     <revdescription>
+       <para/>
+     </revdescription>
+   </revision>
+ </revhistory>
+</info>
 
   <xi:include href="article_sap_automation.xml"/>
   <xi:include href="article_sap_monitoring.xml"/>

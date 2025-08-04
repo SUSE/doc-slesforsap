@@ -1,17 +1,25 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE appendix
-[
+<?xml version="1.0"?>
+<!DOCTYPE appendix [
   <!ENTITY % entities SYSTEM "generic-entities.ent">
-    %entities;
+  %entities;
 ]>
+
 <appendix xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="app-additional-software">
  <title>Additional software for &s4sa;</title>
- <info>
+ <info xmlns:d="http://docbook.org/ns/docbook">
   <dm:docmanager xmlns:dm="urn:x-suse:ns:docmanager">
    <dm:bugtracker/>
    <dm:translation>yes</dm:translation>
   </dm:docmanager>
- </info>
+ <revhistory xml:id="rh-app-additional-software">
+   <revision>
+     <date>2024-01-11</date>
+     <revdescription>
+       <para/>
+     </revdescription>
+   </revision>
+ </revhistory>
+</info>
  <para>
   &s4s; makes it easy to install software that is not included with your
   subscription:
@@ -69,17 +77,14 @@
     <listitem>
      <para>
       A link to an XML file. The
-      <filename class="directory"
-       >/etc/products.d/</filename> directory
-      contains different <filename
-        class="extension">.prod</filename>
+      <filename class="directory">/etc/products.d/</filename> directory
+      contains different <filename class="extension">.prod</filename>
       files.
      </para>
      <para>
       Depending on which products you have purchased and how you installed your
       system, the link <filename>/etc/products.d/baseproduct</filename> can
-      point to a different <filename
-        class="extension">.prod</filename>
+      point to a different <filename class="extension">.prod</filename>
       file, for example, <filename>sle-module-sap-applications.prod</filename>.
       The same information as <varname>CPE_NAME</varname> is stored in the tag
       <tag class="starttag">cpeid</tag>.
@@ -92,16 +97,13 @@
    Among other information, both files contain the operating system and base
    product. The base product (key <varname>CPE_NAME</varname> and tag
    <tag class="starttag">cpeid</tag>) follow the
-   <link
-    xlink:href="https://scap.nist.gov/specifications/cpe/"
-    >Common
+   <link xlink:href="https://scap.nist.gov/specifications/cpe/">Common
    Platform Enumeration Specification</link>.
   </para>
 
   <para>
    You can extract any information from the file
-   <filename
-    >/etc/products.d/baseproduct</filename> either with the
+   <filename>/etc/products.d/baseproduct</filename> either with the
    commands <command>grep</command> or <command>xmlstarlet</command> (both are
    available for your products). As XML is also text, use
    <command>grep</command> for <quote>simple searches</quote> when the format
@@ -117,9 +119,7 @@
   </para>
 
 <screen>&prompt.user;<command>grep</command> cpeid /etc/products.d/baseproduct
-&lt;cpeid>cpe:/o:suse:sle-module-sap-applications:<replaceable
- >RELEASE</replaceable>:sp<replaceable
-  >SP_NUMBER</replaceable>&lt;/cpeid></screen>
+&lt;cpeid&gt;cpe:/o:suse:sle-module-sap-applications:<replaceable>RELEASE</replaceable>:sp<replaceable>SP_NUMBER</replaceable>&lt;/cpeid&gt;</screen>
 
   <para>
    The <replaceable>RELEASE</replaceable> and
@@ -131,14 +131,12 @@
    The same can be achieved with <command>xmlstarlet</command>. You need an
    XPath (the steps that lead you to your information). With the appropriate
    options, you can avoid the
-   <tag class="starttag">cpeid</tag>/<tag
-    class="endtag">cpeid</tag> tags:
+   <tag class="starttag">cpeid</tag>/<tag class="endtag">cpeid</tag> tags:
   </para>
 
 <screen>&prompt.user;<command>xmlstarlet</command> sel -T -t -v<!--
   --> "/product/cpeid" /etc/products.d/baseproduct
-cpe:/o:suse:sle-module-sap-applications:<replaceable
- >RELEASE</replaceable>:sp<replaceable>SP_NUMBER</replaceable></screen>
+cpe:/o:suse:sle-module-sap-applications:<replaceable>RELEASE</replaceable>:sp<replaceable>SP_NUMBER</replaceable></screen>
 
   <para>
    A more advanced search (which would be difficult for
@@ -148,7 +146,7 @@ cpe:/o:suse:sle-module-sap-applications:<replaceable
    will output all product dependencies which are required for &sles4sap;:
   </para>
 
-<screen>>&prompt.user;<command>xmlstarlet</command> sel -T -t -v<!--
+<screen>&gt;&prompt.user;<command>xmlstarlet</command> sel -T -t -v<!--
   --> "/product/productdependency[@relationship='requires']/@name" /etc/products.d/baseproduct
 SUSE_SLE
 sle-ha</screen>
