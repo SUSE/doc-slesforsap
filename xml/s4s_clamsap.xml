@@ -1,20 +1,27 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE chapter
-[
+<?xml version="1.0"?>
+<!DOCTYPE chapter [
   <!ENTITY % entities SYSTEM "generic-entities.ent">
-    %entities;
+  %entities;
 ]>
+
 <?xml-stylesheet href="urn:x-suse:xslt:profiling:docbook50-profile.xsl"
    type="text/xml"
-   title="Profiling step"?>
-<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:lang="en" xml:id="cha-clamsap">
+   title="Profiling step"?><chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:lang="en" xml:id="cha-clamsap">
  <title>Protecting against malware with &clamsap;</title>
- <info>
+ <info xmlns:d="http://docbook.org/ns/docbook">
   <dm:docmanager xmlns:dm="urn:x-suse:ns:docmanager">
    <dm:bugtracker/>
    <dm:translation>yes</dm:translation>
   </dm:docmanager>
- </info>
+ <revhistory xml:id="rh-cha-clamsap">
+   <revision>
+     <date>2025-03-05</date>
+     <revdescription>
+       <para/>
+     </revdescription>
+   </revision>
+ </revhistory>
+</info>
   <para>
    &clamsap; integrates the &clamav; anti-malware toolkit into &netweaver; and
    &sap; Mobile Platform applications. &clamsap; is a shared library that
@@ -28,8 +35,7 @@
   <para> By default, &clamav; does not scan files exceeding various limits like
    file sizes, nesting level, or scan time. Such files are reported as "OK". The
    current default settings for the &clamav; virus scan engine in the
-    <command>clamscan</command> commandline tool and the <systemitem
-    class="daemon">clamd</systemitem> scan daemon are set in a way that: </para>
+    <command>clamscan</command> commandline tool and the <systemitem class="daemon">clamd</systemitem> scan daemon are set in a way that: </para>
   <itemizedlist>
    <listitem>
     <para>Files and archives are scanned, but only up to the configured or default limits
@@ -297,8 +303,7 @@ Active: active (running) since Tue 2017-04-11 10:33:03 UTC; 24h ago
  <sect1 xml:id="sec-clamsap-changedir">
   <title>Configuring the default location of virus definitions</title>
   <para>
-   By default, &clamav; expects the virus definitions to be located in <filename
-    class="directory">/var/lib/clamsap</filename>.
+   By default, &clamav; expects the virus definitions to be located in <filename class="directory">/var/lib/clamsap</filename>.
    To change this default location, proceed as follows:
   </para>
   <procedure>

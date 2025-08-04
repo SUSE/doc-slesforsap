@@ -1,17 +1,25 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE appendix
-[
+<?xml version="1.0"?>
+<!DOCTYPE appendix [
   <!ENTITY % entities SYSTEM "generic-entities.ent">
-    %entities;
+  %entities;
 ]>
+
 <appendix xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="app-component-supplement">
  <title>&supmedia;</title>
- <info>
+ <info xmlns:d="http://docbook.org/ns/docbook">
   <dm:docmanager xmlns:dm="urn:x-suse:ns:docmanager">
    <dm:bugtracker/>
    <dm:translation>yes</dm:translation>
   </dm:docmanager>
- </info>
+ <revhistory xml:id="rh-app-component-supplement">
+   <revision>
+     <date>2022-08-29</date>
+     <revdescription>
+       <para/>
+     </revdescription>
+   </revision>
+ </revhistory>
+</info>
  <para>
   &supmedia; allow partners or customers to add their own tasks or workflows to
   the Installation Wizard.
@@ -141,41 +149,41 @@
   <para>
    Here is an example with several options:
   </para>
-<screen><![CDATA[<?xml version="1.0"?>
-<!DOCTYPE profile>
-<profile xmlns="http://www.suse.com/1.0/yast2ns"
-         xmlns:config="http://www.suse.com/1.0/configns">
-<general>
-  <ask-list config:type="list">
-      <ask>
-          <stage>cont</stage>
-          <dialog config:type="integer">20</dialog>
-          <element config:type="integer">10</element>
-          <question>What is your name?</question>
-          <default>Enter your name here</default>
-          <help>Please enter your full name within the field</help>
-          <file>/tmp/ay_q_my_name</file>
-          <script>
-             <filename>my_name.sh</filename>
-             <rerun_on_error config:type="boolean">true</rerun_on_error>
-             <environment config:type="boolean">true</environment>
-             <source><![CDATA[
+<screen>&lt;?xml version="1.0"?&gt;
+&lt;!DOCTYPE profile&gt;
+&lt;profile xmlns="http://www.suse.com/1.0/yast2ns"
+         xmlns:config="http://www.suse.com/1.0/configns"&gt;
+&lt;general&gt;
+  &lt;ask-list config:type="list"&gt;
+      &lt;ask&gt;
+          &lt;stage&gt;cont&lt;/stage&gt;
+          &lt;dialog config:type="integer"&gt;20&lt;/dialog&gt;
+          &lt;element config:type="integer"&gt;10&lt;/element&gt;
+          &lt;question&gt;What is your name?&lt;/question&gt;
+          &lt;default&gt;Enter your name here&lt;/default&gt;
+          &lt;help&gt;Please enter your full name within the field&lt;/help&gt;
+          &lt;file&gt;/tmp/ay_q_my_name&lt;/file&gt;
+          &lt;script&gt;
+             &lt;filename&gt;my_name.sh&lt;/filename&gt;
+             &lt;rerun_on_error config:type="boolean"&gt;true&lt;/rerun_on_error&gt;
+             &lt;environment config:type="boolean"&gt;true&lt;/environment&gt;
+             &lt;source&gt;&lt;![CDATA[
 function check_name() {
            local name=$1
            LC_ALL=POSIX
-           [ -z "$name" ] && echo "You need to provide a name." && return 1
+           [ -z "$name" ] &amp;&amp; echo "You need to provide a name." &amp;&amp; return 1
            return 0
 }
 check_name "$VAL"
-]]]]><![CDATA[>
-             </source>
-             <debug config:type="boolean">false</debug>
-             <feedback config:type="boolean">true</feedback>
-          </script>
-      </ask>
-  </ask-list>
-</general>
-</profile>]]></screen>
+]]&gt;
+             &lt;/source&gt;
+             &lt;debug config:type="boolean"&gt;false&lt;/debug&gt;
+             &lt;feedback config:type="boolean"&gt;true&lt;/feedback&gt;
+          &lt;/script&gt;
+      &lt;/ask&gt;
+  &lt;/ask-list&gt;
+&lt;/general&gt;
+&lt;/profile&gt;</screen>
  </sect1>
 
  <sect1 xml:id="sec-component-supplement-rpm">
@@ -195,13 +203,13 @@ check_name "$VAL"
    </citetitle> (&docaddress;). An example looks as
    follows:
   </para>
-<screen><![CDATA[...
-<software>
- <post-packages config:type="list">
-  <package>yast2-cim</package>
- </post-packages>
-</software>
-...]]></screen>
+<screen>...
+&lt;software&gt;
+ &lt;post-packages config:type="list"&gt;
+  &lt;package&gt;yast2-cim&lt;/package&gt;
+ &lt;/post-packages&gt;
+&lt;/software&gt;
+...</screen>
  </sect1>
 
  <sect1 xml:id="sec-supplement-directory">
