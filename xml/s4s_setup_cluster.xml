@@ -1,11 +1,21 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE sect1
-[
+<?xml version="1.0"?>
+<!DOCTYPE chapter [
   <!ENTITY % entities SYSTEM "generic-entities.ent">
-    %entities;
+  %entities;
 ]>
+
 <chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="cha-cluster">
  <title>Setting up an &hana; cluster</title>
+ <info xmlns:d="http://docbook.org/ns/docbook">
+  <revhistory xml:id="rh-cha-cluster">
+   <revision>
+     <date>2023-04-19</date>
+     <revdescription>
+       <para/>
+     </revdescription>
+   </revision>
+  </revhistory>
+ </info>
  <para>
   You can use a &yast; wizard to set up &hana; or &s4hd; clusters according
   to best practices, including &hana; system replication. A summary of the
@@ -150,8 +160,7 @@
      &hana; instance, you have created an &hana; Secure User Store key
      <literal>QASSAPDBCTRL</literal> for monitoring purposes. For more
      information, refer to the <citetitle>SAP HANA System Replication Scale-Up -
-     Cost Optimized Scenario</citetitle> document at <link
-     xlink:href="https://documentation.suse.com/sles-sap/"></link>.
+     Cost Optimized Scenario</citetitle> document at <link xlink:href="https://documentation.suse.com/sles-sap/"/>.
     </para>
    </listitem>
   </itemizedlist>
@@ -760,9 +769,7 @@
    <listitem>
     <formalpara>
      <title>Near zero downtime for &hana; system replication</title>
-     <para><link
-      xlink:href="https://help.sap.com/viewer/2c1988d620e04368aa4103bf26f17727/2.0.03/en-US/ee3fd9a0c2e74733a74e4ad140fde60b.html"
-      >Use &hana; System Replication for Near Zero Downtime Upgrades</link>.
+     <para><link xlink:href="https://help.sap.com/viewer/2c1988d620e04368aa4103bf26f17727/2.0.03/en-US/ee3fd9a0c2e74733a74e4ad140fde60b.html">Use &hana; System Replication for Near Zero Downtime Upgrades</link>.
      </para>
     </formalpara>
    </listitem>

@@ -1,18 +1,26 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE chapter
-[
+<?xml version="1.0"?>
+<!DOCTYPE chapter [
   <!ENTITY % entities SYSTEM "generic-entities.ent">
-    %entities;
+  %entities;
 ]>
-<chapter xmlns="http://docbook.org/ns/docbook"  xml:id="cha-memory-protection"
-    xmlns:xi="http://www.w3.org/2001/XInclude"
-    xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0">
+
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="cha-memory-protection" version="5.0">
  <title>Tuning &wmp;</title>
+ <info>
+  <revhistory xml:id="rh-cha-memory-protection">
+   <revision>
+     <date>2022-06-10</date>
+     <revdescription>
+       <para/>
+     </revdescription>
+   </revision>
+ </revhistory>
+</info>
  <important>
   <para>
    If you have &systemd;-based &sap; instances, read
-   <xref linkend="sec-sap-systemd-mix-wmp" /> and
-   <xref linkend="sec-sap-systemd-wmp" /> before setting up &wmp;.
+   <xref linkend="sec-sap-systemd-mix-wmp"/> and
+   <xref linkend="sec-sap-systemd-wmp"/> before setting up &wmp;.
   </para>
  </important>
  <para>
@@ -409,8 +417,7 @@ MemoryLow=18487889920    &lt;- Should be your chosen value (always in bytes)!
      </para>
      <para>
       If you have not enabled
-      <systemitem
-                        class="service">sapinit.service</systemitem>
+      <systemitem class="service">sapinit.service</systemitem>
       start the service now. If autostart is not enabled in the instance
       profiles, start the instances before you check.
      </para>
@@ -844,8 +851,7 @@ ha0adm    3327 0::/SAP.slice/wmp-ra42489517eb846c282c57681e627a496.scope    saps
    With SAP kernel version 788 and certain specified patch levels of older
    kernel releases (722, 753, 777, 781, 785), the SAP Start Service supports
    &systemd;. Such a &systemd;-based instance comes with its own &systemd;
-   service that the SAP Start Service places into its own cgroup (<systemitem
-   class="service">SAP<replaceable>SID_NR</replaceable>.service</systemitem>)
+   service that the SAP Start Service places into its own cgroup (<systemitem class="service">SAP<replaceable>SID_NR</replaceable>.service</systemitem>)
    under <systemitem class="service">SAP.slice</systemitem>. This affects the
    &wmp; setup. For &systemd;-based SAP instances, the following instructions
    apply:
@@ -895,17 +901,17 @@ ha0adm    3327 0::/SAP.slice/wmp-ra42489517eb846c282c57681e627a496.scope    saps
 <screen>&prompt.user; systemd-cgls
 Control group /:
 -.slice
-├─SAP.slice 
-│ ├─SAPNW1_01.service 
+├─SAP.slice
+│ ├─SAPNW1_01.service
 │ │ ├─ 887 /usr/sap/NW1/ASCS01/exe/sapstartsrv pf=/usr/sap/NW1/SYS/profile/NW1_ASCS01_systemdproj
 │ │ ├─2838 sapstart pf=/usr/sap/NW1/SYS/profile/NW1_ASCS01_systemdproj
 │ │ ├─2895 ms.sapNW1_ASCS01 pf=/usr/sap/NW1/SYS/profile/NW1_ASCS01_systemdproj
 │ │ └─2896 en.sapNW1_ASCS01 pf=/usr/sap/NW1/SYS/profile/NW1_ASCS01_systemdproj
-│ ├─saphostagent.service 
+│ ├─saphostagent.service
 │ │ ├─ 900 /usr/sap/hostctrl/exe/saphostexec pf=/usr/sap/hostctrl/exe/host_profile -nodaemon -trace
 │ │ ├─ 984 /usr/sap/hostctrl/exe/sapstartsrv pf=/usr/sap/hostctrl/exe/host_profile
 │ │ └─2428 /usr/sap/hostctrl/exe/saposcol -l -w60 pf=/usr/sap/hostctrl/exe/host_profile
-│ └─wmp-rece5b7fa372e4619a9623e120aa23a23.scope 
+│ └─wmp-rece5b7fa372e4619a9623e120aa23a23.scope
 │   ├─5522 sapstart pf=/usr/sap/NW1/SYS/profile/NW1_D00_systemdproj
 │   ├─7824 dw.sapNW1_D00 pf=/usr/sap/NW1/SYS/profile/NW1_D00_systemdproj
 │   ├─7825 ig.sapNW1_D00 -mode=profile pf=/usr/sap/NW1/SYS/profile/NW1_D00_systemdproj
@@ -914,13 +920,13 @@ Control group /:
 &prompt.user; systemctl show -p MemoryLow SAP.slice
 MemoryLow=24584065024
 
-&prompt.user; systemctl show -p MemoryLow wmp-rece5b7fa372e4619a9623e120aa23a23.scope 
+&prompt.user; systemctl show -p MemoryLow wmp-rece5b7fa372e4619a9623e120aa23a23.scope
 MemoryLow=infinity
 
-&prompt.user; systemctl show -p MemoryLow SAPNW1_01.service 
+&prompt.user; systemctl show -p MemoryLow SAPNW1_01.service
 MemoryLow=infinity
 
-&prompt.user; systemctl show -p MemoryLow saphostagent.service 
+&prompt.user; systemctl show -p MemoryLow saphostagent.service
 MemoryLow=infinity</screen>
 
   <para>
@@ -954,7 +960,7 @@ MemoryLow=infinity</screen>
 
   <para>
    If &wmp; is already configured, follow the instructions in
-   <xref linkend="sec-sap-systemd-mix-wmp" />. Afterwards, you can remove the
+   <xref linkend="sec-sap-systemd-mix-wmp"/>. Afterwards, you can remove the
    package <package>sapwmp</package> from the system, unless you want to use
    the <systemitem class="service">wmp-sample-memory.timer</systemitem> and
    <systemitem class="service">wmp-sample-memory.service</systemitem> to
@@ -975,14 +981,14 @@ MemoryLow=infinity</screen>
    <listitem>
     <para>
      Switch to the unified cgroup hierarchy, rewrite the boot loader (step 4
-     and 5 in <xref linkend="sec-memory-protection-setup-preparation" />).
+     and 5 in <xref linkend="sec-memory-protection-setup-preparation"/>).
     </para>
    </listitem>
    <listitem>
     <para>
      Set <option>MemoryLow=</option> for
      <systemitem class="service">SAP.slice</systemitem> (step 6 in
-     <xref linkend="sec-memory-protection-setup-preparation" />).
+     <xref linkend="sec-memory-protection-setup-preparation"/>).
     </para>
    </listitem>
    <listitem>
@@ -1011,18 +1017,18 @@ MemoryLow=infinity</screen>
 <screen>&prompt.user; systemd-cgls
 Control group /:
 -.slice
-├─SAP.slice 
-│ ├─SAPNW1_00.service 
+├─SAP.slice
+│ ├─SAPNW1_00.service
 │ │ ├─5522 sapstart pf=/usr/sap/NW1/SYS/profile/NW1_D00_systemdproj
 │ │ ├─7824 dw.sapNW1_D00 pf=/usr/sap/NW1/SYS/profile/NW1_D00_systemdproj
 │ │ ├─7825 ig.sapNW1_D00 -mode=profile pf=/usr/sap/NW1/SYS/profile/NW1_D00_systemdproj
 ...
-│ ├─SAPNW1_01.service 
+│ ├─SAPNW1_01.service
 │ │ ├─ 887 /usr/sap/NW1/ASCS01/exe/sapstartsrv pf=/usr/sap/NW1/SYS/profile/NW1_ASCS01_systemdproj
 │ │ ├─2838 sapstart pf=/usr/sap/NW1/SYS/profile/NW1_ASCS01_systemdproj
 │ │ ├─2895 ms.sapNW1_ASCS01 pf=/usr/sap/NW1/SYS/profile/NW1_ASCS01_systemdproj
 │ │ └─2896 en.sapNW1_ASCS01 pf=/usr/sap/NW1/SYS/profile/NW1_ASCS01_systemdproj
-│ └─saphostagent.service 
+│ └─saphostagent.service
 │   ├─ 900 /usr/sap/hostctrl/exe/saphostexec pf=/usr/sap/hostctrl/exe/host_profile -nodaemon -trace
 │   ├─ 984 /usr/sap/hostctrl/exe/sapstartsrv pf=/usr/sap/hostctrl/exe/host_profile
 │   └─2428 /usr/sap/hostctrl/exe/saposcol -l -w60 pf=/usr/sap/hostctrl/exe/host_profile
@@ -1031,13 +1037,13 @@ Control group /:
 &prompt.user; systemctl show -p MemoryLow SAP.slice
 MemoryLow=24584065024
 
-&prompt.user; systemctl show -p MemoryLow wmp-rece5b7fa372e4619a9623e120aa23a23.scope 
+&prompt.user; systemctl show -p MemoryLow wmp-rece5b7fa372e4619a9623e120aa23a23.scope
 MemoryLow=infinity
 
-&prompt.user; systemctl show -p MemoryLow SAPNW1_01.service 
+&prompt.user; systemctl show -p MemoryLow SAPNW1_01.service
 MemoryLow=infinity
 
-&prompt.user; systemctl show -p MemoryLow saphostagent.service 
+&prompt.user; systemctl show -p MemoryLow saphostagent.service
 MemoryLow=infinity</screen>
  </sect1>
 </chapter>

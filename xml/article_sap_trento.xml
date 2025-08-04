@@ -31,7 +31,7 @@ As agreed on https://confluence.suse.com/x/DAEcN on our Trento doc kick off
 
 -->
 
-<article xml:lang="en" xml:id="article-sap-trento" version="5.1" 
+<article xml:lang="en" xml:id="article-sap-trento" version="5.1"
     xmlns="http://docbook.org/ns/docbook"
     xmlns:xi="http://www.w3.org/2001/XInclude"
     xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -47,8 +47,15 @@ As agreed on https://confluence.suse.com/x/DAEcN on our Trento doc kick off
       </para>
     </abstract>
     <xi:include href="common_copyright_gfdl.xml" />
-    </info>
-
+    <revhistory xml:id="rh-app-additional-software">
+     <revision>
+      <date>2022-08-16</date>
+      <revdescription>
+       <para/>
+      </revdescription>
+     </revision>
+    </revhistory>
+   </info>
   <important>
     <title>Trento is an evolving product</title>
     <para>
@@ -206,7 +213,7 @@ As agreed on https://confluence.suse.com/x/DAEcN on our Trento doc kick off
       &t.agent;s. </para>
     <section xml:id="sec-trento-server-requirements">
       <title>&t.server; requirements</title>
-      <para> Running all the &t.server; components requires a minimum of 2GB of RAM, 
+      <para> Running all the &t.server; components requires a minimum of 2GB of RAM,
        two CPU cores and 64GB of storage. </para>
       <para> While the &t.server; supports various usage scenarios,
         depending on the existing infrastructure, it's designed to be
@@ -988,7 +995,7 @@ Warning: Permanently added '<replaceable>TRENTO_AGENT_IP</replaceable>' (ECDSA) 
             <title><guimenu>Cluster settings</guimenu></title>
             <listitem>
               <remark>toms 2022-04-28: review #2, change 2</remark>
-              <para><guimenu>Connection settings</guimenu> tab: 
+              <para><guimenu>Connection settings</guimenu> tab:
                 set the user that the &t.server; will use to connect
                 via SSH to the cluster nodes to perform the HA
                 configuration checks.
@@ -1014,7 +1021,7 @@ Warning: Permanently added '<replaceable>TRENTO_AGENT_IP</replaceable>' (ECDSA) 
                   <imageobject>
                     <imagedata fileref="trento-web-cluster-settings-hana_cluster.png" width="70%"/>
                   </imageobject>
-                  
+
                 </mediaobject>
               </informalfigure>
             </listitem>
