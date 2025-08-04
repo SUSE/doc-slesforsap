@@ -1,12 +1,21 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE sect1
-[
+<?xml version="1.0"?>
+<!DOCTYPE chapter [
   <!ENTITY % entities SYSTEM "generic-entities.ent">
-    %entities;
+  %entities;
 ]>
+
 <chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="cha-trouble">
  <title>Important log files</title>
-
+ <info xmlns:d="http://docbook.org/ns/docbook">
+  <revhistory xml:id="rh-cha-trouble">
+   <revision>
+     <date>2021-01-05</date>
+     <revdescription>
+       <para/>
+     </revdescription>
+   </revision>
+ </revhistory>
+</info>
  <para>
   The most important log files for this product can be found as follows:
  </para>

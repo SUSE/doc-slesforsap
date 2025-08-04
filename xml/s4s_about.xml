@@ -1,12 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE chapter
-[
+<?xml version="1.0"?>
+<!DOCTYPE chapter [
   <!ENTITY % entities SYSTEM "generic-entities.ent">
-    %entities;
+  %entities;
 ]>
+
 <chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="cha-about">
 <title>What is &sles4sap;?</title>
-<info>
+<info xmlns:d="http://docbook.org/ns/docbook">
  <abstract>
   <para>
    &sles4sapreg; is a bundle of software and services that addresses the
@@ -14,6 +14,14 @@
    optimized for all &sap; software solutions.
   </para>
  </abstract>
+<revhistory xml:id="rh-cha-about">
+   <revision>
+     <date>2025-04-09</date>
+     <revdescription>
+       <para/>
+     </revdescription>
+   </revision>
+ </revhistory>
 </info>
 
  <para>
@@ -59,7 +67,7 @@
   </mediaobject>
  </figure>
 
- <xi:include condition="quick"   href="s4s_components_quick.xml" parse="xml"/>
+ <xi:include condition="quick" href="s4s_components_quick.xml" parse="xml"/>
  <xi:include condition="noquick" href="s4s_components.xml" parse="xml"/>
 
  <sect1 condition="noquick" xml:id="sec-repository">
@@ -248,7 +256,7 @@
      <itemizedlist>
       <listitem>
        <para>
-        Product Lifecycle Support Policies: <link xlink:href="https://www.suse.com/support/policy-products/#sap"></link>
+        Product Lifecycle Support Policies: <link xlink:href="https://www.suse.com/support/policy-products/#sap"/>
        </para>
       </listitem>
       <listitem>
@@ -258,7 +266,7 @@
       </listitem>
       <listitem>
        <para>
-        Long Term Service Pack Support: <link xlink:href="https://www.suse.com/products/long-term-service-pack-support/"></link>
+        Long Term Service Pack Support: <link xlink:href="https://www.suse.com/products/long-term-service-pack-support/"/>
        </para>
       </listitem>
      </itemizedlist>
@@ -279,8 +287,7 @@
      </para>
      <para>
       For more information, see <citetitle>SAP Note 1056161: SUSE
-       Priority Support for SAP applications</citetitle> (<link
-        xlink:href="&sapnoteaddress;1056161"/>).
+       Priority Support for SAP applications</citetitle> (<link xlink:href="&#xA7;!&#xA7;sapnoteaddress;1056161"/>).
      </para>
     </listitem>
    </varlistentry>

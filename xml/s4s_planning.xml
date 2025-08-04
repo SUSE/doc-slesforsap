@@ -1,11 +1,21 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE chapter
-[
+<?xml version="1.0"?>
+<!DOCTYPE chapter [
   <!ENTITY % entities SYSTEM "generic-entities.ent">
-    %entities;
+  %entities;
 ]>
+
 <chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="cha-plan">
  <title>Planning the installation</title>
+ <info xmlns:d="http://docbook.org/ns/docbook">
+  <revhistory xml:id="rh-cha-plan">
+   <revision>
+    <date>2024-04-03</date>
+    <revdescription>
+     <para/>
+    </revdescription>
+   </revision>
+  </revhistory>
+ </info>
  <para>
   Read this chapter carefully, as it helps you plan the installation: It lists
   requirements and helps you collect data about your system.
@@ -112,7 +122,7 @@
    For more information about configuring hardware for &hana;, see
    <citetitle>SAP Note 1944415: Hardware Configuration Guide and Software
    Installation Guide for SUSE Linux Enterprise Server with SAP HANA and SAP
-   Business One</citetitle> (<link xlink:href="&sapnoteaddress;1944415"/>).
+   Business One</citetitle> (<link xlink:href="&#xA7;!&#xA7;sapnoteaddress;1944415"/>).
   </para>
 
   <para>
@@ -161,8 +171,7 @@
    <productname>Enhanced Service Pack Overlay Support</productname> (ESPOS).
    Find detailed information in the <citetitle>&sls;</citetitle>
    &upgrade_guide; at
-   <link
-   xlink:href="https://documentation.suse.com/sles/html/SLES-all/cha-upgrade-paths.html"/>.
+   <link xlink:href="https://documentation.suse.com/sles/html/SLES-all/cha-upgrade-paths.html"/>.
   </para>
  </sect1>
  <sect1 condition="noquick" xml:id="sec-how-install">
