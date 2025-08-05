@@ -1,11 +1,20 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE preface
-[
+<?xml version="1.0"?>
+<!DOCTYPE preface [
   <!ENTITY % entities SYSTEM "generic-entities.ent">
-    %entities;
+  %entities;
 ]>
+
 <preface xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="pre-s4s">
  <title>Preface</title>
+ <info xmlns:d="http://docbook.org/ns/docbook"><revhistory xml:id="rh-pre-s4s">
+   <revision>
+     <date>2021-03-24</date>
+     <revdescription>
+       <para/>
+     </revdescription>
+   </revision>
+ </revhistory>
+</info>
 
  <para>
   &sles4sapreg; is the reference platform for the software development of &sap;.

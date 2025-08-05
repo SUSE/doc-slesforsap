@@ -1,11 +1,20 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE sect1
-[
+<?xml version="1.0"?>
+<!DOCTYPE chapter [
   <!ENTITY % entities SYSTEM "generic-entities.ent">
-    %entities;
+  %entities;
 ]>
+
 <chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="cha-access">
  <title>Firewalling</title>
+ <info xmlns:d="http://docbook.org/ns/docbook"><revhistory xml:id="rh-cha-access">
+   <revision>
+     <date>2025-05-16</date>
+     <revdescription>
+       <para/>
+     </revdescription>
+   </revision>
+ </revhistory>
+</info>
 
  <para>
   This chapter presents information about restricting access to the system
@@ -136,10 +145,10 @@
    <title>Using &hana-fw;</title>
    <remark>toms 2019-05-28: This needs to be reworked. According
    to Sören:
-   * There is no proposal step anymore [...] => fixed
-   * Allowing Remote Shell Access (SSH) is not part of HANA Firewall anymore. => fixed
+   * There is no proposal step anymore [...] =&gt; fixed
+   * Allowing Remote Shell Access (SSH) is not part of HANA Firewall anymore. =&gt; fixed
    * It is not possible to choose network interfaces anymore.
-     Also it is not called "Allowed Services". => comment
+     Also it is not called "Allowed Services". =&gt; comment
    * Adding services have to be done via command line (hana-firewall
      define-new-hana-service).
    * There is no integration in YaST.

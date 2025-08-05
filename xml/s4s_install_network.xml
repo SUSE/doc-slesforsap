@@ -1,11 +1,20 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE chapter
-[
+<?xml version="1.0"?>
+<!DOCTYPE chapter [
   <!ENTITY % entities SYSTEM "generic-entities.ent">
-    %entities;
+  %entities;
 ]>
+
 <chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="cha-serve-mediaset">
  <title>Setting up an installation server for &sap; media sets</title>
+ <info xmlns:d="http://docbook.org/ns/docbook"><revhistory xml:id="rh-cha-serve-mediaset">
+   <revision>
+     <date>2021-05-27</date>
+     <revdescription>
+       <para/>
+     </revdescription>
+   </revision>
+ </revhistory>
+</info>
 
  <para>
   Using the &sapwiz;, it is possible to copy the &sap; media sets from a

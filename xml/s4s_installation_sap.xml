@@ -1,11 +1,20 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE chapter
-[
+<?xml version="1.0"?>
+<!DOCTYPE chapter [
   <!ENTITY % entities SYSTEM "generic-entities.ent">
-    %entities;
+  %entities;
 ]>
+
 <chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="cha-install-sap">
  <title>Installing &sap; applications</title>
+ <info xmlns:d="http://docbook.org/ns/docbook"><revhistory xml:id="rh-cha-install-sap">
+   <revision>
+     <date>2022-10-12</date>
+     <revdescription>
+       <para/>
+     </revdescription>
+   </revision>
+ </revhistory>
+</info>
 
  <para>
   This section guides you through the installation of &sap; media sets you
@@ -965,28 +974,28 @@ SAP-NetWeaver-740-SR2-Installation-Export-CD-3-3</screen>
     be automated:
    </para>
 
-   <screen language="xml"><![CDATA[
-<sap-inst>
-  <products config:type="list">
-    <product>
-      <media config:type="list">
-        <medium>
-          <url>nfs://server/path1</url>
-          <type>sap</type>
-        </medium>
-        <medium>
-          <url>nfs://server/path3</url>
-          <type>supplement</type>
-        </medium>
-      </media>
-      <sapMasterPW>]]><replaceable>PASSWORD</replaceable><![CDATA[</sapMasterPW>
-      <sid>]]><replaceable>SID</replaceable><![CDATA[</sid>
-      <sapInstNr>]]><replaceable>INSTANCE_NUMBER</replaceable><![CDATA[</sapInstNr>
-      <sapMDC>no</sapMDC>
-    </product>
-  </products>
-</sap-inst>
-   ]]></screen>
+   <screen language="xml">
+&lt;sap-inst&gt;
+  &lt;products config:type="list"&gt;
+    &lt;product&gt;
+      &lt;media config:type="list"&gt;
+        &lt;medium&gt;
+          &lt;url&gt;nfs://server/path1&lt;/url&gt;
+          &lt;type&gt;sap&lt;/type&gt;
+        &lt;/medium&gt;
+        &lt;medium&gt;
+          &lt;url&gt;nfs://server/path3&lt;/url&gt;
+          &lt;type&gt;supplement&lt;/type&gt;
+        &lt;/medium&gt;
+      &lt;/media&gt;
+      &lt;sapMasterPW&gt;<replaceable>PASSWORD</replaceable>&lt;/sapMasterPW&gt;
+      &lt;sid&gt;<replaceable>SID</replaceable>&lt;/sid&gt;
+      &lt;sapInstNr&gt;<replaceable>INSTANCE_NUMBER</replaceable>&lt;/sapInstNr&gt;
+      &lt;sapMDC&gt;no&lt;/sapMDC&gt;
+    &lt;/product&gt;
+  &lt;/products&gt;
+&lt;/sap-inst&gt;
+   </screen>
 
    <itemizedlist>
     <listitem>
@@ -1053,28 +1062,28 @@ SAP-NetWeaver-740-SR2-Installation-Export-CD-3-3</screen>
     </listitem>
    </itemizedlist>
 
-   <screen language="xml"><![CDATA[
-<sap-inst>
-  <products config:type="list">
-    <product>
-      <media config:type="list">
-        <medium>
-          <url>]]><replaceable>nfs://SERVER/PATH1</replaceable><![CDATA[</url>
-          <type>sap</type>
-        </medium>
-        <medium>
-          <url>]]><replaceable>nfs://SERVER/PATH2</replaceable><![CDATA[</url>
-          <type>sap</type>
-        </medium>
-        <medium>
-          <url>]]><replaceable>nfs://SERVER/PATH3</replaceable><![CDATA[</url>
-          <type>supplement</type>
-        </medium>
-      </media>
-      <productID>NW_ABAP_ASCS:NW750.ADA.ABAP</productID>
-      <iniFile>
-        <![CDATA[
-# Password for the Diagnostics Agent specific <dasid>adm user. Provided value
+   <screen language="xml">
+&lt;sap-inst&gt;
+  &lt;products config:type="list"&gt;
+    &lt;product&gt;
+      &lt;media config:type="list"&gt;
+        &lt;medium&gt;
+          &lt;url&gt;<replaceable>nfs://SERVER/PATH1</replaceable>&lt;/url&gt;
+          &lt;type&gt;sap&lt;/type&gt;
+        &lt;/medium&gt;
+        &lt;medium&gt;
+          &lt;url&gt;<replaceable>nfs://SERVER/PATH2</replaceable>&lt;/url&gt;
+          &lt;type&gt;sap&lt;/type&gt;
+        &lt;/medium&gt;
+        &lt;medium&gt;
+          &lt;url&gt;<replaceable>nfs://SERVER/PATH3</replaceable>&lt;/url&gt;
+          &lt;type&gt;supplement&lt;/type&gt;
+        &lt;/medium&gt;
+      &lt;/media&gt;
+      &lt;productID&gt;NW_ABAP_ASCS:NW750.ADA.ABAP&lt;/productID&gt;
+      &lt;iniFile&gt;
+        &lt;![CDATA[
+# Password for the Diagnostics Agent specific &lt;dasid&gt;adm user. Provided value
 # may be encoded.
 DiagnosticsAgent.dasidAdmPassword =
 
@@ -1082,12 +1091,12 @@ DiagnosticsAgent.dasidAdmPassword =
 # The property is Microsoft Windows only. This is an optional property.
 DiagnosticsAgent.domain =
 
-# Password for the Diagnostics Agent specific SAPService<DASID> user.
+# Password for the Diagnostics Agent specific SAPService&lt;DASID&gt; user.
 # Provided value may be encoded.
 # The property is Microsoft Windows only.
 DiagnosticsAgent.sapServiceDASIDPassword =
 
-NW_GetMasterPassword.masterPwd = ]]><replaceable>MASTER_PASSWORD</replaceable><![CDATA[
+NW_GetMasterPassword.masterPwd = <replaceable>MASTER_PASSWORD</replaceable>
 
 # Human readable form of the Default Login language - valid names are stored
 # in a table of the subcomponent NW_languagesInLoadChecks. Used when freshly
@@ -1106,7 +1115,7 @@ NW_GetSidNoProfiles.sapdrive =
 NW_GetSidNoProfiles.sapmnt = /sapmnt
 
 # The SAP System ID of the system to install
-NW_GetSidNoProfiles.sid = ]]><replaceable>SID</replaceable><![CDATA[
+NW_GetSidNoProfiles.sid = <replaceable>SID</replaceable>
 
 # Will this system be unicode system?
 NW_GetSidNoProfiles.unicode = true
@@ -1115,15 +1124,15 @@ NW_SAPCrypto.SAPCryptoFile = /data/SAP_CDs/745-UKERNEL-SAP-Unicode-Kernel-745/DB
 
 NW_SCS_Instance.ascsInstanceNumber =
 
-NW_SCS_Instance.ascsVirtualHostname = ]]><replaceable>ASCS_VIRTUAL_HOSTNAME</replaceable><![CDATA[
+NW_SCS_Instance.ascsVirtualHostname = <replaceable>ASCS_VIRTUAL_HOSTNAME</replaceable>
 
-NW_SCS_Instance.instanceNumber = ]]><replaceable>INSTANCE_NUMBER</replaceable><![CDATA[
+NW_SCS_Instance.instanceNumber = <replaceable>INSTANCE_NUMBER</replaceable>
 
 NW_SCS_Instance.scsInstanceNumber =
 
 NW_SCS_Instance.scsMSPort =
 
-NW_SCS_Instance.scsVirtualHostname = ]]><replaceable>SCS_VIRTUAL_HOSTNAME</replaceable><![CDATA[
+NW_SCS_Instance.scsVirtualHostname = <replaceable>SCS_VIRTUAL_HOSTNAME</replaceable>
 
 NW_System.installSAPHostAgent = true
 
@@ -1155,19 +1164,19 @@ hostAgent.domain =
 
 # Password for the SAP Host Agent specific sapadm user. Provided value may be
 # encoded.
-hostAgent.sapAdmPassword = ]]><replaceable>MASTER_PASSWORD</replaceable><![CDATA[
+hostAgent.sapAdmPassword = <replaceable>MASTER_PASSWORD</replaceable>
 
 nwUsers.sapDomain =
 
 nwUsers.sapServiceSIDPassword =
 
 nwUsers.sidadmPassword =
-            ]]]]><![CDATA[>
-      </iniFile>
-    </product>
-  </products>
-</sap-inst>
-   ]]></screen>
+            ]]&gt;
+      &lt;/iniFile&gt;
+    &lt;/product&gt;
+  &lt;/products&gt;
+&lt;/sap-inst&gt;
+   </screen>
   </sect2>
  </sect1>
 
