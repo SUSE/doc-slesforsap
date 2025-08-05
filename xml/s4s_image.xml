@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE sect1
+<!DOCTYPE chapter
 [
   <!ENTITY % entities SYSTEM "generic-entities.ent">
     %entities;
 ]>
 <chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="cha-s4s-image">
  <title>Creating Operating System Images</title>
+ <info/>
 
  <para>
   There are multiple ways to create custom operating system images from

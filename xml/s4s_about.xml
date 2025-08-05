@@ -14,6 +14,17 @@
    optimized for all &sap; software solutions.
   </para>
  </abstract>
+  <revhistory xml:id="rh-s4s-about">
+    <revision>
+      <date>2025-04-07</date>
+      <revdescription>
+        <para>
+          Updated for the initial release of &productname; &productnumber;.
+        </para>
+      </revdescription>
+    </revision>
+  </revhistory>
+
 </info>
 
  <para>

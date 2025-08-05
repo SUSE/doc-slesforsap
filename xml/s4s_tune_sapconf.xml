@@ -7,6 +7,7 @@
 
 <chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="cha-tune-sapconf">
  <title>Tuning systems with &sapconf;5</title>
+ <info/>
   <para>
    The package <systemitem>sapconf</systemitem> is available in &sls; and &s4s;.
    It sets recommended parameters for the following types of &sap; applications:

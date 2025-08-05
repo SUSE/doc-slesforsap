@@ -11,6 +11,18 @@
      in the txt file as is.
 -->
 <legalnotice xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <info>
+  <revhistory>
+   <revision>
+    <date>2019-11-21</date>
+     <revdescription>
+      <para>
+       Updated for the initial release of &productname; &productnumber;.
+      </para>
+     </revdescription>
+    </revision>
+  </revhistory>
+ </info>
  <para>
   Copyright &copy;
 <?dbtimestamp format="Y"?>

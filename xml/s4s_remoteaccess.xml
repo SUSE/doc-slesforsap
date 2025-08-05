@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE sect1
+<!DOCTYPE chapter
 [
   <!ENTITY % entities SYSTEM "generic-entities.ent">
     %entities;
 ]>
 <chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="cha-s4s-configure-rdp">
   <title>Connecting via RDP</title>
+  <info/>
   <para>
    If you installed &s4sa; with the RDP option activated or if you installed
    from a &kiwi; image, RDP is enabled on the machine via the service
