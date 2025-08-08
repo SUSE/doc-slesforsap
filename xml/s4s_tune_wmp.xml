@@ -353,9 +353,9 @@ MemoryLow=18487889920    &lt;- Should be your chosen value (always in bytes)!
     <title>Migration procedure</title>
     <step>
     <para>
-      Switch to a &systemd;-enabled &sap; system. For more info, refer to <link xlink:href="https://launchpad.support.sap.com/notes/3189534">139184
-      - Linux: systemd integration for sapstartsrv and SAP Host Agent and
-      3189534 - Linux: systemd integration for sapstartsrv and SAP HANA</link>.
+      Switch to a &systemd;-enabled &sap; system. For more info, refer to <link xlink:href="https://me.sap.com/notes/3139184/E">139184
+      - Linux: systemd integration for sapstartsrv and SAP Host Agent</link> and
+      <link xlink:href="https://me.sap.com/notes/3189534/E">3189534 - Linux: systemd integration for sapstartsrv and SAP HANA</link>.
     </para>
     </step>
     <step>
