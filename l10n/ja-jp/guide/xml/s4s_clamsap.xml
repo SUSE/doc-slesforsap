@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="urn:x-suse:xslt:profiling:docbook50-profile.xsl"
+   type="text/xml"
+   title="Profiling step"?>
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" xml:base="s4s_clamsap.xml" version="5.0" xml:lang="ja" xml:id="cha-clamsap">
+ <title>ClamSAPを使用したマルウェアに対する保護</title>
+ <info>
+  <dm:docmanager xmlns:dm="urn:x-suse:ns:docmanager">
+   <dm:bugtracker/>
+   <dm:translation>yes</dm:translation>
+  </dm:docmanager>
+ </info>
+  <para>
+   ClamSAPは、ClamAVアンチマルウェアツールキットをSAP NetWeaverおよびSAP Mobile Platformのアプリケーションに統合します。ClamSAPは、ClamAVとSAP NetWeaver Virus Scan Interface (NW-VSI)をリンクする共有ライブラリです。SUSE Linux Enterprise Server for SAP applications 15 SP7に付属しているClamSAPのバージョンは、NW-VSIバージョン2.0をサポートしています。
+  </para>
+ <important>
+  <title>最大ファイルサイズを超える大きなファイルについての誤検出レポートを回避する</title>
+  <remark>toms 2021-10-20: See https://www.suse.com/support/kb/doc/?id=000020324</remark>
+  <para> デフォルトで、ClamAVはファイルサイズ、ネストレベル、スキャン時間など、さまざまな制限を超えるファイルをスキャンしません。このようなファイルは「OK」として報告されます。<command>clamscan</command>コマンドラインツールおよび<systemitem class="daemon">clamd</systemitem>スキャンデーモンのClamAVウィルススキャンエンジンの現在のデフォルト設定は、次のように設定されています。</para>
+  <itemizedlist>
+   <listitem>
+    <para>ファイルおよびアーカイブはスキャンされますが、サイズ、ネストレベル、スキャン時間などの設定済みまたはデフォルトの制限までしかスキャンされません。</para>
+   </listitem>
+   <listitem>
+    <para>
+     スキャンエンジンは、これらのファイルが「OK」であると報告します。
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     これにより、攻撃者がウィルススキャンをバイパスする可能性があります。
+    </para>
+   </listitem>
+  </itemizedlist>
+  <para> アラートを有効にして、<command>clamscan</command>コマンドラインで<option>--alert-exceeds-max=yes</option>オプションを設定するか、またはデーモンベースのスキャンで<filename>clamd.conf</filename>の<option>AlertExceedsMax
+    TRUE</option>を使用して設定できます。これらのオプションを設定すると、ステータスタイプ<literal>Heuristics.Limits.Exceeded</literal>の「FOUND」レポートが作成されます。フロントエンドやレポートの処理では、このようなファイルを異なる方法で処理する必要があります。
+  </para>
+  <para>
+   アラートを有効にする前に、フロントエンドがこれらのファイルを突然隔離または削除しないようにしてください。
+  </para>
+ </important>
+
+ <sect1 xml:id="sec-clamsap-install">
+  <title>ClamSAPのインストール</title>
+  <procedure>
+   <step>
+    <para>
+     アプリケーションホストに、ClamAVおよびClamSAPのパッケージをインストールします。そのためには、次のコマンドを使用してください。
+    </para>
+    <screen><prompt>&gt; </prompt><command>sudo zypper install clamav clamsap</command></screen>
+   </step>
+   <step>
+    <para>
+     デーモン<systemitem class="daemon">clamd</systemitem>を有効にする前に、マルウェアデータベースを初期化します。
+    </para>
+    <screen><prompt>&gt; </prompt><command>sudo freshclam</command></screen>
+   </step>
+   <step>
+    <para>
+     サービス<systemitem class="daemon">clamd</systemitem>を開始します。
+    </para>
+    <screen><prompt>&gt; </prompt><command>sudo systemctl start clamd</command></screen>
+   </step>
+   <step>
+    <para>
+     次のコマンドを使用してサービス<systemitem class="daemon">clamd</systemitem>のステータスを確認します。
+    </para>
+    <screen>
+<prompt>&gt; </prompt><command>systemctl status clamd</command>
+● clamd.service - ClamAV Antivirus Daemon
+Loaded: loaded (/usr/lib/systemd/system/clamd.service; enabled; vendor preset: disabled)
+Active: active (running) since Tue 2017-04-11 10:33:03 UTC; 24h ago
+[...]
+    </screen>
+   </step>
+  </procedure>
+ </sect1>
+ <sect1 xml:id="sec-clamsap-scannergroup">
+  <title>SAP NetWeaverでのウィルススキャナグループの作成</title>
+  <procedure>
+   <step>
+    <para>
+     GUIを使用してSAP NetWeaverインストールにログインします。<systemitem class="username">DDIC</systemitem>または<systemitem class="username">SAP*</systemitem>ユーザとしてログインしないでください。ウィルススキャナをcross-clientに設定する必要があるためです。
+    </para>
+   </step>
+   <step>
+    <para>
+     トランザクション<guimenu>VSCANGROUP</guimenu>を使用してウィルススキャナグループを作成します。
+    </para>
+    <informalfigure>
+     <mediaobject>
+      <imageobject role="html">
+       <imagedata fileref="sap-nw-scanner-group-display.jpg"/>
+      </imageobject>
+      <imageobject role="fo">
+       <imagedata fileref="sap-nw-scanner-group-display.jpg" width="85%"/>
+      </imageobject>
+      <textobject role="description">
+       <phrase>Edit View Scanner Group with editable table</phrase>
+      </textobject>
+     </mediaobject>
+    </informalfigure>
+   </step>
+   <step>
+    <para>
+     ビューモードから変更モードに切り替えるには、<guimenu>ビューの変更</guimenu>ボタン(<inlinemediaobject>
+      <textobject role="description">
+       <phrase>Change View</phrase>
+      </textobject>
+      <imageobject role="html">
+       <imagedata fileref="sap-nw-viewmode-icon.png" width="1em"/>
+      </imageobject>
+      <imageobject role="fo">
+       <imagedata fileref="sap-nw-viewmode-icon.png" width="0.8em"/>
+      </imageobject>
+     </inlinemediaobject>)をクリックします。
+    </para>
+    <para>
+      チェックマークをクリックして、<guimenu>This table is cross-client (このテーブルはクロスクライアントです)</guimenu>というメッセージを確認します。テーブルが編集可能になりました。
+    </para>
+   </step>
+   <step>
+    <para>
+     最初の空の行を選択します。<guimenu>Scanner Group (スキャナグループ)</guimenu>テキストボックスで、<literal>CLAMSAPVSI</literal>を指定します。<guimenu>Group Text (グループテキスト)</guimenu>で、<literal>CLAMSAP</literal>を指定します。
+    </para>
+    <para>
+     <guimenu>Business Add-in (ビジネスアドイン)</guimenu>がオフになっていることを確認します。
+    </para>
+    <informalfigure>
+     <mediaobject>
+      <textobject role="description">
+       <phrase>Edit View Scanner Group with editable table</phrase>
+      </textobject>
+      <imageobject role="html">
+       <imagedata fileref="sap-nw-scanner-group-change.jpg"/>
+      </imageobject>
+      <imageobject role="fo">
+       <imagedata fileref="sap-nw-scanner-group-change.jpg" width="85%"/>
+      </imageobject>
+     </mediaobject>
+    </informalfigure>
+   </step>
+   <step>
+    <para>
+     フォームを保存するには、<guimenu>保存</guimenu>ボタン(<inlinemediaobject>
+      <textobject role="description">
+       <phrase>Save</phrase>
+      </textobject>
+      <imageobject role="html">
+       <imagedata fileref="sap-nw-save-icon.png" width="1em"/>
+      </imageobject>
+      <imageobject role="fo">
+       <imagedata fileref="sap-nw-save-icon.png" width="0.8em"/>
+      </imageobject>
+     </inlinemediaobject>)をクリックします。
+    </para>
+   </step>
+  </procedure>
+ </sect1>
+ <sect1 xml:id="sec-clamsap-library">
+  <title>SAP NetWeaverでのClamSAPライブラリの設定</title>
+  <procedure>
+   <step>
+    <para>
+     SAP NetWeaver GUIで、トランザクション<guimenu>VSCAN</guimenu>をコールします。
+     
+    </para>
+   </step>
+   <step>
+    <para>
+     ビューモードから変更モードに切り替えるには、<guimenu>ビューの変更</guimenu>ボタン(<inlinemediaobject>
+      <textobject role="description">
+       <phrase>Change View</phrase>
+      </textobject>
+      <imageobject role="html">
+       <imagedata fileref="sap-nw-viewmode-icon.png" width="1em"/>
+      </imageobject>
+      <imageobject role="fo">
+       <imagedata fileref="sap-nw-viewmode-icon.png" width="0.8em"/>
+      </imageobject>
+     </inlinemediaobject>)をクリックします。
+    </para>
+    <para>
+      チェックマークをクリックして、<guimenu>This table is cross-client (このテーブルはクロスクライアントです)</guimenu>というメッセージを確認します。テーブルが編集可能になりました。
+    </para>
+   </step>
+   <step>
+    <para>
+     <guimenu>New entries (新しいエントリ)</guimenu>をクリックします。
+    </para>
+   </step>
+   <step>
+    <para>
+     必要に応じて、次のフォームに入力します。
+    </para>
+    <itemizedlist>
+     <listitem>
+      <para>
+       <guimenu>Provider Type (プロバイダタイプ)</guimenu>: <literal>Adapter (Virus Scan Adapter)</literal>
+      </para>
+     </listitem>
+     <listitem>
+      <para>
+       <guimenu>Provider Name (プロバイダ名)</guimenu>: <literal>VSA_<replaceable>HOSTNAME</replaceable></literal> (例: <literal>VSA_SAPSERVER</literal>)
+      </para>
+     </listitem>
+     <listitem>
+      <para>
+       <literal>Scanner Group</literal>:<xref linkend="sec-clamsap-scannergroup"/>で設定したスキャナグループの名前(例: <literal>CLAMSAPVSI</literal>)
+      </para>
+     </listitem>
+     <listitem>
+      <para>
+       <guimenu>サーバ</guimenu>: <literal><replaceable>HOSTNAME</replaceable>_<replaceable>SID</replaceable>_<replaceable>INSTANCE_NUMBER</replaceable></literal> (例: <literal>SAPSERVER_P04_00</literal>)
+      </para>
+     </listitem>
+     <listitem>
+      <para>
+       <guimenu>Adapter Path (アダプタのパス)</guimenu>: <filename>libclamdsap.so</filename>
+      </para>
+     </listitem>
+    </itemizedlist>
+    <informalfigure>
+     <mediaobject>
+      <textobject role="description">
+       <phrase>Form New Entries: Details of Added Entries</phrase>
+      </textobject>
+      <imageobject role="html">
+       <imagedata fileref="sap-nw-scanner-definition-add.jpg"/>
+      </imageobject>
+      <imageobject role="fo">
+       <imagedata fileref="sap-nw-scanner-definition-add.jpg" width="85%"/>
+      </imageobject>
+     </mediaobject>
+    </informalfigure>
+   </step>
+   <step>
+    <para>
+     フォームを保存するには、ボタン<inlinemediaobject>
+      <textobject role="description">
+       <phrase>Save</phrase>
+      </textobject>
+      <imageobject role="html">
+       <imagedata fileref="sap-nw-save-icon.png" width="1em"/>
+      </imageobject>
+      <imageobject role="fo">
+       <imagedata fileref="sap-nw-save-icon.png" width="0.8em"/>
+      </imageobject>
+     </inlinemediaobject>をクリックします。
+    </para>
+   </step>
+  </procedure>
+ </sect1>
+ <sect1 xml:id="sec-clamsap-changedir">
+  <title>ウィルス定義のデフォルトの場所の設定</title>
+  <para>
+   デフォルトで、ClamAVはウィルス定義が<filename class="directory">/var/lib/clamsap</filename>にあることを想定しています。このデフォルトの場所を変更するには、次の手順に従います。
+  </para>
+  <procedure>
+   <step>
+    <para>
+     GUIを使用してSAP NetWeaverインストールにログインします。<systemitem class="username">DDIC</systemitem>または<systemitem class="username">SAP*</systemitem>ユーザとしてログインしないでください。ウィルススキャナをcross-clientに設定する必要があるためです。
+    </para>
+   </step>
+   <step>
+    <para>
+     <literal>CLAMSAPVSI</literal>グループを選択します。
+    </para>
+   </step>
+   <step>
+    <para>
+     左のナビゲーションペインで、<guimenu>Configuration Parameters (設定パラメータ)</guimenu>をクリックします。
+    </para>
+   </step>
+   <step>
+    <para>
+     ビューモードから変更モードに切り替えるには、<guimenu>ビューの変更</guimenu>ボタン(<inlinemediaobject>
+      <textobject role="description">
+       <phrase>Change View</phrase>
+      </textobject>
+      <imageobject role="html">
+       <imagedata fileref="sap-nw-viewmode-icon.png" width="1em"/>
+      </imageobject>
+      <imageobject role="fo">
+       <imagedata fileref="sap-nw-viewmode-icon.png" width="0.8em"/>
+      </imageobject>
+     </inlinemediaobject>)をクリックします。
+    </para>
+    <para>
+      チェックマークをクリックして、<guimenu>This table is cross-client (このテーブルはクロスクライアントです)</guimenu>というメッセージを確認します。テーブルが編集可能になりました。
+    </para>
+    <figure xml:id="fig-clamsap-add-entry">
+    <title>ClamSAPエントリを追加する</title>
+     <mediaobject>
+      <imageobject role="html">
+       <imagedata fileref="sap-new-scanner-clamsap-add-entries.jpg" width="95%"/>
+      </imageobject>
+      <imageobject role="fo">
+       <imagedata fileref="sap-new-scanner-clamsap-add-entries.jpg" width="85%"/>
+      </imageobject>
+     </mediaobject>
+    </figure>
+   </step>
+   <step>
+    <para>
+     <guimenu>新しいエントリ</guimenu>をクリックして<parameter>INITDRIVERDIRECTORY</parameter>を選択します。
+    </para>
+    <figure xml:id="fig-clamsap-add-value">
+    <title>ClamSAPの値を追加する</title>
+     <mediaobject>
+      <imageobject role="html">
+       <imagedata fileref="sap-new-scanner-clamsap-add-value.jpg" width="95%"/>
+      </imageobject>
+      <imageobject role="fo">
+       <imagedata fileref="sap-new-scanner-clamsap-add-value.jpg" width="85%"/>
+      </imageobject>
+     </mediaobject>
+    </figure>
+   </step>
+   <step>
+    <para>
+     別のウィルススキャナの場所へのパスを入力します。
+    </para>
+   </step>
+   <step>
+    <para>
+     フォームを保存するには、<guimenu>保存</guimenu>ボタン(<inlinemediaobject>
+      <textobject role="description">
+       <phrase>Save</phrase>
+      </textobject>
+      <imageobject role="html">
+       <imagedata fileref="sap-nw-save-icon.png" width="1em"/>
+      </imageobject>
+      <imageobject role="fo">
+       <imagedata fileref="sap-nw-save-icon.png" width="0.8em"/>
+      </imageobject>
+     </inlinemediaobject>)をクリックします。
+    </para>
+   </step>
+  </procedure>
+ </sect1>
+ <sect1 xml:id="sec-clamsap-engage">
+  <title>ClamSAPの実行</title>
+  <para>
+   ClamSAPを実行するには、トランザクション<guimenu>VSCAN</guimenu>に移動します。続いて［<emphasis>開始</emphasis>］をクリックします。
+  </para>
+  <figure xml:id="fig-clamsap-scanner-change">
+   <title>ビュー<quote>ウィルススキャンプロバイダ定義</quote>を変更する</title>
+   <mediaobject>
+    <imageobject role="html">
+     <imagedata fileref="sap-nw-scanner-definition-change.jpg"/>
+    </imageobject>
+    <imageobject role="fo">
+     <imagedata fileref="sap-nw-scanner-definition-change.jpg" width="85%"/>
+    </imageobject>
+   </mediaobject>
+  </figure>
+  <para>
+   その後、ClamSAPおよびClamAVの詳細を含む概要が表示されます(<xref linkend="fig-clamsap-summary"/>で示される)。
+  </para>
+  <figure xml:id="fig-clamsap-summary">
+   <title>ClamSAPデータの概要</title>
+   <mediaobject>
+    <imageobject role="html">
+     <imagedata fileref="sap-nw-scanner-summary.jpg"/>
+    </imageobject>
+    <imageobject role="fo">
+     <imagedata fileref="sap-nw-scanner-summary.jpg" width="85%"/>
+    </imageobject>
+   </mediaobject>
+  </figure>
+ </sect1>
+ <sect1 xml:id="sec-clamsap-more">
+  <title>詳細情報</title>
+  <para>
+   詳細については、プロジェクトホームページ<link xlink:href="https://sourceforge.net/projects/clamsap/"></link>も参照してください。
+  </para>
+ </sect1>
+</chapter>

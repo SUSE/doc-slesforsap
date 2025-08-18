@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" xml:base="s4s_about.xml" version="5.0" xml:id="cha-about">
+<title>SUSE Linux Enterprise Server for SAP applicationsとは</title>
+<info>
+ <abstract>
+  <para>
+   SUSE® Linux Enterprise Server for SAP applicationsは、SAPユーザの特定のニーズに対処するソフトウェアとサービスのバンドルです。すべてのSAPソフトウェアソリューション用に最適化された唯一のオペレーティングシステムです。
+  </para>
+ </abstract>
+ <dm:docmanager xmlns:dm="urn:x-suse:ns:docmanager">
+  <dm:bugtracker/>
+  <dm:translation>yes</dm:translation>
+ </dm:docmanager>
+</info>
+
+ <para>
+  対象となる使用例は次のとおりです。
+ </para>
+
+ <itemizedlist>
+  <listitem>
+   <para>
+    UnixからLinuxへのマイグレーションおよびプラットフォーム変更
+   </para>
+  </listitem>
+  <listitem>
+   <para>
+    SAPアプライアンス
+   </para>
+  </listitem>
+  <listitem>
+   <para>
+    SAPクラウドの展開
+   </para>
+  </listitem>
+ </itemizedlist>
+
+ <para>
+  SUSE Linux Enterprise Server for SAP applicationsは、ソフトウェアコンポーネントおよびサービス提供から構成されています。サービス提供については、次の各セクションで説明します。図<xref linkend="fig-offering" xrefstyle="select:title"/>は、SUSEのその他の製品でも使用できるソフトウェアコンポーネントおよびサービス(緑色)とSUSE Linux Enterprise Server for SAP applicationsでのみ使用できるソフトウェアコンポーネントおよびサービス(青色)を示しています。
+ </para>
+
+ <figure xml:id="fig-offering">
+  <title>SUSE Linux Enterprise Server for SAP applicationsのオファリング</title>
+  <mediaobject>
+   <imageobject role="fo">
+    <imagedata fileref="s4s_overview.svg" width="85%"/>
+   </imageobject>
+   <imageobject role="html">
+    <imagedata fileref="s4s_overview.png" width="85%"/>
+   </imageobject>
+  </mediaobject>
+ </figure>
+
+ <xi:include href="s4s_components_quick.xml" parse="xml"/>
+ 
+
+ 
+
+ <sect1 xml:id="sec-s4s-service">
+  <title>含まれるサービス</title>
+
+  <variablelist>
+   <varlistentry>
+    <term><emphasis>「Extended Service Pack Overlap Support (ESPOS)」</emphasis>
+    </term>
+    <listitem>
+     <para>
+      SUSE Linux Enterprise Server for SAP applicationsのサブスクリプションには、Extended Service Pack Overlap Support (ESPOS)が含まれています。これにより、2つの連続するサービスパックのサポート期間の重複期間が3年延長されます。この期間中、長期サービスパックサポート(LTSS)の条項に従ってサポートおよび関連するすべての保守更新を受け取ります。
+     </para>
+     <para>
+        Extended Service Pack Overlap Supportの場合、6カ月のみではなく3年半以内にサービスパックのマイグレーションを実行できます。このため、マイグレーションを容易にスケジュールし、時間の制約が軽減された状況でマイグレーション前にテストを行うことができます。追加コストを支払うことでSUSEはLTSSも提供します。LTSSでは、ESPOS期間の終了後に特定のサービスパックのサポートを受けることができます。SUSE Linux Enterprise Server for SAP applicationsには、1年半の一般的なサポートとそれぞれのサービスパックに対する3年間のESPOSが含まれています。
+     </para>
+     <para>
+        各SLEファミリの最後のサービスパックにはESPOSは含まれていません。これにはESPOSの代わりに一般的なより長期のサポート期間が含まれています。そのため、LTSSは最後のサービスパックに対してのみ使用できます。その他すべてのサービスパックには3年間のESPOSがすでに含まれています。これはLTSSと同じです。
+     </para>
+     <para>
+      詳細については、次のリソースを参照してください。
+     </para>
+     <itemizedlist>
+      <listitem>
+       <para>
+        製品ライフサイクルサポートポリシー: <link xlink:href="https://www.suse.com/support/policy-products/#sap"></link>
+       </para>
+      </listitem>
+      <listitem>
+       <para>
+        製品別のライフサイクル日付: <link xlink:href="https://www.suse.com/lifecycle/"></link>
+       </para>
+      </listitem>
+      <listitem>
+       <para>
+        長期サービスパックサポート: <link xlink:href="https://www.suse.com/products/long-term-service-pack-support/"></link>
+       </para>
+      </listitem>
+     </itemizedlist>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term><emphasis>SUSE Linux Enterprise Server Priority Support for SAP Applications</emphasis>
+    </term>
+    <listitem>
+     <para>
+      SUSE Linux Enterprise Server for SAP applicationsのサブスクリプションには、SUSE Linux Enterprise Server Priority Support for SAP Applicationsが含まれています。SAPから直接SUSE Linux Enterprise Server for SAP applicationsのテクニカルサポートを提供します。SUSE Technical SupportおよびSAPのサポートエンジニアによってジョイントサポートインフラストラクチャが提供されます。これはSAP Resolveに基づき、SAPとSUSEの両方とのシームレス通信を提供します。この<quote>One Face to the Customer</quote> (お客様に対する一元窓口)サポートモデルによって、複雑さが軽減され、総所有コストが低減されます。
+     </para>
+     <para>
+      詳細については、「<citetitle>SAP Note 1056161: SUSE
+       Priority Support for SAP Applications</citetitle>」(<link xlink:href="https://launchpad.support.sap.com/#/notes/1056161"></link>)を参照してください。
+     </para>
+    </listitem>
+   </varlistentry>
+  </variablelist>
+  <important>
+   <title>モジュールおよび拡張機能のライフサイクルおよびサポート</title>
+   <para>
+    モジュールおよび拡張機能のライフサイクルはSLES for SAPとは異なります。SUSEではモジュールおよび拡張機能に対して異なるサポートが提供されます。
+   </para>
+   <itemizedlist>
+    <listitem>
+     <para>
+      モジュール:
+     </para>
+     <itemizedlist>
+      <listitem>
+       <formalpara>
+        <title>ライフサイクル</title>
+        <para>
+         モジュールによって異なります。
+        </para>
+       </formalpara>
+      </listitem>
+      <listitem>
+       <formalpara>
+        <title>サポート</title>
+        <para>
+         最新のパッケージのみがサポートされます。サポートはSUSE Linux Enterprise Server for SAP applicationsのサブスクリプションに含まれています。追加の登録キーは必要ありません。
+        </para>
+       </formalpara>
+      </listitem>
+     </itemizedlist>
+    </listitem>
+    <listitem>
+     <para>
+      拡張機能
+     </para>
+     <itemizedlist>
+      <listitem>
+       <formalpara>
+        <title>ライフサイクル</title>
+        <para>
+         SUSE Linux Enterprise Server for SAP applicationsとともに通常リリースが調整されます。
+        </para>
+       </formalpara>
+      </listitem>
+      <listitem>
+       <formalpara>
+        <title>サポート</title>
+        <para>
+         サポートは利用できますが、SUSE Linux Enterprise Server for SAP applicationsのサブスクリプションに含まれていません。追加の登録キーが必要です。
+        </para>
+       </formalpara>
+      </listitem>
+     </itemizedlist>
+    </listitem>
+    <listitem>
+     <para>
+      サポートされない拡張機能(SUSE Package HubおよびSUSE Software Development Kit)
+     </para>
+     <itemizedlist>
+      <listitem>
+       <formalpara>
+        <title>ライフサイクル</title>
+        <para>
+         SUSE Linux Enterprise Server for SAP applicationsとともに通常リリースが調整されます。
+        </para>
+       </formalpara>
+      </listitem>
+      <listitem>
+       <formalpara>
+        <title>サポート</title>
+        <para>
+         セキュリティおよびパッケージングの問題の修正以外のサポートはありません。追加の登録キーは必要ありません。
+        </para>
+       </formalpara>
+      </listitem>
+     </itemizedlist>
+    </listitem>
+   </itemizedlist>
+  </important>
+ </sect1>
+</chapter>
