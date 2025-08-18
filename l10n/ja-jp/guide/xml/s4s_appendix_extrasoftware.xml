@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<appendix xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" xml:base="s4s_appendix_extrasoftware.xml" version="5.0" xml:id="app-additional-software">
+ <title>SLES for SAP用の追加ソフトウェア</title>
+ <info>
+  <dm:docmanager xmlns:dm="urn:x-suse:ns:docmanager">
+   <dm:bugtracker/>
+   <dm:translation>yes</dm:translation>
+  </dm:docmanager>
+ </info>
+ <para>
+  SUSE Linux Enterprise Server for SAP applicationsでは、サブスクリプションに含まれていないソフトウェアを簡単にインストールできます。
+ </para>
+ <itemizedlist>
+  <listitem>
+   <para>
+    拡張機能およびモジュールを使用すると、SUSEによって作成され、サポートされている追加のソフトウェアをインストールできます。拡張機能およびモジュールの詳細については、<citetitle>Deployment Guide, Part <quote>Initial System Configuration</quote>,
+    Chapter <quote>Installing Modules, Extensions, and Third Party Add-On
+    Products</quote></citetitle>(<link xlink:href="https://documentation.suse.com/sles-15"></link>)を参照してください。
+   </para>
+  </listitem>
+  <listitem>
+   <para>
+    <guimenu>SUSE Connectプログラム</guimenu>を使用すると、サードパーティによって作成され、サポートされているSLES for SAP専用のパッケージをインストールできます。また、サードパーティのトレーニングおよびサポートに簡単にアクセスできます。<xref linkend="sec-suseconnectprogram"/>を参照してください。
+   </para>
+  </listitem>
+  <listitem>
+   <para>
+    SUSE Package Hubでは、サポートなしで、SUSE Linux Enterpriseコミュニティによって作成されたパッケージをインストールできます。<xref linkend="sec-packagehub"/>を参照してください。
+   </para>
+  </listitem>
+ </itemizedlist>
+ <sect1 xml:base="sec-identifying-sap">
+  <title>SUSE Linux Enterprise Server for SAP applicationsの基本製品の特定</title>
+
+  <para>
+   SUSE製品を識別し、区別するには、次のファイルのいずれかを使用します。
+  </para>
+
+  <variablelist>
+   <varlistentry>
+    <term><filename>/etc/os-release</filename></term>
+    <listitem>
+     <para>
+      シェル互換の変数割り当てに類似した、キー値ペアを持つテキストファイル。各キーは別々の行にあります。
+     </para>
+     <para>
+      <varname>CPE_NAME</varname>キーを検索できます。ただし、異なるリリースおよびサービスパックの間でその値が変更されている可能性があります。さらに詳細が必要な場合は、<link xlink:href="https://www.suse.com/support/kb/doc/?id=7023490"></link>にある記事を参照してください。
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term><filename>/etc/products.d/baseproduct</filename></term>
+    <listitem>
+     <para>
+      XMLファイルへのリンク。<filename class="directory">/etc/products.d/</filename>ディレクトリにはさまざまな<filename class="extension">.prod</filename>ファイルが含まれています。
+     </para>
+     <para>
+      購入した製品およびシステムのインストール方法に応じて、リンク<filename>/etc/products.d/baseproduct</filename>が異なる<filename class="extension">.prod</filename>ファイル(<filename>sle-module-sap-applications.prod</filename>など)を指す可能性があります。<varname>CPE_NAME</varname>と同じ情報がタグ<tag class="starttag">cpeid</tag>に保存されます。
+     </para>
+    </listitem>
+   </varlistentry>
+  </variablelist>
+
+  <para>
+   その他の情報として、両方のファイルにオペレーティングシステムと基本製品が含まれています。基本製品(キー<varname>CPE_NAME</varname>とタグ<tag class="starttag">cpeid</tag>)は、<link xlink:href="https://scap.nist.gov/specifications/cpe/">Common Platform Enumeration仕様</link>に従います。
+  </para>
+
+  <para>
+   コマンド<command>grep</command>または<command>xmlstarlet</command> (どちらも製品で使用可能)のいずれかを使用して、ファイル<filename>/etc/products.d/baseproduct</filename>から情報を引き出すことができます。XMLもテキストであるため、出力の形式がそれほど重要でない場合は、<quote>単純な検索</quote>に<command>grep</command>を使用します。ただし、検索がより高度な場合、別のスクリプトでの出力が必要な場合、または出力にXMLタグを避けたい場合は、代わりに、<command>xmlstarlet</command>コマンドを使用します。
+  </para>
+
+  <para>
+   たとえば、基本製品を取得するには、次のように<command>grep</command>を使用します。
+  </para>
+
+<screen><prompt>&gt; </prompt><command>grep</command> cpeid /etc/products.d/baseproduct
+&lt;cpeid&gt;cpe:/o:suse:sle-module-sap-applications:<replaceable>RELEASE</replaceable>:sp<replaceable>SP_NUMBER</replaceable>&lt;/cpeid&gt;</screen>
+
+  <para>
+   <replaceable>RELEASE</replaceable>および<replaceable>SP_NUMBER</replaceable>は、プレースホルダで、製品のリリース番号およびサービスパックを示しています。
+  </para>
+
+  <para>
+   <command>xmlstarlet</command>でも同じことができます。XPath (情報に導く手順)が必要です。適切なオプションを使用すると、<tag class="starttag">cpeid</tag>/<tag class="endtag">cpeid</tag>タグを回避できます。
+  </para>
+
+<screen><prompt>&gt; </prompt><command>xmlstarlet</command> sel -T -t -v "/product/cpeid" /etc/products.d/baseproduct
+cpe:/o:suse:sle-module-sap-applications:<replaceable>RELEASE</replaceable>:sp<replaceable>SP_NUMBER</replaceable></screen>
+
+  <para>
+   (<command>grep</command>では難しい)より高度な検索では、他の製品に必要なすべての依存関係を一覧表示します。<filename>basename</filename>が<filename>sle-module-sap-applications.prod</filename>を指していると仮定して、次のコマンドは、SUSE Linux Enterprise Server for SAP applicationsに必要なすべての製品依存関係を出力します。
+  </para>
+
+<screen>&gt;<prompt>&gt; </prompt><command>xmlstarlet</command> sel -T -t -v "/product/productdependency[@relationship='requires']/@name" /etc/products.d/baseproduct
+SUSE_SLE
+sle-ha</screen>
+ </sect1>
+ <sect1 xml:id="sec-suseconnectprogram">
+  <title>SUSE Connectプログラム</title>
+  <para>
+   <guimenu>SUSE Connectプログラム</guimenu>を使用してYaSTコントロールセンターからSUSE Connectプログラムを起動します。使用可能なオプションから選択します。ソフトウェアリポジトリを有効にするには、<guimenu>リポジトリの追加</guimenu>をクリックします。
+  </para>
+
+  <para>
+   SUSE Connectプログラムによって有効化されるすべてのソフトウェアは、サードパーティから提供されます。サポートについては、対象のベンダーにお問い合わせください。SUSEでは、これらのオファリングのサポートは提供していません。
+  </para>
+
+  <note>
+   <title><command>SUSEConnect</command>コマンドラインツール</title>
+   <para>
+    <command>SUSEConnect</command>コマンドラインツールは、別の目的を持つ別個のツールであり、SUSE製品のインストールを登録できます。
+   </para>
+  </note>
+ </sect1>
+ <sect1 xml:id="sec-packagehub">
+  <title>SUSE Package Hub</title>
+
+  <para>
+   SUSE Package Hubでは、以前はopenSUSEでのみ使用可能であったSLEの多数のパッケージを用意しています。SUSE Package Hubのパッケージは、コミュニティによって作成され、サポートなしで提供されています。たとえば、セクションには次のものが含まれます。
+  </para>
+
+  <itemizedlist>
+   <listitem>
+    <para>
+     Rプログラミング言語
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     Haskellプログラミング言語
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     KDE5デスクトップ
+    </para>
+   </listitem>
+  </itemizedlist>
+
+  <para>
+   SUSE Package Hubを有効にするには、<link xlink:href="https://packagehub.suse.com/how-to-use/"></link>の説明に従ってリポジトリを追加します。
+  </para>
+
+  <para>
+   詳細については、<link xlink:href="https://packagehub.suse.com"></link>にあるSUSE Package Hub Webサイトを参照してください。
+  </para>
+ </sect1>
+</appendix>
