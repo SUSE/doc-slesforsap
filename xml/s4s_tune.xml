@@ -74,7 +74,7 @@ To disable and stop the <literal>saptune</literal> service, use the command belo
     options include the color scheme, skipped sysctl files, etc. (refer to man 8
     saptune for more info). The command can be used as follows:
     </para> 
-<screen>saptune configure <replaceable>PARAMETER</replaceable><replaceable>VVALUE</replaceable></screen> 
+<screen>saptune configure <replaceable>PARAMETER</replaceable> <replaceable>VALUE</replaceable></screen> 
     <para>For example:</para>
 <screen>saptune configure COLOR_SCHEME red-noncmpl</screen>
     <para>
@@ -87,7 +87,7 @@ To disable and stop the <literal>saptune</literal> service, use the command belo
 <screen>saptune configure reset</screen>
 <important>
 <para>
-Do not edit the <filename>/etc/sysconfig/saptune</filename> directly, and use <command>saptune configure</command> instead. With SLE 16 the file will move to an internal location and may not edited anymore.
+Do not edit the <filename>/etc/sysconfig/saptune</filename> directly, and use <command>saptune configure</command> instead.
 </para>
 </important>
   </sect1>
@@ -272,7 +272,7 @@ net.ipv4.tcp_syn_retries = 16</screen>
       <para>
         On a bare-metal system, the output should be as shown below:
       </para>
-<screen><?dbsuse-fo font-size="0.59em"?>SAPNote, ... | Parameter                          | Expected  | Override  | Actual | Compliant
+<screen><?dbsuse-fo font-size="0.65em"?>SAPNote, ... | Parameter                          | Expected  | Override  | Actual | Compliant
 ----------------+------------------------------------+-----------+-----------+--------+-----------
    ...
    2382421, 47  | net.ipv4.tcp_max_syn_backlog       | 65536     | 65536     | 65536  | yes 
@@ -281,7 +281,7 @@ net.ipv4.tcp_syn_retries = 16</screen>
    2382421, 47  | net.ipv4.tcp_syn_retries           | 8         |           | 8      | yes 
    ...</screen>
       <para>
-        If changes hav not been applied correctly, and you don't see any errors
+        If changes have not been applied correctly, and you don't see any errors
         due to incorrect config file, the  <literal>Compliant</literal> field in
         the table will <literal>no</literal>, and the values in the
         <literal>Actual</literal> and <literal>Expected</literal> fields will
@@ -417,7 +417,7 @@ The command lists the current system value and the expected values (default and 
 <note>
 <title>Deprecation notice</title>
 <para>
-The <command>simulate</command> command is deprecated since version 3.1 &sles4sap; prior to version 16, and it is removed in all &saptune; versions in &sles4sap; 16.
+The <command>simulate</command> command is deprecated since version 3.1 &sles4sap; prior to version 16, and it is removed in all &saptune; versions in &sles4sap; 16 as well as &slea; 16.
 </para>
 </note>
   </sect2>
@@ -487,7 +487,7 @@ An &sapsol; is a combination of &sapnote; configurations grouped logically. It g
  To edit a custom &sapsol;, use the following command:
  </para>
 
-<screen>&prompt.root;<command>saptune solution edit <replaceable>NOTE</replaceable></command></screen>
+<screen>&prompt.root;<command>saptune solution edit <replaceable>SOLUTION</replaceable></command></screen>
 
 <para>
 The command opens the default editor (defined in the environment variable <literal>EDITOR</literal>) with the Solution configuration.
