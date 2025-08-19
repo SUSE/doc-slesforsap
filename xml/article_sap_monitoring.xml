@@ -58,7 +58,7 @@ https://suse.com/c/coming-soon-sap-landscape-monitoring-on-sles-for-sap/
   </para>
 
   <para>
-   &suse; supports Prometheus and Grafana through &suma; 4.0. Some Grafana
+   &suse; supports Prometheus and Grafana through &smlm;. Some Grafana
    dashboards for &hana;, &s4h;, &netweaver;, and the cluster monitoring are
    provided by &suse; via Grafana community dashboards.
   </para>
