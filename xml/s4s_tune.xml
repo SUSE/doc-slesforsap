@@ -56,7 +56,34 @@ To disable and stop the <literal>saptune</literal> service, use the command belo
 </para>
   <screen>&prompt.root;<command>saptune service disablestop</command></screen>
  </sect1>
-
+  
+  <sect1 xml:id="sec-saptune-configure">
+    <title>Configuring &saptune;</title>
+    <para>
+    The <command>configure</command> command manages the configuration file
+    <filename>/etc/sysconfig/saptune</filename>. The command exposes only
+    user-defined changes, and it helps avoid misconfiguration. Configurable
+    options include the color scheme, skipped sysctl files, etc. (refer to man 8
+    saptune for more info). The command can be used as follows:
+    </para> 
+<screen>saptune configure <replaceable>PARAMETER</replaceable> <replaceable>VALUE</replaceable></screen> 
+    <para>For example:</para>
+<screen>saptune configure COLOR_SCHEME red-noncmpl</screen>
+    <para>
+      To view the &saptune; configuration file, use the <command>saptune
+      configure show</command> command.
+    </para>
+<para>
+      The following command reverts the &saptune; configuration to its defaults:
+</para>
+<screen>saptune configure reset</screen>
+<important>
+<para>
+Do not edit the <filename>/etc/sysconfig/saptune</filename> directly, and use <command>saptune configure</command> instead.
+</para>
+</important>
+  </sect1>
+      
 <sect1 xml:id="sec-saptune-configure-tuning">
   <title>Configuring the tuning</title>
   <para>
@@ -107,7 +134,7 @@ S4HANA-DBSERVER Solution for running the &hana; database of an &s4h; installatio
 </listitem>
 <listitem>
 <para>
-SAP-ASE Solution for running an &ase; database
+SAP-ASE Solution for running an &ase; database. Note that the SAP-ASE Solution and the associated &sapnote;s 1805750 and 1680803 are deprecated and removed from &saptune; 3.2 on &slea; 16. The default settings are sufficient for ASE, so no additional tuning is required.
 </para>
 </listitem>
 <listitem>
@@ -202,6 +229,56 @@ For more information, refer to the <literal>saptune-note(5)</literal> manpage.
    <para>
    When you are done customizing a Note, restart the <literal>saptune</literal> service to apply the changes.
    </para>
+    <para>
+        Below is an example of an override file for &sapnote; 2382421:
+    </para>
+<screen># Always:
+#  - Changing net.ipv4.tcp_max_syn_backlog from 8192 to 65536
+#  - Disable net.ipv4.tcp_slow_start_after_idle, because the parameter is tuned elsewhere
+#
+# On virtual machines additionally:
+#  - Change net.ipv4.tcp_syn_retries from 8 to 16
+
+[sysctl]
+net.ipv4.tcp_max_syn_backlog = 65536
+net.ipv4.tcp_slow_start_after_idle =
+
+[sysctl:virt=vm]
+net.ipv4.tcp_max_syn_backlog = 65536
+net.ipv4.tcp_slow_start_after_idle =
+net.ipv4.tcp_syn_retries = 16</screen>
+  <para>
+        Run the
+        <command>saptune note verify 2382421</command> command. If the changes
+        have been applied correctly, the output on a virtual machine should be
+        as follows:
+  </para>
+<screen><?dbsuse-fo font-size="0.70em"?>SAPNote, ... | Parameter                          | Expected | Override  | Actual | Compliant
+----------------+------------------------------------+----------+-----------+--------+-----------
+   ...
+   2382421, 47  | net.ipv4.tcp_max_syn_backlog       | 65536    | 65536     | 65536  | yes 
+   ...
+   2382421, 47  | net.ipv4.tcp_slow_start_after_idle | 0        | untouched | 0      | yes
+   2382421, 47  | net.ipv4.tcp_syn_retries           | 16       | 16        | 16     | yes
+   ...</screen>
+      <para>
+        On a bare-metal system, the output should be as shown below:
+      </para>
+<screen><?dbsuse-fo font-size="0.65em"?>SAPNote, ... | Parameter                          | Expected  | Override  | Actual | Compliant
+----------------+------------------------------------+-----------+-----------+--------+-----------
+   ...
+   2382421, 47  | net.ipv4.tcp_max_syn_backlog       | 65536     | 65536     | 65536  | yes 
+   ...
+   2382421, 47  | net.ipv4.tcp_slow_start_after_idle | 0         | untouched | 0      | yes
+   2382421, 47  | net.ipv4.tcp_syn_retries           | 8         |           | 8      | yes 
+   ...</screen>
+      <para>
+        If changes have not been applied correctly, and you don't see any errors
+        due to incorrect config file, the  <literal>Compliant</literal> field in
+        the table will <literal>no</literal>, and the values in the
+        <literal>Actual</literal> and <literal>Expected</literal> fields will
+        differ.
+      </para>
   </sect2>
 
   <sect2 xml:id="sec-saptune-create">
@@ -332,7 +409,7 @@ The command lists the current system value and the expected values (default and 
 <note>
 <title>Deprecation notice</title>
 <para>
-The <command>simulate</command> command is deprecated since version 3.1 and is removed in all &saptune; versions in &sles4sap; 16.
+The <command>simulate</command> command is deprecated since version 3.1 &sles4sap; prior to version 16, and it is removed in all &saptune; versions in &sles4sap; 16 as well as &slea; 16.
 </para>
 </note>
   </sect2>
@@ -402,7 +479,7 @@ An &sapsol; is a combination of &sapnote; configurations grouped logically. It g
  To edit a custom &sapsol;, use the following command:
  </para>
 
-<screen>&prompt.root;<command>saptune solution edit <replaceable>NOTE</replaceable></command></screen>
+<screen>&prompt.root;<command>saptune solution edit <replaceable>SOLUTION</replaceable></command></screen>
 
 <para>
 The command opens the default editor (defined in the environment variable <literal>EDITOR</literal>) with the Solution configuration.
@@ -634,7 +711,12 @@ The command does not check the tuning itself. To check the tuning, use the comma
 
 <note>
 <para>
-If <command>saptune note verify</command> is called without specifying a Note, it verifies all currently applied Notes. This allows you to verify your entire current tuning. As an alternative, use the <command>saptune solution verify</command> command that can also verify all currently applied Notes.
+If <command>saptune note verify</command> is called without specifying a Note,
+it verifies all enabled Notes. To verify the currently applied Notes use the
+<command>saptune note verify applied</command> or <command>saptune verify
+applied</command> commands. Normally, enabled Notes are also applied, except
+when the system has been rebooted without an enabled <systemitem
+class="service">saptune.service</systemitem>.
 </para>
 </note>
 
@@ -756,6 +838,11 @@ Always investigate the cause for the changed tuning and fix it. If &saptune; sha
             <command>saptune version</command>
           </para>
         </listitem>
+       <listitem>
+          <para>
+            <command>saptune check</command> (only starting with &saptune; 3.2)
+          </para>
+        </listitem>
       </itemizedlist>
     <para>
       The machine-readable output makes it possible to integrate &saptune; into scripts and configuration management solutions.
@@ -860,12 +947,22 @@ Always investigate the cause for the changed tuning and fix it. If &saptune; sha
    </listitem>
    <listitem>
     <para>
-     <command>man 8 saptune-migrate</command>
+     <command>man 5 saptune-note</command>
     </para>
    </listitem>
    <listitem>
     <para>
-     <command>man 8 saptune-note</command>
+     <command>man 7 saptune-migrate</command>
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     <command>man 5 saptune-solution</command> (new in saptune version 3.2)
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     <command>man 7 saptune</command> (new in saptune version 3.2)
     </para>
    </listitem>
   </itemizedlist>
