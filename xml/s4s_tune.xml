@@ -714,16 +714,12 @@ The command does not check the tuning itself. To check the tuning, use the comma
 
 <note>
 <para>
-<<<<<<< HEAD
-If <command>saptune note verify</command> is called without specifying a Note, it verifies all currently applied Notes. This allows you to verify your entire current tuning. As an alternative, use the <command>saptune solution verify</command> command that can also verify all currently applied Notes.
-=======
 If <command>saptune note verify</command> is called without specifying a Note,
 it verifies all enabled Notes. To verify the currently applied Notes use the
 <command>saptune note verify applied</command> or <command>saptune verify
 applied</command> commands. Normally, enabled Notes are also applied, except
 when the system has been rebooted without an enabled <systemitem
 class="service">saptune.service</systemitem>.
->>>>>>> c5fa85e (Saptune32 update (#201))
 </para>
 </note>
 
