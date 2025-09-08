@@ -157,7 +157,7 @@
   <sect3 xml:id="sec-hana-replicate-wizard">
    <title>SAP HANAクラスタを設定するためのYaSTウィザード</title>
    <para>
-    SUSE Linux Enterprise Server for SAP applicationsには現在、ベストプラクティスに従って、このようなクラスタの初期セットアップを管理するYaSTウィザードが追加で付属しています。このウィザードは、パッケージ<package>yast2-sap-ha</package>の一部で、<guimenu>SAP製品のHAセットアップ</guimenu>を介してYaSTを使用して開始できます。
+    SUSE Linux Enterprise Server for SAP applicationsには現在、ベストプラクティスに従って、このようなクラスタの初期セットアップを管理するYaSTウィザードが追加で付属しています。このウィザードは、パッケージ<package>yast2-sap-ha</package>の一部で、<guimenu>HA Setup for SAP Products (SAP製品のHAセットアップ)</guimenu>を介してYaSTを使用して開始できます。
    </para>
    <para>
     詳細については、<xref linkend="cha-cluster"/>を参照してください。

@@ -737,7 +737,7 @@ SAP-NetWeaver-740-SR2-Installation-Export-CD-3-3</screen>
      - sknorr, 2016-02-03
     </remark>
     <para>
-     保留中のインストールを続行するかどうかを尋ねられます。<guimenu>Install (インストール)</guimenu>を選択します。
+     保留中のインストールを続行するかどうかを尋ねられます。<guimenu>インストール</guimenu>を選択します。
     </para>
    </step>
    <step>

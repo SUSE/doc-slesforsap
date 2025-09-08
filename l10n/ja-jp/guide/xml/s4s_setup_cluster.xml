@@ -320,7 +320,7 @@
      </para>
     </warning>
     <para>
-     使用するデバイスを定義するには、<guimenu>追加</guimenu>をクリックしてから<guimenu>by-uuid</guimenu>などの識別方法を選択し、適切なデバイスを選択します。［OK］をクリックします。
+     使用するデバイスを定義するには、<guimenu>追加</guimenu>をクリックしてから<guimenu>by-uuid</guimenu>などの識別方法を選択し、適切なデバイスを選択します。<guimenu>OK</guimenu>をクリックします。
     </para>
     <para>
      追加のSBDコマンドラインパラメータを定義するには、それらを<guimenu>SBD options (SBDオプション)</guimenu>に追加します。
@@ -425,7 +425,7 @@
       </listitem>
      </varlistentry>
      <varlistentry>
-      <term><emphasis>コスト最適化シナリオのみ</emphasis>: 非運用SAP HANAインスタンス</term>
+      <term><emphasis>コスト最適化シナリオのみ:</emphasis> 非運用SAP HANAインスタンス</term>
       <listitem>
        <itemizedlist>
         <listitem>
