@@ -49,7 +49,7 @@
    </step>
    <step>
     <para>
-     セカンダリノードで、<guimenu>YaSTコントロールセンター</guimenu>を開始し、<guimenu>SUSE HANAクラスタの更新</guimenu>モジュールを開きます。
+     セカンダリノードで、<guimenu>YaSTコントロールセンター</guimenu>を開始し、<guimenu>SUSE HANA Cluster Update (SUSE HANAクラスタのアップデート)</guimenu>モジュールを開きます。
     </para>
    </step>
    <step>
