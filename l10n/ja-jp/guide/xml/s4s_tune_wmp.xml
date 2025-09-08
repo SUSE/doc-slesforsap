@@ -77,7 +77,8 @@
     </listitem>
    </itemizedlist>
   </important>
-  <para>
+  <para><!--
+    ワークロードメモリ保護を使用する場合、SAPシステムは<systemitem class="daemon">systemd</systemitem>を使用する必要があります。<systemitem class="daemon">systemd</systemitem>統合の詳細については、「<link xlink:href="https://launchpad.support.sap.com/%3Cmark%3E/notes/3139184">SAP Notes:139184 - Linux: systemd integration for sapstartsrv</link>」および「<link xlink:href="https://launchpad.support.sap.com/%3C/mark%3E/notes/3189534">SAP Host Agent and 3189534 - Linux: systemd integration for sapstartsrv and SAP HANA</link>」を参照してください。-->
     ワークロードメモリ保護を使用する場合、SAPシステムは<systemitem class="daemon">systemd</systemitem>を使用する必要があります。<systemitem class="daemon">systemd</systemitem>統合の詳細については、「<link xlink:href="https://launchpad.support.sap.com/%3Cmark%3E/notes/3139184">SAP Notes:139184 - Linux: systemd integration for sapstartsrv</link>」および「<link xlink:href="https://launchpad.support.sap.com/%3C/mark%3E/notes/3189534">SAP Host Agent and 3189534 - Linux: systemd integration for sapstartsrv and SAP HANA</link>」を参照してください。
   </para>
   <important>
@@ -256,8 +257,9 @@ MemoryLow=18487889920    &lt;- Should be your chosen value (always in bytes)!
     <procedure>
     <title>マイグレーションの手順</title>
     <step>
-    <para>
-      <systemitem class="daemon">systemd</systemitem>が有効なSAPシステムに切り替えます。詳細については、「139184 - Linux: systemd integration for sapstartsrv」および「<link xlink:href="https://launchpad.support.sap.com/notes/3189534">SAP Host Agent and 3189534 - Linux: systemd integration for sapstartsrv and SAP HANA</link>」を参照してください。
+    <para><!--
+      <systemitem class="daemon">systemd</systemitem>が有効なSAPシステムに切り替えます。詳細については、「139184 - Linux: systemd integration for sapstartsrv」および「<link xlink:href="https://launchpad.support.sap.com/notes/3189534">SAP Host Agent and 3189534 - Linux: systemd integration for sapstartsrv and SAP HANA</link>」を参照してください。-->
+      <systemitem class="daemon">systemd</systemitem>が有効なSAPシステムに切り替えます。詳細については、「<link xlink:href="https://me.sap.com/notes/3139184/E">139184 - Linux: systemd integration for sapstartsrv and SAP Host Agent</link>」および「<link xlink:href="https://me.sap.com/notes/3189534/E">3189534 - Linux: systemd integration for sapstartsrv and SAP HANA</link>」を参照してください。
     </para>
     </step>
     <step>
