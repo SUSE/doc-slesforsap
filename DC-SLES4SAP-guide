@@ -29,3 +29,4 @@ PRODUCTNAMEREG=""
 # to specify the -e/--envfile option with daps, uncomment the
 # following line
 #export DAPS_ENV_NAME=$(basename $BASH_SOURCE)
+DOCBOOK5_RNG_URI="http://docbook.org/xml/5.2/rng/docbookxi.rng"
