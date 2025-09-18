@@ -44,7 +44,7 @@
  </para>
  <para>
   For more information about cgroups, see
-  <link xlink:href="https://documentation.suse.com/sles-15/html/SLES-all/cha-tuning-cgroups.html"/>.
+  <link xlink:href="https://documentation.suse.com/sles/html/SLES-all/cha-tuning-cgroups.html"/>.
  </para>
  <sect1 xml:id="sec-memory-protection-architecture">
   <title>Architecture</title>
@@ -120,19 +120,6 @@
     </listitem>
    </itemizedlist>
   </important>
-  <para>
-    To use &wmp;, the &sap; system must use &systemd;.
-    Details about the &systemd; integration can be found in <link xlink:href="https://launchpad.support.sap.com/%3Cmark%3E/notes/3139184">SAP
-    Notes: 139184 - Linux: systemd integration for sapstartsrv</link> and <link xlink:href="https://launchpad.support.sap.com/%3C/mark%3E/notes/3189534">SAP
-    Host Agent and 3189534 - Linux: systemd integration for sapstartsrv and SAP
-    HANA</link>.
-  </para>
-  <important>
-  <para>
-    Starting with &sles4sap; 15 SP5, the package <package>sapwmp</package> is
-    deprecated. For infomation about migration, see <xref linkend="sec-sapwmp-migrate"/>.
-  </para>
-  </important>
  </sect1>
  <sect1 xml:id="sec-memory-protection-setup">
   <title>Setting up &wmp;</title>
@@ -143,55 +130,9 @@
    <title>Preparing for &wmp;</title>
    <para>
     The &sap; Start Service puts &sap; instances into the dedicated
-    <literal>SAP.slice</literal> cgroup. To use &wmp;, switch to the unified cgroup2 hierarchy and set <varname>MemoryLow=</varname> correctly.
-   </para>
-   <procedure>
-    <step>
-     <para>
-      Stop all &sap; instances and the &sap; Host Agent.
-     </para>
-     <para>
-      The service can be enabled, but all &sap; processes need to be
-      terminated.
-     </para>
-    </step>
-    <step>
-     <para>
-      Add <varname>systemd.unified_cgroup_hierarchy=true</varname> to the
-      kernel command line by adding it to
-      <varname>GRUB_CMDLINE_LINUX_DEFAULT</varname> in
-      <filename>/etc/default/grub</filename> like:
-     </para>
-<screen>GRUB_CMDLINE_LINUX_DEFAULT="... systemd.unified_cgroup_hierarchy=true swapaccount=1"</screen>
-     <para>
-      With this change, only cgroup2 controllers are be mounted on
-      <filename>/sys/fs/cgroup</filename>. Cgroup1 controllers, except the
-      memory controller, are still available and can be used though. Tools
-      using cgroup1 may not work out of the box any more and may need
-      reconfiguration. Also, the required mount structure for cgroup1 needs to
-      be provided.
-     </para>
-     <para>
-      The parameter <varname>swapaccount=1</varname> is not needed for &wmp; to
-      work, but it aids the analysis in support cases to show the amount of
-      swapped out memory for each cgroup.
-     </para>
-    </step>
-    <step>
-     <para>
-      Rewrite the GRUB2 configuration:
-     </para>
-<screen>&prompt.sudo;<command>grub2-mkconfig</command> -o /boot/grub2/grub.cfg</screen>
-     <para>
-      After reboot (which is performed later), the cgroup hierarchy is switched to v2
-      (unified hierarchy) only.
-     </para>
-    </step>
-    <step xml:id="st-conf-memorylow-sap-slice">
-     <para>
-      Configure <varname>MemoryLow</varname> for the
-      <systemitem>SAP.slice</systemitem>:
-     </para>
+    <literal>SAP.slice</literal> cgroup. To use &wmp;, set <varname>MemoryLow=</varname> as follows:
+  </para>
+
 <screen>&prompt.sudo;<command>systemctl</command> set-property SAP.slice MemoryLow=...</screen>
      <para>
       This command creates a drop-in in
@@ -274,108 +215,20 @@
        <varname>MemoryLow</varname> to a multiple of the page size.
       </para>
      </note>
-    </step>
-   </procedure>
-   <para>
-    Now the system is ready for a reboot.
-   </para>
   </sect2>
 
   <sect2 xml:id="sec-memory-protection-reboot-and-verification">
-   <title>Reboot and verification</title>
-   <remark>toms 2020-09-16: introduction of the procedure is missing.</remark>
-   <procedure>
-    <step>
-     <para>
-      Reboot the system.
-     </para>
-    </step>
-    <step>
-     <para>
-      After rebooting, verify that cgroups v2 has indeed been used:
-     </para>
-<screen>&prompt.root;<command>grep</command>  cgroup /proc/mounts
-cgroup /sys/fs/cgroup cgroup2 rw,nosuid,nodev,noexec,relatime 0 0</screen>
-    </step>
-    <step>
-     <para>
-      Verify that the low memory value has been set:
-     </para>
-<screen>&prompt.user;<command>systemctl</command> show -p MemoryLow SAP.slice
-MemoryLow=18487889920    &lt;- Should be your chosen value (always in bytes)!
-
-# cat /sys/fs/cgroup/SAP.slice/memory.low
-18487889920    &lt;- Should be your chosen value!</screen>
-     <para>
-      The variable <varname>MemoryLow</varname> can be set to any value, but
-      the content of the variable is always a multiple of the page size. Keep
-      this in mind if you notice a slight difference between the values.
-     </para>
-    </step>
-   </procedure>
-  </sect2>
- </sect1>
- <sect1 xml:id="sec-memory-protection-operation-change-the-value-of-memorylow">
-  <title>Changing the value of MemoryLow</title>
-
-  <para>
-   To change the value of <varname>MemoryLow</varname> run:
-  </para>
-
-<screen>&prompt.root;<command>systemctl</command> set-property SAP.slice MemoryLow=...</screen>
-
-  <para>
-   The changes takes effect immediately.
-  </para>
-
-  <para>
-   The underlying cgroup memory controller rounds up the value to a
-   multiple of the page size. To avoid confusion, set the value of
-   <varname>MemoryLow</varname> to a multiple of the page size.
-  </para>
-
-  <important>
-   <title>Value of <varname>MemoryLow</varname></title>
+   <title>Verification</title>
    <para>
-    Never set <varname>MemoryLow</varname> to a value lower than the memory
-    already accounted in <systemitem>SAP.slice</systemitem>. To check, run:
+        To verify that the low memory value has been set, run the following command:
    </para>
-<screen>&prompt.root;<command>systemctl</command> show -p MemoryCurrent SAP.slice</screen>
-  </important>
-  </sect1>
- <sect1 xml:id="sec-sapwmp-migrate">
-  <title>Migration from &wmp; using <package>sapwmp</package> (SLES for &sles4sap; 15 SP4 and
-  earlier)</title>
-  <para>
-    It is necessary to perform a migration when you are upgrading from a Service Pack SP4 or earlier, and you have not yet switched to &systemd;-enabled instances.
-    </para>
-    <procedure>
-    <title>Migration procedure</title>
-    <step>
-    <para>
-      Switch to a &systemd;-enabled &sap; system. For more info, refer to <link xlink:href="https://me.sap.com/notes/3139184/E">139184
-      - Linux: systemd integration for sapstartsrv and SAP Host Agent</link> and
-      <link xlink:href="https://me.sap.com/notes/3189534/E">3189534 - Linux: systemd integration for sapstartsrv and SAP HANA</link>.
-    </para>
-    </step>
-    <step>
-    <para>
-      Remove the lines calling <option>sapwmp-capture</option> from all instance profiles (for example: <command>Execute_20 = local /usr/lib/sapwmp/sapwmp-capture -a</command>. All &sap; services require a restart after the change.
-    </para>
-    </step>
-    <step>
-    <para>
-      Monitor and readjust <option>MemoryLow=</option>. A &systemd;-enabled &sap; Host Agent now has a cgroup (<systemitem class="service">saphostagent.service</systemitem>) below <systemitem class="service">SAP.slice</systemitem>, and it is accounted for protection.
-    </para>
-    <note>
-    <para>
-      It is not necessary to set <option>MemoryLow=infinity</option> for each &sap; service or the &sap; Host Agent service, if the <systemitem>cgroup2</systemitem> mount has the option <option>memory_recursiveprot</option> set (it is set by default). To check that, run the following command:
-    </para>
-      <screen>&prompt.user; mount | grep cgroup2
-      cgroup2 on /sys/fs/cgroup type cgroup2
-      (rw,nosuid,nodev,noexec,relatime,nsdelegate,memory_recursiveprot)</screen>
-    </note>
-    </step>
-    </procedure>
+<screen>systemctl show -p MemoryLow SAP.slice</screen>
+<para>
+        The command returns the chosen value in bytes.
+      </para>
+      <para>
+    The variable <varname>MemoryLow </varname>can be set to any value, but the content of the variable is always a multiple of the page size. Keep this in mind if you notice a slight difference between the values.
+      </para>
+    </sect2>
   </sect1>
 </chapter>
