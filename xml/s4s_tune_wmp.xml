@@ -120,14 +120,27 @@
     </listitem>
    </itemizedlist>
   </important>
+    <para os="sles">
+    To use &wmp;, the &sap; system must use &systemd;.
+    Details about the &systemd; integration can be found in <link xlink:href="https://launchpad.support.sap.com/%3Cmark%3E/notes/3139184">SAP
+    Notes: 139184 - Linux: systemd integration for sapstartsrv</link> and <link xlink:href="https://launchpad.support.sap.com/%3C/mark%3E/notes/3189534">SAP
+    Host Agent and 3189534 - Linux: systemd integration for sapstartsrv and SAP
+    HANA</link>.
+    </para>
+    <important>
+  <para os="sles">
+    Starting with &sles4sap; 15 SP5, the package <package>sapwmp</package> is
+    deprecated. For information about migration.
+  </para>
+  </important>
  </sect1>
  <sect1 xml:id="sec-memory-protection-setup">
   <title>Setting up &wmp;</title>
-
-  <remark>toms 2020-09-28: Some introduction para is missing here.</remark>
-
+    <para>
+      &sap; workload memory can be protected against external memory demands using the &wmp; mechanism.
+    </para>
   <sect2 xml:id="sec-memory-protection-setup-preparation">
-   <title>Preparing for &wmp;</title>
+   <title>Configuring &wmp;</title>
    <para>
     The &sap; Start Service puts &sap; instances into the dedicated
     <literal>SAP.slice</literal> cgroup. To use &wmp;, set <varname>MemoryLow=</varname> as follows:
@@ -198,6 +211,9 @@
        </para>
       </listitem>
      </itemizedlist>
+      <para>
+          Changes to <varname>MemoryLow</varname> take effect immediately.
+      </para>
      <note>
       <title>Correctly calculate <varname>MemoryLow</varname> value</title>
       <para>
@@ -209,12 +225,21 @@
        respectively. Alternatively, a percentage value may be specified, which
        is taken relative to the installed physical memory on the system.
       </para>
-      <para>
+        <para>
        The underlying cgroup memory controller rounds up the value to a
        multiple of the page size. To avoid confusion, set the value for
        <varname>MemoryLow</varname> to a multiple of the page size.
       </para>
      </note>
+      
+  <important>
+   <title>Value of <varname>MemoryLow</varname></title>
+   <para>
+    Never set <varname>MemoryLow</varname> to a value lower than the memory
+    already accounted in <systemitem>SAP.slice</systemitem>. To check, run:
+   </para>
+<screen>&prompt.root;<command>systemctl</command> show -p MemoryCurrent SAP.slice</screen>
+  </important>
   </sect2>
 
   <sect2 xml:id="sec-memory-protection-reboot-and-verification">
