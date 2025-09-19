@@ -136,9 +136,6 @@
  </sect1>
  <sect1 xml:id="sec-memory-protection-setup">
   <title>Setting up &wmp;</title>
-    <para>
-      &sap; workload memory can be protected against external memory demands using the &wmp; mechanism.
-    </para>
   <sect2 xml:id="sec-memory-protection-setup-preparation">
    <title>Configuring &wmp;</title>
    <para>
