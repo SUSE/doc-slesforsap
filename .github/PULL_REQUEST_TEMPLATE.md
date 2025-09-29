@@ -14,7 +14,7 @@ Describe the overall goal of this pull request.
 When opening a PR, check all versions of the documentation that your PR applies to.
 
 - SLES-SAP 15
-  - [ ] 15 next *(current `main`, no backport necessary)*
+  - [ ] 15 SP7 *(current `main`, no backport necessary)*
   - [ ] 15 SP6
   - [ ] 15 SP5
   - [ ] 15 SP4
@@ -22,9 +22,9 @@ When opening a PR, check all versions of the documentation that your PR applies 
  - SLES-SAP 12
   - [ ] 12 SP5 
 
-### PR reviewer only: Have all backports been applied?
+### PR reviewer: Checklist
 
-The doc team member merging your PR will take care of backporting to older documents.
-When opening a PR, do *not* set the following check box.
+The doc team member merging your PR will take care of the following tasks and will tick the boxes if done.
 
 - [ ] all necessary backports are done
+- [ ] check and update `<revision><date>YYYY-MM-DD</date>` of chapter, part and book (if the change warrants it - for criteria, see https://documentation.suse.com/style/current/html/style-guide-db/sec-structure.html#sec-revinfo) 
