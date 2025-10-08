@@ -130,7 +130,7 @@
     <important>
   <para os="sles">
     Starting with &sles4sap; 15 SP5, the package <package>sapwmp</package> is
-    deprecated. For information about migration.
+    deprecated.
   </para>
   </important>
  </sect1>
@@ -249,7 +249,7 @@
         The command returns the chosen value in bytes.
       </para>
       <para>
-    The variable <varname>MemoryLow </varname>can be set to any value, but the content of the variable is always a multiple of the page size. Keep this in mind if you notice a slight difference between the values.
+    The variable <varname>MemoryLow</varname> can be set to any value, but the content of the variable is always a multiple of the page size. Keep this in mind if you notice a slight difference between the values.
       </para>
     </sect2>
   </sect1>
