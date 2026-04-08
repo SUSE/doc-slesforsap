@@ -93,7 +93,7 @@
   </itemizedlist>
   <para>
    For more information about &sleha;, see the &haguide; (&ha-docaddress;) and
-   the White Papers and Best Practice Guides in the &sles4sap; Resource Library
+   the &suse; Best Practices for &sap;
    (&reslibrary;).
   </para>
  </sect2>
@@ -106,7 +106,7 @@
    &yast; wizard that simplifies the cluster setup.
   </para>
   <sect3 xml:id="sec-hana-ra">
-   <title><systemitem>SAPHana</systemitem> resource agent</title>
+   <title><systemitem>SAPHanaController</systemitem> resource agent</title>
 <!--
     Terms:
     + scale-up: adding more resources to an existing system
@@ -128,17 +128,17 @@
     => Use "takeover".
    -->
    <para>
-    This resource agent from SUSE supports scale-up scenarios by checking the
+    This resource agent from SUSE's package <package>SAPHanaSR-angi</package>
+    supports scale-up and scale-out scenarios by checking the
     &hana; database instances for whether a takeover needs to happen. Unlike
     with the pure &sap; solution, takeovers can be automated.
    </para>
    <para>
-    It is configured as a parent/child resource: The parent assumes
-    responsibility for the &hana; databases running in primary mode, whereas
-    the child is responsible for instances that are operated in synchronous
-    (secondary) status. In case of a takeover, the secondary (child resource
-    instance) can automatically be promoted to become the new primary (parent
-    resource instance).
+    It is configured as a promotable resource: the promoted instance assumes
+    responsibility for the &hana; database running in primary mode, whereas
+    the unpromoted instance is responsible for the database that is operated in
+    secondary mode. In case of a takeover, the secondary database
+    can automatically be promoted to become the new primary. 
    </para>
    <para>
     This resource agent supports system replication for the following scale-up
@@ -209,8 +209,8 @@
    </itemizedlist>
    <para>
     For all of the scenarios, &sles4sap; supports both single-tenant and
-    multi-tenant (MDC) &hana; databases. That is, you can use &hana; databases
-    that serve multiple &sap; applications.
+    multi-tenant (MDC) &hana; databases. However, <systemitem>SAPHanaSR-angi</systemitem>
+    handles the whole database with all tenants as one single resource. 
    </para>
 <!--taroth 2019-07-29: commenting because not publicly available
     <para>
@@ -253,10 +253,8 @@
     </listitem>
     <listitem>
      <para>
-      The <emphasis>Best Practices</emphasis> in the Resource Library at
-      &reslibrary;. In particular, see <citetitle>Setting up a SAP HANA SR
-      performance optimized infrastructure</citetitle> and <citetitle>Setting
-      up a SAP HANA SR cost optimized infrastructure</citetitle>.
+      The &suse; Best Practices for &sap; at
+      &reslibrary;.
      </para>
     </listitem>
    </itemizedlist>
@@ -313,8 +311,8 @@
    <title>Hardening guide for &hana;</title>
    <para>
     For information on hardening the underlying operating system, see the
-    &sles4sap; resource library: &reslibrary;. There, find the document
-    <citetitle>OS Security Hardening for &hana;</citetitle>.
+    &suse; Best Practices for &sap;: &reslibrary;. There, find the document
+    <citetitle>Operating System Security Hardening Guide for &hana;</citetitle>.
    </para>
    <remark>
     Calling a Guide "software" is a bit of a stretch... But it is not really a
