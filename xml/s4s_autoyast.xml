@@ -8,6 +8,7 @@
   xml:id="sec-autoyast">
  <title>Using an external &ay; profile</title>
  <info>
+    <meta name="description" its:translate="yes">Configure your external profile to ensure streamlined deployment, automated installations, proper partitioning for applications, and deployment from a server</meta>
   <dm:docmanager xmlns:dm="urn:x-suse:ns:docmanager">
    <dm:bugtracker/>
    <dm:translation>yes</dm:translation>
