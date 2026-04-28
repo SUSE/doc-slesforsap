@@ -7,7 +7,7 @@
 <chapter xmlns:its="http://www.w3.org/2005/11/its" xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="cha-memory-protection" version="5.0">
  <title>Tuning &wmp;</title>
  <info>
-    <meta name="description" its:translate="yes">Configure Workload Memory Protection to safeguard SAP applications by setting memory limits using cgroups and systemd, ensuring optimal performance under load</meta>
+    <meta name="description" its:translate="yes">Configure Workload Memory Protection for SAP applications using cgroups and systemd to set memory limits and ensure optimal performance under load</meta>
   <dm:docmanager xmlns:dm="urn:x-suse:ns:docmanager">
    <dm:bugtracker/>
    <dm:translation>yes</dm:translation>
