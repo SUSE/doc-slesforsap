@@ -4,9 +4,10 @@
   %entities;
 ]>
 
-<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="cha-serve-mediaset">
+<chapter xmlns:its="http://www.w3.org/2005/11/its" xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="cha-serve-mediaset">
  <title>Setting up an installation server for &sap; media sets</title>
- <info xmlns:d="http://docbook.org/ns/docbook">
+ <info>
+    <meta name="description" its:translate="yes">Configure a centralized installation server using media sets on an NFS server to organize and access files for system installation</meta>
   <dm:docmanager xmlns:dm="urn:x-suse:ns:docmanager">
    <dm:bugtracker/>
    <dm:translation>yes</dm:translation>
