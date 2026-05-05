@@ -82,7 +82,7 @@
     </para>
     <para>
      For information on hardening the underlying operating system, see the
-     &sles4sap; resource library: &reslibrary;. There, find the document
+     &suse; Best Practices for &sap;: &reslibrary;. There, find the document
      <citetitle>OS Security Hardening for &hana;</citetitle>.
     </para>
    </listitem>

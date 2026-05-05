@@ -35,31 +35,9 @@
  </para>
 
  <para>
-  The following <emphasis>Best Practices</emphasis> from the &sles4sap;
-  Resource Library (&reslibrary;) contain setup instructions:
+  The &suse; Best Practices for &sap; (&reslibrary;) contain setup instructions.
  </para>
- <itemizedlist>
-  <listitem>
-   <formalpara>
-    <title>Performance-optimized scenario and multi-tier/chained scenario:</title>
-    <para>
-     <citetitle>Setting up an SAP HANA SR Performance Optimized
-     Infrastructure</citetitle>
-    </para>
-   </formalpara>
-   <para>
-   </para>
-  </listitem>
-  <listitem>
-   <formalpara>
-    <title>Cost-optimized scenario:</title>
-    <para>
-     <citetitle>Setting up an SAP HANA SR Cost Optimized
-     Infrastructure</citetitle>
-    </para>
-   </formalpara>
-  </listitem>
- </itemizedlist>
+
  <important>
   <title>Wizard can only be used for initial configuration</title>
   <para>
@@ -157,15 +135,6 @@
      <emphasis>Cost-optimized scenario only:</emphasis> The secondary node
      has a second &hana; installation. The database may be running but
      will be stopped automatically by the wizard.
-    </para>
-   </listitem>
-   <listitem>
-    <para>
-     <emphasis>Cost-optimized scenario only:</emphasis> For the non-production
-     &hana; instance, you have created an &hana; Secure User Store key
-     <literal>QASSAPDBCTRL</literal> for monitoring purposes. For more
-     information, refer to the <citetitle>SAP HANA System Replication Scale-Up -
-     Cost Optimized Scenario</citetitle> document at <link xlink:href="https://documentation.suse.com/sles-sap/"/>.
     </para>
    </listitem>
   </itemizedlist>
@@ -594,13 +563,6 @@
           the hook script at
           <filename>/hana/shared/<replaceable>SID</replaceable>/srHook</filename>.
          </para>
-         <warning>
-          <title>Passwords stored in plain text</title>
-          <para>
-           By default, the hook script stores all credentials in plain text.
-           To improve security, modify the script yourself.
-          </para>
-         </warning>
         </listitem>
        </itemizedlist>
       </listitem>
@@ -780,8 +742,8 @@
    </listitem>
    <listitem>
     <formalpara>
-     <title>Implementing the Python hook SAPHanaSR</title>
-     <para><link xlink:href="https://documentation.suse.com/sbp/all/html/SLES4SAP-hana-sr-guide-PerfOpt-15/"/></para>
+     <title>Implementing the Python hook <filename>susHanaSR.py</filename></title>
+     <para><link xlink:href="https://documentation.suse.com/sbp/sap-15/html/SLES4SAP-hana-angi-perfopt-15/index.html"/></para>
     </formalpara>
    </listitem>
   </itemizedlist>
