@@ -13,3 +13,4 @@ FALLBACK_STYLEROOT="/usr/share/xml/docbook/stylesheet/suse2022-ns"
 # Once the stylesheets support this, the following line
 # enable chunking:
 # XSLTPARAM="--stringparam chunk.section.depth=1"
+XSLTPARAM="--param generate.revhistory=0"
