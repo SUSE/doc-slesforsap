@@ -278,7 +278,7 @@ https://suse.com/c/coming-soon-sap-landscape-monitoring-on-sles-for-sap/
       </important>
       <para>
         You can find the latest development repositories at
-        <link xlink:href="https://build.opensuse.org/package/show/network:ha-clustering:sap-deployments:devel/prometheus-hanadb_exporter">&suse;'s
+        <link xlink:href="https://build.opensuse.org/package/show/devel:sap:monitoring:stable/prometheus-hanadb_exporter">&suse;'s
         &obs;</link>.
       </para>
       <para>
