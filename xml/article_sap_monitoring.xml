@@ -277,10 +277,16 @@ https://suse.com/c/coming-soon-sap-landscape-monitoring-on-sles-for-sap/
       <para>
         Use the <command>zypper install prometheus-hanadb_exporter</command> command to install the exporter.
       </para>
+      <important>
+        <title>Support for the prometheus-hanadb_exporter</title>
+        <para>
+          &suse; supports only the <package>prometheus-hanadb_exporter</package> RPM provided by official &suse; repositories. Packages obtained from &ph;, the &obs;, or GitHub are aimed at development or community use without official &suse; support.
+        </para>
+      </important>
       <para>
         You can find the latest development repositories at
-        <link xlink:href="https://build.opensuse.org/package/show/network:ha-clustering:sap-deployments:devel/prometheus-hanadb_exporter">SUSE's
-        Open Build Service</link>.
+        <link xlink:href="https://build.opensuse.org/package/show/devel:sap:monitoring:stable/prometheus-hanadb_exporter">&suse;'s
+        &obs;</link>.
       </para>
       <para>
         To install the exporter from the source code, make sure you have Git and Python 3 installed on your system. Run the following commands to install the exporter with the PyHDB &hana; connector:
@@ -1468,7 +1474,7 @@ Replace <replaceable>ZONE</replaceable> with the actual interface used for the e
      <term>ha_cluster_drbd_al_writes</term>
      <listitem>
       <para>
-       Number of updates of the activity log area of the meta data (one line
+       Number of updates of the activity log area of the metadata (one line
        per resource and per volume). The value is an integer greater than or
        equal to 0.
       </para>
