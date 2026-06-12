@@ -126,7 +126,7 @@
   <title>オフラインマイグレーション</title>
 
   <para>
-   SUSE Linux Enterprise Server for SAP applicationsのマイグレーションパスは、SUSE Linux Enterprise Server with <productname>Enhanced Service Pack Overlay Support</productname> (ESPOS)のマイグレーションパスと同じです。詳細については、<link xlink:href="https://documentation.suse.com/sles/15-SP6/html/SLES-all/cha-upgrade-paths.html"/>にある『<citetitle>SUSE Linux Enterprise Server</citetitle>アップグレードガイド』を参照してください。
+   SUSE Linux Enterprise Server for SAP applicationsのマイグレーションパスは、SUSE Linux Enterprise Server with <productname>Enhanced Service Pack Overlay Support</productname> (ESPOS)のマイグレーションパスと同じです。詳細については、<link xlink:href="https://documentation.suse.com/sles-15/html/SLES-all/cha-upgrade-paths.html"/>にある『<citetitle>SUSE Linux Enterprise Server</citetitle>アップグレードガイド』を参照してください。
   </para>
  </sect1>
  <sect1 condition="noquick" xml:id="sec-how-install">
