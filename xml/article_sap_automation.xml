@@ -268,14 +268,20 @@ https://confluence.suse.com/x/8IEnGw
       <title>Best practices</title>
       <listitem>
         <para>
-          <link xlink:href="https://documentation.suse.com/sbp/all/html/SLES4SAP-hana-sr-guide-costopt-15/index.html"
-            >SAP HANA System Replication Scale-Up - Cost Optimized Scenario</link>
+          <link xlink:href="https://documentation.suse.com/sbp/all/html/SLES4SAP-hana-sr-guide-PerfOpt-12/index.html"
+            >SAP HANA System Replication Scale-Up - Performance Optimized Scenario (Code 12)</link>
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          <link xlink:href="https://documentation.suse.com/sbp/all/pdf/SLES4SAP-hana-sr-guide-CostOpt-12_color_en.pdf"
+            >Setting up a SAP HANA SR Cost Optimized Infrastructure (SLES-SAP 12 SP1)</link>
         </para>
       </listitem>
       <listitem>
         <para>
           <link xlink:href="https://documentation.suse.com/sbp/all/html/SLES4SAP-hana-sr-guide-PerfOpt-15/index.html"
-            >SAP HANA System Replication Scale-Up - Performance Optimized Scenario</link>
+            >SAP HANA System Replication Scale-Up - Performance Optimized Scenario (Code 15)</link>
         </para>
       </listitem>
       <listitem>
@@ -580,16 +586,21 @@ https://confluence.suse.com/x/8IEnGw
   <sect1 xml:id="sec-sol-autom-more">
     <title>For more information</title>
     <para>
-      Find more general information in the following list:
+      Find some more general information in the following list:
     </para>
+    <remark>toms 2020-06-10: Need to be reworked which one is useful and should be included</remark>
     <itemizedlist>
       <listitem>
         <para><link xlink:href="https://documentation.suse.com/sbp/all/html/SLES4SAP-hana-sr-guide-PerfOpt-15/index.html"
-          >SAP HANA System Replication Scale-Up - Performance Optimized Scenario</link></para>
+          >&hana; System Replication Scale-Up - Performance Optimized Scenario (Code 15):</link></para>
       </listitem>
       <listitem>
-        <para><link xlink:href="https://documentation.suse.com/sbp/all/html/SLES4SAP-hana-sr-guide-costopt-15/index.html"
-          >SAP HANA System Replication Scale-Up - Cost Optimized Scenario</link></para>
+        <para><link xlink:href="https://documentation.suse.com/sbp/all/html/SLES4SAP-hana-sr-guide-PerfOpt-12/index.html"
+          >&hana; System Replication Scale-Up - Performance Optimized Scenario (Code 12)</link></para>
+      </listitem>
+      <listitem>
+        <para><link xlink:href="https://documentation.suse.com/sbp/all/pdf/SLES4SAP-hana-sr-guide-CostOpt-12_color_en.pdf"
+          >Setting up a &hana; SR Cost Optimized Infrastructure (&slsa; for SAP 12 SP1)</link></para>
       </listitem>
       <listitem>
         <para><link xlink:href="https://documentation.suse.com/sbp/all/html/SLES4SAP-hana-sr-guide-PerfOpt-12_AWS/index.html"
