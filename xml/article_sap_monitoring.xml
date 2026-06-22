@@ -1784,12 +1784,6 @@ The exporter expects to find the <filename>sap_host_exporter.yaml</filename>, <f
      helpful in isolated data centers without Internet connection.
     </para>
    </listitem>
-   <listitem>
-    <para>
-     <link xlink:href="https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/suse-amp-microsoft-collaborates-to-provide-sap-monitoring/ba-p/1571926">&suse;
-     &amp; Microsoft collaborates to provide SAP monitoring</link>
-    </para>
-   </listitem>
   </itemizedlist>
  </sect1>
  <xi:include href="common_copyright_quick.xml"/>
