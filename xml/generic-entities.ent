@@ -374,6 +374,9 @@ use &deng;! -->
 <!ENTITY stonith                "STONITH">
 <!ENTITY ingress                "Ingress">
 <!ENTITY keepalived             "Keepalived">
+<!ENTITY drbd                   "DRBD">
+<!ENTITY sbd                    "SBD">
+<!ENTITY sbd.long               "&stonith; Block Device">
 
 <!-- HPC -->
 
