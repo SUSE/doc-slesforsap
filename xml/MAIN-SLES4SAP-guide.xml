@@ -29,6 +29,14 @@
         </para>
       </revdescription>
     </revision>
+    <revision>
+      <date>2026-06-23</date>
+      <revdescription>
+        <para>
+          Fixing references in "Setting up an SAP HANA cluster".
+        </para>
+      </revdescription>
+    </revision>
   </revhistory>
   <meta name="task" its:translate="no" condition="quick">
     <phrase>Installation</phrase>
