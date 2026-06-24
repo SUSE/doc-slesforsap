@@ -14,7 +14,7 @@
   </dm:docmanager>
  <revhistory xml:id="rh-cha-cluster">
    <revision>
-     <date>2026-04-28</date>
+     <date>2026-06-23</date>
      <revdescription>
        <para/>
      </revdescription>
@@ -31,7 +31,7 @@
   usually for on-premises deployments.
   Additionally, it is possible to configure the &hana; cluster on Azure now.
   The &yast; module identifies automatically when running on Azure and
-  configures an extra resource needed on Pacemaker.
+  configures an extra resource needed on &pace;.
  </para>
 
  <para>
@@ -41,16 +41,14 @@
  <important>
   <title>Wizard can only be used for initial configuration</title>
   <para>
-   The &yast; wizard described in the following can only be used for the
+   The &yast; wizard described in the following sections can only be used for the
    initial cluster configuration.
   </para>
   <para>
    To reconfigure a cluster, use the separate
    &yast; module <guimenu>Cluster</guimenu> (available from package
    <package>yast2-cluster</package>).
-   For more information about its usage, see <citetitle>&admin;, Part
-   <quote>Installation, Setup and Upgrade</quote>, Chapter <quote>Using the
-   &yast; Cluster Module</quote></citetitle> at &ha-docaddress;.
+   For more information about its usage, see <link xlink:href="https://documentation.suse.com/sle-ha-15//html/SLE-HA-all/cha-ha-ycluster.html">Using the &yast; cluster module</link>.
   </para>
  </important>
 
@@ -67,7 +65,7 @@
      (subnet).
     </para>
     <para>
-     In the case of a multi-tier/chained scenario, there must also be a third
+     In a multi-tier/chained scenario, there must also be a third
      machine elsewhere.
     </para>
    </listitem>
@@ -80,7 +78,7 @@
     <para>
      <phrase role="productname">openSSH</phrase> is running on both machines
      and the nodes can reach each other via SSH. However, if that has not
-     already happened, the wizard will perform the SSH key exchange itself.
+     already happened, the wizard performs the SSH key exchange itself.
     </para>
     <para>
      For more information about SSH, see <citetitle>&secguide;, Part
@@ -91,7 +89,7 @@
    <listitem>
     <para>
      A disk device that is available to both nodes under the same path for
-     SBD. It must not use host-based RAID, cLVM2 or reside on a DRBD
+     &sbd;. It must not use host-based RAID, cLVM2 or reside on a &drbd;
      instance. The device can have a small size, for example, 100&nbsp;MB.
     </para>
    </listitem>
@@ -120,13 +118,13 @@
    </listitem>
    <listitem>
     <para>
-     HANA-Firewall is set up on both computers with the rules
+     &hana-fw; is set up on both computers with the rules
      <option>HANA_HIGH_AVAILABILITY</option> and
      <option>HANA_SYSTEM_REPLICATION</option> on all relevant network
      interfaces.
     </para>
     <para>
-     For information about setting up HANA-Firewall, see
+     For information about setting up &hana-fw;, see
      <xref linkend="sec-configure-firewall-hana"/>.
     </para>
    </listitem>
@@ -221,9 +219,7 @@
       <para>
        For redundancy, it is often better to use network interface bonding
        instead of multiple communication rings. For more information, see
-       <citetitle>&admin;, Part <quote>Configuration and
-       Administration</quote>, Chapter <quote>Network Device
-       Bonding</quote></citetitle> at &ha-docaddress;.
+       <link xlink:href="https://documentation.suse.com/sle-ha-15/html/SLE-HA-all/cha-ha-netbonding.html">Network device bonding</link>.
       </para>
      </listitem>
      <listitem>
@@ -240,23 +236,17 @@
      <listitem>
       <para>
        Additionally, decide whether to enable the configuration
-       synchronization service Csync2 and Corosync secure authentication
+       synchronization service &csync; and &corosync; secure authentication
        using HMAC/SHA1.
       </para>
       <para>
-       For more information about Csync2, see
-       <citetitle>&admin; Part <quote>Installation, Setup and
-       Upgrade</quote>, Chapter <quote>Using the &yast; Cluster
-       Module</quote>, Section <quote>Transferring the Configuration to All
-       Nodes</quote></citetitle> at &ha-docaddress;.
+       For more information about &csync;, see
+       <link xlink:href="https://documentation.suse.com/sle-ha-15/html/SLE-HA-all/cha-ha-ycluster.html#sec-ha-setup-yast-csync2-sync">Transferring the configuration to all nodes</link>.
       </para>
       <para>
        For more information about
-       Corosync secure authentication, see
-       <citetitle>&admin;, Part <quote>Installation, Setup and
-       Upgrade</quote>, Chapter <quote>Using the &yast; Cluster
-       Module</quote>, Section <quote>Defining Authentication
-       Settings</quote></citetitle> at &ha-docaddress;.
+       &corosync; secure authentication, see
+       <link xlink:href="https://documentation.suse.com/sle-ha-15/html/SLE-HA-all/cha-ha-ycluster.html#sec-ha-installation-setup-security">Defining authentication settings</link>.
       </para>
      </listitem>
     </itemizedlist>
@@ -279,8 +269,8 @@
    </step>
    <step>
     <para>
-     The wizard will now check whether it can connect to the secondary
-     machine using SSH. If it can, it will ask for the
+     The wizard now checks whether it can connect to the secondary
+     machine using SSH. If it can, it asks for the
      <systemitem class="username">root</systemitem> password to the machine.
     </para>
     <para>
@@ -288,7 +278,7 @@
     </para>
     <para>
      The next time the primary machine needs to connect to the secondary
-     machine, it will connect using an SSH certificate instead of a password.
+     machine, it connects using an SSH certificate instead of a password.
     </para>
    </step>
    <step>
@@ -362,8 +352,7 @@
    <step>
     <para>
      In the next step, choose fencing options. The &yast; wizard only
-     supports the fencing mechanism SBD (<emphasis>STONITH block
-     device</emphasis>). To avoid split-brain situations, SBD uses a disk
+     supports the fencing mechanism &sbd; (<emphasis>&sbd.long;</emphasis>). To avoid split-brain situations, &sbd; uses a disk
      device which stores cluster state.
     </para>
     <para>
@@ -373,13 +362,13 @@
     </para>
     <para>
      The disk must not use host-based RAID, cLVM2 or reside on
-     a DRBD instance. The device can have a small size, for example,
+     a &drbd; instance. The device can have a small size, for example,
      100&nbsp;MB.
     </para>
     <warning>
      <title>Data on device will be lost</title>
      <para>
-      All data on the chosen SBD device or devices will be deleted.
+      All data on the chosen &sbd; device or devices will be deleted.
      </para>
     </warning>
     <para>
@@ -388,7 +377,7 @@
      appropriate device. Click <guimenu>OK</guimenu>.
     </para>
     <para>
-     To define additional SBD command line parameters, add them to
+     To define additional &sbd; command line parameters, add them to
      <guimenu>SBD options</guimenu>.
     </para>
     <para>
@@ -396,8 +385,7 @@
      start</guimenu>.
     </para>
     <para>
-     For more information about fencing, see the
-     <citetitle>&admin;</citetitle> at &ha-docaddress;.
+     For more information about fencing, see <link xlink:href="https://documentation.suse.com/sle-ha-15/html/SLE-HA-all/cha-ha-fencing.html">Fencing and &stonith;</link>.
     </para>
     <para>
      Proceed with <guimenu>Next</guimenu>.
@@ -406,7 +394,7 @@
    <step>
     <para>
      The following page allows configuring watchdogs which protect against
-     the failure of the SBD daemon itself and force a reboot of the machine
+     the failure of the &sbd; daemon itself and force a reboot of the machine
      in such a case.
     </para>
     <para>
@@ -423,12 +411,7 @@
      <literal>softdog</literal>. However, we highly recommend using a
      hardware watchdog in production environments instead of
      <literal>softdog</literal>. For more information about
-     selecting watchdogs, see <citetitle>&admin;, Part <quote>Storage and
-     Data Replication</quote>, Chapter
-     <quote>Storage Protection</quote>, Section
-     <quote>Conceptual Overview</quote>, Section <quote>Setting Up
-     Storage-based Protection</quote>, Section <quote>Setting up the
-     Watchdog</quote></citetitle> at &ha-docaddress;.
+     selecting watchdogs, see <link xlink:href="https://documentation.suse.com/sle-ha-15/html/SLE-HA-all/cha-ha-storage-protect.html#sec-ha-storage-protect-watchdog">Setting up the watchdog</link>.
     </para>
     <para>
      Proceed with <guimenu>Next</guimenu>.
@@ -550,7 +533,7 @@
           Generate a hook script for stopping the non-production instance and
           starting the production instance and removing the constraints on
           the production system. The script is written in Python 2 and can
-          be modified as necessary later.
+          be modified later.
          </para>
          <para>
           Click <guimenu>Hook script</guimenu> and then set up the correct
@@ -726,10 +709,7 @@
     <formalpara>
      <title>&hawk;</title>
      <para>
-      <citetitle>&admin;</citetitle>,
-      Part <citetitle>Configuration and Administration</citetitle>,
-      Chapter <citetitle>Configuring and Managing Cluster Resources with
-   &hawk;</citetitle> (&ha-docaddress;).
+      <link xlink:href="https://documentation.suse.com/sle-ha-15/html/SLE-HA-all/cha-ha-manage-resources.html">Managing cluster resources</link>.
      </para>
     </formalpara>
    </listitem>
@@ -743,7 +723,7 @@
    <listitem>
     <formalpara>
      <title>Implementing the Python hook <filename>susHanaSR.py</filename></title>
-     <para><link xlink:href="https://documentation.suse.com/sbp/sap-15/html/SLES4SAP-hana-angi-perfopt-15/index.html"/></para>
+     <para><link xlink:href="https://documentation.suse.com/sbp/sap-15/html/SLES4SAP-hana-angi-perfopt-15/index.html">SAP HANA System Replication Scale-Up - Performance Optimized Scenario</link>.</para>
     </formalpara>
    </listitem>
   </itemizedlist>
