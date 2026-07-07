@@ -98,11 +98,7 @@
      </para>
     </important>
     <para>
-     For information about configuring networking, see
-     <citetitle>
-      &admin;, Chapter <quote>Basic Networking</quote>,
-      Section <quote>Configuring a Network Connection with YaST</quote>
-     </citetitle> (&docaddress;).
+     For information about configuring networking, see <link xlink:href="https://documentation.suse.com/sles-15/html/SLES-all/cha-network.html#sec-network-yast">Configuring a network connection with &yast;</link>.
     </para>
      <para>
       (While the next screen loads, the <guimenu>Welcome</guimenu>
@@ -707,11 +703,7 @@
      SAP installation</guimenu>, you can add further software repositories.
      For example, for add-ons that are packaged
      as RPM. To do so, click <guimenu>Add new software repositories</guimenu>.
-     For more information about adding repositories, see
-     <citetitle>&deploy;,
-     Chapter <quote>Installing and Removing Software</quote>,
-     Section <quote>Adding Software Repositories</quote></citetitle>
-     (&docaddress;).
+     For more information about adding repositories, see <link xlink:href="https://documentation.suse.com/sles-15/html/SLES-all/cha-yast-software.html#sec-yast-software-instsource">Managing software repositories and services</link>.
     </para>
     <para>
      Proceed with <guimenu>Next</guimenu>.
