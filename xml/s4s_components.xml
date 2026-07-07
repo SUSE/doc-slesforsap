@@ -87,7 +87,7 @@
    </listitem>
   </itemizedlist>
   <para>
-   For more information about &sleha;, see the &haguide; (&ha-docaddress;) and
+   For more information about &sleha;, see the &haguide; (<link xlink:href="https://documentation.suse.com/sle-ha-15/html/SLE-HA-all/book-administration.html"/>) and
    the White Papers and Best Practice Guides in the &sles4sap; Resource Library
    (&reslibrary;).
   </para>
@@ -243,7 +243,7 @@
    <itemizedlist>
     <listitem>
      <para>
-      The &haguide; at &docaddress;.
+      <link xlink:href="https://documentation.suse.com/sles-sap/sap-ha-support/html/sap-ha-support/index.html#sap-ha-solutions-sap-hana">HA solutions for &hana; system replication</link>.
      </para>
     </listitem>
     <listitem>

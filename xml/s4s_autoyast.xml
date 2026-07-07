@@ -14,14 +14,12 @@
  <itemizedlist>
   <listitem>
    <para>
-    <citetitle>&deploy;, Part <quote>Automated Installations</quote>,
-     Chapter <quote>Automated Installation</quote>
-    </citetitle> (&docaddress;).
+    <link xlink:href="https://documentation.suse.com/sles-15/html/SLES-all/book-autoyast.html">&ayguide;</link>.
    </para>
   </listitem>
   <listitem>
    <para>
-    <citetitle>&ay; Guide</citetitle> (&docaddress;).
+    <link xlink:href="https://documentation.suse.com/sles-sap-15/single-html/SLES-SAP-guide/#sec-install-sap-autoyast">Automated installation of &sap; applications with &ay;</link>.
    </para>
   </listitem>
  </itemizedlist>
@@ -32,8 +30,7 @@
  </para>
 
  <para>
-   If you plan to deploy &sles4sap; from a &suma; server, refer to
-   <citetitle>&suma; <quote>Reference Manual</quote>, <quote>Systems</quote>, <quote>Autoinstallation</quote></citetitle> and <citetitle>&suma; <quote>Advanced Topics</quote>, Chapter <quote>Minimalist &ay; Profile for Automated Installations and Useful Enhancements</quote></citetitle> (&suma-docaddress;).
+   If you plan to deploy &sles4sap; from a &suma; server, refer to <link xlink:href="https://documentation.suse.com/suma/4.3/en/suse-manager/specialized-guides/qs-sap/overview.html">&mgrquick;: &sap; Overview</link>.
  </para>
  
 </sect1>
