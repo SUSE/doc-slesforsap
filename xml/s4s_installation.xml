@@ -89,11 +89,7 @@
      </listitem>
      <listitem>
       <para>
-       On &power;, follow the instructions in the &sls; documentation, see
-       <citetitle>&deploy;,
-       Part <quote>Installation Preparation</quote>,
-       Chapter <quote>Installation on IBM &power;</quote></citetitle>
-       (&docaddress;).
+       On &power;, follow the instructions in the &sls; documentation, see <link xlink:href="https://documentation.suse.com/sles-15/html/SLES-all/cha-power.html">Installation on &ibm; &power;</link>.
       </para>
      </listitem>
     </itemizedlist>
@@ -250,11 +246,7 @@
      </para>
     </important>
     <para>
-     For information about configuring networking, see
-     <citetitle>
-      &admin;, Chapter <quote>Basic Networking</quote>,
-      Section <quote>Configuring a Network Connection with YaST</quote>
-     </citetitle> (&docaddress;).
+     For information about configuring networking, see <link xlink:href="https://documentation.suse.com/sles-15/html/SLES-all/cha-network.html#sec-network-yast">Configuring a network connection with &yast;</link>.
     </para>
    </step>
    <step>
@@ -358,16 +350,13 @@
       <para>
        <guimenu>&slsa; with GNOME</guimenu>: Can be necessary in specific
        cases. This installation path is not covered in this document.
-       For more information about this installation path, see
-       <citetitle>
-        &instquick;, Section <quote>Installing &sls;</quote>
-       </citetitle> (&docaddress;).
+       For more information about this installation path, see the <link xlink:href="https://documentation.suse.com/sles-15/html/SLES-all/book-deployment.html">&deploy;</link>.
       </para>
      </listitem>
     </itemizedlist>
     <para>
      Additional system roles are available for specific use cases (&ha;,
-     text mode, minimal, and KVM/XEN virtualization hosts).
+     text mode, minimal and KVM/XEN virtualization hosts).
     </para>
     <para>
      Proceed with <guimenu>Next</guimenu>.
@@ -442,11 +431,7 @@
       <term><guimenu>Expert partitioner</guimenu></term>
       <listitem>
        <para>
-        Open the <guimenu>Expert Partitioner</guimenu> described in
-        <citetitle>Deployment Guide,
-         Chapter <quote>Advanced Disk Setup</quote>,
-         Section <quote>Using the YaST Partitioner</quote></citetitle>
-         (&docaddress;).
+        Open the <guimenu>Expert Partitioner</guimenu> described in <link xlink:href="https://documentation.suse.com/sles-15/html/SLES-all/cha-expert-partitioner.html">Expert Partitioner</link>.
        </para>
        <para>
         For partitioning advice specific to &sles4sap;, see
@@ -465,10 +450,7 @@
      Select the clock and time zone to use on your system. To manually adjust
      the time or to configure an NTP server for time synchronization, choose
      <guimenu>Other Settings</guimenu>.
-     For detailed information, see
-     <citetitle>&deploy;,
-     Chapter <quote>Installation with YaST</quote>,
-     Section <quote>Clock and Time Zone</quote></citetitle> (&docaddress;).
+     For detailed information, see <link xlink:href="https://documentation.suse.com/sles-15/html/SLES-all/cha-install.html#sec-yast-install-date-time">Clock and time zone</link>.
     </para>
     <para>
      Proceed with <guimenu>Next</guimenu>.
@@ -487,20 +469,15 @@
       Taken from art_opensuse_install_quick.xml in
       sect3[@xml:id="sec-opensuse-installquick-root"]
      -->
-     If you want to enable passwordless authentication via SSH
+     To enable passwordless authentication via SSH
      login, you can import a key via <guimenu>Import Public SSH
-     Key</guimenu>. If you want to completely disable &rootuser; login via
+     Key</guimenu>. To disable &rootuser; login via
      password, upload a key only and do not provide a root password. A login
      as system administrator will only be possible via SSH using the
      respective key in this case.
     </para>
     <para>
-     For more information, see
-     <citetitle>&deploy;,
-     Chapter <quote>Installation with YaST</quote>,
-     Section <quote>Password for the System Administrator
-     <!--<systemitem class="username">root</systemitem>-->root</quote></citetitle>
-     (&docaddress;).
+     For more information, see <link xlink:href="https://documentation.suse.com/sles-15/html/SLES-all/cha-install.html#sec-yast-install-user-root">Authentication for the system administrator &rootuser;</link>.
     </para>
     <para>
      Proceed with <guimenu>Next</guimenu>.
@@ -659,17 +636,13 @@
   </procedure>
 
   <para>
-   For more information, see
-   <citetitle>&deploy;, Chapter <quote>Remote Installation</quote></citetitle>
-   (&docaddress;).
+   For more information, see <link xlink:href="https://documentation.suse.com/sles-15/html/SLES-all/cha-remote-installation.html">Remote installation</link>.
   </para>
 
   <para>
    To avoid having to use a &slsa; installation medium to initialize the
    system, you can boot over the network via PXE.
-   For details, see <citetitle>&ay; Guide,
-   Chapter <quote>Booting via PXE over the Network</quote></citetitle>
-   (&docaddress;).
+   For details, see <link xlink:href="https://documentation.suse.com/sles-15/html/SLES-all/Invoking.html#bootmedium-pxe">Booting via PXE over the network</link>.
   </para>
  </sect1>
 
