@@ -96,24 +96,14 @@
    All other sections will be replaced.
   </para>
   <para>
-   For more information about customization options, see
-   <citetitle>
-    &ay; Guide,
-    Chapter <quote>Configuration and Installation Options</quote>,
-    Section <quote>Custom User Scripts</quote>
-   </citetitle> (&docaddress;).
+   For more information about customization options, see <link xlink:href="https://documentation.suse.com/sles-15/html/SLES-all/cha-configuration-installation-options.html#createprofile-scripts">Custom user scripts</link>.
   </para>
  </sect1>
 
  <sect1 xml:id="sec-component-supplement-ask">
   <title>Own &ay; ask dialogs</title>
   <para>
-   For more information about the <quote>Ask</quote> feature of &ay;, see
-   <citetitle>
-    &ay; Guide,
-    Chapter <quote>Configuration and Installation Options</quote>,
-    Section <quote>Ask the User for Values During Installation</quote>
-   </citetitle> (&docaddress;).
+   For more information about the <quote>Ask</quote> feature of &ay;, see <link xlink:href="https://documentation.suse.com/sles-15/html/SLES-all/cha-configuration-installation-options.html#CreateProfile-Ask">Ask the user for values during installation</link>.
   </para>
   <para>
    For the &supmedia;, you can only use dialogs within the
@@ -191,13 +181,7 @@ check_name "$VAL"
    stage 2.
   </para>
   <para>
-   For more information, see
-   <citetitle>
-    &ay; Guide,
-    Chapter <quote>Configuration and Installation Options</quote>,
-    Section <quote>Installing Packages in Stage 2</quote>
-   </citetitle> (&docaddress;). An example looks as
-   follows:
+   For more information, see <link xlink:href="https://documentation.suse.com/sles-15/html/SLES-all/cha-configuration-installation-options.html#Software-Selections-stage2-packs">Installing packages in stage 2</link>. An example looks as follows:
   </para>
 <screen>...
 &lt;software&gt;
