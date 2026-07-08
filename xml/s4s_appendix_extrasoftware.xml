@@ -29,10 +29,7 @@
   <listitem>
    <para>
     Extensions and modules allow installing additional software created and
-    supported by &suse;. For more information about extensions and modules, see
-    <citetitle>&deploy;, Part <quote>Initial System Configuration</quote>,
-    Chapter <quote>Installing Modules, Extensions, and Third Party Add-On
-    Products</quote></citetitle> at &docaddress;.
+    supported by &suse;. For more information about extensions and modules, see <link xlink:href="https://documentation.suse.com/sles-15/html/SLES-all/article-modules.html">&modulesquick;</link>.
    </para>
   </listitem>
   <listitem>

@@ -90,19 +90,11 @@
  </para>
 
  <para>
-  For information about setting up an NFS server from scratch, see
-  <citetitle>
-   &admin;,
-   Part <quote>Services</quote>,
-   Chapter <quote>Sharing File Systems with NFS</quote>,
-   Section <quote>Installing NFS Server</quote>
-  </citetitle> (&docaddress;).
+  For information about setting up an NFS server from scratch, see <link xlink:href="https://documentation.suse.com/sles-15/html/SLES-all/cha-nfs.html#sec-nfs-installation">Installing NFS server</link>.
  </para>
 
  <para>
   For information about installing &sls; from an NFS server, see
-  <citetitle>&deploy;, Chapter <quote>Remote Installation</quote>,
-  Section <quote>Setting Up an NFS Repository Manually</quote>
-  </citetitle> (&docaddress;).
+  <link xlink:href="https://documentation.suse.com/sles-15/html/SLES-all/cha-deployment-instserver.html#sec-deployment-instserver-nfs">Setting up an NFS repository manually</link>.
  </para>
 </chapter>
