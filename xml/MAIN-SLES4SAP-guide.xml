@@ -22,7 +22,7 @@
   <date><?dbtimestamp format="B d, Y"?></date>
   <revhistory xml:id="rh-book-s4s">
     <revision>
-      <date>2026-04-28</date>
+      <date>2026-07-09</date>
       <revdescription>
         <para/>
       </revdescription>
@@ -32,14 +32,6 @@
       <revdescription>
         <para>
           Updated for the initial release of &productname; &productnumber;.
-        </para>
-      </revdescription>
-    </revision>
-    <revision>
-      <date>2026-06-23</date>
-      <revdescription>
-        <para>
-          Fixing references in "Setting up an SAP HANA cluster".
         </para>
       </revdescription>
     </revision>
