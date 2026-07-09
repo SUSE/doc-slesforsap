@@ -9,7 +9,7 @@
  <info xmlns:d="http://docbook.org/ns/docbook">
   <revhistory xml:id="rh-cha-install">
    <revision>
-    <date>2022-12-15</date>
+    <date>2026-07-09</date>
     <revdescription>
      <para/>
     </revdescription>
@@ -263,11 +263,9 @@
      </para>
      <para>
       To install a full (but not updated) &s4sa; system without network
-      access during the installation, use the &slea; &productnumber; Packages
+      access during the installation, use the &slea; &productnumber; Full Media 1
       ISO image from <link xlink:href="https://download.suse.com"/>. You can
-      then choose <guimenu>Skip registration</guimenu> on this page and
-      select the &slea; &productnumber; Packages ISO image as an add-on
-      product on the next page.
+      then choose <guimenu>Skip Registration</guimenu> on this page and register at a later date.
      </para>
     </important>
    </step>
@@ -384,15 +382,15 @@
      <listitem>
       <para>
        To install an &sap; Application along with the system,
-       activate <guimenu>Launch the SAP Installation Wizard right after the
+       activate <guimenu>Launch SAP product installation wizard right after the
        operating system is installed</guimenu>.
       </para>
      </listitem>
      <listitem>
       <para>
        To enable RDP access (Remote Desktop Protocol) to this machine,
-       activate <guimenu>Enable RDP service and open port in
-       firewall</guimenu>.
+       activate <guimenu>Enable Remote Desktop Protocol (RDP) Service and open port in
+       Firewall</guimenu>.
       </para>
       <para condition="noquick">
        For more information about connecting via RDP, see
