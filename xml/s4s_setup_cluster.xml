@@ -543,9 +543,8 @@
          </para>
          <para>
           For information about the necessary global allocation limit, see
-          documentation provided to you by &sap; such as <citetitle>How to
-          Perform System Replication for SAP HANA</citetitle> at
-          <link xlink:href="https://archive.sap.com/documents/docs/DOC-47702"/>.
+          documentation provided to you by &sap; such as <citetitle>SAP HANA System Replication</citetitle> at
+          <link xlink:href="https://help.sap.com/doc/c81e9406d08046c0a118c8bef71f6bdc/2.0.08/en-US/SAP_HANA_System_Replication_Guide_en.pdf"/>.
          </para>
         </listitem>
        </itemizedlist>
