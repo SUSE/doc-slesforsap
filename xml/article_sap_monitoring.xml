@@ -1712,7 +1712,7 @@ ha_cluster_scrape_success{collector="pacemaker"} 1</screen>
   The RPM package ships with an accompanying &systemd; unit file that can be enabled using the following command:
 </para>
 
-<screen>systemctl --now enable prometheus-sap_host_exporter@default</screen>
+<screen>&prompt.sudo;systemctl --now enable prometheus-sap_host_exporter@default</screen>
 
 <para>
   Alternatively, you can compile and install the exporter from the source code:
