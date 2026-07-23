@@ -28,11 +28,9 @@ https://suse.com/c/coming-soon-sap-landscape-monitoring-on-sles-for-sap/
   <date><?dbtimestamp format="B d, Y"?></date>
   <revhistory xml:id="rh-article-sap-monitoring">
     <revision>
-      <date>2025-06-17</date>
+      <date>2026-07-23</date>
       <revdescription>
-        <para>
-          Updated for the initial release of &productname; &productnumber;.
-        </para>
+        <para/>
       </revdescription>
     </revision>
   </revhistory>
@@ -1706,29 +1704,23 @@ ha_cluster_scrape_success{collector="pacemaker"} 1</screen>
   <sect2 xml:id="sec-sol-monit-sap-host-exporter-install">
     <title>Installation</title>
     <para>
-      The exporter can be installed using the <package>RPM</package> from the <link xlink:href="https://build.opensuse.org/package/show/server:monitoring/prometheus-sap_host_exporter">Open Build Service</link>. To do this, use the following commands (replace <replaceable>VERSION</replaceable> with the exact version of the target system, for example: <literal>SLE_15_SP4</literal>):
+      The exporter can be installed using the <package>RPM</package> from the <link xlink:href="https://build.opensuse.org/package/show/devel:sap:monitoring:stable/prometheus-sap_host_exporter">&obs;</link>. To do this, use the following command:
     </para>
-<screen>&prompt.root;zypper addrepo https://download.opensuse.org/repositories/server:/monitoring/<replaceable>VERSION</replaceable>/server:monitoring.repo
-&prompt.root;zypper install prometheus-sap_host_exporter</screen>
+<screen>&prompt.sudo;zypper install sap_host_exporter</screen>
 
 <para>
   The RPM package ships with an accompanying &systemd; unit file that can be enabled using the following command:
 </para>
 
-<screen>systemctl --now enable prometheus-sap_host_exporter</screen>
+<screen>&prompt.sudo;systemctl --now enable prometheus-sap_host_exporter@default</screen>
 
 <para>
   Alternatively, you can compile and install the exporter from the source code:
 </para>
 <screen>&prompt.user;git clone https://github.com/SUSE/sap_host_exporter
 &prompt.user;cd sap_host_exporter
-&prompt.user;make
+&prompt.user;make build
 &prompt.user;sudo make install</screen>
-<note>
-  <para>
-    You can deploy a full &netweaver; cluster via Terraform using <link xlink:href="https://github.com/SUSE/ha-sap-terraform-deployments">&suse; automated &sap;/HA deployments</link>. This automatically installs and configures the exporter and the entire &prometheus; monitoring stack.
-  </para>
-</note>
   </sect2>
   <sect2 xml:id="sec-sol-monit-sap-host-exporter-use">
     <title>Using &sap; Host exporter</title>
