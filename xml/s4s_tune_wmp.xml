@@ -130,7 +130,7 @@
   <important>
   <para>
     Starting with &sles4sap; 15 SP5, the package <package>sapwmp</package> is
-    deprecated. For infomation about migration, see <xref linkend="sec-sapwmp-migrate"/>.
+    deprecated. For information about migration, see <xref linkend="sec-sapwmp-migrate"/>.
   </para>
   </important>
  </sect1>
@@ -183,7 +183,7 @@
      </para>
 <screen>&prompt.sudo;<command>grub2-mkconfig</command> -o /boot/grub2/grub.cfg</screen>
      <para>
-      After reboot (which is perfromed later), the cgroup hierarchy is switched to v2
+      After reboot (which is performed later), the cgroup hierarchy is switched to v2
       (unified hierarchy) only.
      </para>
     </step>
