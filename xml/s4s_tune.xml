@@ -218,7 +218,7 @@ An &sapnote; configuration contains the OS-specific part of the original &sapnot
     </para>
     <para>
     To change or set the parameter value, change or add the value of the parameter. To disable a parameter, remove the value, but leave the parameter and the <literal>=</literal> character. &saptune; lists the parameter, but it does not change it or check it for the compliance status.
-For more information, refer to the <literal>saptune-note(5)</literal> manpage.
+For more information, refer to the <literal>saptune-note(5)</literal> man page.
    </para>
    <para>
    This creates a <filename>/etc/saptune/override/<replaceable>NOTE</replaceable></filename> file. It is possible to create the file elsewhere and place it in <filename>/etc/saptune/override/</filename>.
@@ -288,7 +288,7 @@ net.ipv4.tcp_syn_retries = 16</screen>
    </para>
 <screen>&prompt.root;<command>saptune note create <replaceable>NOTE</replaceable></command></screen>
    <para>
-    The command opens the default editor (defined in the environment variable <literal>EDITOR</literal>) with a Note configuration template. All features of &saptune; are available here. For more information, refer to  the  <literal>saptune-note(5)</literal> manpage.
+    The command opens the default editor (defined in the environment variable <literal>EDITOR</literal>) with a Note configuration template. All features of &saptune; are available here. For more information, refer to  the  <literal>saptune-note(5)</literal> man page.
     </para>
     <para>
     This creates a <filename>/etc/saptune/extra/<replaceable>NOTE.conf</replaceable></filename> Note configuration file. It is possible to create the file elsewhere and place it in <filename>/etc/saptune/extra/</filename>.
@@ -451,7 +451,7 @@ An &sapsol; is a combination of &sapnote; configurations grouped logically. It g
   <para>An &sapsol; can be customized using the following command:</para>
   <screen>&prompt.root;<command>saptune solution customise <replaceable>SOLUTION</replaceable></command></screen>
   <para>
-    The command opens the default editor (defined in the environment variable <literal>EDITOR</literal>) with a copy of the Solution configuration. Change the Note list for the architecture to your liking. For more information, refer to the <literal>saptune-note(5)</literal> manpage.
+    The command opens the default editor (defined in the environment variable <literal>EDITOR</literal>) with a copy of the Solution configuration. Change the Note list for the architecture to your liking. For more information, refer to the <literal>saptune-note(5)</literal> man page.
     </para>
     <para>
     This creates an override file <filename>/etc/saptune/override/<replaceable>SOLUTION.sol</replaceable></filename>. It is possible to create the file elsewhere and place it in <filename>/etc/saptune/override/</filename>.
