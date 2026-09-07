@@ -16,7 +16,7 @@
  <itemizedlist>
    <listitem>
     <formalpara>
-     <title>&nw; or &s4ha; Installation</title>
+     <title>&nw; or &s4ha; installation</title>
      <para>
       <filename>base_partitioning.xml</filename>
      </para>
@@ -24,7 +24,7 @@
    </listitem>
    <listitem>
     <formalpara>
-     <title>&hana; or &s4hd; Installation</title>
+     <title>&hana; or &s4hd; installation</title>
      <para>
       <filename>hana_partitioning.xml</filename>
      </para>
@@ -32,7 +32,7 @@
    </listitem>
    <listitem>
     <formalpara>
-     <title>&hana; or &s4hd; Installation on &b1;-Certified Hardware</title>
+     <title>&hana; or &s4hd; installation on &b1;-certified hardware</title>
      <para>
       hardware-specific partitioning file
      </para>
