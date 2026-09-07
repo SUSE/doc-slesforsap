@@ -246,7 +246,7 @@ chmod +s /usr/lib/sapwmp/sapwmp-capture</screen>
      </para>
 <screen>&prompt.sudo;<command>grub2-mkconfig</command> -o /boot/grub2/grub.cfg</screen>
      <para>
-      After reboot (will be done later), the cgroup hierarchy is switched to v2
+      After reboot (which is performed later), the cgroup hierarchy is switched to v2
       (unified hierarchy) only.
      </para>
     </step>
