@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<!DOCTYPE chapter [
+  <!ENTITY % entities SYSTEM "generic-entities.ent">
+  %entities;
+]>
+<chapter xmlns:its="http://www.w3.org/2005/11/its" xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="cha-gather-info">
+  <title>Gathering information for support</title>
+  <info>
+    <meta name="description" its:translate="yes">Gather system information for support and locate important log files for this product</meta>
+    <dm:docmanager xmlns:dm="urn:x-suse:ns:docmanager">
+      <dm:bugtracker/>
+      <dm:translation>yes</dm:translation>
+    </dm:docmanager>
+    <revhistory xml:id="rh-cha-gather-info">
+      <revision><date>2026-09-09</date>
+        <revdescription>
+          <para/>
+        </revdescription>
+      </revision>
+    </revhistory>
+  </info>
+  <para>
+    When you encounter issues with your &sap; environment, you can use the following tools and log
+    files to gather diagnostic data and provide them to &suse; support.
+  </para>
+  <sect1 xml:id="sec-supportconfig">
+    <title>Using the <command>supportconfig</command> utility</title>
+
+    <para>
+      Gather system information that can provide details about problems in your system to the
+      &suse; support, using the <command>supportconfig</command> utility.
+    </para>
+
+    <para>
+      For &sap; and &ha; environments, you can install the
+      <package>supportutils-plugin-ha-sap</package> package before gathering the
+      <command>supportconfig</command> archive. This plug-in extends the archive to include
+      diagnostic data specific to &sap; applications and &ha; clusters.
+    </para>
+
+    <para>
+      To learn more details about using this plug-in, see the &suse; Knowledge Base article
+      <link xlink:href="https://support.scc.suse.com/s/kb/000020279">Details for supportconfig
+      plugin to gather &sap; information related to &suse; solutions</link>.
+    </para>
+
+    <para>
+      For general &sls; information about gathering system information and uploading archives to
+      the &suse; support, see the article
+      <link xlink:href="https://documentation.suse.com/smart/systems-management/html/supportconfig/index.html">Gathering
+      System Information for Support</link>.
+    </para>
+  </sect1>
+  <sect1 xml:id="sec-important-logs">
+    <title>Important log files</title>
+
+    <para>
+      The most important log files for this product can be found as follows:
+    </para>
+
+    <itemizedlist>
+      <listitem>
+        <para>
+          The &sapwiz; is a &yast; module. You can find its log entries in
+          <filename>/var/log/YaST/y2log</filename>.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          All &sap; knowledge is bundled in a library. You can find its log entries in
+          <filename>/var/log/SAPmedia.log</filename>.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          You can find log files related to auto-installation in
+          <filename>/var/adm/autoinstall/logs</filename>.
+        </para>
+      </listitem>
+    </itemizedlist>
+  </sect1>
+</chapter>

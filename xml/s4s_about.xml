@@ -291,10 +291,22 @@
       support model reduces complexity and lowers the total cost of ownership.
      </para>
      <para>
-      For more information, see <citetitle>SAP Note 1056161: SUSE
-       Priority Support for SAP Applications</citetitle> (<link xlink:href="&sapnoteaddress;1056161"/>).
-     </para>
-    </listitem>
+      For more information, refer to the following resources:
+      </para>
+<itemizedlist>
+      <listitem>
+       <para>
+        <citetitle>&sapnote; 1056161: &suse;
+       Priority Support for &sap; Applications:</citetitle> <link xlink:href="&sapnoteaddress;1056161"/>
+       </para>
+      </listitem>
+      <listitem>
+       <para>
+        &suse; Knowledge Base: &sles4sapa; - How To Engage &sap; and &suse; to address Product Issues: <link xlink:href="https://support.scc.suse.com/s/kb/000019000"/>
+       </para>
+      </listitem>
+    </itemizedlist>
+   </listitem>
    </varlistentry>
   </variablelist>
   <important>

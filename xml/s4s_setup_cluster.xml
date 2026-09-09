@@ -700,6 +700,39 @@
    <screen>&prompt.root;<command>passwd hacluster</command></screen>
   </important>
  </sect1>
+ <sect1 xml:id="sec-troubleshooting">
+  <title>Troubleshooting</title>
+  <para>
+    If you encounter issues during the setup or operation of your &hana; cluster, refer to the following &suse; Knowledge Base articles for solutions to some common problems, along with instructions on gathering diagnostic data:
+  </para>
+  <itemizedlist>
+   <listitem>
+     <para>
+      <link xlink:href="https://support.scc.suse.com/s/kb/000020948">HANA DB resource failed to start</link>
+     </para>
+   </listitem>
+   <listitem>
+    <para>
+      <link xlink:href="https://support.scc.suse.com/s/kb/000019865">Troubleshooting the SAPHanaSR python hook</link>
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+      <link xlink:href="https://support.scc.suse.com/s/kb/000020548">SAPHanaSR-showAttr fails with error "Error: NIECONN_REFUSED (Connection refused), NiRawConnect failed in plugin_fopen()"</link>
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+      <link xlink:href="https://support.scc.suse.com/s/kb/000020626">&hana; monitors timed out after 5 seconds</link>
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+      <link xlink:href="https://support.scc.suse.com/s/kb/000019142">Indepth HANA Cluster Debug Data Collection (&pace;, &sap;)</link>
+    </para>
+   </listitem>
+  </itemizedlist>
+ </sect1>
  <sect1 xml:id="sec-moreinfo">
   <title>For more information</title>
   <itemizedlist>
