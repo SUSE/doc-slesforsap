@@ -703,7 +703,7 @@
  <sect1 xml:id="sec-troubleshooting">
   <title>Troubleshooting</title>
   <para>
-    If you encounter issues during the setup or operation of your &hana; cluster, refer to the following &suse; Knowledge Base articles for solutions to some common problems, along with instructions on gathering diagnostic data:
+    If you encounter issues during the setup or operation of your &hana; cluster, you can refer to the following &suse; Knowledge Base articles for solutions to certain common problems:
   </para>
   <itemizedlist>
    <listitem>
@@ -726,12 +726,8 @@
       <link xlink:href="https://support.scc.suse.com/s/kb/000020626">&hana; monitors timed out after 5 seconds</link>
     </para>
    </listitem>
-   <listitem>
-    <para>
-      <link xlink:href="https://support.scc.suse.com/s/kb/000019142">Indepth HANA Cluster Debug Data Collection (&pace;, &sap;)</link>
-    </para>
-   </listitem>
   </itemizedlist>
+  <para>For instructions on gathering diagnostic data, see <link xlink:href="https://support.scc.suse.com/s/kb/000019142">Indepth HANA Cluster Debug Data Collection (&pace;, &sap;)</link>.</para>
  </sect1>
  <sect1 xml:id="sec-moreinfo">
   <title>For more information</title>

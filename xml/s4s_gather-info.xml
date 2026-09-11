@@ -20,8 +20,8 @@
     </revhistory>
   </info>
   <para>
-    When you encounter issues with your &sap; environment, you can use the following tools and log
-    files to gather diagnostic data and provide them to &suse; support.
+    When you encounter issues with &productname;, you can use the following tools and log files to
+    gather diagnostic data and provide them to &suse; support.
   </para>
   <sect1 xml:id="sec-supportconfig">
     <title>Using the <command>supportconfig</command> utility</title>
@@ -46,7 +46,7 @@
 
     <para>
       For general &sls; information about gathering system information and uploading archives to
-      the &suse; support, see the article
+      the &suse; support, see
       <link xlink:href="https://documentation.suse.com/smart/systems-management/html/supportconfig/index.html">Gathering
       System Information for Support</link>.
     </para>
