@@ -52,8 +52,8 @@
     <dm:bugtracker>
       <dm:url>https://bugzilla.suse.com/enter_bug.cgi</dm:url>
       <dm:component>Documentation</dm:component>
-      <dm:product>SUSE Linux Enterprise Server for SAP Applications 15 SP7</dm:product>
-      <dm:assignee>dmitri.popov@suse.com</dm:assignee>
+      <dm:product>SUSE Linux Enterprise Server for SAP applications 15 SP7</dm:product>
+      <dm:assignee>eliska.romanova@suse.com</dm:assignee>
     </dm:bugtracker>
     <dm:editurl>https://github.com/SUSE/doc-slesforsap/blob/main/xml/</dm:editurl>
     <dm:translation>yes</dm:translation>
@@ -79,7 +79,7 @@
  <xi:include condition="noquick" href="s4s_clamsap.xml" parse="xml"/>
  <xi:include condition="noquick" href="s4s_remoteaccess.xml" parse="xml"/>
  <xi:include condition="noquick" href="s4s_image.xml" parse="xml"/>
- <xi:include condition="noquick" href="s4s_trouble.xml" parse="xml"/>
+ <xi:include condition="noquick" href="s4s_gather-info.xml" parse="xml"/>
  <xi:include condition="noquick" href="s4s_appendix_extrasoftware.xml" parse="xml"/>
  <xi:include condition="noquick" href="s4s_appendix_partition.xml" parse="xml"/>
  <xi:include condition="noquick" href="s4s_appendix_supplement.xml" parse="xml"/>
