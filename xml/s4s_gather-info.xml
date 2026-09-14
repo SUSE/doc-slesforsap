@@ -12,7 +12,7 @@
       <dm:translation>yes</dm:translation>
     </dm:docmanager>
     <revhistory xml:id="rh-cha-gather-info">
-      <revision><date>2026-09-09</date>
+      <revision><date>2026-09-14</date>
         <revdescription>
           <para/>
         </revdescription>
@@ -21,7 +21,7 @@
   </info>
   <para>
     When you encounter issues with &productname;, you can use the following tools and log files to
-    gather diagnostic data and provide them to &suse; support.
+    gather diagnostic data and provide it to &suse; support.
   </para>
   <sect1 xml:id="sec-supportconfig">
     <title>Using the <command>supportconfig</command> utility</title>
@@ -38,18 +38,24 @@
       diagnostic data specific to &sap; applications and &ha; clusters.
     </para>
 
-    <para>
-      To learn more details about using this plug-in, see the &suse; Knowledge Base article
-      <link xlink:href="https://support.scc.suse.com/s/kb/000020279">Details for supportconfig
-      plugin to gather &sap; information related to &suse; solutions</link>.
-    </para>
-
-    <para>
-      For general &sls; information about gathering system information and uploading archives to
-      the &suse; support, see
-      <link xlink:href="https://documentation.suse.com/smart/systems-management/html/supportconfig/index.html">Gathering
-      System Information for Support</link>.
-    </para>
+    <itemizedlist>
+      <listitem>
+        <para>
+          To learn more details about using the <package>supportutils-plugin-ha-sap</package>
+          plug-in, see the &suse; Knowledge Base article
+          <link xlink:href="https://support.scc.suse.com/s/kb/000020279">Details for supportconfig
+          plugin to gather &sap; information related to &suse; solutions</link>.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          For general &sls; information about gathering system information and uploading archives
+          to the &suse; support, see
+          <link xlink:href="https://documentation.suse.com/smart/systems-management/html/supportconfig/index.html">Gathering
+          System Information for Support</link>.
+        </para>
+      </listitem>
+    </itemizedlist>
   </sect1>
   <sect1 xml:id="sec-important-logs">
     <title>Important log files</title>
