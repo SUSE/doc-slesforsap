@@ -7,14 +7,14 @@
 <preface xmlns:its="http://www.w3.org/2005/11/its" xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="pre-s4s">
  <title>Preface</title>
  <info>
-    <meta name="description" its:translate="yes">Explore installation and customization requirements for software development on the reference platform, optimized for application development</meta>
+    <meta name="description" its:translate="yes">Access documentation, browse or download formats online, search the SUSE Knowledgebase for known solutions, and report any issues you encounter</meta>
  <dm:docmanager xmlns:dm="urn:x-suse:ns:docmanager">
   <dm:bugtracker/>
   <dm:translation>yes</dm:translation>
  </dm:docmanager>
  <revhistory xml:id="rh-pre-s4s">
    <revision>
-     <date>2026-04-28</date>
+     <date>2026-09-24</date>
      <revdescription>
        <para/>
      </revdescription>
