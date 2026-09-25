@@ -22,7 +22,7 @@
   <date><?dbtimestamp format="B d, Y"?></date>
   <revhistory xml:id="rh-book-s4s">
     <revision>
-      <date>2026-09-14</date>
+      <date>2026-09-25</date>
       <revdescription>
         <para/>
       </revdescription>

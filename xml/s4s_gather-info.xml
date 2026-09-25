@@ -12,7 +12,8 @@
       <dm:translation>yes</dm:translation>
     </dm:docmanager>
     <revhistory xml:id="rh-cha-gather-info">
-      <revision><date>2026-09-14</date>
+      <revision>
+        <date>2026-09-25</date>
         <revdescription>
           <para/>
         </revdescription>
