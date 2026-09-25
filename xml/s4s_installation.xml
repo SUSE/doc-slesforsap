@@ -4,16 +4,17 @@
   %entities;
 ]>
 
-<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="cha-install">
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:its="http://www.w3.org/2005/11/its" version="5.0" xml:id="cha-install">
  <title>Installing the operating system</title>
- <info xmlns:d="http://docbook.org/ns/docbook">
+ <info>
+  <meta name="description" its:translate="yes">Follow step-by-step instructions to install the operating system using local or network media, configure settings, and register your system</meta>
   <dm:docmanager xmlns:dm="urn:x-suse:ns:docmanager">
    <dm:bugtracker/>
    <dm:translation>yes</dm:translation>
   </dm:docmanager>
  <revhistory xml:id="rh-cha-install">
    <revision>
-     <date>2026-07-09</date>
+    <date>2026-09-25</date>
      <revdescription>
        <para/>
      </revdescription>

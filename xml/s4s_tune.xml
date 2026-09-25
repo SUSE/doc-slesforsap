@@ -4,16 +4,17 @@
   %entities;
 ]>
 
-<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="cha-tune">
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:its="http://www.w3.org/2005/11/its" version="5.0" xml:id="cha-tune">
  <title>Tuning systems with &saptune;</title>
- <info xmlns:d="http://docbook.org/ns/docbook">
+ <info>
+  <meta name="description" its:translate="yes">Configure systems with Saptune to optimize performance for NetWeaver, HANA, and S/4HANA applications using predefined solutions and custom settings</meta>
   <dm:docmanager xmlns:dm="urn:x-suse:ns:docmanager">
    <dm:bugtracker/>
    <dm:translation>yes</dm:translation>
   </dm:docmanager>
  <revhistory xml:id="rh-cha-tune">
    <revision>
-     <date>2024-12-06</date>
+     <date>2026-09-25</date>
      <revdescription>
        <para/>
      </revdescription>
@@ -723,8 +724,7 @@ If <command>saptune note verify</command> is called without specifying a Note,
 it verifies all enabled Notes. To verify the currently applied Notes use the
 <command>saptune note verify applied</command> or <command>saptune verify
 applied</command> commands. Normally, enabled Notes are also applied, except
-when the system has been rebooted without an enabled <systemitem
-class="service">saptune.service</systemitem>.
+when the system has been rebooted without an enabled <systemitem class="service">saptune.service</systemitem>.
 </para>
 </note>
 
