@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0"?>
 <!DOCTYPE book
 [
   <!ENTITY % entities SYSTEM "generic-entities.ent">
@@ -7,7 +7,7 @@
 <?xml-stylesheet href="urn:x-suse:xslt:profiling:docbook50-profile.xsl"
    type="text/xml"
    title="Profiling step"?>
-<book xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:lang="en" xml:id="book-s4s" xmlns:its="http://www.w3.org/2005/11/its">
+<book xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:its="http://www.w3.org/2005/11/its" version="5.0" xml:lang="en" xml:id="book-s4s">
  <title><phrase condition="noquick">Guide</phrase><phrase condition="quick">&instquick;</phrase></title>
  <info>
   <productname>&productname;</productname>
@@ -15,7 +15,7 @@
   <productnumber>&productnumber;</productnumber>
   <meta name="title" condition="quick" its:translate="yes">Installation Quick Start</meta>
   <meta name="title" condition="noquick" its:translate="yes">Guide</meta>
-  <meta name="description" condition="quick" its:translate="yes">How to install &productname;</meta>
+  <meta name="description" its:translate="yes">How to install &productname;</meta>
   <meta name="description" condition="noquick" its:translate="yes">How to install and customize &productname;</meta>
   <meta name="social-descr" condition="quick" its:translate="yes">Install &productnameshort;</meta>
   <meta name="social-descr" condition="noquick" its:translate="yes">Install and customize &productnameshort;</meta>

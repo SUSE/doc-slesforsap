@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="file:/usr/share/xml/geekodoc/rng/geekodoc5-flat.rnc"
-   type="application/relax-ng-compact-syntax"?>
+<?xml version="1.0"?>
 <!DOCTYPE article
 [
   <!ENTITY % entities SYSTEM "generic-entities.ent">
@@ -11,11 +9,7 @@ Further information:
 * SAP Monitoring will become easier and powerful using SLES for SAP
 https://suse.com/c/coming-soon-sap-landscape-monitoring-on-sles-for-sap/
 -->
-<article version="5.1" xml:lang="en" xml:id="article-sap-monitoring"
-  xmlns="http://docbook.org/ns/docbook"
-  xmlns:xi="http://www.w3.org/2001/XInclude"
-  xmlns:xlink="http://www.w3.org/1999/xlink"
-  xmlns:its="http://www.w3.org/2005/11/its">
+<article xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:its="http://www.w3.org/2005/11/its" version="5.1" xml:lang="en" xml:id="article-sap-monitoring">
  <title>&sap; Monitoring</title>
  <subtitle>&sles4sapreg; · &sleha;</subtitle>
  <info>
@@ -160,8 +154,7 @@ https://suse.com/c/coming-soon-sap-landscape-monitoring-on-sles-for-sap/
         </listitem>
         <listitem>
         <para>
-            <link
-            xlink:href="https://github.com/SAP/PyHDB"><literal>pyhdb</literal>
+            <link xlink:href="https://github.com/SAP/PyHDB"><literal>pyhdb</literal>
             (unofficial/open source)</link>
           </para>
         </listitem>
@@ -171,8 +164,7 @@ https://suse.com/c/coming-soon-sap-landscape-monitoring-on-sles-for-sap/
         <para>
           Certain metrics are collected in the &hana; monitoring views by
           the
-          <link
-          xlink:href="https://help.sap.com/saphelp_nwpi711/helpdata/en/21/98c443122744efae67c0352033691d/frameset.htm">SAP
+          <link xlink:href="https://help.sap.com/saphelp_nwpi711/helpdata/en/21/98c443122744efae67c0352033691d/frameset.htm">SAP
           Host agent</link>. To have access to all the monitoring metrics, make
           sure that the &sap; Host agent is installed and running.
         </para>
@@ -411,8 +403,7 @@ Below is a list of key configuration options.
     </itemizedlist>
     <para>
       The logging configuration file follows the
-      <link
-      xlink:href="https://docs.python.org/3/library/logging.config.html">Python
+      <link xlink:href="https://docs.python.org/3/library/logging.config.html">Python
       standard logging system style</link>.
     </para>
     <para>
@@ -463,8 +454,7 @@ as a value for the <literal>aws_secret_name</literal> entry.
           <para>
             Configure read-only access from EC2 IAM role to the secret by
             attaching a
-            <link
-            xlink:href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html">resource-based
+            <link xlink:href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html">resource-based
             policy</link> to the secret. For example:
           </para>
 <screen>
@@ -680,8 +670,7 @@ Replace <replaceable>ZONE</replaceable> with the actual interface used for the e
    <para>
     The provided default configuration is designed specifically for the latest
     version of
-    <phrase os="osuse">&opensuse;</phrase><phrase
-        os="sles;sled">&sle;</phrase>.
+    <phrase os="osuse">&opensuse;</phrase><phrase os="sles;sled">&sle;</phrase>.
     If necessary, any of the supported parameters can be modified either via
     command-line flags or via a configuration file. Use the
     <command>ha_cluster_exporter --help</command> command for more details on
@@ -822,8 +811,7 @@ Replace <replaceable>ZONE</replaceable> with the actual interface used for the e
     or basic authentication, specify a configuration file using the
     <option>--web.config.file</option> parameter. The format of the file is
     described in
-    <link
-          xlink:href="https://github.com/prometheus/exporter-toolkit/blob/master/docs/web-configuration.md"/>.
+    <link xlink:href="https://github.com/prometheus/exporter-toolkit/blob/master/docs/web-configuration.md"/>.
    </para>
   </sect2>
 
@@ -1758,14 +1746,12 @@ The exporter expects to find the <filename>sap_host_exporter.yaml</filename>, <f
   <itemizedlist>
    <listitem>
     <para>
-     <link xlink:href="https://documentation.suse.com/suma/4.0/"
-            >&suma;</link>
+     <link xlink:href="https://documentation.suse.com/suma/4.0/">&suma;</link>
     </para>
    </listitem>
    <listitem>
     <para>
-     <link xlink:href="https://grafana.com/grafana/dashboards?orderBy=name&amp;direction=asc"
-            >Grafana
+     <link xlink:href="https://grafana.com/grafana/dashboards?orderBy=name&amp;direction=asc">Grafana
      Dashboards</link>
     </para>
    </listitem>
