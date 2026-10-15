@@ -15,7 +15,7 @@
   <productnumber>&productnumber;</productnumber>
   <meta name="title" condition="quick" its:translate="yes">Installation Quick Start</meta>
   <meta name="title" condition="noquick" its:translate="yes">Guide</meta>
-  <meta name="description" its:translate="yes">How to install &productname;</meta>
+  <meta name="description" condition="quick" its:translate="yes">How to install &productname;</meta>
   <meta name="description" condition="noquick" its:translate="yes">How to install and customize &productname;</meta>
   <meta name="social-descr" condition="quick" its:translate="yes">Install &productnameshort;</meta>
   <meta name="social-descr" condition="noquick" its:translate="yes">Install and customize &productnameshort;</meta>
