@@ -163,17 +163,6 @@
    </para>
   </tip>
  </sect1>
- <sect1 xml:id="sec-migration">
-  <title>Offline migration</title>
-
-  <para>
-   The migration paths for &sles4sap; are identical to those for &sls; with
-   <productname>Enhanced Service Pack Overlay Support</productname> (ESPOS).
-   Find detailed information in the <citetitle>&sls;</citetitle>
-   &upgrade_guide; at
-   <link xlink:href="https://documentation.suse.com/sles-15/html/SLES-all/cha-upgrade-paths.html"/>.
-  </para>
- </sect1>
  <sect1 condition="noquick" xml:id="sec-how-install">
   <title>Installation methods</title>
 
