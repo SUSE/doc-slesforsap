@@ -3,7 +3,7 @@
   <!ENTITY % entities SYSTEM "generic-entities.ent">
   %entities;
 ]>
-<chapter xmlns:its="http://www.w3.org/2005/11/its" xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="cha-upgrade-sles4sap">
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:its="http://www.w3.org/2005/11/its" version="5.0" xml:id="cha-upgrade-sles4sap">
   <title>Upgrading &productname;</title>
   <info>
     <meta name="description" its:translate="yes">Learn what upgrade and migration paths for &productname; are supported and upgrade your system to the latest version</meta>
