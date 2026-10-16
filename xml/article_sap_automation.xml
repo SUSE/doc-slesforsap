@@ -1,7 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="file:/usr/share/xml/geekodoc/rng/geekodoc5-flat.rnc"
-   type="application/relax-ng-compact-syntax"?>
-
+<?xml version="1.0"?>
 <!DOCTYPE article
 [
   <!ENTITY % entities SYSTEM "generic-entities.ent">
@@ -12,11 +9,7 @@ Confluence page:
 https://confluence.suse.com/x/8IEnGw
 -->
 
-<article version="5.1" xml:lang="en" xml:id="article-sap-automation"
-  xmlns="http://docbook.org/ns/docbook"
-  xmlns:xi="http://www.w3.org/2001/XInclude"
-  xmlns:xlink="http://www.w3.org/1999/xlink"
-  xmlns:its="http://www.w3.org/2005/11/its">
+<article xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:its="http://www.w3.org/2005/11/its" version="5.1" xml:lang="en" xml:id="article-sap-automation">
   <title>&sap; Automation</title>
   <subtitle>&sles4sapreg; · &slereg; &hasi;</subtitle>
   <info>
@@ -25,7 +18,7 @@ https://confluence.suse.com/x/8IEnGw
     <productnumber>&productnumber;</productnumber>
     <meta name="title" its:translate="yes">&sap; Automation</meta>
     <meta name="description" its:translate="yes">How to use automation to efficiently configure &ha; and &sap; systems</meta>
-    <meta name="social-descr" its:translate="yes">Use automation for HA and &sap; system setup</meta>
+  <meta name="social-descr" its:translate="yes">Use automation for HA and &sap; system setup</meta>
     <date><?dbtimestamp format="B d, Y"?></date>
     <revhistory xml:id="rh-article-sap-automation">
       <revision>
@@ -70,8 +63,7 @@ https://confluence.suse.com/x/8IEnGw
       and are not shipped as part of &productname;.
       These parts of the project available via &suse; GitHub repositories are
       published as-is and supported by the open source community. For more
-      information, see <link
-        xlink:href="https://github.com/SUSE/ha-sap-terraform-deployments"/>.
+      information, see <link xlink:href="https://github.com/SUSE/ha-sap-terraform-deployments"/>.
     </para>
   </note>
 
@@ -268,26 +260,22 @@ https://confluence.suse.com/x/8IEnGw
       <title>Best practices</title>
       <listitem>
         <para>
-          <link xlink:href="https://documentation.suse.com/sbp/all/html/SLES4SAP-hana-sr-guide-costopt-15/index.html"
-            >SAP HANA System Replication Scale-Up - Cost Optimized Scenario</link>
+          <link xlink:href="https://documentation.suse.com/sbp/all/html/SLES4SAP-hana-sr-guide-costopt-15/index.html">SAP HANA System Replication Scale-Up - Cost Optimized Scenario</link>
         </para>
       </listitem>
       <listitem>
         <para>
-          <link xlink:href="https://documentation.suse.com/sbp/all/html/SLES4SAP-hana-sr-guide-PerfOpt-15/index.html"
-            >SAP HANA System Replication Scale-Up - Performance Optimized Scenario</link>
+          <link xlink:href="https://documentation.suse.com/sbp/all/html/SLES4SAP-hana-sr-guide-PerfOpt-15/index.html">SAP HANA System Replication Scale-Up - Performance Optimized Scenario</link>
         </para>
       </listitem>
       <listitem>
         <para>
-          <link xlink:href="https://documentation.suse.com/sbp/all/html/SLES4SAP-hana-sr-guide-PerfOpt-12_AWS/index.html"
-            >SAP HANA High Availability Cluster for the AWS Cloud </link>
+          <link xlink:href="https://documentation.suse.com/sbp/all/html/SLES4SAP-hana-sr-guide-PerfOpt-12_AWS/index.html">SAP HANA High Availability Cluster for the AWS Cloud </link>
         </para>
       </listitem>
       <listitem>
         <para>
-          <link xlink:href="https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/sap-hana-high-availability"
-            >High availability of SAP HANA on Azure VMs on SUSE Linux Enterprise Server</link>
+          <link xlink:href="https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/sap-hana-high-availability">High availability of SAP HANA on Azure VMs on SUSE Linux Enterprise Server</link>
         </para>
       </listitem>
     </itemizedlist>
@@ -341,16 +329,13 @@ https://confluence.suse.com/x/8IEnGw
     <itemizedlist>
       <title>Best practices</title>
       <listitem>
-        <para><link xlink:href="https://documentation.suse.com/sbp/all/html/SAP_HA740_SetupGuide_AWS/index.html"
-          >&netweaver; &ha; Cluster 7.40 for the AWS Cloud - Setup Guide (Code 12)</link></para>
+        <para><link xlink:href="https://documentation.suse.com/sbp/all/html/SAP_HA740_SetupGuide_AWS/index.html">&netweaver; &ha; Cluster 7.40 for the AWS Cloud - Setup Guide (Code 12)</link></para>
       </listitem>
       <listitem>
-        <para><link xlink:href="https://documentation.suse.com/sbp/all/html/SAP_S4HA10_SetupGuide-SLE12/index.html"
-          >&s4h; - Enqueue Replication 2 &ha; Cluster - Setup Guide</link></para>
+        <para><link xlink:href="https://documentation.suse.com/sbp/all/html/SAP_S4HA10_SetupGuide-SLE12/index.html">&s4h; - Enqueue Replication 2 &ha; Cluster - Setup Guide</link></para>
       </listitem>
       <listitem>
-        <para><link xlink:href="https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/high-availability-guide-suse"
-          >Azure</link></para>
+        <para><link xlink:href="https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/high-availability-guide-suse">Azure</link></para>
       </listitem>
     </itemizedlist>
   </sect1>
@@ -584,20 +569,16 @@ https://confluence.suse.com/x/8IEnGw
     </para>
     <itemizedlist>
       <listitem>
-        <para><link xlink:href="https://documentation.suse.com/sbp/all/html/SLES4SAP-hana-sr-guide-PerfOpt-15/index.html"
-          >SAP HANA System Replication Scale-Up - Performance Optimized Scenario</link></para>
+        <para><link xlink:href="https://documentation.suse.com/sbp/all/html/SLES4SAP-hana-sr-guide-PerfOpt-15/index.html">SAP HANA System Replication Scale-Up - Performance Optimized Scenario</link></para>
       </listitem>
       <listitem>
-        <para><link xlink:href="https://documentation.suse.com/sbp/all/html/SLES4SAP-hana-sr-guide-costopt-15/index.html"
-          >SAP HANA System Replication Scale-Up - Cost Optimized Scenario</link></para>
+        <para><link xlink:href="https://documentation.suse.com/sbp/all/html/SLES4SAP-hana-sr-guide-costopt-15/index.html">SAP HANA System Replication Scale-Up - Cost Optimized Scenario</link></para>
       </listitem>
       <listitem>
-        <para><link xlink:href="https://documentation.suse.com/sbp/all/html/SLES4SAP-hana-sr-guide-PerfOpt-12_AWS/index.html"
-          >&hana; High Availability Cluster for the AWS Cloud</link></para>
+        <para><link xlink:href="https://documentation.suse.com/sbp/all/html/SLES4SAP-hana-sr-guide-PerfOpt-12_AWS/index.html">&hana; High Availability Cluster for the AWS Cloud</link></para>
       </listitem>
       <listitem>
-        <para><link xlink:href="https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/sap-hana-high-availability"
-          >High availability of &hana; on Azure VMs on &sls;</link></para>
+        <para><link xlink:href="https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/sap-hana-high-availability">High availability of &hana; on Azure VMs on &sls;</link></para>
       </listitem>
     </itemizedlist>
     <para>
