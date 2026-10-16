@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0"?>
 <!DOCTYPE book
 [
   <!ENTITY % entities SYSTEM "generic-entities.ent">
@@ -14,7 +14,7 @@
   <productname role="abbrev">&productnameshort;</productname>
   <productnumber>&productnumber;</productnumber>
   <meta name="title" its:translate="yes">Guide</meta>
-  <meta name="description" its:translate="yes">How to install and customize &productname;</meta>
+  <meta name="description" its:translate="yes">How to install &productname;</meta>
   <meta name="social-descr" its:translate="yes">Install and customize &productnameshort;</meta>
   <date><?dbtimestamp format="B d, Y"?></date>
   <revhistory xml:id="rh-book-s4s">

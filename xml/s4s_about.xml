@@ -1,13 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0"?>
 <!DOCTYPE chapter
 [
   <!ENTITY % entities SYSTEM "generic-entities.ent">
     %entities;
 ]>
-<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="cha-s4s-about">
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:its="http://www.w3.org/2005/11/its" version="5.0" xml:id="cha-s4s-about">
 <title>What Is &sles4sap;?</title>
 <info>
- <abstract>
+ <meta name="description" its:translate="yes">Explore the bundle of software and services designed to address specific user needs, which includes the only operating system optimized for all solutions</meta>
+  <abstract>
   <para>
    &sles4sapreg; is a bundle of software and services that addresses the
    specific needs of &sap; users. It is the only operating system that is
@@ -425,7 +426,7 @@
      <itemizedlist>
       <listitem>
        <para>
-        Product Lifecycle Support Policies: <link xlink:href="https://www.suse.com/support/policy-products/#sap"></link>
+        Product Lifecycle Support Policies: <link xlink:href="https://www.suse.com/support/policy-products/#sap"/>
        </para>
       </listitem>
       <listitem>
@@ -435,7 +436,7 @@
       </listitem>
       <listitem>
        <para>
-        Long Term Service Pack Support: <link xlink:href="https://www.suse.com/products/long-term-service-pack-support/"></link>
+        Long Term Service Pack Support: <link xlink:href="https://www.suse.com/products/long-term-service-pack-support/"/>
        </para>
       </listitem>
      </itemizedlist>
@@ -456,8 +457,7 @@
      </para>
      <para>
       For more information, see <citetitle>SAP Note 1056161: SUSE
-       Priority Support for SAP applications</citetitle> (<link
-        xlink:href="&sapnoteaddress;1056161"/>).
+       Priority Support for SAP applications</citetitle> (<link xlink:href="&sapnoteaddress;1056161"/>).
      </para>
     </listitem>
    </varlistentry>
