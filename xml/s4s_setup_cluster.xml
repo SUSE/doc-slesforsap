@@ -1,12 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0"?>
 <!DOCTYPE chapter
 [
   <!ENTITY % entities SYSTEM "generic-entities.ent">
     %entities;
 ]>
-<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="cha-s4s-cluster">
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:its="http://www.w3.org/2005/11/its" version="5.0" xml:id="cha-s4s-cluster">
  <title>Setting Up an &hana; Cluster</title>
- <info/>
+ <info><meta name="description" its:translate="yes">Configure your SAP HANA cluster using the HANA-SR Wizard for on-premises or Azure deployments following best practices for high availability</meta>
+  </info>
  <para>
   You can use a &yast; wizard to set up &hana; or &s4hd; clusters according
   to best practices, including &hana; system replication. A summary of the
