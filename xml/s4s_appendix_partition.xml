@@ -10,7 +10,7 @@
   <meta name="description" its:translate="yes">Configure system partitioning for SAP using predefined XML files to tailor installations on supported hardware</meta>
   <revhistory xml:id="rh-app-autoyast-partition">
    <revision>
-    <date>2021-01-05</date>
+    <date>2026-10-21</date>
     <revdescription>
      <para/>
     </revdescription>

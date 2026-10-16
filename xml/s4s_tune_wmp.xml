@@ -10,7 +10,7 @@
   <meta name="description" its:translate="yes">Configure Workload Memory Protection for SAP applications using cgroups and systemd to set memory limits and ensure optimal performance under load</meta>
   <revhistory xml:id="rh-cha-memory-protection">
    <revision>
-     <date>2022-06-10</date>
+     <date>2026-10-21</date>
      <revdescription>
        <para/>
      </revdescription>

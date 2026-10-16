@@ -10,7 +10,7 @@
   <meta name="description" its:translate="yes">Configure custom tasks and workflows for the Installation Wizard by adding XML files, including custom RPMs and scripts, such as product.xml</meta>
   <revhistory xml:id="rh-app-component-supplement">
    <revision>
-    <date>2021-01-05</date>
+    <date>2026-10-21</date>
     <revdescription>
      <para/>
     </revdescription>

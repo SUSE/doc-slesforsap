@@ -12,7 +12,7 @@
   <meta name="description" its:translate="yes">Configure ClamSAP to protect against malware by integrating with ClamAV and the NetWeaver Virus Scan Interface, with settings to avoid false positives</meta>
   <revhistory xml:id="rh-cha-clamsap">
    <revision>
-    <date>2025-04-07</date>
+    <date>2026-10-21</date>
     <revdescription>
      <para/>
     </revdescription>

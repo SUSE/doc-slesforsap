@@ -10,7 +10,7 @@
   <meta name="description" its:translate="yes">Configure remote desktop connections by adding a firewall exception, setting up the xrdp service, and specifying connection parameters such as port 3389</meta>
   <revhistory xml:id="rh-cha-configure-rdp">
     <revision>
-     <date>2022-06-07</date>
+     <date>2026-10-21</date>
      <revdescription>
       <para/>
      </revdescription>

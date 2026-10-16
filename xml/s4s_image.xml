@@ -10,7 +10,7 @@
   <meta name="description" its:translate="yes">Learn to create custom OS images with Kiwi using XML configurations, or clone existing installations with automated cleanup of swap and SSH keys</meta>
   <revhistory xml:id="rh-cha-image">
    <revision>
-    <date>2022-11-29</date>
+    <date>2026-10-21</date>
     <revdescription>
      <para/>
     </revdescription>

@@ -10,7 +10,7 @@
   <meta name="description" its:translate="yes">Configure your SAP HANA cluster using the HANA-SR Wizard for on-premises or Azure deployments following best practices for high availability</meta>
   <revhistory xml:id="rh-cha-cluster">
    <revision>
-     <date>2026-09-14</date>
+     <date>2026-10-21</date>
      <revdescription>
        <para/>
      </revdescription>
