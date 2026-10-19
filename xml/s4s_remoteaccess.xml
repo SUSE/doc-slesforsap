@@ -7,6 +7,14 @@
 <chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:its="http://www.w3.org/2005/11/its" version="5.0" xml:id="cha-s4s-configure-rdp">
   <title>Connecting via RDP</title>
   <info><meta name="description" its:translate="yes">Configure remote desktop connections by adding a firewall exception, setting up the xrdp service, and specifying connection parameters such as port 3389</meta>
+    <revhistory xml:id="rh-cha-s4s-configure-rdp">
+     <revision>
+      <date>2026-10-21</date>
+      <revdescription>
+        <para/>
+      </revdescription>
+     </revision>
+    </revhistory>
   </info>
   <para>
    If you installed &s4sa; with the RDP option activated or if you installed

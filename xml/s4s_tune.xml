@@ -8,6 +8,14 @@
  <title>Tuning systems with &saptune;</title>
  <info>
   <meta name="description" its:translate="yes">Configure systems with Saptune to optimize performance for NetWeaver, HANA, and S/4HANA applications using predefined solutions and custom settings</meta>
+  <revhistory xml:id="rh-cha-tune">
+    <revision>
+      <date>2026-10-21</date>
+      <revdescription>
+        <para/>
+      </revdescription>
+    </revision>
+  </revhistory>
   <dm:docmanager xmlns:dm="urn:x-suse:ns:docmanager">
    <dm:bugtracker/>
    <dm:translation>yes</dm:translation>

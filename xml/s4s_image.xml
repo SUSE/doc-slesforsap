@@ -7,6 +7,14 @@
 <chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:its="http://www.w3.org/2005/11/its" version="5.0" xml:id="cha-s4s-image">
  <title>Creating Operating System Images</title>
  <info><meta name="description" its:translate="yes">Learn to create custom OS images with Kiwi using XML configurations, or clone existing installations with automated cleanup of swap and SSH keys</meta>
+    <revhistory xml:id="rh-s4s-image">
+      <revision>
+       <date>2026-10-21</date>
+      <revdescription>
+        <para/>
+      </revdescription>
+     </revision>
+    </revhistory>
   </info>
 
  <para>

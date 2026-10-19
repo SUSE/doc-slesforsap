@@ -7,6 +7,14 @@
 <appendix xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:its="http://www.w3.org/2005/11/its" version="5.0" xml:id="app-s4s-additional-software">
  <title>Additional Software for &s4sa;</title>
  <info><meta name="description" its:translate="yes">Identify and install extensions, modules, and third-party packages using SUSE Connect and community resources on your SUSE system</meta>
+   <revhistory xml:id="rh-app-s4s-additional-software">
+    <revision>
+      <date>2026-10-21</date>
+      <revdescription>
+        <para/>
+      </revdescription>
+    </revision>
+  </revhistory>
   </info>
 
  <para>

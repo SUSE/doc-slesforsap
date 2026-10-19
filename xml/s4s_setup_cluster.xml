@@ -7,6 +7,14 @@
 <chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:its="http://www.w3.org/2005/11/its" version="5.0" xml:id="cha-s4s-cluster">
  <title>Setting Up an &hana; Cluster</title>
  <info><meta name="description" its:translate="yes">Configure your SAP HANA cluster using the HANA-SR Wizard for on-premises or Azure deployments following best practices for high availability</meta>
+  <revhistory xml:id="rh-cha-s4s-cluster">
+    <revision>
+      <date>2026-10-21</date>
+      <revdescription>
+        <para/>
+      </revdescription>
+    </revision>
+  </revhistory>
   </info>
  <para>
   You can use a &yast; wizard to set up &hana; or &s4hd; clusters according
