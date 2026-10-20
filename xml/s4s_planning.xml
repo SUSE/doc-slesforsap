@@ -7,7 +7,7 @@
 <chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:its="http://www.w3.org/2005/11/its" version="5.0" xml:id="cha-plan">
  <title>Planning the installation</title>
  <info>
-  <meta name="description" its:translate="yes">Plan your installation by gathering system requirements and hardware specifications for a successful setup</meta>
+  <meta name="description" its:translate="yes">Plan your installation by gathering system requirements and hardware specifications for a successful &productnameshort; applications setup</meta>
   <revhistory xml:id="rh-cha-plan">
    <revision>
     <date>2026-10-21</date>
