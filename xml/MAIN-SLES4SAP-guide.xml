@@ -14,7 +14,7 @@
   <productname role="abbrev">&productnameshort;</productname>
   <productnumber>&productnumber;</productnumber>
   <meta name="title" its:translate="yes">Guide</meta>
-  <meta name="description" its:translate="yes">How to install &productname;</meta>
+  <meta name="description" its:translate="yes">This comprehensive guide explains the core features and how to plan, install and configure &productname;</meta>
   <meta name="social-descr" its:translate="yes">Install and customize &productnameshort;</meta>
   <date><?dbtimestamp format="B d, Y"?></date>
   <revhistory xml:id="rh-book-s4s">
