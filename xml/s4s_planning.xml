@@ -51,7 +51,7 @@
     <listitem>
      <para>
       &s4s; requires at least 41 GB (without swap) of hard disk space for the
-      system volume. In addition to that, reserve an appropriate amount of hard
+      system volume. Additionally, reserve an appropriate amount of hard
       disk space for the swap partition.
      </para>
      <para>
@@ -71,7 +71,7 @@
       <listitem>
        <para>
         A compatible machine that meets the requirements for &hana; TDI
-        (Tailored Datacenter Integration). That is, you need the following
+        (Tailored Data Center Integration). That is, you need the following
         amounts of free disk space in addition to the required space for the
         operating system:
        </para>
@@ -109,7 +109,7 @@
       higher).
      </para>
      <para>
-      Any &sap; software you install will require additional RAM.
+      Any &sap; software you install requires additional RAM.
      </para>
      <para>
       To install &hana;, your machine needs a minimum of 24 GB of RAM.
@@ -120,9 +120,8 @@
 
   <para>
    For more information about configuring hardware for &hana;, see
-   <citetitle>SAP Note 1944415: Hardware Configuration Guide and Software
-   Installation Guide for SUSE Linux Enterprise Server with SAP HANA and SAP
-   Business One</citetitle> (<link xlink:href="&sapnoteaddress;1944415"/>).
+   <citetitle>&sapnote; 1944415: Hardware Configuration Guide and Software
+   Installation Guide for &sles; with &hana; and &b1;</citetitle> (<link xlink:href="&sapnoteaddress;1944415"/>).
   </para>
 
   <para>

@@ -147,7 +147,7 @@
         <para>
          Make sure your machine fulfills the hardware requirements for &hana;
          detailed in <xref linkend="sec-hardware"/>.
-         Otherwise, this option will not create a new file system and the
+         Otherwise, this option does not create a new file system and the
          installation workflow ends at this point.
         </para>
        </important>
@@ -225,7 +225,7 @@
      In the screen <guimenu>SAP Installation Wizard</guimenu>, provide the
      <guimenu>Location of the SAP Installation Master</guimenu>
      (<xref linkend="fig-sap-wizard-source"/>). The
-     location can either be a local, removable, or remote installation source.
+     location can either be a local, removable or remote installation source.
     </para>
     <figure xml:id="fig-sap-wizard-source">
      <title>Location of &sap; installation master</title>
@@ -433,7 +433,7 @@
        <para>
         Use this option to set the installation parameters,
         but not perform the actual installation. With this option, the
-        &sapin; (&sapina;) will stop without performing the actual &sap;
+        &sapin; (&sapina;) stops without performing the actual &sap;
         product installation. However, the steps that follow fully apply.
        </para>
        <para condition="noquick">
@@ -450,7 +450,7 @@
        <para>
         Set up this system as an installation server for other &sles4sap;
         systems.
-        The media copied to this installation server will be offered through
+        The media copied to this installation server are offered through
         NFS and can be discovered via Service Location Protocol (SLP).
        </para>
       </listitem>
@@ -460,9 +460,9 @@
      Proceed with <guimenu>Next</guimenu>.
     </para>
     <para>
-     The &sapwiz; will now copy the &instmaster; to your local disk.
+     The &sapwiz; now copies the &instmaster; to your local disk.
      Depending on the type of &instmaster; you selected, the installation
-     will continue differently:
+     continues differently:
     </para>
     <itemizedlist>
      <listitem>
@@ -517,7 +517,7 @@
      Proceed with <guimenu>Next</guimenu>.
     </para>
     <para>
-     If you chose to copy &instmedia;, the &sapwiz; will copy the relevant
+     If you chose to copy &instmedia;, the &sapwiz; copies the relevant
      files to your local hard disk.
     </para>
     <figure xml:id="fig-sap-wizard-sapmedia">
@@ -534,7 +534,7 @@
    </step>
    <step>
     <para>
-     After copying the &instmedia;, you will be asked whether you want to
+     After copying the &instmedia;, you are asked whether you want to
      prepare additional &instmedia;.
      To do so, click <guimenu>Yes</guimenu>.
      Then follow the instructions in
@@ -596,9 +596,9 @@
       <term><guimenu>System rename</guimenu></term>
       <listitem>
        <para>
-        Allows changing the various system properties such as the &sap; system
-        ID, database ID, instance number, or host name. This can be used to
-        install the same product in a very similar configuration on different
+        Allows changing the system properties such as the &sap; system
+        ID, database ID, instance number or host name. This can be used to
+        install the same product in a similar configuration on different
         systems.
        </para>
        <!--
@@ -681,7 +681,7 @@
       </listitem>
       <listitem>
        <para>
-        Additional software repositories are RPM package repositories that you will
+        Additional software repositories are RPM package repositories that you
         remain subscribed to. This means you receive updates for &thirdmedia;
         along with your regular system updates.
        </para>
@@ -729,7 +729,7 @@ SAP-NetWeaver-740-SR2-Installation-Export-CD-3-3</screen>
    </step>
    <step xml:id="st-collect-parameter">
     <para>
-     Depending on the product you are installing, one or more dialogs will
+     Depending on the product you are installing, one or more dialogs
      prompt you to supply values for several configuration parameters for the
      &sap; application you are installing.
     </para>
@@ -758,7 +758,7 @@ SAP-NetWeaver-740-SR2-Installation-Export-CD-3-3</screen>
      </mediaobject>
     </figure>
     <para>
-     When you are done, the &sapwiz; will download additional software packages.
+     When you are done, the &sapwiz; downloads additional software packages.
     </para>
    </step>
    <step>
@@ -773,11 +773,11 @@ SAP-NetWeaver-740-SR2-Installation-Export-CD-3-3</screen>
     <para>
      When installing &hana; on a system that is not certified for &hana; and
      does not meet the minimum hardware requirements for &hana; TDI
-     (Tailored Datacenter Integration), you will be
+     (Tailored Data Center Integration), you are
      asked whether to continue. If you receive this message unexpectedly,
      check <xref linkend="sec-hardware"/> and the sizing guidelines from
      &sap; at <link xlink:href="https://service.sap.com/sizing"/>
-     (you need your SAP ID to access the information).
+     (you need your &sap; ID to access the information).
     </para>
     <para>
      Otherwise, continue with <guimenu>Yes</guimenu>.
@@ -791,15 +791,15 @@ SAP-NetWeaver-740-SR2-Installation-Export-CD-3-3</screen>
     <itemizedlist>
      <listitem>
       <para>
-       When installing an &hana; database, &hana; will now be installed
-       without further question.
+       When installing an &hana; database, &hana; is installed
+       without further user input.
       </para>
      </listitem>
      <listitem>
       <para>
-       When installing an &netweaver; application, the actual installation will
-       be performed using the &sapin; (&sapina;). After a few seconds, &sapin;
-       will open automatically.
+       When installing an &netweaver; application, the actual installation is
+       performed using the &sapin; (&sapina;). After a few seconds, &sapin;
+       opens automatically.
       </para>
       <para>
        Follow the &sapin; as described in the documentation provided
@@ -883,7 +883,7 @@ SAP-NetWeaver-740-SR2-Installation-Export-CD-3-3</screen>
    </step>
    <step>
     <para>
-     In the case of an &hana;/&b1; installation, the &sapwiz; will later use
+     When installing &hana;/&b1;, the &sapwiz; later uses
      the parameters documented in the &ay; files in
      <filename>/data/SAP_INST/<replaceable>number</replaceable></filename>.
     </para>
@@ -920,13 +920,13 @@ SAP-NetWeaver-740-SR2-Installation-Export-CD-3-3</screen>
     <itemizedlist>
      <listitem>
       <para>
-       In the case of an &netweaver; installation, all parameters of the &sapin;
-       will be offered again for fine-tuning.
+       When installing &netweaver;, all parameters of the &sapin;
+       are offered again for fine-tuning.
       </para>
      </listitem>
      <listitem>
       <para>
-       In the case of an &hana;/&b1; installation, the installer will not be
+       When installing &hana;/&b1;, the installer does not
        offer to make any changes to parameters.
       </para>
      </listitem>
