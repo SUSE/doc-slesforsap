@@ -43,7 +43,7 @@
     firewall, replacing &susefirewall;. &susefirewall; has not been removed from
     &productname;&nbsp;15 and is still part of the main repository, but it is
     not installed by default. If you are upgrading from a release older than
-    &productname; 15, &susefirewall; will be unchanged and you must manually
+    &productname; 15, &susefirewall; is unchanged and you must manually
     upgrade to &firewalld; (see &secguide;).
    </para>
   </note>
@@ -93,7 +93,7 @@
     <formalpara>
      <title>&yast; module <guimenu>SAP HANA firewall</guimenu></title>
      <para>
-      Allows configuring, applying, and reverting firewall rules for &hana;
+      Allows configuring, applying and reverting firewall rules for &hana;
       from a graphical user interface.
      </para>
     </formalpara>
@@ -179,9 +179,9 @@
      When you are done, click <guimenu>OK</guimenu>.
     </para>
     <para>
-     The firewall rules from &hana-fw; will now
-     be compiled and applied. Then, the service
-     <systemitem>hana-firewall</systemitem> will be restarted.
+     The firewall rules from &hana-fw; are now
+     compiled and applied. Then, the service
+     <systemitem>hana-firewall</systemitem> is restarted.
     </para>
    </step>
    <step>
@@ -276,12 +276,12 @@ HANA firewall is active. Everything is OK.
   <itemizedlist>
   <listitem>
   <para>
-    files: This method uses the <filename>/etc/hosts</filename> file that contains static mappings of host names to IP addresses.
+    <literal>files</literal>: This method uses the <filename>/etc/hosts</filename> file that contains static mappings of host names to IP addresses.
   </para>
   </listitem>
   <listitem>
   <para>
-    dns: This option utilizes the glibc's built-in DNS resolver, which is configured via the <filename>/etc/resolv.conf</filename> file.
+    <literal>dns</literal>: This option utilizes the glibc's built-in DNS resolver, which is configured via the <filename>/etc/resolv.conf</filename> file.
   </para>
   </listitem>
   </itemizedlist>
@@ -330,7 +330,7 @@ DNSSEC=on
   Another approach is to secure DNS through the Unbound name server, which can act as a DNS forwarder, capable of translating regular DNS queries into secure DNS protocols. To use Unbound, it is typically set up locally, and then the <filename>/etc/resolv.conf</filename> file is configured to point to the local Unbound instance.
 </para>
 <para>
-  In SUSE's default configuration, Unbound performs DNSSEC verification by default. The <literal>unbound-anchor</literal> service is responsible for obtaining the standard ISC root key.
+  In &suse;'s default configuration, Unbound performs DNSSEC verification by default. The <literal>unbound-anchor</literal> service handles obtaining the standard ISC root key.
 </para>
   </sect1>
 </chapter>
