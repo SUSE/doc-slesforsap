@@ -33,7 +33,7 @@
 <!ENTITY netweaver      "&sap; NetWeaver">
 <!ENTITY nw             "&netweaver;">
 <!ENTITY hana           "&sap; HANA">
-<!ENTITY b1             "&sap; BusinessOne">
+<!ENTITY b1             "&sap; Business One">
 <!ENTITY bo             "&sap; BusinessObjects">
 <!ENTITY ase            "&sap; Adaptive Server Enterprise">
 <!ENTITY s4h            "&sap; S/4HANA">

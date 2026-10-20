@@ -87,7 +87,7 @@
     <para>
      <systemitem>SAPDatabase</systemitem> which allows starting and stopping
      all databases supported by &sap; applications (&hana;, &sap; MaxDB, &sap;
-     ASE, Oracle, Sybase, IBM DB2).
+     ASE, Oracle, Sybase, &ibm; DB2).
     </para>
    </listitem>
   </itemizedlist>
@@ -128,7 +128,7 @@
     => Use "takeover".
    -->
    <para>
-    This resource agent from SUSE supports scale-up scenarios by checking the
+    This resource agent from &suse; supports scale-up scenarios by checking the
     &hana; database instances for whether a takeover needs to happen. Unlike
     with the pure &sap; solution, takeovers can be automated.
    </para>
@@ -175,7 +175,7 @@
      <formalpara>
       <title>Chain/multi-tier scenario</title>
       <para>
-       Three servers (A, B, and C), of which two are located in the same
+       Three servers (A, B and C), of which two are located in the same
        &sleha; cluster (A and B). The third server (C) is located externally.
        The &hana; system on the primary server (A) is replicated synchronously
        to the secondary server (B). The secondary server (B) is replicated
@@ -208,7 +208,7 @@
     </listitem>
    </itemizedlist>
    <para>
-    For all of the scenarios, &sles4sap; supports both single-tenant and
+    For all the scenarios, &sles4sap; supports both single-tenant and
     multi-tenant (MDC) &hana; databases. That is, you can use &hana; databases
     that serve multiple &sap; applications.
    </para>
