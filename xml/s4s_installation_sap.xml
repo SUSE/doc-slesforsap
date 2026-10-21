@@ -4,12 +4,13 @@
   %entities;
 ]>
 
-<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="cha-install-sap">
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:its="http://www.w3.org/2005/11/its" version="5.0" xml:id="cha-install-sap">
  <title>Installing &sap; applications</title>
- <info xmlns:d="http://docbook.org/ns/docbook">
-   <revhistory xml:id="rh-cha-install-sap">
+ <info>
+   <meta name="description" its:translate="yes">Use the Installation Wizard to install applications, configure hardware, and select installation methods for SAP systems and databases</meta>
+  <revhistory xml:id="rh-cha-install-sap">
    <revision>
-    <date>2022-10-12</date>
+    <date>2026-10-21</date>
     <revdescription>
      <para/>
     </revdescription>
