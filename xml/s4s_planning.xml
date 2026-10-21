@@ -7,14 +7,14 @@
 <chapter xmlns:its="http://www.w3.org/2005/11/its" xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="cha-plan">
  <title>Planning the installation</title>
  <info>
-    <meta name="description" its:translate="yes">Plan your installation by gathering system requirements and hardware specifications for a successful setup</meta>
+    <meta name="description" its:translate="yes">Plan your installation by gathering system requirements and hardware specifications for a successful &productnameshort; applications setup</meta>
   <dm:docmanager xmlns:dm="urn:x-suse:ns:docmanager">
    <dm:bugtracker/>
    <dm:translation>yes</dm:translation>
   </dm:docmanager>
  <revhistory xml:id="rh-cha-plan">
    <revision>
-     <date>2026-04-28</date>
+     <date>2026-10-21</date>
      <revdescription>
        <para/>
      </revdescription>
