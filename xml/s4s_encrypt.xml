@@ -4,9 +4,19 @@
   <!ENTITY % entities SYSTEM "generic-entities.ent">
     %entities;
 ]>
-<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="cha-s4s-configure-cryptctl">
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:its="http://www.w3.org/2005/11/its" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="cha-s4s-configure-cryptctl">
   <title>Encrypting Directories Using <command>cryptctl</command></title>
-  <info/>
+  <info>
+  <meta name="description" its:translate="yes">Learn how to configure cryptctl to securely manage client-server directory encryption for &productname;</meta>
+  <revhistory xml:id="rh-cha-s4s-configure-cryptctl">
+   <revision>
+    <date>2026-10-21</date>
+    <revdescription>
+     <para/>
+    </revdescription>
+   </revision>
+  </revhistory>
+ </info>
   <para>
    <command>cryptctl</command> consists of two components:
   </para>

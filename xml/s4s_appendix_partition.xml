@@ -1,12 +1,21 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0"?>
 <!DOCTYPE appendix
 [
   <!ENTITY % entities SYSTEM "generic-entities.ent">
     %entities;
 ]>
-<appendix xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="app-s4s-autoyast-partition">
+<appendix xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:its="http://www.w3.org/2005/11/its" version="5.0" xml:id="app-s4s-autoyast-partition">
  <title>Partitioning for the &sap; System Using &ay;</title>
- <info/>
+ <info><meta name="description" its:translate="yes">Configure system partitioning for SAP using predefined and custom XML files to tailor installations on supported hardware</meta>
+   <revhistory xml:id="rh-app-s4s-autoyast-partition">
+     <revision>
+      <date>2026-10-21</date>
+      <revdescription>
+        <para/>
+      </revdescription>
+    </revision>
+  </revhistory>
+  </info>
 
  <para>
   Partitioning for the &sap; system is controlled by the files from the directory
@@ -136,7 +145,7 @@
    </para>
    <!-- Yes, "listitem" above is correct even though it sounds like DocBook!
    - sknorr, 2016-02-17 -->
-<screen><![CDATA[<partitioning>TREX_partitioning</partitioning>]]></screen>
+<screen>&lt;partitioning&gt;TREX_partitioning&lt;/partitioning&gt;</screen>
   </step>
  </procedure>
 

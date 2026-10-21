@@ -4,9 +4,19 @@
   <!ENTITY % entities SYSTEM "generic-entities.ent">
     %entities;
 ]>
-<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="cha-s4s-trouble">
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:its="http://www.w3.org/2005/11/its" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="cha-s4s-trouble">
  <title>Important Log Files</title>
- <info/>
+ <info>
+  <meta name="description" its:translate="yes">Discover key system log files for the SAP Installation Wizard, the SAP media library and auto-installation routines to identify errors efficiently</meta>
+  <revhistory xml:id="rh-cha-s4s-trouble">
+    <revision>
+      <date>2026-10-21</date>
+      <revdescription>
+        <para/>
+      </revdescription>
+    </revision>
+  </revhistory>
+  </info>
 
  <para>
   The most important files for this product are:
