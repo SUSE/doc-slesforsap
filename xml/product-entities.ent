@@ -72,3 +72,4 @@
 <!ENTITY saltstack      "&salt;Stack">
 <!ENTITY terraform      "Terraform">
 <!ENTITY crmshell       "crm shell">
+<!ENTITY ibmpower       "&ibm; Power">

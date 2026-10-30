@@ -14,7 +14,7 @@
   </dm:docmanager>
  <revhistory xml:id="rh-cha-plan">
    <revision>
-     <date>2026-10-21</date>
+     <date>2026-10-30</date>
      <revdescription>
        <para/>
      </revdescription>
@@ -44,10 +44,16 @@
       &intel64;
      </para>
      <para>
-      IBM &power;&nbsp;8 (with PowerVM)
+      &ibm; &power;8 (with PowerVM)
      </para>
      <para>
-      IBM &power;&nbsp;9 (with PowerVM)
+      &ibm; &power;9 (with PowerVM)
+     </para>
+     <para>
+      &ibmpower;10 (with PowerVM)
+     </para>
+     <para>
+      &ibmpower;11 (with PowerVM)
      </para>
     </listitem>
    </varlistentry>
