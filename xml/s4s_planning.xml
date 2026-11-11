@@ -41,7 +41,7 @@
     <term>Supported CPU</term>
     <listitem>
      <para>
-      &intel64;
+      &x86-64;
      </para>
      <para>
       &ibm; &power;8 (with PowerVM)
