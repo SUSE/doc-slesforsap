@@ -10,7 +10,7 @@
   <meta name="description" its:translate="yes">Plan your installation by gathering system requirements and hardware specifications for a successful &productnameshort; applications setup</meta>
   <revhistory xml:id="rh-cha-plan">
    <revision>
-    <date>2026-10-21</date>
+    <date>2026-11-12</date>
     <revdescription>
      <para/>
     </revdescription>
@@ -37,13 +37,16 @@
     <term>Supported CPU</term>
     <listitem>
      <para>
-      &intel64;
+      &x86-64;
      </para>
      <para>
-      IBM &power;&nbsp;8 (with PowerVM)
+      &ibm; &power;8 (with PowerVM)
      </para>
      <para>
-      IBM &power;&nbsp;9 (with PowerVM)
+      &ibm; &power;9 (with PowerVM)
+     </para>
+     <para>
+      &ibmpower;10 (with PowerVM)
      </para>
     </listitem>
    </varlistentry>
